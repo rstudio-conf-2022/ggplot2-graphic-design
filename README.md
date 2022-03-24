@@ -37,7 +37,13 @@ LEARNING_OBJECTIVES
 
 ## Is this course for me?
 
-THREE_QUESTIONS
+This course will be appropriate for you if you answer yes to these questions:
+
+- Do you aim to build graphics in a fully reproducible way without the need to manually adjust details afterwards?
+
+- Do you enjoy using the {ggplot2} package but are interested in doing more with it?
+
+- Would you like to learn how to improve future data visualizations in terms of accessibility, impact, and complexity?
 
 ## Prework
 
