@@ -25,7 +25,11 @@ can remove these instructions from the README.
 
 ## Overview
 
-ABSTRACT
+Creating engaging and accessible data visualizations of high quality in an efficient and preferably reproducible way is an essential tool in a data scientist's toolbox. After completing the course, participants will have a solid understanding of data visualization principles and the functionality of the ggplot2 graphics library and helpful extension libraries to create highly customized graphics without the need for post-processing.
+
+We will discuss the main concepts of the grammar of graphics and use hands-on examples to explore ggplot2’s utility to create multi-layered, more complex graphs. The workshop covers a short overview of the basics of ggplot2 and quickly focuses on the most important steps and helpful tips to create visually appealing and complex graphics both in theory and practice. The power of ggplot2 will be illustrated with advanced real–life examples that help to understand data visualization principles and useful coding tricks.
+
+The course covers complex code examples that are suited for more experienced ggplot2 users but designed to be informative for participants with minimal prior experience in ggplot2 and data visualization. As part of the training, attendees can download the course material from the course webpage for future reference.
 
 ## Learning objectives
 
