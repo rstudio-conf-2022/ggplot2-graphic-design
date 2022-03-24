@@ -1,4 +1,4 @@
-WORKSHOP_TITLE
+Graphic Design with ggplot2: How to Create Engaging and Complex Visualizations in R
 ================
 
 ### rstudio::conf 2022
