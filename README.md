@@ -33,7 +33,7 @@ The course covers complex code examples that are suited for more experienced ggp
 
 ## Learning objectives
 
-LEARNING_OBJECTIVES
+[ADD AN ITEMIZED LIST OF LEARNING OBJECTIVES.]
 
 ## Is this course for me?
 
