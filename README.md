@@ -3,7 +3,7 @@ Graphic Design with ggplot2: How to Create Engaging and Complex Visualizations i
 
 ### rstudio::conf 2022
 
-by INSTRUCTOR_NAME
+by Cédric Scherer
 
 -----
 
