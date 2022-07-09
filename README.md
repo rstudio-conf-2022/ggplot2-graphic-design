@@ -33,7 +33,10 @@ The course covers complex code examples that are suited for more experienced ggp
 
 ## Learning objectives
 
-[ADD AN ITEMIZED LIST OF LEARNING OBJECTIVES.]
+* Understanding the general concepts of ggplot2.
+* Learning the many options of customizing a ggplot.
+* Gaining the major steps need to create engaging graphics.
+* Being able to generate complex plots without th need of post-processing.
 
 ## Is this course for me?
 
@@ -46,11 +49,28 @@ This course will be appropriate for you if you answer yes to these questions:
 - Would you like to learn how to improve future data visualizations in terms of accessibility, impact, and complexity?
 
 ## Prework
+The workshop will also cover the basic logic of ggplot2 and its compontents. However, some pre-knowledge on how the package works is beneficial for following the examples and for the group exercises. A good overview is provided  might by the “First Steps” chapter of the ggplot2 book by Hadley Wickham et al.: https://ggplot2-book.org/getting-started.html
 
-\[ADD INFORMATION YOU WANT LEARNERS TO HAVE / STEPS THEY WANT THEM TO
-COMPLETE PRIOR TO THE WORKSHOP. THIS COULD BE A LINK TO A THREAD ON
-RSTUDIO COMMUNITY, PACKAGE INSTALL INSTRUCTIONS, HOW TO GET AN
-RSTUDIO.CLOUD ACCOUNT, ETC.\]
+## Requirements
+
+The example codes and the hands-on workshop parts are run in the Rstudio cloud. Thus, nothing but a laptop is needed. If you want to follow the workshop locally, please make sure to install a suitable IDE (Rstudio, VS Code or others), a recent version of R (4.1+) and the following packages (to be extended): 
+
+#### `{tidyverse}` and related
+
+`{ggplot2}`, `{readr}`, `{tibble}`,  `{tidyr}`, `{dplyr}`, `{forcats}`, `{stringr}`, `{lubridate}`, 
+
+#### `{ggplot2}` extensions
+
+`{ggtext}`, `{ggrepel}`, `{ggforce}`, `{ggdist}`, `{ggalt}`, `{ggridges}`, `{patchwork}`
+
+#### Color palettes
+
+`{RColorBrewer}`, `{scico}`, `{rcartocolor}`
+
+#### Misc
+
+`{magick}`
+
 
 ## Schedule
 
@@ -80,7 +100,7 @@ RSTUDIO.CLOUD ACCOUNT, ETC.\]
 
 ## Instructor
 
-Cedric Scherer is a graduated computational ecologist with a passion for design. After his PhD, he combined his expertise in analyzing and visualizing large data sets in R with his passion to become an independent data visualization designer and specialist. Cédric has created visualizations across all disciplines, purposes, and styles and regularly teaches data visualization principles, the R programing language, and ggplot2. Due to regular participation in social data challenges such as #TidyTuesday, he is now well known for complex and visually appealing figures, entirely made with ggplot2, that look as if they have been created with a vector design tool.
+Cédric Scherer is a graduated computational ecologist with a passion for design. After his PhD, he combined his expertise in analyzing and visualizing large data sets in R with his passion to become an independent data visualization designer and specialist. Cédric has created visualizations across all disciplines, purposes, and styles and regularly teaches data visualization principles, the R programing language, and ggplot2. Due to regular participation in social data challenges such as #TidyTuesday, he is now well known for complex and visually appealing figures, entirely made with ggplot2, that look as if they have been created with a vector design tool.
 
 -----
 
