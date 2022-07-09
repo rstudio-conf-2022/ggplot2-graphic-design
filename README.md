@@ -80,13 +80,17 @@ The example codes and the hands-on workshop parts are run in the Rstudio cloud. 
 
 | Time          | Activity         |
 | :------------ | :--------------- |
-| 09:00 - 10:30 | Introduction + Concepts Pt. 1 |
+| 09:00 - 09:30 | Introduction     |
+| 09:30 - 10:30 | Concepts Pt. 1   |
 | 10:30 - 11:00 | *Coffee break*   |
-| 11:00 - 12:30 | Concepts Pt. 2   |
+| 11:00 - 12:00 | Exercises Concepts Pt. 1 |
+| 12:00 - 12:30 | Concepts Pt. 2 (start)
 | 12:30 - 13:30 | *Lunch break*    |
-| 13:30 - 15:00 | Concepts Pt. 2 (continued) |
+| 13:30 - 14:30 | Concepts Pt. 2 (continued) |
+| 14:30 - 15:00 | Exercises Concepts Pt. 2 |
 | 15:00 - 15:30 | *Coffee break*   |
-| 15:30 - 17:00 | Data Communication |
+| 15:30 - 16:15 | Data Communication |
+| 16:15 - 17:00 | Exercise Data Communication |
 
 ### Day 2
 
