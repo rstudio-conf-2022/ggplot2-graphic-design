@@ -69,7 +69,9 @@ The example codes and the hands-on workshop parts are run in the Rstudio cloud. 
 
 #### Misc
 
-`{magick}`
+`{magick}`, `{systemfonts}`
+
+*For Mac  OS users:* Please make sure that [XQuartz is installed](https://www.xquartz.org/) which is needed to use the cairo pdf device.
 
 
 ## Schedule
@@ -78,25 +80,25 @@ The example codes and the hands-on workshop parts are run in the Rstudio cloud. 
 
 | Time          | Activity         |
 | :------------ | :--------------- |
-| 09:00 - 10:30 | Session 1        |
+| 09:00 - 10:30 | Introduction + Concepts Pt. 1 |
 | 10:30 - 11:00 | *Coffee break*   |
-| 11:00 - 12:30 | Session 2        |
+| 11:00 - 12:30 | Concepts Pt. 2   |
 | 12:30 - 13:30 | *Lunch break*    |
-| 13:30 - 15:00 | Session 3        |
+| 13:30 - 15:00 | Concepts Pt. 2 (continued) |
 | 15:00 - 15:30 | *Coffee break*   |
-| 15:30 - 17:00 | Session 4        |
+| 15:30 - 17:00 | Data Communication |
 
 ### Day 2
 
 | Time          | Activity         |
 | :------------ | :--------------- |
-| 09:00 - 10:30 | Session 1        |
+| 09:00 - 10:30 | TBA              |
 | 10:30 - 11:00 | *Coffee break*   |
-| 11:00 - 12:30 | Session 2        |
+| 11:00 - 12:30 | TBA              |
 | 12:30 - 13:30 | *Lunch break*    |
-| 13:30 - 15:00 | Session 3        |
+| 13:30 - 15:00 | TBA              |
 | 15:00 - 15:30 | *Coffee break*   |
-| 15:30 - 17:00 | Session 4        |
+| 15:30 - 17:00 | TBA              |
 
 ## Instructor
 
