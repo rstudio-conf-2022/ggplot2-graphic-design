@@ -1,0 +1,52 @@
+[
+  {
+    "listing": "/modules/d1-11_data_com_ex.html",
+    "items": []
+  },
+  {
+    "listing": "/modules/d1-08_concepts_p2_ex.html",
+    "items": []
+  },
+  {
+    "listing": "/modules/d1-10_data_com.html",
+    "items": []
+  },
+  {
+    "listing": "/modules/d1-04_concepts_p1_ex.html",
+    "items": []
+  },
+  {
+    "listing": "/modules/d1-05_concepts_pt2.html",
+    "items": []
+  },
+  {
+    "listing": "/modules/d1-01_introduction.html",
+    "items": [
+      "/materials/01_introduction.html"
+    ]
+  },
+  {
+    "listing": "/modules/d1-07_concepts_pt2.html",
+    "items": []
+  },
+  {
+    "listing": "/modules/d1-02_concepts_pt1.html",
+    "items": []
+  },
+  {
+    "listing": "/schedule.html",
+    "items": [
+      "/modules/d1-01_introduction.html",
+      "/modules/d1-02_concepts_pt1.html",
+      "/modules/d1-03_coffee_break.html",
+      "/modules/d1-04_concepts_p1_ex.html",
+      "/modules/d1-05_concepts_pt2.html",
+      "/modules/d1-06_lunch_break.html",
+      "/modules/d1-07_concepts_pt2.html",
+      "/modules/d1-08_concepts_p2_ex.html",
+      "/modules/d1-09_coffee_break.html",
+      "/modules/d1-10_data_com.html",
+      "/modules/d1-11_data_com_ex.html"
+    ]
+  }
+]
