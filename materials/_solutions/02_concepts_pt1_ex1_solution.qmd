@@ -1,0 +1,478 @@
+---
+title: "Graphic Design with ggplot2"
+subtitle: "<span style='font-size:1.75em;line-height:1.1;'>Concepts of the <code>{ggplot2}</code> Package Pt. 1:<br><span style='font-weight:500;'>Solution Exercise 1</span></span>"
+author: "<b style='color:#28a87d;'>Cédric Scherer</b> **//** rstudio::conf **//** July 2022"
+format: 
+  revealjs: 
+    theme: css/style.scss
+    footer: '**[Cédric Scherer](https::/cedricscherer.com) //** rstudio::conf **//** July 2022'
+    #'rstudio::conf(workshop = "Graphic Design with ggplot2", instructor = "Cédric Scherer")'
+    transition: fade
+    progress: true
+    multiplex: false
+    preview-links: true
+    scrollable: false
+    hide-inactive-cursor: true
+    highlight-style: printing
+    chalkboard:
+      theme: whiteboard
+      boardmarker-width: 4
+      buttons: true
+    pause: true
+    mainfont: Cabinet Grotesk
+editor: visual
+knitr:
+  opts_chunk: 
+    dev: "ragg_png"
+    retina: 1
+    dpi: 300
+execute:
+  freeze: auto
+  echo: true
+  fig-width: 5
+  fig-height: 6.05
+---
+
+
+# Exercise 1
+
+
+## Your Turn!
+
+::: question
+* Explore the TfL bike share data visually:<br>**create a timeseries of reported bike shares on weekend days**
+    - Highlight day and night encoded by colors and shapes.
+    - Connect the points of each period with lines.
+      - What is the difference between `geom_line()` and `geom_path()`?
+    - Apply your favorite theme to the plot.
+    - Add meaningful labels.
+    - <span style='color:#5DB699;'>Bonus: use shape to encode Saturday vs Sunday instead.</span>
+* Save the plot as a vector graphic with a decent plot size.
+:::
+
+
+
+## Import the Data Set
+
+```{r}
+#| label: import-data-exercise
+bikes <- readr::read_csv(
+  "https://raw.githubusercontent.com/z3tt/graphic-design-ggplot2/main/data/london-bikes-custom.csv", 
+  col_types = "Dcfffilllddddc"
+)
+
+bikes$season <- forcats::fct_inorder(bikes$season)
+
+library(tidyverse)
+```
+
+
+
+## Scatterplot Counts vs. Date
+
+```{r}
+#| label: concepts-pt1-exercise-1-1
+#| output-location: column
+ggplot(
+    filter(bikes, is_weekend == TRUE), 
+    aes(x = date, y = count)
+  ) +
+  geom_point()
+```
+
+
+
+## Encode Day Period by Colors and Shapes
+
+```{r}
+#| label: concepts-pt1-exercise-1-2
+#| output-location: column
+#| code-line-numbers: "6,7"
+ggplot(
+    filter(bikes, is_weekend == TRUE), 
+    aes(x = date, y = count)
+  ) +
+  geom_point(
+    aes(color = day_night,
+        shape = day_night)
+  )
+```
+
+
+
+## Add Line
+
+```{r}
+#| label: concepts-pt1-exercise-1-3
+#| output-location: column
+#| code-line-numbers: "9,10,11"
+ggplot(
+    filter(bikes, is_weekend == TRUE), 
+    aes(x = date, y = count)
+  ) +
+  geom_point(
+    aes(color = day_night,
+        shape = day_night)
+  ) +
+  geom_line(
+    color = "grey"
+  )
+```
+
+
+
+## Group Lines by Day Period
+
+```{r}
+#| label: concepts-pt1-exercise-1-4
+#| output-location: column
+#| code-line-numbers: "10"
+ggplot(
+    filter(bikes, is_weekend == TRUE), 
+    aes(x = date, y = count)
+  ) +
+  geom_point(
+    aes(color = day_night,
+        shape = day_night)
+  ) +
+  geom_line(
+    aes(group = day_night),
+    color = "grey"
+  )
+```
+
+
+
+## Order Layers
+
+```{r}
+#| label: concepts-pt1-exercise-1-5
+#| output-location: column
+#| code-line-numbers: "5,6,7,8"
+ggplot(
+    filter(bikes, is_weekend == TRUE), 
+    aes(x = date, y = count)
+  ) +
+  geom_line(
+    aes(group = day_night),
+    color = "grey"
+  ) +
+  geom_point(
+    aes(color = day_night,
+        shape = day_night)
+  )
+```
+
+
+
+## Use \`geom_path()\` instead
+
+```{r}
+#| label: concepts-pt1-exercise-1-6
+#| output-location: column
+#| code-line-numbers: "5"
+ggplot(
+    filter(bikes, is_weekend == TRUE), 
+    aes(x = date, y = count)
+  ) +
+  geom_path(
+    aes(group = day_night),
+    color = "grey"
+  ) +
+  geom_point(
+    aes(color = day_night,
+        shape = day_night)
+  )
+```
+
+
+
+## \`geom_line()\` vs. \`geom_path()\`
+
+::: {layout-ncol=2}
+```{r}
+#| label: concepts-pt1-exercise-1-comp-path
+#| fig-height: 3.2
+#| code-line-numbers: "3|5,6,7"
+ggplot(
+    filter(bikes, is_weekend == TRUE), 
+    aes(x = temp_feel, y = count)
+  ) + 
+  geom_path(
+    aes(color = day_night)
+  )
+```
+
+::: fragment
+```{r}
+#| label: concepts-pt1-exercise-1-comp-line
+#| fig-height: 3.2
+#| code-line-numbers: "5,6,7"
+ggplot(
+    filter(bikes, is_weekend == TRUE), 
+    aes(x = temp_feel, y = count)
+  ) + 
+  geom_line(
+    aes(color = day_night)
+  )
+```
+:::
+:::
+
+
+
+## Apply a Theme
+
+```{r}
+#| label: concepts-pt1-exercise-1-8
+#| output-location: column
+#| code-line-numbers: "1|1,14|14,15,16,17,18,19,20,21|15,16,17,18|19,20,21"
+g <- ggplot(
+    filter(bikes, is_weekend == TRUE), 
+    aes(x = date, y = count)
+  ) +
+  geom_line(
+    aes(group = day_night),
+    color = "grey"
+  ) +
+  geom_point(
+    aes(color = day_night,
+        shape = day_night)
+  )
+
+g + 
+  theme_minimal(
+    base_size = 15,
+    base_family = "Lora"
+  ) +
+  theme(
+    legend.position = "top",
+    panel.grid.minor = element_blank()
+  )
+```
+
+
+
+## Add Meaningful Labels
+
+```{r}
+#| label: concepts-pt1-exercise-1-9
+#| output-location: column
+#| code-line-numbers: "2,3,4,5,6,7"
+g +
+  labs(
+    x = "Weekend date",
+    y = "Reported bike shares",
+    color = "Part of the Day:"
+  ) +
+  theme_minimal(
+    base_size = 15,
+    base_family = "Lora"
+  ) +
+  theme(
+    legend.position = "top",
+    panel.grid.minor = element_blank()
+  )
+```
+
+
+
+## Add Meaningful Labels
+
+```{r}
+#| label: concepts-pt1-exercise-1-10
+#| output-location: column
+#| code-line-numbers: "6"
+g +
+  labs(
+    x = "Weekend date",
+    y = "Reported bike shares",
+    color = "Part of the Day:",
+    shape = "Part of the Day:"
+  ) +
+  theme_minimal(
+    base_size = 15,
+    base_family = "Lora"
+  ) +
+  theme(
+    legend.position = "top",
+    panel.grid.minor = element_blank()
+  )
+```
+
+
+
+## Add Meaningful Labels
+
+```{r}
+#| label: concepts-pt1-exercise-1-11
+#| output-location: column
+#| code-line-numbers: "5,6"
+g +
+  labs(
+    x = "Weekend date",
+    y = "Reported bike shares",
+    color = NULL,
+    shape = NULL
+  ) +
+  theme_minimal(
+    base_size = 15,
+    base_family = "Lora"
+  ) +
+  theme(
+    legend.position = "top",
+    panel.grid.minor = element_blank()
+  )
+```
+
+
+
+## Save the Plot
+
+```{r}
+#| label: concepts-pt1-exercise-1-12
+#| code-line-numbers: "1,2,3,4,5|2|3|4"
+ggsave(here::here("exercises", "plots", "02_concepts_pt1_ex1.pdf"), 
+       width = 9, height = 5, device = cairo_pdf)
+```
+
+```{r}
+#| label: concepts-pt1-exercise-1-12-png
+#| include: false
+ggsave(here::here("exercises", "plots", "02_concepts_pt1_ex1.png"), 
+       width = 9, height = 5, dpi = 350, bg = "white")
+```
+
+![](plots/02_concepts_pt1_ex1.png){fig-align="center" fig-alt="The final plot with an aspect ratio of 9 x 5 inches while using a base_size of 15."}
+
+
+
+## Bonus: Use Shape to Encode Sat vs Sun
+
+```{r}
+#| label: concepts-pt1-exercise-1-bonus
+#| output-location: column
+#| code-line-numbers: "11"
+ggplot(
+    filter(bikes, is_weekend == TRUE), 
+    aes(x = date, y = count)
+  ) +
+  geom_line(
+    aes(group = day_night),
+    color = "grey"
+  ) +
+  geom_point(
+    aes(color = day_night,
+        shape = lubridate::day(date) == 6)
+  ) +
+  labs(
+    x = "Weekend date",
+    y = "Reported bike shares",
+    color = NULL,
+    shape = NULL
+  ) +
+  theme_minimal(
+    base_size = 15,
+    base_family = "Lora"
+  ) +
+  theme(
+    legend.position = "top",
+    panel.grid.minor = element_blank()
+  )
+```
+
+
+
+## Bonus: Use Shape to Encody Sat vs Sun
+
+```{r}
+#| label: concepts-pt1-exercise-1-bonus-1
+#| output-location: column
+#| code-line-numbers: "11"
+ggplot(
+    filter(bikes, is_weekend == TRUE), 
+    aes(x = date, y = count)
+  ) +
+  geom_line(
+    aes(group = day_night),
+    color = "grey"
+  ) +
+  geom_point(
+    aes(color = day_night,
+        shape = lubridate::wday(date, label = TRUE))
+  ) +
+  labs(
+    x = "Weekend date",
+    y = "Reported bike shares",
+    color = NULL,
+    shape = NULL
+  ) +
+  theme_minimal(
+    base_size = 15,
+    base_family = "Lora"
+  ) +
+  theme(
+    legend.position = "top",
+    panel.grid.minor = element_blank()
+  )
+```
+
+
+
+## Bonus: Use Shape to Encody Sat vs Sun
+
+```{r}
+#| label: concepts-pt1-exercise-1-bonus-2
+#| output-location: column
+#| code-line-numbers: "2"
+invisible(
+  Sys.setlocale("LC_TIME", "C")
+)
+
+ggplot(
+    filter(bikes, is_weekend == TRUE), 
+    aes(x = date, y = count)
+  ) +
+  geom_line(
+    aes(group = day_night),
+    color = "grey"
+  ) +
+  geom_point(
+    aes(color = day_night,
+        shape = lubridate::wday(date, label = TRUE))
+  ) +
+  labs(
+    x = "Weekend date",
+    y = "Reported bike shares",
+    color = NULL,
+    shape = NULL
+  ) +
+  theme_minimal(
+    base_size = 15,
+    base_family = "Lora"
+  ) +
+  theme(
+    legend.position = "top",
+    panel.grid.minor = element_blank()
+  )
+```
+
+
+
+## Save the Plot
+
+```{r}
+#| label: concepts-pt1-exercise-1-bonus-save
+#| code-line-numbers: "1,2|1|2"
+ggsave(here::here("exercises", "plots", "02_concepts_pt1_ex1_bonus.pdf"), 
+       width = 9, height = 5, device = cairo_pdf)
+```
+
+```{r}
+#| label: concepts-pt1-exercise-1-bonus-png
+#| include: false
+ggsave(here::here("exercises", "plots", "02_concepts_pt1_ex1_bonus.png"), 
+       width = 9, height = 5, dpi = 350, bg = "white")
+```
+
+![](plots/02_concepts_pt1_ex1_bonus.png){fig-align="center" fig-alt="The final plot with the bonus encoding saved with an aspect ratio of 9 x 5 inches."}

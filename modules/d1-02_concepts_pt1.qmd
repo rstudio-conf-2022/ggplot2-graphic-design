@@ -1,0 +1,70 @@
+---
+title: "<span>Concepts of the <code>{ggplot2}</code> Package Pt. 1:<br><span style='font-weight:500;'>Data, Aesthetics, and Geometries + <span class='circle-highlight'>Misc Stuff</span></span></span>"
+subtitle: "09:30 - 10:30"
+date: "2022-07-25"
+image: "images/ggplot3.png"
+listing:
+  - id: exercises
+    contents:
+      - ../materials/02-*.qmd
+    type: table
+    fields: [subtitle, title]
+    field-display-names:
+      subtitle: "Exercise"
+    sort: [filename]
+    sort-ui: false
+    filter-ui: false
+    image-placeholder: images/exercise.png
+tbl-colwidths: [5,20,75]
+---
+
+## Outline
+
+-   The Grammar of {ggplot2}
+-   A Basic ggplot Example
+    -   The Data
+    -   Aesthetic Mapping
+    -   `aes`thetics
+-   Geometrical Layers
+    -   Geometries
+    -   Visual Properties of Layers
+    -   Setting vs Mapping of Visual Properties
+    -   Mapping Expressions
+    -   Quick Exercise
+    -   Mapping Expressions
+    -   Mapping to Size
+    -   Setting a Constant Property
+    -   Filter Data
+    -   Local vs. Global Encoding
+    -   Adding More Layers
+    -   Global Color Encoding
+    -   Local Color Encoding
+    -   The \`group\` Aesthetic
+    -   Set Both as Global Aesthetics
+    -   Overwrite Global Aesthetics
+-   Extending a ggplot
+    -   Store a ggplot as Object
+    -   Inspect a ggplot Object
+    -   Extend a ggplot Object: Add Layers
+    -   Remove a Layer from the Legend
+    -   Extend a ggplot Object: Add Labels
+-   A Polished ggplot Example
+    -   Extend a ggplot Object: Themes
+    -   Set a Theme Globally
+    -   Change the Theme Base Settings
+    -   Overwrite Specific Theme Settings
+    -   Save the Graphic
+    -   How to Work with Aspect Ratios
+    -   Setting Plot Sizes in Rmd's
+
+## Slides
+
+[View slides in full screen](../materials/02_concepts_pt1.html)
+
+```{=html}
+<iframe class="slide-deck" src="../materials/02_concepts_pt1.html" height="420" width="747" style="border: 1px solid #2e3846;"></iframe>
+```
+## Exercises
+
+::: {#exercises}
+:::

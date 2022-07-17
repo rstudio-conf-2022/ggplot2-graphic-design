@@ -1,0 +1,54 @@
+---
+title: "<span>Concepts of the <code>{ggplot2}</code> Package Pt. 2:<br><span style='font-weight:500;'>Facets, Scales, and Coordinate System</span></span>"
+subtitle: "13:30 - 14:30"
+date: "2022-07-25"
+image: "images/ggplot3.png"
+listing:
+  - id: exercises
+    contents:
+      - ../materials/03-*.qmd
+    type: table
+    fields: [subtitle, title]
+    field-display-names:
+      subtitle: "Exercise"
+    sort: [filename]
+    sort-ui: false
+    filter-ui: false
+    image-placeholder: images/exercise.png
+tbl-colwidths: [5,20,75]
+---
+
+## Outline
+
+-   Scales
+-   Continuous vs. Discrete in {ggplot2}
+-   Continuous:<br>quantitative or numerical data
+-   Discrete:<br>qualitative or categorical data
+-   Aesthetics + Scales
+-   \`scale_x\|y_continuous\`
+-   \`scale_x\|y_date\`
+-   \`scale_x\|y_date\` with \`strftime()\`
+-   \`scale_x\|y_discrete\`
+-   Discrete or Continuous?
+-   \`scale_color\|fill_discrete\`
+-   Inspect Assigned Colors
+-   \`scale_x\|y_date\` with \`strftime()\`
+-   Coordinate Systems
+-   Cartesian Coordinate System
+-   Changing Limits
+-   Clipping
+-   Fixed Coordinate System
+-   Flipped Coordinate System
+-   Circular Corrdinate System
+-   Transform a Coordinate System
+-   Spatial Coordinate (Reference) Systems \## Slides
+
+[View slides in full screen](../materials/03_concepts_pt2.html)
+
+```{=html}
+<iframe class="slide-deck" src="../materials/03_concepts_pt2.html" height="420" width="747" style="border: 1px solid #2e3846;"></iframe>
+```
+## Exercises
+
+::: {#exercises}
+:::

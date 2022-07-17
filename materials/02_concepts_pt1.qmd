@@ -1,0 +1,1252 @@
+---
+title: "Graphic Design with ggplot2"
+subtitle: "<span style='font-size:1.75em;line-height:1.1;'>Concepts of the <code>{ggplot2}</code> Package Pt. 1:<br><span style='font-weight:500;'>Data, Aesthetics, and Geometries + <span class='circle-highlight'>Misc Stuff</span></span></span>"
+author: "<b style='color:#28a87d;'>Cédric Scherer</b> **//** rstudio::conf **//** July 2022"
+format: 
+  revealjs: 
+    theme: css/style.scss
+    footer: '**[Cédric Scherer](https::/cedricscherer.com) //** rstudio::conf **//** July 2022'
+    #'rstudio::conf(workshop = "Graphic Design with ggplot2", instructor = "Cédric Scherer")'
+    transition: fade
+    progress: true
+    multiplex: false
+    preview-links: true
+    scrollable: false
+    hide-inactive-cursor: true
+    highlight-style: printing
+    chalkboard:
+      theme: whiteboard
+      boardmarker-width: 4
+      buttons: true
+    pause: true
+    mainfont: Cabinet Grotesk
+editor: visual
+knitr:
+  opts_chunk: 
+    dev: "ragg_png"
+    retina: 1
+    dpi: 300
+execute:
+  freeze: auto
+  echo: true
+  fig-width: 5
+  fig-height: 6.05
+---
+
+# Setup
+
+
+
+##  {background-image="img/concepts/tidyverse-packages.png" background-position="center" background-size="100%"}
+
+::: footer
+:::
+
+
+
+##  {background-image="img/concepts/tidyverse-packages-ggplot.png" background-position="center" background-size="100%"}
+
+::: footer
+:::
+
+
+
+## The ggplot2 Package
+
+<br>
+
+... is an **R package to visualize data** created by Hadley Wickham in 2005
+
+```{r}
+#| label: ggplot-package-install-2
+#| eval: false
+# install.packages("ggplot2")
+library(ggplot2)
+```
+
+<br>
+
+::: fragment
+... is part of the [`{tidyverse}`](https://www.tidyverse.org/)
+
+```{r}
+#| label: tidyverse-package-install-2
+#| eval: false
+# install.packages("tidyverse")
+library(tidyverse)
+```
+:::
+
+
+
+# The Grammar of {ggplot2}
+
+
+
+## The Grammar of {ggplot2}
+
+<br>
+<table style='width:100%;font-size:14pt;'>
+  <tr>
+    <th>Component</th>
+    <th>Function</th>
+    <th>Explanation</th>
+  </tr>
+  <tr>
+    <td><b style='color:#67676;'>Data</b></td>
+    <td><code>ggplot(data)</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    <td>*The raw data that you want to visualise.*</td>
+  </tr>
+  <tr>
+    <td><b style='color:#67676;'>Aesthetics&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td>
+    <td><code>aes()</code></td>
+    <td>*Aesthetic mappings between variables and visual properties..*</td>
+  <tr>
+    <td><b style='color:#67676;'>Geometries</b></td>
+    <td><code>geom_*()</code></td>
+    <td>*The geometric shapes representing the data.*</td>
+  </tr>
+</table>
+
+
+
+## The Grammar of {ggplot2}
+
+
+<br>
+<table style='width:100%;font-size:14pt;'>
+  <tr>
+    <th>Component</th>
+    <th>Function</th>
+    <th>Explanation</th>
+  </tr>
+  <tr>
+    <td><b style='color:#67676;'>Data</b></td>
+    <td><code>ggplot(data)</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    <td>*The raw data that you want to visualise.*</td>
+  </tr>
+  <tr>
+    <td><b style='color:#67676;'>Aesthetics&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td>
+    <td><code>aes()</code></td>
+    <td>*Aesthetic mappings between variables and visual properties..*</td>
+  <tr>
+    <td><b style='color:#67676;'>Geometries</b></td>
+    <td><code>geom_*()</code></td>
+    <td>*The geometric shapes representing the data.*</td>
+  </tr>
+  <tr>
+    <td><b style='color:#67676;'>Statistics</b></td>
+    <td><code>stat_*()</code></td>
+    <td>*The statistical transformations applied to the data.*</td>
+  </tr>
+  <tr>
+    <td><b style='color:#67676;'>Scales</b></td>
+    <td><code>scale_*()</code></td>
+    <td>*Maps between the data and the aesthetic dimensions.*</td>
+  </tr>
+  <tr>
+    <td><b style='color:#67676;'>Coordinate System</b></td>
+    <td><code>coord_*()</code></td>
+    <td>*Maps data into the plane of the data rectangle.*</td>
+  </tr>
+  <tr>
+    <td><b style='color:#67676;'>Facets</b></td>
+    <td><code>facet_*()</code></td>
+    <td>*The arrangement of the data into a grid of plots.*</td>
+  </tr>
+  <tr>
+    <td><b style='color:#67676;'>Visual Themes</b></td>
+    <td><code>theme()</code> and <code>theme_*()</code></td>
+    <td>*The overall visual defaults of a plot.*</td>
+  </tr>
+</table>
+
+
+
+# A Basic ggplot Example
+
+
+
+## The Data
+
+<b style='font-size:2.3rem;'>Bike sharing counts in London, UK, powered by [TfL Open Data](https://tfl.gov.uk/modes/cycling/santander-cycles)</b>
+
+::: incremental
+-   covers the years 2015 and 2016
+-   incl. weather data acquired from [freemeteo.com](https://freemeteo.com)
+-   prepared by Hristo Mavrodiev for [Kaggle](https://www.kaggle.com/hmavrodiev/london-bike-sharing-dataset)
+-   further modification by myself
+:::
+
+<br>
+
+::: fragment
+```{r}
+#| label: data-import
+bikes <- readr::read_csv(
+  "https://raw.githubusercontent.com/z3tt/graphic-design-ggplot2/main/data/london-bikes-custom.csv", 
+  col_types = "Dcfffilllddddc"
+)
+
+bikes$season <- forcats::fct_inorder(bikes$season)
+```
+:::
+
+
+------------------------------------------------------------------------
+
+
+```{r}
+#| label: data-table
+#| echo: false 
+#| purl: false
+library(tidyverse)
+tibble(
+    Variable = names(bikes),
+    Description = c(
+      "Date encoded as `YYYY-MM-DD`", "`day` (6:00am–5:59pm) or `night` (6:00pm–5:59am)", "`2015` or `2016`", "`1` (January) to `12` (December)", "`winter`, `spring`, `summer`, or `autumn`", "Sum of reported bikes rented", "`TRUE` being Monday to Friday and no bank holiday", "`TRUE` being Saturday or Sunday", "`TRUE` being a bank holiday in the UK", "Average air temperature (°C)", "Average feels like temperature (°C)", "Average air humidity (%)", "Average wind speed (km/h)", "Most common weather type"
+    ),
+    Class = c(
+      "date", "character", "factor", "factor", "factor", "integer", "logical", "logical", "logical", "double", "double", "double", "double", "character"
+    )
+  ) %>% 
+  kableExtra::kbl(
+    booktabs = TRUE, longtable = TRUE
+  ) %>%
+  kableExtra::kable_styling(
+    font_size = 24
+  ) %>%
+  kableExtra::kable_minimal(
+    "hover", full_width = TRUE, position = "left", html_font = "Cabinet Grotesk"
+  )
+```
+
+
+
+## `ggplot2::ggplot()`
+
+```{r}
+#| label: ggplot-function
+#| eval: false
+#| echo: false
+#?ggplot
+```
+
+![](img/concepts/ggplot-fun-help.png){fig-alt="The help page of the ggplot() function." fig-width="175%"}
+
+
+
+## Data
+
+```{r}
+#| label: setup-ggplot-slides
+#| include: false
+#| purl: false
+library(ggplot2)
+theme_set(theme_grey(base_size = 14, base_family = "Robot Condensed"))
+```
+
+```{r}
+#| label: ggplot-data
+#| output-location: column
+ggplot(data = bikes) 
+```
+
+
+
+## Aesthetic Mapping
+
+<br>
+
+<b class='simple-highlight-grn' style='font-size:2.6rem;'>= link variables to graphical properties</b><br><br>
+
+::: incremental
+-   positions (`x`, `y`)
+-   colors (`color`, `fill`)
+-   shapes (`shape`, `linetype`)
+-   size (`size`)
+-   transparency (`alpha`)
+-   groupings (`group`)
+:::
+
+
+
+## Aesthetic Mapping
+
+```{r}
+#| label: ggplot-aesthetics-outside
+#| output-location: column
+#| code-line-numbers: "2|1,2"
+ggplot(data = bikes) +
+  aes(x = temp_feel, y = count)
+```
+
+
+
+## `aes`thetics
+
+`aes()` outside as component
+
+```{r}
+#| label: ggplot-aesthetics-outside-comp
+#| eval: false
+ggplot(data = bikes) + 
+  aes(x = temp_feel, y = count)
+```
+
+<br>
+
+::: fragment
+`aes()` inside, explicit matching
+
+```{r}
+#| label: ggplot-aesthetics-inside
+#| eval: false
+ggplot(data = bikes, mapping = aes(x = temp_feel, y = count))
+```
+
+<br>
+:::
+
+::: fragment
+`aes()` inside, implicit matching
+
+```{r}
+#| label: ggplot-aesthetics-inside-implicit
+#| eval: false
+ggplot(bikes, aes(temp_feel, count))
+```
+
+<br>
+:::
+
+::: fragment
+`aes()` inside, mixed matching
+
+```{r}
+#| label: ggplot-aesthetics-inside-mix
+#| eval: false
+ggplot(bikes, aes(x = temp_feel, y = count))
+```
+:::
+
+
+
+# Geometrical Layers
+
+
+
+## Geometries
+
+<br>
+
+<b class='simple-highlight-grn' style='font-size:2.6rem;'>= interpret aesthetics as graphical representations</b><br><br>
+
+::: incremental
+-   points
+-   lines
+-   polygons
+-   text labels
+-   ...
+:::
+
+
+
+## Geometries
+
+```{r}
+#| label: geom-point
+#| output-location: column
+#| code-line-numbers: "1,2,3,4|5"
+ggplot(
+    bikes, 
+    aes(x = temp_feel, y = count)
+  ) +
+  geom_point()
+```
+
+
+
+## Visual Properties of Layers
+
+```{r}
+#| label: geom-point-properties
+#| output-location: column
+#| code-line-numbers: "5,6,7,8,9,10,11|6,7,8,9,10"
+ggplot(
+    bikes, 
+    aes(x = temp_feel, y = count)
+  ) +
+  geom_point(
+    color = "#28a87d",
+    alpha = .5,
+    shape = "X",
+    stroke = 1,
+    size = 4
+  )
+```
+
+
+
+## Setting vs Mapping of Visual Properties
+
+::: {layout-ncol="2"}
+```{r}
+#| label: geom-point-properties-set
+#| fig-height: 3.5
+#| code-line-numbers: "6,7"
+ggplot(
+    bikes, 
+    aes(x = temp_feel, y = count)
+  ) +
+  geom_point(
+    color = "#28a87d",
+    alpha = .5
+  )
+```
+
+::: fragment
+```{r}
+#| label: geom-point-properties-map
+#| fig-height: 3.5
+#| code-line-numbers: "6"
+ggplot(
+    bikes, 
+    aes(x = temp_feel, y = count)
+  ) +
+  geom_point(
+    aes(color = season),
+    alpha = .5
+  )
+```
+:::
+:::
+
+
+
+## Mapping Expressions
+
+```{r}
+#| label: geom-point-aes-expression
+#| output-location: column
+#| code-line-numbers: "6"
+ggplot(
+    bikes, 
+    aes(x = temp_feel, y = count)
+  ) +
+  geom_point(
+    aes(color = temp_feel > 20),
+    alpha = .5
+  )
+```
+
+
+
+## Quick Exercise
+
+::: question
+- **Create a scatter plot of `temp_feel` vs `temp`.**
+    - Map the color of the points to clear weather.
+    - Map the size of the points to count.
+    - Turn the points into diamonds.
+    - <span style="color:#5DB699;">Bonus: What do you notice in the legend? How could you fix it?</span>
+:::
+
+```{r}
+#| label: countdown-quick-exercise-aes
+#| echo: false
+#| purl: false
+countdown::countdown(minutes = 5, font_size = ".5em")
+theme_set(theme_grey(base_size = 12, base_family = "Robot Condensed"))
+```
+
+
+
+## Mapping Expressions
+
+```{r}
+#| label: geom-point-aes-expression-exercise
+#| output-location: column
+#| code-line-numbers: "3|6"
+ggplot(
+    bikes, 
+    aes(x = temp, y = temp_feel)
+  ) +
+  geom_point(
+    aes(color = weather_type == "clear"),
+    alpha = .5,
+    size = 2
+  )
+```
+
+
+
+## Mapping to Size
+
+```{r}
+#| label: geom-point-aes-size-exercise
+#| output-location: column
+#| code-line-numbers: "7"
+ggplot(
+    bikes, 
+    aes(x = temp, y = temp_feel)
+  ) +
+  geom_point(
+    aes(color = weather_type == "clear",
+        size = count),
+    alpha = .5
+  )
+```
+
+
+
+## Setting a Constant Property
+
+```{r}
+#| label: geom-point-aes-expression-exercise-shape
+#| output-location: column
+#| code-line-numbers: "8"
+ggplot(
+    bikes,
+    aes(x = temp, y = temp_feel)
+  ) +
+  geom_point(
+    aes(color = weather_type == "clear",
+        size = count),
+    shape = 18,
+    alpha = .5
+  )
+```
+
+
+
+## Setting a Constant Property
+
+```{r}
+#| label: geom-point-aes-expression-exercise-shape-2
+#| output-location: column
+#| code-line-numbers: "8"
+ggplot(
+    bikes,
+    aes(x = temp, y = temp_feel)
+  ) +
+  geom_point(
+    aes(color = weather_type == "clear",
+        size = count),
+    shape = 5,
+    alpha = .5
+  )
+```
+
+
+
+## Setting a Constant Property
+
+```{r}
+#| label: geom-point-aes-expression-exercise-shape-3
+#| output-location: column
+#| code-line-numbers: "8"
+ggplot(
+    bikes,
+    aes(x = temp, y = temp_feel)
+  ) +
+  geom_point(
+    aes(color = weather_type == "clear",
+        size = count),
+    shape = 9,
+    alpha = .5
+  )
+```
+
+
+
+## Setting a Constant Property
+
+```{r}
+#| label: geom-point-aes-expression-exercise-shape-4
+#| output-location: column
+#| code-line-numbers: "8"
+ggplot(
+    bikes, 
+    aes(x = temp, y = temp_feel)
+  ) +
+  geom_point(
+    aes(color = weather_type == "clear",
+        size = count),
+    shape = 23,
+    alpha = .5
+  )
+```
+
+
+------------------------------------------------------------------------
+
+
+![Source: [Albert's Blog](https://blog.albertkuo.me/post/point-shape-options-in-ggplot/)](img/concepts/shapes.png){fig-alt="An overview of a set of available shapes, ordered by their use of color and fills." fig-width="150%"}
+
+
+------------------------------------------------------------------------
+
+
+![Source: [Albert's Blog](https://blog.albertkuo.me/post/point-shape-options-in-ggplot/)](img/concepts/shapes-type.png){fig-alt="An overview of a set of available shapes, ordered by their type of shape (e.g. points, triangles etc)." fig-width="150%"}
+
+
+
+## Setting a Constant Property
+
+```{r}
+#| label: geom-point-aes-expression-exercise-shape-4-fill
+#| output-location: column
+#| code-line-numbers: "6,8,9"
+ggplot(
+    bikes,
+    aes(x = temp, y = temp_feel)
+  ) +
+  geom_point(
+    aes(fill = weather_type == "clear",
+        size = count),
+    shape = 23,
+    color = "black",
+    alpha = .5
+  )
+```
+
+
+
+## Filter Data
+
+```{r}
+#| label: geom-point-aes-expression-exercise-na
+#| output-location: column
+#| code-line-numbers: "2"
+ggplot(
+    filter(bikes, !is.na(weather_type)), 
+    aes(x = temp, y = temp_feel)
+  ) +
+  geom_point(
+    aes(color = weather_type == "clear",
+        size = count),
+    shape = 18,
+    alpha = .5
+  )
+```
+
+
+
+## Filter Data
+
+```{r}
+#| label: geom-point-aes-expression-exercise-na-pipe
+#| output-location: column
+#| code-line-numbers: "2"
+ggplot(
+    bikes %>% filter(!is.na(weather_type)), 
+    aes(x = temp, y = temp_feel)
+  ) +
+  geom_point(
+    aes(color = weather_type == "clear",
+        size = count),
+    shape = 18,
+    alpha = .5
+  )
+```
+
+```{r}
+#| label: reset-theme
+#| include: false
+#| purl: false
+theme_set(theme_grey(base_size = 14, base_family = "Robot Condensed"))
+```
+
+
+
+## Local vs. Global Encoding
+
+::: {layout-ncol="2"}
+```{r}
+#| label: geom-point-aes-geom
+#| code-line-numbers: "3,6"
+#| fig-height: 3.2
+ggplot(
+    bikes, 
+    aes(x = temp_feel, y = count)
+  ) +
+  geom_point(
+    aes(color = season),
+    alpha = .5
+  )
+```
+
+::: fragment
+```{r}
+#| label: geom-point-aes-global
+#| code-line-numbers: "3,4"
+#| fig-height: 3.2
+ggplot(
+    bikes, 
+    aes(x = temp_feel, y = count,
+        color = season)
+  ) +
+  geom_point(
+    alpha = .5
+  )
+```
+:::
+:::
+
+
+
+## Adding More Layers
+
+```{r}
+#| label: geom-smooth
+#| output-location: column
+#| code-line-numbers: "9,10,11"
+ggplot(
+    bikes, 
+    aes(x = temp_feel, y = count,
+        color = season)
+  ) +
+  geom_point(
+    alpha = .5
+  ) +
+  geom_smooth(
+    method = "lm"
+  )
+```
+
+
+
+## Global Color Encoding
+
+```{r}
+#| label: geom-smooth-aes-global
+#| output-location: column
+#| code-line-numbers: "3,4,9,10,11"
+ggplot(
+    bikes, 
+    aes(x = temp_feel, y = count,
+        color = season)
+  ) +
+  geom_point(
+    alpha = .5
+  ) +
+  geom_smooth(
+    method = "lm"
+  )
+```
+
+
+
+## Local Color Encoding
+
+```{r}
+#| label: geom-smooth-aes-fixed
+#| output-location: column
+#| code-line-numbers: "6,9,10,11"
+ggplot(
+    bikes, 
+    aes(x = temp_feel, y = count)
+  ) +
+  geom_point(
+    aes(color = season),
+    alpha = .5
+  ) +
+  geom_smooth(
+    method = "lm"
+  )
+```
+
+
+
+## The \`group\` Aesthetic
+
+```{r}
+#| label: geom-smooth-aes-grouped
+#| output-location: column
+#| code-line-numbers: "10"
+ggplot(
+    bikes, 
+    aes(x = temp_feel, y = count)
+  ) +
+  geom_point(
+    aes(color = season),
+    alpha = .5
+  ) +
+  geom_smooth(
+    aes(group = day_night),
+    method = "lm"
+  )
+```
+
+
+
+## Set Both as Global Aesthetics
+
+```{r}
+#| label: geom-smooth-aes-global-grouped
+#| output-location: column
+#| code-line-numbers: "4,5"
+ggplot(
+    bikes, 
+    aes(x = temp_feel, y = count,
+        color = season,
+        group = day_night)
+  ) +
+  geom_point(
+    alpha = .5
+  ) +
+  geom_smooth(
+    method = "lm"
+  )
+```
+
+
+
+## Overwrite Global Aesthetics
+
+```{r}
+#| label: geom-smooth-aes-global-grouped-overwrite
+#| output-location: column
+#| code-line-numbers: "4,12"
+ggplot(
+    bikes, 
+    aes(x = temp_feel, y = count,
+        color = season,
+        group = day_night)
+  ) +
+  geom_point(
+    alpha = .5
+  ) +
+  geom_smooth(
+    method = "lm",
+    color = "black"
+  )
+```
+
+
+
+# Extending a ggplot
+
+
+
+## Store a ggplot as Object
+
+```{r}
+#| label: ggplot-object
+#| code-line-numbers: "1,16"
+g <- 
+  ggplot(
+    bikes, 
+    aes(x = temp_feel, y = count,
+        color = season,
+        group = day_night)
+  ) +
+  geom_point(
+    alpha = .5
+  ) +
+  geom_smooth(
+    method = "lm",
+    color = "black"
+  )
+
+class(g)
+```
+
+
+
+## Inspect a ggplot Object
+
+```{r}
+#| label: ggplot-object-data
+g$data
+```
+
+
+
+## Inspect a ggplot Object
+
+```{r}
+#| label: ggplot-object-mapping
+g$mapping
+```
+
+
+
+## Extend a ggplot Object: Add Layers
+
+```{r}
+#| label: ggplot-object-extend-geom
+#| output-location: column
+g +
+  geom_rug(
+    alpha = .2
+  )
+```
+
+
+
+## Remove a Layer from the Legend
+
+```{r}
+#| label: geom-guide-none
+#| output-location: column
+#| code-line-numbers: "4"
+g +
+  geom_rug(
+    alpha = .2,
+    show.legend = FALSE
+  )
+```
+
+
+
+## Extend a ggplot Object: Add Labels
+
+```{r}
+#| label: ggplot-labs-individual
+#| output-location: column
+#| code-line-numbers: "2,3,4"
+g +
+  xlab("Feels-like temperature (°F)") +
+  ylab("Reported bike shares") +
+  ggtitle("TfL bike sharing trends")
+```
+
+
+
+## Extend a ggplot Object: Add Labels
+
+```{r}
+#| label: ggplot-labs-bundled
+#| output-location: column
+#| code-line-numbers: "2,3,4,5,6"
+g +
+  labs(
+    x = "Feels-like temperature (°F)",
+    y = "Reported bike shares",
+    title = "TfL bike sharing trends"
+  )
+```
+
+
+
+## Extend a ggplot Object: Add Labels
+
+```{r}
+#| label: ggplot-labs-bundled-color
+#| output-location: column
+#| code-line-numbers: "5"
+g <- g +
+  labs(
+    x = "Feels-like temperature (°F)",
+    y = "Reported bike shares",
+    title = "TfL bike sharing trends",
+    color = "Season:"
+  )
+
+g
+```
+
+
+
+## Extend a ggplot Object: Add Labels
+
+```{r}
+#| label: ggplot-labs-bundled-extended
+#| output-location: column
+#| code-line-numbers: "5"
+g +
+  labs(
+    x = "Feels-like temperature (°F)",
+    y = "Reported bike shares",
+    title = "TfL bike sharing trends",
+    subtitle = "Reported bike rents versus feels-like temperature in London",
+    caption = "Data: TfL",
+    color = "Season:",
+    tag = "Fig. 1"
+  )
+```
+
+
+
+## Extend a ggplot Object: Add Labels
+
+::: {layout-ncol="2"}
+```{r}
+#| label: ggplot-labs-empty-vs-null-A
+#| fig-height: 3.6
+#| code-line-numbers: "3"
+g +
+  labs(
+    x = "",
+    caption = "Data: TfL"
+  )
+```
+
+```{r}
+#| label: ggplot-labs-empty-vs-null-B
+#| fig-height: 3.6
+#| code-line-numbers: "3"
+g +
+  labs(
+    x = NULL,
+    caption = "Data: TfL"
+  )
+```
+:::
+
+
+
+# A Polished ggplot Example
+
+
+
+## Extend a ggplot Object: Themes
+
+::: {layout-ncol="2"}
+```{r}
+#| label: ggplot-object-extend-theme-light
+#| fig-height: 5.5
+g + theme_light()
+```
+
+
+
+::: fragment
+```{r}
+#| label: ggplot-object-extend-theme-minimal
+#| fig-height: 5.5
+g + theme_minimal()
+```
+:::
+:::
+
+
+
+## Change the Theme Base Settings
+
+```{r}
+#| label: ggplot-theme-extend-theme-base
+#| output-location: column
+#| code-line-numbers: "2,3|1,2,3,4"
+g + theme_light(
+  base_size = 14,
+  base_family = "Roboto Condensed"
+)
+```
+
+
+
+## Set a Theme Globally
+
+```{r}
+#| label: ggplot-theme-global
+#| output-location: column
+theme_set(theme_light())
+
+g
+```
+
+
+
+## Change the Theme Base Settings
+
+```{r}
+#| label: ggplot-theme-global-base
+#| output-location: column
+#| code-line-numbers: "2,3|1,2,3,4"
+theme_set(theme_light(
+  base_size = 14,
+  base_family = "Roboto Condensed"
+))
+
+g
+```
+
+
+
+## Overwrite Specific Theme Settings
+
+```{r}
+#| label: ggplot-theme-settings-individual-1
+#| output-location: column
+#| code-line-numbers: "2|3"
+g +
+  theme(
+    panel.grid.minor = element_blank()
+  )
+```
+
+
+
+## Overwrite Specific Theme Settings
+
+```{r}
+#| label: ggplot-theme-settings-individual-2
+#| output-location: column
+#| code-line-numbers: "4"
+g +
+  theme(
+    panel.grid.minor = element_blank(),
+    plot.title = element_text(face = "bold")
+  )
+```
+
+
+
+## Overwrite Specific Theme Settings
+
+```{r}
+#| label: ggplot-theme-settings-individual-3
+#| output-location: column
+#| code-line-numbers: "5"
+g +
+  theme(
+    panel.grid.minor = element_blank(),
+    plot.title = element_text(face = "bold"),
+    legend.position = "top"
+  )
+```
+
+
+
+## Overwrite Specific Theme Settings
+
+```{r}
+#| label: ggplot-theme-settings-individual-4
+#| output-location: column
+#| code-line-numbers: "6"
+g +
+  theme(
+    panel.grid.minor = element_blank(),
+    plot.title = element_text(face = "bold"),
+    legend.position = "top",
+    plot.title.position = "plot"
+  )
+```
+
+
+
+## Overwrite Theme Settings Globally
+
+```{r}
+#| label: ggplot-theme-settings-global
+#| output-location: column
+#| code-line-numbers: "1|2,3,4,5|1,2,3,4,5,6"
+theme_update(
+  panel.grid.minor = element_blank(),
+  plot.title = element_text(face = "bold"),
+  legend.position = "top",
+  plot.title.position = "plot"
+)
+
+g
+```
+
+
+
+## Save the Graphic
+
+```{r}
+#| label: ggplot-save
+#| eval: false
+ggsave(g, filename = "my_plot.png")
+```
+
+::: fragment
+```{r}
+#| label: ggplot-save-implicit
+#| eval: false
+ggsave("my_plot.png")
+```
+:::
+
+::: fragment
+```{r}
+#| label: ggplot-save-aspect
+#| eval: false
+ggsave("my_plot.png", width = 8, height = 5, dpi = 600)
+```
+:::
+
+::: fragment
+```{r}
+#| label: ggplot-save-vector
+#| eval: false
+ggsave("my_plot.pdf", width = 20, height = 12, unit = "cm", device = cairo_pdf)
+```
+:::
+
+::: fragment
+```{r}
+#| label: ggplot-save-cairo_pdf
+#| eval: false
+grDevices::cairo_pdf("my_plot.pdf", width = 10, height = 7)
+g
+dev.off()
+```
+:::
+
+
+------------------------------------------------------------------------
+
+
+<br>
+
+![Modified from canva.com](img/concepts/vector-raster-canva.png){fig-alt="A comparison of vector and raster graphics." fig-width="150%"}
+
+
+
+## How to Work with Aspect Ratios
+
+::: incremental
+-   don't rely on the Rstudio viewer pane!
+-   once you have a "it's getting close" prototype, settle on a plot size<br><br>
+-   **Approach 1:** save the file to disk and inspect it; go back to your IDE
+    -   tedious and time-consuming...<br><br>
+-   **Approach 2:** use a qmd or rmd with inline output and chunk settings
+    -   set `fig.width` and `fig.height` per chunk or globally<br><br>
+-   **Approach 3:** use our [{camcorder} package](https://github.com/thebioengineer/camcorder)
+    -   saves output from all `ggplot()` calls and displays it in the viewer pane
+:::
+
+
+
+## Setting Plot Sizes in Rmd's
+
+![](img/concepts/plot-size-rmarkdown-example.png){fig-alt="A screenshot of an exemplary Rmd file with two chunks with different settings of fig.width and fig.height." fig-width="60%"}
+
+
+
+## Setting Plot Sizes via {camcorder}
+
+<br>
+
+![](img/concepts/plot-size-camcorder-example.png){fig-alt="A screenshot of an exemplary R script with a plot automatically saved and isplayed in correct aspect ratio thanks to the camcorder package." fig-width="120%"}
+
+
+
+## <b style='color:#663399;'>Recap</b>
+
+::: recap
+::: incremental
+- `{ggplot2}` is a powerful library for reproducible graphic design
+- the components follow a consistent syntax
+- each ggplot needs at least **data**, some **aesthetics**, and a **layer**
+- we **set** constant propeties outside `aes()`
+- ... and **map** data-related properties inside `aes()`
+- local settings and mappings override global properties
+- grouping allows applying layers for subsets
+- we can store a ggplot object and extend it afterwards
+- we can change the appearance for all plots with `theme_set()` and `theme_update()`
+:::
+:::
+
+
+
+## Your Turn!
+
+::: question
+Open the script `02_concepts_pt1_ex1.Rmd`.
+:::

@@ -1,0 +1,45 @@
+---
+title: "Schedule"
+listing:
+  - id: schedule-day1
+    contents:
+      - modules/d1-*.qmd
+    type: table
+    fields: [image, subtitle, title]
+    field-display-names:
+      subtitle: "Time"
+      title: "Module"
+    date-format: "MMMM DD, YYYY"
+    sort: [filename]
+    sort-ui: false
+    filter-ui: false
+  - id: schedule-day2
+    contents:
+      - modules/d2-*.qmd
+    type: table
+    fields: [image, subtitle, title]
+    field-display-names:
+      subtitle: "Time"
+      title: "Module"
+      author: "Presenter"
+    date-format: "MMMM DD, YYYY"
+    sort: [filename]
+    sort-ui: false
+    filter-ui: false
+tbl-colwidths: [5,20,50,25]
+editor: visual
+---
+
+# Day 1
+
+Monday, July 25, 2022
+
+::: {#schedule-day1}
+:::
+
+# Day 2
+
+Tuesday, July 26, 2022
+
+::: {#schedule-day2}
+:::

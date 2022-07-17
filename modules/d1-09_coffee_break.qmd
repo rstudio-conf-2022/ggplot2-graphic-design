@@ -1,0 +1,11 @@
+---
+title: "Coffee break"
+subtitle: "15:00 - 15:30"
+date: "2022-07-25"
+image: "images/coffee-break.png"
+image-alt: "A coffee cup."
+---
+
+Coffee and refreshments served at ...
+
+If you have questions during the break ...

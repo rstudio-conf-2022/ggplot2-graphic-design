@@ -1,0 +1,55 @@
+---
+title: "Graphic Design with ggplot2"
+subtitle: "<span style='font-size:1.75em;line-height:1.1;'>Concepts of the <code>{ggplot2}</code> Package Pt. 2:<br><span style='font-weight:500;'>Exercise 1</span></span>"
+author: "<b style='color:#28a87d;'>Cédric Scherer</b> **//** rstudio::conf **//** July 2022"
+format: 
+  revealjs: 
+    theme: css/style.scss
+    footer: '**[Cédric Scherer](https::/cedricscherer.com) //** rstudio::conf **//** July 2022'
+    #'rstudio::conf(workshop = "Graphic Design with ggplot2", instructor = "Cédric Scherer")'
+    transition: fade
+    progress: true
+    multiplex: false
+    preview-links: true
+    scrollable: false
+    hide-inactive-cursor: true
+    highlight-style: printing
+    chalkboard:
+      theme: whiteboard
+      boardmarker-width: 4
+      buttons: true
+    pause: true
+    mainfont: Cabinet Grotesk
+editor: visual
+knitr:
+  opts_chunk: 
+    dev: "ragg_png"
+    retina: 1
+    dpi: 300
+execute:
+  freeze: auto
+  echo: true
+  fig-width: 5
+  fig-height: 6.05
+---
+
+
+## Your Turn!
+
+::: question
+* Have a look at the following visualization of the cumulative time that cosmo- and astronauts have spent in outer space. The data also contains information on the year of their first and last travel, respectively.
+* Together with your group, discuss which layers and modifications are needed to create such a chart with `{ggplot2}`.
+  - Note down the aesthetics, geometries, and scales used for each element of this graphic.
+  - What is the coordinate system? Have any adjustments been made?
+  - Which theme was used and how was it modified?
+:::
+
+```{r}
+#| label: countdown
+#| echo: false
+countdown::countdown(minutes = 10, font_size = ".5em")
+```
+
+
+
+##  {background-image="3-1-astronaut-viz/astronaut-viz-detail-imola.png" background-position="center" background-size="65%"}

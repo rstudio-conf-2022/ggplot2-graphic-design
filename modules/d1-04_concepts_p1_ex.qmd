@@ -1,0 +1,35 @@
+---
+title: "<span>Concepts of the <code>{ggplot2}</code> Package Pt. 1:<br><span style='font-weight:500;'>Exercise</span></span>"
+subtitle: "11:00 - 12:00"
+date: "2022-07-25"
+image: "images/ggplot3.png"
+listing:
+  - id: exercises
+    contents:
+      - ../materials/02-*.qmd
+    type: table
+    fields: [subtitle, title]
+    field-display-names:
+      subtitle: "Exercise"
+    sort: [filename]
+    sort-ui: false
+    filter-ui: false
+    image-placeholder: images/exercise.png
+tbl-colwidths: [5,20,75]
+---
+
+## Outline
+
+-   Your Turn!
+
+## Slides
+
+[View slides in full screen](../materials/02_concepts_pt1.html)
+
+```{=html}
+<iframe class="slide-deck" src="../materials/02_concepts_pt1.html" height="420" width="747" style="border: 1px solid #2e3846;"></iframe>
+```
+## Exercises
+
+::: {#exercises}
+:::
