@@ -33,6 +33,7 @@ execute:
   fig-height: 6.05
 ---
 
+
 ## Setup
 
 ```{r}
@@ -56,7 +57,11 @@ theme_update(
 )
 ```
 
-# Facets
+
+
+# Facets 
+
+
 
 ## Facets
 
@@ -65,17 +70,19 @@ theme_update(
 <b class='simple-highlight-grn' style='font-size:2.6rem;'>= split variables to multiple panels</b><br><br>
 
 ::: fragment
-Facets are also known as:
+Facets are also known as: 
 
--   small multiples
--   trellis graphs
--   lattice plots
--   conditioning
+* small multiples
+* trellis graphs
+* lattice plots
+* conditioning
 :::
+
 
 ------------------------------------------------------------------------
 
-::: {layout-ncol="2"}
+
+::: {layout-ncol=2}
 ```{r}
 #| label: facet-types-wrap
 #| echo: false
@@ -135,6 +142,8 @@ ggplot(data, aes(x = 1, y = 1)) +
 :::
 :::
 
+
+
 ## Setup
 
 ```{r}
@@ -169,6 +178,8 @@ g <-
 g
 ```
 
+
+
 ## Wrapped Facet
 
 ```{r}
@@ -180,6 +191,8 @@ g +
     vars(day_night)
   )
 ```
+
+
 
 ## Wrapped Facet
 
@@ -193,6 +206,8 @@ g +
   )
 ```
 
+
+
 ## Facet Multiple Variables
 
 ```{r}
@@ -204,6 +219,8 @@ g +
     ~ is_workday + day_night
   )
 ```
+
+
 
 ## Facet Options: Cols + Rows
 
@@ -217,6 +234,8 @@ g +
     ncol = 1
   )
 ```
+
+
 
 ## Facet Options: Free Scaling
 
@@ -232,6 +251,8 @@ g +
   )
 ```
 
+
+
 ## Facet Options: Free Scaling
 
 ```{r}
@@ -245,6 +266,8 @@ g +
     scales = "free_y"
   )
 ```
+
+
 
 ## Facet Options: Switch Labels
 
@@ -260,6 +283,7 @@ g +
   )
 ```
 
+
 ## Gridded Facet
 
 ```{r}
@@ -273,6 +297,8 @@ g +
   )
 ```
 
+
+
 ## Gridded Facet
 
 ```{r}
@@ -284,6 +310,8 @@ g +
     day_night ~ is_workday
   )
 ```
+
+
 
 ## Facet Multiple Variables
 
@@ -297,6 +325,8 @@ g +
   )
 ```
 
+
+
 ## Facet Options: Free Scaling
 
 ```{r}
@@ -309,6 +339,8 @@ g +
     scales = "free"
   )
 ```
+
+
 
 ## Facet Options: Switch Labels
 
@@ -324,6 +356,8 @@ g +
   )
 ```
 
+
+
 ## Facet Options: Proportional Spacing
 
 ```{r}
@@ -338,6 +372,8 @@ g +
   )
 ```
 
+
+
 ## Facet Options: Proportional Spacing
 
 ```{r}
@@ -351,6 +387,8 @@ g +
     space = "free_y"
   )
 ```
+
+
 
 ## Your Turn!
 
@@ -370,6 +408,8 @@ ggplot(diamonds, aes(x = carat, y = price)) +
 ```
 :::
 
+
+
 ## Quick Exercise
 
 ::: question
@@ -387,6 +427,8 @@ ggplot(diamonds, aes(x = carat, y = price)) +
   theme_dark(base_size = 6, base_family = "Roboto Condensed")
 ```
 :::
+
+
 
 ## Diamonds Facet
 
@@ -407,6 +449,8 @@ ggplot(
     color = "dodgerblue"
   ) 
 ```
+
+
 
 ## Diamonds Facet
 
@@ -432,6 +476,8 @@ ggplot(
     scales = "free_x"
   )
 ```
+
+
 
 ## Diamonds Facet (Dark Theme Bonus)
 
@@ -463,6 +509,8 @@ ggplot(
   )
 ```
 
+
+
 # Scales
 
 ```{r}
@@ -479,6 +527,8 @@ theme_update(
 )
 ```
 
+
+
 ## Scales
 
 <br>
@@ -486,12 +536,13 @@ theme_update(
 <b class='simple-highlight-grn' style='font-size:2.6rem;'>= translate between variable ranges and property ranges</b><br><br>
 
 ::: incremental
--   feels-like temperature  ⇄  x
--   reported bike shares  ⇄  y
--   season  ⇄  color
--   year  ⇄  shape
--   ...
+* feels-like temperature &ensp;&rlarr;&ensp; x
+* reported bike shares &ensp;&rlarr;&ensp; y
+* season &ensp;&rlarr;&ensp; color
+* year &ensp;&rlarr;&ensp; shape
+* ...
 :::
+
 
 ## Scales
 
@@ -499,15 +550,17 @@ The `scale_*()` components control the properties of all the<br><b class='simple
 
 <br>Consequently, there are `scale_*()` functions for all aesthetics such as:
 
--   **positions** via `scale_x_*()` and `scale_y_*()`
+* **positions** via `scale_x_*()` and `scale_y_*()`
 
--   **colors** via `scale_color_*()` and `scale_fill_*()`
+* **colors** via `scale_color_*()` and `scale_fill_*()`
 
--   **sizes** via `scale_size_*()` and `scale_radius_*()`
+* **sizes** via `scale_size_*()` and `scale_radius_*()`
 
--   **shapes** via `scale_shape_*()` and `scale_linetype_*()`
+* **shapes** via `scale_shape_*()`  and `scale_linetype_*()`
 
--   **transparency** via `scale_alpha_*()`
+* **transparency** via `scale_alpha_*()`
+
+
 
 ## Scales
 
@@ -515,55 +568,62 @@ The `scale_*()` components control the properties of all the<br><b class='simple
 
 <br>The extensions (`*`) can be filled by e.g.:
 
--   `continuous()`, `discrete()`, `reverse()`, `log10()`, `sqrt()`, `date()` for positions
+* `continuous()`, `discrete()`, `reverse()`, `log10()`, `sqrt()`, `date()` for positions
 
--   `continuous()`, `discrete()`, `manual()`, `gradient()`, `gradient2()`, `brewer()` for colors
+* `continuous()`, `discrete()`, `manual()`, `gradient()`, `gradient2()`, `brewer()` for colors
 
--   `continuous()`, `discrete()`, `manual()`, `ordinal()`, `area()`, `date()` for sizes
+* `continuous()`, `discrete()`, `manual()`, `ordinal()`, `area()`, `date()` for sizes
 
--   `continuous()`, `discrete()`, `manual()`, `ordinal()` for shapes
+* `continuous()`, `discrete()`, `manual()`, `ordinal()` for shapes
 
--   `continuous()`, `discrete()`, `manual()`, `ordinal()`, `date()` for transparency
+* `continuous()`, `discrete()`, `manual()`, `ordinal()`, `date()` for transparency
+
 
 ------------------------------------------------------------------------
 
+
 ![Illustration by Allison Horst](img/concepts/continuous_discrete.png){fig-size="120%" fig-align="center" fig-alt="Allison Horsts illustration ofthe correct use of continuous versus discrete; however, in {ggplot2} these are interpeted in a different way: as quantitative and qualitative."}
 
-## Continuous vs. Discrete in {ggplot2}
 
-::: {layout-ncol="2"}
-## Continuous:<br>quantitative or numerical data
-
--   height
--   weight
--   age
--   counts
-
-## Discrete:<br>qualitative or categorical data
-
--   species
--   sex
--   study sites
--   age group
-:::
 
 ## Continuous vs. Discrete in {ggplot2}
 
-::: {layout-ncol="2"}
+::: {layout-ncol=2}
 ## Continuous:<br>quantitative or numerical data
 
--   height (continuous)
--   weight (continuous)
--   age (continuous or discrete)
--   counts (discrete)
+* height
+* weight
+* age
+* counts
 
 ## Discrete:<br>qualitative or categorical data
 
--   species (nominal)
--   sex (nominal)
--   study site (nominal or ordinal)
--   age group (ordinal)
+* species
+* sex
+* study sites
+* age group
 :::
+
+
+
+## Continuous vs. Discrete in {ggplot2}
+
+::: {layout-ncol=2}
+## Continuous:<br>quantitative or numerical data
+
+* height (continuous)
+* weight (continuous)
+* age (continuous or discrete)
+* counts (discrete)
+
+## Discrete:<br>qualitative or categorical data
+* species (nominal)
+* sex (nominal)
+* study site (nominal or ordinal)
+* age group (ordinal)
+:::
+
+
 
 ## Aesthetics + Scales
 
@@ -578,6 +638,8 @@ ggplot(
   ) +
   geom_point() 
 ```
+
+
 
 ## Aesthetics + Scales
 
@@ -596,6 +658,8 @@ ggplot(
   scale_color_discrete()
 ```
 
+
+
 ## Scales
 
 ```{r}
@@ -612,6 +676,8 @@ ggplot(
   scale_y_continuous() +
   scale_color_discrete()
 ```
+
+
 
 ## Scales
 
@@ -630,6 +696,8 @@ ggplot(
   scale_color_discrete()
 ```
 
+
+
 ## Scales
 
 ```{r}
@@ -647,7 +715,9 @@ ggplot(
   scale_color_viridis_d()
 ```
 
-## \`scale_x\|y_continuous\`
+
+
+## \`scale_x|y_continuous\`
 
 ```{r}
 #| label: scales-xy-continuous-trans
@@ -666,7 +736,9 @@ ggplot(
   scale_color_discrete()
 ```
 
-## \`scale_x\|y_continuous\`
+
+
+## \`scale_x|y_continuous\`
 
 ```{r}
 #| label: scales-xy-continuous-name
@@ -685,7 +757,9 @@ ggplot(
   scale_color_discrete()
 ```
 
-## \`scale_x\|y_continuous\`
+
+
+## \`scale_x|y_continuous\`
 
 ```{r}
 #| label: scales-xy-continuous-breaks-seq
@@ -705,7 +779,9 @@ ggplot(
   scale_color_discrete()
 ```
 
-## \`scale_x\|y_continuous\`
+
+
+## \`scale_x|y_continuous\`
 
 ```{r}
 #| label: scales-xy-continuous-breaks-short
@@ -725,7 +801,9 @@ ggplot(
   scale_color_discrete()
 ```
 
-## \`scale_x\|y_continuous\`
+
+
+## \`scale_x|y_continuous\`
 
 ```{r}
 #| label: scales-xy-continuous-breaks-irregular
@@ -745,7 +823,9 @@ ggplot(
   scale_color_discrete()
 ```
 
-## \`scale_x\|y_continuous\`
+
+
+## \`scale_x|y_continuous\`
 
 ```{r}
 #| label: scales-xy-continuous-labels
@@ -766,7 +846,9 @@ ggplot(
   scale_color_discrete()
 ```
 
-## \`scale_x\|y_continuous\`
+
+
+## \`scale_x|y_continuous\`
 
 ```{r}
 #| label: scales-xy-continuous-labels-paste
@@ -787,7 +869,9 @@ ggplot(
   scale_color_discrete()
 ```
 
-## \`scale_x\|y_continuous\`
+
+
+## \`scale_x|y_continuous\`
 
 ```{r}
 #| label: scales-xy-continuous-limits
@@ -808,7 +892,9 @@ ggplot(
   scale_color_discrete()
 ```
 
-## \`scale_x\|y_continuous\`
+
+
+## \`scale_x|y_continuous\`
 
 ```{r}
 #| label: scales-xy-continuous-expand.no
@@ -829,7 +915,9 @@ ggplot(
   scale_color_discrete()
 ```
 
-## \`scale_x\|y_continuous\`
+
+
+## \`scale_x|y_continuous\`
 
 ```{r}
 #| label: scales-xy-continuous-expand
@@ -850,7 +938,9 @@ ggplot(
   scale_color_discrete()
 ```
 
-## \`scale_x\|y_continuous\`
+
+
+## \`scale_x|y_continuous\`
 
 ```{r}
 #| label: scales-xy-continuous-guide-none
@@ -869,7 +959,9 @@ ggplot(
   ) 
 ```
 
-## \`scale_x\|y_date\`
+
+
+## \`scale_x|y_date\`
 
 ```{r}
 #| label: scales-xy-date-breaks-months
@@ -887,7 +979,9 @@ ggplot(
   ) 
 ```
 
-## \`scale_x\|y_date\`
+
+
+## \`scale_x|y_date\`
 
 ```{r}
 #| label: scales-xy-date-breaks-weeks
@@ -905,7 +999,9 @@ ggplot(
   )
 ```
 
-## \`scale_x\|y_date\` with \`strftime()\`
+
+
+## \`scale_x|y_date\` with \`strftime()\`
 
 ```{r}
 #| label: scales-xy-date-labels
@@ -924,7 +1020,9 @@ ggplot(
   )
 ```
 
-## \`scale_x\|y_date\` with \`strftime()\`
+
+
+## \`scale_x|y_date\` with \`strftime()\`
 
 ```{r}
 #| label: scales-xy-date-labels-special
@@ -942,7 +1040,9 @@ ggplot(
   ) 
 ```
 
-## \`scale_x\|y_discrete\`
+
+
+## \`scale_x|y_discrete\`
 
 ```{r}
 #| label: scales-xy-discrete
@@ -959,7 +1059,10 @@ ggplot(
   )
 ```
 
-## \`scale_x\|y_discrete\`
+
+
+
+## \`scale_x|y_discrete\`
 
 ```{r}
 #| label: scales-xy-discrete-expand
@@ -976,6 +1079,9 @@ ggplot(
   ) 
 ```
 
+
+
+
 ## Discrete or Continuous?
 
 ```{r}
@@ -990,6 +1096,9 @@ ggplot(
     aes(group = season)
   )
 ```
+
+
+
 
 ## Discrete or Continuous?
 
@@ -1012,6 +1121,9 @@ ggplot(
   )
 ```
 
+
+
+
 ## Discrete or Continuous?
 
 ```{r}
@@ -1033,7 +1145,9 @@ ggplot(
   )
 ```
 
-## \`scale_color\|fill_discrete\`
+
+
+## \`scale_color|fill_discrete\`
 
 ```{r}
 #| label: scales-color-discrete-type-vector
@@ -1050,6 +1164,8 @@ ggplot(
     type = c("#69b0d4", "#00CB79", "#F7B01B", "#a78f5f")
   )
 ```
+
+
 
 ## Inspect Assigned Colors
 
@@ -1073,7 +1189,9 @@ gb <- ggplot_build(g)
 gb$data[[1]][1:10,]
 ```
 
-## \`scale_color\|fill_discrete\`
+
+
+## \`scale_color|fill_discrete\`
 
 ```{r}
 #| label: scales-color-discrete-type-vector-named
@@ -1098,7 +1216,9 @@ ggplot(
   )
 ```
 
-## \`scale_color\|fill_discrete\`
+
+
+## \`scale_color|fill_discrete\`
 
 ```{r}
 #| label: scales-color-discrete-type-vector-named-shuffled
@@ -1123,7 +1243,9 @@ ggplot(
   )
 ```
 
-## \`scale_color\|fill_discrete\`
+
+
+## \`scale_color|fill_discrete\`
 
 ```{r}
 #| label: scales-color-discrete-type-palette
@@ -1145,7 +1267,9 @@ ggplot(
   )
 ```
 
-## \`scale_color\|fill_manual\`
+
+
+## \`scale_color|fill_manual\`
 
 ```{r}
 #| label: scales-color-manual-na
@@ -1164,7 +1288,9 @@ ggplot(
   )
 ```
 
-## \`scale_color\|fill_carto_d\`
+
+
+## \`scale_color|fill_carto_d\`
 
 ```{r}
 #| label: scales-color-discrete-carto
@@ -1183,10 +1309,12 @@ ggplot(
   )
 ```
 
+
+
 ## Your Turn!
 
 ::: question
-\*\*Modify our dianmonds facet like this:
+**Modify our dianmonds facet like this:
 
 ```{r}
 #| label: exercise-scales
@@ -1203,6 +1331,8 @@ ggplot(diamonds, aes(x = carat, y = price)) +
   theme_light(base_size = 6, base_family = "Roboto Condensed")
 ```
 :::
+
+
 
 ## Diamonds Facet
 
@@ -1232,6 +1362,8 @@ facet <-
 facet
 ```
 
+
+
 ## Diamonds Facet
 
 ```{r}
@@ -1247,6 +1379,8 @@ facet +
     labels = c("$0", "$10,000", "$20,000", "$30,000")
   )
 ```
+
+
 
 ## Diamonds Facet
 
@@ -1267,6 +1401,8 @@ facet +
   )
 ```
 
+
+
 ## Diamonds Facet
 
 ```{r}
@@ -1286,6 +1422,8 @@ facet +
   )
 ```
 
+
+
 ## Diamonds Facet
 
 ```{r}
@@ -1302,6 +1440,8 @@ facet +
     labels = scales::dollar_format()
   )
 ```
+
+
 
 ## Diamonds Facet
 
@@ -1323,6 +1463,8 @@ facet +
     guide = "none"
   )
 ```
+
+
 
 ## Diamonds Facet
 
@@ -1347,7 +1489,11 @@ facet +
   )
 ```
 
+
+
 # Coordinate Systems
+
+
 
 ## Coordinate Systems
 
@@ -1356,15 +1502,17 @@ facet +
 <b class='simple-highlight-grn' style='font-size:2.6rem;'>= interpret the position aesthetics</b><br><br>
 
 ::: incremental
--   **linear coordinate systems:**<br>preserve the geometrical shapes
-    -   `coord_cartesian()`
-    -   `coord_fixed()`
-    -   `coord_flip()`
--   **linear coordinate systems:**<br>likely change the geometrical shapes
-    -   `coord_polar()`
-    -   `coord_map()` and `coord_sf()`
-    -   `coord_trans()`
+* **linear coordinate systems:**<br>preserve the geometrical shapes
+  - `coord_cartesian()`
+  - `coord_fixed()`
+  - `coord_flip()`
+* **linear coordinate systems:**<br>likely change the geometrical shapes
+  - `coord_polar()`
+  - `coord_map()` and `coord_sf()`
+  - `coord_trans()`
 :::
+
+
 
 ## Cartesian Coordinate System
 
@@ -1379,6 +1527,8 @@ ggplot(
   geom_boxplot() +
   coord_cartesian()
 ```
+
+
 
 ## Cartesian Coordinate System
 
@@ -1396,9 +1546,11 @@ ggplot(
   )
 ```
 
+
+
 ## Changing Limits
 
-::: {layout-ncol="2"}
+::: {layout-ncol=2}
 ```{r}
 #| label: coord-cartesian-ylim
 #| fig-height: 3.5
@@ -1428,6 +1580,7 @@ ggplot(
 ```
 :::
 
+
 ## Clipping
 
 ```{r}
@@ -1444,6 +1597,8 @@ ggplot(
     clip = "off"
   )
 ```
+
+
 
 ## Clipping
 
@@ -1466,6 +1621,8 @@ ggplot(
   )
 ```
 
+
+
 ## ... or better use {ggrepel}
 
 ```{r}
@@ -1487,6 +1644,8 @@ ggplot(
   )
 ```
 
+
+
 ## Remove All Padding
 
 ```{r}
@@ -1504,9 +1663,11 @@ ggplot(
   )
 ```
 
+
+
 ## Fixed Coordinate System
 
-::: {layout-ncol="2"}
+::: {layout-ncol=2}
 ```{r}
 #| label: coord-fixed
 #| fig-height: 4.2
@@ -1534,9 +1695,11 @@ ggplot(
 :::
 :::
 
+
+
 ## Flipped Coordinate System
 
-::: {layout-ncol="2"}
+::: {layout-ncol=2}
 ```{r}
 #| label: coord-cartesian-comp-flip
 #| fig-height: 4.9
@@ -1564,9 +1727,11 @@ ggplot(
 :::
 :::
 
+
+
 ## Flipped Coordinate System
 
-::: {layout-ncol="2"}
+::: {layout-ncol=2}
 ```{r}
 #| label: coord-cartesian-switch-x-y
 #| fig-height: 4.9
@@ -1594,6 +1759,8 @@ ggplot(
 :::
 :::
 
+
+
 ## Reminder: Sort Your Bars!
 
 ```{r}
@@ -1606,6 +1773,8 @@ ggplot(
   ) +
   geom_bar()
 ```
+
+
 
 ## Reminder: Sort Your Bars!
 
@@ -1622,9 +1791,11 @@ ggplot(
   geom_bar()
 ```
 
+
+
 ## Circular Corrdinate System
 
-::: {layout-ncol="2"}
+::: {layout-ncol=2}
 ```{r}
 #| label: coord-polar
 #| fig-height: 4.5
@@ -1654,9 +1825,11 @@ ggplot(
 :::
 :::
 
+
+
 ## Circular Corrdinate System
 
-::: {layout-ncol="2"}
+::: {layout-ncol=2}
 ```{r}
 #| label: coord-polar-coxcomb
 #| fig-height: 4.5
@@ -1684,9 +1857,11 @@ ggplot(
 ```
 :::
 
+
+
 ## Circular Corrdinate System
 
-::: {layout-ncol="2"}
+::: {layout-ncol=2}
 ```{r}
 #| label: coord-polar-theta-x
 #| fig-height: 4.5
@@ -1716,9 +1891,11 @@ ggplot(
 :::
 :::
 
+
+
 ## Circular Corrdinate System
 
-::: {layout-ncol="2"}
+::: {layout-ncol=2}
 ```{r}
 #| label: coord-polar-pie
 #| fig-height: 4.5
@@ -1748,6 +1925,8 @@ ggplot(
 :::
 :::
 
+
+
 ## Transform a Coordinate System
 
 ```{r}
@@ -1762,9 +1941,11 @@ ggplot(
   coord_trans(y = "log10")
 ```
 
+
+
 ## Transform a Coordinate System
 
-::: {layout-ncol="2"}
+::: {layout-ncol=2}
 ```{r}
 #| label: trans-log-via-coord
 #| fig-height: 4.5
@@ -1796,6 +1977,8 @@ ggplot(
 :::
 :::
 
+
+
 ## Spatial Coordinate (Reference) Systems
 
 ```{r}
@@ -1815,6 +1998,8 @@ ggplot() +
   ) 
 ```
 
+
+
 ## Spatial Coordinate (Reference) Systems
 
 ```{r}
@@ -1832,6 +2017,8 @@ ggplot() +
     crs = "+proj=moll"
   )
 ```
+
+
 
 ## Spatial Coordinate (Reference) Systems
 
@@ -1851,11 +2038,14 @@ ggplot() +
   )
 ```
 
+
+
 ## Spatial Coordinate (Reference) Systems
 
 ```{r}
 #| label: coord-sf-bonne-ocean
 #| output-location: column
+#| message: false
 #| code-line-numbers: "1,2,3|6,7,8,9|19"
 oceans <- rnaturalearth::ne_download(
   category = "physical", type = "ocean", returnclass = "sf"
@@ -1878,33 +2068,131 @@ ggplot() +
   theme_void()
 ```
 
+
+
+## Spatial Coordinate (Reference) Systems
+
+```{r}
+#| label: coord-sf-bonne-ocean-aes
+#| output-location: column
+#| code-line-numbers: "8,15"
+ggplot() +
+  geom_sf(
+    data = oceans,
+    fill = "#d8f1f6"
+  ) +
+  geom_sf(
+    data = countries, 
+    aes(fill = economy),
+    color = "white",
+    size = .3
+  ) +
+  coord_sf(
+    crs = "+proj=bonne +lat_1=10"
+  ) +
+  scale_fill_viridis_d(option = "magma") +
+  theme_void() +
+  theme(legend.position = "top")
+```
+
+
+
 ## <b style='color:#663399;'>Recap</b>
 
 ::: recap
 ::: incremental
--   **`facet_*()`** functions allow to create small multiples
--   **`scale_*()`** functions translate between `aes`thetics and properties
--   use **`*_continuous()`** for numerical data
--   ... and **`*_discrete()`** for categorical data
--   use **`scale_color|fill_*()`** to customize data-related colors
--   **`coord_*()`** functions interpret the positional aesthetics
--   be careful when adjusting axis limits:
-    -   `scale_*_continuous(limits)` removes the data outside the range
-    -   `coord_*(*lim)` keeps the data and zooms into the range
--   `{ggplot2}` + `{sf}` are a powerful duo to create maps in R
+- **`facet_*()`** functions allow to create small multiples
+- **`scale_*()`** functions translate between `aes`thetics and properties
+- use **`*_continuous()`** for numerical data 
+- ... and **`*_discrete()`** for categorical data
+- use **`scale_color|fill_*()`** to customize data-related colors
+- **`coord_*()`** functions interpret the positional aesthetics
+- be careful when adjusting axis limits: 
+  - `scale_*_continuous(limits)` removes the data outside the range
+  - `coord_*(*lim)` keeps the data and zooms into the range
+- `{ggplot2}` + `{sf}` are a powerful duo to create maps in R
 :::
 :::
 
-## Your Turn!
+
+
+# Exercises
+
+
+
+## Exercise 1
 
 ::: question
-Open the script `03_concepts_pt2_ex1.Rmd`.
+
+-   Have a look at the following visualization of the cumulative time that cosmo- and astronauts have spent in outer space. The data also contains information on the year of their first and last travel, respectively.
+-   Together with your group, discuss which layers and modifications are needed to create such a chart with `{ggplot2}`.
+  -   Note down the aesthetics, geometries, and scales used for each element of this graphic.
+  -   What is the coordinate system? Have any adjustments been made?
+  -   Which theme was used and how was it modified?
 :::
 
-# Information
+```{r}
+#| label: countdown-ex1
+#| echo: false
+countdown::countdown(minutes = 10, font_size = ".5em")
+```
 
-## Your Turn!
+
+
+##  {background-image="img/exercises/astronaut-viz-detail-cividis.png" background-position="center" background-size="65%"}
+
+
+
+
+##  {background-image="img/exercises/exercise-what-now.png" background-position="center" background-size="65%"}
+
+
+
+## Exercise 2
 
 ::: question
-Explore the data set.
+-   Open the script `exercises/03_concepts_pt2_ex2.qmd`.
+-   Create a circular lollipop plot of reported bike shares per season. 
+  -   The data is not in the right format as there are no totals.<br>How can you solve it?
+  -   Remove all legend elements (with a single line of code).
+  -   How can you add the labels next to the starting point of each lollipop?
+  -   How could you add a baseline?
 :::
+
+```{r}
+#| label: countdown-ex2
+#| echo: false
+countdown::countdown(minutes = 30, font_size = ".5em")
+```
+
+
+
+##  {background-image="img/exercises/concepts-pt2-exercise-2-1-1.png" background-position="center" background-size="45%"}
+
+
+
+##  {background-image="img/exercises/concepts-pt2-exercise-2-2-1.png" background-position="center" background-size="45%"}
+
+
+
+##  {background-image="img/exercises/concepts-pt2-exercise-2-3-1.png" background-position="center" background-size="45%"}
+
+
+
+##  {background-image="img/exercises/concepts-pt2-exercise-2-4-1.png" background-position="center" background-size="45%"}
+
+
+
+##  {background-image="img/exercises/concepts-pt2-exercise-2-5-1.png" background-position="center" background-size="45%"}
+
+
+
+##  {background-image="img/exercises/concepts-pt2-exercise-2-6-1.png" background-position="center" background-size="45%"}
+
+
+
+##  {background-image="img/exercises/concepts-pt2-exercise-2-7-1.png" background-position="center" background-size="45%"}
+
+
+
+##  {background-image="img/exercises/exercise-what-now.png" background-position="center" background-size="65%"}

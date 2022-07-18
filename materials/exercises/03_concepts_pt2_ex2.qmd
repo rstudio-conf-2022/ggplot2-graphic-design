@@ -1,0 +1,42 @@
+---
+title: "Graphic Design with ggplot2"
+subtitle: "1. Concepts of the {ggplot2} Package Pt. 2"
+format: html
+execute:
+  message: false
+  warning: false
+editor: source
+---
+
+# Exercise 2
+
+- Create a circular lollipop plot of reported bike shares per season.
+    * The data is not in the right format as there are no totals.<br>How can you solve it?
+    * Remove all legend elements (with a single line of code).
+    * How can you add the labels next to the starting point of each lollipop?
+    * How could you add a baseline?
+
+## Data import
+
+```{r}
+#| label: preparation
+library(tidyverse)
+
+bikes <- read_csv(
+  "https://raw.githubusercontent.com/z3tt/graphic-design-ggplot2/main/data/london-bikes-custom.csv", 
+  col_types = "Dcfffilllddddc"
+)
+
+bikes$season <- fct_inorder(bikes$season)
+
+bikes
+```
+
+***Don't know where to start?*** In the folder `img/3-2-circular-lollipop` you'll find step-by-step charts.
+
+## Circular Lollipop
+
+```{r}
+#| label: plot
+
+```
