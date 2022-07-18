@@ -3,10 +3,6 @@ title: "Graphic Design with ggplot2"
 subtitle: "1. Concepts of the {ggplot2} Package Pt. 2"
 author: "Your Name"
 format: html
-execute:
-  message: false
-  warning: false
-editor: visual
 ---
 
 # Exercise 2
@@ -19,8 +15,7 @@ editor: visual
 
 ## Data import
 
-```{r}
-#| label: preparation
+```{r preparation}
 library(tidyverse)
 
 bikes <- read_csv(
@@ -37,7 +32,6 @@ bikes
 
 ## Circular Lollipop
 
-```{r}
-#| label: plot
+```{r plot}
 
 ```
