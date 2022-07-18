@@ -1,9 +1,11 @@
 /*-- scss:defaults --*/
 
-@import 'https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible&display=swap';
-
-$font-family: "Atkinson Hyperlegible", sans-serif;
-
+@font-face {
+      font-family: "Thrillers";
+      font-weight: 800;
+      src: url('fonts/ThrillersBlack.otf') format("opentype");
+  }
+  
 // Base document colors
 $body-bg: #181818;
 $body-color: white;

@@ -29,10 +29,10 @@ website:
     align: center
     right:
       - icon: github
-        href: https://github.com/rstudio-conf-2022/teach-ds
+        href: https://github.com/rstudio-conf-2022/ggplot2-graphic-design
         text: GitHub
       - icon: cloud-fill
-        href: https://rstudio.cloud/spaces/249609
+        href: https://rstudio.cloud/spaces/xxx
         text: RStudio Cloud+
     left:
      - href: index.qmd
