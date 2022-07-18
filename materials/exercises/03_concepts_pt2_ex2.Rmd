@@ -35,3 +35,11 @@ bikes
 ```{r plot}
 
 ```
+
+  
+  
+  
+  
+```{r i-am-done-what-now}
+knitr::include_graphics("img/exercise-what-now-sd.png")
+```

@@ -42,3 +42,12 @@ bikes
 #| label: plot
 
 ```
+
+  
+  
+  
+  
+```{r}
+#| label: i-am-done-what-now
+knitr::include_graphics("img/exercise-what-now-sd.png")
+```

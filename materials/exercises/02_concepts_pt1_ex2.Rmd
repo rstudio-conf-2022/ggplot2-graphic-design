@@ -35,7 +35,14 @@ bikes
 
 ## Boxplot of counts per weather type
 
-```{r}
-#| label: plot
+```{r plot}
 
+```
+
+  
+  
+  
+  
+```{r i-am-done-what-now}
+knitr::include_graphics("img/exercise-what-now-sd.png")
 ```

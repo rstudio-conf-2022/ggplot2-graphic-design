@@ -2139,8 +2139,13 @@ countdown::countdown(minutes = 10, font_size = ".5em")
 
 
 
-##  {background-image="img/exercises/astronaut-viz-detail-cividis.png" background-position="center" background-size="65%"}
+##  {background-image="img/exercises/astronaut-viz-detail.png" background-position="center" background-size="61%"}
 
+```{r}
+#| label: countdown-ex1-viz
+#| echo: false
+countdown::countdown(minutes = 10, font_size = ".5em")
+```
 
 
 
