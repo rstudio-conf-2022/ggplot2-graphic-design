@@ -1,0 +1,746 @@
+---
+title: "Graphic Design with ggplot2"
+subtitle: "<span style='font-size:1.75em;line-height:1.1;'>Working with Labels and Annotations:<br><span style='font-weight:500;'>Solution Exercise 1</span></span>"
+author: "<b style='color:#28a87d;'>Cédric Scherer</b> **//** rstudio::conf **//** July 2022"
+format: 
+  revealjs: 
+    theme: css/style.scss
+    footer: '**[Cédric Scherer](https::/cedricscherer.com) //** rstudio::conf **//** July 2022'
+    #'rstudio::conf(workshop = "Graphic Design with ggplot2", instructor = "Cédric Scherer")'
+    transition: fade
+    progress: true
+    multiplex: false
+    preview-links: true
+    scrollable: false
+    hide-inactive-cursor: true
+    highlight-style: printing
+    chalkboard:
+      theme: whiteboard
+      boardmarker-width: 4
+      buttons: true
+    pause: true
+    mainfont: Cabinet Grotesk
+editor: visual
+knitr:
+  opts_chunk: 
+    dev: "ragg_png"
+    retina: 1
+    dpi: 300
+execute:
+  freeze: auto
+  echo: true
+  fig-width: 5
+  fig-height: 6
+---
+
+
+## Exercise 1
+
+::: question
+- {ggtext} also comes with some new geom's. Explore those and other options on the package webpage: [wilkelab.rg/ggtext](https://wilkelab.org/ggtext/).
+- **Create the following visualization, as close as possible**, with the `penguins` dataset which is provided by the [{palmerpenguins} package](https://allisonhorst.github.io/palmerpenguins/).
+  - For the species labels, you likely have to create a summary data set.
+  - Use the {ggtext} geometries and theme elements to format the labels.
+  - Also, make use of the other components such as scales, original theme, and theme customization.
+:::
+
+
+------------------------------------------------------------------------
+
+
+```{r}
+#| label: exercise-text-styling
+#| fig-width: 6
+#| fig-height: 3.7
+#| fig-align: "center"
+#| echo: false
+#| purl: false
+library(tidyverse)
+library(palmerpenguins)
+
+penguins_labs <-
+  penguins %>% 
+  group_by(species) %>% 
+  summarize(across(starts_with("bill"), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(
+    species_lab = case_when(
+      species == "Adelie" ~ "<b style='font-size:15pt;'>*P. adéliae*</b><br>(Adélie penguin)",
+      species == "Chinstrap" ~ "<b style='font-size:15pt;'>*P. antarctica*</b><br>(Chinstrap penguin)",
+      species == "Gentoo" ~ "<b style='font-size:15pt;'>*P. papua*</b><br>(Gentoo penguin)"
+    )
+  )
+
+ggplot(
+    penguins, 
+    aes(x = bill_length_mm, y = bill_depth_mm, 
+        color = species, size = body_mass_g)
+  ) +
+  geom_point(alpha = .2, stroke = .3) +
+  geom_point(shape = 1, stroke = .3) +
+  ggtext::geom_richtext(
+    data = penguins_labs,
+    aes(label = species_lab, color = species, 
+        color = after_scale(prismatic::clr_darken(color, .4))),
+    family = "Roboto Condensed",
+    size = 3, lineheight = .8,
+    fill = "#ffffffab", ## hex-alpha code
+    show.legend = FALSE
+  ) +
+  coord_cartesian(
+    expand = FALSE,
+    clip = "off"
+  )  +
+  scale_x_continuous(
+    limits = c(30, 60),
+    breaks = 6:12*5
+  ) +
+  scale_y_continuous(
+    limits = c(12.5, 22.5),
+    breaks = seq(12.5, 22.5, by = 2.5)
+  ) +
+  scale_color_manual(
+    guide = "none",
+    values = c("#FF8C00", "#A034F0", "#159090")
+  ) +
+  scale_size(
+    name = "Body mass:",
+    breaks = 3:6 * 1000,
+    labels = function(x) paste(x / 1000, "kg"),
+    range = c(.25, 4.5)
+  ) +
+  labs(
+    x = "Bill length *(mm)*",
+    y = "Bill depth *(mm)*",
+    title = "Bill dimensions of brush-tailed penguins *Pygoscelis spec.*",
+    caption = "Horst AM, Hill AP, Gorman KB (2020). <span style='font-family:tabular;'>palmerpenguins</span> R package version 0.1.0"
+  ) +
+  theme_minimal(
+    base_size = 10, base_family = "Roboto Condensed"
+  ) +
+  theme(
+    plot.title = ggtext::element_markdown(
+      face = "bold", size = 16, margin = margin(12, 0, 12, 0)
+    ),
+    plot.title.position = "plot",
+    plot.caption = ggtext::element_markdown(
+      size = 7, color = "grey50",
+      margin = margin(12, 0, 6, 0)
+    ),
+    plot.caption.position = "plot",
+    axis.text = element_text(family = "Tabular"),
+    axis.title.x = ggtext::element_markdown(margin = margin(t = 8)),
+    axis.title.y = ggtext::element_markdown(margin = margin(r = 8)),
+    panel.grid.minor = element_blank(),
+    legend.text = element_text(color = "grey50"),
+    plot.margin = margin(0, 14, 0, 12),
+    plot.background = element_rect(fill = NA, color = "grey50", size = 1)
+  )
+```
+
+
+
+
+## The Data Set
+
+```{r}
+#| label: prep
+# install.packages("palmerpenguins")
+library(palmerpenguins)
+
+penguins
+```
+
+
+
+## Create a Labeled Bubble Chart
+
+```{r}
+#| label: annotations-exercise-1-1
+#| eval: false
+#| code-line-numbers: "1,2,3,4,5,6|7,8,9,10,11,12"
+ggplot(
+    penguins, 
+    aes(x = bill_length_mm, y = bill_depth_mm, 
+        color = species, size = body_mass_g)
+  ) +
+  geom_point(alpha = .2) +
+  labs(
+    x = "Bill length (mm)",
+    y = "Bill depth (mm)",
+    title = "Bill dimensions of brush-tailed penguins Pygoscelis spec.",
+    caption = "Horst AM, Hill AP, Gorman KB (2020). palmerpenguins R package version 0.1.0"
+  )
+```
+
+## A Labelled Bubble Plot
+
+```{r}
+#| label: annotations-exercise-1-1
+#| echo: false
+#| fig-width: 6
+#| fig-height: 3.7
+```
+
+
+
+## Add a Custom Theme
+
+```{r}
+#| label: annotations-exercise-1-2
+#| eval: false
+#| code-line-numbers: "13,14,15,16,17|13|14,15,16,17"
+ggplot(
+    penguins, 
+    aes(x = bill_length_mm, y = bill_depth_mm, 
+        color = species, size = body_mass_g)
+  ) +
+  geom_point(alpha = .2) +
+  labs(
+    x = "Bill length (mm)",
+    y = "Bill depth (mm)",
+    title = "Bill dimensions of brush-tailed penguins Pygoscelis spec.",
+    caption = "Horst AM, Hill AP, Gorman KB (2020). palmerpenguins R package version 0.1.0"
+  ) +
+  theme_minimal(base_size = 10, base_family = "Roboto Condensed") +
+  theme(
+    plot.title.position = "plot",
+    plot.caption.position = "plot",
+    panel.grid.minor = element_blank()
+  )
+```
+
+## Add a Custom Theme
+
+```{r}
+#| label: annotations-exercise-1-2
+#| echo: false
+#| fig-width: 6
+#| fig-height: 3.7
+```
+
+
+
+## Add an Outline
+
+```{r}
+#| label: annotations-exercise-1-3
+#| eval: false
+#| code-line-numbers: "8"
+p1 <- 
+  ggplot(
+    penguins, 
+    aes(x = bill_length_mm, y = bill_depth_mm, 
+        color = species, size = body_mass_g)
+  ) +
+  geom_point(alpha = .2, stroke = .3) +
+  geom_point(shape = 1, stroke = .3) +
+  labs(
+    x = "Bill length (mm)",
+    y = "Bill depth (mm)",
+    title = "Bill dimensions of brush-tailed penguins Pygoscelis spec.",
+    caption = "Horst AM, Hill AP, Gorman KB (2020). palmerpenguins R package version 0.1.0"
+  ) +
+  theme_minimal(base_size = 10, base_family = "Roboto Condensed") +
+  theme(
+    plot.title.position = "plot",
+    plot.caption.position = "plot",
+    panel.grid.minor = element_blank()
+  )
+
+p1
+```
+
+## Add an Outline
+
+```{r}
+#| label: annotations-exercise-1-3
+#| echo: false
+#| fig-width: 6
+#| fig-height: 3.7
+```
+
+
+
+## Style Color Legend
+
+```{r}
+#| label: annotations-exercise-1-4
+#| eval: false
+#| code-line-numbers: "2,3,4,5"
+p1 +
+  scale_color_manual(
+    name = "Species:",
+    values = c("#FF8C00", "#A034F0", "#159090")
+  )
+```
+
+## Style Color Legend
+
+```{r}
+#| label: annotations-exercise-1-4
+#| echo: false
+#| fig-width: 6
+#| fig-height: 3.7
+```
+
+
+
+## Style Size Legend
+
+```{r}
+#| label: annotations-exercise-1-5
+#| eval: false
+#| code-line-numbers: "13,14,15,16,17,18|13,17|16"
+p2 <- p1 +
+  scale_color_manual(
+    name = "Species:",
+    values = c("#FF8C00", "#A034F0", "#159090")
+  ) +
+  scale_size(
+    name = "Body mass:",
+    breaks = 3:6 * 1000,
+    labels = function(x) paste(x / 1000, "kg"),
+    range = c(.5, 5)
+  )
+
+p2
+```
+
+## Style Size Legend
+
+```{r}
+#| label: annotations-exercise-1-5
+#| echo: false
+#| fig-width: 6
+#| fig-height: 3.7
+```
+
+
+
+## Adjust Axes
+
+```{r}
+#| label: annotations-exercise-1-6
+#| eval: false
+#| code-line-numbers: "2,3,4,5,6,7,8,9,10,11"
+p2 +
+  scale_x_continuous(
+    limits = c(30, 60),
+    breaks = 6:12*5,
+    expand = c(0, 0)
+  ) +
+  scale_y_continuous(
+    limits = c(12.5, 22.5),
+    breaks = seq(12.5, 22.5, by = 2.5),
+    expand = c(0, 0)
+  ) 
+```
+
+## Adjust Axes
+
+```{r}
+#| label: annotations-exercise-1-6
+#| echo: false
+#| fig-width: 6
+#| fig-height: 3.7
+```
+
+
+
+## Adjust Axes
+
+```{r}
+#| label: annotations-exercise-1-7
+#| eval: false
+#| code-line-numbers: "2,3,4,5"
+p3 <- p2 +
+  coord_cartesian(
+    expand = FALSE,
+    clip = "off"
+  ) +
+  scale_x_continuous(
+    limits = c(30, 60),
+    breaks = 6:12*5
+  ) +
+  scale_y_continuous(
+    limits = c(12.5, 22.5),
+    breaks = seq(12.5, 22.5, by = 2.5)
+  )
+
+p3
+```
+
+## Adjust Axes
+
+```{r}
+#| label: annotations-exercise-1-7
+#| echo: false
+#| fig-width: 6
+#| fig-height: 3.7
+```
+
+
+
+## Fixed Coordinate System?
+
+```{r}
+#| label: annotations-exercise-1-7-fixed
+#| eval: false
+#| code-line-numbers: "2"
+p2 +
+  coord_fixed(
+    expand = FALSE,
+    clip = "off"
+  ) +
+  scale_x_continuous(
+    limits = c(30, 60),
+    breaks = 6:12*5
+  ) +
+  scale_y_continuous(
+    limits = c(12.5, 22.5),
+    breaks = seq(12.5, 22.5, by = 2.5)
+  )
+```
+
+## Fixed Coordinate System?
+
+```{r}
+#| label: annotations-exercise-1-7-fixed
+#| echo: false
+#| fig-width: 6
+#| fig-height: 3.7
+```
+
+
+
+## Format Labels with {ggtext}
+
+```{r}
+#| label: annotations-exercise-1-8
+#| eval: false
+#| code-line-numbers: "3,4,5,6"
+p3 +
+  labs(
+    x = "Bill length *(mm)*",
+    y = "Bill depth *(mm)*",
+    title = "Bill dimensions of brush-tailed penguins *Pygoscelis spec.*",
+    caption = "Horst AM, Hill AP, Gorman KB (2020). <span style='font-family:tabular;'>palmerpenguins</span> R package version 0.1.0"
+  ) 
+```
+
+## Format Labels with {ggtext}
+
+```{r}
+#| label: annotations-exercise-1-8
+#| echo: false
+#| fig-width: 6
+#| fig-height: 3.7
+```
+
+
+
+## Format Labels with {ggtext}
+
+```{r}
+#| label: annotations-exercise-1-9
+#| eval: false
+#| code-line-numbers: "1,11,13,14,16,17,18|12,15"
+library(ggtext)
+
+p4 <- p3 +
+  labs(
+    x = "Bill length *(mm)*",
+    y = "Bill depth *(mm)*",
+    title = "Bill dimensions of brush-tailed penguins *Pygoscelis spec.*",
+    caption = "Horst AM, Hill AP, Gorman KB (2020). <span style='font-family:tabular;'>palmerpenguins</span> R package version 0.1.0"
+  ) +
+  theme(
+    plot.title = element_markdown(
+      face = "bold", size = 16, margin = margin(12, 0, 12, 0)
+    ),
+    plot.caption = element_markdown(
+      size = 7, color = "grey50", margin = margin(12, 0, 6, 0)
+    ),
+    axis.title.x = element_markdown(margin = margin(t = 8)),
+    axis.title.y = element_markdown(margin = margin(r = 8))
+  )
+
+p4
+```
+
+## Format Labels with {ggtext}
+
+```{r}
+#| label: annotations-exercise-1-9
+#| echo: false
+#| fig-width: 6
+#| fig-height: 3.7
+```
+
+
+
+## Style Other Theme Elements
+
+```{r}
+#| label: annotations-exercise-1-10
+#| eval: false
+#| code-line-numbers: "2,3,4,5,6,7|3|4|5,6"
+p5 <- p4 + 
+  theme(
+    axis.text = element_text(family = "Tabular"),
+    legend.text = element_text(color = "grey50"),
+    plot.margin = margin(0, 14, 0, 12),
+    plot.background = element_rect(fill = NA, color = "grey50", size = 1)
+  )
+
+p5
+```
+
+
+## Style Other Theme Elements
+
+```{r}
+#| label: annotations-exercise-1-10
+#| echo: false
+#| fig-width: 6
+#| fig-height: 3.7
+```
+
+
+
+
+## Create the Summary Data
+
+```{r}
+#| label: summary-data
+#| code-line-numbers: "1,2,3,4,5,6,7,8,9,10,11,12,13|3|4,5|5,6|7,8,9,10,11,12,13|8|9"
+library(tidyverse)
+
+penguins_labs <-
+  penguins %>% 
+  group_by(species) %>% 
+  summarize(across(starts_with("bill"), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(
+    species_lab = case_when(
+      species == "Adelie" ~ "<b style='font-size:15pt;'>*P. adéliae*</b><br>(Adélie penguin)",
+      species == "Chinstrap" ~ "<b style='font-size:15pt;'>*P. antarctica*</b><br>(Chinstrap penguin)",
+      species == "Gentoo" ~ "<b style='font-size:15pt;'>*P. papua*</b><br>(Gentoo penguin)"
+    )
+  )
+
+penguins_labs
+```
+
+
+
+## Add Species Annotations
+
+```{r}
+#| label: annotations-exercise-1-11
+#| eval: false
+#| code-line-numbers: "2,3,4,5,6|3|4,5"
+p5 +
+  geom_richtext(
+    data = penguins_labs,
+    aes(label = species_lab),
+    color = "black", size = 3
+  )
+```
+
+## Add Species Annotations
+
+```{r}
+#| label: annotations-exercise-1-11
+#| echo: false
+#| fig-width: 6
+#| fig-height: 3.7
+```
+
+
+
+## Style Species Annotations
+
+```{r}
+#| label: annotations-exercise-1-12
+#| eval: false
+#| code-line-numbers: "6,7,8,9|6,7|8|9"
+p5 +
+  geom_richtext(
+    data = penguins_labs,
+    aes(label = species_lab),
+    color = "black", size = 3,
+    family = "Roboto Condensed",
+    lineheight = .8,
+    fill = "#ffffffab", ## hex-alpha code
+    show.legend = FALSE
+  )
+```
+
+## Style Species Annotations
+
+```{r}
+#| label: annotations-exercise-1-12
+#| echo: false
+#| fig-width: 6
+#| fig-height: 3.7
+```
+
+
+
+## Style Species Annotations
+
+```{r}
+#| label: annotations-exercise-1-13
+#| eval: false
+#| code-line-numbers: "5,6|6"
+p5 +
+  geom_richtext(
+    data = penguins_labs,
+    aes(label = species_lab, 
+        color = species, 
+        color = after_scale(prismatic::clr_darken(color, .4))),
+    family = "Roboto Condensed",
+    size = 3, lineheight = .8,
+    fill = "#ffffffab", 
+    show.legend = FALSE
+  )
+```
+
+## Style Species Annotations
+
+```{r}
+#| label: annotations-exercise-1-13
+#| echo: false
+#| fig-width: 6
+#| fig-height: 3.7
+```
+
+
+
+## ... and Remove Color Legend
+
+```{r}
+#| label: annotations-exercise-1-14
+#| eval: false
+#| code-line-numbers: "13"
+p5 +
+  geom_richtext(
+    data = penguins_labs,
+    aes(label = species_lab, 
+        color = species, 
+        color = after_scale(prismatic::clr_darken(color, .4))),
+    family = "Roboto Condensed",
+    size = 3, lineheight = .8,
+    fill = "#ffffffab", ## hex-alpha code
+    show.legend = FALSE
+  ) +
+  scale_color_manual(
+    guide = "none",
+    values = c("#FF8C00", "#A034F0", "#159090")
+  )
+```
+
+
+
+## ... and Remove Color Legend
+
+```{r}
+#| label: annotations-exercise-1-14
+#| echo: false
+#| fig-width: 6
+#| fig-height: 3.7
+```
+
+
+
+## Full Code
+
+```{r}
+#| label: annotations-exercise-full-code
+#| eval: false
+library(tidyverse)
+library(palmerpenguins)
+library(ggtext)
+
+penguins_labs <-
+  penguins %>% 
+  group_by(species) %>% 
+  summarize(across(starts_with("bill"), ~ mean(.x, na.rm = TRUE))) %>% 
+  mutate(
+    species_lab = case_when(
+      species == "Adelie" ~ "<b style='font-size:15pt;'>*P. adéliae*</b><br>(Adélie penguin)",
+      species == "Chinstrap" ~ "<b style='font-size:15pt;'>*P. antarctica*</b><br>(Chinstrap penguin)",
+      species == "Gentoo" ~ "<b style='font-size:15pt;'>*P. papua*</b><br>(Gentoo penguin)"
+    )
+  )
+
+ggplot(
+    penguins, 
+    aes(x = bill_length_mm, y = bill_depth_mm, 
+        color = species, size = body_mass_g)
+  ) +
+  geom_point(alpha = .2, stroke = .3) +
+  geom_point(shape = 1, stroke = .3) +
+  geom_richtext(
+    data = penguins_labs,
+    aes(label = species_lab, 
+        color = species, 
+        color = after_scale(prismatic::clr_darken(color, .4))),
+    family = "Roboto Condensed",
+    size = 3, lineheight = .8,
+    fill = "#ffffffab", ## hex-alpha code
+    show.legend = FALSE
+  ) +
+  coord_cartesian(
+    expand = FALSE,
+    clip = "off"
+  )  +
+  scale_x_continuous(
+    limits = c(30, 60),
+    breaks = 6:12*5
+  ) +
+  scale_y_continuous(
+    limits = c(12.5, 22.5),
+    breaks = seq(12.5, 22.5, by = 2.5)
+  ) +
+  scale_color_manual(
+    guide = "none",
+    values = c("#FF8C00", "#A034F0", "#159090")
+  ) +
+  scale_size(
+    name = "Body mass:",
+    breaks = 3:6 * 1000,
+    labels = function(x) paste(x / 1000, "kg"),
+    range = c(.25, 4.5)
+  ) +
+  labs(
+    x = "Bill length *(mm)*",
+    y = "Bill depth *(mm)*",
+    title = "Bill dimensions of brush-tailed penguins *Pygoscelis spec.*",
+    caption = "Horst AM, Hill AP, Gorman KB (2020). <span style='font-family:tabular;'>palmerpenguins</span> R package version 0.1.0"
+  ) +
+  theme_minimal(
+    base_size = 10, base_family = "Roboto Condensed"
+  ) +
+  theme(
+    plot.title = element_markdown(
+      face = "bold", size = 16, margin = margin(12, 0, 12, 0)
+    ),
+    plot.title.position = "plot",
+    plot.caption = element_markdown(
+      size = 7, color = "grey50",
+      margin = margin(12, 0, 6, 0)
+    ),
+    plot.caption.position = "plot",
+    axis.text = element_text(family = "Tabular"),
+    axis.title.x = element_markdown(margin = margin(t = 8)),
+    axis.title.y = element_markdown(margin = margin(r = 8)),
+    panel.grid.minor = element_blank(),
+    legend.text = element_text(color = "grey50"),
+    plot.margin = margin(0, 14, 0, 12),
+    plot.background = element_rect(fill = NA, color = "grey50", size = 1)
+  )
+```
+
+
+

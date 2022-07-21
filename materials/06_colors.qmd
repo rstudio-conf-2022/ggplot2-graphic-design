@@ -1,0 +1,1265 @@
+---
+title: "Graphic Design with ggplot2"
+subtitle: "<span style='font-size:1.75em;line-height:1.1;'>Working with Colors</span></span>"
+author: "<b style='color:#28a87d;'>Cédric Scherer</b> **//** rstudio::conf **//** July 2022"
+format: 
+  revealjs: 
+    theme: css/style.scss
+    footer: '**[Cédric Scherer](https::/cedricscherer.com) //** rstudio::conf **//** July 2022'
+    #'rstudio::conf(workshop = "Graphic Design with ggplot2", instructor = "Cédric Scherer")'
+    transition: fade
+    progress: true
+    multiplex: false
+    preview-links: true
+    scrollable: false
+    hide-inactive-cursor: true
+    highlight-style: printing
+    chalkboard:
+      theme: whiteboard
+      boardmarker-width: 4
+      buttons: true
+    pause: true
+    mainfont: Cabinet Grotesk
+editor: visual
+knitr:
+  opts_chunk: 
+    dev: "ragg_png"
+    retina: 1
+    dpi: 300
+execute:
+  freeze: auto
+  echo: true
+  fig-width: 5
+  fig-height: 6
+---
+
+
+## Setup
+
+```{r}
+#| label: prep
+library(tidyverse)
+
+bikes <- readr::read_csv(
+  "https://raw.githubusercontent.com/z3tt/graphic-design-ggplot2/main/data/london-bikes.csv", 
+  col_types = "Dcfffilllddddc"
+)
+
+#bikes$season <- factor(bikes$season, levels = c("spring", "summer", "autumn", "winter"))
+bikes$season <- forcats::fct_inorder(bikes$season)
+
+theme_set(theme_light(base_size = 14, base_family = "Roboto Condensed"))
+
+theme_update(
+  panel.grid.minor = element_blank(),
+  plot.title = element_text(face = "bold"),
+  legend.position = "top",
+  plot.title.position = "plot"
+)
+```
+
+
+
+# Color Palettes
+
+
+
+## Pre-Defined Color Palettes: Viridis
+
+```{r}
+#| label: color-palettes-viridis
+#| output-location: column
+#| code-line-numbers: "1,2,3,4,5,6|7,8,9,10"
+ggplot(
+    bikes, 
+    aes(x = day_night, y = count, 
+        fill = season)
+  ) +
+  geom_boxplot() +
+  scale_fill_viridis_d(
+    option = "plasma",
+    begin = .3
+  )
+```
+
+
+
+## Pre-Defined Color Palettes: Viridis
+
+```{r}
+#| label: color-palettes-viridis-month
+#| output-location: column
+#| code-line-numbers: "4"
+ggplot(
+    bikes, 
+    aes(x = day_night, y = count, 
+        fill = month)
+  ) +
+  geom_boxplot() +
+  scale_fill_viridis_d(
+    option = "plasma",
+    begin = .3
+  )
+```
+
+
+
+## Pre-Defined Color Palettes: Viridis
+
+```{r}
+#| label: color-palettes-viridis-cont
+#| output-location: column
+#| code-line-numbers: "3,4,7|7,9"
+ggplot(
+    bikes, 
+    aes(x = temp_feel, y = count, 
+        color = temp_feel)
+  ) +
+  geom_point() +
+  scale_color_viridis_c(
+    option = "plasma",
+    end = .9
+  )
+```
+
+
+
+## Pre-Defined Color Palettes: Viridis
+
+```{r}
+#| label: color-palettes-viridis-cont-rev
+#| output-location: column
+#| code-line-numbers: "10"
+ggplot(
+    bikes, 
+    aes(x = temp_feel, y = count, 
+        color = temp_feel)
+  ) +
+  geom_point() +
+  scale_color_viridis_c(
+    option = "plasma",
+    end = .9,
+    direction = -1
+  )
+```
+
+
+
+## Pre-Defined Color Palettes: Brewer
+
+```{r}
+#| label: color-palettes-brewer
+#| output-location: column
+#| code-line-numbers: "7,8,9"
+ggplot(
+    bikes, 
+    aes(x = day_night, y = count, 
+        fill = season)
+  ) +
+  geom_boxplot() +
+  scale_fill_brewer(
+    palette = "Set1"
+  )
+```
+
+
+
+## Pre-Defined Color Palettes: Brewer
+
+```{r}
+#| label: color-palettes-brewer-show-all
+#| fig-width: 12
+RColorBrewer::display.brewer.all()
+```
+
+
+
+## Pre-Defined Color Palettes: Brewer
+
+```{r}
+#| label: color-palettes-brewer-show-cvd
+#| fig-width: 12
+RColorBrewer::display.brewer.all(colorblindFriendly = TRUE)
+```
+
+
+
+## {rcartocolor}
+
+```{r}
+#| label: color-palettes-carto
+#| output-location: column
+#| code-line-numbers: "9,10,11"
+# install.packages("rcartocolor")
+
+ggplot(
+    bikes, 
+    aes(x = day_night, y = count, 
+        fill = season)
+  ) +
+  geom_boxplot() +
+  rcartocolor::scale_fill_carto_d(
+    name = "Vivid" 
+  )
+```
+
+
+
+## {rcartocolor}
+
+```{r}
+#| label: color-palettes-carto-show-all
+#| fig-width: 12
+rcartocolor::display_carto_all()
+```
+
+
+
+## {rcartocolor}
+
+```{r}
+#| label: color-palettes-carto-show-cvd
+#| fig-width: 12
+rcartocolor::display_carto_all(colorblind_friendly = TRUE)
+```
+
+
+
+## {scico}
+
+```{r}
+#| label: color-palettes-scico
+#| output-location: column
+#| code-line-numbers: "9,10,11"
+# install.packages("scico")
+
+ggplot(
+    bikes, 
+    aes(x = day_night, y = count, 
+        fill = season)
+  ) +
+  geom_boxplot() +
+  scico::scale_fill_scico_d(
+    palette = "hawaii"
+  )
+```
+
+
+
+## {scico}
+
+```{r}
+#| label: color-palettes-scico-show-all
+#| fig-width: 12
+scico::scico_palette_show()
+```
+
+
+
+## {ggsci} and {ggthemes}
+
+::: {layout-ncol="2"}
+```{r}
+#| label: color-palettes-ggsci
+#| fig-height: 3.5
+#| code-line-numbers: "7"
+# install.packages("ggsci")
+ggplot(
+    bikes, 
+    aes(x = day_night, y = count, 
+        fill = season)
+  ) +
+  geom_boxplot() +
+  ggsci::scale_fill_npg()
+```
+
+```{r}
+#| label: color-palettes-ggthemes
+#| fig-height: 3.5
+#| code-line-numbers: "7"
+# install.packages("ggthemes")
+ggplot(
+    bikes, 
+    aes(x = day_night, y = count, 
+        fill = season)
+  ) +
+  geom_boxplot() +
+  ggthemes::scale_fill_gdocs()
+```
+:::
+
+
+## {nord}
+
+```{r}
+#| label: color-palettes-nord
+#| output-location: column
+#| code-line-numbers: "9,10,11"
+# install.packages("nord")
+
+ggplot(
+    bikes, 
+    aes(x = day_night, y = count, 
+        fill = season)
+  ) +
+  geom_boxplot() +
+  nord::scale_fill_nord(
+    palette = "aurora"
+  )
+```
+
+
+
+## {nord}
+
+```{r}
+#| label: color-palettes-nord-cont
+#| output-location: column
+#| code-line-numbers: "9,10,11,12"
+# install.packages("nord")
+
+ggplot(
+    bikes, 
+    aes(x = temp_feel, y = count, 
+        color = temp_feel)
+  ) +
+  geom_point() +
+  nord::scale_color_nord(
+    palette = "silver_mine",
+    discrete = FALSE
+  )
+```
+
+
+
+## {MetBrewer}
+
+```{r}
+#| label: color-palettes-metbrewer
+#| output-location: column
+#| code-line-numbers: "9,10,11"
+# install.packages("MetBrewer")
+
+ggplot(
+    bikes, 
+    aes(x = day_night, y = count, 
+        fill = season)
+  ) +
+  geom_boxplot() +
+  MetBrewer::scale_fill_met_d(
+    name = "Klimt"
+  )
+```
+
+
+
+## {MetBrewer}
+
+```{r}
+#| label: color-palettes-metbrewer-show-all
+#| fig-width: 12
+MetBrewer::display_all()
+```
+
+
+
+## {MetBrewer}
+
+```{r}
+#| label: color-palettes-metbrewer-show-cvd
+#| fig-width: 12
+MetBrewer::display_all(colorblind_only = TRUE)
+```
+
+
+
+## {MetBrewer}
+
+```{r}
+#| label: color-palettes-metbrewer-cont
+#| output-location: column
+#| code-line-numbers: "9,10,11"
+# install.packages("MetBrewer")
+
+ggplot(
+    bikes, 
+    aes(x = temp_feel, y = count, 
+        color = temp_feel)
+  ) +
+  geom_point() +
+  MetBrewer::scale_color_met_c(
+    name = "Hiroshige" 
+  )
+```
+
+
+
+
+# Customize Palettes
+
+
+
+## Customize Existing Palettes
+
+```{r}
+#| label: color-palettes-carto-default
+#| output-location: column
+#| code-line-numbers: "9,10,11"
+library("rcartocolor")
+
+ggplot(
+    bikes, 
+    aes(x = day_night, y = count, 
+        fill = season)
+  ) +
+  geom_boxplot() +
+  rcartocolor::scale_fill_carto_d(
+    name = "Vivid" 
+  )
+```
+
+
+
+## Customize Existing Palettes
+
+```{r}
+#| label: color-palettes-carto-manual
+#| output-location: column
+#| code-line-numbers: "9,10,11,12,13"
+library("rcartocolor")
+
+ggplot(
+    bikes, 
+    aes(x = day_night, y = count, 
+        fill = season)
+  ) +
+  geom_boxplot() +
+  scale_fill_manual(
+    values = carto_pal(
+      name = "Vivid", n = 4
+    )
+  )
+```
+
+
+
+## Customize Existing Palettes
+
+```{r}
+#| label: color-palettes-carto-custom
+#| output-location: column
+#| code-line-numbers: "11,12"
+library("rcartocolor")
+
+ggplot(
+    bikes, 
+    aes(x = day_night, y = count, 
+        fill = season)
+  ) +
+  geom_boxplot() +
+  scale_fill_manual(
+    values = carto_pal(
+      name = "Vivid", n = 5
+    )[1:4]
+  )
+```
+
+
+
+## Customize Existing Palettes
+
+```{r}
+#| label: color-palettes-carto-custom-2
+#| output-location: column
+#| code-line-numbers: "12"
+library("rcartocolor")
+
+ggplot(
+    bikes, 
+    aes(x = day_night, y = count, 
+        fill = season)
+  ) +
+  geom_boxplot() +
+  scale_fill_manual(
+    values = carto_pal(
+      name = "Vivid", n = 6
+    )[c(1, 3:5)]
+  )
+```
+
+
+
+## Customize Existing Palettes
+
+```{r}
+#| label: color-palettes-carto-custom-3
+#| output-location: column
+#| code-line-numbers: "12"
+library("rcartocolor")
+
+ggplot(
+    bikes, 
+    aes(x = day_night, y = count, 
+        fill = season)
+  ) +
+  geom_boxplot() +
+  scale_fill_manual(
+    values = carto_pal(
+      name = "Vivid", n = 6
+    )[c(1, 3:5)]
+  )
+```
+
+
+
+## Customize Existing Palettes
+
+```{r}
+#| label: color-palettes-carto-custom-assign
+#| output-location: column
+#| code-line-numbers: "1,2,3,4|13"
+carto_custom <- 
+  carto_pal(
+    name = "Vivid", n = 6
+  )[c(1, 3:5)]
+
+ggplot(
+    bikes, 
+    aes(x = day_night, y = count, 
+        fill = season)
+  ) +
+  geom_boxplot() +
+  scale_fill_manual(
+    values = carto_custom
+  )
+```
+
+
+
+## Customize Existing Palettes
+
+```{r}
+#| label: color-palettes-carto-afterscale
+#| output-location: column
+#| code-line-numbers: "9,10,11,12|10|11|14,15,16"
+# install.packages("colorspace")
+library(colorspace)
+
+ggplot(
+    bikes, 
+    aes(x = day_night, y = count)
+  ) +
+  geom_boxplot(
+    aes(fill = season,
+        fill = after_scale(
+          lighten(fill, .8)
+        ))
+  ) +
+  scale_fill_manual(
+    values = carto_custom
+  )
+```
+
+
+
+## Customize Existing Palettes
+
+```{r}
+#| label: color-palettes-carto-afterscale-stage
+#| output-location: column
+#| code-line-numbers: "7,8,9,10,11"
+ggplot(
+    bikes, 
+    aes(x = day_night, y = count)
+  ) +
+  geom_boxplot(
+    aes(
+      fill = stage(
+        season,
+        after_scale =
+          lighten(fill, .8)
+      )
+    )
+  ) +
+  scale_fill_manual(
+    values = carto_custom
+  )
+```
+
+
+
+## Customize Existing Palettes
+
+```{r}
+#| label: color-palettes-carto-afterscale-2
+#| output-location: column
+#| code-line-numbers: "6|7,8,9|11"
+ggplot(
+    bikes, 
+    aes(x = day_night, y = count)
+  ) +
+  geom_boxplot(
+    aes(color = season,
+        fill = after_scale(
+          lighten(color, .8)
+        ))
+  ) +
+  scale_color_manual(
+    values = carto_custom
+  )
+```
+
+
+
+## Customize Existing Palettes
+
+```{r}
+#| label: color-palettes-carto-afterscale-combined
+#| output-location: column
+#| code-line-numbers: "11,12,13,14,15,16,17,18|13,14,15,16"
+ggplot(
+    bikes, 
+    aes(x = day_night, y = count)
+  ) +
+  geom_boxplot(
+    aes(color = season,
+        fill = after_scale(
+          lighten(color, .8)
+        ))
+  ) +
+  geom_jitter(
+    aes(color = season), 
+    position = position_jitterdodge(
+      dodge.width = .75, 
+      jitter.width = .2
+    ),
+    alpha = .4
+  ) +
+  scale_color_manual(
+    values = carto_custom
+  )
+```
+
+
+
+## Customize Existing Palettes
+
+```{r}
+#| label: color-palettes-carto-afterscale-combined-2
+#| output-location: column
+#| code-line-numbers: "13,14,15"
+ggplot(
+    bikes, 
+    aes(x = day_night, y = count)
+  ) +
+  geom_boxplot(
+    aes(color = season,
+        fill = after_scale(
+          lighten(color, .8)
+        ))
+  ) +
+  geom_jitter(
+    aes(color = season,
+        color = after_scale(
+          darken(color, .3)
+        )), 
+    position = position_jitterdodge(
+      dodge.width = .75, 
+      jitter.width = .2
+    ),
+    alpha = .4
+  ) +
+  scale_color_manual(
+    values = carto_custom
+  )
+```
+
+
+## Customize Existing Palettes
+
+```{r}
+#| label: color-palettes-carto-afterscale-combined-3
+#| output-location: column
+#| code-line-numbers: "13,14,15"
+ggplot(
+    bikes, 
+    aes(x = day_night, y = count)
+  ) +
+  geom_boxplot(
+    aes(color = season,
+        fill = after_scale(
+          lighten(color, .8)
+        ))
+  ) +
+  geom_jitter(
+    aes(color = season,
+        color = after_scale(
+          darken(color, .3)
+        )), 
+    position = position_jitterdodge(
+      dodge.width = .75, 
+      jitter.width = .2
+    ),
+    alpha = .4
+  ) +
+  scale_color_manual(
+    values = carto_custom
+  )
+```
+
+
+
+# Create New Palettes
+
+
+
+## Create Sequential Palettes
+
+```{r}
+#| label: color-palettes-gradient
+#| output-location: column
+#| code-line-numbers: "7,10|8,9"
+ggplot(
+    bikes, 
+    aes(x = temp_feel, y = count, 
+        color = temp_feel)
+  ) +
+  geom_point() +
+  scale_color_gradient(
+    low = "#28A87D",
+    high = "#FFD166"
+  )
+```
+
+
+
+## Create Diverging Palettes
+
+```{r}
+#| label: color-palettes-gradient2
+#| output-location: column
+#| code-line-numbers: "7,11|8,9,10"
+ggplot(
+    bikes, 
+    aes(x = temp_feel, y = count, 
+        color = temp_feel)
+  ) +
+  geom_point() +
+  scale_color_gradient2(
+    low = "#663399",
+    high = "#993334",
+    mid = "grey95"
+  )
+```
+
+
+
+## Create Diverging Palettes
+
+```{r}
+#| label: color-palettes-gradient2-midpoint
+#| output-location: column
+#| code-line-numbers: "11"
+ggplot(
+    bikes, 
+    aes(x = temp_feel, y = count, 
+        color = temp_feel)
+  ) +
+  geom_point() +
+  scale_color_gradient2(
+    low = "#663399",
+    high = "#993334",
+    mid = "grey92",
+    midpoint = 10    
+  )
+```
+
+
+
+## Create Diverging Palettes
+
+```{r}
+#| label: color-palettes-gradient2-midpoint-limits
+#| output-location: column
+#| code-line-numbers: "12"
+ggplot(
+    bikes, 
+    aes(x = temp_feel, y = count, 
+        color = temp_feel)
+  ) +
+  geom_point() +
+  scale_color_gradient2(
+    low = "#663399",
+    high = "#993334",
+    mid = "grey92",
+    midpoint = 10,
+    limits = c(-10, 30)   
+  )
+```
+
+
+
+## Create Any Palette
+
+```{r}
+#| label: color-palettes-gradientn
+#| output-location: column
+#| code-line-numbers: "7,8,9"
+ggplot(
+    bikes, 
+    aes(x = temp_feel, y = count, 
+        color = temp_feel)
+  ) +
+  geom_point() +
+  scale_color_gradientn(
+    colors = carto_custom  
+  )
+```
+
+
+
+## Create Any Palette
+
+```{r}
+#| label: color-palettes-gradientn-weight
+#| output-location: column
+#| code-line-numbers: "10"
+ggplot(
+    bikes, 
+    aes(x = temp_feel, y = count, 
+        color = temp_feel)
+  ) +
+  geom_point() +
+  scale_color_gradientn(
+    colors = carto_custom,
+    values = c(0, .2, .8, 1)
+  )
+```
+
+
+
+# Build Your Own<br>`scale_color|fill_custom()`
+
+
+
+##  {background-image="img/colors/dubois-colors.png" background-position="center" background-size="92%" background-alt="“Black Lives 1900: W. E. B. Du Bois at the Paris Exposition” reprints some of the striking photographs and graphics that Du Bois and his curators commissioned for the World’s Fair, here the colorful stacked bar chart on income and expenditure of 150 negro families in Atlanta."}
+
+
+
+## Build Your Own `scale_color|fill_*()`
+
+```{r}
+#| label: dubois-colors-function
+#| code-line-numbers: "1,18|2,3,4,5,6,7,8,9,10,11|13,14,15,16,17|20,21"
+dubois_colors <- function(...) {
+  dubois_cols <- c(
+    `black`    = "#000000",
+    `purple`   = "#582f6c",
+    `violet`   = "#94679C",
+    `pink`     = "#ef849f",
+    `softred`  = "#f4b7a7",
+    `iceblue`  = "#bccbf3",
+    `palegrey` = "#e4e4e4"
+  )
+
+  cols <- c(...)
+
+  if (is.null(cols))
+    return (dubois_cols)
+
+  dubois_cols[cols]
+}
+
+dubois_colors(1:3)
+dubois_colors("black", "purple", "violet", "palered")
+```
+
+
+
+## Build Your Own `scale_color|fill_*_d()`
+
+```{r}
+#| label: dubois-colors-pal-d-function
+#| code-line-numbers: "1,2,12,13|3|5,6,7,8|9|11|13"
+dubois_pal_d <- function(palette = "default", reverse = FALSE) {
+  function(n) {
+    if(n > 5) stop('Palettes only contains 5 colors')
+
+    if (palette == "default") { pal <- dubois_colors("black", "violet", "softred", "iceblue", "palegrey")[1:n] }
+    if (palette == "dark") { pal <- dubois_colors(1:5)[1:n] }
+    if (palette == "light") { pal <- dubois_colors(3:7)[1:n] }
+    
+    pal <- unname(pal)
+
+    if (reverse) rev(pal) else pal
+  }
+}
+
+dubois_pal_d()(3)
+```
+
+
+
+## Build Your Own `scale_fill|color_*_d()`
+
+```{r}
+#| label: dubois-scale-discrete-functions
+#| code-line-numbers: "1,2,3,4,5,6,7|9,10,11,12,13,14,15|2,10|4,12|6,14"
+scale_color_dubois_d <- function(palette = "default", reverse = FALSE, ...) {
+  if (!palette %in% c("default", "dark", "light")) stop('Palette should be "default", "dark" or "light".')
+
+  pal <- dubois_pal_d(palette = palette, reverse = reverse)
+
+  ggplot2::discrete_scale("colour", paste0("dubois_", palette), palette = pal, ...)
+}
+
+scale_fill_dubois_d <- function(palette = "default", reverse = FALSE, ...) {
+  if (!palette %in% c("default", "dark", "light")) stop('Palette should be "default", "dark" or "light".')
+
+  pal <- dubois_pal_d(palette = palette, reverse = reverse)
+
+  ggplot2::discrete_scale("fill", paste0("dubois_", palette), palette = pal, ...)
+}
+```
+
+
+
+## Use Your Own `scale_fill_*_d()`
+
+```{r}
+#| label: dubois-scales-fill-d-use
+#| output-location: column
+#| code-line-numbers: "4,7"
+ggplot(
+    bikes, 
+    aes(x = day_night, y = count, 
+        fill = season)
+  ) +
+  geom_boxplot() +
+  scale_fill_dubois_d()
+```
+
+
+
+## Use Your Own `scale_color_*_d()`
+
+```{r}
+#| label: dubois-scales-color-d-use
+#| output-location: column
+#| code-line-numbers: "4,7,8,9,10"
+ggplot(
+    bikes, 
+    aes(x = day_night, y = count, 
+        color = season)
+  ) +
+  geom_boxplot() +
+  scale_color_dubois_d(
+    palette = "dark",
+    reverse = TRUE
+  )
+```
+
+
+
+# Appendix
+
+
+
+## Build Your Own `scale_color|fill_*_c()`
+
+```{r}
+#| label: dubois-colors-pal-c-function
+#| code-line-numbers: "1,13|2,3,4,5|7,8|10|12|15,16"
+dubois_pal_c <- function(palette = "dark", reverse = FALSE, ...) {
+  dubois_palettes <- list(
+    `dark`    = dubois_colors("black", "purple", "violet", "pink"),
+    `light`   = dubois_colors("purple", "violet", "pink", "palered")
+  )
+
+  pal <- dubois_palettes[[palette]]
+  pal <- unname(pal)
+
+  if (reverse) pal <- rev(pal)
+
+  grDevices::colorRampPalette(pal, ...)
+}
+
+dubois_pal_c()(3)
+dubois_pal_c(palette = "light", reverse = TRUE)(3)
+```
+
+
+
+## Build Your Own `scale_color|fill_*_c()`
+
+```{r}
+#| label: dubois-scale-continuous-functions
+#| code-line-numbers: "1,2,3,4,5,6,7|9,10,11,12,13,14,15|2,10|4,12|6,14|"
+scale_fill_dubois_c <- function(palette = "dark", reverse = FALSE, ...) {
+  if (!palette %in% c("dark", "light")) stop('Palette should be "dark" or "light".')
+
+  pal <- dubois_pal_c(palette = palette, reverse = reverse)
+
+  ggplot2::scale_fill_gradientn(colours = pal(256), ...)
+}
+
+scale_color_dubois_c <- function(palette = "dark", reverse = FALSE, ...) {
+  if (!palette %in% c("dark", "light")) stop('Palette should be "dark" or "light".')
+
+  pal <- dubois_pal_c(palette = palette, reverse = reverse)
+
+  ggplot2::scale_color_gradientn(colours = pal(256), ...)
+}
+```
+
+
+
+## Use Your Own `scale_color|fill_*_c()`
+
+```{r}
+#| label: dubois-scales-color-c-use-1
+#| output-location: column
+#| code-line-numbers: "3,4,7|7,9"
+ggplot(
+    bikes, 
+    aes(x = temp_feel, y = count, 
+        color = temp_feel)
+  ) +
+  geom_point() +
+  scale_color_dubois_c()
+```
+
+
+
+## Use Your Own `scale_color|fill_*_c()`
+
+```{r}
+#| label: dubois-scales-color-c-use-2
+#| output-location: column
+#| code-line-numbers: "3,4,7|7,9"
+ggplot(
+    bikes, 
+    aes(x = temp_feel, y = count, 
+        color = temp_feel)
+  ) +
+  geom_point() +
+  scale_color_dubois_c(
+    palette = "light",
+    reverse = TRUE
+  )
+```
+
+
+
+# HCL Spectrum
+
+
+
+## Evaluate HCL Spectrum
+```{r}
+#| label: color-palettes-colorspace-spec-explain
+#| output-location: column
+colorspace::specplot(
+  colorspace::diverging_hcl(
+    n = 100, palette = "Blue-Red"
+  )
+)
+```
+
+
+
+## Evaluate HCL Spectrum
+
+::: {layout-ncol=2}
+```{r}
+#| label: color-palettes-scico-spec
+#| fig-height: 3.8
+colorspace::specplot(
+  scico::scico(
+    n = 100, palette = "hawaii"
+  )
+)
+```
+
+```{r}
+#| label: color-palettes-metbrewer-spec
+#| fig-height: 3.8
+colorspace::specplot(
+  MetBrewer::met.brewer(
+     n = 100, name = "Hiroshige"
+  )
+)
+```
+:::
+
+
+
+## Evaluate HCL Spectrum
+
+::: {layout-ncol=2}
+```{r}
+#| label: color-palettes-carto-spec
+#| fig-height: 3.8
+colorspace::specplot(
+  rcartocolor::carto_pal(
+    n = 7, name = "TealRose"
+  )
+)
+```
+
+```{r}
+#| label: color-palettes-metbrewer-spec-2
+#| fig-height: 3.8
+colorspace::specplot(
+  MetBrewer::met.brewer(
+     n = 100, name = "Cassatt2"
+  )
+)
+```
+:::
+
+
+
+## Evaluate HCL Spectrum
+
+::: {layout-ncol=2}
+```{r}
+#| label: color-palettes-rainbow-spec
+#| fig-height: 3.8
+colorspace::specplot(
+  rainbow(
+    n = 100
+  )
+)
+```
+
+```{r}
+#| label: color-palette-viridis-spec
+#| fig-height: 3.8
+colorspace::specplot(
+  viridis::turbo(
+     n = 100, direction = -1
+  )
+)
+```
+:::
+
+
+
+# Test Your Palettes
+
+
+
+## Emulate CVD
+
+```{r}
+#| label: cvd-emulation-deutan
+#| output-location: column
+#| code-line-numbers: "1,2,3,4,5,6|14,15,16"
+deut <- 
+  colorspace::deutan(
+    viridis::turbo(
+      n = 100, direction = -1
+    )
+  )
+
+ggplot(
+    bikes, 
+    aes(x = temp_feel, y = count,
+        color = temp_feel)
+  ) +
+  geom_point() +
+  scale_color_gradientn(
+    colors = deut
+  )
+```
+
+
+
+## Emulate CVD
+
+```{r}
+#| label: cvd-emulation-all-prep
+#| output-location: column
+g <- 
+  ggplot(
+    bikes, 
+    aes(x = day_night, y = count, 
+        fill = season)
+  ) +
+  geom_boxplot() +
+  scale_fill_manual(
+    values = carto_custom
+  )
+
+g
+```
+
+
+
+## Emulate CVD
+
+```{r}
+#| label: cvd-emulation-all
+#| output-location: column
+# devtools::install_github("clauswilke/colorblindr")
+
+colorblindr::cvd_grid(g)
+```
+
+
+
+## Emulate CVD
+
+```{r}
+#| label: cvd-emulation-all-2-prep
+#| include: false
+g2 <- 
+  ggplot(
+    bikes, 
+    aes(x = temp_feel, y = count, 
+        color = season)
+  ) +
+  geom_point(size = 2, alpha = .75) +
+  scale_color_manual(
+    values = carto_custom
+  )
+```
+
+
+
+## Emulate CVD
+
+```{r}
+#| label: cvd-emulation-all-2
+#| fig-width: 14
+# devtools::install_github("clauswilke/colorblindr")
+
+colorblindr::cvd_grid(g2)
+```
+
+
+
+## Emulate CVD
+
+```{r}
+#| label: cvd-emulation-all-3-prep
+#| output-location: column
+g3 <- 
+  g2 +
+  scale_color_manual(
+    values = c("#3c89d9", "#1ec99b", "#F7B01B", "#a26e7c")
+  )
+```
+
+
+
+## Emulate CVD
+
+```{r}
+#| label: cvd-emulation-all-3
+#| fig-width: 14
+# devtools::install_github("clauswilke/colorblindr")
+
+colorblindr::cvd_grid(g3)
+```

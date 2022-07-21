@@ -30,10 +30,10 @@ execute:
   freeze: auto
   echo: true
   fig-width: 5
-  fig-height: 6.05
+  fig-height: 6
 ---
 
-## Your Turn!
+## Exercise 1
 
 ::: question
 -   Have a look at the following visualization of the cumulative time that cosmo- and astronauts have spent in outer space. The data also contains information on the year of their first and last travel, respectively.

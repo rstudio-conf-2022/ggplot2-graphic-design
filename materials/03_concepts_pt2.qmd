@@ -1,6 +1,6 @@
 ---
 title: "Graphic Design with ggplot2"
-subtitle: "<span style='font-size:1.75em;line-height:1.1;'>Concepts of the <code>{ggplot2}</code> Package Pt. 2:<br><span style='font-weight:500;'>Facets, Scales, and Coordinate System</span></span>"
+subtitle: "<span style='font-size:1.75em;line-height:1.1;'>Concepts of the <code>{ggplot2}</code> Package Pt. 2:<br><span style='font-weight:500;'>Facets, Scales, and Coordinate Systems</span></span>"
 author: "<b style='color:#28a87d;'>Cédric Scherer</b> **//** rstudio::conf **//** July 2022"
 format: 
   revealjs: 
@@ -30,7 +30,7 @@ execute:
   freeze: auto
   echo: true
   fig-width: 5
-  fig-height: 6.05
+  fig-height: 6
 ---
 
 
@@ -410,7 +410,7 @@ ggplot(diamonds, aes(x = carat, y = price)) +
 
 
 
-## Quick Exercise
+## Your Turn!
 
 ::: question
 <b style="color:#5DB699;">Bonus: Create this bloody-dark version.</b>
@@ -1181,7 +1181,7 @@ g <- ggplot(
   geom_point() +
   scale_color_discrete(
     name = "Season:",
-    type = c("#69b0d4", "#00CB79", "#F7B01B", "#a78f5f")
+    type = c("#3ca7d9", "#1ec99b", "#F7B01B", "#bb7e8f")
   )
 
 gb <- ggplot_build(g)
@@ -1198,10 +1198,10 @@ gb$data[[1]][1:10,]
 #| output-location: column
 #| code-line-numbers: "1,2,3,4,5,6|1,16"
 my_colors <- c(
-  `winter` = "#69b0d4", 
-  `spring` = "#00CB79", 
+  `winter` = "#3c89d9", 
+  `spring` = "#1ec99b", 
   `summer` = "#F7B01B", 
-  `autumn` = "#a78f5f"
+  `autumn` = "#a26e7c"
 )
 
 ggplot(
@@ -1225,10 +1225,10 @@ ggplot(
 #| output-location: column
 #| code-line-numbers: "2,5|1,16"
 my_colors_alphabetical <- c(
-  `autumn` = "#a78f5f", 
-  `spring` = "#00CB79", 
+  `autumn` = "#a26e7c", 
+  `spring` = "#1ec99b", 
   `summer` = "#F7B01B", 
-  `winter` = "#69b0d4"
+  `winter` = "#3c89d9"
 )
 
 ggplot(
@@ -2070,20 +2070,56 @@ ggplot() +
 
 
 
-## Spatial Coordinate (Reference) Systems
+## Mapping of Visual Properties
 
 ```{r}
 #| label: coord-sf-bonne-ocean-aes
 #| output-location: column
-#| code-line-numbers: "8,15"
+#| code-line-numbers: "5,9,16"
 ggplot() +
   geom_sf(
     data = oceans,
-    fill = "#d8f1f6"
+    fill = "#d8f1f6",
+    color = "white"
   ) +
   geom_sf(
     data = countries, 
     aes(fill = economy),
+    color = "white",
+    size = .3
+  ) +
+  coord_sf(
+    crs = "+proj=bonne +lat_1=10"
+  ) +
+  scale_fill_viridis_d(option = "magma") +
+  theme_void() +
+  theme(legend.position = "top")
+```
+
+
+
+## Better Borders
+
+```{r}
+#| label: coord-sf-bonne-ocean-inner
+#| output-location: column
+#| code-line-numbers: "1,10,12,13,14,15,16,17"
+borders <- rmapshaper::ms_innerlines(countries)
+
+ggplot() +
+  geom_sf(
+    data = oceans,
+    fill = "#d8f1f6",
+    color = "white"
+  ) +
+  geom_sf(
+    data = countries, 
+    aes(fill = economy),
+    color = "transparent"
+  ) +
+  geom_sf(
+    data = borders, 
+    fill = "transparent",
     color = "white",
     size = .3
   ) +

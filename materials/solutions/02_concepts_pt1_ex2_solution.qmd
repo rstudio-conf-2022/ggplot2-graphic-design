@@ -1,6 +1,6 @@
 ---
 title: "Graphic Design with ggplot2"
-subtitle: "<span style='font-size:1.75em;line-height:1.1;'>Concepts of the <code>{ggplot2}</code> Package Pt. 1:<br><span style='font-weight:500;'>Solution Exercise 1</span></span>"
+subtitle: "<span style='font-size:1.75em;line-height:1.1;'>Concepts of the <code>{ggplot2}</code> Package Pt. 1:<br><span style='font-weight:500;'>Solution Exercise 2</span></span>"
 author: "<b style='color:#28a87d;'>Cédric Scherer</b> **//** rstudio::conf **//** July 2022"
 format: 
   revealjs: 
@@ -30,14 +30,11 @@ execute:
   freeze: auto
   echo: true
   fig-width: 5
-  fig-height: 6.05
+  fig-height: 6
 ---
 
 
-# Exercise 2
-
-
-## Your Turn!
+## Exercise 2
 
 ::: question
 * Explore the TfL bike sharing data visually:<br>**create a boxplot of counts per weather type**
@@ -246,7 +243,7 @@ ggplot(
 #| code-line-numbers: "6,7,9"
 ggplot(
     bikes, 
-    aes(x = stringr::str_wrap(weather_type, 6), 
+    aes(x = str_wrap(weather_type, 6), 
         y = count)
   ) +
   geom_point(
@@ -255,14 +252,13 @@ ggplot(
   )
 ```
 
-::: fragment
 ```{r}
 #| label: concepts-pt1-exercise-2-11
 #| fig-height: 2.9
 #| code-line-numbers: "6,7,9"
 ggplot(
     bikes, 
-    aes(x = stringr::str_wrap(weather_type, 6), 
+    aes(x = str_wrap(weather_type, 6), 
         y = count)
   ) +
   geom_point(
@@ -270,7 +266,6 @@ ggplot(
     alpha = .2
   ) 
 ```
-:::
 :::
 
 
@@ -283,7 +278,7 @@ ggplot(
 #| code-line-numbers: "7,8,9,10,11"
 ggplot(
     bikes, 
-    aes(x = stringr::str_wrap(weather_type, 6), 
+    aes(x = str_wrap(weather_type, 6), 
         y = count)
   ) +
   geom_point(
@@ -307,7 +302,7 @@ ggplot(
 #| code-line-numbers: "6"
 ggplot(
     bikes, 
-    aes(x = stringr::str_wrap(weather_type, 6), 
+    aes(x = str_wrap(weather_type, 6), 
         y = count)
   ) +
   geom_boxplot() +
@@ -332,7 +327,7 @@ ggplot(
 #| code-line-numbers: "7,8,9"
 ggplot(
     bikes, 
-    aes(x = stringr::str_wrap(weather_type, 6), 
+    aes(x = str_wrap(weather_type, 6), 
         y = count)
   ) +
   geom_boxplot(
@@ -363,7 +358,7 @@ ggplot(
     bikes, 
     aes(
       x = forcats::fct_reorder(
-        stringr::str_wrap(weather_type, 6), -count
+        str_wrap(weather_type, 6), -count
       ), 
       y = count)
   ) +
@@ -401,6 +396,9 @@ ggsave(here::here("exercises", "plots", "02_concepts_pt1_ex2.png"),
 ```
 
 ![](plots/02_concepts_pt1_ex2.png){fig-align="center" fig-alt="The final plot with an aspect ratio of 5 x 7 inches."}
+
+:::footer
+:::
 
 
 

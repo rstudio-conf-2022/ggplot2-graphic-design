@@ -30,7 +30,7 @@ execute:
   freeze: auto
   echo: true
   fig-width: 5
-  fig-height: 6.05
+  fig-height: 6
 ---
 
 # Setup
@@ -442,7 +442,7 @@ ggplot(
 
 
 
-## Quick Exercise
+## Your Turn!
 
 ::: question
 - **Create a scatter plot of `temp_feel` vs `temp`.**
@@ -453,7 +453,7 @@ ggplot(
 :::
 
 ```{r}
-#| label: countdown-quick-exercise-aes
+#| label: countdown-exercise-aes
 #| echo: false
 #| purl: false
 countdown::countdown(minutes = 5, font_size = ".5em")

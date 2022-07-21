@@ -1,6 +1,6 @@
 ---
 title: "Graphic Design with ggplot2"
-subtitle: "<span style='font-size:1.75em;'>How to Create Engaging and Complex Visualizations in R</span>"
+subtitle: "<span style='font-size:2.35em;'>How to Create Engaging and<br>Complex Visualizations in R</span>"
 author: "<b style='color:#28a87d;'>Cédric Scherer</b> **//** rstudio::conf **//** July 2022"
 format: 
   revealjs: 
@@ -30,7 +30,7 @@ execute:
   freeze: auto
   echo: true
   fig-width: 5
-  fig-height: 6.05
+  fig-height: 6
 ---
 
 # Welcome!
@@ -82,7 +82,7 @@ execute:
 ##  {background-image="img/intro/team-5.png" background-position="center" background-size="75%"}
 
 
-##  {background-image="img/portfolio/marco_germany_heating_up.png" background-position="center" background-size="36%"}
+##  {background-image="img/portfolio/marco_germany_heating_up.png" background-position="center" background-size="38%"}
 
 
 ##  {background-image="img/intro/team.png" background-position="center" background-size="75%"}
@@ -340,7 +340,7 @@ ggplot(bikes, aes(temp_feel, count)) +
   ## colored, semi-transparent points  
   geom_point(
     aes(color = season), 
-    size = 2.2, alpha = .4
+    size = 2.2, alpha = .55
   ) 
 ```
 
@@ -365,7 +365,7 @@ ggplot(bikes, aes(temp_feel, count)) +
 ggplot(bikes, aes(temp_feel, count)) +
   geom_point(
     aes(color = season), 
-    size = 2.2, alpha = .4
+    size = 2.2, alpha = .55
   ) + 
   ## add a linear fitting for each time of the day
   geom_smooth(
@@ -395,7 +395,7 @@ ggplot(bikes, aes(temp_feel, count)) +
 ggplot(bikes, aes(temp_feel, count)) +
   geom_point(
     aes(color = season), 
-    size = 2.2, alpha = .4
+    size = 2.2, alpha = .55
   ) + 
   geom_smooth(
     aes(group = day_night), 
@@ -426,7 +426,7 @@ ggplot(bikes, aes(temp_feel, count)) +
 ggplot(bikes, aes(temp_feel, count)) +
   geom_point(
     aes(color = season), 
-    size = 2.2, alpha = .4
+    size = 2.2, alpha = .55
   ) + 
   geom_smooth(
     aes(group = day_night), 
@@ -460,7 +460,7 @@ ggplot(bikes, aes(temp_feel, count)) +
 ggplot(bikes, aes(temp_feel, count)) +
   geom_point(
     aes(color = season), 
-    size = 2.2, alpha = .4
+    size = 2.2, alpha = .55
   ) + 
   geom_smooth(
     aes(group = day_night), 
@@ -500,7 +500,7 @@ ggplot(bikes, aes(temp_feel, count)) +
 ggplot(bikes, aes(temp_feel, count)) +
   geom_point(
     aes(color = season), 
-    size = 2.2, alpha = .4
+    size = 2.2, alpha = .55
   ) + 
   geom_smooth(
     aes(group = day_night), 
@@ -512,7 +512,7 @@ ggplot(bikes, aes(temp_feel, count)) +
   ) +
   ## add custom colors + legend styling
   scale_color_manual(
-    values = c("#00CB79","#F7B01B","#a78f5f","#69b0d4"), name = "Season:",
+    values = c("#3c89d9", "#1ec99b", "#F7B01B", "#a26e7c"), name = "Season:",
     guide = guide_legend(override.aes = list(size = 5))
   ) +
   labs(
@@ -553,7 +553,7 @@ ggplot(bikes, aes(temp_feel, count)) +
   ## format seasons
   geom_point(
     aes(color = forcats::fct_relabel(season, stringr::str_to_title)), 
-    size = 2.2, alpha = .4
+    size = 2.2, alpha = .55
   ) + 
   geom_smooth(
     aes(group = day_night), 
@@ -579,7 +579,7 @@ ggplot(bikes, aes(temp_feel, count)) +
     breaks = 0:5*10000, labels = scales::comma_format()
   ) +
   scale_color_manual(
-    values = c("#00CB79","#F7B01B","#a78f5f","#69b0d4"), name = NULL,
+    values = c("#3c89d9", "#1ec99b", "#F7B01B", "#a26e7c"), name = NULL,
     guide = guide_legend(override.aes = list(size = 5))
   ) +
   labs(
@@ -636,7 +636,7 @@ ggplot(bikes, aes(temp_feel, count)) +
   ## colored, semi-transparent points
   geom_point(
     aes(color = forcats::fct_relabel(season, stringr::str_to_title)), 
-    size = 2.2, alpha = .4
+    size = 2.2, alpha = .55
   ) + 
   geom_smooth(
     aes(group = day_night), method = "lm", color = "black"
@@ -658,7 +658,7 @@ ggplot(bikes, aes(temp_feel, count)) +
     breaks = 0:5*10000, labels = scales::comma_format()
   ) +
   scale_color_manual(
-    values = c("#00CB79","#F7B01B","#a78f5f","#69b0d4"), name = NULL,
+    values = c("#3c89d9", "#1ec99b", "#F7B01B", "#a26e7c"), name = NULL,
     guide = guide_legend(override.aes = list(size = 5))
   ) +
   labs(

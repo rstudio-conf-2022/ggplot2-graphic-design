@@ -30,11 +30,11 @@ execute:
   freeze: auto
   echo: true
   fig-width: 5
-  fig-height: 6.05
+  fig-height: 6
 ---
 
 
-## Your Turn!
+## Exercise 2
 
 ::: question
 * Create a circular lollipop plot of reported bike shares per season. 
@@ -104,492 +104,399 @@ theme_set(theme_light(base_size = 14, base_family = "Roboto Condensed"))
 
 ## Lollipop Plot with Pre-Calculated Sums
 
-::: panel-tabset
-### Graphic
-```{r}
-#| label: concepts-pt2-exercise-2-1
-#| echo: false
-#| fig-width: 8
-#| fig-height: 4.5
-#| fig-align: "center"
-bikes %>% 
-  group_by(season) %>% 
-  summarize(count = sum(count)) %>% 
-  ggplot(aes(x = season, y = count)) +
-    geom_point(size = 3) +
-    geom_linerange(aes(ymin = 0, ymax = count))
-```
-
-### Code 
-```{r}
-#| label: concepts-pt2-exercise-2-1
-#| eval: false
-#| code-line-numbers: "1,2,3|4,5,6|5,6"
-```
-
-### Pre-Calculated Data 
 ```{r}
 #| label: concepts-exercise-lollipop-cartesian-data
 bikes %>% 
   group_by(season) %>% 
   summarize(count = sum(count)) 
 ```
-:::
 
+## Lollipop Plot with Pre-Calculated Sums
 
-
-## Calculate Sums via `stat_summary()`
-
-::: panel-tabset
-### Graphic
 ```{r}
-#| label: concepts-exercise-lollipop-cartesian-stat
-#| echo: false
-#| fig-width: 8
-#| fig-height: 4.5
-#| fig-align: "center"
-ggplot(bikes, aes(x = season, y = count)) +
-  stat_summary(
-    geom = "point", fun = "sum", size = 3
-  ) +
-  stat_summary(
-    geom = "linerange", ymin = 0, fun.max = function(y) sum(y)
+#| label: concepts-pt2-exercise-2-1
+#| output-location: column
+#| code-line-numbers: "1,2,3|4,5,6,7,8"
+bikes %>% 
+  group_by(season) %>% 
+  summarize(count = sum(count)) %>% 
+  ggplot(aes(x = season, y = count)) +
+  geom_point(size = 3) +
+  geom_linerange(
+    aes(ymin = 0, ymax = count)
   )
 ```
 
-### Code 
-```{r}
-#| label: concepts-exercise-lollipop-cartesian-stat
-#| eval: false
-#| code-line-numbers: "2,3,4|5,6,7"
-```
-:::
-
 
 
 ## Calculate Sums via `stat_summary()`
 
-::: panel-tabset
-### Graphic
 ```{r}
-#| label: concepts-exercise-lollipop-cartesian-stat-zero
-#| echo: false
-#| fig-width: 8
-#| fig-height: 4.5
-#| fig-align: "center"
+#| label: concepts-exercise-lollipop-cartesian-stat
+#| output-location: column
+#| code-line-numbers: "2,3,4|5,6,7,8"
 ggplot(bikes, aes(x = season, y = count)) +
   stat_summary(
     geom = "point", fun = "sum", size = 3
   ) +
   stat_summary(
-    geom = "linerange", ymin = 0, fun.max = function(y) sum(y)
+    geom = "linerange", ymin = 0, 
+    fun.max = function(y) sum(y)
+  )
+```
+
+
+
+## Calculate Sums via `stat_summary()`
+
+```{r}
+#| label: concepts-exercise-lollipop-cartesian-stat-zero
+#| output-location: column
+#| code-line-numbers: "9"
+ggplot(bikes, aes(x = season, y = count)) +
+  stat_summary(
+    geom = "point", fun = "sum", size = 3
+  ) +
+  stat_summary(
+    geom = "linerange", ymin = 0, 
+    fun.max = function(y) sum(y)
   ) +
   coord_cartesian(ylim = c(0, NA))
 ```
-
-### Code 
-```{r}
-#| label: concepts-exercise-lollipop-cartesian-stat-zero
-#| eval: false
-#| code-line-numbers: "8"
-```
-:::
 
 
 
 ## Apply a Polar Coordinate System
 
-::: panel-tabset
-### Graphic
 ```{r}
 #| label: concepts-pt2-exercise-2-2
-#| echo: false
-#| fig-width: 8
-#| fig-height: 4.5
-#| fig-align: "center"
+#| output-location: column
+#| code-line-numbers: "9"
 bikes %>% 
   group_by(season) %>% 
   summarize(count = sum(count)) %>% 
   ggplot(aes(x = season, y = count)) +
-    geom_point(size = 3) +
-    geom_linerange(aes(ymin = 0, ymax = count)) +
-    coord_polar(theta = "y")
+  geom_point(size = 3) +
+  geom_linerange(
+    aes(ymin = 0, ymax = count)
+  ) +
+  coord_polar(theta = "y")
 ```
-
-### Code 
-```{r}
-#| label: concepts-pt2-exercise-2-2
-#| eval: false
-#| code-line-numbers: "7"
-```
-:::
 
 
 
 ## Fix Axis Ranges
 
-::: panel-tabset
-### Graphic
 ```{r}
 #| label: concepts-pt2-exercise-2-3
-#| echo: false
-#| fig-width: 8
-#| fig-height: 4.5
-#| fig-align: "center"
+#| output-location: column
+#| code-line-numbers: "10,11,12,13,14,15"
 bikes %>% 
   group_by(season) %>% 
   summarize(count = sum(count)) %>% 
   ggplot(aes(x = season, y = count)) +
-    geom_point(size = 3) +
-    geom_linerange(aes(ymin = 0, ymax = count)) +
-    coord_polar(theta = "y") +
-    scale_x_discrete(expand = c(.5, .5)) +
-    scale_y_continuous(limits = c(0, 7.5*10^6)) 
+  geom_point(size = 3) +
+  geom_linerange(
+    aes(ymin = 0, ymax = count)
+  ) +
+  coord_polar(theta = "y") +
+  scale_x_discrete(
+    expand = c(.5, .5)
+  ) +
+  scale_y_continuous(
+    limits = c(0, 7.5*10^6)
+  ) 
 ```
-
-### Code 
-```{r}
-#| label: concepts-pt2-exercise-2-3
-#| eval: false
-#| code-line-numbers: "8,9"
-```
-:::
 
 
 
 ## Remove All Theme Components
 
-::: panel-tabset
-### Graphic
 ```{r}
 #| label: concepts-pt2-exercise-2-4
-#| echo: false
-#| fig-width: 8
-#| fig-height: 4.5
-#| fig-align: "center"
+#| output-location: column
+#| code-line-numbers: "16"
 bikes %>% 
   group_by(season) %>% 
   summarize(count = sum(count)) %>% 
   ggplot(aes(x = season, y = count)) +
-    geom_point(size = 3) +
-    geom_linerange(aes(ymin = 0, ymax = count)) +
-    coord_polar(theta = "y") +
-    scale_x_discrete(expand = c(.5, .5)) +
-    scale_y_continuous(limits = c(0, 7.5*10^6)) +
-    theme_void()
+  geom_point(size = 3) +
+  geom_linerange(
+    aes(ymin = 0, ymax = count)
+  ) +
+  coord_polar(theta = "y") +
+  scale_x_discrete(
+    expand = c(.5, .5)
+  ) +
+  scale_y_continuous(
+    limits = c(0, 7.5*10^6)
+  ) +
+  theme_void()
 ```
-
-### Code 
-```{r}
-#| label: concepts-pt2-exercise-2-4
-#| eval: false
-#| code-line-numbers: "10"
-```
-:::
 
 
 
 ## Fix Plot Margin
 
-::: panel-tabset
-### Graphic
 ```{r}
 #| label: concepts-pt2-exercise-2-5
-#| echo: false
-#| fig-width: 8
-#| fig-height: 4.5
-#| fig-align: "center"
+#| output-location: column
+#| code-line-numbers: "17"
 bikes %>% 
   group_by(season) %>% 
   summarize(count = sum(count)) %>% 
   ggplot(aes(x = season, y = count)) +
-    geom_point(size = 3) +
-    geom_linerange(aes(ymin = 0, ymax = count)) +
-    coord_polar(theta = "y") +
-    scale_x_discrete(expand = c(.5, .5)) +
-    scale_y_continuous(limits = c(0, 7.5*10^6)) +
-    theme_void() +
-    theme(plot.margin = margin(rep(-100, 4)))
+  geom_point(size = 3) +
+  geom_linerange(
+    aes(ymin = 0, ymax = count)
+  ) +
+  coord_polar(theta = "y") +
+  scale_x_discrete(
+    expand = c(.5, .5)
+  ) +
+  scale_y_continuous(
+    limits = c(0, 7.5*10^6)
+  ) +
+  theme_void() +
+  theme(plot.margin = margin(rep(-100, 4)))
 ```
-
-### Code 
-```{r}
-#| label: concepts-pt2-exercise-2-5
-#| eval: false
-#| code-line-numbers: "11"
-```
-:::
-
 
 
 ## Add "Axis" Text
 
-::: panel-tabset
-### Graphic
 ```{r}
 #| label: concepts-pt2-exercise-2-6
-#| echo: false
-#| fig-width: 8
-#| fig-height: 4.5
-#| fig-align: "center"
+#| output-location: column
+#| code-line-numbers: "9,10,11"
 bikes %>% 
   group_by(season) %>% 
   summarize(count = sum(count)) %>% 
   ggplot(aes(x = season, y = count)) +
-    geom_point(size = 3) +
-    geom_linerange(aes(ymin = 0, ymax = count)) +
-    geom_text(
-      aes(label = stringr::str_to_title(season), y = 0)
-    ) +
-    coord_polar(theta = "y") +
-    scale_x_discrete(expand = c(.5, .5)) +
-    scale_y_continuous(limits = c(0, 7.5*10^6)) +
-    theme_void() +
-    theme(plot.margin = margin(rep(-100, 4)))
+  geom_point(size = 3) +
+  geom_linerange(
+    aes(ymin = 0, ymax = count)
+  ) +
+  geom_text(
+    aes(label = stringr::str_to_title(season), y = 0)
+  ) +
+  coord_polar(theta = "y") +
+  scale_x_discrete(
+    expand = c(.5, .5)
+  ) +
+  scale_y_continuous(
+    limits = c(0, 7.5*10^6)
+  ) +
+  theme_void() +
+  theme(plot.margin = margin(rep(-100, 4)))
 ```
-
-### Code 
-```{r}
-#| label: concepts-pt2-exercise-2-6
-#| eval: false
-#| code-line-numbers: "7,8,9"
-```
-:::
 
 
 
 ## Style "Axis" Text
 
-::: panel-tabset
-### Graphic
 ```{r}
 #| label: concepts-pt2-exercise-2-7
-#| echo: false
-#| fig-width: 8
-#| fig-height: 4.5
-#| fig-align: "center"
+#| output-location: column
+#| code-line-numbers: "11,12"
 bikes %>% 
   group_by(season) %>% 
   summarize(count = sum(count)) %>% 
   ggplot(aes(x = season, y = count)) +
-    geom_point(size = 3) +
-    geom_linerange(aes(ymin = 0, ymax = count)) +
-    geom_text(
-      aes(label = stringr::str_to_title(season), y = 0), 
-      family = "Cabinet Grotesk", fontface = "bold", size = 4.5, hjust = 1.15
-    ) +
-    coord_polar(theta = "y") +
-    scale_x_discrete(expand = c(.5, .5)) +
-    scale_y_continuous(limits = c(0, 7.5*10^6)) +
-    theme_void() +
-    theme(plot.margin = margin(rep(-100, 4)))
+  geom_point(size = 3) +
+  geom_linerange(
+    aes(ymin = 0, ymax = count)
+  ) +
+  geom_text(
+    aes(label = stringr::str_to_title(season), y = 0), 
+    family = "Cabinet Grotesk", size = 4.5,
+    fontface = "bold", hjust = 1.15
+  ) +
+  coord_polar(theta = "y") +
+  scale_x_discrete(
+    expand = c(.5, .5)
+  ) +
+  scale_y_continuous(
+    limits = c(0, 7.5*10^6)
+  ) +
+  theme_void() +
+  theme(plot.margin = margin(rep(-100, 4)))
 ```
-
-### Code 
-```{r}
-#| label: concepts-pt2-exercise-2-7
-#| eval: false
-#| code-line-numbers: "9"
-```
-:::
 
 
 
 ## Alternatively: Add Direct Labels
 
-::: panel-tabset
-### Graphic
 ```{r}
 #| label: concepts-exercise-lollipop-label-season-direct
-#| echo: false
-#| fig-width: 8
-#| fig-height: 4.5
-#| fig-align: "center"
+#| output-location: column
+#| code-line-numbers: "14,15,16,17"
 bikes %>% 
   group_by(season) %>% 
   summarize(count = sum(count)) %>% 
   ggplot(aes(x = season, y = count)) +
-    geom_point(size = 3) +
-    geom_linerange(aes(ymin = 0, ymax = count)) +
-    geom_text(
-      aes(label = stringr::str_to_title(season), y = 0), 
-      family = "Cabinet Grotesk", fontface = "bold", size = 4.5, hjust = 1.15
-    ) +
-    geom_text(
-      aes(label = paste0(round(count / 10^6, 1), "M")), 
-      size = 4, vjust = -1, family = "Cabinet Grotesk"
-    ) +
-    coord_polar(theta = "y") +
-    scale_x_discrete(expand = c(.5, .5)) +
-    scale_y_continuous(limits = c(0, 7.5*10^6)) +
-    theme_void() +
-    theme(plot.margin = margin(rep(-100, 4)))
+  geom_point(size = 3) +
+  geom_linerange(
+    aes(ymin = 0, ymax = count)
+  ) +
+  geom_text(
+    aes(label = stringr::str_to_title(season), y = 0), 
+    family = "Cabinet Grotesk", size = 4.5,
+    fontface = "bold", hjust = 1.15
+  ) +
+  geom_text(
+    aes(label = paste0(round(count / 10^6, 1), "M")), 
+    size = 4, vjust = -1, family = "Cabinet Grotesk"
+  ) +
+  coord_polar(theta = "y") +
+  scale_x_discrete(
+    expand = c(.5, .5)
+  ) +
+  scale_y_continuous(
+    limits = c(0, 7.5*10^6)
+  ) +
+  theme_void() +
+  theme(plot.margin = margin(rep(-100, 4)))
 ```
-
-### Code 
-```{r}
-#| label: concepts-exercise-lollipop-label-season-direct
-#| eval: false
-#| code-line-numbers: "11,12,13,14"
-```
-:::
 
 
 
 ## Add a Baseline — *ugly but simple*
 
-::: panel-tabset
-### Graphic
 ```{r}
 #| label: concepts-exercise-lollipop-baseline-geom-hline
-#| echo: false
-#| fig-width: 8
-#| fig-height: 4.5
-#| fig-align: "center"
+#| output-location: column
+#| code-line-numbers: "9"
 bikes %>% 
   group_by(season) %>% 
   summarize(count = sum(count)) %>% 
   ggplot(aes(x = season, y = count)) +
-    geom_point(size = 3) +
-    geom_linerange(aes(ymin = 0, ymax = count)) +
-    geom_text(
-      aes(label = stringr::str_to_title(season), y = 0), 
-      family = "Cabinet Grotesk", fontface = "bold", size = 4.5, hjust = 1.15
-    ) +
-    geom_hline(yintercept = 0) +
-    coord_polar(theta = "y") +
-    scale_x_discrete(expand = c(.5, .5)) +
-    scale_y_continuous(limits = c(0, 7.5*10^6)) +
-    theme_void() +
-    theme(plot.margin = margin(rep(-100, 4)))
+  geom_point(size = 3) +
+  geom_linerange(
+    aes(ymin = 0, ymax = count)
+  ) +
+  geom_hline(yintercept = 0) +
+  geom_text(
+    aes(label = stringr::str_to_title(season), y = 0), 
+    family = "Cabinet Grotesk", size = 4.5,
+    fontface = "bold", hjust = 1.15
+  ) +
+  coord_polar(theta = "y") +
+  scale_x_discrete(
+    expand = c(.5, .5)
+  ) +
+  scale_y_continuous(
+    limits = c(0, 7.5*10^6)
+  ) +
+  theme_void() +
+  theme(plot.margin = margin(rep(-100, 4)))
 ```
 
-### Code 
-```{r}
-#| label: concepts-exercise-lollipop-baseline-geom-hline
-#| eval: false
-#| code-line-numbers: "11"
-```
-:::
 
 
+## Add a Baseline — *nice but unusual*
 
-## Add a Baseline — *nice but complicated*
-
-::: panel-tabset
-### Graphic
 ```{r}
 #| label: concepts-exercise-lollipop-baseline-geom-linerange
-#| echo: false
-#| fig-width: 8
-#| fig-height: 4.5
-#| fig-align: "center"
+#| output-location: column
+#| code-line-numbers: "4|4,9,10,11"
 bikes %>% 
   group_by(season) %>% 
   summarize(count = sum(count)) %>% 
-  ggplot(aes(x = as.numeric(season), y = count)) +
-    geom_point(size = 3) +
-    geom_linerange(aes(ymin = 0, ymax = count)) +
-    geom_text(
-      aes(label = stringr::str_to_title(season), y = 0), 
-      family = "Cabinet Grotesk", fontface = "bold", size = 4.5, hjust = 1.15
-    ) +
-    geom_linerange(
-      data = tibble(x0 = .7, x1 = 4.3, y = 0), 
-      aes(xmin = x0, xmax = x1, y = y), inherit.aes = FALSE
-    ) +
-    coord_polar(theta = "y") +
-    scale_x_discrete(expand = c(.5, .5)) +
-    scale_y_continuous(limits = c(0, 7.5*10^6)) +
-    theme_void() +
-    theme(plot.margin = margin(rep(-100, 4)))
+  ggplot(aes(x = season, y = count)) +
+  geom_point(size = 3) +
+  geom_linerange(
+    aes(ymin = 0, ymax = count)
+  ) +
+  geom_linerange(
+    xmin = .7, xmax = 4.3, y = 0
+  ) +
+  geom_text(
+    aes(label = stringr::str_to_title(season), y = 0), 
+    family = "Cabinet Grotesk", size = 4.5,
+    fontface = "bold", hjust = 1.15
+  ) +
+  coord_polar(theta = "y") +
+  scale_x_discrete(
+    expand = c(.5, .5)
+  ) +
+  scale_y_continuous(
+    limits = c(0, 7.5*10^6)
+  ) +
+  theme_void() +
+  theme(plot.margin = margin(rep(-100, 4)))
 ```
-
-### Code 
-```{r}
-#| label: concepts-exercise-lollipop-geom-linerange
-#| eval: false
-#| code-line-numbers: "4|4,11,12,13,14"
-```
-:::
 
 
 
 ## Add a Baseline — *yeah, that's it!*
 
-::: panel-tabset
-### Graphic
 ```{r}
 #| label: concepts-pt2-exercise-2-8
-#| echo: false
-#| fig-width: 8
-#| fig-height: 4.5
-#| fig-align: "center"
+#| output-location: column
+#| code-line-numbers: "4,9,10,11,12"
 bikes %>% 
   group_by(season) %>% 
   summarize(count = sum(count)) %>% 
-  ggplot(aes(x = as.numeric(season), y = count)) +
-    geom_point(size = 3) +
-    geom_linerange(aes(ymin = 0, ymax = count)) +
-    geom_text(
-      aes(label = stringr::str_to_title(season), y = 0), 
-      family = "Cabinet Grotesk", fontface = "bold", size = 4.5, hjust = 1.15
-    ) +
-    annotate(
-      geom = "linerange", xmin = .7, xmax = 4.3, y = 0
-    ) +
-    coord_polar(theta = "y") +
-    scale_x_discrete(expand = c(.5, .5)) +
-    scale_y_continuous(limits = c(0, 7.5*10^6)) +
-    theme_void() +
-    theme(plot.margin = margin(rep(-100, 4)))
+  ggplot(aes(x = season, y = count)) +
+  geom_point(size = 3) +
+  geom_linerange(
+    aes(ymin = 0, ymax = count)
+  ) +
+  annotate(
+    geom = "linerange", 
+    xmin = .7, xmax = 4.3, y = 0
+  )  +
+  geom_text(
+    aes(label = stringr::str_to_title(season), y = 0), 
+    family = "Cabinet Grotesk", size = 4.5,
+    fontface = "bold", hjust = 1.15
+  ) +
+  coord_polar(theta = "y") +
+  scale_x_discrete(
+    expand = c(.5, .5)
+  ) +
+  scale_y_continuous(
+    limits = c(0, 7.5*10^6)
+  ) +
+  theme_void() +
+  theme(plot.margin = margin(rep(-100, 4)))
 ```
-
-### Code 
-```{r}
-#| label: concepts-pt2-exercise-2-8
-#| eval: false
-#| code-line-numbers: "4,9,10,11"
-```
-:::
-
 
 
 ## Solution using `stat_summary()`
 
-::: panel-tabset
-### Graphic
 ```{r}
 #| label: concepts-exercise-lollipop-stat-summary
-#| echo: false
-#| fig-width: 8
-#| fig-height: 4.5
-#| fig-align: "center"
+#| output-location: column
+#| code-line-numbers: "1|2,3,4|5,6,7,8|9,10,11,12,13,14"
 ggplot(bikes, aes(x = as.numeric(season), y = count)) +
   stat_summary(
     geom = "point", fun = "sum", size = 3
   ) +
   stat_summary(
-    geom = "linerange", ymin = 0, fun.max = function(y) sum(y)
+    geom = "linerange", ymin = 0, 
+    fun.max = function(y) sum(y)
   ) +
   stat_summary(
-    geom = "text", aes(label = stringr::str_to_title(season), y = 0), 
-    family = "Cabinet Grotesk", fontface = "bold", size = 4.5, hjust = 1.15
+    geom = "text", 
+    aes(
+      label = stringr::str_to_title(season), 
+      y = 0
+    ), 
+    family = "Cabinet Grotesk", size = 4.5,
+    fontface = "bold", hjust = 1.15
   ) +
   annotate(
-    geom = "linerange", xmin = .7, xmax = 4.3, y = 0
+    geom = "linerange", 
+    xmin = .7, xmax = 4.3, y = 0
   ) +
   coord_polar(theta = "y") +
-  scale_x_discrete(expand = c(.5, .5)) +
-  scale_y_continuous(limits = c(0, 7.5*10^6)) +
+  scale_x_discrete(
+    expand = c(.5, .5)
+  ) +
+  scale_y_continuous(
+    limits = c(0, 7.5*10^6)
+  ) +
   theme_void() +
   theme(plot.margin = margin(rep(-100, 4)))
 ```
-
-### Code 
-```{r}
-#| label: concepts-exercise-lollipop-stat-summary
-#| eval: false
-#| code-line-numbers: "1|2,3,4|5,6,7|8,9,11"
-```
-:::

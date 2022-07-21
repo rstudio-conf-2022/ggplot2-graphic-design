@@ -30,14 +30,11 @@ execute:
   freeze: auto
   echo: true
   fig-width: 5
-  fig-height: 6.05
+  fig-height: 6
 ---
 
 
-# Exercise 1
-
-
-## Your Turn!
+## Exercise 1
 
 ::: question
 * Explore the TfL bike share data visually:<br>**create a timeseries of reported bike shares on weekend days**
@@ -331,7 +328,8 @@ g +
 
 ```{r}
 #| label: concepts-pt1-exercise-1-12
-#| code-line-numbers: "1,2,3,4,5|2|3|4"
+#| eval: false
+#| code-line-numbers: "1,2|1|2"
 ggsave(here::here("exercises", "plots", "02_concepts_pt1_ex1.pdf"), 
        width = 9, height = 5, device = cairo_pdf)
 ```
@@ -339,11 +337,15 @@ ggsave(here::here("exercises", "plots", "02_concepts_pt1_ex1.pdf"),
 ```{r}
 #| label: concepts-pt1-exercise-1-12-png
 #| include: false
+#| eval: false
 ggsave(here::here("exercises", "plots", "02_concepts_pt1_ex1.png"), 
        width = 9, height = 5, dpi = 350, bg = "white")
 ```
 
 ![](plots/02_concepts_pt1_ex1.png){fig-align="center" fig-alt="The final plot with an aspect ratio of 9 x 5 inches while using a base_size of 15."}
+
+:::footer
+:::
 
 
 
@@ -383,7 +385,7 @@ ggplot(
 
 
 
-## Bonus: Use Shape to Encody Sat vs Sun
+## Bonus: Use Shape to Eencode Sat vs Sun
 
 ```{r}
 #| label: concepts-pt1-exercise-1-bonus-1
@@ -419,7 +421,7 @@ ggplot(
 
 
 
-## Bonus: Use Shape to Encody Sat vs Sun
+## Bonus: Use Shape to Eencode Sat vs Sun
 
 ```{r}
 #| label: concepts-pt1-exercise-1-bonus-2
@@ -463,6 +465,7 @@ ggplot(
 
 ```{r}
 #| label: concepts-pt1-exercise-1-bonus-save
+#| eval: false
 #| code-line-numbers: "1,2|1|2"
 ggsave(here::here("exercises", "plots", "02_concepts_pt1_ex1_bonus.pdf"), 
        width = 9, height = 5, device = cairo_pdf)
@@ -471,8 +474,12 @@ ggsave(here::here("exercises", "plots", "02_concepts_pt1_ex1_bonus.pdf"),
 ```{r}
 #| label: concepts-pt1-exercise-1-bonus-png
 #| include: false
-ggsave(here::here("exercises", "plots", "02_concepts_pt1_ex1_bonus.png"), 
+#| eval: false
+ggsave(here::here("solutions", "plots", "02_concepts_pt1_ex1_bonus.png"), 
        width = 9, height = 5, dpi = 350, bg = "white")
 ```
 
 ![](plots/02_concepts_pt1_ex1_bonus.png){fig-align="center" fig-alt="The final plot with the bonus encoding saved with an aspect ratio of 9 x 5 inches."}
+
+:::footer
+:::
