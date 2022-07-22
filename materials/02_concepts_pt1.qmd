@@ -1066,6 +1066,53 @@ g
 
 
 
+## {systemfonts}
+
+```{r}
+#| label: systemfonts
+#| code-line-numbers: "5,6,7,8"
+# install.packages("systemfonts")
+
+library(systemfonts)
+
+system_fonts() %>% 
+  filter(str_detect(family, "Cabinet")) %>% 
+  pull(name) %>% 
+  sort()
+```
+
+
+
+## {systemfonts}
+
+```{r}
+#| label: systemfonts-register
+# install.packages("systemfonts")
+register_variant(
+  name = "Cabinet Grotesk Black", 
+  family = "Cabinet Grotesk", 
+  weight = "heavy",
+  features = font_feature(letters = "stylistic")
+)
+```
+
+
+
+## {systemfonts} + {ggplot2}
+
+```{r}
+#| label: systemfonts-register-plot
+#| output-location: column
+#| code-line-numbers: "4"
+g +
+  theme_light(
+    base_size = 18,
+    base_family = "Cabinet Grotesk Black"
+  )
+```
+
+
+
 ## Overwrite Specific Theme Settings
 
 ```{r}

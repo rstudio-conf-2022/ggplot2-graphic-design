@@ -1421,6 +1421,25 @@ ggplot(bikes, aes(date, temp_feel)) +
 
 
 
+## <b style='color:#663399;'>Recap</b>
+
+::: recap
+::: incremental
+- style labels such as title, axis and legend texts with **`theme()`**
+- format data-related labels with the **`labels`** argument of `scale_*()`
+- adjust strip text with the **`facet_*(labeller)`** functionality
+- add data-related annotations with **`geom_text|label()`**
+- ... and data-unrelated annotations with **`annotate()`**
+- **`annotation_custom(rasterGrob())`** is a basic way to add images
+- **`{ggtext}`** allows to render labels with markdown and basic html
+- `{ggtext}` also allows to add **dynamic linebreaks** and images
+- **`{ggrepel}`** ensures clever placement of annotations
+- **`ggforce::geom_mark_*()`** provide a set of advanced annotations
+:::
+:::
+
+
+
 # Exercises
 
 
@@ -1470,7 +1489,7 @@ ggplot(
   ggtext::geom_richtext(
     data = penguins_labs,
     aes(label = species_lab, color = species, 
-        color = after_scale(prismatic::clr_darken(color, .4))),
+        color = after_scale(colorspace::darken(color, .4))),
     family = "Roboto Condensed",
     size = 3, lineheight = .8,
     fill = "#ffffffab", ## hex-alpha code

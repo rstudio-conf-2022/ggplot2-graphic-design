@@ -96,7 +96,7 @@ ggplot(bikes, aes(x = 1, y = 1)) +
   ggtitle("facet_wrap()") +
   theme_bw(base_size = 24, base_family = "Cabinet Grotesk") +
   theme(
-    plot.title = element_text(hjust = .5, family = "Input Mono Condensed", face = "bold"),
+    plot.title = element_text(hjust = .5, family = "Tabular", face = "bold"),
     strip.text = element_text(face = "bold", size = 18),
     panel.grid = element_blank(),
     axis.ticks = element_blank(),
@@ -129,7 +129,7 @@ ggplot(data, aes(x = 1, y = 1)) +
   ggtitle("facet_grid()") +
   theme_bw(base_size = 24, base_family = "Cabinet Grotesk") +
   theme(
-    plot.title = element_text(hjust = .5, family = "Input Mono Condensed", face = "bold"),
+    plot.title = element_text(hjust = .5, family = "Tabular", face = "bold"),
     strip.text = element_text(face = "bold", size = 18),
     panel.grid = element_blank(),
     axis.ticks = element_blank(),
