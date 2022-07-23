@@ -96,7 +96,8 @@ packages <- c(
   "lubridate", "here", "systemfonts", "magick", "scales", "grid",
   "grDevices", "colorspace", "viridis", "RColorBrewer", "rcartocolor",
   "scico", "ggsci", "ggthemes", "nord", "MetBrewer", "ggrepel",
-  "ggforce", "ggtext", "ggdist", "ggbeeswarm", "gghalves", "patchwork", "palmerpenguins", "rnaturalearth", "sf", "rmapshaper", "devtools"
+  "ggforce", "ggtext", "ggdist", "ggbeeswarm", "gghalves", "patchwork", 
+  "palmerpenguins", "rnaturalearth", "sf", "rmapshaper", "devtools"
 )
 
 install.packages(setdiff(packages, rownames(installed.packages())))  
@@ -108,7 +109,7 @@ remotes::install_github("clauswilke/colorblindr")
 
 ### Typeface Installation
 
-We will make use of custom fonts. If you want to follow all contents, make sure the following typeface are installed:
+We will make use of custom fonts. If you want to follow all contents, make sure the following typefaces are installed:
 
 - Roboto Condensed: [fonts.google.com/specimen/Roboto+Condensed](www.fonts.google.com/specimen/Roboto+Condensed)
 - Cabinet Grotesk: [fontshare.com/fonts/cabinet-grotesk](www.fontshare.com/fonts/cabinet-grotesk)
