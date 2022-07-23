@@ -20,7 +20,7 @@ format:
       buttons: true
     pause: true
     mainfont: Cabinet Grotesk
-editor: visual
+editor: source
 knitr:
   opts_chunk: 
     dev: "ragg_png"
@@ -157,7 +157,7 @@ ggplot(
 
 
 
-## Add Meaninful Labels
+## Add Meaningful Labels
 
 ```{r}
 #| label: concepts-pt1-exercise-2-6
@@ -174,7 +174,7 @@ ggplot(
 
 
 
-## Add Meaninful Labels
+## Add Meaningful Labels
 
 ```{r}
 #| label: concepts-pt1-exercise-2-7
@@ -194,7 +194,7 @@ ggplot(
 
 
 
-## Add Meaninful Labels
+## Add Meaningful Labels
 
 ```{r}
 #| label: concepts-pt1-exercise-2-8

@@ -20,7 +20,7 @@ format:
       buttons: true
     pause: true
     mainfont: Cabinet Grotesk
-editor: visual
+editor: source
 knitr:
   opts_chunk: 
     dev: "ragg_png"
@@ -33,21 +33,18 @@ execute:
   fig-height: 6
 ---
 
-
 ## Exercise 1
 
 ::: question
-* Explore the TfL bike share data visually:<br>**create a timeseries of reported bike shares on weekend days**
-    - Highlight day and night encoded by colors and shapes.
-    - Connect the points of each period with lines.
-      - What is the difference between `geom_line()` and `geom_path()`?
-    - Apply your favorite theme to the plot.
-    - Add meaningful labels.
-    - <span style='color:#5DB699;'>Bonus: use shape to encode Saturday vs Sunday instead.</span>
-* Save the plot as a vector graphic with a decent plot size.
+-   Explore the TfL bike share data visually:<br>**create a timeseries of reported bike shares on weekend days**
+    -   Highlight day and night encoded by colors and shapes.
+    -   Connect the points of each period with lines.
+        -   What is the difference between `geom_line()` and `geom_path()`?
+    -   Apply your favorite theme to the plot.
+    -   Add meaningful labels.
+    -   [Bonus: use shape to encode Saturday vs Sunday instead.]{style="color:#5DB699;"}
+-   Save the plot as a vector graphic with a decent plot size.
 :::
-
-
 
 ## Import the Data Set
 
@@ -63,8 +60,6 @@ bikes$season <- forcats::fct_inorder(bikes$season)
 library(tidyverse)
 ```
 
-
-
 ## Scatterplot Counts vs. Date
 
 ```{r}
@@ -76,8 +71,6 @@ ggplot(
   ) +
   geom_point()
 ```
-
-
 
 ## Encode Day Period by Colors and Shapes
 
@@ -94,8 +87,6 @@ ggplot(
         shape = day_night)
   )
 ```
-
-
 
 ## Add Line
 
@@ -115,8 +106,6 @@ ggplot(
     color = "grey"
   )
 ```
-
-
 
 ## Group Lines by Day Period
 
@@ -138,8 +127,6 @@ ggplot(
   )
 ```
 
-
-
 ## Order Layers
 
 ```{r}
@@ -159,8 +146,6 @@ ggplot(
         shape = day_night)
   )
 ```
-
-
 
 ## Use \`geom_path()\` instead
 
@@ -182,11 +167,9 @@ ggplot(
   )
 ```
 
-
-
 ## \`geom_line()\` vs. \`geom_path()\`
 
-::: {layout-ncol=2}
+::: {layout-ncol="2"}
 ```{r}
 #| label: concepts-pt1-exercise-1-comp-path
 #| fig-height: 3.2
@@ -215,8 +198,6 @@ ggplot(
 ```
 :::
 :::
-
-
 
 ## Apply a Theme
 
@@ -248,8 +229,6 @@ g +
   )
 ```
 
-
-
 ## Add Meaningful Labels
 
 ```{r}
@@ -271,8 +250,6 @@ g +
     panel.grid.minor = element_blank()
   )
 ```
-
-
 
 ## Add Meaningful Labels
 
@@ -297,8 +274,6 @@ g +
   )
 ```
 
-
-
 ## Add Meaningful Labels
 
 ```{r}
@@ -322,8 +297,6 @@ g +
   )
 ```
 
-
-
 ## Save the Plot
 
 ```{r}
@@ -344,10 +317,8 @@ ggsave(here::here("exercises", "plots", "02_concepts_pt1_ex1.png"),
 
 ![](plots/02_concepts_pt1_ex1.png){fig-align="center" fig-alt="The final plot with an aspect ratio of 9 x 5 inches while using a base_size of 15."}
 
-:::footer
+::: footer
 :::
-
-
 
 ## Bonus: Use Shape to Encode Sat vs Sun
 
@@ -383,9 +354,7 @@ ggplot(
   )
 ```
 
-
-
-## Bonus: Use Shape to Eencode Sat vs Sun
+## Bonus: Use Shape to Encode Sat vs Sun
 
 ```{r}
 #| label: concepts-pt1-exercise-1-bonus-1
@@ -419,9 +388,7 @@ ggplot(
   )
 ```
 
-
-
-## Bonus: Use Shape to Eencode Sat vs Sun
+## Bonus: Use Shape to Encode Sat vs Sun
 
 ```{r}
 #| label: concepts-pt1-exercise-1-bonus-2
@@ -459,8 +426,6 @@ ggplot(
   )
 ```
 
-
-
 ## Save the Plot
 
 ```{r}
@@ -481,5 +446,5 @@ ggsave(here::here("solutions", "plots", "02_concepts_pt1_ex1_bonus.png"),
 
 ![](plots/02_concepts_pt1_ex1_bonus.png){fig-align="center" fig-alt="The final plot with the bonus encoding saved with an aspect ratio of 9 x 5 inches."}
 
-:::footer
+::: footer
 :::

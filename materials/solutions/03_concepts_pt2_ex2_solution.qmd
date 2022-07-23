@@ -69,7 +69,7 @@ ggplot(bikes, aes(x = as.numeric(season), y = count, group = season)) +
   stat_summary(geom = "point", fun = "sum", size = 3) +
   stat_summary(geom = "linerange", ymin = 0, fun.max = function(y) sum(y)) +
   stat_summary(
-    geom = "text", aes(label = stringr::str_to_title(season), y = 0), 
+    geom = "text", aes(label = season, y = 0), 
     family = "Cabinet Grotesk", fontface = "bold", size = 4.5, hjust = 1.15
   ) +
   annotate(
@@ -95,6 +95,7 @@ bikes <- readr::read_csv(
   col_types = "Dcfffilllddddc"
 )
 
+bikes$season <- stringr::str_to_title(bikes$season)
 bikes$season <- forcats::fct_inorder(bikes$season)
 
 theme_set(theme_light(base_size = 14, base_family = "Roboto Condensed"))
@@ -277,7 +278,7 @@ bikes %>%
     aes(ymin = 0, ymax = count)
   ) +
   geom_text(
-    aes(label = stringr::str_to_title(season), y = 0)
+    aes(label = season, y = 0)
   ) +
   coord_polar(theta = "y") +
   scale_x_discrete(
@@ -307,7 +308,7 @@ bikes %>%
     aes(ymin = 0, ymax = count)
   ) +
   geom_text(
-    aes(label = stringr::str_to_title(season), y = 0), 
+    aes(label = season, y = 0), 
     family = "Cabinet Grotesk", size = 4.5,
     fontface = "bold", hjust = 1.15
   ) +
@@ -339,7 +340,7 @@ bikes %>%
     aes(ymin = 0, ymax = count)
   ) +
   geom_text(
-    aes(label = stringr::str_to_title(season), y = 0), 
+    aes(label = season, y = 0), 
     family = "Cabinet Grotesk", size = 4.5,
     fontface = "bold", hjust = 1.15
   ) +
@@ -376,7 +377,7 @@ bikes %>%
   ) +
   geom_hline(yintercept = 0) +
   geom_text(
-    aes(label = stringr::str_to_title(season), y = 0), 
+    aes(label = season, y = 0), 
     family = "Cabinet Grotesk", size = 4.5,
     fontface = "bold", hjust = 1.15
   ) +
@@ -411,7 +412,7 @@ bikes %>%
     xmin = .7, xmax = 4.3, y = 0
   ) +
   geom_text(
-    aes(label = stringr::str_to_title(season), y = 0), 
+    aes(label = season, y = 0), 
     family = "Cabinet Grotesk", size = 4.5,
     fontface = "bold", hjust = 1.15
   ) +
@@ -447,7 +448,7 @@ bikes %>%
     xmin = .7, xmax = 4.3, y = 0
   )  +
   geom_text(
-    aes(label = stringr::str_to_title(season), y = 0), 
+    aes(label = season, y = 0), 
     family = "Cabinet Grotesk", size = 4.5,
     fontface = "bold", hjust = 1.15
   ) +
@@ -480,7 +481,7 @@ ggplot(bikes, aes(x = as.numeric(season), y = count)) +
   stat_summary(
     geom = "text", 
     aes(
-      label = stringr::str_to_title(season), 
+      label = season, 
       y = 0
     ), 
     family = "Cabinet Grotesk", size = 4.5,

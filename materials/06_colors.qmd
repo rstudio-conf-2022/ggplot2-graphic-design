@@ -20,7 +20,7 @@ format:
       buttons: true
     pause: true
     mainfont: Cabinet Grotesk
-editor: visual
+editor: source
 knitr:
   opts_chunk: 
     dev: "ragg_png"
@@ -32,7 +32,6 @@ execute:
   fig-width: 5
   fig-height: 6
 ---
-
 
 ## Setup
 
@@ -58,11 +57,7 @@ theme_update(
 )
 ```
 
-
-
 # Color Palettes
-
-
 
 ## Pre-Defined Color Palettes: Viridis
 
@@ -82,8 +77,6 @@ ggplot(
   )
 ```
 
-
-
 ## Pre-Defined Color Palettes: Viridis
 
 ```{r}
@@ -102,8 +95,6 @@ ggplot(
   )
 ```
 
-
-
 ## Pre-Defined Color Palettes: Viridis
 
 ```{r}
@@ -121,8 +112,6 @@ ggplot(
     end = .9
   )
 ```
-
-
 
 ## Pre-Defined Color Palettes: Viridis
 
@@ -143,8 +132,6 @@ ggplot(
   )
 ```
 
-
-
 ## Pre-Defined Color Palettes: Brewer
 
 ```{r}
@@ -162,8 +149,6 @@ ggplot(
   )
 ```
 
-
-
 ## Pre-Defined Color Palettes: Brewer
 
 ```{r}
@@ -172,8 +157,6 @@ ggplot(
 RColorBrewer::display.brewer.all()
 ```
 
-
-
 ## Pre-Defined Color Palettes: Brewer
 
 ```{r}
@@ -181,8 +164,6 @@ RColorBrewer::display.brewer.all()
 #| fig-width: 12
 RColorBrewer::display.brewer.all(colorblindFriendly = TRUE)
 ```
-
-
 
 ## {rcartocolor}
 
@@ -203,8 +184,6 @@ ggplot(
   )
 ```
 
-
-
 ## {rcartocolor}
 
 ```{r}
@@ -213,8 +192,6 @@ ggplot(
 rcartocolor::display_carto_all()
 ```
 
-
-
 ## {rcartocolor}
 
 ```{r}
@@ -222,8 +199,6 @@ rcartocolor::display_carto_all()
 #| fig-width: 12
 rcartocolor::display_carto_all(colorblind_friendly = TRUE)
 ```
-
-
 
 ## {scico}
 
@@ -244,8 +219,6 @@ ggplot(
   )
 ```
 
-
-
 ## {scico}
 
 ```{r}
@@ -253,8 +226,6 @@ ggplot(
 #| fig-width: 12
 scico::scico_palette_show()
 ```
-
-
 
 ## {ggsci} and {ggthemes}
 
@@ -288,7 +259,6 @@ ggplot(
 ```
 :::
 
-
 ## {nord}
 
 ```{r}
@@ -307,8 +277,6 @@ ggplot(
     palette = "aurora"
   )
 ```
-
-
 
 ## {nord}
 
@@ -330,8 +298,6 @@ ggplot(
   )
 ```
 
-
-
 ## {MetBrewer}
 
 ```{r}
@@ -351,8 +317,6 @@ ggplot(
   )
 ```
 
-
-
 ## {MetBrewer}
 
 ```{r}
@@ -361,8 +325,6 @@ ggplot(
 MetBrewer::display_all()
 ```
 
-
-
 ## {MetBrewer}
 
 ```{r}
@@ -370,8 +332,6 @@ MetBrewer::display_all()
 #| fig-width: 12
 MetBrewer::display_all(colorblind_only = TRUE)
 ```
-
-
 
 ## {MetBrewer}
 
@@ -392,12 +352,7 @@ ggplot(
   )
 ```
 
-
-
-
 # Customize Palettes
-
-
 
 ## Customize Existing Palettes
 
@@ -417,8 +372,6 @@ ggplot(
     name = "Vivid" 
   )
 ```
-
-
 
 ## Customize Existing Palettes
 
@@ -441,8 +394,6 @@ ggplot(
   )
 ```
 
-
-
 ## Customize Existing Palettes
 
 ```{r}
@@ -463,8 +414,6 @@ ggplot(
     )[1:4]
   )
 ```
-
-
 
 ## Customize Existing Palettes
 
@@ -487,8 +436,6 @@ ggplot(
   )
 ```
 
-
-
 ## Customize Existing Palettes
 
 ```{r}
@@ -509,8 +456,6 @@ ggplot(
     )[c(1, 3:5)]
   )
 ```
-
-
 
 ## Customize Existing Palettes
 
@@ -534,8 +479,6 @@ ggplot(
   )
 ```
 
-
-
 ## Customize Existing Palettes
 
 ```{r}
@@ -558,8 +501,6 @@ ggplot(
   )
 ```
 
-
-
 ## Customize Existing Palettes
 
 ```{r}
@@ -580,8 +521,6 @@ ggplot(
     values = carto_custom
   )
 ```
-
-
 
 ## Customize Existing Palettes
 
@@ -607,8 +546,6 @@ ggplot(
   )
 ```
 
-
-
 ## Customize Existing Palettes
 
 ```{r}
@@ -629,8 +566,6 @@ ggplot(
     values = carto_custom
   )
 ```
-
-
 
 ## Customize Existing Palettes
 
@@ -660,8 +595,6 @@ ggplot(
     values = carto_custom
   )
 ```
-
-
 
 ## Customize Existing Palettes
 
@@ -695,7 +628,6 @@ ggplot(
   )
 ```
 
-
 ## Customize Existing Palettes
 
 ```{r}
@@ -728,11 +660,7 @@ ggplot(
   )
 ```
 
-
-
 # Create New Palettes
-
-
 
 ## Create Sequential Palettes
 
@@ -751,8 +679,6 @@ ggplot(
     high = "#FFD166"
   )
 ```
-
-
 
 ## Create Diverging Palettes
 
@@ -773,8 +699,6 @@ ggplot(
   )
 ```
 
-
-
 ## Create Diverging Palettes
 
 ```{r}
@@ -794,8 +718,6 @@ ggplot(
     midpoint = 10    
   )
 ```
-
-
 
 ## Create Diverging Palettes
 
@@ -818,8 +740,6 @@ ggplot(
   )
 ```
 
-
-
 ## Create Any Palette
 
 ```{r}
@@ -836,8 +756,6 @@ ggplot(
     colors = carto_custom  
   )
 ```
-
-
 
 ## Create Any Palette
 
@@ -857,18 +775,11 @@ ggplot(
   )
 ```
 
-
-
 # Build Your Own<br>`scale_color|fill_*()`
-
 
 ![Illustration by W. E. B. Du Bois, Courtesy Library of Congress](img/colors/dubois-viz.png){fig-alt="“Black Lives 1900: W. E. B. Du Bois at the Paris Exposition” reprints some of the striking photographs and graphics that Du Bois and his curators commissioned for the World’s Fair, here the colorful stacked bar chart on income and expenditure of 150 negro families in Atlanta." fig-width="60%"}
 
-
-
 ##  {background-image="img/colors/dubois-colors.png" background-position="center" background-size="92%" background-alt="Seven colors based on and inspired by the graphic from W. E. B. Du Bois."}
-
-
 
 ## Build Your Own `scale_color|fill_*()`
 
@@ -897,8 +808,6 @@ dubois_colors <- function(...) {
 dubois_colors("black", "pink", "softred", "iceblue")
 ```
 
-
-
 ## Build Your Own `scale_color|fill_*_d()`
 
 ```{r}
@@ -920,8 +829,6 @@ dubois_pal_d <- function(palette = "default", reverse = FALSE) {
 
 dubois_pal_d()(3)
 ```
-
-
 
 ## Build Your Own `scale_fill|color_*_d()`
 
@@ -945,8 +852,6 @@ scale_fill_dubois_d <- function(palette = "default", reverse = FALSE, ...) {
 }
 ```
 
-
-
 ## Use Your Own `scale_fill_*_d()`
 
 ```{r}
@@ -961,8 +866,6 @@ ggplot(
   geom_boxplot() +
   scale_fill_dubois_d()
 ```
-
-
 
 ## Use Your Own `scale_color_*_d()`
 
@@ -982,13 +885,10 @@ ggplot(
   )
 ```
 
-
-
 # HCL Spectrum
 
-
-
 ## Evaluate HCL Spectrum
+
 ```{r}
 #| label: color-palettes-colorspace-spec-explain
 #| output-location: column
@@ -999,11 +899,9 @@ colorspace::specplot(
 )
 ```
 
-
-
 ## Evaluate HCL Spectrum
 
-::: {layout-ncol=2}
+::: {layout-ncol="2"}
 ```{r}
 #| label: color-palettes-scico-spec
 #| fig-height: 3.8
@@ -1025,11 +923,9 @@ colorspace::specplot(
 ```
 :::
 
-
-
 ## Evaluate HCL Spectrum
 
-::: {layout-ncol=2}
+::: {layout-ncol="2"}
 ```{r}
 #| label: color-palettes-carto-spec
 #| fig-height: 3.8
@@ -1051,11 +947,9 @@ colorspace::specplot(
 ```
 :::
 
-
-
 ## Evaluate HCL Spectrum
 
-::: {layout-ncol=2}
+::: {layout-ncol="2"}
 ```{r}
 #| label: color-palettes-rainbow-spec
 #| fig-height: 3.8
@@ -1077,11 +971,7 @@ colorspace::specplot(
 ```
 :::
 
-
-
 # Test Your Palettes
-
-
 
 ## Emulate CVD
 
@@ -1107,8 +997,6 @@ ggplot(
   )
 ```
 
-
-
 ## Emulate CVD
 
 ```{r}
@@ -1128,8 +1016,6 @@ g <-
 g
 ```
 
-
-
 ## Emulate CVD
 
 ```{r}
@@ -1139,8 +1025,6 @@ g
 
 colorblindr::cvd_grid(g)
 ```
-
-
 
 ## Emulate CVD
 
@@ -1159,8 +1043,6 @@ g2 <-
   )
 ```
 
-
-
 ## Emulate CVD
 
 ```{r}
@@ -1170,8 +1052,6 @@ g2 <-
 
 colorblindr::cvd_grid(g2)
 ```
-
-
 
 ## Emulate CVD
 
@@ -1185,8 +1065,6 @@ g3 <-
   )
 ```
 
-
-
 ## Emulate CVD
 
 ```{r}
@@ -1197,25 +1075,20 @@ g3 <-
 colorblindr::cvd_grid(g3)
 ```
 
-
-
 ## <b style='color:#663399;'>Recap</b>
 
 ::: recap
 ::: incremental
-- 
+-   
 :::
 :::
-
-
 
 # Exercise
-
 
 ## Exercise
 
 ::: question
-- **Create a similar visualization as close as possible:**
+-   **Create a similar visualization as close as possible:**
 :::
 
 ```{r}
@@ -1300,11 +1173,7 @@ ggplot(bikes, aes(x = season, y = count)) +
 countdown::countdown(minutes = 20, font_size = ".5em")
 ```
 
-
-
 # Appendix
-
-
 
 ## Build Your Own `scale_color|fill_*_c()`
 
@@ -1328,8 +1197,6 @@ dubois_pal_c <- function(palette = "dark", reverse = FALSE, ...) {
 dubois_pal_c(palette = "light", reverse = TRUE)(3)
 ```
 
-
-
 ## Build Your Own `scale_color|fill_*_c()`
 
 ```{r}
@@ -1352,8 +1219,6 @@ scale_color_dubois_c <- function(palette = "dark", reverse = FALSE, ...) {
 }
 ```
 
-
-
 ## Use Your Own `scale_color|fill_*_c()`
 
 ```{r}
@@ -1368,8 +1233,6 @@ ggplot(
   geom_point() +
   scale_color_dubois_c()
 ```
-
-
 
 ## Use Your Own `scale_color|fill_*_c()`
 

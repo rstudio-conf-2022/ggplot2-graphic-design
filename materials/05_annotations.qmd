@@ -20,7 +20,7 @@ format:
       buttons: true
     pause: true
     mainfont: Cabinet Grotesk
-editor: visual
+editor: source
 knitr:
   opts_chunk: 
     dev: "ragg_png"
@@ -32,7 +32,6 @@ execute:
   fig-width: 5
   fig-height: 6
 ---
-
 
 ## Setup
 
@@ -56,11 +55,7 @@ theme_update(
 )
 ```
 
-
-
 # Labels + `theme()`
-
-
 
 ## Working with Labels
 
@@ -89,8 +84,6 @@ g <- ggplot(
 g
 ```
 
-
-
 ## Customize Labels via \`theme()\`
 
 ```{r}
@@ -101,8 +94,6 @@ g + theme(
   plot.title.position = "plot"
 )
 ```
-
-
 
 ## Customize Labels via \`theme()\`
 
@@ -118,8 +109,6 @@ g + theme(
   )
 )
 ```
-
-
 
 ## Customize Labels via \`theme()\`
 
@@ -142,8 +131,6 @@ g + theme(
   )
 )
 ```
-
-
 
 ## Customize Labels via \`theme()\`
 
@@ -172,8 +159,6 @@ g + theme(
 )
 ```
 
-
-
 ## Customize Labels via \`theme()\`
 
 ```{r}
@@ -200,8 +185,6 @@ g + theme(
   )
 )
 ```
-
-
 
 ## Customize Labels via \`theme()\`
 
@@ -232,12 +215,9 @@ g + theme(
 )
 ```
 
-
-
 # Labels + `scale_*()`
 
-
-## Format Labels via \`scale_*\`
+## Format Labels via \`scale\_\*\`
 
 ```{r}
 #| label: scales-xy-continuous-labels-scales-prep
@@ -251,9 +231,7 @@ g +
   ) 
 ```
 
-
-
-## Format Labels via \`scale_*\`
+## Format Labels via \`scale\_\*\`
 
 ```{r}
 #| label: scales-xy-continuous-labels-scales-1
@@ -266,9 +244,7 @@ g +
   ) 
 ```
 
-
-
-## Format Labels via \`scale_*\`
+## Format Labels via \`scale\_\*\`
 
 ```{r}
 #| label: scales-xy-continuous-labels-scales-2
@@ -284,9 +260,7 @@ g +
   ) 
 ```
 
-
-
-## Format Labels via \`scale_*\`
+## Format Labels via \`scale\_\*\`
 
 ```{r}
 #| label: scales-xy-continuous-labels-scales-3
@@ -307,9 +281,7 @@ g +
   )
 ```
 
-
-
-## Format Labels via \`scale_*\`
+## Format Labels via \`scale\_\*\`
 
 ```{r}
 #| label: scales-xy-continuous-labels-scales-4
@@ -325,9 +297,7 @@ g +
   )
 ```
 
-
-
-## Format Labels via \`scale_*\`
+## Format Labels via \`scale\_\*\`
 
 ```{r}
 #| label: scales-xy-continuous-labels-function
@@ -341,9 +311,7 @@ g +
   )
 ```
 
-
-
-## Format Labels via \`scale_*\`
+## Format Labels via \`scale\_\*\`
 
 ```{r}
 #| label: scales-xy-continuous-labels-function-paste
@@ -356,9 +324,7 @@ g +
   ) 
 ```
 
-
-
-## Format Labels via \`scale_*\`
+## Format Labels via \`scale\_\*\`
 
 ```{r}
 #| label: scales-xy-discrete-labels
@@ -371,9 +337,7 @@ ggplot(
   scale_x_discrete() 
 ```
 
-
-
-## Format Labels via \`scale_*\`
+## Format Labels via \`scale\_\*\`
 
 ```{r}
 #| label: scales-xy-discrete-labels-function
@@ -390,9 +354,7 @@ ggplot(
   ) 
 ```
 
-
-
-## Format Labels via \`scale_*\`
+## Format Labels via \`scale\_\*\`
 
 ```{r}
 #| label: scales-color-discrete-name-labels
@@ -405,11 +367,7 @@ g +
   )
 ```
 
-
-
 # Labels +<br>`ggtext::element_markdown`
-
-
 
 ## Styling Labels with {ggtext}
 
@@ -421,8 +379,6 @@ g +
 g + 
   ggtitle("**TfL bike sharing trends by _season_**")
 ```
-
-
 
 ## Styling Labels with {ggtext}
 
@@ -438,8 +394,6 @@ g +
     plot.title = ggtext::element_markdown()
   )
 ```
-
-
 
 ## Styling Labels with {ggtext}
 
@@ -457,15 +411,13 @@ g +
   )
 ```
 
-<p style='font-size:12pt;'>`<b style='font-family:tabular;font-size:25pt'>TfL</b> bike sharing trends by <i style='color:#28a87d;'>season</i>`</p>
+<p style="font-size:12pt;">
 
+`<b style='font-family:tabular;font-size:25pt'>TfL</b> bike sharing trends by <i style='color:#28a87d;'>season</i>`
 
+</p>
 
 # Labels + `facet_*()`
-
-
-
-
 
 ## Facet Labellers
 
@@ -480,8 +432,6 @@ g +
   )
 ```
 
-
-
 ## Facet Labellers
 
 ```{r}
@@ -494,8 +444,6 @@ g +
     labeller = label_both
   )
 ```
-
-
 
 ## Facet Labellers
 
@@ -511,8 +459,6 @@ g +
     )
   )
 ```
-
-
 
 ## Facet Labellers
 
@@ -535,8 +481,6 @@ g +
   )
 ```
 
-
-
 ## Facet Labellers
 
 ```{r}
@@ -558,8 +502,6 @@ g +
   )
 ```
 
-
-
 ## Facet Labeller
 
 ```{r}
@@ -578,11 +520,7 @@ g +
   )
 ```
 
-
-
 # Handling Long Labels
-
-
 
 ## Handling Long Labels with {stringr}
 
@@ -609,7 +547,6 @@ ggplot(
   geom_boxplot()
 ```
 
-
 ## Handling Long Labels with {ggtext}
 
 ```{r}
@@ -623,8 +560,6 @@ g +
     plot.title.position = "plot"
   )
 ```
-
-
 
 ## Handling Long Labels
 
@@ -640,8 +575,6 @@ g +
     plot.title.position = "plot"
   )
 ```
-
-
 
 ## Handling Long Labels
 
@@ -660,8 +593,6 @@ g +
   )
 ```
 
-
-
 ## Handling Long Labels
 
 ```{r}
@@ -679,8 +610,6 @@ g +
     plot.title.position = "plot"
   )
 ```
-
-
 
 ## Handling Long Labels
 
@@ -705,10 +634,7 @@ g +
   )
 ```
 
-
-
 # Annotations with `annotate()`
-
 
 ## Add Single Text Annotations
 
@@ -725,8 +651,6 @@ ggplot(bikes, aes(humidity, temp)) +
     label = "Some\nadditional\ntext"
   )
 ```
-
-
 
 ## Style Text Annotations
 
@@ -748,8 +672,6 @@ ggplot(bikes, aes(humidity, temp)) +
   )
 ```
 
-
-
 ## Add Multiple Text Annotations
 
 ```{r}
@@ -769,8 +691,6 @@ ggplot(bikes, aes(humidity, temp)) +
   )
 ```
 
-
-
 ## Add Boxes (Rectangles)
 
 ```{r}
@@ -789,8 +709,6 @@ ggplot(bikes, aes(humidity, temp)) +
   )
 ```
 
-
-
 ## Add Boxes (Rectangles)
 
 ```{r}
@@ -808,8 +726,6 @@ ggplot(bikes, aes(humidity, temp)) +
   ) +
   geom_point(size = 2, color = "grey")
 ```
-
-
 
 ## Add Lines (Segments)
 
@@ -834,8 +750,6 @@ ggplot(bikes, aes(humidity, temp)) +
   )
 ```
 
-
-
 ## Add Curves
 
 ```{r}
@@ -858,8 +772,6 @@ ggplot(bikes, aes(humidity, temp)) +
     y = 25, yend = 18.5
   ) 
 ```
-
-
 
 ## Add Arrows
 
@@ -885,8 +797,6 @@ ggplot(bikes, aes(humidity, temp)) +
     arrow = arrow()
   )
 ```
-
-
 
 ## Add Arrows
 
@@ -917,8 +827,6 @@ ggplot(bikes, aes(humidity, temp)) +
   )
 ```
 
-
-
 ## Add Arrows
 
 ```{r}
@@ -948,11 +856,7 @@ ggplot(bikes, aes(humidity, temp)) +
   )
 ```
 
-
-
-# Annotations with \`geom_*()\`'s'
-
-
+# Annotations with \`geom\_\*()\`'s'
 
 ## Highlight Hot Periods
 
@@ -970,8 +874,6 @@ g <- ggplot(
   ) +
   geom_point(size = 2.5)
 ```
-
-
 
 ## Annotations with \`geom_text()\`
 
@@ -995,8 +897,6 @@ ggplot(
   ) 
 ```
 
-
-
 ## Annotations with \`geom_label()\`
 
 ```{r}
@@ -1018,8 +918,6 @@ ggplot(
     hjust = 0
   ) 
 ```
-
-
 
 ## Annotations with {ggrepel}
 
@@ -1047,8 +945,6 @@ ggplot(
   )
 ```
 
-
-
 ## Annotations with {ggrepel}
 
 ```{r}
@@ -1073,8 +969,6 @@ ggplot(
     guide = "none"
   )
 ```
-
-
 
 ## Annotations with {ggrepel}
 
@@ -1105,8 +999,6 @@ ggplot(
   )
 ```
 
-
-
 ## Annotations with {ggrepel}
 
 ```{r}
@@ -1134,8 +1026,6 @@ ggplot(
   ) + 
   xlim(25, NA)
 ```
-
-
 
 ## Annotations with {ggrepel}
 
@@ -1168,8 +1058,6 @@ ggplot(
   xlim(25, NA)
 ```
 
-
-
 ## Annotations with {ggrepel}
 
 ```{r}
@@ -1201,8 +1089,6 @@ ggplot(
   xlim(25, NA)
 ```
 
-
-
 ## Annotations with {ggforce}
 
 ```{r}
@@ -1224,8 +1110,6 @@ ggplot(
     guide = "none"
   ) 
 ```
-
-
 
 ## Annotations with {ggforce}
 
@@ -1252,8 +1136,6 @@ ggplot(
   ) 
 ```
 
-
-
 ## Annotations with {ggforce}
 
 ```{r}
@@ -1279,8 +1161,6 @@ ggplot(
   ) +
   ylim(NA, 35)
 ```
-
-
 
 ## Annotations with {ggforce}
 
@@ -1314,8 +1194,6 @@ ggplot(
   ylim(NA, 35)
 ```
 
-
-
 ## Annotations with {ggforce}
 
 ```{r}
@@ -1340,10 +1218,7 @@ ggplot(
   )
 ```
 
-
-
 # Adding Images
-
 
 ## Load and Modify Image
 
@@ -1356,8 +1231,6 @@ img <- magick::image_negate(img)
 
 img
 ```
-
-
 
 ## Add Background Image
 
@@ -1373,8 +1246,6 @@ ggplot(bikes, aes(date, temp_feel)) +
   ) +
   geom_point(color = "#71a5d4")
 ```
-
-
 
 ## Adjust Position
 
@@ -1394,8 +1265,6 @@ ggplot(bikes, aes(date, temp_feel)) +
   geom_point(color = "#71a5d4") +
   ylim(NA, 37)
 ```
-
-
 
 ## Place Image Outside
 
@@ -1419,44 +1288,36 @@ ggplot(bikes, aes(date, temp_feel)) +
   )
 ```
 
-
-
 ## <b style='color:#663399;'>Recap</b>
 
 ::: recap
 ::: incremental
-- style labels such as title, axis and legend texts with **`theme()`**
-- format data-related labels with the **`labels`** argument of `scale_*()`
-- adjust strip text with the **`facet_*(labeller)`** functionality
-- add data-related annotations with **`geom_text|label()`**
-- ... and data-unrelated annotations with **`annotate()`**
-- **`annotation_custom(rasterGrob())`** is a basic way to add images
-- **`{ggtext}`** allows to render labels with markdown and basic html
-- `{ggtext}` also allows to add **dynamic linebreaks** and images
-- **`{ggrepel}`** ensures clever placement of annotations
-- **`ggforce::geom_mark_*()`** provide a set of advanced annotations
+-   style labels such as title, axis and legend texts with **`theme()`**
+-   format data-related labels with the **`labels`** argument of `scale_*()`
+-   adjust strip text with the **`facet_*(labeller)`** functionality
+-   add data-related annotations with **`geom_text|label()`**
+-   ... and data-unrelated annotations with **`annotate()`**
+-   **`annotation_custom(rasterGrob())`** is a basic way to add images
+-   **`{ggtext}`** allows to render labels with markdown and basic html
+-   `{ggtext}` also allows to add **dynamic linebreaks** and images
+-   **`{ggrepel}`** ensures clever placement of annotations
+-   **`ggforce::geom_mark_*()`** provide a set of advanced annotations
 :::
 :::
-
-
 
 # Exercises
-
-
 
 ## Exercise 1
 
 ::: question
-- {ggtext} also comes with some new geom's. Explore those and other options on the package webpage: [wilkelab.rg/ggtext](https://wilkelab.org/ggtext/).
-- **Create the following visualization, as close as possible**, with the `penguins` dataset which is provided by the [{palmerpenguins} package](https://allisonhorst.github.io/palmerpenguins/).
-  - For the species labels, you likely have to create a summary data set.
-  - Use the {ggtext} geometries and theme elements to format the labels.
-  - Also, make use of the other components such as scales, original theme, and theme customization.
+-   {ggtext} also comes with some new geom's. Explore those and other options on the package webpage: [wilkelab.rg/ggtext](https://wilkelab.org/ggtext/).
+-   **Create the following visualization, as close as possible**, with the `penguins` dataset which is provided by the [{palmerpenguins} package](https://allisonhorst.github.io/palmerpenguins/).
+    -   For the species labels, you likely have to create a summary data set.
+    -   Use the {ggtext} geometries and theme elements to format the labels.
+    -   Also, make use of the other components such as scales, original theme, and theme customization.
 :::
 
-
 ------------------------------------------------------------------------
-
 
 ```{r}
 #| label: exercise-text-styling
@@ -1552,12 +1413,12 @@ ggplot(
 countdown::countdown(minutes = 20, font_size = ".5em")
 ```
 
-
 ## Exercise 2
 
 ::: question
-- **Create this logo with the image file `exercises/`:**
+-   **Create this logo with the image file `exercises/`:**
 :::
+
 <br>
 
 ```{r}

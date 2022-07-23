@@ -20,7 +20,7 @@ format:
       buttons: true
     pause: true
     mainfont: Cabinet Grotesk
-editor: visual
+editor: source
 knitr:
   opts_chunk: 
     dev: "ragg_png"
@@ -32,7 +32,6 @@ execute:
   fig-width: 5
   fig-height: 6
 ---
-
 
 ## Setup
 
@@ -56,12 +55,7 @@ theme_update(
 )
 ```
 
-
-
-
 # Legend Placement<br>and Styling
-
-
 
 ## Discrete Legend
 
@@ -80,8 +74,6 @@ ggplot(
   scale_color_manual(values = pal)
 ```
 
-
-
 ## Continuous Legend
 
 ```{r}
@@ -96,8 +88,6 @@ ggplot(
   geom_point() +
   scale_color_viridis_c()
 ```
-
-
 
 ## Legend Position
 
@@ -116,8 +106,6 @@ ggplot(
     legend.position = "bottom"
   )
 ```
-
-
 
 ## Legend Justification
 
@@ -138,8 +126,6 @@ ggplot(
   )
 ```
 
-
-
 ## Legend Position
 
 ```{r}
@@ -157,8 +143,6 @@ ggplot(
     legend.position = c(.25, .85)
   )
 ```
-
-
 
 ## Legend Direction
 
@@ -178,8 +162,6 @@ ggplot(
     legend.direction = "horizontal"
   )
 ```
-
-
 
 ## Legend Types
 
@@ -202,8 +184,6 @@ ggplot(
   )
 ```
 
-
-
 ## Legend Types
 
 ```{r}
@@ -224,8 +204,6 @@ ggplot(
     legend.direction = "horizontal"
   )
 ```
-
-
 
 ## Legend Types
 
@@ -248,8 +226,6 @@ ggplot(
   )
 ```
 
-
-
 ## Legend Types
 
 ```{r}
@@ -270,8 +246,6 @@ ggplot(
     legend.direction = "horizontal"
   )
 ```
-
-
 
 ## Legend Styling
 
@@ -296,8 +270,6 @@ ggplot(
     legend.direction = "horizontal"
   )
 ```
-
-
 
 ## Legend Styling
 
@@ -327,8 +299,6 @@ ggplot(
   )
 ```
 
-
-
 ## Legend Styling
 
 ```{r}
@@ -356,8 +326,6 @@ ggplot(
     legend.position = "top"
   )
 ```
-
-
 
 ## Legend Styling
 
@@ -389,8 +357,6 @@ ggplot(
   )
 ```
 
-
-
 ## Legend Styling
 
 ```{r}
@@ -419,8 +385,6 @@ ggplot(
   )
 ```
 
-
-
 ## Key Glyphs
 
 ```{r}
@@ -446,8 +410,6 @@ ggplot(
     legend.text = element_text(size = 16)
   )
 ```
-
-
 
 ## Key Glyphs
 
@@ -476,8 +438,6 @@ ggplot(
   )
 ```
 
-
-
 ## Key Glyphs
 
 ```{r}
@@ -504,8 +464,6 @@ ggplot(
     legend.text = element_text(size = 16)
   )
 ```
-
-
 
 ## Legend with Color Shading
 
@@ -555,8 +513,6 @@ g <-
 g
 ```
 
-
-
 ## Legend on Top
 
 ```{r}
@@ -567,8 +523,6 @@ g
 g +
   theme(legend.position = "top")
 ```
-
-
 
 ## Resort Legend
 
@@ -582,27 +536,20 @@ g +
   theme(legend.position = "top")
 ```
 
-
-
-
 # Composing ggplot's
 
-
 ------------------------------------------------------------------------
-
 
 ![Illustration by Allison Horst](img/layout/ah_patchwork.jpg){fig-align="center" fig-alt="Allison Horsts monster illustration of the patchwork extension package."}
 
 ::: footer
 :::
 
-
 ------------------------------------------------------------------------
 
-
 ::: panel-tabset
-
 ### Graphic
+
 ```{r}
 #| label: patchwork-p1
 #| fig-width: 10
@@ -667,20 +614,19 @@ p1 <- ggplot(
 p1
 ```
 
-### Code 
+### Code
+
 ```{r}
 #| label: patchwork-p1
 #| eval: false
 ```
 :::
 
-
 ------------------------------------------------------------------------
 
-
 ::: panel-tabset
-
 ### Graphic
+
 ```{r}
 #| label: patchwork-p2
 #| fig-width: 10
@@ -706,20 +652,19 @@ p2 <- bikes_sorted %>%
 p2
 ```
 
-### Code 
+### Code
+
 ```{r}
 #| label: patchwork-p2
 #| eval: false
 ```
 :::
 
-
 ------------------------------------------------------------------------
 
-
 ::: panel-tabset
-
 ### Graphic
+
 ```{r}
 #| label: patchwork-p3
 #| fig-width: 10
@@ -749,14 +694,13 @@ p3 <- bikes %>%
 p3
 ```
 
-### Code 
+### Code
+
 ```{r}
 #| label: patchwork-p3
 #| eval: false
 ```
 :::
-
-
 
 ## {patchwork}
 
@@ -771,8 +715,6 @@ library(patchwork)
 (p1 + p2) / p3
 ```
 
-
-
 ## "Collect Guides"
 
 ```{r}
@@ -782,8 +724,6 @@ library(patchwork)
 #| fig-align: "center"
 (p1 + p2) / p3 + plot_layout(guides = "collect")
 ```
-
-
 
 ## Apply Theming
 
@@ -795,8 +735,6 @@ library(patchwork)
 ((p1 + p2) / p3 & theme(legend.justification = "top")) + plot_layout(guides = "collect")
 ```
 
-
-
 ## Apply Theming
 
 ```{r}
@@ -806,8 +744,6 @@ library(patchwork)
 #| fig-align: "center"
 (p1 + p2) / p3 & theme(legend.position = "none", plot.background = element_rect(color = "black", size = 3))
 ```
-
-
 
 ## Adjust Widths and Heights
 
@@ -820,8 +756,6 @@ library(patchwork)
 ((p1 + p2) / p3 & theme(legend.position = "none")) + 
   plot_layout(heights = c(.2, .15), widths = c(1.4, 1))
 ```
-
-
 
 ## Use A Custom Layout
 
@@ -838,8 +772,6 @@ CCCCCCCCCCC"
 (p1 + p2 + p3 & theme(legend.position = "none")) + plot_layout(design = picasso) 
 ```
 
-
-
 ## Add Labels
 
 ```{r}
@@ -848,8 +780,6 @@ pl1 <- p1 + labs(tag = NULL, title = "Plot One") + theme(legend.position = "none
 pl2 <- p2 + labs(tag = NULL, title = "Plot Two") + theme(legend.position = "none")
 pl3 <- p3 + labs(tag = NULL, title = "Plot Three") + theme(legend.position = "none")
 ```
-
-
 
 ## Add Labels
 
@@ -863,13 +793,11 @@ pl3 <- p3 + labs(tag = NULL, title = "Plot Three") + theme(legend.position = "no
   plot_annotation(tag_levels = "1", tag_prefix = "P", title = "An overarching title for all 3 plots, placed on the very top while all other titles are sitting below the tags.")
 ```
 
-
-
 ## Add Text
 
 ::: panel-tabset
-
 ### Graphic
+
 ```{r}
 #| label: patchwork-composition-textbox-prep
 #| echo: false
@@ -892,14 +820,13 @@ pt <- ggplot(text, aes(x = x, y = y)) +
 pt
 ```
 
-### Code 
+### Code
+
 ```{r}
 #| label: patchwork-composition-textbox-prep
 #| eval: false
 ```
 :::
-
-
 
 ## Add Text
 
@@ -911,8 +838,6 @@ pt
 (p1 + pt) / p3
 ```
 
-
-
 ## Add Inset Plots
 
 ```{r}
@@ -922,8 +847,6 @@ pt
 #| fig-align: "center"
 pl1 + inset_element(pl2, l = .6, b = .1, r = 1, t = .6)
 ```
-
-
 
 ## Add Inset Plots
 
@@ -935,8 +858,6 @@ pl1 + inset_element(pl2, l = .6, b = .1, r = 1, t = .6)
 pl1 + inset_element(pl2, l = .6, b = 0, r = 1, t = .5, align_to = 'full')
 ```
 
-
-
 ## Add Inset Plots
 
 ```{r}
@@ -947,12 +868,10 @@ pl1 + inset_element(pl2, l = .6, b = 0, r = 1, t = .5, align_to = 'full')
 (pl1 + inset_element(pl2, l = .6, b = .1, r = 1, t = .6) + pt) / pl3
 ```
 
-
-
 ## <b style='color:#663399;'>Recap</b>
 
 ::: recap
 ::: incremental
-- 
+-   
 :::
 :::

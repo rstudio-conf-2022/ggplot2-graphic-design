@@ -20,7 +20,7 @@ format:
       buttons: true
     pause: true
     mainfont: Cabinet Grotesk
-editor: visual
+editor: source
 knitr:
   opts_chunk: 
     dev: "ragg_png"
@@ -35,79 +35,62 @@ execute:
 
 # Welcome!
 
-
-
 ##  {background-image="img/intro/hello-team.png" background-position="center" background-size="65%"}
 
 ::: footer
 :::
 
-
 ##  {background-image="img/intro/team-1.png" background-position="center" background-size="75%"}
-
 
 ##  {background-image="img/portfolio/portfolio_cards.png" background-position="center" background-size="80%"}
 
 ::: footer
 :::
 
-
 ##  {background-image="img/portfolio/projects-science.png" background-position="center" background-size="80%" background-color="#606060"}
 
 ::: footer
 :::
-
 
 ##  {background-image="img/portfolio/projects-clients.png" background-position="center" background-size="80%" background-color="#606060"}
 
 ::: footer
 :::
 
-
 ##  {background-image="img/portfolio/projects-personal.png" background-position="center" background-size="80%" background-color="#606060"}
 
 ::: footer
 :::
 
-
 ##  {background-image="img/intro/team-2.png" background-position="center" background-size="75%"}
-
 
 ##  {background-image="img/intro/team-3.png" background-position="center" background-size="75%"}
 
-
 ##  {background-image="img/intro/team-4.png" background-position="center" background-size="75%"}
-
 
 ##  {background-image="img/intro/team-5.png" background-position="center" background-size="75%"}
 
-
 ##  {background-image="img/portfolio/marco_germany_heating_up.png" background-position="center" background-size="38%"}
-
 
 ##  {background-image="img/intro/team.png" background-position="center" background-size="75%"}
 
-
 ##  {background-image="img/portfolio/hassan_geom_tile_34_0.png" background-position="center" background-size="75%"}
-
 
 ##  {background-image="img/intro/hello-course.png" background-position="center" background-size="65%"}
 
 ::: footer
 :::
 
-
 ------------------------------------------------------------------------
-
 
 ## Conversation Starters
 
-* What's your name?
-* Where do you feel home?
-* When did you use R for the first time?
-* What's your favorite animal / plant / color / typeface?
-* Whom would you like to meet during the rstudio::conf?
-* Which R package are you looking forward to try?
+-   What's your name?
+-   Where do you feel home?
+-   When did you use R for the first time?
+-   What's your favorite animal / plant / color / typeface?
+-   Whom would you like to meet during the rstudio::conf?
+-   Which R package are you looking forward to try?
 
 ```{r}
 #| label: countdown-group
@@ -115,22 +98,18 @@ execute:
 countdown::countdown(minutes = 10, font_size = ".5em")
 ```
 
-
-
-## Communication Strategy 
+## Communication Strategy
 
 <br>
 
 ::: incremental
-* <b style='color:#28a87d;'>Green sticky note </b>— I am done with the exercise<br><br>
-* <b style='color:#b82ca1;'>Pink sticky note </b>— I need help or support<br><br>
-* You can ask questions / comment at any time during the course.
-* Please avoid questions during the breaks to give us a chance to recover and reflect.
-* Team up with your neighbors for exercises — and lunch!
-* We will collect feedback twice during the day (more later).
+-   <b style='color:#28a87d;'>Green sticky note </b>--- I am done with the exercise<br><br>
+-   <b style='color:#b82ca1;'>Pink sticky note </b>--- I need help or support<br><br>
+-   You can ask questions / comment at any time during the course.
+-   Please avoid questions during the breaks to give us a chance to recover and reflect.
+-   Team up with your neighbors for exercises --- and lunch!
+-   We will collect feedback twice during the day (more later).
 :::
-
-
 
 # Introduction
 
@@ -147,7 +126,7 @@ countdown::countdown(minutes = 10, font_size = ".5em")
 <b style='font-size:30pt;'><code>{ggplot2}</code> is a system for declaratively creating graphics,<br>based on "The Grammar of Graphics" (Wilkinson, 2005).</b>
 
 ::: fragment
-<span style="font-size:24pt;">You provide the data, tell <code>{ggplot2}</code> how to <span class='circle-highlight'>map variables to aesthetics,</span><br>what graphical primitives to use, and it takes care of the details.</span>
+[You provide the data, tell <code>{ggplot2}</code> how to ]{style="font-size:24pt;"}[map variables to aesthetics,]{.circle-highlight}<br>what graphical primitives to use, and it takes care of the details.
 :::
 
 ## Advantages of {ggplot2}
@@ -160,120 +139,82 @@ countdown::countdown(minutes = 10, font_size = ".5em")
 -   active and helpful community
 :::
 
-
 ------------------------------------------------------------------------
-
 
 ![Illustration by Allison Horst](img/intro/ah_ggplot2_exploratory.png){fig-align="center" fig-alt="Allison Horsts monster illustration of explorative plotting with ggplot2."}
 
 ::: footer
 :::
 
-
 ------------------------------------------------------------------------
-
 
 ![ggplot2 Examples featured on ggplot2.tidyverse.org](img/intro/basic_ggplots.png){fig-align="center" fig-alt="A collection of the versatility of ggplot2 to create basic graphs. All of them use the default grey ggplot2 theme."}
 
 ::: footer
 :::
 
-
 ------------------------------------------------------------------------
 
-
 ![Illustration by Allison Horst](img/intro/ah_ggplot2_masterpiece.png){fig-align="center" fig-alt="Allison Horsts monster illustration of building  data masterpiece ith ggplot2 featuring a little Picasso monster :)"}
-
-
 
 ##  {background-image="img/intro/evol-ggplot-1.gif" background-position="center" background-size="65%"}
 
 ::: footer
 :::
 
-
-
 # The {ggplot2} Showcase
 
-
 ------------------------------------------------------------------------
-
 
 ![Collection of Graphics from the [BBC R Cookbook](https://bbc.github.io/rcookbook/)](img/showcase/bbc-gallery.png){fig-align="center" fig-alt="A multi-plot panel of various data visualizations created by the BBC teams."}
 
-
 ------------------------------------------------------------------------
-
 
 ![Contribution to [#TidyTuesday Week 2020/31](https://github.com/Z3tt/TidyTuesday/tree/main/plots/2020_31)](img/showcase/2020_31_PalmerPenguins.png){fig-align="center" fig-size="80%" fig-alt="A colorful and annotated scatterplot and a custom raincloud plot showing various bill measures of Palmer penguins."}
 
-
 ------------------------------------------------------------------------
-
 
 ![My reinterpreted [The Economist graphic](https://www.economist.com/graphic-detail/2019/09/28/why-are-some-languages-spoken-faster-than-others)](img/showcase/speech_speed_language_families_raincloud.png){fig-align="center" fig-alt="The raincloud chart showing the distributions of normalized speech rates (dark pink) and information rates (dark lime green) across language families."}
 
-
 ------------------------------------------------------------------------
-
 
 ![["European Elections"](https://twitter.com/spren9er/status/1138000009306234880) by Torsten Sprenger](img/showcase/europe_sprengler.jpeg){fig-align="center" fig-alt="A circular tree showing the German winner parties for each district & state of the 2019 European Parliament Election."}
 
-
 ------------------------------------------------------------------------
-
 
 ![Contribution to [#TidyTuesday Week 2020/08](https://github.com/Z3tt/TidyTuesday/tree/main/plots/2020_08)](img/showcase/20200307_TT_2020_08_CarbonFoodprint_alt.png){fig-align="center" fig-alt="Two circular hierarchical bar plots showing the carbon footprint 2018 for food consumption and CO2 per continent and country."}
 
-
 ------------------------------------------------------------------------
-
 
 ![Contribution to the [#SWDchallenge "Small Multiples"](https://www.storytellingwithdata.com/blog/2020/1/6/swdchallenge-small-multiples)](img/showcase/SWD_2020_01_SmallMultiples_grey.png){fig-align="center" fig-alt="A facet of shots and goals of the Bundesliga football clubs in the season 2019/20."}
 
-
 ------------------------------------------------------------------------
-
 
 ![Contribution to the [#TidyTuesday Week 2021/15 x #30DayChartChallenge 2021 by Jake Kaupp](https://twitter.com/jakekaupp/status/1379606812849270784?s=20)](img/showcase/jake_30dcc_tt_trees.png){fig-align="center" fig-alt="A facet of trees over time with less and less leaves as time passes by; each leave represents one billion treees."}
 
-
 ------------------------------------------------------------------------
-
 
 ![[Moon Charts as a Tile Grid Map](https://github.com/z3tt/grid-btw-wahlkreise-constituencies) showing the 2nd Vote Results from the German Election 2021](img/showcase/btw21_tile_grid_moon_second_de.png){fig-align="center" fig-alt="A grid map using moon charts for all 297 electoral districts which show the share of the wnning party in second votesc during the German election in 2021."}
 
-
 ------------------------------------------------------------------------
-
 
 ![[#TidyTuesday Contribution by Jack Davison](github.com/jack-davison/tidytuesday)](img/showcase/jack_davison.png){fig-align="center" fig-alt="A gridded map of Europe showing horizontal stacked bars of energy production per country over time (each bar represents share among one year from 2016 to 2018)."}
 
-
 ------------------------------------------------------------------------
-
 
 ![Our Winning Contribution to the [BES MoveMap Contest](https://besmovesig.wordpress.com/2021/02/25/mapping-movements-the-art-and-the-science-we-have-the-winners/)](img/showcase/20210131_BES_CheetahMap_rcarto.png){fig-align="center" fig-alt="A spatial map of cheetah movement and their hotspot behaviour in Namibia."}
 
-
 ------------------------------------------------------------------------
-
 
 ![[Bivariate Choropleth x Hillshade Map](timogrossenbacher.ch/2019/04/bivariate-maps-with-ggplot2-and-sf) by Timo Gossenbacher](img/showcase/swiss_map.png){fig-align="center" fig-alt="A spatial map of income and inequality shown with a bivariate color palette; alpine regions have a hillshading effect."}
 
-
 ------------------------------------------------------------------------
-
 
 ![Pixel art by [Georgios Karamanis](https://karaman.is/)](img/showcase/bob-ross-pixel-art-georgios.png){fig-align="center" fig-alt="A set of small multiples using pixelated encodings of certain elements in Bob Ross' paintings."}
 
-
 ------------------------------------------------------------------------
 
-
 ![Generative art by [Thomas Lin Pedersen](https://www.data-imaginist.com/art)](img/showcase/genart.png){fig-align="center" fig-alt="Two artworks by Thomas Pedersen, completely generated in R with ggplot2 (and pure magic)."}
-
-
 
 # A Step-by-Step Example
 
@@ -296,12 +237,9 @@ bikes <-
 theme_set(theme_grey(base_size = 14))
 ```
 
-
-
 ------------------------------------------------------------------------
 
 ::: panel-tabset
-
 ### Graphic
 
 ```{r}
@@ -315,21 +253,19 @@ ggplot(bikes, aes(temp_feel, count)) +
   geom_point(size = 2.2) 
 ```
 
-### Code 
+### Code
 
 ```{r}
 #| label: example-motivation-basic
 #| eval: false
 ```
-
 :::
-
-
 
 ------------------------------------------------------------------------
 
 ::: panel-tabset
 ### Graphic
+
 ```{r}
 #| label: example-motivation-basic-color
 #| fig-width: 14
@@ -344,19 +280,19 @@ ggplot(bikes, aes(temp_feel, count)) +
   ) 
 ```
 
-### Code 
+### Code
+
 ```{r}
 #| label: example-motivation-basic-color
 #| eval: false
 ```
 :::
 
-
 ------------------------------------------------------------------------
-
 
 ::: panel-tabset
 ### Graphic
+
 ```{r}
 #| label: example-motivation-basic-smooth
 #| fig-width: 14
@@ -374,19 +310,19 @@ ggplot(bikes, aes(temp_feel, count)) +
   )
 ```
 
-### Code 
+### Code
+
 ```{r}
 #| label: example-motivation-basic-smooth
 #| eval: false
 ```
 :::
 
-
 ------------------------------------------------------------------------
-
 
 ::: panel-tabset
 ### Graphic
+
 ```{r}
 #| label: example-motivation-basic-facet
 #| fig-width: 14
@@ -405,19 +341,19 @@ ggplot(bikes, aes(temp_feel, count)) +
   facet_grid(day_night ~ is_workday)
 ```
 
-### Code 
+### Code
+
 ```{r}
 #| label: example-motivation-basic-facet
 #| eval: false
 ```
 :::
 
-
 ------------------------------------------------------------------------
-
 
 ::: panel-tabset
 ### Graphic
+
 ```{r}
 #| label: example-motivation-basic-facet-space
 #| fig-width: 14
@@ -439,19 +375,19 @@ ggplot(bikes, aes(temp_feel, count)) +
   )
 ```
 
-### Code 
+### Code
+
 ```{r}
 #| label: example-motivation-basic-facet-space
 #| eval: false
 ```
 :::
 
-
 ------------------------------------------------------------------------
-
 
 ::: panel-tabset
 ### Graphic
+
 ```{r}
 #| label: example-motivation-styling
 #| fig-width: 14
@@ -478,20 +414,19 @@ ggplot(bikes, aes(temp_feel, count)) +
   )
 ```
 
-### Code 
+### Code
+
 ```{r}
 #| label: example-motivation-styling
 #| eval: false
 ```
 :::
 
-
 ------------------------------------------------------------------------
 
 ::: panel-tabset
-
-
 ### Graphic
+
 ```{r}
 #| label: example-motivation-styling-2
 #| fig-width: 14
@@ -524,20 +459,19 @@ ggplot(bikes, aes(temp_feel, count)) +
   theme_light(base_size = 18, base_family = "Cabinet Grotesk") 
 ```
 
-### Code 
+### Code
+
 ```{r}
 #| label: example-motivation-styling-2
 #| eval: false
 ```
-
 :::
-
 
 ------------------------------------------------------------------------
 
-
 ::: panel-tabset
 ### Graphic
+
 ```{r}
 #| label: example-motivation-advanced
 #| fig-width: 14
@@ -600,19 +534,19 @@ ggplot(bikes, aes(temp_feel, count)) +
   )
 ```
 
-### Code 
+### Code
+
 ```{r}
 #| label: example-motivation-advanced
 #| eval: false
 ```
 :::
 
-
 ------------------------------------------------------------------------
-
 
 ::: panel-tabset
 ### Graphic
+
 ```{r}
 #| label: example-motivation-advanced-2
 #| fig-width: 14
@@ -689,7 +623,8 @@ ggplot(bikes, aes(temp_feel, count)) +
   )
 ```
 
-### Code 
+### Code
+
 ```{r}
 #| label: example-motivation-advanced-2
 #| eval: false
