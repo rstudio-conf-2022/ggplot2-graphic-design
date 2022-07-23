@@ -88,7 +88,7 @@ If you want to run  the workshop content locally on youre machine, please make s
 - sf
 - rmapshaper
 
-Install the packages if needed:
+#### Run this code to install the packages if needed:
 
 ```
 packages <- c(
