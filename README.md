@@ -105,6 +105,9 @@ install.packages(setdiff(packages, rownames(installed.packages())))
 ## install {colorblindr} and requirements
 remotes::install_github("wilkelab/cowplot")
 remotes::install_github("clauswilke/colorblindr")
+
+## not strictly needed but a nice package for a bonus solution
+devtools::install_github("coolbutuseless/ggblur")
 ```
 
 ### Typeface Installation
