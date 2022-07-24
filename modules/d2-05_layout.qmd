@@ -1,6 +1,6 @@
 ---
 title: "Working with Colors"
-subtitle: "13:30 - 15:00"
+subtitle: "15:30 - 17:00"
 date: "2022-07-26"
 image: "images/ggplot2.png"
 listing:
@@ -35,8 +35,8 @@ tbl-colwidths: [5,20,75]
     -   Adjust Widths and Heights
     -   Use A Custom Layout
     -   Add Labels
-    -    Add Inset Plots
-    
+    -   Add Inset Plots
+
 ## Slides
 
 [View slides in full screen](../materials/07_layout.html)

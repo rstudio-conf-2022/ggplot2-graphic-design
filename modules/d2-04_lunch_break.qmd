@@ -1,6 +1,6 @@
 ---
 title: "Lunch break"
-subtitle: "12:30 - 13:30"
+subtitle: "15:00 - 15:30"
 date: "2022-07-6"
 image: "images/lunch-break.png"
 image-alt: "Plate and utensils."

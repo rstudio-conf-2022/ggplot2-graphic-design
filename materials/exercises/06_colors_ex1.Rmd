@@ -9,7 +9,7 @@ format: html
 
 ![A sina plot combined with an errorbar Reported bike shares in London during day and night times, split by season, using TfL bike sharing data from 2015 to 2016."](exercises/6-1-bikes-jitter/jittered-errorbars.png)
 
-```{r preparation, warnings=false, messages=false}
+```{r preparation, warnings=FALSE, messages=FALSE}
 library(tidyverse)
 library(colorspace)
 library(ggforce)
@@ -31,11 +31,6 @@ colors <- c("#987708", "#663399")
 
 ```
 
-
-
-
-  
-  
 ```{r i-am-done-what-now, echo=FALSE}
 knitr::include_graphics("img/exercise-what-now-sd.png")
 ```
