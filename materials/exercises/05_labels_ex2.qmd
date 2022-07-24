@@ -12,7 +12,7 @@ editor: visual
 # Exercise 2
 
 -   {ggtext} also comes with some new geom's. Explore those and other options on the package webpage: https://wilkelab.org/ggtext.
--   **Create the visualization placed in `exercises/5-1-penguins`, as close as possible**, with the `penguins` dataset which is provided by the {palmerpenguins} package( more here: https://allisonhorst.github.io/palmerpenguins).
+-   **Create the following visualization, as close as possible**, with the `penguins` dataset which is provided by the {palmerpenguins} package( more here: https://allisonhorst.github.io/palmerpenguins).
     -   For the species labels, you likely have to create a summary data set.
     -   Use the {ggtext} geometries and theme elements to format the labels.
     -   Also, make use of the other components such as scales, original theme, and theme customization.

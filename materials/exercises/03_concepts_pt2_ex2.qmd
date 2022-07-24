@@ -21,6 +21,8 @@ editor: visual
 
 ```{r}
 #| label: preparation
+#| warnings: false
+#| messages: false
 library(tidyverse)
 
 bikes <- read_csv(
@@ -48,6 +50,7 @@ bikes
   
 ```{r}
 #| label: i-am-done-what-now
+#| echo: false
 knitr::include_graphics("img/exercise-what-now-sd.png")
 ```
 

@@ -19,8 +19,7 @@ format: html
 
 ## Data import
 
-```{r}
-#| label: preparation
+```{r preparation, warning=FALSE, message=FALSE}
 library(tidyverse)
 
 bikes <- read_csv(
@@ -43,6 +42,6 @@ bikes
   
   
   
-```{r i-am-done-what-now}
+```{r i-am-done-what-now, echo=FALSE}
 knitr::include_graphics("img/exercise-what-now-sd.png")
 ```

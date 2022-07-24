@@ -33,17 +33,5 @@ execute:
   fig-height: 6
 ---
 
-## <b style='color:#663399;'>Recap</b>
 
-::: recap
-::: incremental
--  **guides** are the combination of scales and legends
--  legends can be either modified with the **`guide_*`** function in **`scale_*()`** or **`guides()`**  and with the **`theme()`** component
-qualitative-  ... while quantitative guides are **`colorbar`**, **`colorsteps`** or **`bins`**
--  **`{patchwork}`** is the most modern and simplest way to compose plots
-    -  use `+`, `/` and `|` to combine plots
-    -  use `plot_layout()` to adjust the layout, widths and heights
-    -  use `plot_annotation()` to add tags and general labels
-    - use `inset_element()` to add inset graphics
-:::
-:::
+

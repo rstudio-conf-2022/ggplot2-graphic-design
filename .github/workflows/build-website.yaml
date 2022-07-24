@@ -34,11 +34,6 @@ jobs:
         with:
           use-public-rspm: true
 
-      - name: Set up renv
-        uses: r-lib/actions/setup-renv@v2
-        with:
-          cache-version: 2
-
       - name: Render site
         # Add any command line argument needed
         run: |

@@ -5,7 +5,7 @@ author: "Your Name"
 format: html
 execute:
   message: false
-  warning: false
+materials/exercises/02_concepts_pt1_ex1.qmd  warning: false
 editor: visual
 ---
 
@@ -24,6 +24,8 @@ editor: visual
 
 ```{r}
 #| label: preparation
+#| warnings: false
+#| messages: false
 library(tidyverse)
 
 bikes <- read_csv(
@@ -49,5 +51,6 @@ bikes
   
 ```{r}
 #| label: i-am-done-what-now
+#| echo: false
 knitr::include_graphics("img/exercise-what-now-sd.png")
 ```
