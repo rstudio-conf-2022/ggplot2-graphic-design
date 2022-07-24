@@ -367,7 +367,7 @@ g +
   )
 ```
 
-# Labels +<br>`ggtext::element_markdown`
+# Labels +<br>`element_markdown`
 
 ## Styling Labels with {ggtext}
 
@@ -481,6 +481,8 @@ g +
   )
 ```
 
+
+
 ## Facet Labellers
 
 ```{r}
@@ -502,6 +504,8 @@ g +
   )
 ```
 
+
+
 ## Facet Labeller
 
 ```{r}
@@ -520,7 +524,11 @@ g +
   )
 ```
 
+
+
 # Handling Long Labels
+
+
 
 ## Handling Long Labels with {stringr}
 
@@ -534,6 +542,10 @@ ggplot(
   ) +
   geom_boxplot()
 ```
+
+
+
+## Handling Long Labels with {stringr}
 
 ```{r}
 #| label: stringr-wrap-labs
