@@ -154,7 +154,7 @@ tibble(
 #| include: false
 #| purl: false
 library(ggplot2)
-theme_set(theme_grey(base_size = 14, base_family = "Robot Condensed"))
+theme_set(theme_grey(base_size = 14, base_family = "Roboto Condensed"))
 ```
 
 ```{r}
@@ -348,7 +348,7 @@ ggplot(
 #| echo: false
 #| purl: false
 countdown::countdown(minutes = 5, font_size = ".5em")
-theme_set(theme_grey(base_size = 12, base_family = "Robot Condensed"))
+theme_set(theme_grey(base_size = 12, base_family = "Roboto Condensed"))
 ```
 
 ## Mapping Expressions
@@ -524,7 +524,7 @@ ggplot(
 #| label: reset-theme
 #| include: false
 #| purl: false
-theme_set(theme_grey(base_size = 14, base_family = "Robot Condensed"))
+theme_set(theme_grey(base_size = 14, base_family = "Roboto Condensed"))
 ```
 
 ## Local vs. Global Encoding

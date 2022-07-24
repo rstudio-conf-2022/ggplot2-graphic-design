@@ -9,7 +9,7 @@ execute:
 editor: visual
 ---
 
-# Exercise 2
+# Exercise 1
 
 -   {ggtext} also comes with some new geom's. Explore those and other options on the package webpage: https://wilkelab.org/ggtext.
 -   **Create the visualization, placed in `exercises/5-1-penguins`, as close as possible**, with the `penguins` dataset which is provided by the {palmerpenguins} package( more here: https://allisonhorst.github.io/palmerpenguins).
