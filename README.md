@@ -46,7 +46,11 @@ The workshop will also cover the basic logic of ggplot2 and its compontents. How
 
 The example codes and the hands-on workshop parts are run in the Rstudio cloud. Thus, nothing but a laptop is needed.
 
+<<<<<<< HEAD
 If you want to run the workshop content locally on youre machine, please make sure to install a suitable IDE (Rstudio, VS Code or others), a recent version of R (4.1+) and the following packages and typefaces.
+=======
+If you want to run  the workshop content locally on your machine, please make sure to install a suitable IDE (Rstudio, VS Code or others), a recent version of R (4.1+) and the following packages and typefaces.
+>>>>>>> ca1b703e8b37825774cc3d3f2f407a224207b649
 
 ### R Packages Installation
 
@@ -109,11 +113,20 @@ If you want to run the workshop content locally on youre machine, please make su
 
 We will make use of custom fonts. If you want to follow all contents, make sure the following typefaces are installed:
 
+<<<<<<< HEAD
 -   Roboto Condensed: [fonts.google.com/specimen/Roboto+Condensed](www.fonts.google.com/specimen/Roboto+Condensed)
 -   Cabinet Grotesk: [fontshare.com/fonts/cabinet-grotesk](www.fontshare.com/fonts/cabinet-grotesk)
 -   Tabular: [fontshare.com/fonts/tabular](www.fontshare.com/fonts/tabular)
 -   Boska: [fontshare.com/fonts/boska](www.fontshare.com/fonts/boska)
 -   Pally: [fontshare.com/fonts/pally](www.fontshare.com/fonts/pally)
+=======
+- Roboto Condensed: [fonts.google.com/specimen/Roboto+Condensed](https://www.fonts.google.com/specimen/Roboto+Condensed)
+- Cabinet Grotesk: [fontshare.com/fonts/cabinet-grotesk](https://www.fontshare.com/fonts/cabinet-grotesk)
+- Tabular: [fontshare.com/fonts/tabular](https://www.fontshare.com/fonts/tabular)
+- Boska: [fontshare.com/fonts/boska](https://www.fontshare.com/fonts/boska)
+- Pally: [fontshare.com/fonts/pally](https://www.fontshare.com/fonts/pally)
+
+>>>>>>> ca1b703e8b37825774cc3d3f2f407a224207b649
 
 *For Mac OS users:* Please make sure that [XQuartz is installed](https://www.xquartz.org/) which is needed to use the cairo pdf device.
 
