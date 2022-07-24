@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.0.28">
+<meta name="generator" content="quarto-1.0.36">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Graphic Design with ggplot2</title>
+<title>Graphic Design with ggplot2 - Graphic Design with ggplot2</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -29,12 +29,10 @@ ul.task-list{list-style: none;}
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -56,12 +54,12 @@ ul.task-list{list-style: none;}
 }</script>
 
 
-<meta name="twitter:title" content="Graphic Design with ggplot2">
-<meta name="twitter:description" content="🗓️ July 25 and 26, 2022 ⏰ 09:00 - 17:00 🏨 [ADD ROOM] ✍️ rstd.io/conf">
+<meta name="twitter:title" content="Graphic Design with ggplot2 - Graphic Design with ggplot2">
+<meta name="twitter:description" content="Dr.&nbsp;Cédric Scherer (he/him) is a graduated computational ecologist with a passion for design.">
 <meta name="twitter:image" content="https://rstudio-conf-2022.github.io/ggplot2-graphic-design//images/twitter-card.png">
 <meta name="twitter:creator" content="@CedScherer">
-<meta name="twitter:image-height" content="599">
-<meta name="twitter:image-width" content="1200">
+<meta name="twitter:image-height" content="622">
+<meta name="twitter:image-width" content="890">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -98,12 +96,9 @@ ul.task-list{list-style: none;}
     <a class="nav-link" href="https://github.com/rstudio-conf-2022/ggplot2-graphic-design">GitHub</a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="https://rstudio.cloud/spaces/xxx">RStudio Cloud+</a>
+    <a class="nav-link" href="https://rstudio.cloud/spaces/235465">RStudio Cloud+</a>
   </li>  
 </ul>
-              <div class="quarto-toggle-container">
-                  <a href="" class="quarto-color-scheme-toggle nav-link" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
-              </div>
               <div id="quarto-search" class="" title="Search"></div>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
@@ -118,12 +113,20 @@ ul.task-list{list-style: none;}
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
+  <li><a href="#graphic-design-with-ggplot2-how-to-create-engaging-and-complex-visualizations-in-r" id="toc-graphic-design-with-ggplot2-how-to-create-engaging-and-complex-visualizations-in-r" class="nav-link active" data-scroll-target="#graphic-design-with-ggplot2-how-to-create-engaging-and-complex-visualizations-in-r">Graphic Design with ggplot2: How to Create Engaging and Complex Visualizations in R</a>
+  <ul class="collapse">
+  <li><a href="#rstudioconf-2022" id="toc-rstudioconf-2022" class="nav-link" data-scroll-target="#rstudioconf-2022">rstudio::conf 2022</a></li>
+  <li><a href="#overview" id="toc-overview" class="nav-link" data-scroll-target="#overview">Overview</a></li>
   <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives">Learning objectives</a></li>
   <li><a href="#is-this-course-for-me" id="toc-is-this-course-for-me" class="nav-link" data-scroll-target="#is-this-course-for-me">Is this course for me?</a></li>
   <li><a href="#prework" id="toc-prework" class="nav-link" data-scroll-target="#prework">Prework</a></li>
-  <li><a href="#requirements" id="toc-requirements" class="nav-link" data-scroll-target="#requirements">Requirements</a></li>
-  <li><a href="#instructors" id="toc-instructors" class="nav-link" data-scroll-target="#instructors">Instructors</a></li>
+  <li><a href="#requirements" id="toc-requirements" class="nav-link" data-scroll-target="#requirements">Requirements</a>
+  <ul class="collapse">
+  <li><a href="#r-packages-installation" id="toc-r-packages-installation" class="nav-link" data-scroll-target="#r-packages-installation">R Packages Installation</a></li>
+  <li><a href="#typeface-installation" id="toc-typeface-installation" class="nav-link" data-scroll-target="#typeface-installation">Typeface Installation</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#instructor" id="toc-instructor" class="nav-link" data-scroll-target="#instructor">Instructor</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/rstudio-conf-2022/ggplot2-graphic-design/edit/main/index.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/rstudio-conf-2022/ggplot2-graphic-design/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -132,7 +135,7 @@ ul.task-list{list-style: none;}
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Graphic Design with ggplot2</h1>
+<h1 class="title"><span style="font-family: Boska; font-size: 2.75rem; font-weight: 800;">Graphic Design with ggplot2</span></h1>
 </div>
 
 
@@ -146,9 +149,18 @@ ul.task-list{list-style: none;}
 
 </header>
 
+<section id="graphic-design-with-ggplot2-how-to-create-engaging-and-complex-visualizations-in-r" class="level1">
+<h1>Graphic Design with ggplot2: How to Create Engaging and Complex Visualizations in R</h1>
+<section id="rstudioconf-2022" class="level3">
+<h3 class="anchored" data-anchor-id="rstudioconf-2022">rstudio::conf 2022</h3>
+<p>by Cédric Scherer</p>
 <hr>
-<p>🗓️ July 25 and 26, 2022 ⏰ 09:00 - 17:00 🏨 [ADD ROOM] ✍️ rstd.io/conf</p>
+<p>🗓️ July 25 and 26, 2022<br>
+⏰ 09:00 - 17:00<br>
+🏨 National Harbor 4/5<br>
+✍️ <a href="http://rstd.io/conf">rstd.io/conf</a></p>
 <hr>
+</section>
 <section id="overview" class="level2">
 <h2 class="anchored" data-anchor-id="overview">Overview</h2>
 <p>Creating engaging and accessible data visualizations of high quality in an efficient and preferably reproducible way is an essential tool in a data scientist’s toolbox. After completing the course, participants will have a solid understanding of data visualization principles and the functionality of the ggplot2 graphics library and helpful extension libraries to create highly customized graphics without the need for post-processing.</p>
@@ -175,33 +187,91 @@ ul.task-list{list-style: none;}
 </section>
 <section id="prework" class="level2">
 <h2 class="anchored" data-anchor-id="prework">Prework</h2>
-<p>The workshop will also cover the basic logic of ggplot2 and its compontents. However, some pre-knowledge on how the package works is beneficial for following the examples and for the group exercises. A good overview is provided might by the “First Steps” chapter of the ggplot2 book by Hadley Wickham et al.: https://ggplot2-book.org/getting-started.html</p>
+<p>The workshop will also cover the basic logic of ggplot2 and its compontents. However, some pre-knowledge on how the package works is beneficial for following the examples and for the group exercises. A good overview is provided might by the “First Steps” chapter of the ggplot2 book by Hadley Wickham et al.: <a href="https://ggplot2-book.org/getting-started.html" class="uri">https://ggplot2-book.org/getting-started.html</a></p>
 </section>
 <section id="requirements" class="level2">
 <h2 class="anchored" data-anchor-id="requirements">Requirements</h2>
-<p>The example codes and the hands-on workshop parts are run in the Rstudio cloud. Thus, nothing but a laptop is needed. If you want to follow the workshop locally, please make sure to install a suitable IDE (Rstudio, VS Code or others), a recent version of R (4.1+) and the following packages (to be extended):</p>
-<section id="tidyverse-and-related" class="level4">
-<h4 class="anchored" data-anchor-id="tidyverse-and-related"><code>{tidyverse}</code> and related</h4>
-<p><code>{ggplot2}</code>, <code>{readr}</code>, <code>{tibble}</code>, <code>{tidyr}</code>, <code>{dplyr}</code>, <code>{forcats}</code>, <code>{stringr}</code>, <code>{lubridate}</code>,</p>
+<p>The example codes and the hands-on workshop parts are run in the Rstudio cloud. Thus, nothing but a laptop is needed.</p>
+<p>If you want to run the workshop content locally on your machine, please make sure to install a suitable IDE (Rstudio, VS Code or others), a recent version of R (4.1+) and the following packages and typefaces.</p>
+<section id="r-packages-installation" class="level3">
+<h3 class="anchored" data-anchor-id="r-packages-installation">R Packages Installation</h3>
+<ul>
+<li>tidyverse
+<ul>
+<li>ggplot2</li>
+<li>readr</li>
+<li>tibble</li>
+<li>dplyr</li>
+<li>tidyr</li>
+<li>forcats</li>
+<li>stringr</li>
+</ul></li>
+<li>lubridate</li>
+<li>here</li>
+<li>systemfonts</li>
+<li>magick</li>
+<li>scales</li>
+<li>grid</li>
+<li>grDevices</li>
+<li>viridis</li>
+<li>colorblindr</li>
+<li>colorspace</li>
+<li>RColorBrewer</li>
+<li>rcartocolor</li>
+<li>scico</li>
+<li>ggsci</li>
+<li>ggthemes</li>
+<li>nord</li>
+<li>MetBrewer</li>
+<li>ggrepel</li>
+<li>ggforce</li>
+<li>ggtext</li>
+<li>ggdist</li>
+<li>ggbeeswarm</li>
+<li>gghalves</li>
+<li>ggblur</li>
+<li>patchwork</li>
+<li>palmerpenguins</li>
+<li>rnaturalearth</li>
+<li>sf</li>
+<li>rmapshaper</li>
+</ul>
+<section id="run-this-code-to-install-the-packages-if-needed" class="level4">
+<h4 class="anchored" data-anchor-id="run-this-code-to-install-the-packages-if-needed">Run this code to install the packages if needed:</h4>
+<pre><code>packages &lt;- c(
+  "ggplot2", "readr", "tibble", "tidyr", "forcats", "stringr",
+  "lubridate", "here", "systemfonts", "magick", "scales", "grid",
+  "grDevices", "colorspace", "viridis", "RColorBrewer", "rcartocolor",
+  "scico", "ggsci", "ggthemes", "nord", "MetBrewer", "ggrepel",
+  "ggforce", "ggtext", "ggdist", "ggbeeswarm", "gghalves", "patchwork", 
+  "palmerpenguins", "rnaturalearth", "sf", "rmapshaper", "devtools"
+)
+
+install.packages(setdiff(packages, rownames(installed.packages())))  
+
+## install {colorblindr} and requirements
+remotes::install_github("wilkelab/cowplot")
+remotes::install_github("clauswilke/colorblindr")</code></pre>
 </section>
-<section id="ggplot2-extensions" class="level4">
-<h4 class="anchored" data-anchor-id="ggplot2-extensions"><code>{ggplot2}</code> extensions</h4>
-<p><code>{ggtext}</code>, <code>{ggrepel}</code>, <code>{ggforce}</code>, <code>{ggdist}</code>, <code>{ggalt}</code>, <code>{ggridges}</code>, <code>{patchwork}</code></p>
 </section>
-<section id="color-palettes" class="level4">
-<h4 class="anchored" data-anchor-id="color-palettes">Color palettes</h4>
-<p><code>{RColorBrewer}</code>, <code>{scico}</code>, <code>{rcartocolor}</code></p>
-</section>
-<section id="misc" class="level4">
-<h4 class="anchored" data-anchor-id="misc">Misc</h4>
-<p><code>{magick}</code>, <code>{systemfonts}</code></p>
+<section id="typeface-installation" class="level3">
+<h3 class="anchored" data-anchor-id="typeface-installation">Typeface Installation</h3>
+<p>We will make use of custom fonts. If you want to follow all contents, make sure the following typefaces are installed:</p>
+<ul>
+<li>Roboto Condensed: <a href="www.fonts.google.com/specimen/Roboto+Condensed">fonts.google.com/specimen/Roboto+Condensed</a></li>
+<li>Cabinet Grotesk: <a href="www.fontshare.com/fonts/cabinet-grotesk">fontshare.com/fonts/cabinet-grotesk</a></li>
+<li>Tabular: <a href="www.fontshare.com/fonts/tabular">fontshare.com/fonts/tabular</a></li>
+<li>Boska: <a href="www.fontshare.com/fonts/boska">fontshare.com/fonts/boska</a></li>
+<li>Pally: <a href="www.fontshare.com/fonts/pally">fontshare.com/fonts/pally</a></li>
+</ul>
 <p><em>For Mac OS users:</em> Please make sure that <a href="https://www.xquartz.org/">XQuartz is installed</a> which is needed to use the cairo pdf device.</p>
 </section>
 </section>
-<section id="instructors" class="level1">
-<h1>Instructors</h1>
-<p><img src="images/cedric.jpeg" class="img-fluid" style="float:right;padding: 0 0 0 10px;" alt="Headshot of Dr. Mine Çetinkaya-Rundel" width="200"></p>
-<p><a href="http://mine-cr.com/"><strong>Dr.&nbsp;Cédric Scherer</strong></a> (he/him) is a graduated computational ecologist with a passion for design. After his PhD, he combined his expertise in analyzing and visualizing large data sets in R with his passion to become an independent data visualization designer and specialist. Cédric has created visualizations across all disciplines, purposes, and styles and regularly teaches data visualization principles, the R programing language, and ggplot2. Due to regular participation in social data challenges such as #TidyTuesday, he is now well known for complex and visually appealing figures, entirely made with ggplot2, that look as if they have been created with a vector design tool.</p>
+</section>
+<section id="instructor" class="level1">
+<h1>Instructor</h1>
+<p><img src="images/cedric.jpeg" class="img-fluid" style="float:right;padding: 0 0 0 10px;" alt="Headshot of Dr. Cédric Scherer" width="200"></p>
+<p><a href="http://cedricscherer.com/"><strong>Dr.&nbsp;Cédric Scherer</strong></a> (he/him) is a graduated computational ecologist with a passion for design. After his PhD, he combined his expertise in analyzing and visualizing large data sets in R with his passion to become an independent data visualization designer and specialist. Cédric has created visualizations across all disciplines, purposes, and styles and regularly teaches data visualization principles, the R programing language, and ggplot2. Due to regular participation in social data challenges such as #TidyTuesday, he is now well known for complex and visually appealing figures, entirely made with ggplot2, that look as if they have been created with a vector design tool.</p>
 
 
 </section>
@@ -227,109 +297,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
-  const disableStylesheet = (stylesheets) => {
-    for (let i=0; i < stylesheets.length; i++) {
-      const stylesheet = stylesheets[i];
-      stylesheet.rel = 'prefetch';
-    }
-  }
-  const enableStylesheet = (stylesheets) => {
-    for (let i=0; i < stylesheets.length; i++) {
-      const stylesheet = stylesheets[i];
-      stylesheet.rel = 'stylesheet';
-    }
-  }
-  const manageTransitions = (selector, allowTransitions) => {
-    const els = window.document.querySelectorAll(selector);
-    for (let i=0; i < els.length; i++) {
-      const el = els[i];
-      if (allowTransitions) {
-        el.classList.remove('notransition');
-      } else {
-        el.classList.add('notransition');
-      }
-    }
-  }
-  const toggleColorMode = (alternate) => {
-    // Switch the stylesheets
-    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
-    manageTransitions('#quarto-margin-sidebar .nav-link', false);
-    if (alternate) {
-      enableStylesheet(alternateStylesheets);
-      for (const sheetNode of alternateStylesheets) {
-        if (sheetNode.id === "quarto-bootstrap") {
-          toggleBodyColorMode(sheetNode);
-        }
-      }
-    } else {
-      disableStylesheet(alternateStylesheets);
-      toggleBodyColorPrimary();
-    }
-    manageTransitions('#quarto-margin-sidebar .nav-link', true);
-    // Switch the toggles
-    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
-    for (let i=0; i < toggles.length; i++) {
-      const toggle = toggles[i];
-      if (toggle) {
-        if (alternate) {
-          toggle.classList.add("alternate");     
-        } else {
-          toggle.classList.remove("alternate");
-        }
-      }
-    }
-  }
-  const isFileUrl = () => { 
-    return window.location.protocol === 'file:';
-  }
-  const hasAlternateSentinel = () => {  
-    let styleSentinel = getColorSchemeSentinel();
-    if (styleSentinel !== null) {
-      return styleSentinel === "alternate";
-    } else {
-      return false;
-    }
-  }
-  const setStyleSentinel = (alternate) => {
-    const value = alternate ? "alternate" : "default";
-    if (!isFileUrl()) {
-      window.localStorage.setItem("quarto-color-scheme", value);
-    } else {
-      localAlternateSentinel = value;
-    }
-  }
-  const getColorSchemeSentinel = () => {
-    if (!isFileUrl()) {
-      const storageValue = window.localStorage.getItem("quarto-color-scheme");
-      return storageValue != null ? storageValue : localAlternateSentinel;
-    } else {
-      return localAlternateSentinel;
-    }
-  }
-  let localAlternateSentinel = 'default';
-  // Dark / light mode switch
-  window.quartoToggleColorScheme = () => {
-    // Read the current dark / light value 
-    let toAlternate = !hasAlternateSentinel();
-    toggleColorMode(toAlternate);
-    setStyleSentinel(toAlternate);
-  };
-  // Ensure there is a toggle, if there isn't float one in the top right
-  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
-    const a = window.document.createElement('a');
-    a.classList.add('top-right');
-    a.classList.add('quarto-color-scheme-toggle');
-    a.href = "";
-    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
-    const i = window.document.createElement("i");
-    i.classList.add('bi');
-    a.appendChild(i);
-    window.document.body.appendChild(a);
-  }
-  // Switch to dark mode if need be
-  if (hasAlternateSentinel()) {
-    toggleColorMode(true);
-  } 
   const icon = "";
   const anchorJS = new window.AnchorJS();
   anchorJS.options = {

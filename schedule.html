@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.0.28">
+<meta name="generator" content="quarto-1.0.36">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -31,12 +31,10 @@ ul.task-list{list-style: none;}
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -96,7 +94,7 @@ ul.task-list{list-style: none;}
     const options = {
       valueNames: ['listing-image','listing-subtitle','listing-title',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
       
-      searchColumns: [],
+      searchColumns: ["listing-date","listing-title","listing-author"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -120,8 +118,8 @@ ul.task-list{list-style: none;}
 <meta name="twitter:description" content="Monday, July 25, 2022">
 <meta name="twitter:image" content="https://rstudio-conf-2022.github.io/ggplot2-graphic-design//images/twitter-card.png">
 <meta name="twitter:creator" content="@CedScherer">
-<meta name="twitter:image-height" content="599">
-<meta name="twitter:image-width" content="1200">
+<meta name="twitter:image-height" content="622">
+<meta name="twitter:image-width" content="890">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -158,12 +156,9 @@ ul.task-list{list-style: none;}
     <a class="nav-link" href="https://github.com/rstudio-conf-2022/ggplot2-graphic-design">GitHub</a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="https://rstudio.cloud/spaces/xxx">RStudio Cloud+</a>
+    <a class="nav-link" href="https://rstudio.cloud/spaces/235465">RStudio Cloud+</a>
   </li>  
 </ul>
-              <div class="quarto-toggle-container">
-                  <a href="" class="quarto-color-scheme-toggle nav-link" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
-              </div>
               <div id="quarto-search" class="" title="Search"></div>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
@@ -221,9 +216,9 @@ Module
 </tr>
 </thead>
 <tbody class="list">
-<tr data-index="0" data-listing-date-sort="1658707200000" data-listing-file-modified-sort="1658157365305" data-listing-reading-time-sort="0.17" data-listing-title-sort="Introduction" data-listing-filename-sort="d1-01_introduction.qmd">
+<tr data-index="0" data-listing-date-sort="1658707200000" data-listing-file-modified-sort="1658696512099" data-listing-reading-time-sort="0.18" data-listing-title-sort="Introduction" data-listing-filename-sort="d1-01_introduction.qmd">
 <td class="listing-image">
-<img src="./modules/images/ggplot2.png" style="height: 40px;">
+<img src="./modules/images/session1.png" style="height: 40px;">
 </td>
 <td class="listing-subtitle">
 09:00 - 09:30
@@ -232,18 +227,18 @@ Module
 <a href="./modules/d1-01_introduction.html" class="title">Introduction</a>
 </td>
 </tr>
-<tr data-index="1" data-listing-date-sort="1658707200000" data-listing-file-modified-sort="1658157365305" data-listing-reading-time-sort="1.715" data-listing-title-sort="<span>Concepts of the <code>{ggplot2}</code> Package Pt. 1:<br><span style='font-weight:500;'>Data, Aesthetics, and Geometries + <span class='circle-highlight'>Misc Stuff</span></span></span>" data-listing-filename-sort="d1-02_concepts_pt1.qmd">
+<tr data-index="1" data-listing-date-sort="1658707200000" data-listing-file-modified-sort="1658696512099" data-listing-reading-time-sort="1.715" data-listing-title-sort="<span>Concepts of the <code>{ggplot2}</code> Package Pt. 1:<br><span style='font-weight:500;'>Data, Aesthetics, and Layers + <span class='circle-highlight'>Misc Stuff</span></span></span>" data-listing-filename-sort="d1-02_concepts_pt1.qmd">
 <td class="listing-image">
-<img src="./modules/images/ggplot3.png" style="height: 40px;">
+<img src="./modules/images/session2.png" style="height: 40px;">
 </td>
 <td class="listing-subtitle">
 09:30 - 10:30
 </td>
 <td class="listing-title">
-<a href="./modules/d1-02_concepts_pt1.html" class="title"><span>Concepts of the <code>{ggplot2}</code> Package Pt. 1:<br><span style="font-weight:500;">Data, Aesthetics, and Geometries + <span class="circle-highlight">Misc Stuff</span></span></span></a>
+<a href="./modules/d1-02_concepts_pt1.html" class="title"><span>Concepts of the <code>{ggplot2}</code> Package Pt. 1:<br><span style="font-weight:500;">Data, Aesthetics, and Layers + <span class="circle-highlight">Misc Stuff</span></span></span></a>
 </td>
 </tr>
-<tr data-index="2" data-listing-date-sort="1658707200000" data-listing-file-modified-sort="1658157365305" data-listing-reading-time-sort="0.095" data-listing-title-sort="Coffee break" data-listing-filename-sort="d1-03_coffee_break.qmd">
+<tr data-index="2" data-listing-date-sort="1658707200000" data-listing-file-modified-sort="1658696512099" data-listing-reading-time-sort="0.095" data-listing-title-sort="Coffee break" data-listing-filename-sort="d1-03_coffee_break.qmd">
 <td class="listing-image">
 <img src="./modules/images/coffee-break.png" style="height: 40px;" alt="A coffee cup.">
 </td>
@@ -254,29 +249,29 @@ Module
 <a href="./modules/d1-03_coffee_break.html" class="title">Coffee break</a>
 </td>
 </tr>
-<tr data-index="3" data-listing-date-sort="1658707200000" data-listing-file-modified-sort="1658157365305" data-listing-reading-time-sort="0.1" data-listing-title-sort="<span>Concepts of the <code>{ggplot2}</code> Package Pt. 1:<br><span style='font-weight:500;'>Exercise</span></span>" data-listing-filename-sort="d1-04_concepts_p1_ex.qmd">
+<tr data-index="3" data-listing-date-sort="1658707200000" data-listing-file-modified-sort="1658696512099" data-listing-reading-time-sort="0.1" data-listing-title-sort="<span>Concepts of the <code>{ggplot2}</code> Package Pt. 1:<br><span style='font-weight:500;'>Continued</span></span>" data-listing-filename-sort="d1-04_concepts_p1_ex.qmd">
 <td class="listing-image">
-<img src="./modules/images/ggplot3.png" style="height: 40px;">
+<img src="./modules/images/session2.png" style="height: 40px;">
 </td>
 <td class="listing-subtitle">
 11:00 - 12:00
 </td>
 <td class="listing-title">
-<a href="./modules/d1-04_concepts_p1_ex.html" class="title"><span>Concepts of the <code>{ggplot2}</code> Package Pt. 1:<br><span style="font-weight:500;">Exercise</span></span></a>
+<a href="./modules/d1-04_concepts_p1_ex.html" class="title"><span>Concepts of the <code>{ggplot2}</code> Package Pt. 1:<br><span style="font-weight:500;">Continued</span></span></a>
 </td>
 </tr>
-<tr data-index="4" data-listing-date-sort="1658707200000" data-listing-file-modified-sort="1658157365305" data-listing-reading-time-sort="0.395" data-listing-title-sort="<span>Concepts of the <code>{ggplot2}</code> Package Pt. 2:<br><span style='font-weight:500;'>Facets, Scales, and Coordinate System></span></span>" data-listing-filename-sort="d1-05_concepts_pt2.qmd">
+<tr data-index="4" data-listing-date-sort="1658707200000" data-listing-file-modified-sort="1658696512099" data-listing-reading-time-sort="0.315" data-listing-title-sort="<span>Concepts of the <code>{ggplot2}</code> Package Pt. 2:<br><span style='font-weight:500;'>Facets, Scales, and Coordinate System</span></span>" data-listing-filename-sort="d1-05_concepts_pt2.qmd">
 <td class="listing-image">
-<img src="./modules/images/ggplot3.png" style="height: 40px;">
+<img src="./modules/images/session3.png" style="height: 40px;">
 </td>
 <td class="listing-subtitle">
 12:00 - 12:30
 </td>
 <td class="listing-title">
-<a href="./modules/d1-05_concepts_pt2.html" class="title"><span>Concepts of the <code>{ggplot2}</code> Package Pt. 2:<br><span style="font-weight:500;">Facets, Scales, and Coordinate System&gt;</span></span></a>
+<a href="./modules/d1-05_concepts_pt2.html" class="title"><span>Concepts of the <code>{ggplot2}</code> Package Pt. 2:<br><span style="font-weight:500;">Facets, Scales, and Coordinate System</span></span></a>
 </td>
 </tr>
-<tr data-index="5" data-listing-date-sort="1658707200000" data-listing-file-modified-sort="1658157365305" data-listing-reading-time-sort="0.15" data-listing-title-sort="Lunch break" data-listing-filename-sort="d1-06_lunch_break.qmd">
+<tr data-index="5" data-listing-date-sort="1658707200000" data-listing-file-modified-sort="1658696512099" data-listing-reading-time-sort="0.155" data-listing-title-sort="Lunch break" data-listing-filename-sort="d1-06_lunch_break.qmd">
 <td class="listing-image">
 <img src="./modules/images/lunch-break.png" style="height: 40px;" alt="Plate and utensils.">
 </td>
@@ -287,29 +282,18 @@ Module
 <a href="./modules/d1-06_lunch_break.html" class="title">Lunch break</a>
 </td>
 </tr>
-<tr data-index="6" data-listing-date-sort="1658707200000" data-listing-file-modified-sort="1658157365305" data-listing-reading-time-sort="0.595" data-listing-title-sort="<span>Concepts of the <code>{ggplot2}</code> Package Pt. 2:<br><span style='font-weight:500;'>Facets, Scales, and Coordinate System</span></span>" data-listing-filename-sort="d1-07_concepts_pt2.qmd">
+<tr data-index="6" data-listing-date-sort="1658707200000" data-listing-file-modified-sort="1658696512099" data-listing-reading-time-sort="0.595" data-listing-title-sort="<span>Concepts of the <code>{ggplot2}</code> Package Pt. 2:<br><span style='font-weight:500;'>Facets, Scales, and Coordinate System (Continued)</span></span>" data-listing-filename-sort="d1-07_concepts_pt2.qmd">
 <td class="listing-image">
-<img src="./modules/images/ggplot3.png" style="height: 40px;">
+<img src="./modules/images/session3.png" style="height: 40px;">
 </td>
 <td class="listing-subtitle">
 13:30 - 14:30
 </td>
 <td class="listing-title">
-<a href="./modules/d1-07_concepts_pt2.html" class="title"><span>Concepts of the <code>{ggplot2}</code> Package Pt. 2:<br><span style="font-weight:500;">Facets, Scales, and Coordinate System</span></span></a>
+<a href="./modules/d1-07_concepts_pt2.html" class="title"><span>Concepts of the <code>{ggplot2}</code> Package Pt. 2:<br><span style="font-weight:500;">Facets, Scales, and Coordinate System (Continued)</span></span></a>
 </td>
 </tr>
-<tr data-index="7" data-listing-date-sort="1658707200000" data-listing-file-modified-sort="1658157365305" data-listing-reading-time-sort="0.1" data-listing-title-sort="<span>Concepts of the <code>{ggplot2}</code> Package Pt. 2:<br><span style='font-weight:500;'>Exercise</span></span>" data-listing-filename-sort="d1-08_concepts_p2_ex.qmd">
-<td class="listing-image">
-<img src="./modules/images/ggplot3.png" style="height: 40px;">
-</td>
-<td class="listing-subtitle">
-14:30 - 15:00
-</td>
-<td class="listing-title">
-<a href="./modules/d1-08_concepts_p2_ex.html" class="title"><span>Concepts of the <code>{ggplot2}</code> Package Pt. 2:<br><span style="font-weight:500;">Exercise</span></span></a>
-</td>
-</tr>
-<tr data-index="8" data-listing-date-sort="1658707200000" data-listing-file-modified-sort="1658157365305" data-listing-reading-time-sort="0.065" data-listing-title-sort="Coffee break" data-listing-filename-sort="d1-09_coffee_break.qmd">
+<tr data-index="7" data-listing-date-sort="1658707200000" data-listing-file-modified-sort="1658696512099" data-listing-reading-time-sort="0.065" data-listing-title-sort="Coffee break" data-listing-filename-sort="d1-09_coffee_break.qmd">
 <td class="listing-image">
 <img src="./modules/images/coffee-break.png" style="height: 40px;" alt="A coffee cup.">
 </td>
@@ -320,26 +304,15 @@ Module
 <a href="./modules/d1-09_coffee_break.html" class="title">Coffee break</a>
 </td>
 </tr>
-<tr data-index="9" data-listing-date-sort="1658707200000" data-listing-file-modified-sort="1658157365305" data-listing-reading-time-sort="0.095" data-listing-title-sort="Data Communication" data-listing-filename-sort="d1-10_data_com.qmd">
+<tr data-index="8" data-listing-date-sort="1658707200000" data-listing-file-modified-sort="1658696512099" data-listing-reading-time-sort="0.17" data-listing-title-sort="Data Communication" data-listing-filename-sort="d1-10_data_com.qmd">
 <td class="listing-image">
-<img src="./modules/images/ggplot3.png" style="height: 40px;">
+<img src="./modules/images/session4.png" style="height: 40px;">
 </td>
 <td class="listing-subtitle">
 15:30 - 16:15
 </td>
 <td class="listing-title">
 <a href="./modules/d1-10_data_com.html" class="title">Data Communication</a>
-</td>
-</tr>
-<tr data-index="10" data-listing-date-sort="1658707200000" data-listing-file-modified-sort="1658157365305" data-listing-reading-time-sort="0.095" data-listing-title-sort="Data Communication: Exercise" data-listing-filename-sort="d1-11_data_com_ex.qmd">
-<td class="listing-image">
-<img src="./modules/images/ggplot3.png" style="height: 40px;">
-</td>
-<td class="listing-subtitle">
-16:15 - 17:00
-</td>
-<td class="listing-title">
-<a href="./modules/d1-11_data_com_ex.html" class="title">Data Communication: Exercise</a>
 </td>
 </tr>
 </tbody>
@@ -369,6 +342,83 @@ Module
 </tr>
 </thead>
 <tbody class="list">
+<tr data-index="0" data-listing-date-sort="1658793600000" data-listing-file-modified-sort="1658696512099" data-listing-reading-time-sort="1.41" data-listing-title-sort="Labels and Annotations" data-listing-filename-sort="d2-01_lab_ann.qmd">
+<td class="listing-image">
+<img src="./modules/images/session5.png" style="height: 40px;">
+</td>
+<td class="listing-subtitle">
+09:00 - 10:30
+</td>
+<td class="listing-title">
+<a href="./modules/d2-01_lab_ann.html" class="title">Labels and Annotations</a>
+</td>
+</tr>
+<tr data-index="1" data-listing-date-sort="1658793600000" data-listing-file-modified-sort="1658696512099" data-listing-reading-time-sort="0.095" data-listing-title-sort="Coffee break" data-listing-filename-sort="d2-02_coffee_break.qmd">
+<td class="listing-image">
+<img src="./modules/images/coffee-break.png" style="height: 40px;" alt="A coffee cup.">
+</td>
+<td class="listing-subtitle">
+10:30 - 11:00
+</td>
+<td class="listing-title">
+<a href="./modules/d2-02_coffee_break.html" class="title">Coffee break</a>
+</td>
+</tr>
+<tr data-index="2" data-listing-date-sort="1658793600000" data-listing-file-modified-sort="1658696512099" data-listing-reading-time-sort="1.035" data-listing-title-sort="Working with Colors" data-listing-filename-sort="d2-03_colors.qmd">
+<td class="listing-image">
+<img src="./modules/images/session6.png" style="height: 40px;">
+</td>
+<td class="listing-subtitle">
+11:00 - 12:30
+</td>
+<td class="listing-title">
+<a href="./modules/d2-03_colors.html" class="title">Working with Colors</a>
+</td>
+</tr>
+<tr data-index="3" data-listing-date-sort="1657065600000" data-listing-file-modified-sort="1658696512099" data-listing-reading-time-sort="0.155" data-listing-title-sort="Lunch break" data-listing-filename-sort="d2-04_lunch_break.qmd">
+<td class="listing-image">
+<img src="./modules/images/lunch-break.png" style="height: 40px;" alt="Plate and utensils.">
+</td>
+<td class="listing-subtitle">
+15:00 - 15:30
+</td>
+<td class="listing-title">
+<a href="./modules/d2-04_lunch_break.html" class="title">Lunch break</a>
+</td>
+</tr>
+<tr data-index="4" data-listing-date-sort="1658793600000" data-listing-file-modified-sort="1658696512099" data-listing-reading-time-sort="0.75" data-listing-title-sort="Layouts and Composition" data-listing-filename-sort="d2-05_layout.qmd">
+<td class="listing-image">
+<img src="./modules/images/session7.png" style="height: 40px;">
+</td>
+<td class="listing-subtitle">
+15:30 - 17:00
+</td>
+<td class="listing-title">
+<a href="./modules/d2-05_layout.html" class="title">Layouts and Composition</a>
+</td>
+</tr>
+<tr data-index="5" data-listing-date-sort="1658793600000" data-listing-file-modified-sort="1658696512099" data-listing-reading-time-sort="0.095" data-listing-title-sort="Coffee break" data-listing-filename-sort="d2-06_coffee_break.qmd">
+<td class="listing-image">
+<img src="./modules/images/coffee-break.png" style="height: 40px;" alt="A coffee cup.">
+</td>
+<td class="listing-subtitle">
+15:00 - 15:30
+</td>
+<td class="listing-title">
+<a href="./modules/d2-06_coffee_break.html" class="title">Coffee break</a>
+</td>
+</tr>
+<tr data-index="6" data-listing-date-sort="1658793600000" data-listing-file-modified-sort="1658696512099" data-listing-reading-time-sort="0.005" data-listing-title-sort="Group Project" data-listing-filename-sort="d2-07_group.qmd">
+<td class="listing-image">
+<img src="./modules/images/group.png" style="height: 40px;">
+</td>
+<td class="listing-subtitle">
+15:30 - 17:00
+</td>
+<td class="listing-title">
+<a href="./modules/d2-07_group.html" class="title">Group Project</a>
+</td>
+</tr>
 </tbody>
 
 </table>
@@ -402,109 +452,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
-  const disableStylesheet = (stylesheets) => {
-    for (let i=0; i < stylesheets.length; i++) {
-      const stylesheet = stylesheets[i];
-      stylesheet.rel = 'prefetch';
-    }
-  }
-  const enableStylesheet = (stylesheets) => {
-    for (let i=0; i < stylesheets.length; i++) {
-      const stylesheet = stylesheets[i];
-      stylesheet.rel = 'stylesheet';
-    }
-  }
-  const manageTransitions = (selector, allowTransitions) => {
-    const els = window.document.querySelectorAll(selector);
-    for (let i=0; i < els.length; i++) {
-      const el = els[i];
-      if (allowTransitions) {
-        el.classList.remove('notransition');
-      } else {
-        el.classList.add('notransition');
-      }
-    }
-  }
-  const toggleColorMode = (alternate) => {
-    // Switch the stylesheets
-    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
-    manageTransitions('#quarto-margin-sidebar .nav-link', false);
-    if (alternate) {
-      enableStylesheet(alternateStylesheets);
-      for (const sheetNode of alternateStylesheets) {
-        if (sheetNode.id === "quarto-bootstrap") {
-          toggleBodyColorMode(sheetNode);
-        }
-      }
-    } else {
-      disableStylesheet(alternateStylesheets);
-      toggleBodyColorPrimary();
-    }
-    manageTransitions('#quarto-margin-sidebar .nav-link', true);
-    // Switch the toggles
-    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
-    for (let i=0; i < toggles.length; i++) {
-      const toggle = toggles[i];
-      if (toggle) {
-        if (alternate) {
-          toggle.classList.add("alternate");     
-        } else {
-          toggle.classList.remove("alternate");
-        }
-      }
-    }
-  }
-  const isFileUrl = () => { 
-    return window.location.protocol === 'file:';
-  }
-  const hasAlternateSentinel = () => {  
-    let styleSentinel = getColorSchemeSentinel();
-    if (styleSentinel !== null) {
-      return styleSentinel === "alternate";
-    } else {
-      return false;
-    }
-  }
-  const setStyleSentinel = (alternate) => {
-    const value = alternate ? "alternate" : "default";
-    if (!isFileUrl()) {
-      window.localStorage.setItem("quarto-color-scheme", value);
-    } else {
-      localAlternateSentinel = value;
-    }
-  }
-  const getColorSchemeSentinel = () => {
-    if (!isFileUrl()) {
-      const storageValue = window.localStorage.getItem("quarto-color-scheme");
-      return storageValue != null ? storageValue : localAlternateSentinel;
-    } else {
-      return localAlternateSentinel;
-    }
-  }
-  let localAlternateSentinel = 'default';
-  // Dark / light mode switch
-  window.quartoToggleColorScheme = () => {
-    // Read the current dark / light value 
-    let toAlternate = !hasAlternateSentinel();
-    toggleColorMode(toAlternate);
-    setStyleSentinel(toAlternate);
-  };
-  // Ensure there is a toggle, if there isn't float one in the top right
-  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
-    const a = window.document.createElement('a');
-    a.classList.add('top-right');
-    a.classList.add('quarto-color-scheme-toggle');
-    a.href = "";
-    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
-    const i = window.document.createElement("i");
-    i.classList.add('bi');
-    a.appendChild(i);
-    window.document.body.appendChild(a);
-  }
-  // Switch to dark mode if need be
-  if (hasAlternateSentinel()) {
-    toggleColorMode(true);
-  } 
   const icon = "";
   const anchorJS = new window.AnchorJS();
   anchorJS.options = {
