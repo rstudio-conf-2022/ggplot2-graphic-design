@@ -80,7 +80,7 @@ ggplot(
   ggtext::geom_richtext(
     data = penguins_labs,
     aes(label = species_lab, color = species,
-        color = after_scale(prismatic::clr_darken(color, .4))),
+        color = after_scale(colorspace::darken(color, .4))),
     family = "Roboto Condensed",
     size = 3, lineheight = .8,
     fill = "#ffffffab", ## hex-alpha code
@@ -598,7 +598,7 @@ p5 +
     data = penguins_labs,
     aes(label = species_lab,
         color = species,
-        color = after_scale(prismatic::clr_darken(color, .4))),
+        color = after_scale(colorspace::darken(color, .4))),
     family = "Roboto Condensed",
     size = 3, lineheight = .8,
     fill = "#ffffffab",
@@ -628,7 +628,7 @@ p5 +
     data = penguins_labs,
     aes(label = species_lab,
         color = species,
-        color = after_scale(prismatic::clr_darken(color, .4))),
+        color = after_scale(colorspace::darken(color, .4))),
     family = "Roboto Condensed",
     size = 3, lineheight = .8,
     fill = "#ffffffab", ## hex-alpha code
@@ -685,7 +685,7 @@ ggplot(
     data = penguins_labs,
     aes(label = species_lab,
         color = species,
-        color = after_scale(prismatic::clr_darken(color, .4))),
+        color = after_scale(colorspace::darken(color, .4))),
     family = "Roboto Condensed",
     size = 3, lineheight = .8,
     fill = "#ffffffab", ## hex-alpha code
