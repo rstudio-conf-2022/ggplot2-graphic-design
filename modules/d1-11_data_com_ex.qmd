@@ -1,9 +1,0 @@
----
-title: "Data Communication: Exercise"
-subtitle: "16:15 - 17:00"
-date: "2022-07-25"
-image: "images/session4.png"
-tbl-colwidths: [5,20,75]
----
-
-## Exercises

@@ -46,11 +46,8 @@ format:
   html:
     theme:
       light: [cosmo, theme.scss]
-      dark: [cosmo, theme-dark.scss]
     toc: true
     code-copy: true
     code-overflow: wrap
     mainfont: "Cabinet Grotesk"
-
-editor: visual
 

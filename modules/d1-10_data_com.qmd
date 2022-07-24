@@ -8,7 +8,11 @@ tbl-colwidths: [5,20,75]
 
 ## Outline
 
--   xxx
+-   Visualize your Data
+-   Information
+-   Story
+-   Goal
+-   Visual Form
 
 ## Slides
 
