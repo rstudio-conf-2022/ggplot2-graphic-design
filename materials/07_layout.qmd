@@ -465,77 +465,6 @@ ggplot(
   )
 ```
 
-## Legend with Color Shading
-
-```{r}
-#| label: legend-shades
-#| output-location: column
-#| code-line-numbers: "1,2,3|5,6,7,8,9,10,11,12,13,14,15,16,17|18,19,20,21,22,23,24|25,26,27,28,29|30,31,32,33,34|35,36,37,38"
-library(colorspace)
-shades <- c(lighten(pal, .3),
-                  darken(pal, .3))
-
-g <-
-  bikes %>%
-  arrange(day_night, date) %>%
-  mutate(
-    season_day = paste(
-      str_to_title(season), day_night
-    ),
-    season_day = forcats::fct_inorder(season_day)
-  ) %>%
-  ggplot(
-    aes(x = season, y = count,
-        fill = season_day)
-  ) +
-  stat_summary(
-    geom = "col", fun = sum,
-    position = position_dodge2(
-      width = .2, padding = .1
-    )
-  ) +
-  scale_fill_manual(
-    values = shades, name = NULL
-  ) +
-  scale_x_discrete(
-    labels = str_to_title
-  ) +
-  scale_y_continuous(
-    labels = scales::comma_format(),
-    expand = c(0, 0),
-    limits = c(NA, 4500000)
-  ) +
-  theme(
-    panel.grid.major.x = element_blank(),
-    axis.title = element_blank()
-  )
-
-g
-```
-
-## Legend on Top
-
-```{r}
-#| label: legend-shades-legend-top
-#| fig-width: 9
-#| fig-align: "center"
-#| code-line-numbers: "2"
-g +
-  theme(legend.position = "top")
-```
-
-## Resort Legend
-
-```{r}
-#| label: legend-shades-legend-byrow
-#| fig-width: 9
-#| fig-align: "center"
-#| code-line-numbers: "2"
-g +
-  guides(fill = guide_legend(byrow = TRUE)) +
-  theme(legend.position = "top")
-```
-
 # Composing ggplot's
 
 ------------------------------------------------------------------------
@@ -766,7 +695,7 @@ library(patchwork)
 #| fig-align: "center"
 #| code-line-numbers: "1,2,3,4|5"
 picasso <- "
-AAAAAABBBBB
+AAAAAA#BBBB
 CCCCCCCCCCC
 CCCCCCCCCCC"
 (p1 + p2 + p3 & theme(legend.position = "none")) + plot_layout(design = picasso)
@@ -883,3 +812,77 @@ qualitative
     - use `inset_element()` to add inset graphics
 :::
 :::
+
+
+# Appendix
+
+## Legend with Color Shading
+
+```{r}
+#| label: legend-shades
+#| output-location: column
+#| code-line-numbers: "1,2,3|5,6,7,8,9,10,11,12,13,14,15,16,17|18,19,20,21,22,23,24|25,26,27,28,29|30,31,32,33,34|35,36,37,38"
+library(colorspace)
+shades <- c(lighten(pal, .3),
+                  darken(pal, .3))
+
+g <-
+  bikes %>%
+  arrange(day_night, date) %>%
+  mutate(
+    season_day = paste(
+      str_to_title(season), day_night
+    ),
+    season_day = forcats::fct_inorder(season_day)
+  ) %>%
+  ggplot(
+    aes(x = season, y = count,
+        fill = season_day)
+  ) +
+  stat_summary(
+    geom = "col", fun = sum,
+    position = position_dodge2(
+      width = .2, padding = .1
+    )
+  ) +
+  scale_fill_manual(
+    values = shades, name = NULL
+  ) +
+  scale_x_discrete(
+    labels = str_to_title
+  ) +
+  scale_y_continuous(
+    labels = scales::comma_format(),
+    expand = c(0, 0),
+    limits = c(NA, 4500000)
+  ) +
+  theme(
+    panel.grid.major.x = element_blank(),
+    axis.title = element_blank()
+  )
+
+g
+```
+
+## Legend on Top
+
+```{r}
+#| label: legend-shades-legend-top
+#| fig-width: 9
+#| fig-align: "center"
+#| code-line-numbers: "2"
+g +
+  theme(legend.position = "top")
+```
+
+## Resort Legend
+
+```{r}
+#| label: legend-shades-legend-byrow
+#| fig-width: 9
+#| fig-align: "center"
+#| code-line-numbers: "2"
+g +
+  guides(fill = guide_legend(byrow = TRUE)) +
+  theme(legend.position = "top")
+```
