@@ -3,7 +3,7 @@ title: "Graphic Design with ggplot2"
 subtitle: "Concepts of the <code>{ggplot2}</code> Package Pt. 2: Astronaut Viz Exercise 1"
 author: "Cédric Scherer"
 format: html
-editor: visual
+editor: source
 knitr:
   opts_chunk: 
     dev: "ragg_png"

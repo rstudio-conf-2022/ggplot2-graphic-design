@@ -27,7 +27,7 @@ listing:
     sort-ui: false
     filter-ui: false
 tbl-colwidths: [5,20,50,25]
-editor: visual
+editor: source
 ---
 
 # Day 1

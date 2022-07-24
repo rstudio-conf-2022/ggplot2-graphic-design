@@ -40,7 +40,7 @@ execute:
 library(tidyverse)
 
 bikes <- readr::read_csv(
-  "https://raw.githubusercontent.com/z3tt/graphic-design-ggplot2/main/data/london-bikes-custom.csv", 
+  here::here("data", "london-bikes-custom.csv"), 
   col_types = "Dcfffilllddddc"
 )
 
@@ -872,6 +872,14 @@ pl1 + inset_element(pl2, l = .6, b = 0, r = 1, t = .5, align_to = 'full')
 
 ::: recap
 ::: incremental
--   
+-  **guides** are the combination of scales and legends
+-  legends can be either modified with the **`guide_*`** function in **`scale_*()`** or **`guides()`**  and with the **`theme()`** component
+qualitative
+-  ... while quantitative guides are **`colorbar`**, **`colorsteps`** or **`bins`**
+-  **`{patchwork}`** is the most modern and simplest way to compose plots
+    -  use `+`, `/` and `|` to combine plots
+    -  use `plot_layout()` to adjust the layout, widths and heights
+    -  use `plot_annotation()` to add tags and general labels
+    - use `inset_element()` to add inset graphics
 :::
 :::

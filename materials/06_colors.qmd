@@ -1079,7 +1079,17 @@ colorblindr::cvd_grid(g3)
 
 ::: recap
 ::: incremental
--   
+-   use **categorical** palettes for **qualitative** data
+    -  e.g. `scale_*_discrete()` and `scale_*_manual()` for custom options
+    -  e.g. `scale_*_viridis_d` and `scale_*_brewer()` for pre-defined options
+-   use **sequential or diverging** palettes for **quantitative** data
+    -  e.g. `scale_*_gradient()` or `scale_*_gradient2()` for custom options
+    -  e.g. `scale_*_viridis_c` and `scale_*_distiller()` for pre-defined options
+-   various packages provide palettes incl. `scale_*` components
+    - e.g. `{rcartocolors}`, `{scico}`, `{ggsci}`, `{ggthemes}`, `{nord}`
+-   those and even more packages return palettes as vectors
+    - modify and supply thehm to `scale_*_manual()` and `scale_*_gradientn()`
+-   use **`after_scale`** to modify and recycle color scales 
 :::
 :::
 
@@ -1101,7 +1111,7 @@ library(colorspace)
 library(ggtext)
 
 bikes <- readr::read_csv(
-  "https://raw.githubusercontent.com/z3tt/graphic-design-ggplot2/main/data/london-bikes-custom.csv", 
+  here::here("data", "london-bikes-custom.csv"), 
   col_types = "Dcfffilllddddc"
 )
 

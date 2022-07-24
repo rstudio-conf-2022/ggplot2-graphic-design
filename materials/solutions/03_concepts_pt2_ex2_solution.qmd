@@ -20,7 +20,7 @@ format:
       buttons: true
     pause: true
     mainfont: Cabinet Grotesk
-editor: visual
+editor: source
 knitr:
   opts_chunk: 
     dev: "ragg_png"
@@ -57,7 +57,7 @@ execute:
 library(tidyverse)
 
 bikes <- readr::read_csv(
-  "https://raw.githubusercontent.com/z3tt/graphic-design-ggplot2/main/data/london-bikes-custom.csv", 
+  here::here("data", "london-bikes-custom.csv"), 
   col_types = "Dcfffilllddddc"
 )
 
@@ -91,7 +91,7 @@ ggplot(bikes, aes(x = as.numeric(season), y = count, group = season)) +
 library(tidyverse)
 
 bikes <- readr::read_csv(
-  "https://raw.githubusercontent.com/z3tt/graphic-design-ggplot2/main/data/london-bikes-custom.csv", 
+  here::here("data", "london-bikes-custom.csv"), 
   col_types = "Dcfffilllddddc"
 )
 
