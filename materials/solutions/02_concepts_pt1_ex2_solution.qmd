@@ -384,6 +384,7 @@ ggplot(
 
 ```{r}
 #| label: concepts-pt1-exercise-2-16
+#| eval: false
 ggsave(here::here("exercises", "plots", "02_concepts_pt1_ex2.pdf"),
        width = 5, height = 6.5, device = cairo_pdf)
 ```
@@ -402,7 +403,7 @@ ggsave(here::here("exercises", "plots", "02_concepts_pt1_ex2.png"),
 
 
 
-# Alternative Chart Types to Visualize Distributions
+# Alternative Chart Types<br>to Visualize Distributions
 
 
 
