@@ -106,7 +106,7 @@ If you want to run  the workshop content locally on your machine, please make su
     remotes::install_github("wilkelab/cowplot")
     remotes::install_github("clauswilke/colorblindr")
 
-### Typeface Installation
+### Typeface Installation 
 
 We will make use of custom fonts. If you want to follow all contents, make sure the following typefaces are installed:
 
