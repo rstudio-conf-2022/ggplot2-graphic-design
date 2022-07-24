@@ -252,7 +252,7 @@ ggplot(
 ```{r}
 #| label: legend-guide-function-adjust-title
 #| output-location: column
-#| code-line-numbers: "10"
+#| code-line-numbers: "9,10"
 ggplot(
     bikes,
     aes(x = temp_feel, y = count,
@@ -276,7 +276,7 @@ ggplot(
 ```{r}
 #| label: legend-guide-function-customize
 #| output-location: column
-#| code-line-numbers: "10"
+#| code-line-numbers: "11,12,13,14"
 ggplot(
     bikes,
     aes(x = temp_feel, y = count,
