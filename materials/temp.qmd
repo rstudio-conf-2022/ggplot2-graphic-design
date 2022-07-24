@@ -1,0 +1,49 @@
+---
+title: "Graphic Design with ggplot2"
+subtitle: "<span style='font-size:1.75em;line-height:1.1;'>Working with Colors</span></span>"
+author: "<b style='color:#28a87d;'>Cédric Scherer</b> **//** rstudio::conf **//** July 2022"
+format: 
+  revealjs: 
+    theme: css/style.scss
+    footer: '**[Cédric Scherer](https::/cedricscherer.com) //** rstudio::conf **//** July 2022'
+    #'rstudio::conf(workshop = "Graphic Design with ggplot2", instructor = "Cédric Scherer")'
+    transition: fade
+    progress: true
+    multiplex: false
+    preview-links: true
+    scrollable: false
+    hide-inactive-cursor: true
+    highlight-style: printing
+    chalkboard:
+      theme: whiteboard
+      boardmarker-width: 4
+      buttons: true
+    pause: true
+    mainfont: Cabinet Grotesk
+editor: source
+knitr:
+  opts_chunk: 
+    dev: "ragg_png"
+    retina: 1
+    dpi: 300
+execute:
+  freeze: auto
+  echo: true
+  fig-width: 5
+  fig-height: 6
+---
+
+## <b style='color:#663399;'>Recap</b>
+
+::: recap
+::: incremental
+-  **guides** are the combination of scales and legends
+-  legends can be either modified with the **`guide_*`** function in **`scale_*()`** or **`guides()`**  and with the **`theme()`** component
+qualitative-  ... while quantitative guides are **`colorbar`**, **`colorsteps`** or **`bins`**
+-  **`{patchwork}`** is the most modern and simplest way to compose plots
+    -  use `+`, `/` and `|` to combine plots
+    -  use `plot_layout()` to adjust the layout, widths and heights
+    -  use `plot_annotation()` to add tags and general labels
+    - use `inset_element()` to add inset graphics
+:::
+:::

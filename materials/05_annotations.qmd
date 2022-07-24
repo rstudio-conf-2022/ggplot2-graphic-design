@@ -2,8 +2,8 @@
 title: "Graphic Design with ggplot2"
 subtitle: "<span style='font-size:1.75em;line-height:1.1;'>Working with Labels and Annotations</span></span>"
 author: "<b style='color:#28a87d;'>Cédric Scherer</b> **//** rstudio::conf **//** July 2022"
-format: 
-  revealjs: 
+format:
+  revealjs:
     theme: css/style.scss
     footer: '**[Cédric Scherer](https::/cedricscherer.com) //** rstudio::conf **//** July 2022'
     #'rstudio::conf(workshop = "Graphic Design with ggplot2", instructor = "Cédric Scherer")'
@@ -22,7 +22,7 @@ format:
     mainfont: Cabinet Grotesk
 editor: source
 knitr:
-  opts_chunk: 
+  opts_chunk:
     dev: "ragg_png"
     retina: 1
     dpi: 300
@@ -40,7 +40,7 @@ execute:
 library(tidyverse)
 
 bikes <- readr::read_csv(
-  here::here("data", "london-bikes-custom.csv"), 
+  here::here("data", "london-bikes-custom.csv"),
   col_types = "Dcfffilllddddc"
 )
 
@@ -64,7 +64,7 @@ theme_update(
 #| output-location: column
 #| code-line-numbers: "9,10,11,12,13,14,15,16,17"
 g <- ggplot(
-    bikes, 
+    bikes,
     aes(x = temp_feel, y = count,
         color = season)
   ) +
@@ -120,7 +120,7 @@ g + theme(
   plot.title = element_text(face = "bold"),
   plot.title.position = "plot",
   axis.text = element_text(
-    color = "grey40", 
+    color = "grey40",
     family = "Tabular",
     face = "italic",
     hjust = 1,
@@ -142,7 +142,7 @@ g + theme(
   plot.title = element_text(face = "bold"),
   plot.title.position = "plot",
   axis.text = element_text(
-    color = "grey40", 
+    color = "grey40",
     family = "Tabular",
     face = "italic",
     colour = NULL,
@@ -169,7 +169,7 @@ g + theme(
   plot.title = element_text(face = "bold"),
   plot.title.position = "plot",
   axis.text = element_text(
-    color = "grey40", 
+    color = "grey40",
     family = "Tabular",
     face = "italic",
     colour = NULL,
@@ -196,7 +196,7 @@ g + theme(
   plot.title = element_text(face = "bold"),
   plot.title.position = "plot",
   axis.text = element_text(
-    color = "grey40", 
+    color = "grey40",
     family = "Tabular",
     face = "italic",
     colour = NULL,
@@ -223,12 +223,12 @@ g + theme(
 #| label: scales-xy-continuous-labels-scales-prep
 #| output-location: column
 #| code-line-numbers: "1|3,4,5,6"
-g <- g + labs(title = NULL, subtitle = NULL, tag = NULL) 
+g <- g + labs(title = NULL, subtitle = NULL, tag = NULL)
 
 g +
   scale_y_continuous(
     breaks = 0:4*15000
-  ) 
+  )
 ```
 
 ## Format Labels via \`scale\_\*\`
@@ -241,7 +241,7 @@ g +
   scale_y_continuous(
     breaks = 0:4*15000,
     labels = scales::comma_format()
-  ) 
+  )
 ```
 
 ## Format Labels via \`scale\_\*\`
@@ -250,14 +250,14 @@ g +
 #| label: scales-xy-continuous-labels-scales-2
 #| output-location: column
 #| code-line-numbers: "5|7"
-g + 
+g +
   scale_y_continuous(
     breaks = 0:4*15000,
     labels = scales::comma_format(
       suffix = " bikes"
     ),
     name = NULL
-  ) 
+  )
 ```
 
 ## Format Labels via \`scale\_\*\`
@@ -266,7 +266,7 @@ g +
 #| label: scales-xy-continuous-labels-scales-3
 #| output-location: column
 #| code-line-numbers: "5|9,10,11,12,13"
-g + 
+g +
   scale_y_continuous(
     breaks = 0:4*15000,
     labels = scales::comma_format(
@@ -321,7 +321,7 @@ g +
   scale_x_continuous(
     labels = function(y) paste0(y, "°F"),
     name = "Feels-Like Temperature"
-  ) 
+  )
 ```
 
 ## Format Labels via \`scale\_\*\`
@@ -330,11 +330,11 @@ g +
 #| label: scales-xy-discrete-labels
 #| output-location: column
 ggplot(
-    bikes, 
+    bikes,
     aes(x = season, y = count)
   ) +
   geom_boxplot() +
-  scale_x_discrete() 
+  scale_x_discrete()
 ```
 
 ## Format Labels via \`scale\_\*\`
@@ -344,14 +344,14 @@ ggplot(
 #| output-location: column
 #| code-line-numbers: "8|7,8"
 ggplot(
-    bikes, 
+    bikes,
     aes(x = season, y = count)
   ) +
   geom_boxplot() +
   scale_x_discrete(
     name = NULL,
     labels = stringr::str_to_title
-  ) 
+  )
 ```
 
 ## Format Labels via \`scale\_\*\`
@@ -376,7 +376,7 @@ g +
 #| output-location: column
 #| code-line-numbers: "2"
 
-g + 
+g +
   ggtitle("**TfL bike sharing trends by _season_**")
 ```
 
@@ -388,7 +388,7 @@ g +
 #| code-line-numbers: "4,5,6,7|4|6"
 # install.packages("ggtext")
 
-g + 
+g +
   ggtitle("**TfL bike sharing trends by _season_**") +
   theme(
     plot.title = ggtext::element_markdown()
@@ -404,7 +404,7 @@ g +
 #| fig-height: 5.5
 # install.packages("ggtext")
 
-g + 
+g +
   ggtitle("<b style='font-family:tabular;font-size:25pt'>TfL</b> bike sharing trends by <i style='color:#28a87d;'>season</i>") +
   theme(
     plot.title = ggtext::element_markdown()
@@ -467,7 +467,7 @@ g +
 #| output-location: column
 #| code-line-numbers: "1,2,3,4|10,11"
 codes <- c(
-  `TRUE` = "Workday", 
+  `TRUE` = "Workday",
   `FALSE` = "Weekend or Holiday"
 )
 
@@ -488,7 +488,7 @@ g +
 #| output-location: column
 #| code-line-numbers: "10"
 codes <- c(
-  `TRUE` = "Workday", 
+  `TRUE` = "Workday",
   `FALSE` = "Weekend or Holiday"
 )
 
@@ -528,8 +528,8 @@ g +
 #| label: stringr-default-labs
 #| output-location: column
 ggplot(
-    bikes, 
-    aes(x = weather_type, 
+    bikes,
+    aes(x = weather_type,
         y = count)
   ) +
   geom_boxplot()
@@ -540,8 +540,8 @@ ggplot(
 #| output-location: column
 #| code-line-numbers: "3"
 ggplot(
-    bikes, 
-    aes(x = stringr::str_wrap(weather_type, 6), 
+    bikes,
+    aes(x = stringr::str_wrap(weather_type, 6),
         y = count)
   ) +
   geom_boxplot()
@@ -553,7 +553,7 @@ ggplot(
 #| label: ggtext-text-default
 #| output-location: column
 #| code-line-numbers: "2|3,4,5,6|4"
-g + 
+g +
   ggtitle("TfL bike sharing trends in 2015 and 2016 by season for day and night periods") +
   theme(
     plot.title = element_text(size = 20),
@@ -567,10 +567,10 @@ g +
 #| label: ggtext-textbox-default
 #| output-location: column
 #| code-line-numbers: "2|3,4,5,6|4"
-g + 
+g +
   ggtitle("TfL bike sharing trends in 2015 and 2016 by season for day and night periods") +
   theme(
-    plot.title = 
+    plot.title =
       ggtext::element_textbox_simple(size = 20),
     plot.title.position = "plot"
   )
@@ -582,7 +582,7 @@ g +
 #| label: ggtext-textbox-margin
 #| output-location: column
 #| code-line-numbers: "5,6"
-g + 
+g +
   ggtitle("TfL bike sharing trends in 2015 and 2016 by season for day and night periods") +
   theme(
     plot.title = ggtext::element_textbox_simple(
@@ -599,7 +599,7 @@ g +
 #| label: ggtext-textbox-box
 #| output-location: column
 #| code-line-numbers: "6"
-g + 
+g +
   ggtitle("TfL bike sharing trends in 2015 and 2016 by season for day and night periods") +
   theme(
     plot.title = ggtext::element_textbox_simple(
@@ -617,7 +617,7 @@ g +
 #| label: ggtext-textbox-box-styled
 #| output-location: column
 #| code-line-numbers: "6|8|9|10|11"
-g + 
+g +
   ggtitle("TfL bike sharing trends in 2015 and 2016 by season for day and night periods") +
   theme(
     plot.title = ggtext::element_textbox_simple(
@@ -701,11 +701,11 @@ ggplot(bikes, aes(humidity, temp)) +
   geom_point(size = 2, color = "grey") +
   annotate(
     geom = "rect",
-    xmin = -Inf, 
-    xmax = 60, 
-    ymin = 20, 
+    xmin = -Inf,
+    xmax = 60,
+    ymin = 20,
     ymax = Inf,
-    fill = "#663399"  
+    fill = "#663399"
   )
 ```
 
@@ -718,9 +718,9 @@ ggplot(bikes, aes(humidity, temp)) +
 ggplot(bikes, aes(humidity, temp)) +
   annotate(
     geom = "rect",
-    xmin = -Inf, 
-    xmax = 60, 
-    ymin = 20, 
+    xmin = -Inf,
+    xmax = 60,
+    ymin = 20,
     ymax = Inf,
     fill = "#663399"
   ) +
@@ -741,7 +741,7 @@ ggplot(bikes, aes(humidity, temp)) +
     y = 27.5,
     label = "Some\nadditional\ntext",
     size = 6,
-    lineheight = .9 
+    lineheight = .9
   ) +
   annotate(
     geom = "segment",
@@ -764,13 +764,13 @@ ggplot(bikes, aes(humidity, temp)) +
     y = 27.5,
     label = "Some\nadditional\ntext",
     size = 6,
-    lineheight = .9 
+    lineheight = .9
   ) +
   annotate(
     geom = "curve",
     x = 90, xend = 82,
     y = 25, yend = 18.5
-  ) 
+  )
 ```
 
 ## Add Arrows
@@ -781,13 +781,13 @@ ggplot(bikes, aes(humidity, temp)) +
 #| code-line-numbers: "13"
 ggplot(bikes, aes(humidity, temp)) +
   geom_point(size = 2, color = "grey") +
-  annotate( 
-    geom = "text", 
+  annotate(
+    geom = "text",
     x = 90,
     y = 27.5,
     label = "Some\nadditional\ntext",
     size = 6,
-    lineheight = .9 
+    lineheight = .9
   ) +
   annotate(
     geom = "curve",
@@ -806,13 +806,13 @@ ggplot(bikes, aes(humidity, temp)) +
 #| code-line-numbers: "12,14,15,16,17|14,15,16"
 ggplot(bikes, aes(humidity, temp)) +
   geom_point(size = 2, color = "grey") +
-  annotate( 
-    geom = "text", 
+  annotate(
+    geom = "text",
     x = 90,
     y = 27.5,
     label = "Some\nadditional\ntext",
     size = 6,
-    lineheight = .9 
+    lineheight = .9
   ) +
   annotate(
     geom = "curve",
@@ -835,13 +835,13 @@ ggplot(bikes, aes(humidity, temp)) +
 #| code-line-numbers: "15,16"
 ggplot(bikes, aes(humidity, temp)) +
   geom_point(size = 2, color = "grey") +
-  annotate( 
-    geom = "text", 
+  annotate(
+    geom = "text",
     x = 90,
     y = 27.5,
     label = "Some\nadditional\ntext",
     size = 6,
-    lineheight = .9 
+    lineheight = .9
   ) +
   annotate(
     geom = "curve",
@@ -869,7 +869,7 @@ g <- ggplot(
     aes(x = humidity, y = temp)
   ) +
   geom_point(
-    data = bikes, 
+    data = bikes,
     color = "grey65", alpha = .3
   ) +
   geom_point(size = 2.5)
@@ -886,7 +886,7 @@ ggplot(
     aes(x = humidity, y = temp)
   ) +
   geom_point(
-    data = bikes, 
+    data = bikes,
     color = "grey65", alpha = .3
   ) +
   geom_point(size = 2.5) +
@@ -894,7 +894,7 @@ ggplot(
     aes(label = season),
     nudge_x = .3,
     hjust = 0
-  ) 
+  )
 ```
 
 ## Annotations with \`geom_label()\`
@@ -908,7 +908,7 @@ ggplot(
     aes(x = humidity, y = temp)
   ) +
   geom_point(
-    data = bikes, 
+    data = bikes,
     color = "grey65", alpha = .3
   ) +
   geom_point(size = 2.5) +
@@ -916,7 +916,7 @@ ggplot(
     aes(label = season),
     nudge_x = .3,
     hjust = 0
-  ) 
+  )
 ```
 
 ## Annotations with {ggrepel}
@@ -936,7 +936,7 @@ ggplot(
     aes(x = humidity, y = temp)
   ) +
   geom_point(
-    data = bikes, 
+    data = bikes,
     color = "grey65", alpha = .3
   ) +
   geom_point(size = 2.5) +
@@ -957,7 +957,7 @@ ggplot(
         color = season == "summer")
   ) +
   geom_point(
-    data = bikes, 
+    data = bikes,
     color = "grey65", alpha = .3
   ) +
   geom_point(size = 2.5) +
@@ -965,7 +965,7 @@ ggplot(
     aes(label = str_to_title(season))
   ) +
   scale_color_manual(
-    values = c("firebrick", "black"), 
+    values = c("firebrick", "black"),
     guide = "none"
   )
 ```
@@ -982,7 +982,7 @@ ggplot(
         color = season == "summer")
   ) +
   geom_point(
-    data = bikes, 
+    data = bikes,
     color = "grey65", alpha = .3
   ) +
   geom_point(size = 2.5) +
@@ -994,7 +994,7 @@ ggplot(
     min.segment.length = 0
   ) +
   scale_color_manual(
-    values = c("firebrick", "black"), 
+    values = c("firebrick", "black"),
     guide = "none"
   )
 ```
@@ -1011,7 +1011,7 @@ ggplot(
         color = season == "summer")
   ) +
   geom_point(
-    data = bikes, 
+    data = bikes,
     color = "grey65", alpha = .3
   ) +
   geom_point(size = 2.5) +
@@ -1021,9 +1021,9 @@ ggplot(
     xlim = c(NA, 35), hjust = 1
   ) +
   scale_color_manual(
-    values = c("firebrick", "black"), 
+    values = c("firebrick", "black"),
     guide = "none"
-  ) + 
+  ) +
   xlim(25, NA)
 ```
 
@@ -1039,22 +1039,22 @@ ggplot(
         color = season == "summer")
   ) +
   geom_point(
-    data = bikes, 
+    data = bikes,
     color = "grey65", alpha = .3
   ) +
   geom_point(size = 2.5) +
   ggrepel::geom_text_repel(
     aes(label = str_to_title(season)),
     ## force to the right
-    xlim = c(NA, 35), 
+    xlim = c(NA, 35),
     ## style segment
     segment.curvature = .01,
     arrow = arrow(length = unit(.02, "npc"), type = "closed")
   ) +
   scale_color_manual(
-    values = c("firebrick", "black"), 
+    values = c("firebrick", "black"),
     guide = "none"
-  ) + 
+  ) +
   xlim(25, NA)
 ```
 
@@ -1070,22 +1070,22 @@ ggplot(
         color = season == "summer")
   ) +
   geom_point(
-    data = bikes, 
+    data = bikes,
     color = "grey65", alpha = .3
   ) +
   geom_point(size = 2.5) +
   ggrepel::geom_text_repel(
     aes(label = str_to_title(season)),
     ## force to the right
-    xlim = c(NA, 35), 
+    xlim = c(NA, 35),
     ## style segment
     segment.curvature = .001,
     segment.inflect = TRUE
   ) +
   scale_color_manual(
-    values = c("firebrick", "black"), 
+    values = c("firebrick", "black"),
     guide = "none"
-  ) + 
+  ) +
   xlim(25, NA)
 ```
 
@@ -1097,18 +1097,18 @@ ggplot(
 #| code-line-numbers: "1,2,3,4,5,6,7,8,9,10,11,12,13,14|2|4,11,12,13,14"
 ggplot(
     filter(bikes, temp > 20 & season != "summer"),
-    aes(x = humidity, y = temp, 
+    aes(x = humidity, y = temp,
         color = season)
   ) +
   geom_point(
-    data = bikes, 
+    data = bikes,
     color = "grey65", alpha = .3
   ) +
   geom_point() +
   scale_color_brewer(
     palette = "Dark2",
     guide = "none"
-  ) 
+  )
 ```
 
 ## Annotations with {ggforce}
@@ -1119,21 +1119,21 @@ ggplot(
 #| code-line-numbers: "11,12,13"
 ggplot(
     filter(bikes, temp > 20 & season != "summer"),
-    aes(x = humidity, y = temp, 
+    aes(x = humidity, y = temp,
         color = season)
   ) +
   geom_point(
-    data = bikes, 
+    data = bikes,
     color = "grey65", alpha = .3
   ) +
   geom_point() +
   ggforce::geom_mark_rect(
     aes(label = str_to_title(season))
-  ) + 
+  ) +
   scale_color_brewer(
     palette = "Dark2",
     guide = "none"
-  ) 
+  )
 ```
 
 ## Annotations with {ggforce}
@@ -1148,13 +1148,13 @@ ggplot(
         color = season)
   ) +
   geom_point(
-    data = bikes, 
+    data = bikes,
     color = "grey65", alpha = .3
   ) +
   geom_point() +
   ggforce::geom_mark_rect(
     aes(label = str_to_title(season))
-  ) + 
+  ) +
   scale_color_brewer(
     palette = "Dark2",
     guide = "none"
@@ -1170,11 +1170,11 @@ ggplot(
 #| code-line-numbers: "13,14,15,16,17,18|13,14|15,16,17|18"
 ggplot(
     filter(bikes, temp > 20 & season != "summer"),
-    aes(x = humidity, y = temp, 
+    aes(x = humidity, y = temp,
         color = season)
   ) +
   geom_point(
-    data = bikes, 
+    data = bikes,
     color = "grey65", alpha = .3
   ) +
   geom_point() +
@@ -1186,7 +1186,7 @@ ggplot(
     label.buffer = unit(15, "pt"),
     con.type = "straight",
     label.fill = "transparent"
-  ) + 
+  ) +
   scale_color_brewer(
     palette = "Dark2",
     guide = "none"
@@ -1202,7 +1202,7 @@ ggplot(
 #| code-line-numbers: "1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16|1,2,3,4,5|4,13,14,15,16|7|8,9|10"
 ggplot(
     bikes,
-    aes(x = humidity, y = temp, 
+    aes(x = humidity, y = temp,
         color = season == "summer")
   ) +
   geom_point(alpha = .4) +
@@ -1210,8 +1210,8 @@ ggplot(
     aes(label = str_to_title(season),
         filter = season == "summer",
         description = "June to August"),
-    expand = unit(10, "pt")    
-  ) + 
+    expand = unit(10, "pt")
+  ) +
   scale_color_manual(
     values = c("grey65", "firebrick"),
     guide = "none"
@@ -1242,7 +1242,7 @@ ggplot(bikes, aes(date, temp_feel)) +
   annotation_custom(
     grid::rasterGrob(
       image = img
-    ) 
+    )
   ) +
   geom_point(color = "#71a5d4")
 ```
@@ -1259,8 +1259,8 @@ ggplot(bikes, aes(date, temp_feel)) +
       image = img,
       x = .5,
       y = .9,
-      width = .9 
-    ) 
+      width = .9
+    )
   ) +
   geom_point(color = "#71a5d4") +
   ylim(NA, 37)
@@ -1278,8 +1278,8 @@ ggplot(bikes, aes(date, temp_feel)) +
       image = img,
       x = .47,
       y = 1.15,
-      width = .9 
-    ) 
+      width = .9
+    )
   ) +
   geom_point(color = "#71a5d4") +
   coord_cartesian(clip = "off") +
@@ -1329,9 +1329,9 @@ ggplot(bikes, aes(date, temp_feel)) +
 library(palmerpenguins)
 
 penguins_labs <-
-  penguins %>% 
-  group_by(species) %>% 
-  summarize(across(starts_with("bill"), ~ mean(.x, na.rm = TRUE))) %>% 
+  penguins %>%
+  group_by(species) %>%
+  summarize(across(starts_with("bill"), ~ mean(.x, na.rm = TRUE))) %>%
   mutate(
     species_lab = case_when(
       species == "Adelie" ~ "<b style='font-size:15pt;'>*P. adéliae*</b><br>(Adélie penguin)",
@@ -1341,15 +1341,15 @@ penguins_labs <-
   )
 
 ggplot(
-    penguins, 
-    aes(x = bill_length_mm, y = bill_depth_mm, 
+    penguins,
+    aes(x = bill_length_mm, y = bill_depth_mm,
         color = species, size = body_mass_g)
   ) +
   geom_point(alpha = .2, stroke = .3) +
   geom_point(shape = 1, stroke = .3) +
   ggtext::geom_richtext(
     data = penguins_labs,
-    aes(label = species_lab, color = species, 
+    aes(label = species_lab, color = species,
         color = after_scale(colorspace::darken(color, .4))),
     family = "Roboto Condensed",
     size = 3, lineheight = .8,
@@ -1431,14 +1431,14 @@ ggplot(mapping = aes(x = 0, y = 0)) +
       image = img,
       x = .5,
       y = .1
-    ) 
+    )
   ) +
   geom_point(
     color = "#71a5d4", size = 150
   ) +
   geom_text(
     label = "R", size = 80,
-    family = "Tabular", 
+    family = "Tabular",
     color = "white"
   ) +
   xlim(-5, 5) +

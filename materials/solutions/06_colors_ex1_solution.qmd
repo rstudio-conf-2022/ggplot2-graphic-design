@@ -2,8 +2,8 @@
 title: "Graphic Design with ggplot2"
 subtitle: "<span style='font-size:1.75em;line-height:1.1;'>Working with Colors:<br><span style='font-weight:500;'>Solution Exercise 1</span></span>"
 author: "<b style='color:#28a87d;'>Cédric Scherer</b> **//** rstudio::conf **//** July 2022"
-format: 
-  revealjs: 
+format:
+  revealjs:
     theme: css/style.scss
     footer: '**[Cédric Scherer](https::/cedricscherer.com) //** rstudio::conf **//** July 2022'
     #'rstudio::conf(workshop = "Graphic Design with ggplot2", instructor = "Cédric Scherer")'
@@ -22,7 +22,7 @@ format:
     mainfont: Cabinet Grotesk
 editor: source
 knitr:
-  opts_chunk: 
+  opts_chunk:
     dev: "ragg_png"
     retina: 1
     dpi: 300
@@ -49,7 +49,7 @@ library(colorspace)
 library(ggtext)
 
 bikes <- readr::read_csv(
-  "https://raw.githubusercontent.com/z3tt/graphic-design-ggplot2/main/data/london-bikes-custom.csv", 
+  "https://raw.githubusercontent.com/z3tt/graphic-design-ggplot2/main/data/london-bikes-custom.csv",
   col_types = "Dcfffilllddddc"
 )
 
@@ -65,7 +65,7 @@ ggplot(bikes, aes(x = season, y = count)) +
     )),
     position = position_dodge(width = .6),
     alpha = .5
-  ) + 
+  ) +
   stat_summary(
     aes(color = day_night),
     position = position_dodge(width = .6),
@@ -88,8 +88,8 @@ ggplot(bikes, aes(x = season, y = count)) +
     labels = str_to_title
   ) +
   scale_y_continuous(
-    labels = scales::comma_format(), 
-    expand = c(0, 0), 
+    labels = scales::comma_format(),
+    expand = c(0, 0),
     limits = c(0, NA)
   ) +
   scale_color_manual(values = colors) +
@@ -120,7 +120,7 @@ ggplot(bikes, aes(x = season, y = count)) +
 library(tidyverse)
 
 bikes <- readr::read_csv(
-  "https://raw.githubusercontent.com/z3tt/graphic-design-ggplot2/main/data/london-bikes-custom.csv", 
+  "https://raw.githubusercontent.com/z3tt/graphic-design-ggplot2/main/data/london-bikes-custom.csv",
   col_types = "Dcfffilllddddc"
 )
 
@@ -134,7 +134,7 @@ bikes$season <- forcats::fct_inorder(bikes$season)
 #| eval: false
 #| code-line-numbers: "5,6,7,8,9|7"
 ggplot(
-    bikes, 
+    bikes,
     aes(x = season, y = count)
   ) +
   ggforce::geom_sina(
@@ -143,7 +143,7 @@ ggplot(
     alpha = .5
   ) +
   theme_minimal(
-    base_size = 18, 
+    base_size = 18,
     base_family = "Cabinet Grotesk"
   )
 ```
@@ -164,21 +164,21 @@ ggplot(
 #| eval: false
 #| code-line-numbers: "10,11,12,13,14|6,11|7,12"
 ggplot(
-    bikes, 
+    bikes,
     aes(x = season, y = count)
   ) +
   ggforce::geom_sina(
     aes(color = day_night),
     position = position_dodge(width = .6),
     alpha = .5
-  ) + 
+  ) +
   stat_summary(
     aes(color = day_night),
     position = position_dodge(width = .6),
     size = .8
   ) +
   theme_minimal(
-    base_size = 18, 
+    base_size = 18,
     base_family = "Cabinet Grotesk"
   )
 ```
@@ -199,24 +199,24 @@ ggplot(
 #| eval: false
 #| code-line-numbers: "6,7,8,9"
 ggplot(
-    bikes, 
+    bikes,
     aes(x = season, y = count)
   ) +
   ggforce::geom_sina(
     aes(color = stage(
-      day_night, 
+      day_night,
       after_scale = lighten(color, .6)
     )),
     position = position_dodge(width = .6),
     alpha = .5
-  ) + 
+  ) +
   stat_summary(
     aes(color = day_night),
     position = position_dodge(width = .6),
     size = .8
   ) +
   theme_minimal(
-    base_size = 18, 
+    base_size = 18,
     base_family = "Cabinet Grotesk"
   )
 ```
@@ -237,17 +237,17 @@ ggplot(
 #| eval: false
 #| code-line-numbers: "15,16,17"
 p1 <- ggplot(
-    bikes, 
+    bikes,
     aes(x = season, y = count)
   ) +
   ggforce::geom_sina(
     aes(color = stage(
-      day_night, 
+      day_night,
       after_scale = lighten(color, .6)
     )),
     position = position_dodge(width = .6),
     alpha = .5
-  ) + 
+  ) +
   stat_summary(
     aes(color = day_night),
     fun = mean,
@@ -257,7 +257,7 @@ p1 <- ggplot(
     size = .8
   ) +
   theme_minimal(
-    base_size = 18, 
+    base_size = 18,
     base_family = "Cabinet Grotesk"
   )
 
@@ -289,9 +289,9 @@ p2 <- p1 +
       )
     ),
     position = position_dodge(width = .6),
-    hjust = -.2, family = "Tabular", 
+    hjust = -.2, family = "Tabular",
     size = 5.5, fontface = "bold"
-  ) 
+  )
 
 p2
 ```
@@ -317,10 +317,10 @@ p3 <- p2 +
     labels = str_to_title
   ) +
   scale_y_continuous(
-    labels = scales::comma_format(), 
-    expand = c(0, 0), 
+    labels = scales::comma_format(),
+    expand = c(0, 0),
     limits = c(0, NA)
-  ) 
+  )
 
 p3
 ```
@@ -404,7 +404,7 @@ library(colorspace)
 library(ggtext)
 
 bikes <- readr::read_csv(
-  "https://raw.githubusercontent.com/z3tt/graphic-design-ggplot2/main/data/london-bikes-custom.csv", 
+  "https://raw.githubusercontent.com/z3tt/graphic-design-ggplot2/main/data/london-bikes-custom.csv",
   col_types = "Dcfffilllddddc"
 )
 
@@ -420,7 +420,7 @@ ggplot(bikes, aes(x = season, y = count)) +
     )),
     position = position_dodge(width = .6),
     alpha = .5
-  ) + 
+  ) +
   stat_summary(
     aes(color = day_night),
     position = position_dodge(width = .6),
@@ -443,8 +443,8 @@ ggplot(bikes, aes(x = season, y = count)) +
     labels = str_to_title
   ) +
   scale_y_continuous(
-    labels = scales::comma_format(), 
-    expand = c(0, 0), 
+    labels = scales::comma_format(),
+    expand = c(0, 0),
     limits = c(0, NA)
   ) +
   scale_color_manual(values = colors) +

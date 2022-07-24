@@ -1,6 +1,6 @@
 #------------------------------------------------------------------------------#
 #                                                                              #
-#                         Graphic Design with ggplot2:                         # 
+#                         Graphic Design with ggplot2:                         #
 #            How to Create Engaging and Complex Visualizations in R            #
 #                                                                              #
 #                   Concepts of the {ggplot2} Package: Part 2                  #
@@ -17,7 +17,7 @@
 library(tidyverse)
 
 bikes <- readr::read_csv(
-  here::here("data", "london-bikes-custom.csv"), 
+  here::here("data", "london-bikes-custom.csv"),
   col_types = "Dcfffilllddddc"
 )
 
@@ -42,7 +42,7 @@ theme_update(
 ## -----------------------------------------------------------------------------
 g <-
   ggplot(
-    bikes, 
+    bikes,
     aes(x = temp_feel, y = count,
         color = season)
   ) +
@@ -113,7 +113,7 @@ g +
 ## -----------------------------------------------------------------------------
 g +
   facet_grid(
-    rows = vars(day_night), 
+    rows = vars(day_night),
     cols = vars(is_workday)
   )
 
@@ -181,42 +181,42 @@ diamonds
 
 ## -----------------------------------------------------------------------------
 ggplot(
-    diamonds, 
+    diamonds,
     aes(x = carat, y = price)
   ) +
   geom_point(
     alpha = .3
   ) +
   geom_smooth(
-    method = "lm", 
-    se = FALSE, 
+    method = "lm",
+    se = FALSE,
     color = "dodgerblue"
-  ) 
+  )
 
 
 ## -----------------------------------------------------------------------------
 ggplot(
-    diamonds, 
+    diamonds,
     aes(x = carat, y = price)
   ) +
   geom_point(
     alpha = .3
   ) +
   geom_smooth(
-    method = "lm", 
-    se = FALSE, 
+    method = "lm",
+    se = FALSE,
     color = "dodgerblue"
   ) +
   facet_grid(
-    cut ~ clarity, 
-    space = "free_x", 
+    cut ~ clarity,
+    space = "free_x",
     scales = "free_x"
   )
 
 
 ## -----------------------------------------------------------------------------
 ggplot(
-    diamonds, 
+    diamonds,
     aes(x = carat, y = price)
   ) +
   geom_point(
@@ -224,13 +224,13 @@ ggplot(
     color = "white"
   ) +
   geom_smooth(
-    method = "lm", 
-    se = FALSE, 
+    method = "lm",
+    se = FALSE,
     color = "dodgerblue"
   ) +
   facet_grid(
-    cut ~ clarity, 
-    space = "free_x", 
+    cut ~ clarity,
+    space = "free_x",
     scales = "free_x"
   ) +
   theme_dark(
@@ -248,16 +248,16 @@ ggplot(
 
 ## -----------------------------------------------------------------------------
 ggplot(
-    bikes, 
+    bikes,
     aes(x = date, y = count,
         color = season)
   ) +
-  geom_point() 
+  geom_point()
 
 
 ## -----------------------------------------------------------------------------
 ggplot(
-    bikes, 
+    bikes,
     aes(x = date, y = count,
         color = season)
   ) +
@@ -269,7 +269,7 @@ ggplot(
 
 ## -----------------------------------------------------------------------------
 ggplot(
-    bikes, 
+    bikes,
     aes(x = date, y = count,
         color = season)
   ) +
@@ -281,7 +281,7 @@ ggplot(
 
 ## -----------------------------------------------------------------------------
 ggplot(
-    bikes, 
+    bikes,
     aes(x = date, y = count,
         color = season)
   ) +
@@ -293,7 +293,7 @@ ggplot(
 
 ## -----------------------------------------------------------------------------
 ggplot(
-    bikes, 
+    bikes,
     aes(x = date, y = count,
         color = season)
   ) +
@@ -305,7 +305,7 @@ ggplot(
 
 ## -----------------------------------------------------------------------------
 ggplot(
-    bikes, 
+    bikes,
     aes(x = date, y = count,
         color = season)
   ) +
@@ -319,7 +319,7 @@ ggplot(
 
 ## -----------------------------------------------------------------------------
 ggplot(
-    bikes, 
+    bikes,
     aes(x = date, y = count,
         color = season)
   ) +
@@ -333,7 +333,7 @@ ggplot(
 
 ## -----------------------------------------------------------------------------
 ggplot(
-    bikes, 
+    bikes,
     aes(x = date, y = count,
         color = season)
   ) +
@@ -348,7 +348,7 @@ ggplot(
 
 ## -----------------------------------------------------------------------------
 ggplot(
-    bikes, 
+    bikes,
     aes(x = date, y = count,
         color = season)
   ) +
@@ -363,7 +363,7 @@ ggplot(
 
 ## -----------------------------------------------------------------------------
 ggplot(
-    bikes, 
+    bikes,
     aes(x = date, y = count,
         color = season)
   ) +
@@ -378,7 +378,7 @@ ggplot(
 
 ## -----------------------------------------------------------------------------
 ggplot(
-    bikes, 
+    bikes,
     aes(x = date, y = count,
         color = season)
   ) +
@@ -394,7 +394,7 @@ ggplot(
 
 ## -----------------------------------------------------------------------------
 ggplot(
-    bikes, 
+    bikes,
     aes(x = date, y = count,
         color = season)
   ) +
@@ -410,7 +410,7 @@ ggplot(
 
 ## -----------------------------------------------------------------------------
 ggplot(
-    bikes, 
+    bikes,
     aes(x = date, y = count,
         color = season)
   ) +
@@ -426,7 +426,7 @@ ggplot(
 
 ## -----------------------------------------------------------------------------
 ggplot(
-    bikes, 
+    bikes,
     aes(x = date, y = count,
         color = season)
   ) +
@@ -442,7 +442,7 @@ ggplot(
 
 ## -----------------------------------------------------------------------------
 ggplot(
-    bikes, 
+    bikes,
     aes(x = date, y = count,
         color = season)
   ) +
@@ -458,7 +458,7 @@ ggplot(
 
 ## -----------------------------------------------------------------------------
 ggplot(
-    bikes, 
+    bikes,
     aes(x = date, y = count,
         color = season)
   ) +
@@ -467,12 +467,12 @@ ggplot(
     name = "Reported bike shares",
     breaks = 0:4*15000,
     guide = "none"
-  ) 
+  )
 
 
 ## -----------------------------------------------------------------------------
 ggplot(
-    bikes, 
+    bikes,
     aes(x = date, y = count,
         color = season)
   ) +
@@ -480,12 +480,12 @@ ggplot(
   scale_x_date(
     name = NULL,
     date_breaks = "3 months"
-  ) 
+  )
 
 
 ## -----------------------------------------------------------------------------
 ggplot(
-    bikes, 
+    bikes,
     aes(x = date, y = count,
         color = season)
   ) +
@@ -498,7 +498,7 @@ ggplot(
 
 ## -----------------------------------------------------------------------------
 ggplot(
-    bikes, 
+    bikes,
     aes(x = date, y = count,
         color = season)
   ) +
@@ -512,7 +512,7 @@ ggplot(
 
 ## -----------------------------------------------------------------------------
 ggplot(
-    bikes, 
+    bikes,
     aes(x = date, y = count)
   ) +
   geom_point() +
@@ -520,12 +520,12 @@ ggplot(
     name = NULL,
     date_breaks = "4 months",
     date_labels = "%b '%y"
-  ) 
+  )
 
 
 ## -----------------------------------------------------------------------------
 ggplot(
-    bikes, 
+    bikes,
     aes(x = season, y = count)
   ) +
   geom_boxplot() +
@@ -537,19 +537,19 @@ ggplot(
 
 ## -----------------------------------------------------------------------------
 ggplot(
-    bikes, 
+    bikes,
     aes(x = season, y = count)
   ) +
   geom_boxplot() +
   scale_x_discrete(
     name = "Season",
     expand = c(.5, .5)
-  ) 
+  )
 
 
 ## -----------------------------------------------------------------------------
 ggplot(
-    bikes, 
+    bikes,
     aes(x = as.numeric(season), y = count)
   ) +
   geom_boxplot(
@@ -559,8 +559,8 @@ ggplot(
 
 ## -----------------------------------------------------------------------------
 ggplot(
-    bikes, 
-    aes(x = as.numeric(season), 
+    bikes,
+    aes(x = as.numeric(season),
         y = count)
   ) +
   geom_boxplot(
@@ -575,8 +575,8 @@ ggplot(
 
 ## -----------------------------------------------------------------------------
 ggplot(
-    bikes, 
-    aes(x = as.numeric(season) + as.numeric(season) / 8, 
+    bikes,
+    aes(x = as.numeric(season) + as.numeric(season) / 8,
         y = count)
   ) +
   geom_boxplot(
@@ -591,7 +591,7 @@ ggplot(
 
 ## -----------------------------------------------------------------------------
 ggplot(
-    bikes, 
+    bikes,
     aes(x = date, y = count,
         color = season)
   ) +
@@ -604,7 +604,7 @@ ggplot(
 
 ## -----------------------------------------------------------------------------
 g <- ggplot(
-    bikes, 
+    bikes,
     aes(x = date, y = count,
         color = season)
   ) +
@@ -621,14 +621,14 @@ gb$data[[1]][1:10,]
 
 ## -----------------------------------------------------------------------------
 my_colors <- c(
-  `winter` = "#69b0d4", 
-  `spring` = "#00CB79", 
-  `summer` = "#F7B01B", 
+  `winter` = "#69b0d4",
+  `spring` = "#00CB79",
+  `summer` = "#F7B01B",
   `autumn` = "#a78f5f"
 )
 
 ggplot(
-    bikes, 
+    bikes,
     aes(x = date, y = count,
         color = season)
   ) +
@@ -641,14 +641,14 @@ ggplot(
 
 ## -----------------------------------------------------------------------------
 my_colors_alphabetical <- c(
-  `autumn` = "#a78f5f", 
-  `spring` = "#00CB79", 
-  `summer` = "#F7B01B", 
+  `autumn` = "#a78f5f",
+  `spring` = "#00CB79",
+  `summer` = "#F7B01B",
   `winter` = "#69b0d4"
 )
 
 ggplot(
-    bikes, 
+    bikes,
     aes(x = date, y = count,
         color = season)
   ) +
@@ -663,7 +663,7 @@ ggplot(
 library(RColorBrewer)
 
 ggplot(
-    bikes, 
+    bikes,
     aes(x = date, y = count,
         color = season)
   ) +
@@ -678,7 +678,7 @@ ggplot(
 
 ## -----------------------------------------------------------------------------
 ggplot(
-    bikes, 
+    bikes,
     aes(x = date, y = count,
         color = weather_type)
   ) +
@@ -692,7 +692,7 @@ ggplot(
 
 ## -----------------------------------------------------------------------------
 ggplot(
-    bikes, 
+    bikes,
     aes(x = date, y = count,
         color = weather_type)
   ) +
@@ -700,7 +700,7 @@ ggplot(
   rcartocolor::scale_color_carto_d(
     name = "Season:",
     palette = "Pastel",
-    na.value = "black" 
+    na.value = "black"
   )
 
 
@@ -714,9 +714,9 @@ ggplot(
 
 
 ## -----------------------------------------------------------------------------
-facet <- 
+facet <-
   ggplot(
-    diamonds, 
+    diamonds,
     aes(x = carat, y = price)
   ) +
   geom_point(
@@ -724,12 +724,12 @@ facet <-
   ) +
   geom_smooth(
     aes(color = cut),
-    method = "lm", 
+    method = "lm",
     se = FALSE
   ) +
   facet_grid(
-    cut ~ clarity, 
-    space = "free_x", 
+    cut ~ clarity,
+    space = "free_x",
     scales = "free_x"
   )
 
@@ -743,7 +743,7 @@ facet +
   ) +
   scale_y_continuous(
     limits = c(0, 30000),
-    breaks = 0:3*10000, 
+    breaks = 0:3*10000,
     labels = c("$0", "$10,000", "$20,000", "$30,000")
   )
 
@@ -755,7 +755,7 @@ facet +
   ) +
   scale_y_continuous(
     limits = c(0, 30000),
-    breaks = 0:3*10000, 
+    breaks = 0:3*10000,
     labels = paste0(
       "$", format(0:3*10000, big.mark = ",")
     )
@@ -769,7 +769,7 @@ facet +
   ) +
   scale_y_continuous(
     limits = c(0, 30000),
-    breaks = 0:3*10000, 
+    breaks = 0:3*10000,
     labels = function(y) paste0(
       "$", format(y, big.mark=",")
     )
@@ -783,7 +783,7 @@ facet +
   ) +
   scale_y_continuous(
     limits = c(0, 30000),
-    breaks = 0:3*10000, 
+    breaks = 0:3*10000,
     labels = scales::dollar_format()
   )
 
@@ -795,7 +795,7 @@ facet +
   ) +
   scale_y_continuous(
     limits = c(0, 30000),
-    breaks = 0:3*10000, 
+    breaks = 0:3*10000,
     labels = scales::dollar_format()
   ) +
   scale_color_brewer(
@@ -811,7 +811,7 @@ facet +
   ) +
   scale_y_continuous(
     limits = c(0, 30000),
-    breaks = 0:3*10000, 
+    breaks = 0:3*10000,
     labels = scales::dollar_format()
   ) +
   scale_color_brewer(
@@ -830,7 +830,7 @@ facet +
 
 ## -----------------------------------------------------------------------------
 ggplot(
-    bikes, 
+    bikes,
     aes(x = season, y = count)
   ) +
   geom_boxplot() +
@@ -839,40 +839,40 @@ ggplot(
 
 ## -----------------------------------------------------------------------------
 ggplot(
-    bikes, 
+    bikes,
     aes(x = season, y = count)
   ) +
   geom_boxplot() +
   coord_cartesian(
-    ylim = c(NA, 15000) 
+    ylim = c(NA, 15000)
   )
 
 
 ## -----------------------------------------------------------------------------
 ggplot(
-    bikes, 
+    bikes,
     aes(x = season, y = count)
   ) +
   geom_boxplot() +
   coord_cartesian(
-    ylim = c(NA, 15000) 
+    ylim = c(NA, 15000)
   )
 
 
 ## -----------------------------------------------------------------------------
 ggplot(
-    bikes, 
+    bikes,
     aes(x = season, y = count)
   ) +
   geom_boxplot() +
   scale_y_continuous(
-    limits = c(NA, 15000) 
+    limits = c(NA, 15000)
   )
 
 
 ## -----------------------------------------------------------------------------
 ggplot(
-    bikes, 
+    bikes,
     aes(x = season, y = count)
   ) +
   geom_boxplot() +
@@ -884,7 +884,7 @@ ggplot(
 
 ## -----------------------------------------------------------------------------
 ggplot(
-    filter(bikes, is_holiday == TRUE), 
+    filter(bikes, is_holiday == TRUE),
     aes(x = temp_feel, y = count)
   ) +
   geom_point() +
@@ -900,7 +900,7 @@ ggplot(
 
 ## -----------------------------------------------------------------------------
 ggplot(
-    filter(bikes, is_holiday == TRUE), 
+    filter(bikes, is_holiday == TRUE),
     aes(x = temp_feel, y = count)
   ) +
   geom_point() +
@@ -916,7 +916,7 @@ ggplot(
 
 ## -----------------------------------------------------------------------------
 ggplot(
-    bikes, 
+    bikes,
     aes(x = temp_feel, y = count)
   ) +
   geom_point() +
@@ -928,7 +928,7 @@ ggplot(
 
 ## -----------------------------------------------------------------------------
 ggplot(
-    bikes, 
+    bikes,
     aes(x = temp_feel, y = temp)
   ) +
   geom_point() +
@@ -937,7 +937,7 @@ ggplot(
 
 ## -----------------------------------------------------------------------------
 ggplot(
-    bikes, 
+    bikes,
     aes(x = temp_feel, y = temp)
   ) +
   geom_point() +
@@ -946,7 +946,7 @@ ggplot(
 
 ## -----------------------------------------------------------------------------
 ggplot(
-    bikes, 
+    bikes,
     aes(x = weather_type)
   ) +
   geom_bar() +
@@ -955,7 +955,7 @@ ggplot(
 
 ## -----------------------------------------------------------------------------
 ggplot(
-    bikes, 
+    bikes,
     aes(x = weather_type)
   ) +
   geom_bar() +
@@ -964,7 +964,7 @@ ggplot(
 
 ## -----------------------------------------------------------------------------
 ggplot(
-    bikes, 
+    bikes,
     aes(y = weather_type)
   ) +
   geom_bar() +
@@ -973,7 +973,7 @@ ggplot(
 
 ## -----------------------------------------------------------------------------
 ggplot(
-    bikes, 
+    bikes,
     aes(x = weather_type)
   ) +
   geom_bar() +
@@ -982,7 +982,7 @@ ggplot(
 
 ## -----------------------------------------------------------------------------
 ggplot(
-    filter(bikes, !is.na(weather_type)), 
+    filter(bikes, !is.na(weather_type)),
     aes(y = fct_infreq(weather_type))
   ) +
   geom_bar()
@@ -990,7 +990,7 @@ ggplot(
 
 ## -----------------------------------------------------------------------------
 ggplot(
-    filter(bikes, !is.na(weather_type)), 
+    filter(bikes, !is.na(weather_type)),
     aes(y = fct_rev(
       fct_infreq(weather_type)
     ))
@@ -1000,7 +1000,7 @@ ggplot(
 
 ## -----------------------------------------------------------------------------
 ggplot(
-    filter(bikes, !is.na(weather_type)), 
+    filter(bikes, !is.na(weather_type)),
     aes(x = weather_type,
         fill = weather_type)
   ) +
@@ -1010,7 +1010,7 @@ ggplot(
 
 ## -----------------------------------------------------------------------------
 ggplot(
-    filter(bikes, !is.na(weather_type)), 
+    filter(bikes, !is.na(weather_type)),
     aes(x = weather_type,
         fill = weather_type)
   ) +
@@ -1020,7 +1020,7 @@ ggplot(
 
 ## -----------------------------------------------------------------------------
 ggplot(
-    filter(bikes, !is.na(weather_type)), 
+    filter(bikes, !is.na(weather_type)),
     aes(x = fct_infreq(weather_type),
         fill = weather_type)
   ) +
@@ -1030,7 +1030,7 @@ ggplot(
 
 ## -----------------------------------------------------------------------------
 ggplot(
-    filter(bikes, !is.na(weather_type)), 
+    filter(bikes, !is.na(weather_type)),
     aes(x = fct_infreq(weather_type),
         fill = weather_type)
   ) +
@@ -1040,7 +1040,7 @@ ggplot(
 
 ## -----------------------------------------------------------------------------
 ggplot(
-    filter(bikes, !is.na(weather_type)), 
+    filter(bikes, !is.na(weather_type)),
     aes(x = fct_infreq(weather_type),
         fill = weather_type)
   ) +
@@ -1050,7 +1050,7 @@ ggplot(
 
 ## -----------------------------------------------------------------------------
 ggplot(
-    filter(bikes, !is.na(weather_type)), 
+    filter(bikes, !is.na(weather_type)),
     aes(x = fct_infreq(weather_type),
         fill = weather_type)
   ) +
@@ -1060,7 +1060,7 @@ ggplot(
 
 ## -----------------------------------------------------------------------------
 ggplot(
-    filter(bikes, !is.na(weather_type)), 
+    filter(bikes, !is.na(weather_type)),
     aes(x = 1,
         fill = fct_rev(fct_infreq(weather_type)))
   ) +
@@ -1070,7 +1070,7 @@ ggplot(
 
 ## -----------------------------------------------------------------------------
 ggplot(
-    filter(bikes, !is.na(weather_type)), 
+    filter(bikes, !is.na(weather_type)),
     aes(x = 1,
         fill = fct_rev(fct_infreq(weather_type)))
   ) +
@@ -1116,17 +1116,17 @@ countries <- rnaturalearth::ne_countries(
 
 ggplot() +
   geom_sf(
-    data = countries, 
+    data = countries,
     color = "#79dfbd",
     fill = "#28a87d",
     size = .3
-  ) 
+  )
 
 
 ## -----------------------------------------------------------------------------
 ggplot() +
   geom_sf(
-    data = countries, 
+    data = countries,
     color = "#79dfbd",
     fill = "#28a87d",
     size = .3
@@ -1139,7 +1139,7 @@ ggplot() +
 ## -----------------------------------------------------------------------------
 ggplot() +
   geom_sf(
-    data = countries, 
+    data = countries,
     color = "#79dfbd",
     fill = "#28a87d",
     size = .3
@@ -1160,7 +1160,7 @@ ggplot() +
     fill = "#d8f1f6"
   ) +
   geom_sf(
-    data = countries, 
+    data = countries,
     color = "#79dfbd",
     fill = "#28a87d",
     size = .3

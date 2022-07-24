@@ -2,8 +2,8 @@
 title: "Graphic Design with ggplot2"
 subtitle: "<span style='font-size:1.75em;line-height:1.1;'>Concepts of the <code>{ggplot2}</code> Package Pt. 2:<br><span style='font-weight:500;'>Solution Exercise 2</span></span>"
 author: "<b style='color:#28a87d;'>Cédric Scherer</b> **//** rstudio::conf **//** July 2022"
-format: 
-  revealjs: 
+format:
+  revealjs:
     theme: css/style.scss
     footer: '**[Cédric Scherer](https::/cedricscherer.com) //** rstudio::conf **//** July 2022'
     #'rstudio::conf(workshop = "Graphic Design with ggplot2", instructor = "Cédric Scherer")'
@@ -22,7 +22,7 @@ format:
     mainfont: Cabinet Grotesk
 editor: source
 knitr:
-  opts_chunk: 
+  opts_chunk:
     dev: "ragg_png"
     retina: 1
     dpi: 300
@@ -37,7 +37,7 @@ execute:
 ## Exercise 2
 
 ::: question
-* Create a circular lollipop plot of reported bike shares per season. 
+* Create a circular lollipop plot of reported bike shares per season.
   - The data is not in the right format as there are no totals.<br>How can you solve it?
   - Remove all legend elements (with a single line of code).
   - How can you add the labels next to the starting point of each lollipop?
@@ -57,7 +57,7 @@ execute:
 library(tidyverse)
 
 bikes <- readr::read_csv(
-  here::here("data", "london-bikes-custom.csv"), 
+  here::here("data", "london-bikes-custom.csv"),
   col_types = "Dcfffilllddddc"
 )
 
@@ -69,7 +69,7 @@ ggplot(bikes, aes(x = as.numeric(season), y = count, group = season)) +
   stat_summary(geom = "point", fun = "sum", size = 3) +
   stat_summary(geom = "linerange", ymin = 0, fun.max = function(y) sum(y)) +
   stat_summary(
-    geom = "text", aes(label = season, y = 0), 
+    geom = "text", aes(label = season, y = 0),
     family = "Cabinet Grotesk", fontface = "bold", size = 4.5, hjust = 1.15
   ) +
   annotate(
@@ -91,7 +91,7 @@ ggplot(bikes, aes(x = as.numeric(season), y = count, group = season)) +
 library(tidyverse)
 
 bikes <- readr::read_csv(
-  here::here("data", "london-bikes-custom.csv"), 
+  here::here("data", "london-bikes-custom.csv"),
   col_types = "Dcfffilllddddc"
 )
 
@@ -107,9 +107,9 @@ theme_set(theme_light(base_size = 14, base_family = "Roboto Condensed"))
 
 ```{r}
 #| label: concepts-exercise-lollipop-cartesian-data
-bikes %>% 
-  group_by(season) %>% 
-  summarize(count = sum(count)) 
+bikes %>%
+  group_by(season) %>%
+  summarize(count = sum(count))
 ```
 
 ## Lollipop Plot with Pre-Calculated Sums
@@ -118,9 +118,9 @@ bikes %>%
 #| label: concepts-pt2-exercise-2-1
 #| output-location: column
 #| code-line-numbers: "1,2,3|4,5,6,7,8"
-bikes %>% 
-  group_by(season) %>% 
-  summarize(count = sum(count)) %>% 
+bikes %>%
+  group_by(season) %>%
+  summarize(count = sum(count)) %>%
   ggplot(aes(x = season, y = count)) +
   geom_point(size = 3) +
   geom_linerange(
@@ -141,7 +141,7 @@ ggplot(bikes, aes(x = season, y = count)) +
     geom = "point", fun = "sum", size = 3
   ) +
   stat_summary(
-    geom = "linerange", ymin = 0, 
+    geom = "linerange", ymin = 0,
     fun.max = function(y) sum(y)
   )
 ```
@@ -159,7 +159,7 @@ ggplot(bikes, aes(x = season, y = count)) +
     geom = "point", fun = "sum", size = 3
   ) +
   stat_summary(
-    geom = "linerange", ymin = 0, 
+    geom = "linerange", ymin = 0,
     fun.max = function(y) sum(y)
   ) +
   coord_cartesian(ylim = c(0, NA))
@@ -173,9 +173,9 @@ ggplot(bikes, aes(x = season, y = count)) +
 #| label: concepts-pt2-exercise-2-2
 #| output-location: column
 #| code-line-numbers: "9"
-bikes %>% 
-  group_by(season) %>% 
-  summarize(count = sum(count)) %>% 
+bikes %>%
+  group_by(season) %>%
+  summarize(count = sum(count)) %>%
   ggplot(aes(x = season, y = count)) +
   geom_point(size = 3) +
   geom_linerange(
@@ -192,9 +192,9 @@ bikes %>%
 #| label: concepts-pt2-exercise-2-3
 #| output-location: column
 #| code-line-numbers: "10,11,12,13,14,15"
-bikes %>% 
-  group_by(season) %>% 
-  summarize(count = sum(count)) %>% 
+bikes %>%
+  group_by(season) %>%
+  summarize(count = sum(count)) %>%
   ggplot(aes(x = season, y = count)) +
   geom_point(size = 3) +
   geom_linerange(
@@ -206,7 +206,7 @@ bikes %>%
   ) +
   scale_y_continuous(
     limits = c(0, 7.5*10^6)
-  ) 
+  )
 ```
 
 
@@ -217,9 +217,9 @@ bikes %>%
 #| label: concepts-pt2-exercise-2-4
 #| output-location: column
 #| code-line-numbers: "16"
-bikes %>% 
-  group_by(season) %>% 
-  summarize(count = sum(count)) %>% 
+bikes %>%
+  group_by(season) %>%
+  summarize(count = sum(count)) %>%
   ggplot(aes(x = season, y = count)) +
   geom_point(size = 3) +
   geom_linerange(
@@ -243,9 +243,9 @@ bikes %>%
 #| label: concepts-pt2-exercise-2-5
 #| output-location: column
 #| code-line-numbers: "17"
-bikes %>% 
-  group_by(season) %>% 
-  summarize(count = sum(count)) %>% 
+bikes %>%
+  group_by(season) %>%
+  summarize(count = sum(count)) %>%
   ggplot(aes(x = season, y = count)) +
   geom_point(size = 3) +
   geom_linerange(
@@ -269,9 +269,9 @@ bikes %>%
 #| label: concepts-pt2-exercise-2-6
 #| output-location: column
 #| code-line-numbers: "9,10,11"
-bikes %>% 
-  group_by(season) %>% 
-  summarize(count = sum(count)) %>% 
+bikes %>%
+  group_by(season) %>%
+  summarize(count = sum(count)) %>%
   ggplot(aes(x = season, y = count)) +
   geom_point(size = 3) +
   geom_linerange(
@@ -299,16 +299,16 @@ bikes %>%
 #| label: concepts-pt2-exercise-2-7
 #| output-location: column
 #| code-line-numbers: "11,12"
-bikes %>% 
-  group_by(season) %>% 
-  summarize(count = sum(count)) %>% 
+bikes %>%
+  group_by(season) %>%
+  summarize(count = sum(count)) %>%
   ggplot(aes(x = season, y = count)) +
   geom_point(size = 3) +
   geom_linerange(
     aes(ymin = 0, ymax = count)
   ) +
   geom_text(
-    aes(label = season, y = 0), 
+    aes(label = season, y = 0),
     family = "Cabinet Grotesk", size = 4.5,
     fontface = "bold", hjust = 1.15
   ) +
@@ -331,21 +331,21 @@ bikes %>%
 #| label: concepts-exercise-lollipop-label-season-direct
 #| output-location: column
 #| code-line-numbers: "14,15,16,17"
-bikes %>% 
-  group_by(season) %>% 
-  summarize(count = sum(count)) %>% 
+bikes %>%
+  group_by(season) %>%
+  summarize(count = sum(count)) %>%
   ggplot(aes(x = season, y = count)) +
   geom_point(size = 3) +
   geom_linerange(
     aes(ymin = 0, ymax = count)
   ) +
   geom_text(
-    aes(label = season, y = 0), 
+    aes(label = season, y = 0),
     family = "Cabinet Grotesk", size = 4.5,
     fontface = "bold", hjust = 1.15
   ) +
   geom_text(
-    aes(label = paste0(round(count / 10^6, 1), "M")), 
+    aes(label = paste0(round(count / 10^6, 1), "M")),
     size = 4, vjust = -1, family = "Cabinet Grotesk"
   ) +
   coord_polar(theta = "y") +
@@ -367,9 +367,9 @@ bikes %>%
 #| label: concepts-exercise-lollipop-baseline-geom-hline
 #| output-location: column
 #| code-line-numbers: "9"
-bikes %>% 
-  group_by(season) %>% 
-  summarize(count = sum(count)) %>% 
+bikes %>%
+  group_by(season) %>%
+  summarize(count = sum(count)) %>%
   ggplot(aes(x = season, y = count)) +
   geom_point(size = 3) +
   geom_linerange(
@@ -377,7 +377,7 @@ bikes %>%
   ) +
   geom_hline(yintercept = 0) +
   geom_text(
-    aes(label = season, y = 0), 
+    aes(label = season, y = 0),
     family = "Cabinet Grotesk", size = 4.5,
     fontface = "bold", hjust = 1.15
   ) +
@@ -400,9 +400,9 @@ bikes %>%
 #| label: concepts-exercise-lollipop-baseline-geom-linerange
 #| output-location: column
 #| code-line-numbers: "4|4,9,10,11"
-bikes %>% 
-  group_by(season) %>% 
-  summarize(count = sum(count)) %>% 
+bikes %>%
+  group_by(season) %>%
+  summarize(count = sum(count)) %>%
   ggplot(aes(x = season, y = count)) +
   geom_point(size = 3) +
   geom_linerange(
@@ -412,7 +412,7 @@ bikes %>%
     xmin = .7, xmax = 4.3, y = 0
   ) +
   geom_text(
-    aes(label = season, y = 0), 
+    aes(label = season, y = 0),
     family = "Cabinet Grotesk", size = 4.5,
     fontface = "bold", hjust = 1.15
   ) +
@@ -435,20 +435,20 @@ bikes %>%
 #| label: concepts-pt2-exercise-2-8
 #| output-location: column
 #| code-line-numbers: "4,9,10,11,12"
-bikes %>% 
-  group_by(season) %>% 
-  summarize(count = sum(count)) %>% 
+bikes %>%
+  group_by(season) %>%
+  summarize(count = sum(count)) %>%
   ggplot(aes(x = season, y = count)) +
   geom_point(size = 3) +
   geom_linerange(
     aes(ymin = 0, ymax = count)
   ) +
   annotate(
-    geom = "linerange", 
+    geom = "linerange",
     xmin = .7, xmax = 4.3, y = 0
   )  +
   geom_text(
-    aes(label = season, y = 0), 
+    aes(label = season, y = 0),
     family = "Cabinet Grotesk", size = 4.5,
     fontface = "bold", hjust = 1.15
   ) +
@@ -475,20 +475,20 @@ ggplot(bikes, aes(x = as.numeric(season), y = count)) +
     geom = "point", fun = "sum", size = 3
   ) +
   stat_summary(
-    geom = "linerange", ymin = 0, 
+    geom = "linerange", ymin = 0,
     fun.max = function(y) sum(y)
   ) +
   stat_summary(
-    geom = "text", 
+    geom = "text",
     aes(
-      label = season, 
+      label = season,
       y = 0
-    ), 
+    ),
     family = "Cabinet Grotesk", size = 4.5,
     fontface = "bold", hjust = 1.15
   ) +
   annotate(
-    geom = "linerange", 
+    geom = "linerange",
     xmin = .7, xmax = 4.3, y = 0
   ) +
   coord_polar(theta = "y") +

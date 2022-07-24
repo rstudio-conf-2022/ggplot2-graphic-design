@@ -2,8 +2,8 @@
 title: "Graphic Design with ggplot2"
 subtitle: "<span style='font-size:1.75em;line-height:1.1;'>Working with Labels and Annotations:<br><span style='font-weight:500;'>Solution Exercise 2</span></span>"
 author: "<b style='color:#28a87d;'>Cédric Scherer</b> **//** rstudio::conf **//** July 2022"
-format: 
-  revealjs: 
+format:
+  revealjs:
     theme: css/style.scss
     footer: '**[Cédric Scherer](https::/cedricscherer.com) //** rstudio::conf **//** July 2022'
     #'rstudio::conf(workshop = "Graphic Design with ggplot2", instructor = "Cédric Scherer")'
@@ -22,7 +22,7 @@ format:
     mainfont: Cabinet Grotesk
 editor: source
 knitr:
-  opts_chunk: 
+  opts_chunk:
     dev: "ragg_png"
     retina: 1
     dpi: 300
@@ -51,14 +51,14 @@ ggplot(mapping = aes(x = 0, y = 0)) +
       image = skyline,
       x = .5,
       y = .1
-    ) 
+    )
   ) +
   geom_point(
     color = "#71a5d4", size = 150
   ) +
   geom_text(
     label = "R", size = 80,
-    family = "Tabular", 
+    family = "Tabular",
     color = "white"
   ) +
   xlim(-5, 5) +
@@ -118,7 +118,7 @@ ggplot(mapping = aes(x = 0, y = 0)) +
   ) +
   geom_text(
     label = "R", size = 80,
-    family = "Tabular", 
+    family = "Tabular",
     color = "white"
   ) +
   xlim(-5, 5) +
@@ -140,14 +140,14 @@ ggplot(mapping = aes(x = 0, y = 0)) +
       image = skyline,
       x = .5,
       y = .5
-    ) 
+    )
   ) +
   geom_point(
     color = "#71a5d4", size = 150
   ) +
   geom_text(
     label = "R", size = 80,
-    family = "Tabular", 
+    family = "Tabular",
     color = "white"
   ) +
   xlim(-5, 5) +
@@ -169,14 +169,14 @@ ggplot(mapping = aes(x = 0, y = 0)) +
       image = skyline,
       x = .5,
       y = .1
-    ) 
+    )
   ) +
   geom_point(
     color = "#71a5d4", size = 150
   ) +
   geom_text(
     label = "R", size = 80,
-    family = "Tabular", 
+    family = "Tabular",
     color = "white"
   ) +
   xlim(-5, 5) +
@@ -198,14 +198,14 @@ ggplot(mapping = aes(x = 0, y = 0)) +
       image = skyline,
       x = .5,
       y = -.2
-    ) 
+    )
   )  +
   geom_point(
     color = "#71a5d4", size = 150
   ) +
   geom_text(
     label = "R", size = 80,
-    family = "Tabular", 
+    family = "Tabular",
     color = "white"
   ) +
   coord_cartesian(clip = "off") +
@@ -231,14 +231,14 @@ ggplot(mapping = aes(x = 0, y = 0)) +
       image = skyline,
       x = .5,
       y = .1
-    ) 
+    )
   ) +
   geom_point(
     color = "#71a5d4", size = 150
   ) +
   geom_text(
     label = "R", size = 80,
-    family = "Tabular", 
+    family = "Tabular",
     color = "white"
   ) +
   xlim(-5, 5) +
@@ -257,7 +257,7 @@ ggplot(mapping = aes(x = 0, y = 0)) +
 
 ```{r}
 #| label: annotations-exercise-2-save
-ggsave(here::here("exercises", "plots", "05_annotations_ex2.png"), 
+ggsave(here::here("exercises", "plots", "05_annotations_ex2.png"),
        width = 5, height = 6, dpi = 300)
 ```
 
@@ -265,7 +265,7 @@ ggsave(here::here("exercises", "plots", "05_annotations_ex2.png"),
 #| label: annotations-exercise-2-save-hidden
 #| include: false
 #| purl: false
-ggsave(here::here("solutions", "plots", "05_annotations_ex2.png"), 
+ggsave(here::here("solutions", "plots", "05_annotations_ex2.png"),
        width = 5, height = 6, dpi = 300)
 ```
 
@@ -294,7 +294,7 @@ g <- ggplot(mapping = aes(x = 0, y = 0)) +
 
 ```{r}
 #| label: annotations-exercise-2-dot-save
-ggsave(plot = g, filename = here::here("exercises", "img", "rstudio-dot.png"), 
+ggsave(plot = g, filename = here::here("exercises", "img", "rstudio-dot.png"),
        width = 5, height = 5, dpi = 3600)
 ```
 
@@ -329,4 +329,3 @@ image_write(img, path = here::here("solutions", "plots", "05_annotations_ex2_com
 
 :::footer
 :::
-

@@ -2,8 +2,8 @@
 title: "Graphic Design with ggplot2"
 subtitle: "<span style='font-size:1.75em;line-height:1.1;'>Concepts of the <code>{ggplot2}</code> Package Pt. 1:<br><span style='font-weight:500;'>Solution Exercise 1</span></span>"
 author: "<b style='color:#28a87d;'>Cédric Scherer</b> **//** rstudio::conf **//** July 2022"
-format: 
-  revealjs: 
+format:
+  revealjs:
     theme: css/style.scss
     footer: '**[Cédric Scherer](https::/cedricscherer.com) //** rstudio::conf **//** July 2022'
     #'rstudio::conf(workshop = "Graphic Design with ggplot2", instructor = "Cédric Scherer")'
@@ -22,7 +22,7 @@ format:
     mainfont: Cabinet Grotesk
 editor: source
 knitr:
-  opts_chunk: 
+  opts_chunk:
     dev: "ragg_png"
     retina: 1
     dpi: 300
@@ -51,7 +51,7 @@ execute:
 ```{r}
 #| label: import-data-exercise
 bikes <- readr::read_csv(
-  here::here("data", "london-bikes-custom.csv"), 
+  here::here("data", "london-bikes-custom.csv"),
   col_types = "Dcfffilllddddc"
 )
 
@@ -66,7 +66,7 @@ library(tidyverse)
 #| label: concepts-pt1-exercise-1-1
 #| output-location: column
 ggplot(
-    filter(bikes, is_weekend == TRUE), 
+    filter(bikes, is_weekend == TRUE),
     aes(x = date, y = count)
   ) +
   geom_point()
@@ -79,7 +79,7 @@ ggplot(
 #| output-location: column
 #| code-line-numbers: "6,7"
 ggplot(
-    filter(bikes, is_weekend == TRUE), 
+    filter(bikes, is_weekend == TRUE),
     aes(x = date, y = count)
   ) +
   geom_point(
@@ -95,7 +95,7 @@ ggplot(
 #| output-location: column
 #| code-line-numbers: "9,10,11"
 ggplot(
-    filter(bikes, is_weekend == TRUE), 
+    filter(bikes, is_weekend == TRUE),
     aes(x = date, y = count)
   ) +
   geom_point(
@@ -114,7 +114,7 @@ ggplot(
 #| output-location: column
 #| code-line-numbers: "10"
 ggplot(
-    filter(bikes, is_weekend == TRUE), 
+    filter(bikes, is_weekend == TRUE),
     aes(x = date, y = count)
   ) +
   geom_point(
@@ -134,7 +134,7 @@ ggplot(
 #| output-location: column
 #| code-line-numbers: "5,6,7,8"
 ggplot(
-    filter(bikes, is_weekend == TRUE), 
+    filter(bikes, is_weekend == TRUE),
     aes(x = date, y = count)
   ) +
   geom_line(
@@ -154,7 +154,7 @@ ggplot(
 #| output-location: column
 #| code-line-numbers: "5"
 ggplot(
-    filter(bikes, is_weekend == TRUE), 
+    filter(bikes, is_weekend == TRUE),
     aes(x = date, y = count)
   ) +
   geom_path(
@@ -175,9 +175,9 @@ ggplot(
 #| fig-height: 3.2
 #| code-line-numbers: "3|5,6,7"
 ggplot(
-    filter(bikes, is_weekend == TRUE), 
+    filter(bikes, is_weekend == TRUE),
     aes(x = temp_feel, y = count)
-  ) + 
+  ) +
   geom_path(
     aes(color = day_night)
   )
@@ -189,9 +189,9 @@ ggplot(
 #| fig-height: 3.2
 #| code-line-numbers: "5,6,7"
 ggplot(
-    filter(bikes, is_weekend == TRUE), 
+    filter(bikes, is_weekend == TRUE),
     aes(x = temp_feel, y = count)
-  ) + 
+  ) +
   geom_line(
     aes(color = day_night)
   )
@@ -206,7 +206,7 @@ ggplot(
 #| output-location: column
 #| code-line-numbers: "1|1,14|14,15,16,17,18,19,20,21|15,16,17,18|19,20,21"
 g <- ggplot(
-    filter(bikes, is_weekend == TRUE), 
+    filter(bikes, is_weekend == TRUE),
     aes(x = date, y = count)
   ) +
   geom_line(
@@ -218,7 +218,7 @@ g <- ggplot(
         shape = day_night)
   )
 
-g + 
+g +
   theme_minimal(
     base_size = 15,
     base_family = "Lora"
@@ -303,7 +303,7 @@ g +
 #| label: concepts-pt1-exercise-1-12
 #| eval: false
 #| code-line-numbers: "1,2|1|2"
-ggsave(here::here("exercises", "plots", "02_concepts_pt1_ex1.pdf"), 
+ggsave(here::here("exercises", "plots", "02_concepts_pt1_ex1.pdf"),
        width = 9, height = 5, device = cairo_pdf)
 ```
 
@@ -311,7 +311,7 @@ ggsave(here::here("exercises", "plots", "02_concepts_pt1_ex1.pdf"),
 #| label: concepts-pt1-exercise-1-12-png
 #| include: false
 #| eval: false
-ggsave(here::here("exercises", "plots", "02_concepts_pt1_ex1.png"), 
+ggsave(here::here("exercises", "plots", "02_concepts_pt1_ex1.png"),
        width = 9, height = 5, dpi = 350, bg = "white")
 ```
 
@@ -327,7 +327,7 @@ ggsave(here::here("exercises", "plots", "02_concepts_pt1_ex1.png"),
 #| output-location: column
 #| code-line-numbers: "11"
 ggplot(
-    filter(bikes, is_weekend == TRUE), 
+    filter(bikes, is_weekend == TRUE),
     aes(x = date, y = count)
   ) +
   geom_line(
@@ -361,7 +361,7 @@ ggplot(
 #| output-location: column
 #| code-line-numbers: "11"
 ggplot(
-    filter(bikes, is_weekend == TRUE), 
+    filter(bikes, is_weekend == TRUE),
     aes(x = date, y = count)
   ) +
   geom_line(
@@ -399,7 +399,7 @@ invisible(
 )
 
 ggplot(
-    filter(bikes, is_weekend == TRUE), 
+    filter(bikes, is_weekend == TRUE),
     aes(x = date, y = count)
   ) +
   geom_line(
@@ -432,7 +432,7 @@ ggplot(
 #| label: concepts-pt1-exercise-1-bonus-save
 #| eval: false
 #| code-line-numbers: "1,2|1|2"
-ggsave(here::here("exercises", "plots", "02_concepts_pt1_ex1_bonus.pdf"), 
+ggsave(here::here("exercises", "plots", "02_concepts_pt1_ex1_bonus.pdf"),
        width = 9, height = 5, device = cairo_pdf)
 ```
 
@@ -440,7 +440,7 @@ ggsave(here::here("exercises", "plots", "02_concepts_pt1_ex1_bonus.pdf"),
 #| label: concepts-pt1-exercise-1-bonus-png
 #| include: false
 #| eval: false
-ggsave(here::here("solutions", "plots", "02_concepts_pt1_ex1_bonus.png"), 
+ggsave(here::here("solutions", "plots", "02_concepts_pt1_ex1_bonus.png"),
        width = 9, height = 5, dpi = 350, bg = "white")
 ```
 

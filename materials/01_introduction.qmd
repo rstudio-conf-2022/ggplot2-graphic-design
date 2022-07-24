@@ -2,8 +2,8 @@
 title: "Graphic Design with ggplot2"
 subtitle: "<span style='font-size:2.35em;'>How to Create Engaging and<br>Complex Visualizations in R</span>"
 author: "<b style='color:#28a87d;'>Cédric Scherer</b> **//** rstudio::conf **//** July 2022"
-format: 
-  revealjs: 
+format:
+  revealjs:
     theme: css/style.scss
     footer: '**[Cédric Scherer](https::/cedricscherer.com) //** rstudio::conf **//** July 2022'
     #'rstudio::conf(workshop = "Graphic Design with ggplot2", instructor = "Cédric Scherer")'
@@ -22,7 +22,7 @@ format:
     mainfont: Cabinet Grotesk
 editor: source
 knitr:
-  opts_chunk: 
+  opts_chunk:
     dev: "ragg_png"
     retina: 3
     dpi: 300
@@ -113,7 +113,7 @@ countdown::countdown(minutes = 10, font_size = ".5em")
 
 # Introduction
 
-## 
+##
 
 ::: footer
 [{ggplot2} package description](https://ggplot2.tidyverse.org/)
@@ -223,14 +223,14 @@ countdown::countdown(minutes = 10, font_size = ".5em")
 #| include: false
 library(tidyverse)
 
-bikes <- 
+bikes <-
   readr::read_csv(
-    here::here("data", "london-bikes-custom.csv"), 
+    here::here("data", "london-bikes-custom.csv"),
     col_types = "Dcfffilllddddc"
-  ) %>% 
+  ) %>%
   mutate(
     season = factor(season, levels = c("spring", "summer", "autumn", "winter")),
-    is_workday = factor(is_workday, level = c(TRUE, FALSE), 
+    is_workday = factor(is_workday, level = c(TRUE, FALSE),
                         labels = c("workday", "weekend_or_holiday"))
   )
 
@@ -250,7 +250,7 @@ theme_set(theme_grey(base_size = 14))
 
 ## scatter plot of plot bikes$count versus bikes$count
 ggplot(bikes, aes(temp_feel, count)) +
-  geom_point(size = 2.2) 
+  geom_point(size = 2.2)
 ```
 
 ### Code
@@ -273,11 +273,11 @@ ggplot(bikes, aes(temp_feel, count)) +
 #| echo: false
 
 ggplot(bikes, aes(temp_feel, count)) +
-  ## colored, semi-transparent points  
+  ## colored, semi-transparent points
   geom_point(
-    aes(color = season), 
+    aes(color = season),
     size = 2.2, alpha = .55
-  ) 
+  )
 ```
 
 ### Code
@@ -300,12 +300,12 @@ ggplot(bikes, aes(temp_feel, count)) +
 #| echo: false
 ggplot(bikes, aes(temp_feel, count)) +
   geom_point(
-    aes(color = season), 
+    aes(color = season),
     size = 2.2, alpha = .55
-  ) + 
+  ) +
   ## add a linear fitting for each time of the day
   geom_smooth(
-    aes(group = day_night), 
+    aes(group = day_night),
     method = "lm", color = "black"
   )
 ```
@@ -330,11 +330,11 @@ ggplot(bikes, aes(temp_feel, count)) +
 #| echo: false
 ggplot(bikes, aes(temp_feel, count)) +
   geom_point(
-    aes(color = season), 
+    aes(color = season),
     size = 2.2, alpha = .55
-  ) + 
+  ) +
   geom_smooth(
-    aes(group = day_night), 
+    aes(group = day_night),
     method = "lm", color = "black"
   ) +
   ## create small multiples of time of day versus workday
@@ -361,16 +361,16 @@ ggplot(bikes, aes(temp_feel, count)) +
 #| echo: false
 ggplot(bikes, aes(temp_feel, count)) +
   geom_point(
-    aes(color = season), 
+    aes(color = season),
     size = 2.2, alpha = .55
-  ) + 
+  ) +
   geom_smooth(
-    aes(group = day_night), 
+    aes(group = day_night),
     method = "lm", color = "black"
   ) +
   ## create free-ranging, proportionally sized small multiples
   facet_grid(
-    day_night ~ is_workday, 
+    day_night ~ is_workday,
     scales = "free_y", space = "free_y"
   )
 ```
@@ -395,20 +395,20 @@ ggplot(bikes, aes(temp_feel, count)) +
 #| echo: false
 ggplot(bikes, aes(temp_feel, count)) +
   geom_point(
-    aes(color = season), 
+    aes(color = season),
     size = 2.2, alpha = .55
-  ) + 
+  ) +
   geom_smooth(
-    aes(group = day_night), 
+    aes(group = day_night),
     method = "lm", color = "black"
   ) +
   facet_grid(
-    day_night ~ is_workday, 
+    day_night ~ is_workday,
     scales = "free_y", space = "free_y"
   ) +
   ## add labels + titles
   labs(
-    x = "Feels-Like Temperature", y = NULL, 
+    x = "Feels-Like Temperature", y = NULL,
     caption = "Data: TfL (Transport for London), Jan 2015 — Dec 2016",
     title = "Reported bike rents versus feels-like temperature in London per time of day, period, and season."
   )
@@ -434,15 +434,15 @@ ggplot(bikes, aes(temp_feel, count)) +
 #| echo: false
 ggplot(bikes, aes(temp_feel, count)) +
   geom_point(
-    aes(color = season), 
+    aes(color = season),
     size = 2.2, alpha = .55
-  ) + 
+  ) +
   geom_smooth(
-    aes(group = day_night), 
+    aes(group = day_night),
     method = "lm", color = "black"
   ) +
   facet_grid(
-    day_night ~ is_workday, 
+    day_night ~ is_workday,
     scales = "free_y", space = "free_y"
   ) +
   ## add custom colors + legend styling
@@ -451,12 +451,12 @@ ggplot(bikes, aes(temp_feel, count)) +
     guide = guide_legend(override.aes = list(size = 5))
   ) +
   labs(
-    x = "Feels-Like Temperature", y = NULL, 
+    x = "Feels-Like Temperature", y = NULL,
     caption = "Data: TfL (Transport for London), Jan 2015 — Dec 2016",
     title = "Reported bike rents versus feels-like temperature in London per time of day, period, and season."
   ) +
   ## use different theme and typeface
-  theme_light(base_size = 18, base_family = "Cabinet Grotesk") 
+  theme_light(base_size = 18, base_family = "Cabinet Grotesk")
 ```
 
 ### Code
@@ -479,18 +479,18 @@ ggplot(bikes, aes(temp_feel, count)) +
 #| echo: false
 ## coding for facet strip text
 codes <- c(
-  workday = "Workday", 
+  workday = "Workday",
   weekend_or_holiday = "Weekend or Holiday"
 )
 
 ggplot(bikes, aes(temp_feel, count)) +
   ## format seasons
   geom_point(
-    aes(color = forcats::fct_relabel(season, stringr::str_to_title)), 
+    aes(color = forcats::fct_relabel(season, stringr::str_to_title)),
     size = 2.2, alpha = .55
-  ) + 
+  ) +
   geom_smooth(
-    aes(group = day_night), 
+    aes(group = day_night),
     method = "lm", color = "black"
   ) +
   ## format facet strip text
@@ -504,12 +504,12 @@ ggplot(bikes, aes(temp_feel, count)) +
   ) +
   ## customize x axis
   scale_x_continuous(
-    expand = c(.02, .02), 
+    expand = c(.02, .02),
     breaks = 0:6*5, labels = function(x) paste0(x, "°C")
   ) +
   ## customize y axis
   scale_y_continuous(
-    expand = c(.1, .1), limits = c(0, NA), 
+    expand = c(.1, .1), limits = c(0, NA),
     breaks = 0:5*10000, labels = scales::comma_format()
   ) +
   scale_color_manual(
@@ -517,7 +517,7 @@ ggplot(bikes, aes(temp_feel, count)) +
     guide = guide_legend(override.aes = list(size = 5))
   ) +
   labs(
-    x = "Feels-Like Temperature", y = NULL, 
+    x = "Feels-Like Temperature", y = NULL,
     caption = "Data: TfL (Transport for London), Jan 2015 — Dec 2016",
     title = "Reported bike rents versus feels-like temperature in London per time of day, period, and season."
   ) +
@@ -553,25 +553,25 @@ ggplot(bikes, aes(temp_feel, count)) +
 #| fig-height: 8.3
 #| echo: false
 codes <- c(
-  workday = "Workday", 
+  workday = "Workday",
   weekend_or_holiday = "Weekend or Holiday"
 )
 
 ggplot(bikes, aes(temp_feel, count)) +
   ## point outline
   geom_point(
-    color = "black", fill = "white", 
+    color = "black", fill = "white",
     shape = 21, size = 2.8
-  ) + 
+  ) +
   ## opaque point background
   geom_point(
     color = "white", size = 2.2
-  ) + 
+  ) +
   ## colored, semi-transparent points
   geom_point(
-    aes(color = forcats::fct_relabel(season, stringr::str_to_title)), 
+    aes(color = forcats::fct_relabel(season, stringr::str_to_title)),
     size = 2.2, alpha = .55
-  ) + 
+  ) +
   geom_smooth(
     aes(group = day_night), method = "lm", color = "black"
   ) +
@@ -584,11 +584,11 @@ ggplot(bikes, aes(temp_feel, count)) +
     )
   ) +
   scale_x_continuous(
-    expand = c(.02, .02), 
+    expand = c(.02, .02),
     breaks = 0:6*5, labels = function(x) paste0(x, "°C")
   ) +
   scale_y_continuous(
-    expand = c(.1, .1), limits = c(0, NA), 
+    expand = c(.1, .1), limits = c(0, NA),
     breaks = 0:5*10000, labels = scales::comma_format()
   ) +
   scale_color_manual(
@@ -596,7 +596,7 @@ ggplot(bikes, aes(temp_feel, count)) +
     guide = guide_legend(override.aes = list(size = 5))
   ) +
   labs(
-    x = "Feels-Like Temperature", y = NULL, 
+    x = "Feels-Like Temperature", y = NULL,
     caption = "Data: TfL (Transport for London), Jan 2015 — Dec 2016",
     title = "Reported bike rents versus feels-like temperature in London per time of day, period, and season."
   ) +
@@ -610,7 +610,7 @@ ggplot(bikes, aes(temp_feel, count)) +
     plot.title = element_text(face = "bold", size = rel(1.3)),
     axis.text = element_text(family = "Tabular"),
     axis.title.x = element_text(hjust = 0, color = "grey30", margin = margin(t = 12)),
-    strip.text = element_text(face = "bold" , size = rel(1.15)), 
+    strip.text = element_text(face = "bold" , size = rel(1.15)),
     panel.grid.major.x = element_blank(),
     panel.grid.minor = element_blank(),
     panel.spacing = unit(1.2, "lines"),

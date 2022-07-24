@@ -2,8 +2,8 @@
 title: "Graphic Design with ggplot2"
 subtitle: "<span style='font-size:1.75em;line-height:1.1;'>Working with Labels and Annotations:<br><span style='font-weight:500;'>Solution Exercise 1</span></span>"
 author: "<b style='color:#28a87d;'>Cédric Scherer</b> **//** rstudio::conf **//** July 2022"
-format: 
-  revealjs: 
+format:
+  revealjs:
     theme: css/style.scss
     footer: '**[Cédric Scherer](https::/cedricscherer.com) //** rstudio::conf **//** July 2022'
     #'rstudio::conf(workshop = "Graphic Design with ggplot2", instructor = "Cédric Scherer")'
@@ -22,7 +22,7 @@ format:
     mainfont: Cabinet Grotesk
 editor: source
 knitr:
-  opts_chunk: 
+  opts_chunk:
     dev: "ragg_png"
     retina: 1
     dpi: 300
@@ -59,9 +59,9 @@ library(tidyverse)
 library(palmerpenguins)
 
 penguins_labs <-
-  penguins %>% 
-  group_by(species) %>% 
-  summarize(across(starts_with("bill"), ~ mean(.x, na.rm = TRUE))) %>% 
+  penguins %>%
+  group_by(species) %>%
+  summarize(across(starts_with("bill"), ~ mean(.x, na.rm = TRUE))) %>%
   mutate(
     species_lab = case_when(
       species == "Adelie" ~ "<b style='font-size:15pt;'>*P. adéliae*</b><br>(Adélie penguin)",
@@ -71,15 +71,15 @@ penguins_labs <-
   )
 
 ggplot(
-    penguins, 
-    aes(x = bill_length_mm, y = bill_depth_mm, 
+    penguins,
+    aes(x = bill_length_mm, y = bill_depth_mm,
         color = species, size = body_mass_g)
   ) +
   geom_point(alpha = .2, stroke = .3) +
   geom_point(shape = 1, stroke = .3) +
   ggtext::geom_richtext(
     data = penguins_labs,
-    aes(label = species_lab, color = species, 
+    aes(label = species_lab, color = species,
         color = after_scale(prismatic::clr_darken(color, .4))),
     family = "Roboto Condensed",
     size = 3, lineheight = .8,
@@ -159,8 +159,8 @@ penguins
 #| eval: false
 #| code-line-numbers: "1,2,3,4,5,6|7,8,9,10,11,12"
 ggplot(
-    penguins, 
-    aes(x = bill_length_mm, y = bill_depth_mm, 
+    penguins,
+    aes(x = bill_length_mm, y = bill_depth_mm,
         color = species, size = body_mass_g)
   ) +
   geom_point(alpha = .2) +
@@ -190,8 +190,8 @@ ggplot(
 #| eval: false
 #| code-line-numbers: "13,14,15,16,17|13|14,15,16,17"
 ggplot(
-    penguins, 
-    aes(x = bill_length_mm, y = bill_depth_mm, 
+    penguins,
+    aes(x = bill_length_mm, y = bill_depth_mm,
         color = species, size = body_mass_g)
   ) +
   geom_point(alpha = .2) +
@@ -226,10 +226,10 @@ ggplot(
 #| label: annotations-exercise-1-3
 #| eval: false
 #| code-line-numbers: "8"
-p1 <- 
+p1 <-
   ggplot(
-    penguins, 
-    aes(x = bill_length_mm, y = bill_depth_mm, 
+    penguins,
+    aes(x = bill_length_mm, y = bill_depth_mm,
         color = species, size = body_mass_g)
   ) +
   geom_point(alpha = .2, stroke = .3) +
@@ -333,7 +333,7 @@ p2 +
     limits = c(12.5, 22.5),
     breaks = seq(12.5, 22.5, by = 2.5),
     expand = c(0, 0)
-  ) 
+  )
 ```
 
 ## Adjust Axes
@@ -425,7 +425,7 @@ p3 +
     y = "Bill depth *(mm)*",
     title = "Bill dimensions of brush-tailed penguins *Pygoscelis spec.*",
     caption = "Horst AM, Hill AP, Gorman KB (2020). <span style='font-family:tabular;'>palmerpenguins</span> R package version 0.1.0"
-  ) 
+  )
 ```
 
 ## Format Labels with {ggtext}
@@ -485,7 +485,7 @@ p4
 #| label: annotations-exercise-1-10
 #| eval: false
 #| code-line-numbers: "2,3,4,5,6,7|3|4|5,6"
-p5 <- p4 + 
+p5 <- p4 +
   theme(
     axis.text = element_text(family = "Tabular"),
     legend.text = element_text(color = "grey50"),
@@ -517,9 +517,9 @@ p5
 library(tidyverse)
 
 penguins_labs <-
-  penguins %>% 
-  group_by(species) %>% 
-  summarize(across(starts_with("bill"), ~ mean(.x, na.rm = TRUE))) %>% 
+  penguins %>%
+  group_by(species) %>%
+  summarize(across(starts_with("bill"), ~ mean(.x, na.rm = TRUE))) %>%
   mutate(
     species_lab = case_when(
       species == "Adelie" ~ "<b style='font-size:15pt;'>*P. adéliae*</b><br>(Adélie penguin)",
@@ -596,12 +596,12 @@ p5 +
 p5 +
   geom_richtext(
     data = penguins_labs,
-    aes(label = species_lab, 
-        color = species, 
+    aes(label = species_lab,
+        color = species,
         color = after_scale(prismatic::clr_darken(color, .4))),
     family = "Roboto Condensed",
     size = 3, lineheight = .8,
-    fill = "#ffffffab", 
+    fill = "#ffffffab",
     show.legend = FALSE
   )
 ```
@@ -626,8 +626,8 @@ p5 +
 p5 +
   geom_richtext(
     data = penguins_labs,
-    aes(label = species_lab, 
-        color = species, 
+    aes(label = species_lab,
+        color = species,
         color = after_scale(prismatic::clr_darken(color, .4))),
     family = "Roboto Condensed",
     size = 3, lineheight = .8,
@@ -663,9 +663,9 @@ library(palmerpenguins)
 library(ggtext)
 
 penguins_labs <-
-  penguins %>% 
-  group_by(species) %>% 
-  summarize(across(starts_with("bill"), ~ mean(.x, na.rm = TRUE))) %>% 
+  penguins %>%
+  group_by(species) %>%
+  summarize(across(starts_with("bill"), ~ mean(.x, na.rm = TRUE))) %>%
   mutate(
     species_lab = case_when(
       species == "Adelie" ~ "<b style='font-size:15pt;'>*P. adéliae*</b><br>(Adélie penguin)",
@@ -675,16 +675,16 @@ penguins_labs <-
   )
 
 ggplot(
-    penguins, 
-    aes(x = bill_length_mm, y = bill_depth_mm, 
+    penguins,
+    aes(x = bill_length_mm, y = bill_depth_mm,
         color = species, size = body_mass_g)
   ) +
   geom_point(alpha = .2, stroke = .3) +
   geom_point(shape = 1, stroke = .3) +
   geom_richtext(
     data = penguins_labs,
-    aes(label = species_lab, 
-        color = species, 
+    aes(label = species_lab,
+        color = species,
         color = after_scale(prismatic::clr_darken(color, .4))),
     family = "Roboto Condensed",
     size = 3, lineheight = .8,
@@ -741,6 +741,3 @@ ggplot(
     plot.background = element_rect(fill = NA, color = "grey50", size = 1)
   )
 ```
-
-
-

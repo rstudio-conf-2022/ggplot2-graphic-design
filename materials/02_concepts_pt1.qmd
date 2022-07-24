@@ -2,8 +2,8 @@
 title: "Graphic Design with ggplot2"
 subtitle: "<span style='font-size:1.75em;line-height:1.1;'>Concepts of the <code>{ggplot2}</code> Package Pt. 1:<br><span style='font-weight:500;'>Data, Aesthetics, and Geometries + <span class='circle-highlight'>Misc Stuff</span></span></span>"
 author: "<b style='color:#28a87d;'>Cédric Scherer</b> **//** rstudio::conf **//** July 2022"
-format: 
-  revealjs: 
+format:
+  revealjs:
     theme: css/style.scss
     footer: '**[Cédric Scherer](https::/cedricscherer.com) //** rstudio::conf **//** July 2022'
     #'rstudio::conf(workshop = "Graphic Design with ggplot2", instructor = "Cédric Scherer")'
@@ -22,7 +22,7 @@ format:
     mainfont: Cabinet Grotesk
 editor: source
 knitr:
-  opts_chunk: 
+  opts_chunk:
     dev: "ragg_png"
     retina: 1
     dpi: 300
@@ -113,7 +113,7 @@ bikes$season <- forcats::fct_inorder(bikes$season)
 
 ```{r}
 #| label: data-table
-#| echo: false 
+#| echo: false
 #| purl: false
 library(tidyverse)
 tibble(
@@ -124,7 +124,7 @@ tibble(
     Class = c(
       "date", "character", "factor", "factor", "factor", "integer", "logical", "logical", "logical", "double", "double", "double", "double", "character"
     )
-  ) %>% 
+  ) %>%
   kableExtra::kbl(
     booktabs = TRUE, longtable = TRUE
   ) %>%
@@ -160,7 +160,7 @@ theme_set(theme_grey(base_size = 14, base_family = "Robot Condensed"))
 ```{r}
 #| label: ggplot-data
 #| output-location: column
-ggplot(data = bikes) 
+ggplot(data = bikes)
 ```
 
 ## Aesthetic Mapping
@@ -195,7 +195,7 @@ ggplot(data = bikes) +
 ```{r}
 #| label: ggplot-aesthetics-outside-comp
 #| eval: false
-ggplot(data = bikes) + 
+ggplot(data = bikes) +
   aes(x = temp_feel, y = count)
 ```
 
@@ -258,7 +258,7 @@ ggplot(bikes, aes(x = temp_feel, y = count))
 #| output-location: column
 #| code-line-numbers: "1,2,3,4|5"
 ggplot(
-    bikes, 
+    bikes,
     aes(x = temp_feel, y = count)
   ) +
   geom_point()
@@ -271,7 +271,7 @@ ggplot(
 #| output-location: column
 #| code-line-numbers: "5,6,7,8,9,10,11|6,7,8,9,10"
 ggplot(
-    bikes, 
+    bikes,
     aes(x = temp_feel, y = count)
   ) +
   geom_point(
@@ -291,7 +291,7 @@ ggplot(
 #| fig-height: 3.5
 #| code-line-numbers: "6,7"
 ggplot(
-    bikes, 
+    bikes,
     aes(x = temp_feel, y = count)
   ) +
   geom_point(
@@ -306,7 +306,7 @@ ggplot(
 #| fig-height: 3.5
 #| code-line-numbers: "6"
 ggplot(
-    bikes, 
+    bikes,
     aes(x = temp_feel, y = count)
   ) +
   geom_point(
@@ -324,7 +324,7 @@ ggplot(
 #| output-location: column
 #| code-line-numbers: "6"
 ggplot(
-    bikes, 
+    bikes,
     aes(x = temp_feel, y = count)
   ) +
   geom_point(
@@ -358,7 +358,7 @@ theme_set(theme_grey(base_size = 12, base_family = "Robot Condensed"))
 #| output-location: column
 #| code-line-numbers: "3|6"
 ggplot(
-    bikes, 
+    bikes,
     aes(x = temp, y = temp_feel)
   ) +
   geom_point(
@@ -375,7 +375,7 @@ ggplot(
 #| output-location: column
 #| code-line-numbers: "7"
 ggplot(
-    bikes, 
+    bikes,
     aes(x = temp, y = temp_feel)
   ) +
   geom_point(
@@ -446,7 +446,7 @@ ggplot(
 #| output-location: column
 #| code-line-numbers: "8"
 ggplot(
-    bikes, 
+    bikes,
     aes(x = temp, y = temp_feel)
   ) +
   geom_point(
@@ -491,7 +491,7 @@ ggplot(
 #| output-location: column
 #| code-line-numbers: "2"
 ggplot(
-    filter(bikes, !is.na(weather_type)), 
+    filter(bikes, !is.na(weather_type)),
     aes(x = temp, y = temp_feel)
   ) +
   geom_point(
@@ -509,7 +509,7 @@ ggplot(
 #| output-location: column
 #| code-line-numbers: "2"
 ggplot(
-    bikes %>% filter(!is.na(weather_type)), 
+    bikes %>% filter(!is.na(weather_type)),
     aes(x = temp, y = temp_feel)
   ) +
   geom_point(
@@ -535,7 +535,7 @@ theme_set(theme_grey(base_size = 14, base_family = "Robot Condensed"))
 #| code-line-numbers: "3,6"
 #| fig-height: 3.2
 ggplot(
-    bikes, 
+    bikes,
     aes(x = temp_feel, y = count)
   ) +
   geom_point(
@@ -550,7 +550,7 @@ ggplot(
 #| code-line-numbers: "3,4"
 #| fig-height: 3.2
 ggplot(
-    bikes, 
+    bikes,
     aes(x = temp_feel, y = count,
         color = season)
   ) +
@@ -568,7 +568,7 @@ ggplot(
 #| output-location: column
 #| code-line-numbers: "9,10,11"
 ggplot(
-    bikes, 
+    bikes,
     aes(x = temp_feel, y = count,
         color = season)
   ) +
@@ -587,7 +587,7 @@ ggplot(
 #| output-location: column
 #| code-line-numbers: "3,4,9,10,11"
 ggplot(
-    bikes, 
+    bikes,
     aes(x = temp_feel, y = count,
         color = season)
   ) +
@@ -606,7 +606,7 @@ ggplot(
 #| output-location: column
 #| code-line-numbers: "6,9,10,11"
 ggplot(
-    bikes, 
+    bikes,
     aes(x = temp_feel, y = count)
   ) +
   geom_point(
@@ -625,7 +625,7 @@ ggplot(
 #| output-location: column
 #| code-line-numbers: "10"
 ggplot(
-    bikes, 
+    bikes,
     aes(x = temp_feel, y = count)
   ) +
   geom_point(
@@ -645,7 +645,7 @@ ggplot(
 #| output-location: column
 #| code-line-numbers: "4,5"
 ggplot(
-    bikes, 
+    bikes,
     aes(x = temp_feel, y = count,
         color = season,
         group = day_night)
@@ -665,7 +665,7 @@ ggplot(
 #| output-location: column
 #| code-line-numbers: "4,12"
 ggplot(
-    bikes, 
+    bikes,
     aes(x = temp_feel, y = count,
         color = season,
         group = day_night)
@@ -686,9 +686,9 @@ ggplot(
 ```{r}
 #| label: ggplot-object
 #| code-line-numbers: "1,16"
-g <- 
+g <-
   ggplot(
-    bikes, 
+    bikes,
     aes(x = temp_feel, y = count,
         color = season,
         group = day_night)
@@ -894,9 +894,9 @@ g
 
 library(systemfonts)
 
-system_fonts() %>% 
-  filter(str_detect(family, "Cabinet")) %>% 
-  pull(name) %>% 
+system_fonts() %>%
+  filter(str_detect(family, "Cabinet")) %>%
+  pull(name) %>%
   sort()
 ```
 
@@ -906,8 +906,8 @@ system_fonts() %>%
 #| label: systemfonts-register
 # install.packages("systemfonts")
 register_variant(
-  name = "Cabinet Grotesk Black", 
-  family = "Cabinet Grotesk", 
+  name = "Cabinet Grotesk Black",
+  family = "Cabinet Grotesk",
   weight = "heavy",
   features = font_feature(letters = "stylistic")
 )
