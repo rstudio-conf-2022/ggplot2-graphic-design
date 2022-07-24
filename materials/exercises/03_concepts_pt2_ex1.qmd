@@ -17,7 +17,7 @@ editor: visual
   * What is the coordinate system? Have any adjustments been made?
   * Which theme was used and how was it modified?
 
-![A circular lollipop chart on a black background entitled "Travelling to Outer Space" visualizing the cumulative time cosmo- and astronauts have travelled through the outer space.](img/3-1-astronaut-viz/astronaut-viz-detail.png)
+![A circular lollipop chart on a black background entitled "Travelling to Outer Space" visualizing the cumulative time cosmo- and astronauts have travelled through the outer space.](exercises/3-1-astronaut-viz/astronaut-viz-detail.png)
 
 
 ## Layers + Aesthetics

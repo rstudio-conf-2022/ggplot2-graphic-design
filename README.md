@@ -46,11 +46,8 @@ The workshop will also cover the basic logic of ggplot2 and its compontents. How
 
 The example codes and the hands-on workshop parts are run in the Rstudio cloud. Thus, nothing but a laptop is needed.
 
-<<<<<<< HEAD
-If you want to run the workshop content locally on youre machine, please make sure to install a suitable IDE (Rstudio, VS Code or others), a recent version of R (4.1+) and the following packages and typefaces.
-=======
+
 If you want to run  the workshop content locally on your machine, please make sure to install a suitable IDE (Rstudio, VS Code or others), a recent version of R (4.1+) and the following packages and typefaces.
->>>>>>> ca1b703e8b37825774cc3d3f2f407a224207b649
 
 ### R Packages Installation
 
