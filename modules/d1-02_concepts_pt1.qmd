@@ -2,19 +2,7 @@
 title: "<span>Concepts of the <code>{ggplot2}</code> Package Pt. 1:<br><span style='font-weight:500;'>Data, Aesthetics, and Geometries + <span class='circle-highlight'>Misc Stuff</span></span></span>"
 subtitle: "09:30 - 10:30"
 date: "2022-07-25"
-image: "images/ggplot3.png"
-listing:
-  - id: exercises
-    contents:
-      - ../materials/exercises/02-*.qmd
-    type: table
-    fields: [subtitle, title]
-    field-display-names:
-      subtitle: "Exercise"
-    sort: [filename]
-    sort-ui: false
-    filter-ui: false
-    image-placeholder: images/exercise.png
+image: "images/session1.png"
 tbl-colwidths: [5,20,75]
 ---
 

@@ -1,26 +1,14 @@
 ---
-title: "Working with Colors"
+title: "Layouts and Composition"
 subtitle: "15:30 - 17:00"
 date: "2022-07-26"
-image: "images/ggplot2.png"
-listing:
-  - id: exercises
-    contents:
-      - ../materials/exercises/07_layout.Rmd
-    type: table
-    fields: [subtitle, title]
-    field-display-names:
-      subtitle: "Exercise"
-    sort: [filename]
-    sort-ui: false
-    filter-ui: false
-    image-placeholder: images/exercise.png
+image: "images/session7.png"
 tbl-colwidths: [5,20,75]
 ---
 
 ## Outline
 
--   Legend Placemen and Styling
+-   Legend Placement and Styling
     -   Discrete Legend
     -   Continuous Legend
     -   Legend Position

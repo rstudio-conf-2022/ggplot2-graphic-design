@@ -2,34 +2,8 @@
 title: "Data Communication: Exercise"
 subtitle: "16:15 - 17:00"
 date: "2022-07-25"
-image: "images/ggplot3.png"
-listing:
-  - id: exercises
-    contents:
-      - ../materials/03-*.qmd
-    type: table
-    fields: [subtitle, title]
-    field-display-names:
-      subtitle: "Exercise"
-    sort: [filename]
-    sort-ui: false
-    filter-ui: false
-    image-placeholder: images/exercise.png
+image: "images/session4.png"
 tbl-colwidths: [5,20,75]
 ---
 
-## Outline
-
--   xxx
-
-## Slides
-
-[View slides in full screen](../materials/03_concepts_pt2.html)
-
-```{=html}
-<iframe class="slide-deck" src="../materials/03_concepts_pt2.html" height="420" width="747" style="border: 1px solid #2e3846;"></iframe>
-```
 ## Exercises
-
-::: {#exercises}
-:::

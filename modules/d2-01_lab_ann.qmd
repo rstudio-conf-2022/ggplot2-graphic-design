@@ -2,11 +2,11 @@
 title: "Labels and Annotations"
 subtitle: "09:00 - 10:30"
 date: "2022-07-26"
-image: "images/ggplot2.png"
+image: "images/session5.png"
 listing:
   - id: exercises
     contents:
-      - ../materials/05_annotations.qmd
+      - ../materials/exercises/05_annotations.Rmd
     type: table
     fields: [subtitle, title]
     field-display-names:

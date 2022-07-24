@@ -32,7 +32,7 @@ website:
         href: https://github.com/rstudio-conf-2022/ggplot2-graphic-design
         text: GitHub
       - icon: cloud-fill
-        href: https://rstudio.cloud/spaces/xxx
+        href: https://rstudio.cloud/spaces/235465
         text: RStudio Cloud+
     left:
      - href: index.qmd

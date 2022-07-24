@@ -1,34 +1,22 @@
 ---
-title: "<span>Concepts of the <code>{ggplot2}</code> Package Pt. 2:<br><span style='font-weight:500;'>Facets, Scales, and Coordinate System></span></span>"
+title: "<span>Concepts of the <code>{ggplot2}</code> Package Pt. 2:<br><span style='font-weight:500;'>Facets, Scales, and Coordinate System</span></span>"
 subtitle: "12:00 - 12:30"
 date: "2022-07-25"
-image: "images/ggplot3.png"
-listing:
-  - id: exercises
-    contents:
-      - ../materials/03-*.qmd
-    type: table
-    fields: [subtitle, title]
-    field-display-names:
-      subtitle: "Exercise"
-    sort: [filename]
-    sort-ui: false
-    filter-ui: false
-    image-placeholder: images/exercise.png
+image: "images/session2.png"
 tbl-colwidths: [5,20,75]
 ---
 
 ## Outline
 
 -   Facets
-  -   Sea of Tranquility
-  -   Facet Multiple Variables
-  -   Facet Options: Cols + Rows
-  -   Facet Options: Free Scaling
-  -   Facet Options: Switch Labels
-  -   Gridded Facet
-  -   Facet Multiple Variables
-  -   Facet Options: Proportional Spacing
+-   Sea of Tranquility
+-   Facet Multiple Variables
+-   Facet Options: Cols + Rows
+-   Facet Options: Free Scaling
+-   Facet Options: Switch Labels
+-   Gridded Facet
+-   Facet Multiple Variables
+-   Facet Options: Proportional Spacing
 
 ## Slides
 
