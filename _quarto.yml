@@ -41,7 +41,6 @@ website:
      - href: index.qmd
        text: Home
      - href: schedule.qmd
-     - href: team.qmd
      - href: resources.qmd
      - href: license.qmd
 

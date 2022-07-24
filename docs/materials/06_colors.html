@@ -1354,108 +1354,6 @@
 </div>
 </section></section>
 <section>
-<section id="hcl-spectrum" class="title-slide slide level1 center">
-<h1>HCL Spectrum</h1>
-
-</section>
-<section id="evaluate-hcl-spectrum" class="slide level2">
-<h2>Evaluate HCL Spectrum</h2>
-<div class="cell columns column-output-location">
-<div class="column">
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1"></a>colorspace<span class="sc">::</span><span class="fu">specplot</span>(</span>
-<span id="cb48-2"><a href="#cb48-2"></a>  colorspace<span class="sc">::</span><span class="fu">diverging_hcl</span>(</span>
-<span id="cb48-3"><a href="#cb48-3"></a>    <span class="at">n =</span> <span class="dv">100</span>, <span class="at">palette =</span> <span class="st">"Blue-Red"</span></span>
-<span id="cb48-4"><a href="#cb48-4"></a>  )</span>
-<span id="cb48-5"><a href="#cb48-5"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div><div class="column">
-<div class="cell-output-display">
-<p><img data-src="06_colors_files/figure-revealjs/color-palettes-colorspace-spec-explain-1.png" width="1500"></p>
-</div>
-</div>
-</div>
-</section>
-<section id="evaluate-hcl-spectrum-1" class="slide level2">
-<h2>Evaluate HCL Spectrum</h2>
-<div class="quarto-layout-panel">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="cell quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1"></a>colorspace<span class="sc">::</span><span class="fu">specplot</span>(</span>
-<span id="cb49-2"><a href="#cb49-2"></a>  scico<span class="sc">::</span><span class="fu">scico</span>(</span>
-<span id="cb49-3"><a href="#cb49-3"></a>    <span class="at">n =</span> <span class="dv">100</span>, <span class="at">palette =</span> <span class="st">"hawaii"</span></span>
-<span id="cb49-4"><a href="#cb49-4"></a>  )</span>
-<span id="cb49-5"><a href="#cb49-5"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img data-src="06_colors_files/figure-revealjs/color-palettes-scico-spec-1.png" width="1500"></p>
-</div>
-</div>
-<div class="cell quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1"></a>colorspace<span class="sc">::</span><span class="fu">specplot</span>(</span>
-<span id="cb50-2"><a href="#cb50-2"></a>  MetBrewer<span class="sc">::</span><span class="fu">met.brewer</span>(</span>
-<span id="cb50-3"><a href="#cb50-3"></a>     <span class="at">n =</span> <span class="dv">100</span>, <span class="at">name =</span> <span class="st">"Hiroshige"</span></span>
-<span id="cb50-4"><a href="#cb50-4"></a>  )</span>
-<span id="cb50-5"><a href="#cb50-5"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img data-src="06_colors_files/figure-revealjs/color-palettes-metbrewer-spec-1.png" width="1500"></p>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="evaluate-hcl-spectrum-2" class="slide level2">
-<h2>Evaluate HCL Spectrum</h2>
-<div class="quarto-layout-panel">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="cell quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1"></a>colorspace<span class="sc">::</span><span class="fu">specplot</span>(</span>
-<span id="cb51-2"><a href="#cb51-2"></a>  rcartocolor<span class="sc">::</span><span class="fu">carto_pal</span>(</span>
-<span id="cb51-3"><a href="#cb51-3"></a>    <span class="at">n =</span> <span class="dv">7</span>, <span class="at">name =</span> <span class="st">"TealRose"</span></span>
-<span id="cb51-4"><a href="#cb51-4"></a>  )</span>
-<span id="cb51-5"><a href="#cb51-5"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img data-src="06_colors_files/figure-revealjs/color-palettes-carto-spec-1.png" width="1500"></p>
-</div>
-</div>
-<div class="cell quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1"></a>colorspace<span class="sc">::</span><span class="fu">specplot</span>(</span>
-<span id="cb52-2"><a href="#cb52-2"></a>  MetBrewer<span class="sc">::</span><span class="fu">met.brewer</span>(</span>
-<span id="cb52-3"><a href="#cb52-3"></a>     <span class="at">n =</span> <span class="dv">100</span>, <span class="at">name =</span> <span class="st">"Cassatt2"</span></span>
-<span id="cb52-4"><a href="#cb52-4"></a>  )</span>
-<span id="cb52-5"><a href="#cb52-5"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img data-src="06_colors_files/figure-revealjs/color-palettes-metbrewer-spec-2-1.png" width="1500"></p>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="evaluate-hcl-spectrum-3" class="slide level2">
-<h2>Evaluate HCL Spectrum</h2>
-<div class="quarto-layout-panel">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="cell quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1"></a>colorspace<span class="sc">::</span><span class="fu">specplot</span>(</span>
-<span id="cb53-2"><a href="#cb53-2"></a>  <span class="fu">rainbow</span>(</span>
-<span id="cb53-3"><a href="#cb53-3"></a>    <span class="at">n =</span> <span class="dv">100</span></span>
-<span id="cb53-4"><a href="#cb53-4"></a>  )</span>
-<span id="cb53-5"><a href="#cb53-5"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img data-src="06_colors_files/figure-revealjs/color-palettes-rainbow-spec-1.png" width="1500"></p>
-</div>
-</div>
-<div class="cell quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1"></a>colorspace<span class="sc">::</span><span class="fu">specplot</span>(</span>
-<span id="cb54-2"><a href="#cb54-2"></a>  viridis<span class="sc">::</span><span class="fu">turbo</span>(</span>
-<span id="cb54-3"><a href="#cb54-3"></a>     <span class="at">n =</span> <span class="dv">100</span>, <span class="at">direction =</span> <span class="sc">-</span><span class="dv">1</span></span>
-<span id="cb54-4"><a href="#cb54-4"></a>  )</span>
-<span id="cb54-5"><a href="#cb54-5"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img data-src="06_colors_files/figure-revealjs/color-palette-viridis-spec-1.png" width="1500"></p>
-</div>
-</div>
-</div>
-</div>
-</section></section>
-<section>
 <section id="test-your-palettes" class="title-slide slide level1 center">
 <h1>Test Your Palettes</h1>
 
@@ -1464,22 +1362,22 @@
 <h2>Emulate CVD</h2>
 <div class="cell columns column-output-location">
 <div class="column">
-<div class="sourceCode cell-code" id="cb55" data-code-line-numbers="1,2,3,4,5,6|14,15,16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1"></a>deut <span class="ot">&lt;-</span> </span>
-<span id="cb55-2"><a href="#cb55-2"></a>  colorspace<span class="sc">::</span><span class="fu">deutan</span>(</span>
-<span id="cb55-3"><a href="#cb55-3"></a>    viridis<span class="sc">::</span><span class="fu">turbo</span>(</span>
-<span id="cb55-4"><a href="#cb55-4"></a>      <span class="at">n =</span> <span class="dv">100</span>, <span class="at">direction =</span> <span class="sc">-</span><span class="dv">1</span></span>
-<span id="cb55-5"><a href="#cb55-5"></a>    )</span>
-<span id="cb55-6"><a href="#cb55-6"></a>  )</span>
-<span id="cb55-7"><a href="#cb55-7"></a></span>
-<span id="cb55-8"><a href="#cb55-8"></a><span class="fu">ggplot</span>(</span>
-<span id="cb55-9"><a href="#cb55-9"></a>    bikes, </span>
-<span id="cb55-10"><a href="#cb55-10"></a>    <span class="fu">aes</span>(<span class="at">x =</span> temp_feel, <span class="at">y =</span> count,</span>
-<span id="cb55-11"><a href="#cb55-11"></a>        <span class="at">color =</span> temp_feel)</span>
-<span id="cb55-12"><a href="#cb55-12"></a>  ) <span class="sc">+</span></span>
-<span id="cb55-13"><a href="#cb55-13"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb55-14"><a href="#cb55-14"></a>  <span class="fu">scale_color_gradientn</span>(</span>
-<span id="cb55-15"><a href="#cb55-15"></a>    <span class="at">colors =</span> deut</span>
-<span id="cb55-16"><a href="#cb55-16"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb48" data-code-line-numbers="1,2,3,4,5,6|14,15,16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1"></a>deut <span class="ot">&lt;-</span> </span>
+<span id="cb48-2"><a href="#cb48-2"></a>  colorspace<span class="sc">::</span><span class="fu">deutan</span>(</span>
+<span id="cb48-3"><a href="#cb48-3"></a>    viridis<span class="sc">::</span><span class="fu">turbo</span>(</span>
+<span id="cb48-4"><a href="#cb48-4"></a>      <span class="at">n =</span> <span class="dv">100</span>, <span class="at">direction =</span> <span class="sc">-</span><span class="dv">1</span></span>
+<span id="cb48-5"><a href="#cb48-5"></a>    )</span>
+<span id="cb48-6"><a href="#cb48-6"></a>  )</span>
+<span id="cb48-7"><a href="#cb48-7"></a></span>
+<span id="cb48-8"><a href="#cb48-8"></a><span class="fu">ggplot</span>(</span>
+<span id="cb48-9"><a href="#cb48-9"></a>    bikes, </span>
+<span id="cb48-10"><a href="#cb48-10"></a>    <span class="fu">aes</span>(<span class="at">x =</span> temp_feel, <span class="at">y =</span> count,</span>
+<span id="cb48-11"><a href="#cb48-11"></a>        <span class="at">color =</span> temp_feel)</span>
+<span id="cb48-12"><a href="#cb48-12"></a>  ) <span class="sc">+</span></span>
+<span id="cb48-13"><a href="#cb48-13"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb48-14"><a href="#cb48-14"></a>  <span class="fu">scale_color_gradientn</span>(</span>
+<span id="cb48-15"><a href="#cb48-15"></a>    <span class="at">colors =</span> deut</span>
+<span id="cb48-16"><a href="#cb48-16"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
 <p><img data-src="06_colors_files/figure-revealjs/cvd-emulation-deutan-1.png" width="1500"></p>
@@ -1491,18 +1389,18 @@
 <h2>Emulate CVD</h2>
 <div class="cell columns column-output-location">
 <div class="column">
-<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1"></a>g <span class="ot">&lt;-</span> </span>
-<span id="cb56-2"><a href="#cb56-2"></a>  <span class="fu">ggplot</span>(</span>
-<span id="cb56-3"><a href="#cb56-3"></a>    bikes, </span>
-<span id="cb56-4"><a href="#cb56-4"></a>    <span class="fu">aes</span>(<span class="at">x =</span> day_night, <span class="at">y =</span> count, </span>
-<span id="cb56-5"><a href="#cb56-5"></a>        <span class="at">fill =</span> season)</span>
-<span id="cb56-6"><a href="#cb56-6"></a>  ) <span class="sc">+</span></span>
-<span id="cb56-7"><a href="#cb56-7"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
-<span id="cb56-8"><a href="#cb56-8"></a>  <span class="fu">scale_fill_manual</span>(</span>
-<span id="cb56-9"><a href="#cb56-9"></a>    <span class="at">values =</span> carto_custom</span>
-<span id="cb56-10"><a href="#cb56-10"></a>  )</span>
-<span id="cb56-11"><a href="#cb56-11"></a></span>
-<span id="cb56-12"><a href="#cb56-12"></a>g</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1"></a>g <span class="ot">&lt;-</span> </span>
+<span id="cb49-2"><a href="#cb49-2"></a>  <span class="fu">ggplot</span>(</span>
+<span id="cb49-3"><a href="#cb49-3"></a>    bikes, </span>
+<span id="cb49-4"><a href="#cb49-4"></a>    <span class="fu">aes</span>(<span class="at">x =</span> day_night, <span class="at">y =</span> count, </span>
+<span id="cb49-5"><a href="#cb49-5"></a>        <span class="at">fill =</span> season)</span>
+<span id="cb49-6"><a href="#cb49-6"></a>  ) <span class="sc">+</span></span>
+<span id="cb49-7"><a href="#cb49-7"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb49-8"><a href="#cb49-8"></a>  <span class="fu">scale_fill_manual</span>(</span>
+<span id="cb49-9"><a href="#cb49-9"></a>    <span class="at">values =</span> carto_custom</span>
+<span id="cb49-10"><a href="#cb49-10"></a>  )</span>
+<span id="cb49-11"><a href="#cb49-11"></a></span>
+<span id="cb49-12"><a href="#cb49-12"></a>g</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
 <p><img data-src="06_colors_files/figure-revealjs/cvd-emulation-all-prep-1.png" width="1500"></p>
@@ -1514,9 +1412,9 @@
 <h2>Emulate CVD</h2>
 <div class="cell columns column-output-location">
 <div class="column">
-<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1"></a><span class="co"># devtools::install_github("clauswilke/colorblindr")</span></span>
-<span id="cb57-2"><a href="#cb57-2"></a></span>
-<span id="cb57-3"><a href="#cb57-3"></a>colorblindr<span class="sc">::</span><span class="fu">cvd_grid</span>(g)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1"></a><span class="co"># devtools::install_github("clauswilke/colorblindr")</span></span>
+<span id="cb50-2"><a href="#cb50-2"></a></span>
+<span id="cb50-3"><a href="#cb50-3"></a>colorblindr<span class="sc">::</span><span class="fu">cvd_grid</span>(g)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
 <p><img data-src="06_colors_files/figure-revealjs/cvd-emulation-all-1.png" width="1500"></p>
@@ -1530,9 +1428,9 @@
 <section id="emulate-cvd-4" class="slide level2">
 <h2>Emulate CVD</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1"></a><span class="co"># devtools::install_github("clauswilke/colorblindr")</span></span>
-<span id="cb58-2"><a href="#cb58-2"></a></span>
-<span id="cb58-3"><a href="#cb58-3"></a>colorblindr<span class="sc">::</span><span class="fu">cvd_grid</span>(g2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1"></a><span class="co"># devtools::install_github("clauswilke/colorblindr")</span></span>
+<span id="cb51-2"><a href="#cb51-2"></a></span>
+<span id="cb51-3"><a href="#cb51-3"></a>colorblindr<span class="sc">::</span><span class="fu">cvd_grid</span>(g2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="06_colors_files/figure-revealjs/cvd-emulation-all-2-1.png" width="4200" class="r-stretch"></section>
@@ -1540,11 +1438,11 @@
 <h2>Emulate CVD</h2>
 <div class="cell columns column-output-location">
 <div class="column">
-<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1"></a>g3 <span class="ot">&lt;-</span> </span>
-<span id="cb59-2"><a href="#cb59-2"></a>  g2 <span class="sc">+</span></span>
-<span id="cb59-3"><a href="#cb59-3"></a>  <span class="fu">scale_color_manual</span>(</span>
-<span id="cb59-4"><a href="#cb59-4"></a>    <span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#3c89d9"</span>, <span class="st">"#1ec99b"</span>, <span class="st">"#F7B01B"</span>, <span class="st">"#a26e7c"</span>)</span>
-<span id="cb59-5"><a href="#cb59-5"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1"></a>g3 <span class="ot">&lt;-</span> </span>
+<span id="cb52-2"><a href="#cb52-2"></a>  g2 <span class="sc">+</span></span>
+<span id="cb52-3"><a href="#cb52-3"></a>  <span class="fu">scale_color_manual</span>(</span>
+<span id="cb52-4"><a href="#cb52-4"></a>    <span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#3c89d9"</span>, <span class="st">"#1ec99b"</span>, <span class="st">"#F7B01B"</span>, <span class="st">"#a26e7c"</span>)</span>
+<span id="cb52-5"><a href="#cb52-5"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 
 </div>
@@ -1553,9 +1451,9 @@
 <section id="emulate-cvd-6" class="slide level2">
 <h2>Emulate CVD</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1"></a><span class="co"># devtools::install_github("clauswilke/colorblindr")</span></span>
-<span id="cb60-2"><a href="#cb60-2"></a></span>
-<span id="cb60-3"><a href="#cb60-3"></a>colorblindr<span class="sc">::</span><span class="fu">cvd_grid</span>(g3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1"></a><span class="co"># devtools::install_github("clauswilke/colorblindr")</span></span>
+<span id="cb53-2"><a href="#cb53-2"></a></span>
+<span id="cb53-3"><a href="#cb53-3"></a>colorblindr<span class="sc">::</span><span class="fu">cvd_grid</span>(g3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="06_colors_files/figure-revealjs/cvd-emulation-all-3-1.png" width="4200" class="r-stretch"></section>
@@ -1602,16 +1500,118 @@
 
 <img data-src="06_colors_files/figure-revealjs/exercise-jittered-errorbars-1.png" width="3000" class="r-stretch quarto-figure-center"><div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_62dd73ad" style="right:0;bottom:0;font-size:.5em;" data-warnwhen="0">
+<div class="countdown" id="timer_62dd94c2" style="right:0;bottom:0;font-size:.5em;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">20</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 </div>
 </div>
 </section></section>
-<section>
 <section id="appendix" class="title-slide slide level1 center">
 <h1>Appendix</h1>
 
+</section>
+
+<section>
+<section id="hcl-spectrum" class="title-slide slide level1 center">
+<h1>HCL Spectrum</h1>
+
+</section>
+<section id="evaluate-hcl-spectrum" class="slide level2">
+<h2>Evaluate HCL Spectrum</h2>
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1"></a>colorspace<span class="sc">::</span><span class="fu">specplot</span>(</span>
+<span id="cb54-2"><a href="#cb54-2"></a>  colorspace<span class="sc">::</span><span class="fu">diverging_hcl</span>(</span>
+<span id="cb54-3"><a href="#cb54-3"></a>    <span class="at">n =</span> <span class="dv">100</span>, <span class="at">palette =</span> <span class="st">"Blue-Red"</span></span>
+<span id="cb54-4"><a href="#cb54-4"></a>  )</span>
+<span id="cb54-5"><a href="#cb54-5"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div class="cell-output-display">
+<p><img data-src="06_colors_files/figure-revealjs/color-palettes-colorspace-spec-explain-1.png" width="1500"></p>
+</div>
+</div>
+</div>
+</section>
+<section id="evaluate-hcl-spectrum-1" class="slide level2">
+<h2>Evaluate HCL Spectrum</h2>
+<div class="quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="cell quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1"></a>colorspace<span class="sc">::</span><span class="fu">specplot</span>(</span>
+<span id="cb55-2"><a href="#cb55-2"></a>  scico<span class="sc">::</span><span class="fu">scico</span>(</span>
+<span id="cb55-3"><a href="#cb55-3"></a>    <span class="at">n =</span> <span class="dv">100</span>, <span class="at">palette =</span> <span class="st">"hawaii"</span></span>
+<span id="cb55-4"><a href="#cb55-4"></a>  )</span>
+<span id="cb55-5"><a href="#cb55-5"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img data-src="06_colors_files/figure-revealjs/color-palettes-scico-spec-1.png" width="1500"></p>
+</div>
+</div>
+<div class="cell quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1"></a>colorspace<span class="sc">::</span><span class="fu">specplot</span>(</span>
+<span id="cb56-2"><a href="#cb56-2"></a>  MetBrewer<span class="sc">::</span><span class="fu">met.brewer</span>(</span>
+<span id="cb56-3"><a href="#cb56-3"></a>     <span class="at">n =</span> <span class="dv">100</span>, <span class="at">name =</span> <span class="st">"Hiroshige"</span></span>
+<span id="cb56-4"><a href="#cb56-4"></a>  )</span>
+<span id="cb56-5"><a href="#cb56-5"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img data-src="06_colors_files/figure-revealjs/color-palettes-metbrewer-spec-1.png" width="1500"></p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="evaluate-hcl-spectrum-2" class="slide level2">
+<h2>Evaluate HCL Spectrum</h2>
+<div class="quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="cell quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1"></a>colorspace<span class="sc">::</span><span class="fu">specplot</span>(</span>
+<span id="cb57-2"><a href="#cb57-2"></a>  rcartocolor<span class="sc">::</span><span class="fu">carto_pal</span>(</span>
+<span id="cb57-3"><a href="#cb57-3"></a>    <span class="at">n =</span> <span class="dv">7</span>, <span class="at">name =</span> <span class="st">"TealRose"</span></span>
+<span id="cb57-4"><a href="#cb57-4"></a>  )</span>
+<span id="cb57-5"><a href="#cb57-5"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img data-src="06_colors_files/figure-revealjs/color-palettes-carto-spec-1.png" width="1500"></p>
+</div>
+</div>
+<div class="cell quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1"></a>colorspace<span class="sc">::</span><span class="fu">specplot</span>(</span>
+<span id="cb58-2"><a href="#cb58-2"></a>  MetBrewer<span class="sc">::</span><span class="fu">met.brewer</span>(</span>
+<span id="cb58-3"><a href="#cb58-3"></a>     <span class="at">n =</span> <span class="dv">100</span>, <span class="at">name =</span> <span class="st">"Cassatt2"</span></span>
+<span id="cb58-4"><a href="#cb58-4"></a>  )</span>
+<span id="cb58-5"><a href="#cb58-5"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img data-src="06_colors_files/figure-revealjs/color-palettes-metbrewer-spec-2-1.png" width="1500"></p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="evaluate-hcl-spectrum-3" class="slide level2">
+<h2>Evaluate HCL Spectrum</h2>
+<div class="quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="cell quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1"></a>colorspace<span class="sc">::</span><span class="fu">specplot</span>(</span>
+<span id="cb59-2"><a href="#cb59-2"></a>  <span class="fu">rainbow</span>(</span>
+<span id="cb59-3"><a href="#cb59-3"></a>    <span class="at">n =</span> <span class="dv">100</span></span>
+<span id="cb59-4"><a href="#cb59-4"></a>  )</span>
+<span id="cb59-5"><a href="#cb59-5"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img data-src="06_colors_files/figure-revealjs/color-palettes-rainbow-spec-1.png" width="1500"></p>
+</div>
+</div>
+<div class="cell quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1"></a>colorspace<span class="sc">::</span><span class="fu">specplot</span>(</span>
+<span id="cb60-2"><a href="#cb60-2"></a>  viridis<span class="sc">::</span><span class="fu">turbo</span>(</span>
+<span id="cb60-3"><a href="#cb60-3"></a>     <span class="at">n =</span> <span class="dv">100</span>, <span class="at">direction =</span> <span class="sc">-</span><span class="dv">1</span></span>
+<span id="cb60-4"><a href="#cb60-4"></a>  )</span>
+<span id="cb60-5"><a href="#cb60-5"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img data-src="06_colors_files/figure-revealjs/color-palette-viridis-spec-1.png" width="1500"></p>
+</div>
+</div>
+</div>
+</div>
 </section>
 <section id="build-your-own-scale_colorfill__c" class="slide level2">
 <h2>Build Your Own <code>scale_color|fill_*_c()</code></h2>

@@ -1,5 +1,5 @@
 ---
-title: "<span>Concepts of the <code>{ggplot2}</code> Package Pt. 1:<br><span style='font-weight:500;'>Data, Aesthetics, and Geometries + <span class='circle-highlight'>Misc Stuff</span></span></span>"
+title: "<span>Concepts of the <code>{ggplot2}</code> Package Pt. 1:<br><span style='font-weight:500;'>Data, Aesthetics, and Layers + <span class='circle-highlight'>Misc Stuff</span></span></span>"
 subtitle: "09:30 - 10:30"
 date: "2022-07-25"
 image: "images/session2.png"

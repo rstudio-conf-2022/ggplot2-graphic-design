@@ -647,7 +647,7 @@
 <h2>Legend Styling</h2>
 <div class="cell columns column-output-location">
 <div class="column">
-<div class="sourceCode cell-code" id="cb12" data-code-line-numbers="10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="fu">ggplot</span>(</span>
+<div class="sourceCode cell-code" id="cb12" data-code-line-numbers="9,10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="fu">ggplot</span>(</span>
 <span id="cb12-2"><a href="#cb12-2"></a>    bikes,</span>
 <span id="cb12-3"><a href="#cb12-3"></a>    <span class="fu">aes</span>(<span class="at">x =</span> temp_feel, <span class="at">y =</span> count,</span>
 <span id="cb12-4"><a href="#cb12-4"></a>        <span class="at">color =</span> humidity)</span>
@@ -674,7 +674,7 @@
 <h2>Legend Styling</h2>
 <div class="cell columns column-output-location">
 <div class="column">
-<div class="sourceCode cell-code" id="cb13" data-code-line-numbers="10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="fu">ggplot</span>(</span>
+<div class="sourceCode cell-code" id="cb13" data-code-line-numbers="11,12,13,14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="fu">ggplot</span>(</span>
 <span id="cb13-2"><a href="#cb13-2"></a>    bikes,</span>
 <span id="cb13-3"><a href="#cb13-3"></a>    <span class="fu">aes</span>(<span class="at">x =</span> temp_feel, <span class="at">y =</span> count,</span>
 <span id="cb13-4"><a href="#cb13-4"></a>        <span class="at">color =</span> humidity)</span>
@@ -884,75 +884,7 @@
 </div>
 </div>
 </div>
-</section>
-<section id="legend-with-color-shading" class="slide level2">
-<h2>Legend with Color Shading</h2>
-<div class="cell columns column-output-location">
-<div class="column">
-<div class="sourceCode cell-code" id="cb20" data-code-line-numbers="1,2,3|5,6,7,8,9,10,11,12,13,14,15,16,17|18,19,20,21,22,23,24|25,26,27,28,29|30,31,32,33,34|35,36,37,38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a><span class="fu">library</span>(colorspace)</span>
-<span id="cb20-2"><a href="#cb20-2"></a>shades <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">lighten</span>(pal, .<span class="dv">3</span>),</span>
-<span id="cb20-3"><a href="#cb20-3"></a>                  <span class="fu">darken</span>(pal, .<span class="dv">3</span>))</span>
-<span id="cb20-4"><a href="#cb20-4"></a></span>
-<span id="cb20-5"><a href="#cb20-5"></a>g <span class="ot">&lt;-</span></span>
-<span id="cb20-6"><a href="#cb20-6"></a>  bikes <span class="sc">%&gt;%</span></span>
-<span id="cb20-7"><a href="#cb20-7"></a>  <span class="fu">arrange</span>(day_night, date) <span class="sc">%&gt;%</span></span>
-<span id="cb20-8"><a href="#cb20-8"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb20-9"><a href="#cb20-9"></a>    <span class="at">season_day =</span> <span class="fu">paste</span>(</span>
-<span id="cb20-10"><a href="#cb20-10"></a>      <span class="fu">str_to_title</span>(season), day_night</span>
-<span id="cb20-11"><a href="#cb20-11"></a>    ),</span>
-<span id="cb20-12"><a href="#cb20-12"></a>    <span class="at">season_day =</span> forcats<span class="sc">::</span><span class="fu">fct_inorder</span>(season_day)</span>
-<span id="cb20-13"><a href="#cb20-13"></a>  ) <span class="sc">%&gt;%</span></span>
-<span id="cb20-14"><a href="#cb20-14"></a>  <span class="fu">ggplot</span>(</span>
-<span id="cb20-15"><a href="#cb20-15"></a>    <span class="fu">aes</span>(<span class="at">x =</span> season, <span class="at">y =</span> count,</span>
-<span id="cb20-16"><a href="#cb20-16"></a>        <span class="at">fill =</span> season_day)</span>
-<span id="cb20-17"><a href="#cb20-17"></a>  ) <span class="sc">+</span></span>
-<span id="cb20-18"><a href="#cb20-18"></a>  <span class="fu">stat_summary</span>(</span>
-<span id="cb20-19"><a href="#cb20-19"></a>    <span class="at">geom =</span> <span class="st">"col"</span>, <span class="at">fun =</span> sum,</span>
-<span id="cb20-20"><a href="#cb20-20"></a>    <span class="at">position =</span> <span class="fu">position_dodge2</span>(</span>
-<span id="cb20-21"><a href="#cb20-21"></a>      <span class="at">width =</span> .<span class="dv">2</span>, <span class="at">padding =</span> .<span class="dv">1</span></span>
-<span id="cb20-22"><a href="#cb20-22"></a>    )</span>
-<span id="cb20-23"><a href="#cb20-23"></a>  ) <span class="sc">+</span></span>
-<span id="cb20-24"><a href="#cb20-24"></a>  <span class="fu">scale_fill_manual</span>(</span>
-<span id="cb20-25"><a href="#cb20-25"></a>    <span class="at">values =</span> shades, <span class="at">name =</span> <span class="cn">NULL</span></span>
-<span id="cb20-26"><a href="#cb20-26"></a>  ) <span class="sc">+</span></span>
-<span id="cb20-27"><a href="#cb20-27"></a>  <span class="fu">scale_x_discrete</span>(</span>
-<span id="cb20-28"><a href="#cb20-28"></a>    <span class="at">labels =</span> str_to_title</span>
-<span id="cb20-29"><a href="#cb20-29"></a>  ) <span class="sc">+</span></span>
-<span id="cb20-30"><a href="#cb20-30"></a>  <span class="fu">scale_y_continuous</span>(</span>
-<span id="cb20-31"><a href="#cb20-31"></a>    <span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">comma_format</span>(),</span>
-<span id="cb20-32"><a href="#cb20-32"></a>    <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>),</span>
-<span id="cb20-33"><a href="#cb20-33"></a>    <span class="at">limits =</span> <span class="fu">c</span>(<span class="cn">NA</span>, <span class="dv">4500000</span>)</span>
-<span id="cb20-34"><a href="#cb20-34"></a>  ) <span class="sc">+</span></span>
-<span id="cb20-35"><a href="#cb20-35"></a>  <span class="fu">theme</span>(</span>
-<span id="cb20-36"><a href="#cb20-36"></a>    <span class="at">panel.grid.major.x =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb20-37"><a href="#cb20-37"></a>    <span class="at">axis.title =</span> <span class="fu">element_blank</span>()</span>
-<span id="cb20-38"><a href="#cb20-38"></a>  )</span>
-<span id="cb20-39"><a href="#cb20-39"></a></span>
-<span id="cb20-40"><a href="#cb20-40"></a>g</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div><div class="column">
-<div class="cell-output-display">
-<p><img data-src="07_layout_files/figure-revealjs/legend-shades-1.png" width="1500"></p>
-</div>
-</div>
-</div>
-</section>
-<section id="legend-on-top" class="slide level2">
-<h2>Legend on Top</h2>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb21" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a>g <span class="sc">+</span></span>
-<span id="cb21-2"><a href="#cb21-2"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"top"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-
-</div>
-<img data-src="07_layout_files/figure-revealjs/legend-shades-legend-top-1.png" width="2700" class="r-stretch quarto-figure-center"></section>
-<section id="resort-legend" class="slide level2">
-<h2>Resort Legend</h2>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb22" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a>g <span class="sc">+</span></span>
-<span id="cb22-2"><a href="#cb22-2"></a>  <span class="fu">guides</span>(<span class="at">fill =</span> <span class="fu">guide_legend</span>(<span class="at">byrow =</span> <span class="cn">TRUE</span>)) <span class="sc">+</span></span>
-<span id="cb22-3"><a href="#cb22-3"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"top"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-
-</div>
-<img data-src="07_layout_files/figure-revealjs/legend-shades-legend-byrow-1.png" width="2700" class="r-stretch quarto-figure-center"></section></section>
+</section></section>
 <section>
 <section id="composing-ggplots" class="title-slide slide level1 center">
 <h1>Composing ggplot’s</h1>
@@ -979,63 +911,63 @@
 </div>
 <div id="tabset-1-2">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a><span class="fu">theme_set</span>(<span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">18</span>, <span class="at">base_family =</span> <span class="st">"Pally"</span>))</span>
-<span id="cb23-2"><a href="#cb23-2"></a><span class="fu">theme_update</span>(</span>
-<span id="cb23-3"><a href="#cb23-3"></a>  <span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"Pally"</span>),</span>
-<span id="cb23-4"><a href="#cb23-4"></a>  <span class="at">panel.grid =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb23-5"><a href="#cb23-5"></a>  <span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">"grey50"</span>, <span class="at">size =</span> <span class="dv">12</span>),</span>
-<span id="cb23-6"><a href="#cb23-6"></a>  <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">"grey40"</span>, <span class="at">face =</span> <span class="st">"bold"</span>),</span>
-<span id="cb23-7"><a href="#cb23-7"></a>  <span class="at">axis.title.x =</span> <span class="fu">element_text</span>(<span class="at">margin =</span> <span class="fu">margin</span>(<span class="at">t =</span> <span class="dv">12</span>)),</span>
-<span id="cb23-8"><a href="#cb23-8"></a>  <span class="at">axis.title.y =</span> <span class="fu">element_text</span>(<span class="at">margin =</span> <span class="fu">margin</span>(<span class="at">r =</span> <span class="dv">12</span>)),</span>
-<span id="cb23-9"><a href="#cb23-9"></a>  <span class="at">axis.line =</span> <span class="fu">element_line</span>(<span class="at">color =</span> <span class="st">"grey80"</span>, <span class="at">size =</span> .<span class="dv">4</span>),</span>
-<span id="cb23-10"><a href="#cb23-10"></a>  <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">"grey50"</span>, <span class="at">size =</span> <span class="dv">12</span>),</span>
-<span id="cb23-11"><a href="#cb23-11"></a>  <span class="at">plot.tag =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">40</span>, <span class="at">margin =</span> <span class="fu">margin</span>(<span class="at">b =</span> <span class="dv">15</span>)),</span>
-<span id="cb23-12"><a href="#cb23-12"></a>  <span class="at">plot.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"white"</span>, <span class="at">color =</span> <span class="st">"white"</span>)</span>
-<span id="cb23-13"><a href="#cb23-13"></a>)</span>
-<span id="cb23-14"><a href="#cb23-14"></a></span>
-<span id="cb23-15"><a href="#cb23-15"></a>bikes_sorted <span class="ot">&lt;-</span></span>
-<span id="cb23-16"><a href="#cb23-16"></a>  bikes <span class="sc">%&gt;%</span></span>
-<span id="cb23-17"><a href="#cb23-17"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(weather_type)) <span class="sc">%&gt;%</span></span>
-<span id="cb23-18"><a href="#cb23-18"></a>  <span class="fu">group_by</span>(weather_type) <span class="sc">%&gt;%</span></span>
-<span id="cb23-19"><a href="#cb23-19"></a>  <span class="fu">mutate</span>(<span class="at">sum =</span> <span class="fu">sum</span>(count)) <span class="sc">%&gt;%</span></span>
-<span id="cb23-20"><a href="#cb23-20"></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb23-21"><a href="#cb23-21"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb23-22"><a href="#cb23-22"></a>    <span class="at">weather_type =</span> forcats<span class="sc">::</span><span class="fu">fct_reorder</span>(</span>
-<span id="cb23-23"><a href="#cb23-23"></a>      <span class="fu">str_to_title</span>(<span class="fu">str_wrap</span>(weather_type, <span class="dv">5</span>)), sum</span>
-<span id="cb23-24"><a href="#cb23-24"></a>    )</span>
-<span id="cb23-25"><a href="#cb23-25"></a>  )</span>
-<span id="cb23-26"><a href="#cb23-26"></a></span>
-<span id="cb23-27"><a href="#cb23-27"></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(</span>
-<span id="cb23-28"><a href="#cb23-28"></a>    bikes_sorted,</span>
-<span id="cb23-29"><a href="#cb23-29"></a>    <span class="fu">aes</span>(<span class="at">x =</span> weather_type, <span class="at">y =</span> count, <span class="at">color =</span> weather_type)</span>
-<span id="cb23-30"><a href="#cb23-30"></a>  ) <span class="sc">+</span></span>
-<span id="cb23-31"><a href="#cb23-31"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">color =</span> <span class="st">"grey80"</span>, <span class="at">size =</span> .<span class="dv">4</span>) <span class="sc">+</span></span>
-<span id="cb23-32"><a href="#cb23-32"></a>  <span class="fu">stat_summary</span>(</span>
-<span id="cb23-33"><a href="#cb23-33"></a>    <span class="at">geom =</span> <span class="st">"point"</span>, <span class="at">fun =</span> <span class="st">"sum"</span>, <span class="at">size =</span> <span class="dv">12</span></span>
-<span id="cb23-34"><a href="#cb23-34"></a>  ) <span class="sc">+</span></span>
-<span id="cb23-35"><a href="#cb23-35"></a>  <span class="fu">stat_summary</span>(</span>
-<span id="cb23-36"><a href="#cb23-36"></a>    <span class="at">geom =</span> <span class="st">"linerange"</span>, <span class="at">ymin =</span> <span class="dv">0</span>, <span class="at">fun.max =</span> <span class="cf">function</span>(y) <span class="fu">sum</span>(y),</span>
-<span id="cb23-37"><a href="#cb23-37"></a>    <span class="at">size =</span> <span class="dv">2</span>, <span class="at">show.legend =</span> <span class="cn">FALSE</span></span>
-<span id="cb23-38"><a href="#cb23-38"></a>  ) <span class="sc">+</span></span>
-<span id="cb23-39"><a href="#cb23-39"></a>  <span class="fu">coord_flip</span>(<span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="cn">NA</span>), <span class="at">clip =</span> <span class="st">"off"</span>) <span class="sc">+</span></span>
-<span id="cb23-40"><a href="#cb23-40"></a>  <span class="fu">scale_y_continuous</span>(</span>
-<span id="cb23-41"><a href="#cb23-41"></a>    <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>), <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">8500000</span>),</span>
-<span id="cb23-42"><a href="#cb23-42"></a>    <span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">comma_format</span>(<span class="at">scale =</span> .<span class="dv">0001</span>, <span class="at">suffix =</span> <span class="st">"K"</span>)</span>
-<span id="cb23-43"><a href="#cb23-43"></a>  ) <span class="sc">+</span></span>
-<span id="cb23-44"><a href="#cb23-44"></a>  <span class="fu">scale_color_viridis_d</span>(</span>
-<span id="cb23-45"><a href="#cb23-45"></a>    <span class="at">option =</span> <span class="st">"magma"</span>, <span class="at">direction =</span> <span class="sc">-</span><span class="dv">1</span>, <span class="at">begin =</span> .<span class="dv">1</span>, <span class="at">end =</span> .<span class="dv">9</span>, <span class="at">name =</span> <span class="cn">NULL</span>,</span>
-<span id="cb23-46"><a href="#cb23-46"></a>    <span class="at">guide =</span> <span class="fu">guide_legend</span>(<span class="at">override.aes =</span> <span class="fu">list</span>(<span class="at">size =</span> <span class="dv">7</span>))</span>
-<span id="cb23-47"><a href="#cb23-47"></a>  ) <span class="sc">+</span></span>
-<span id="cb23-48"><a href="#cb23-48"></a>  <span class="fu">labs</span>(</span>
-<span id="cb23-49"><a href="#cb23-49"></a>    <span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="st">"Sum of reported bike shares"</span>, <span class="at">tag =</span> <span class="st">"P1"</span>,</span>
-<span id="cb23-50"><a href="#cb23-50"></a>  ) <span class="sc">+</span></span>
-<span id="cb23-51"><a href="#cb23-51"></a>  <span class="fu">theme</span>(</span>
-<span id="cb23-52"><a href="#cb23-52"></a>    <span class="at">axis.line.y =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb23-53"><a href="#cb23-53"></a>    <span class="at">axis.text.y =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"Pally"</span>, <span class="at">color =</span> <span class="st">"grey50"</span>, <span class="at">face =</span> <span class="st">"bold"</span>,</span>
-<span id="cb23-54"><a href="#cb23-54"></a>                               <span class="at">margin =</span> <span class="fu">margin</span>(<span class="at">r =</span> <span class="dv">15</span>), <span class="at">lineheight =</span> .<span class="dv">9</span>)</span>
-<span id="cb23-55"><a href="#cb23-55"></a>  )</span>
-<span id="cb23-56"><a href="#cb23-56"></a></span>
-<span id="cb23-57"><a href="#cb23-57"></a>p1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a><span class="fu">theme_set</span>(<span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">18</span>, <span class="at">base_family =</span> <span class="st">"Pally"</span>))</span>
+<span id="cb20-2"><a href="#cb20-2"></a><span class="fu">theme_update</span>(</span>
+<span id="cb20-3"><a href="#cb20-3"></a>  <span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"Pally"</span>),</span>
+<span id="cb20-4"><a href="#cb20-4"></a>  <span class="at">panel.grid =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb20-5"><a href="#cb20-5"></a>  <span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">"grey50"</span>, <span class="at">size =</span> <span class="dv">12</span>),</span>
+<span id="cb20-6"><a href="#cb20-6"></a>  <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">"grey40"</span>, <span class="at">face =</span> <span class="st">"bold"</span>),</span>
+<span id="cb20-7"><a href="#cb20-7"></a>  <span class="at">axis.title.x =</span> <span class="fu">element_text</span>(<span class="at">margin =</span> <span class="fu">margin</span>(<span class="at">t =</span> <span class="dv">12</span>)),</span>
+<span id="cb20-8"><a href="#cb20-8"></a>  <span class="at">axis.title.y =</span> <span class="fu">element_text</span>(<span class="at">margin =</span> <span class="fu">margin</span>(<span class="at">r =</span> <span class="dv">12</span>)),</span>
+<span id="cb20-9"><a href="#cb20-9"></a>  <span class="at">axis.line =</span> <span class="fu">element_line</span>(<span class="at">color =</span> <span class="st">"grey80"</span>, <span class="at">size =</span> .<span class="dv">4</span>),</span>
+<span id="cb20-10"><a href="#cb20-10"></a>  <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">"grey50"</span>, <span class="at">size =</span> <span class="dv">12</span>),</span>
+<span id="cb20-11"><a href="#cb20-11"></a>  <span class="at">plot.tag =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">40</span>, <span class="at">margin =</span> <span class="fu">margin</span>(<span class="at">b =</span> <span class="dv">15</span>)),</span>
+<span id="cb20-12"><a href="#cb20-12"></a>  <span class="at">plot.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"white"</span>, <span class="at">color =</span> <span class="st">"white"</span>)</span>
+<span id="cb20-13"><a href="#cb20-13"></a>)</span>
+<span id="cb20-14"><a href="#cb20-14"></a></span>
+<span id="cb20-15"><a href="#cb20-15"></a>bikes_sorted <span class="ot">&lt;-</span></span>
+<span id="cb20-16"><a href="#cb20-16"></a>  bikes <span class="sc">%&gt;%</span></span>
+<span id="cb20-17"><a href="#cb20-17"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(weather_type)) <span class="sc">%&gt;%</span></span>
+<span id="cb20-18"><a href="#cb20-18"></a>  <span class="fu">group_by</span>(weather_type) <span class="sc">%&gt;%</span></span>
+<span id="cb20-19"><a href="#cb20-19"></a>  <span class="fu">mutate</span>(<span class="at">sum =</span> <span class="fu">sum</span>(count)) <span class="sc">%&gt;%</span></span>
+<span id="cb20-20"><a href="#cb20-20"></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb20-21"><a href="#cb20-21"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb20-22"><a href="#cb20-22"></a>    <span class="at">weather_type =</span> forcats<span class="sc">::</span><span class="fu">fct_reorder</span>(</span>
+<span id="cb20-23"><a href="#cb20-23"></a>      <span class="fu">str_to_title</span>(<span class="fu">str_wrap</span>(weather_type, <span class="dv">5</span>)), sum</span>
+<span id="cb20-24"><a href="#cb20-24"></a>    )</span>
+<span id="cb20-25"><a href="#cb20-25"></a>  )</span>
+<span id="cb20-26"><a href="#cb20-26"></a></span>
+<span id="cb20-27"><a href="#cb20-27"></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(</span>
+<span id="cb20-28"><a href="#cb20-28"></a>    bikes_sorted,</span>
+<span id="cb20-29"><a href="#cb20-29"></a>    <span class="fu">aes</span>(<span class="at">x =</span> weather_type, <span class="at">y =</span> count, <span class="at">color =</span> weather_type)</span>
+<span id="cb20-30"><a href="#cb20-30"></a>  ) <span class="sc">+</span></span>
+<span id="cb20-31"><a href="#cb20-31"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">color =</span> <span class="st">"grey80"</span>, <span class="at">size =</span> .<span class="dv">4</span>) <span class="sc">+</span></span>
+<span id="cb20-32"><a href="#cb20-32"></a>  <span class="fu">stat_summary</span>(</span>
+<span id="cb20-33"><a href="#cb20-33"></a>    <span class="at">geom =</span> <span class="st">"point"</span>, <span class="at">fun =</span> <span class="st">"sum"</span>, <span class="at">size =</span> <span class="dv">12</span></span>
+<span id="cb20-34"><a href="#cb20-34"></a>  ) <span class="sc">+</span></span>
+<span id="cb20-35"><a href="#cb20-35"></a>  <span class="fu">stat_summary</span>(</span>
+<span id="cb20-36"><a href="#cb20-36"></a>    <span class="at">geom =</span> <span class="st">"linerange"</span>, <span class="at">ymin =</span> <span class="dv">0</span>, <span class="at">fun.max =</span> <span class="cf">function</span>(y) <span class="fu">sum</span>(y),</span>
+<span id="cb20-37"><a href="#cb20-37"></a>    <span class="at">size =</span> <span class="dv">2</span>, <span class="at">show.legend =</span> <span class="cn">FALSE</span></span>
+<span id="cb20-38"><a href="#cb20-38"></a>  ) <span class="sc">+</span></span>
+<span id="cb20-39"><a href="#cb20-39"></a>  <span class="fu">coord_flip</span>(<span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="cn">NA</span>), <span class="at">clip =</span> <span class="st">"off"</span>) <span class="sc">+</span></span>
+<span id="cb20-40"><a href="#cb20-40"></a>  <span class="fu">scale_y_continuous</span>(</span>
+<span id="cb20-41"><a href="#cb20-41"></a>    <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>), <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">8500000</span>),</span>
+<span id="cb20-42"><a href="#cb20-42"></a>    <span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">comma_format</span>(<span class="at">scale =</span> .<span class="dv">0001</span>, <span class="at">suffix =</span> <span class="st">"K"</span>)</span>
+<span id="cb20-43"><a href="#cb20-43"></a>  ) <span class="sc">+</span></span>
+<span id="cb20-44"><a href="#cb20-44"></a>  <span class="fu">scale_color_viridis_d</span>(</span>
+<span id="cb20-45"><a href="#cb20-45"></a>    <span class="at">option =</span> <span class="st">"magma"</span>, <span class="at">direction =</span> <span class="sc">-</span><span class="dv">1</span>, <span class="at">begin =</span> .<span class="dv">1</span>, <span class="at">end =</span> .<span class="dv">9</span>, <span class="at">name =</span> <span class="cn">NULL</span>,</span>
+<span id="cb20-46"><a href="#cb20-46"></a>    <span class="at">guide =</span> <span class="fu">guide_legend</span>(<span class="at">override.aes =</span> <span class="fu">list</span>(<span class="at">size =</span> <span class="dv">7</span>))</span>
+<span id="cb20-47"><a href="#cb20-47"></a>  ) <span class="sc">+</span></span>
+<span id="cb20-48"><a href="#cb20-48"></a>  <span class="fu">labs</span>(</span>
+<span id="cb20-49"><a href="#cb20-49"></a>    <span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="st">"Sum of reported bike shares"</span>, <span class="at">tag =</span> <span class="st">"P1"</span>,</span>
+<span id="cb20-50"><a href="#cb20-50"></a>  ) <span class="sc">+</span></span>
+<span id="cb20-51"><a href="#cb20-51"></a>  <span class="fu">theme</span>(</span>
+<span id="cb20-52"><a href="#cb20-52"></a>    <span class="at">axis.line.y =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb20-53"><a href="#cb20-53"></a>    <span class="at">axis.text.y =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"Pally"</span>, <span class="at">color =</span> <span class="st">"grey50"</span>, <span class="at">face =</span> <span class="st">"bold"</span>,</span>
+<span id="cb20-54"><a href="#cb20-54"></a>                               <span class="at">margin =</span> <span class="fu">margin</span>(<span class="at">r =</span> <span class="dv">15</span>), <span class="at">lineheight =</span> .<span class="dv">9</span>)</span>
+<span id="cb20-55"><a href="#cb20-55"></a>  )</span>
+<span id="cb20-56"><a href="#cb20-56"></a></span>
+<span id="cb20-57"><a href="#cb20-57"></a>p1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -1055,24 +987,24 @@
 </div>
 <div id="tabset-2-2">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a>p2 <span class="ot">&lt;-</span> bikes_sorted <span class="sc">%&gt;%</span></span>
-<span id="cb24-2"><a href="#cb24-2"></a>  <span class="fu">filter</span>(season <span class="sc">==</span> <span class="st">"winter"</span>, is_weekend <span class="sc">==</span> <span class="cn">TRUE</span>, day_night <span class="sc">==</span> <span class="st">"night"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb24-3"><a href="#cb24-3"></a>  <span class="fu">group_by</span>(weather_type, <span class="at">.drop =</span> <span class="cn">FALSE</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb24-4"><a href="#cb24-4"></a>  <span class="fu">mutate</span>(<span class="at">id =</span> <span class="fu">row_number</span>()) <span class="sc">%&gt;%</span></span>
-<span id="cb24-5"><a href="#cb24-5"></a>  <span class="fu">ggplot</span>(</span>
-<span id="cb24-6"><a href="#cb24-6"></a>      <span class="fu">aes</span>(<span class="at">x =</span> weather_type, <span class="at">y =</span> id, <span class="at">color =</span> weather_type)</span>
-<span id="cb24-7"><a href="#cb24-7"></a>    ) <span class="sc">+</span></span>
-<span id="cb24-8"><a href="#cb24-8"></a>    <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="fl">4.5</span>) <span class="sc">+</span></span>
-<span id="cb24-9"><a href="#cb24-9"></a>    <span class="fu">scale_color_viridis_d</span>(</span>
-<span id="cb24-10"><a href="#cb24-10"></a>      <span class="at">option =</span> <span class="st">"magma"</span>, <span class="at">direction =</span> <span class="sc">-</span><span class="dv">1</span>, <span class="at">begin =</span> .<span class="dv">1</span>, <span class="at">end =</span> .<span class="dv">9</span>, <span class="at">name =</span> <span class="cn">NULL</span>,</span>
-<span id="cb24-11"><a href="#cb24-11"></a>      <span class="at">guide =</span> <span class="fu">guide_legend</span>(<span class="at">override.aes =</span> <span class="fu">list</span>(<span class="at">size =</span> <span class="dv">7</span>))</span>
-<span id="cb24-12"><a href="#cb24-12"></a>    ) <span class="sc">+</span></span>
-<span id="cb24-13"><a href="#cb24-13"></a>    <span class="fu">labs</span>(</span>
-<span id="cb24-14"><a href="#cb24-14"></a>      <span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="st">"Reported bike shares on</span><span class="sc">\n</span><span class="st">weekend winter nights"</span>, <span class="at">tag =</span> <span class="st">"P2"</span>,</span>
-<span id="cb24-15"><a href="#cb24-15"></a>    ) <span class="sc">+</span></span>
-<span id="cb24-16"><a href="#cb24-16"></a>    <span class="fu">coord_cartesian</span>(<span class="at">ylim =</span> <span class="fu">c</span>(.<span class="dv">5</span>, <span class="cn">NA</span>), <span class="at">clip =</span> <span class="st">"off"</span>)</span>
-<span id="cb24-17"><a href="#cb24-17"></a></span>
-<span id="cb24-18"><a href="#cb24-18"></a>p2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a>p2 <span class="ot">&lt;-</span> bikes_sorted <span class="sc">%&gt;%</span></span>
+<span id="cb21-2"><a href="#cb21-2"></a>  <span class="fu">filter</span>(season <span class="sc">==</span> <span class="st">"winter"</span>, is_weekend <span class="sc">==</span> <span class="cn">TRUE</span>, day_night <span class="sc">==</span> <span class="st">"night"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb21-3"><a href="#cb21-3"></a>  <span class="fu">group_by</span>(weather_type, <span class="at">.drop =</span> <span class="cn">FALSE</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb21-4"><a href="#cb21-4"></a>  <span class="fu">mutate</span>(<span class="at">id =</span> <span class="fu">row_number</span>()) <span class="sc">%&gt;%</span></span>
+<span id="cb21-5"><a href="#cb21-5"></a>  <span class="fu">ggplot</span>(</span>
+<span id="cb21-6"><a href="#cb21-6"></a>      <span class="fu">aes</span>(<span class="at">x =</span> weather_type, <span class="at">y =</span> id, <span class="at">color =</span> weather_type)</span>
+<span id="cb21-7"><a href="#cb21-7"></a>    ) <span class="sc">+</span></span>
+<span id="cb21-8"><a href="#cb21-8"></a>    <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="fl">4.5</span>) <span class="sc">+</span></span>
+<span id="cb21-9"><a href="#cb21-9"></a>    <span class="fu">scale_color_viridis_d</span>(</span>
+<span id="cb21-10"><a href="#cb21-10"></a>      <span class="at">option =</span> <span class="st">"magma"</span>, <span class="at">direction =</span> <span class="sc">-</span><span class="dv">1</span>, <span class="at">begin =</span> .<span class="dv">1</span>, <span class="at">end =</span> .<span class="dv">9</span>, <span class="at">name =</span> <span class="cn">NULL</span>,</span>
+<span id="cb21-11"><a href="#cb21-11"></a>      <span class="at">guide =</span> <span class="fu">guide_legend</span>(<span class="at">override.aes =</span> <span class="fu">list</span>(<span class="at">size =</span> <span class="dv">7</span>))</span>
+<span id="cb21-12"><a href="#cb21-12"></a>    ) <span class="sc">+</span></span>
+<span id="cb21-13"><a href="#cb21-13"></a>    <span class="fu">labs</span>(</span>
+<span id="cb21-14"><a href="#cb21-14"></a>      <span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="st">"Reported bike shares on</span><span class="sc">\n</span><span class="st">weekend winter nights"</span>, <span class="at">tag =</span> <span class="st">"P2"</span>,</span>
+<span id="cb21-15"><a href="#cb21-15"></a>    ) <span class="sc">+</span></span>
+<span id="cb21-16"><a href="#cb21-16"></a>    <span class="fu">coord_cartesian</span>(<span class="at">ylim =</span> <span class="fu">c</span>(.<span class="dv">5</span>, <span class="cn">NA</span>), <span class="at">clip =</span> <span class="st">"off"</span>)</span>
+<span id="cb21-17"><a href="#cb21-17"></a></span>
+<span id="cb21-18"><a href="#cb21-18"></a>p2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -1092,28 +1024,28 @@
 </div>
 <div id="tabset-3-2">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a>my_colors <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"#cc0000"</span>, <span class="st">"#000080"</span>)</span>
-<span id="cb25-2"><a href="#cb25-2"></a></span>
-<span id="cb25-3"><a href="#cb25-3"></a>p3 <span class="ot">&lt;-</span> bikes <span class="sc">%&gt;%</span></span>
-<span id="cb25-4"><a href="#cb25-4"></a>  <span class="fu">group_by</span>(<span class="at">week =</span> lubridate<span class="sc">::</span><span class="fu">week</span>(date), day_night, year) <span class="sc">%&gt;%</span></span>
-<span id="cb25-5"><a href="#cb25-5"></a>  <span class="fu">summarize</span>(<span class="at">count =</span> <span class="fu">sum</span>(count)) <span class="sc">%&gt;%</span></span>
-<span id="cb25-6"><a href="#cb25-6"></a>  <span class="fu">group_by</span>(week, day_night) <span class="sc">%&gt;%</span></span>
-<span id="cb25-7"><a href="#cb25-7"></a>  <span class="fu">mutate</span>(<span class="at">avg =</span> <span class="fu">mean</span>(count)) <span class="sc">%&gt;%</span></span>
-<span id="cb25-8"><a href="#cb25-8"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> week, <span class="at">y =</span> count, <span class="at">group =</span> <span class="fu">interaction</span>(day_night, year))) <span class="sc">+</span></span>
-<span id="cb25-9"><a href="#cb25-9"></a>    <span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">"grey65"</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb25-10"><a href="#cb25-10"></a>    <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> avg, <span class="at">color =</span> day_night), <span class="at">stat =</span> <span class="st">"unique"</span>, <span class="at">size =</span> <span class="fl">1.7</span>) <span class="sc">+</span></span>
-<span id="cb25-11"><a href="#cb25-11"></a>    <span class="fu">annotate</span>(</span>
-<span id="cb25-12"><a href="#cb25-12"></a>      <span class="at">geom =</span> <span class="st">"text"</span>, <span class="at">label =</span> <span class="fu">c</span>(<span class="st">"Day"</span>, <span class="st">"Night"</span>), <span class="at">color =</span> my_colors,</span>
-<span id="cb25-13"><a href="#cb25-13"></a>      <span class="at">x =</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">18</span>), <span class="at">y =</span> <span class="fu">c</span>(<span class="dv">125000</span>, <span class="dv">29000</span>), <span class="at">size =</span> <span class="dv">8</span>, <span class="at">fontface =</span> <span class="st">"bold"</span>, <span class="at">family =</span> <span class="st">"Pally"</span></span>
-<span id="cb25-14"><a href="#cb25-14"></a>    ) <span class="sc">+</span></span>
-<span id="cb25-15"><a href="#cb25-15"></a>    <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span><span class="sc">*</span><span class="dv">5</span>)) <span class="sc">+</span></span>
-<span id="cb25-16"><a href="#cb25-16"></a>    <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">comma_format</span>()) <span class="sc">+</span></span>
-<span id="cb25-17"><a href="#cb25-17"></a>    <span class="fu">scale_color_manual</span>(<span class="at">values =</span> my_colors, <span class="at">guide =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
-<span id="cb25-18"><a href="#cb25-18"></a>    <span class="fu">labs</span>(</span>
-<span id="cb25-19"><a href="#cb25-19"></a>      <span class="at">x =</span> <span class="st">"Week of the Year"</span>, <span class="at">y =</span> <span class="st">"Reported bike shares</span><span class="sc">\n</span><span class="st">(cumulative # per week)"</span>, <span class="at">tag =</span> <span class="st">"P3"</span>,</span>
-<span id="cb25-20"><a href="#cb25-20"></a>    )</span>
-<span id="cb25-21"><a href="#cb25-21"></a></span>
-<span id="cb25-22"><a href="#cb25-22"></a>p3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a>my_colors <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"#cc0000"</span>, <span class="st">"#000080"</span>)</span>
+<span id="cb22-2"><a href="#cb22-2"></a></span>
+<span id="cb22-3"><a href="#cb22-3"></a>p3 <span class="ot">&lt;-</span> bikes <span class="sc">%&gt;%</span></span>
+<span id="cb22-4"><a href="#cb22-4"></a>  <span class="fu">group_by</span>(<span class="at">week =</span> lubridate<span class="sc">::</span><span class="fu">week</span>(date), day_night, year) <span class="sc">%&gt;%</span></span>
+<span id="cb22-5"><a href="#cb22-5"></a>  <span class="fu">summarize</span>(<span class="at">count =</span> <span class="fu">sum</span>(count)) <span class="sc">%&gt;%</span></span>
+<span id="cb22-6"><a href="#cb22-6"></a>  <span class="fu">group_by</span>(week, day_night) <span class="sc">%&gt;%</span></span>
+<span id="cb22-7"><a href="#cb22-7"></a>  <span class="fu">mutate</span>(<span class="at">avg =</span> <span class="fu">mean</span>(count)) <span class="sc">%&gt;%</span></span>
+<span id="cb22-8"><a href="#cb22-8"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> week, <span class="at">y =</span> count, <span class="at">group =</span> <span class="fu">interaction</span>(day_night, year))) <span class="sc">+</span></span>
+<span id="cb22-9"><a href="#cb22-9"></a>    <span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">"grey65"</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb22-10"><a href="#cb22-10"></a>    <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> avg, <span class="at">color =</span> day_night), <span class="at">stat =</span> <span class="st">"unique"</span>, <span class="at">size =</span> <span class="fl">1.7</span>) <span class="sc">+</span></span>
+<span id="cb22-11"><a href="#cb22-11"></a>    <span class="fu">annotate</span>(</span>
+<span id="cb22-12"><a href="#cb22-12"></a>      <span class="at">geom =</span> <span class="st">"text"</span>, <span class="at">label =</span> <span class="fu">c</span>(<span class="st">"Day"</span>, <span class="st">"Night"</span>), <span class="at">color =</span> my_colors,</span>
+<span id="cb22-13"><a href="#cb22-13"></a>      <span class="at">x =</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">18</span>), <span class="at">y =</span> <span class="fu">c</span>(<span class="dv">125000</span>, <span class="dv">29000</span>), <span class="at">size =</span> <span class="dv">8</span>, <span class="at">fontface =</span> <span class="st">"bold"</span>, <span class="at">family =</span> <span class="st">"Pally"</span></span>
+<span id="cb22-14"><a href="#cb22-14"></a>    ) <span class="sc">+</span></span>
+<span id="cb22-15"><a href="#cb22-15"></a>    <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span><span class="sc">*</span><span class="dv">5</span>)) <span class="sc">+</span></span>
+<span id="cb22-16"><a href="#cb22-16"></a>    <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">comma_format</span>()) <span class="sc">+</span></span>
+<span id="cb22-17"><a href="#cb22-17"></a>    <span class="fu">scale_color_manual</span>(<span class="at">values =</span> my_colors, <span class="at">guide =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
+<span id="cb22-18"><a href="#cb22-18"></a>    <span class="fu">labs</span>(</span>
+<span id="cb22-19"><a href="#cb22-19"></a>      <span class="at">x =</span> <span class="st">"Week of the Year"</span>, <span class="at">y =</span> <span class="st">"Reported bike shares</span><span class="sc">\n</span><span class="st">(cumulative # per week)"</span>, <span class="at">tag =</span> <span class="st">"P3"</span>,</span>
+<span id="cb22-20"><a href="#cb22-20"></a>    )</span>
+<span id="cb22-21"><a href="#cb22-21"></a></span>
+<span id="cb22-22"><a href="#cb22-22"></a>p3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -1122,65 +1054,65 @@
 <section id="patchwork" class="slide level2">
 <h2>{patchwork}</h2>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb26" data-code-line-numbers="3|2,3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a><span class="co"># install.packages("patchwork")</span></span>
-<span id="cb26-2"><a href="#cb26-2"></a><span class="fu">library</span>(patchwork)</span>
-<span id="cb26-3"><a href="#cb26-3"></a>(p1 <span class="sc">+</span> p2) <span class="sc">/</span> p3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23" data-code-line-numbers="3|2,3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a><span class="co"># install.packages("patchwork")</span></span>
+<span id="cb23-2"><a href="#cb23-2"></a><span class="fu">library</span>(patchwork)</span>
+<span id="cb23-3"><a href="#cb23-3"></a>(p1 <span class="sc">+</span> p2) <span class="sc">/</span> p3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="07_layout_files/figure-revealjs/patchwork-composition-1.png" width="4500" class="r-stretch quarto-figure-center"></section>
 <section id="collect-guides" class="slide level2">
 <h2>“Collect Guides”</h2>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a>(p1 <span class="sc">+</span> p2) <span class="sc">/</span> p3 <span class="sc">+</span> <span class="fu">plot_layout</span>(<span class="at">guides =</span> <span class="st">"collect"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a>(p1 <span class="sc">+</span> p2) <span class="sc">/</span> p3 <span class="sc">+</span> <span class="fu">plot_layout</span>(<span class="at">guides =</span> <span class="st">"collect"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="07_layout_files/figure-revealjs/patchwork-composition-guides-1.png" width="4500" class="r-stretch quarto-figure-center"></section>
 <section id="apply-theming" class="slide level2">
 <h2>Apply Theming</h2>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a>((p1 <span class="sc">+</span> p2) <span class="sc">/</span> p3 <span class="sc">&amp;</span> <span class="fu">theme</span>(<span class="at">legend.justification =</span> <span class="st">"top"</span>)) <span class="sc">+</span> <span class="fu">plot_layout</span>(<span class="at">guides =</span> <span class="st">"collect"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a>((p1 <span class="sc">+</span> p2) <span class="sc">/</span> p3 <span class="sc">&amp;</span> <span class="fu">theme</span>(<span class="at">legend.justification =</span> <span class="st">"top"</span>)) <span class="sc">+</span> <span class="fu">plot_layout</span>(<span class="at">guides =</span> <span class="st">"collect"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="07_layout_files/figure-revealjs/patchwork-composition-guides-just-1.png" width="4500" class="r-stretch quarto-figure-center"></section>
 <section id="apply-theming-1" class="slide level2">
 <h2>Apply Theming</h2>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a>(p1 <span class="sc">+</span> p2) <span class="sc">/</span> p3 <span class="sc">&amp;</span> <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>, <span class="at">plot.background =</span> <span class="fu">element_rect</span>(<span class="at">color =</span> <span class="st">"black"</span>, <span class="at">size =</span> <span class="dv">3</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a>(p1 <span class="sc">+</span> p2) <span class="sc">/</span> p3 <span class="sc">&amp;</span> <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>, <span class="at">plot.background =</span> <span class="fu">element_rect</span>(<span class="at">color =</span> <span class="st">"black"</span>, <span class="at">size =</span> <span class="dv">3</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="07_layout_files/figure-revealjs/patchwork-composition-legend-off-1.png" width="4500" class="r-stretch quarto-figure-center"></section>
 <section id="adjust-widths-and-heights" class="slide level2">
 <h2>Adjust Widths and Heights</h2>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb30" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1"></a>((p1 <span class="sc">+</span> p2) <span class="sc">/</span> p3 <span class="sc">&amp;</span> <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)) <span class="sc">+</span></span>
-<span id="cb30-2"><a href="#cb30-2"></a>  <span class="fu">plot_layout</span>(<span class="at">heights =</span> <span class="fu">c</span>(.<span class="dv">2</span>, .<span class="dv">15</span>), <span class="at">widths =</span> <span class="fu">c</span>(<span class="fl">1.4</span>, <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a>((p1 <span class="sc">+</span> p2) <span class="sc">/</span> p3 <span class="sc">&amp;</span> <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)) <span class="sc">+</span></span>
+<span id="cb27-2"><a href="#cb27-2"></a>  <span class="fu">plot_layout</span>(<span class="at">heights =</span> <span class="fu">c</span>(.<span class="dv">2</span>, .<span class="dv">15</span>), <span class="at">widths =</span> <span class="fu">c</span>(<span class="fl">1.4</span>, <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="07_layout_files/figure-revealjs/patchwork-composition-heights-widths-1.png" width="4500" class="r-stretch quarto-figure-center"></section>
 <section id="use-a-custom-layout" class="slide level2">
 <h2>Use A Custom Layout</h2>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb31" data-code-line-numbers="1,2,3,4|5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a>picasso <span class="ot">&lt;-</span> <span class="st">"</span></span>
-<span id="cb31-2"><a href="#cb31-2"></a><span class="st">AAAAAABBBBB</span></span>
-<span id="cb31-3"><a href="#cb31-3"></a><span class="st">CCCCCCCCCCC</span></span>
-<span id="cb31-4"><a href="#cb31-4"></a><span class="st">CCCCCCCCCCC"</span></span>
-<span id="cb31-5"><a href="#cb31-5"></a>(p1 <span class="sc">+</span> p2 <span class="sc">+</span> p3 <span class="sc">&amp;</span> <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)) <span class="sc">+</span> <span class="fu">plot_layout</span>(<span class="at">design =</span> picasso)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb28" data-code-line-numbers="1,2,3,4|5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a>picasso <span class="ot">&lt;-</span> <span class="st">"</span></span>
+<span id="cb28-2"><a href="#cb28-2"></a><span class="st">AAAAAA#BBBB</span></span>
+<span id="cb28-3"><a href="#cb28-3"></a><span class="st">CCCCCCCCCCC</span></span>
+<span id="cb28-4"><a href="#cb28-4"></a><span class="st">CCCCCCCCCCC"</span></span>
+<span id="cb28-5"><a href="#cb28-5"></a>(p1 <span class="sc">+</span> p2 <span class="sc">+</span> p3 <span class="sc">&amp;</span> <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)) <span class="sc">+</span> <span class="fu">plot_layout</span>(<span class="at">design =</span> picasso)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="07_layout_files/figure-revealjs/patchwork-composition-design-1.png" width="4500" class="r-stretch quarto-figure-center"></section>
 <section id="add-labels" class="slide level2">
 <h2>Add Labels</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1"></a>pl1 <span class="ot">&lt;-</span> p1 <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">tag =</span> <span class="cn">NULL</span>, <span class="at">title =</span> <span class="st">"Plot One"</span>) <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span>
-<span id="cb32-2"><a href="#cb32-2"></a>pl2 <span class="ot">&lt;-</span> p2 <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">tag =</span> <span class="cn">NULL</span>, <span class="at">title =</span> <span class="st">"Plot Two"</span>) <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span>
-<span id="cb32-3"><a href="#cb32-3"></a>pl3 <span class="ot">&lt;-</span> p3 <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">tag =</span> <span class="cn">NULL</span>, <span class="at">title =</span> <span class="st">"Plot Three"</span>) <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a>pl1 <span class="ot">&lt;-</span> p1 <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">tag =</span> <span class="cn">NULL</span>, <span class="at">title =</span> <span class="st">"Plot One"</span>) <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span>
+<span id="cb29-2"><a href="#cb29-2"></a>pl2 <span class="ot">&lt;-</span> p2 <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">tag =</span> <span class="cn">NULL</span>, <span class="at">title =</span> <span class="st">"Plot Two"</span>) <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span>
+<span id="cb29-3"><a href="#cb29-3"></a>pl3 <span class="ot">&lt;-</span> p3 <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">tag =</span> <span class="cn">NULL</span>, <span class="at">title =</span> <span class="st">"Plot Three"</span>) <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="add-labels-1" class="slide level2">
 <h2>Add Labels</h2>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb33" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a>(pl1 <span class="sc">+</span> pl2) <span class="sc">/</span> pl3 <span class="sc">+</span></span>
-<span id="cb33-2"><a href="#cb33-2"></a>  <span class="fu">plot_annotation</span>(<span class="at">tag_levels =</span> <span class="st">"1"</span>, <span class="at">tag_prefix =</span> <span class="st">"P"</span>, <span class="at">title =</span> <span class="st">"An overarching title for all 3 plots, placed on the very top while all other titles are sitting below the tags."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1"></a>(pl1 <span class="sc">+</span> pl2) <span class="sc">/</span> pl3 <span class="sc">+</span></span>
+<span id="cb30-2"><a href="#cb30-2"></a>  <span class="fu">plot_annotation</span>(<span class="at">tag_levels =</span> <span class="st">"1"</span>, <span class="at">tag_prefix =</span> <span class="st">"P"</span>, <span class="at">title =</span> <span class="st">"An overarching title for all 3 plots, placed on the very top while all other titles are sitting below the tags."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="07_layout_files/figure-revealjs/patchwork-composition-labs-1.png" width="4500" class="r-stretch quarto-figure-center"></section>
@@ -1202,20 +1134,20 @@
 </div>
 <div id="tabset-4-2">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1"></a>text <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
-<span id="cb34-2"><a href="#cb34-2"></a>  <span class="at">x =</span> <span class="dv">0</span>, <span class="at">y =</span> <span class="dv">0</span>, <span class="at">label =</span> <span class="st">"Lorem ipsum dolor sit amet, **consectetur adipiscing elit**, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation &lt;b style='color:#000080;'&gt;ullamco laboris nisi&lt;/b&gt; ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat &lt;b style='color:#cc0000;'&gt;cupidatat non proident&lt;/b&gt;, sunt in culpa qui officia deserunt mollit anim id est laborum."</span></span>
-<span id="cb34-3"><a href="#cb34-3"></a>)</span>
-<span id="cb34-4"><a href="#cb34-4"></a></span>
-<span id="cb34-5"><a href="#cb34-5"></a>pt <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(text, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y)) <span class="sc">+</span></span>
-<span id="cb34-6"><a href="#cb34-6"></a>  ggtext<span class="sc">::</span><span class="fu">geom_textbox</span>(</span>
-<span id="cb34-7"><a href="#cb34-7"></a>    <span class="fu">aes</span>(<span class="at">label =</span> label),</span>
-<span id="cb34-8"><a href="#cb34-8"></a>    <span class="at">box.color =</span> <span class="cn">NA</span>, <span class="at">width =</span> <span class="fu">unit</span>(<span class="dv">23</span>, <span class="st">"lines"</span>),</span>
-<span id="cb34-9"><a href="#cb34-9"></a>    <span class="at">family =</span> <span class="st">"Pally"</span>, <span class="at">color =</span> <span class="st">"grey40"</span>, <span class="at">size =</span> <span class="fl">6.5</span>, <span class="at">lineheight =</span> <span class="fl">1.4</span></span>
-<span id="cb34-10"><a href="#cb34-10"></a>  ) <span class="sc">+</span></span>
-<span id="cb34-11"><a href="#cb34-11"></a>  <span class="fu">coord_cartesian</span>(<span class="at">expand =</span> <span class="cn">FALSE</span>, <span class="at">clip =</span> <span class="st">"off"</span>) <span class="sc">+</span></span>
-<span id="cb34-12"><a href="#cb34-12"></a>  <span class="fu">theme_void</span>()</span>
-<span id="cb34-13"><a href="#cb34-13"></a></span>
-<span id="cb34-14"><a href="#cb34-14"></a>pt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a>text <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb31-2"><a href="#cb31-2"></a>  <span class="at">x =</span> <span class="dv">0</span>, <span class="at">y =</span> <span class="dv">0</span>, <span class="at">label =</span> <span class="st">"Lorem ipsum dolor sit amet, **consectetur adipiscing elit**, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation &lt;b style='color:#000080;'&gt;ullamco laboris nisi&lt;/b&gt; ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat &lt;b style='color:#cc0000;'&gt;cupidatat non proident&lt;/b&gt;, sunt in culpa qui officia deserunt mollit anim id est laborum."</span></span>
+<span id="cb31-3"><a href="#cb31-3"></a>)</span>
+<span id="cb31-4"><a href="#cb31-4"></a></span>
+<span id="cb31-5"><a href="#cb31-5"></a>pt <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(text, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y)) <span class="sc">+</span></span>
+<span id="cb31-6"><a href="#cb31-6"></a>  ggtext<span class="sc">::</span><span class="fu">geom_textbox</span>(</span>
+<span id="cb31-7"><a href="#cb31-7"></a>    <span class="fu">aes</span>(<span class="at">label =</span> label),</span>
+<span id="cb31-8"><a href="#cb31-8"></a>    <span class="at">box.color =</span> <span class="cn">NA</span>, <span class="at">width =</span> <span class="fu">unit</span>(<span class="dv">23</span>, <span class="st">"lines"</span>),</span>
+<span id="cb31-9"><a href="#cb31-9"></a>    <span class="at">family =</span> <span class="st">"Pally"</span>, <span class="at">color =</span> <span class="st">"grey40"</span>, <span class="at">size =</span> <span class="fl">6.5</span>, <span class="at">lineheight =</span> <span class="fl">1.4</span></span>
+<span id="cb31-10"><a href="#cb31-10"></a>  ) <span class="sc">+</span></span>
+<span id="cb31-11"><a href="#cb31-11"></a>  <span class="fu">coord_cartesian</span>(<span class="at">expand =</span> <span class="cn">FALSE</span>, <span class="at">clip =</span> <span class="st">"off"</span>) <span class="sc">+</span></span>
+<span id="cb31-12"><a href="#cb31-12"></a>  <span class="fu">theme_void</span>()</span>
+<span id="cb31-13"><a href="#cb31-13"></a></span>
+<span id="cb31-14"><a href="#cb31-14"></a>pt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -1224,28 +1156,28 @@
 <section id="add-text-1" class="slide level2">
 <h2>Add Text</h2>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a>(p1 <span class="sc">+</span> pt) <span class="sc">/</span> p3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1"></a>(p1 <span class="sc">+</span> pt) <span class="sc">/</span> p3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="07_layout_files/figure-revealjs/patchwork-composition-textbox-1.png" width="4500" class="r-stretch quarto-figure-center"></section>
 <section id="add-inset-plots" class="slide level2">
 <h2>Add Inset Plots</h2>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1"></a>pl1 <span class="sc">+</span> <span class="fu">inset_element</span>(pl2, <span class="at">l =</span> .<span class="dv">6</span>, <span class="at">b =</span> .<span class="dv">1</span>, <span class="at">r =</span> <span class="dv">1</span>, <span class="at">t =</span> .<span class="dv">6</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a>pl1 <span class="sc">+</span> <span class="fu">inset_element</span>(pl2, <span class="at">l =</span> .<span class="dv">6</span>, <span class="at">b =</span> .<span class="dv">1</span>, <span class="at">r =</span> <span class="dv">1</span>, <span class="at">t =</span> .<span class="dv">6</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="07_layout_files/figure-revealjs/patchwork-composition-inset-1-1.png" width="3600" class="r-stretch quarto-figure-center"></section>
 <section id="add-inset-plots-1" class="slide level2">
 <h2>Add Inset Plots</h2>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1"></a>pl1 <span class="sc">+</span> <span class="fu">inset_element</span>(pl2, <span class="at">l =</span> .<span class="dv">6</span>, <span class="at">b =</span> <span class="dv">0</span>, <span class="at">r =</span> <span class="dv">1</span>, <span class="at">t =</span> .<span class="dv">5</span>, <span class="at">align_to =</span> <span class="st">'full'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1"></a>pl1 <span class="sc">+</span> <span class="fu">inset_element</span>(pl2, <span class="at">l =</span> .<span class="dv">6</span>, <span class="at">b =</span> <span class="dv">0</span>, <span class="at">r =</span> <span class="dv">1</span>, <span class="at">t =</span> .<span class="dv">5</span>, <span class="at">align_to =</span> <span class="st">'full'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="07_layout_files/figure-revealjs/patchwork-composition-inset-2-1.png" width="3600" class="r-stretch quarto-figure-center"></section>
 <section id="add-inset-plots-2" class="slide level2">
 <h2>Add Inset Plots</h2>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1"></a>(pl1 <span class="sc">+</span> <span class="fu">inset_element</span>(pl2, <span class="at">l =</span> .<span class="dv">6</span>, <span class="at">b =</span> .<span class="dv">1</span>, <span class="at">r =</span> <span class="dv">1</span>, <span class="at">t =</span> .<span class="dv">6</span>) <span class="sc">+</span> pt) <span class="sc">/</span> pl3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a>(pl1 <span class="sc">+</span> <span class="fu">inset_element</span>(pl2, <span class="at">l =</span> .<span class="dv">6</span>, <span class="at">b =</span> .<span class="dv">1</span>, <span class="at">r =</span> <span class="dv">1</span>, <span class="at">t =</span> .<span class="dv">6</span>) <span class="sc">+</span> pt) <span class="sc">/</span> pl3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="07_layout_files/figure-revealjs/patchwork-composition-inset-3-1.png" width="4500" class="r-stretch quarto-figure-center"></section>
@@ -1267,8 +1199,81 @@
 </ul>
 </div>
 </div>
+</section></section>
+<section>
+<section id="appendix" class="title-slide slide level1 center">
+<h1>Appendix</h1>
 
-<div class="footer footer-default">
+</section>
+<section id="legend-with-color-shading" class="slide level2">
+<h2>Legend with Color Shading</h2>
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb36" data-code-line-numbers="1,2,3|5,6,7,8,9,10,11,12,13,14,15,16,17|18,19,20,21,22,23,24|25,26,27,28,29|30,31,32,33,34|35,36,37,38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1"></a><span class="fu">library</span>(colorspace)</span>
+<span id="cb36-2"><a href="#cb36-2"></a>shades <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">lighten</span>(pal, .<span class="dv">3</span>),</span>
+<span id="cb36-3"><a href="#cb36-3"></a>                  <span class="fu">darken</span>(pal, .<span class="dv">3</span>))</span>
+<span id="cb36-4"><a href="#cb36-4"></a></span>
+<span id="cb36-5"><a href="#cb36-5"></a>g <span class="ot">&lt;-</span></span>
+<span id="cb36-6"><a href="#cb36-6"></a>  bikes <span class="sc">%&gt;%</span></span>
+<span id="cb36-7"><a href="#cb36-7"></a>  <span class="fu">arrange</span>(day_night, date) <span class="sc">%&gt;%</span></span>
+<span id="cb36-8"><a href="#cb36-8"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb36-9"><a href="#cb36-9"></a>    <span class="at">season_day =</span> <span class="fu">paste</span>(</span>
+<span id="cb36-10"><a href="#cb36-10"></a>      <span class="fu">str_to_title</span>(season), day_night</span>
+<span id="cb36-11"><a href="#cb36-11"></a>    ),</span>
+<span id="cb36-12"><a href="#cb36-12"></a>    <span class="at">season_day =</span> forcats<span class="sc">::</span><span class="fu">fct_inorder</span>(season_day)</span>
+<span id="cb36-13"><a href="#cb36-13"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb36-14"><a href="#cb36-14"></a>  <span class="fu">ggplot</span>(</span>
+<span id="cb36-15"><a href="#cb36-15"></a>    <span class="fu">aes</span>(<span class="at">x =</span> season, <span class="at">y =</span> count,</span>
+<span id="cb36-16"><a href="#cb36-16"></a>        <span class="at">fill =</span> season_day)</span>
+<span id="cb36-17"><a href="#cb36-17"></a>  ) <span class="sc">+</span></span>
+<span id="cb36-18"><a href="#cb36-18"></a>  <span class="fu">stat_summary</span>(</span>
+<span id="cb36-19"><a href="#cb36-19"></a>    <span class="at">geom =</span> <span class="st">"col"</span>, <span class="at">fun =</span> sum,</span>
+<span id="cb36-20"><a href="#cb36-20"></a>    <span class="at">position =</span> <span class="fu">position_dodge2</span>(</span>
+<span id="cb36-21"><a href="#cb36-21"></a>      <span class="at">width =</span> .<span class="dv">2</span>, <span class="at">padding =</span> .<span class="dv">1</span></span>
+<span id="cb36-22"><a href="#cb36-22"></a>    )</span>
+<span id="cb36-23"><a href="#cb36-23"></a>  ) <span class="sc">+</span></span>
+<span id="cb36-24"><a href="#cb36-24"></a>  <span class="fu">scale_fill_manual</span>(</span>
+<span id="cb36-25"><a href="#cb36-25"></a>    <span class="at">values =</span> shades, <span class="at">name =</span> <span class="cn">NULL</span></span>
+<span id="cb36-26"><a href="#cb36-26"></a>  ) <span class="sc">+</span></span>
+<span id="cb36-27"><a href="#cb36-27"></a>  <span class="fu">scale_x_discrete</span>(</span>
+<span id="cb36-28"><a href="#cb36-28"></a>    <span class="at">labels =</span> str_to_title</span>
+<span id="cb36-29"><a href="#cb36-29"></a>  ) <span class="sc">+</span></span>
+<span id="cb36-30"><a href="#cb36-30"></a>  <span class="fu">scale_y_continuous</span>(</span>
+<span id="cb36-31"><a href="#cb36-31"></a>    <span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">comma_format</span>(),</span>
+<span id="cb36-32"><a href="#cb36-32"></a>    <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>),</span>
+<span id="cb36-33"><a href="#cb36-33"></a>    <span class="at">limits =</span> <span class="fu">c</span>(<span class="cn">NA</span>, <span class="dv">4500000</span>)</span>
+<span id="cb36-34"><a href="#cb36-34"></a>  ) <span class="sc">+</span></span>
+<span id="cb36-35"><a href="#cb36-35"></a>  <span class="fu">theme</span>(</span>
+<span id="cb36-36"><a href="#cb36-36"></a>    <span class="at">panel.grid.major.x =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb36-37"><a href="#cb36-37"></a>    <span class="at">axis.title =</span> <span class="fu">element_blank</span>()</span>
+<span id="cb36-38"><a href="#cb36-38"></a>  )</span>
+<span id="cb36-39"><a href="#cb36-39"></a></span>
+<span id="cb36-40"><a href="#cb36-40"></a>g</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div class="cell-output-display">
+<p><img data-src="07_layout_files/figure-revealjs/legend-shades-1.png" width="1500"></p>
+</div>
+</div>
+</div>
+</section>
+<section id="legend-on-top" class="slide level2">
+<h2>Legend on Top</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb37" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1"></a>g <span class="sc">+</span></span>
+<span id="cb37-2"><a href="#cb37-2"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"top"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="07_layout_files/figure-revealjs/legend-shades-legend-top-1.png" width="2700" class="r-stretch quarto-figure-center"></section>
+<section id="resort-legend" class="slide level2">
+<h2>Resort Legend</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb38" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1"></a>g <span class="sc">+</span></span>
+<span id="cb38-2"><a href="#cb38-2"></a>  <span class="fu">guides</span>(<span class="at">fill =</span> <span class="fu">guide_legend</span>(<span class="at">byrow =</span> <span class="cn">TRUE</span>)) <span class="sc">+</span></span>
+<span id="cb38-3"><a href="#cb38-3"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"top"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+
+<img data-src="07_layout_files/figure-revealjs/legend-shades-legend-byrow-1.png" width="2700" class="r-stretch quarto-figure-center"><div class="footer footer-default">
 <p><strong><a href="https::/cedricscherer.com">Cédric Scherer</a> //</strong> rstudio::conf <strong>//</strong> July 2022</p>
 </div>
 </section></section>

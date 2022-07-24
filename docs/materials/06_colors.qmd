@@ -886,93 +886,9 @@ ggplot(
   )
 ```
 
-# HCL Spectrum
-
-## Evaluate HCL Spectrum
-
-```{r}
-#| label: color-palettes-colorspace-spec-explain
-#| output-location: column
-colorspace::specplot(
-  colorspace::diverging_hcl(
-    n = 100, palette = "Blue-Red"
-  )
-)
-```
-
-## Evaluate HCL Spectrum
-
-::: {layout-ncol="2"}
-```{r}
-#| label: color-palettes-scico-spec
-#| fig-height: 3.8
-colorspace::specplot(
-  scico::scico(
-    n = 100, palette = "hawaii"
-  )
-)
-```
-
-```{r}
-#| label: color-palettes-metbrewer-spec
-#| fig-height: 3.8
-colorspace::specplot(
-  MetBrewer::met.brewer(
-     n = 100, name = "Hiroshige"
-  )
-)
-```
-:::
-
-## Evaluate HCL Spectrum
-
-::: {layout-ncol="2"}
-```{r}
-#| label: color-palettes-carto-spec
-#| fig-height: 3.8
-colorspace::specplot(
-  rcartocolor::carto_pal(
-    n = 7, name = "TealRose"
-  )
-)
-```
-
-```{r}
-#| label: color-palettes-metbrewer-spec-2
-#| fig-height: 3.8
-colorspace::specplot(
-  MetBrewer::met.brewer(
-     n = 100, name = "Cassatt2"
-  )
-)
-```
-:::
-
-## Evaluate HCL Spectrum
-
-::: {layout-ncol="2"}
-```{r}
-#| label: color-palettes-rainbow-spec
-#| fig-height: 3.8
-colorspace::specplot(
-  rainbow(
-    n = 100
-  )
-)
-```
-
-```{r}
-#| label: color-palette-viridis-spec
-#| fig-height: 3.8
-colorspace::specplot(
-  viridis::turbo(
-     n = 100, direction = -1
-  )
-)
-```
-:::
 
 # Test Your Palettes
+
 
 ## Emulate CVD
 
@@ -1185,6 +1101,92 @@ countdown::countdown(minutes = 20, font_size = ".5em")
 ```
 
 # Appendix
+
+# HCL Spectrum
+
+## Evaluate HCL Spectrum
+
+```{r}
+#| label: color-palettes-colorspace-spec-explain
+#| output-location: column
+colorspace::specplot(
+  colorspace::diverging_hcl(
+    n = 100, palette = "Blue-Red"
+  )
+)
+```
+
+## Evaluate HCL Spectrum
+
+::: {layout-ncol="2"}
+```{r}
+#| label: color-palettes-scico-spec
+#| fig-height: 3.8
+colorspace::specplot(
+  scico::scico(
+    n = 100, palette = "hawaii"
+  )
+)
+```
+
+```{r}
+#| label: color-palettes-metbrewer-spec
+#| fig-height: 3.8
+colorspace::specplot(
+  MetBrewer::met.brewer(
+     n = 100, name = "Hiroshige"
+  )
+)
+```
+:::
+
+## Evaluate HCL Spectrum
+
+::: {layout-ncol="2"}
+```{r}
+#| label: color-palettes-carto-spec
+#| fig-height: 3.8
+colorspace::specplot(
+  rcartocolor::carto_pal(
+    n = 7, name = "TealRose"
+  )
+)
+```
+
+```{r}
+#| label: color-palettes-metbrewer-spec-2
+#| fig-height: 3.8
+colorspace::specplot(
+  MetBrewer::met.brewer(
+     n = 100, name = "Cassatt2"
+  )
+)
+```
+:::
+
+## Evaluate HCL Spectrum
+
+::: {layout-ncol="2"}
+```{r}
+#| label: color-palettes-rainbow-spec
+#| fig-height: 3.8
+colorspace::specplot(
+  rainbow(
+    n = 100
+  )
+)
+```
+
+```{r}
+#| label: color-palette-viridis-spec
+#| fig-height: 3.8
+colorspace::specplot(
+  viridis::turbo(
+     n = 100, direction = -1
+  )
+)
+```
+:::
 
 ## Build Your Own `scale_color|fill_*_c()`
 

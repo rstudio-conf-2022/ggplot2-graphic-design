@@ -1918,34 +1918,6 @@
     "text": "Use Your Own scale_color_*_d()\n\n\nggplot(\n    bikes, \n    aes(x = day_night, y = count, \n        color = season)\n  ) +\n  geom_boxplot() +\n  scale_color_dubois_d(\n    palette = \"dark\",\n    reverse = TRUE\n  )"
   },
   {
-    "objectID": "materials/06_colors.html#evaluate-hcl-spectrum",
-    "href": "materials/06_colors.html#evaluate-hcl-spectrum",
-    "title": "Graphic Design with ggplot2",
-    "section": "Evaluate HCL Spectrum",
-    "text": "Evaluate HCL Spectrum\n\n\ncolorspace::specplot(\n  colorspace::diverging_hcl(\n    n = 100, palette = \"Blue-Red\"\n  )\n)"
-  },
-  {
-    "objectID": "materials/06_colors.html#evaluate-hcl-spectrum-1",
-    "href": "materials/06_colors.html#evaluate-hcl-spectrum-1",
-    "title": "Graphic Design with ggplot2",
-    "section": "Evaluate HCL Spectrum",
-    "text": "Evaluate HCL Spectrum\n\n\n\ncolorspace::specplot(\n  scico::scico(\n    n = 100, palette = \"hawaii\"\n  )\n)\n\n\n\n\n\ncolorspace::specplot(\n  MetBrewer::met.brewer(\n     n = 100, name = \"Hiroshige\"\n  )\n)"
-  },
-  {
-    "objectID": "materials/06_colors.html#evaluate-hcl-spectrum-2",
-    "href": "materials/06_colors.html#evaluate-hcl-spectrum-2",
-    "title": "Graphic Design with ggplot2",
-    "section": "Evaluate HCL Spectrum",
-    "text": "Evaluate HCL Spectrum\n\n\n\ncolorspace::specplot(\n  rcartocolor::carto_pal(\n    n = 7, name = \"TealRose\"\n  )\n)\n\n\n\n\n\ncolorspace::specplot(\n  MetBrewer::met.brewer(\n     n = 100, name = \"Cassatt2\"\n  )\n)"
-  },
-  {
-    "objectID": "materials/06_colors.html#evaluate-hcl-spectrum-3",
-    "href": "materials/06_colors.html#evaluate-hcl-spectrum-3",
-    "title": "Graphic Design with ggplot2",
-    "section": "Evaluate HCL Spectrum",
-    "text": "Evaluate HCL Spectrum\n\n\n\ncolorspace::specplot(\n  rainbow(\n    n = 100\n  )\n)\n\n\n\n\n\ncolorspace::specplot(\n  viridis::turbo(\n     n = 100, direction = -1\n  )\n)"
-  },
-  {
     "objectID": "materials/06_colors.html#emulate-cvd",
     "href": "materials/06_colors.html#emulate-cvd",
     "title": "Graphic Design with ggplot2",
@@ -2007,6 +1979,34 @@
     "title": "Graphic Design with ggplot2",
     "section": "Exercise",
     "text": "Exercise\n\n\nCreate a similar visualization as close as possible:\n\n\n\n\n\n\n20:00"
+  },
+  {
+    "objectID": "materials/06_colors.html#evaluate-hcl-spectrum",
+    "href": "materials/06_colors.html#evaluate-hcl-spectrum",
+    "title": "Graphic Design with ggplot2",
+    "section": "Evaluate HCL Spectrum",
+    "text": "Evaluate HCL Spectrum\n\n\ncolorspace::specplot(\n  colorspace::diverging_hcl(\n    n = 100, palette = \"Blue-Red\"\n  )\n)"
+  },
+  {
+    "objectID": "materials/06_colors.html#evaluate-hcl-spectrum-1",
+    "href": "materials/06_colors.html#evaluate-hcl-spectrum-1",
+    "title": "Graphic Design with ggplot2",
+    "section": "Evaluate HCL Spectrum",
+    "text": "Evaluate HCL Spectrum\n\n\n\ncolorspace::specplot(\n  scico::scico(\n    n = 100, palette = \"hawaii\"\n  )\n)\n\n\n\n\n\ncolorspace::specplot(\n  MetBrewer::met.brewer(\n     n = 100, name = \"Hiroshige\"\n  )\n)"
+  },
+  {
+    "objectID": "materials/06_colors.html#evaluate-hcl-spectrum-2",
+    "href": "materials/06_colors.html#evaluate-hcl-spectrum-2",
+    "title": "Graphic Design with ggplot2",
+    "section": "Evaluate HCL Spectrum",
+    "text": "Evaluate HCL Spectrum\n\n\n\ncolorspace::specplot(\n  rcartocolor::carto_pal(\n    n = 7, name = \"TealRose\"\n  )\n)\n\n\n\n\n\ncolorspace::specplot(\n  MetBrewer::met.brewer(\n     n = 100, name = \"Cassatt2\"\n  )\n)"
+  },
+  {
+    "objectID": "materials/06_colors.html#evaluate-hcl-spectrum-3",
+    "href": "materials/06_colors.html#evaluate-hcl-spectrum-3",
+    "title": "Graphic Design with ggplot2",
+    "section": "Evaluate HCL Spectrum",
+    "text": "Evaluate HCL Spectrum\n\n\n\ncolorspace::specplot(\n  rainbow(\n    n = 100\n  )\n)\n\n\n\n\n\ncolorspace::specplot(\n  viridis::turbo(\n     n = 100, direction = -1\n  )\n)"
   },
   {
     "objectID": "materials/06_colors.html#build-your-own-scale_colorfill__c",
@@ -2170,27 +2170,6 @@
     "text": "Key Glyphs\n\n\nggplot(\n    bikes,\n    aes(x = lubridate::week(date),\n        y = count,\n        color = day_night)\n  ) +\n  stat_summary(\n    geom = \"line\",\n    fun = sum,\n    key_glyph = \"vline\",\n    size = 1\n  ) +\n  scale_color_manual(\n    values = c(\"#28A87D\", \"#663399\"),\n    name = NULL\n  ) +\n  theme(\n    legend.text = element_text(size = 16)\n  )"
   },
   {
-    "objectID": "materials/07_layout.html#legend-with-color-shading",
-    "href": "materials/07_layout.html#legend-with-color-shading",
-    "title": "Graphic Design with ggplot2",
-    "section": "Legend with Color Shading",
-    "text": "Legend with Color Shading\n\n\nlibrary(colorspace)\nshades <- c(lighten(pal, .3),\n                  darken(pal, .3))\n\ng <-\n  bikes %>%\n  arrange(day_night, date) %>%\n  mutate(\n    season_day = paste(\n      str_to_title(season), day_night\n    ),\n    season_day = forcats::fct_inorder(season_day)\n  ) %>%\n  ggplot(\n    aes(x = season, y = count,\n        fill = season_day)\n  ) +\n  stat_summary(\n    geom = \"col\", fun = sum,\n    position = position_dodge2(\n      width = .2, padding = .1\n    )\n  ) +\n  scale_fill_manual(\n    values = shades, name = NULL\n  ) +\n  scale_x_discrete(\n    labels = str_to_title\n  ) +\n  scale_y_continuous(\n    labels = scales::comma_format(),\n    expand = c(0, 0),\n    limits = c(NA, 4500000)\n  ) +\n  theme(\n    panel.grid.major.x = element_blank(),\n    axis.title = element_blank()\n  )\n\ng"
-  },
-  {
-    "objectID": "materials/07_layout.html#legend-on-top",
-    "href": "materials/07_layout.html#legend-on-top",
-    "title": "Graphic Design with ggplot2",
-    "section": "Legend on Top",
-    "text": "Legend on Top\n\ng +\n  theme(legend.position = \"top\")"
-  },
-  {
-    "objectID": "materials/07_layout.html#resort-legend",
-    "href": "materials/07_layout.html#resort-legend",
-    "title": "Graphic Design with ggplot2",
-    "section": "Resort Legend",
-    "text": "Resort Legend\n\ng +\n  guides(fill = guide_legend(byrow = TRUE)) +\n  theme(legend.position = \"top\")"
-  },
-  {
     "objectID": "materials/07_layout.html#patchwork",
     "href": "materials/07_layout.html#patchwork",
     "title": "Graphic Design with ggplot2",
@@ -2230,7 +2209,7 @@
     "href": "materials/07_layout.html#use-a-custom-layout",
     "title": "Graphic Design with ggplot2",
     "section": "Use A Custom Layout",
-    "text": "Use A Custom Layout\n\npicasso <- \"\nAAAAAABBBBB\nCCCCCCCCCCC\nCCCCCCCCCCC\"\n(p1 + p2 + p3 & theme(legend.position = \"none\")) + plot_layout(design = picasso)"
+    "text": "Use A Custom Layout\n\npicasso <- \"\nAAAAAA#BBBB\nCCCCCCCCCCC\nCCCCCCCCCCC\"\n(p1 + p2 + p3 & theme(legend.position = \"none\")) + plot_layout(design = picasso)"
   },
   {
     "objectID": "materials/07_layout.html#add-labels",
@@ -2286,7 +2265,28 @@
     "href": "materials/07_layout.html#recap",
     "title": "Graphic Design with ggplot2",
     "section": "Recap",
-    "text": "Recap\n\n\n\nguides are the combination of scales and legends\nlegends can be either modified with the guide_* function in scale_*() or guides() and with the theme() component qualitative\n… while quantitative guides are colorbar, colorsteps or bins\n{patchwork} is the most modern and simplest way to compose plots\n\nuse +, / and | to combine plots\nuse plot_layout() to adjust the layout, widths and heights\nuse plot_annotation() to add tags and general labels\nuse inset_element() to add inset graphics\n\n\n\n\n\n\nCédric Scherer // rstudio::conf // July 2022"
+    "text": "Recap\n\n\n\nguides are the combination of scales and legends\nlegends can be either modified with the guide_* function in scale_*() or guides() and with the theme() component qualitative\n… while quantitative guides are colorbar, colorsteps or bins\n{patchwork} is the most modern and simplest way to compose plots\n\nuse +, / and | to combine plots\nuse plot_layout() to adjust the layout, widths and heights\nuse plot_annotation() to add tags and general labels\nuse inset_element() to add inset graphics"
+  },
+  {
+    "objectID": "materials/07_layout.html#legend-with-color-shading",
+    "href": "materials/07_layout.html#legend-with-color-shading",
+    "title": "Graphic Design with ggplot2",
+    "section": "Legend with Color Shading",
+    "text": "Legend with Color Shading\n\n\nlibrary(colorspace)\nshades <- c(lighten(pal, .3),\n                  darken(pal, .3))\n\ng <-\n  bikes %>%\n  arrange(day_night, date) %>%\n  mutate(\n    season_day = paste(\n      str_to_title(season), day_night\n    ),\n    season_day = forcats::fct_inorder(season_day)\n  ) %>%\n  ggplot(\n    aes(x = season, y = count,\n        fill = season_day)\n  ) +\n  stat_summary(\n    geom = \"col\", fun = sum,\n    position = position_dodge2(\n      width = .2, padding = .1\n    )\n  ) +\n  scale_fill_manual(\n    values = shades, name = NULL\n  ) +\n  scale_x_discrete(\n    labels = str_to_title\n  ) +\n  scale_y_continuous(\n    labels = scales::comma_format(),\n    expand = c(0, 0),\n    limits = c(NA, 4500000)\n  ) +\n  theme(\n    panel.grid.major.x = element_blank(),\n    axis.title = element_blank()\n  )\n\ng"
+  },
+  {
+    "objectID": "materials/07_layout.html#legend-on-top",
+    "href": "materials/07_layout.html#legend-on-top",
+    "title": "Graphic Design with ggplot2",
+    "section": "Legend on Top",
+    "text": "Legend on Top\n\ng +\n  theme(legend.position = \"top\")"
+  },
+  {
+    "objectID": "materials/07_layout.html#resort-legend",
+    "href": "materials/07_layout.html#resort-legend",
+    "title": "Graphic Design with ggplot2",
+    "section": "Resort Legend",
+    "text": "Resort Legend\n\ng +\n  guides(fill = guide_legend(byrow = TRUE)) +\n  theme(legend.position = \"top\")\n\n\n\n\nCédric Scherer // rstudio::conf // July 2022"
   },
   {
     "objectID": "materials/solutions/02_concepts_pt1_ex1_solution.html#exercise-1",
@@ -3271,21 +3271,21 @@
   {
     "objectID": "modules/d1-02_concepts_pt1.html",
     "href": "modules/d1-02_concepts_pt1.html",
-    "title": "Concepts of the {ggplot2} Package Pt. 1:Data, Aesthetics, and Geometries + Misc Stuff",
+    "title": "Concepts of the {ggplot2} Package Pt. 1:Data, Aesthetics, and Layers + Misc Stuff",
     "section": "",
     "text": "The Grammar of {ggplot2}\nA Basic ggplot Example\n\nThe Data\nAesthetic Mapping\naesthetics\n\nGeometrical Layers\n\nGeometries\nVisual Properties of Layers\nSetting vs Mapping of Visual Properties\nMapping Expressions\nQuick Exercise\nMapping Expressions\nMapping to Size\nSetting a Constant Property\nFilter Data\nLocal vs. Global Encoding\nAdding More Layers\nGlobal Color Encoding\nLocal Color Encoding\nThe `group` Aesthetic\nSet Both as Global Aesthetics\nOverwrite Global Aesthetics\n\nExtending a ggplot\n\nStore a ggplot as Object\nInspect a ggplot Object\nExtend a ggplot Object: Add Layers\nRemove a Layer from the Legend\nExtend a ggplot Object: Add Labels\n\nA Polished ggplot Example\n\nExtend a ggplot Object: Themes\nSet a Theme Globally\nChange the Theme Base Settings\nOverwrite Specific Theme Settings\nSave the Graphic\nHow to Work with Aspect Ratios\nSetting Plot Sizes in Rmd’s"
   },
   {
     "objectID": "modules/d1-02_concepts_pt1.html#slides",
     "href": "modules/d1-02_concepts_pt1.html#slides",
-    "title": "Concepts of the {ggplot2} Package Pt. 1:Data, Aesthetics, and Geometries + Misc Stuff",
+    "title": "Concepts of the {ggplot2} Package Pt. 1:Data, Aesthetics, and Layers + Misc Stuff",
     "section": "Slides",
     "text": "Slides\nView slides in full screen"
   },
   {
     "objectID": "modules/d1-02_concepts_pt1.html#exercises",
     "href": "modules/d1-02_concepts_pt1.html#exercises",
-    "title": "Concepts of the {ggplot2} Package Pt. 1:Data, Aesthetics, and Geometries + Misc Stuff",
+    "title": "Concepts of the {ggplot2} Package Pt. 1:Data, Aesthetics, and Layers + Misc Stuff",
     "section": "Exercises",
     "text": "Exercises"
   },
