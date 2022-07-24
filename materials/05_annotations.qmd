@@ -1416,7 +1416,7 @@ countdown::countdown(minutes = 20, font_size = ".5em")
 ## Exercise 2
 
 ::: question
--   **Create this logo with the image file `exercises/`:**
+-   **Create this logo with the image file `exercises/rstudioconf-washington-bg.png`:**
 :::
 
 <br>

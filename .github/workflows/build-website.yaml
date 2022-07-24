@@ -22,9 +22,9 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y libcurl4-openssl-dev libprotobuf-dev
-          R -e 'install.packages(c("ggplot2", "readr", "tibble", "tidyr", "forcats", "stringr", "lubridate", "here", "systemfonts", "magick", "scales", "grid", "grDevices", "colorspace", "viridis", "RColorBrewer", "rcartocolor", "scico", "ggsci", "ggthemes", "nord", "MetBrewer", "ggrepel", "ggforce", "ggtext", "ggdist", "ggbeeswarm", "gghalves", "patchwork",  "palmerpenguins", "rnaturalearth", "sf", "rmapshaper", "devtools"))'
-          R -e 'remotes::install_github("wilkelab/cowplot")'
-          R -e 'remotes::install_github("clauswilke/colorblindr")'
+          sudo R -e 'install.packages(c("ggplot2", "readr", "tibble", "tidyr", "forcats", "stringr", "lubridate", "here", "systemfonts", "magick", "scales", "grid", "grDevices", "colorspace", "viridis", "RColorBrewer", "rcartocolor", "scico", "ggsci", "ggthemes", "nord", "MetBrewer", "ggrepel", "ggforce", "ggtext", "ggdist", "ggbeeswarm", "gghalves", "patchwork",  "palmerpenguins", "rnaturalearth", "sf", "rmapshaper", "devtools"))'
+          sudo R -e 'remotes::install_github("wilkelab/cowplot")'
+          sudo R -e 'remotes::install_github("clauswilke/colorblindr")'
       - name: Put pandoc in PATH
         run: |
           mkdir -p ~/.local/bin
