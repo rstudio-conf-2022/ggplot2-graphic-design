@@ -2,6 +2,9 @@ project:
   type: website
   resources:
     - "images/twitter-card.png"
+  render:
+    - "*.qmd"
+    - "!materials/exercises"
 
 website:
   page-navigation: true

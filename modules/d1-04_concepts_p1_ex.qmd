@@ -2,7 +2,7 @@
 title: "<span>Concepts of the <code>{ggplot2}</code> Package Pt. 1:<br><span style='font-weight:500;'>Continued</span></span>"
 subtitle: "11:00 - 12:00"
 date: "2022-07-25"
-image: "images/session1.png"
+image: "images/session2.png"
 tbl-colwidths: [5,20,75]
 ---
 

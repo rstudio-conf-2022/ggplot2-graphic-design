@@ -2,7 +2,7 @@
 title: "<span>Concepts of the <code>{ggplot2}</code> Package Pt. 2:<br><span style='font-weight:500;'>Facets, Scales, and Coordinate System</span></span>"
 subtitle: "12:00 - 12:30"
 date: "2022-07-25"
-image: "images/session2.png"
+image: "images/session3.png"
 tbl-colwidths: [5,20,75]
 ---
 

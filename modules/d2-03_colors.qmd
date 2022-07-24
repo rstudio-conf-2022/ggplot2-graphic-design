@@ -8,6 +8,15 @@ tbl-colwidths: [5,20,75]
 
 ## Outline
 
+### Part 1 - Colorful Graphics
+-   Challenge to encode Information
+-   Color Spaces
+-   Color Palette Choice
+-   Use Color wisely (and correctly)
+-   Designing for Colorblindness
+-   Beyond the Rainbow
+
+### Part 2 - Working with Colors
 -   Color Palettes
     -   Pre-Defined Color Palettes: Viridis
     -   Pre-Defined Color Palettes: Brewer
@@ -29,11 +38,21 @@ tbl-colwidths: [5,20,75]
 
 ## Slides
 
+### Part 1
 [View slides in full screen](../materials/06_colorful_graphics.pdf)
 
 ```{=html}
 <iframe class="slide-deck" src="../materials/06_colorful_graphics.pdf" height="420" width="747" style="border: 1px solid #2e3846;"></iframe>
 ```
+
+### Part 2
+
+[View slides in full screen](../materials/06_colors.qmd)
+
+```{=html}
+<iframe class="slide-deck" src="../materials/06_colors.qmd" height="420" width="747" style="border: 1px solid #2e3846;"></iframe>
+```
+
 ## Exercises
 
 ::: {#exercises}

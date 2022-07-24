@@ -2,7 +2,7 @@
 title: "Introduction"
 subtitle: "09:00 - 09:30"
 date: "2022-07-25"
-image: "images/ggplot2.png"
+image: "images/session1.png"
 tbl-colwidths: [5,20,75]
 ---
 
