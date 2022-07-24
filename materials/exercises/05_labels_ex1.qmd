@@ -1,0 +1,54 @@
+---
+title: "Graphic Design with ggplot2"
+subtitle: "Working with Labels and Annotations"
+author: "Your Name"
+format: html
+execute:
+  message: false
+  warning: false
+editor: visual
+---
+
+# Exercise 2
+
+-   {ggtext} also comes with some new geom's. Explore those and other options on the package webpage: https://wilkelab.org/ggtext.
+-   **Create the following visualization, as close as possible**, with the `penguins` dataset which is provided by the {palmerpenguins} package( more here: https://allisonhorst.github.io/palmerpenguins).
+    -   For the species labels, you likely have to create a summary data set.
+    -   Use the {ggtext} geometries and theme elements to format the labels.
+    -   Also, make use of the other components such as scales, original theme, and theme customization.
+
+
+## Data 
+
+```{r}
+#| label: preparation
+library(tidyverse)
+
+# install.packages("palmerpenguins")
+library(palmerpenguins)
+
+## inspect data
+penguins
+
+glimpse(penguins)
+unique(penguins$species)
+```
+
+
+## Visualization
+
+```{r}
+#| label: plot
+ggplot(penguins, aes(x = bill_length_mm, y = bill_depth_mm)) +
+ geom_point()
+```
+
+  
+  
+  
+  
+```{r}
+#| label: i-am-done-what-now
+knitr::include_graphics("img/exercise-what-now-sd.png")
+```
+

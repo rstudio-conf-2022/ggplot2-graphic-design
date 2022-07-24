@@ -21,7 +21,7 @@ jobs:
       - name: Install libcurl
         run: |
           sudo apt-get update
-          sudo apt-get install -y libcurl4-openssl-dev
+          sudo apt-get install -y libcurl4-openssl-dev libprotobuf-dev
 
       - name: Put pandoc in PATH
         run: |

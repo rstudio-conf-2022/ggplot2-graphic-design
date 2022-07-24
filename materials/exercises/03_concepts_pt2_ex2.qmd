@@ -1,6 +1,6 @@
 ---
 title: "Graphic Design with ggplot2"
-subtitle: "1. Concepts of the {ggplot2} Package Pt. 2"
+subtitle: "Concepts of the {ggplot2} Package Pt. 2"
 author: "Your Name"
 format: html
 execute:
