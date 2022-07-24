@@ -5,12 +5,25 @@ author: "Your Name"
 format: html
 ---
 
-# Exercise 2
+**Create a similar visualization at the one placed in `exercises/6-1-bikes-jitter` as close as possible:**
 
-**Create this logo, placed in `exercises/5-2-logo` with the image file `exercises/rstudioconf-washington-bg.png`:**
+![A sina plot combined with an errorbar Reported bike shares in London during day and night times, split by season, using TfL bike sharing data from 2015 to 2016."](exercises/6-1-bikes-jitter/jittered-errorbars.png)
 
-![A blue dot with a capital white R, similar to the Rstudio logo, with the Washington D.C. skyline used for the rstudio::conf webpage placed below.](exercises/5-2-logo/rstudio-conf-logo.png)
+```{r preparation, warnings=false, messages=false}
+library(tidyverse)
+library(colorspace)
+library(ggforce)
+library(ggtext)
 
+bikes <- readr::read_csv(
+  here::here("data", "london-bikes-custom.csv"),
+  col_types = "Dcfffilllddddc"
+)
+
+bikes$season <- forcats::fct_inorder(bikes$season)
+
+colors <- c("#987708", "#663399")
+```
 
 ## Visualization
 
