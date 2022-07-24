@@ -6,7 +6,7 @@ image: "images/ggplot2.png"
 listing:
   - id: exercises
     contents:
-      - ../materials/exercises/07_layout.qmd
+      - ../materials/exercises/07_layout.Rmd
     type: table
     fields: [subtitle, title]
     field-display-names:

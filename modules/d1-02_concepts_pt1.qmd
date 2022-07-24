@@ -6,7 +6,7 @@ image: "images/ggplot3.png"
 listing:
   - id: exercises
     contents:
-      - ../materials/02-*.qmd
+      - ../materials/exercises/02-*.qmd
     type: table
     fields: [subtitle, title]
     field-display-names:

@@ -5,8 +5,6 @@ date: "2022-07-25"
 image: "images/ggplot2.png"
 listing:
   - id: exercises
-    contents:
-      - ../materials/01_introduction.qmd
     type: table
     fields: [subtitle, title]
     field-display-names:
@@ -22,8 +20,8 @@ tbl-colwidths: [5,20,75]
 
 -   Introduction
     -   Advantages of {ggplot2}
-- The {ggplot2} Showcase
-- A Step-by-Step Example
+-   The {ggplot2} Showcase
+-   A Step-by-Step Example
 
 ## Slides
 
@@ -32,7 +30,3 @@ tbl-colwidths: [5,20,75]
 ```{=html}
 <iframe class="slide-deck" src="../materials/01_introduction.html" height="420" width="747" style="border: 1px solid #2e3846;"></iframe>
 ```
-## Exercises
-
-::: {#exercises}
-:::
