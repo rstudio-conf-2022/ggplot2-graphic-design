@@ -11,36 +11,16 @@ editor: visual
 
 # Exercise 2
 
--   **Create this logo, placed in exercises/5-2-logo with the image file `exercises/rstudioconf-washington-bg.png`:**
+**Create this logo, placed in `exercises/5-2-logo` with the image file `exercises/rstudioconf-washington-bg.png`:**
 
-![A bubble chart of bill depth versus bill width of Palmer penguins with direct annoations for all three species. The size of the bubbles is scaled accordingly to their reported body mass.](exercises/5-1-penguins/penguins-bubble-chart.png)
-
-
-## Data 
-
-```{r}
-#| label: preparation
-#| warnings: false
-#| messages: false
-library(tidyverse)
-
-# install.packages("palmerpenguins")
-library(palmerpenguins)
-
-## inspect data
-penguins
-
-glimpse(penguins)
-unique(penguins$species)
-```
+![A blue dot with a capital white R, similar to the Rstudio logo, with the Washington D.C. skyline used for the rstudio::conf webpage placed below.](exercises/5-2-logo/rstudio-conf-logo.png)
 
 
 ## Visualization
 
 ```{r}
 #| label: plot
-ggplot(penguins, aes(x = bill_length_mm, y = bill_depth_mm)) +
- geom_point()
+
 ```
 
   

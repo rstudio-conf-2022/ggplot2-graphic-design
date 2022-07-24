@@ -43,7 +43,7 @@ execute:
 #| fig-align: "center"
 library(tidyverse)
 
-skyline <- magick::image_read(here::here("exercises", "img", "rstudioconf-washington-bg.png"))
+skyline <- magick::image_read(here::here("mateirals", "exercises", "img", "rstudioconf-washington-bg.png"))
 
 ggplot(mapping = aes(x = 0, y = 0)) +
   annotation_custom(

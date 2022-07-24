@@ -1425,10 +1425,12 @@ countdown::countdown(minutes = 20, font_size = ".5em")
 #| label: annotate-custom-rstudioconf
 #| echo: false
 #| fig-align: "center"
+skyline <- magick::image_read(here::here("mateirals", "exercises", "img", "rstudioconf-washington-bg.png"))
+
 ggplot(mapping = aes(x = 0, y = 0)) +
   annotation_custom(
     grid::rasterGrob(
-      image = img,
+      image = skyline,
       x = .5,
       y = .1
     )

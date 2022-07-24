@@ -3,9 +3,13 @@ title: "Graphic Design with ggplot2"
 subtitle: "Working with Labels and Annotations"
 author: "Your Name"
 format: html
+execute:
+  message: false
+  warning: false
+editor: visual
 ---
 
-# Exercise 2
+# Exercise
 
 **Create this logo, placed in `exercises/5-2-logo` with the image file `exercises/rstudioconf-washington-bg.png`:**
 
@@ -14,15 +18,18 @@ format: html
 
 ## Visualization
 
-```{r plot}
+```{r}
+#| label: plot
 
 ```
 
-
-
-
   
   
-```{r i-am-done-what-now, echo=FALSE}
+  
+  
+```{r}
+#| label: i-am-done-what-now
+#| echo: false
 knitr::include_graphics("img/exercise-what-now-sd.png")
 ```
+
