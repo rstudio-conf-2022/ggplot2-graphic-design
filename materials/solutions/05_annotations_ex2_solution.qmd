@@ -80,7 +80,7 @@ ggplot(mapping = aes(x = 0, y = 0)) +
 
 ```{r}
 #| label: read-skyline
-skyline <- magick::image_read(here::here("exercises", "img", "rstudioconf-washington-bg.png"))
+skyline <- magick::image_read(here::here("materials", "exercises", "img", "rstudioconf-washington-bg.png"))
 
 skyline
 ```
