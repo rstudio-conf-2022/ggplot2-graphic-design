@@ -1,0 +1,1 @@
+Sitemap: https://rstudio-conf-2022.github.io/ggplot2-graphic-design/sitemap.xml
