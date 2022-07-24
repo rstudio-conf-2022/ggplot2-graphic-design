@@ -3,16 +3,6 @@ title: "Introduction"
 subtitle: "09:00 - 09:30"
 date: "2022-07-25"
 image: "images/ggplot2.png"
-listing:
-  - id: exercises
-    type: table
-    fields: [subtitle, title]
-    field-display-names:
-      subtitle: "Exercise"
-    sort: [filename]
-    sort-ui: false
-    filter-ui: false
-    image-placeholder: images/exercise.png
 tbl-colwidths: [5,20,75]
 ---
 
