@@ -4,7 +4,10 @@ title: Graphic Design with ggplot2
 
 ------------------------------------------------------------------------
 
-🗓️ July 25 and 26, 2022 ⏰ 09:00 - 17:00 🏨 \[ADD ROOM\] ✍️ rstd.io/conf
+:spiral_calendar: July 25 and 26, 2022\
+:alarm_clock: 09:00 - 17:00\
+:hotel: National Harbor 4/5\
+:writing_hand: [rstd.io/conf](http://rstd.io/conf)
 
 ------------------------------------------------------------------------
 

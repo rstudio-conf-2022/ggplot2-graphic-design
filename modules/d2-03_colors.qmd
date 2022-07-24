@@ -1,0 +1,52 @@
+---
+title: "Working with Colors"
+subtitle: "11:00 - 12:30"
+date: "2022-07-26"
+image: "images/ggplot2.png"
+listing:
+  - id: exercises
+    contents:
+      - ../materials/05_annotations.qmd
+    type: table
+    fields: [subtitle, title]
+    field-display-names:
+      subtitle: "Exercise"
+    sort: [filename]
+    sort-ui: false
+    filter-ui: false
+    image-placeholder: images/exercise.png
+tbl-colwidths: [5,20,75]
+---
+
+## Outline
+
+-   Color Palettes
+    -   Pre-Defined Color Palettes: Viridis
+    -   Pre-Defined Color Palettes: Brewer
+    -   {rcartocolor}
+    -   {scico}
+    -   {ggsci} and {ggthemes}
+    -   {nord}
+    -   {MetBrewer}
+-   Customize Palettes
+    -   Customize Existing Palettes
+-   Create New Palettes
+    -   Create Sequential Palettes
+    -   Create Diverging Palettes
+    -   Create Any Palette
+-   HCL Spectrum
+    -   Evaluate HCL Spectrum
+-   Test Your Palettes
+    -   Emulate CVD
+
+## Slides
+
+[View slides in full screen](../materials/01_introduction.html)
+
+```{=html}
+<iframe class="slide-deck" src="../materials/05_annotations.html" height="420" width="747" style="border: 1px solid #2e3846;"></iframe>
+```
+## Exercises
+
+::: {#exercises}
+:::

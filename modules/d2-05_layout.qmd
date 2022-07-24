@@ -1,0 +1,50 @@
+---
+title: "Working with Colors"
+subtitle: "13:30 - 15:00"
+date: "2022-07-26"
+image: "images/ggplot2.png"
+listing:
+  - id: exercises
+    contents:
+      - ../materials/exercises/07_layout.qmd
+    type: table
+    fields: [subtitle, title]
+    field-display-names:
+      subtitle: "Exercise"
+    sort: [filename]
+    sort-ui: false
+    filter-ui: false
+    image-placeholder: images/exercise.png
+tbl-colwidths: [5,20,75]
+---
+
+## Outline
+
+-   Legend Placemen and Styling
+    -   Discrete Legend
+    -   Continuous Legend
+    -   Legend Position
+    -   Legend Justification
+    -   Legend Types
+    -   Legend Styling
+    -   Key Glyphs
+    -   Legend with Color Shading
+    -   Legend on Top
+    -   Resort Legend
+    -   Apply Theming
+    -   Adjust Widths and Heights
+    -   Use A Custom Layout
+    -   Add Labels
+    -    Add Inset Plots
+    
+## Slides
+
+[View slides in full screen](../materials/07_layout.html)
+
+```{=html}
+<iframe class="slide-deck" src="../materials/07_layout.html" height="420" width="747" style="border: 1px solid #2e3846;"></iframe>
+```
+## Exercises
+
+::: {#exercises}
+:::

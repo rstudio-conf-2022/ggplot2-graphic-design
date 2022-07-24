@@ -9,5 +9,5 @@ image-alt: "Plate and utensils."
 Lunch is served at ...
 
 ::: callout-warning
-Please avoid questions during the breaks to give us a chance to recover and reflect - anything other than course is however strongly encouraged! 😋
+Please avoid questions during the breaks to give us a chance to recover and reflect - anything other than course material is however strongly encouraged! 😋
 :::

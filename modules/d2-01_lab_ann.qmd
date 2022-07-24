@@ -1,0 +1,67 @@
+---
+title: "Labels and Annotations"
+subtitle: "09:00 - 10:30"
+date: "2022-07-26"
+image: "images/ggplot2.png"
+listing:
+  - id: exercises
+    contents:
+      - ../materials/05_annotations.qmd
+    type: table
+    fields: [subtitle, title]
+    field-display-names:
+      subtitle: "Exercise"
+    sort: [filename]
+    sort-ui: false
+    filter-ui: false
+    image-placeholder: images/exercise.png
+tbl-colwidths: [5,20,75]
+---
+
+## Outline
+
+-   Labels + `theme()`
+    -   Customize Labels via \`theme()\`
+-   Labels + `scale_*()`
+    -   Format Labels via \`scale\_\*\`
+-   Labels +<br>`ggtext::element_markdown`
+    -   Styling Labels with {ggtext}
+-   Labels + `facet_*()`
+-   Facet Labellers
+-   Handling Long Labels
+    -   Handling Long Labels with {stringr}
+    -   Handling Long Labels with {ggtext}
+    -   Handling Long Labels
+-   Annotations with `annotate()`
+    -   Add Single Text Annotations
+    -   Style Text Annotations
+    -   Add Multiple Text Annotations
+    -   Add Boxes (Rectangles)
+    -   Add Boxes (Rectangles)
+    -   Add Lines (Segments)
+    -   Add Curves
+-   Annotations with \`geom\_\*()\`'s'
+    -   Highlight Hot Periods
+    -   Annotations with \`geom_text()\`
+    -   Annotations with \`geom_label()\`
+    -   Annotations with {ggrepel}
+    -   Annotations with {ggforce}
+    -   Highlight Hot Periods
+-   Adding Images
+    -   Load and Modify Image
+    -   Add Background Image
+    -   Adjust Position
+    -   Place Image Outside
+    -   Highlight Hot Periods
+
+## Slides
+
+[View slides in full screen](../materials/01_introduction.html)
+
+```{=html}
+<iframe class="slide-deck" src="../materials/05_annotations.html" height="420" width="747" style="border: 1px solid #2e3846;"></iframe>
+```
+## Exercises
+
+::: {#exercises}
+:::

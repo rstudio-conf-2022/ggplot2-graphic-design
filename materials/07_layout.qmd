@@ -2,8 +2,8 @@
 title: "Graphic Design with ggplot2"
 subtitle: "<span style='font-size:1.75em;line-height:1.1;'>Working with Layouts and Composition</span>"
 author: "<b style='color:#28a87d;'>Cédric Scherer</b> **//** rstudio::conf **//** July 2022"
-format: 
-  revealjs: 
+format:
+  revealjs:
     theme: css/style.scss
     footer: '**[Cédric Scherer](https::/cedricscherer.com) //** rstudio::conf **//** July 2022'
     #'rstudio::conf(workshop = "Graphic Design with ggplot2", instructor = "Cédric Scherer")'
@@ -22,7 +22,7 @@ format:
     mainfont: Cabinet Grotesk
 editor: source
 knitr:
-  opts_chunk: 
+  opts_chunk:
     dev: "ragg_png"
     retina: 1
     dpi: 300
@@ -40,7 +40,7 @@ execute:
 library(tidyverse)
 
 bikes <- readr::read_csv(
-  here::here("data", "london-bikes-custom.csv"), 
+  here::here("data", "london-bikes-custom.csv"),
   col_types = "Dcfffilllddddc"
 )
 
@@ -66,8 +66,8 @@ theme_update(
 pal <- c("#3c89d9", "#1ec99b", "#F7B01B", "#a26e7c")
 
 ggplot(
-    bikes, 
-    aes(x = temp_feel, y = count, 
+    bikes,
+    aes(x = temp_feel, y = count,
         color = season)
   ) +
   geom_point() +
@@ -81,8 +81,8 @@ ggplot(
 #| output-location: column
 #| code-line-numbers: "4|7"
 ggplot(
-    bikes, 
-    aes(x = temp_feel, y = count, 
+    bikes,
+    aes(x = temp_feel, y = count,
         color = humidity)
   ) +
   geom_point() +
@@ -96,8 +96,8 @@ ggplot(
 #| output-location: column
 #| code-line-numbers: "8,9,10"
 ggplot(
-    bikes, 
-    aes(x = temp_feel, y = count, 
+    bikes,
+    aes(x = temp_feel, y = count,
         color = humidity)
   ) +
   geom_point() +
@@ -114,8 +114,8 @@ ggplot(
 #| output-location: column
 #| code-line-numbers: "10"
 ggplot(
-    bikes, 
-    aes(x = temp_feel, y = count, 
+    bikes,
+    aes(x = temp_feel, y = count,
         color = humidity)
   ) +
   geom_point() +
@@ -133,8 +133,8 @@ ggplot(
 #| output-location: column
 #| code-line-numbers: "9"
 ggplot(
-    bikes, 
-    aes(x = temp_feel, y = count, 
+    bikes,
+    aes(x = temp_feel, y = count,
         color = humidity)
   ) +
   geom_point() +
@@ -151,8 +151,8 @@ ggplot(
 #| output-location: column
 #| code-line-numbers: "10"
 ggplot(
-    bikes, 
-    aes(x = temp_feel, y = count, 
+    bikes,
+    aes(x = temp_feel, y = count,
         color = humidity)
   ) +
   geom_point() +
@@ -170,8 +170,8 @@ ggplot(
 #| output-location: column
 #| code-line-numbers: "8"
 ggplot(
-    bikes, 
-    aes(x = temp_feel, y = count, 
+    bikes,
+    aes(x = temp_feel, y = count,
         color = humidity)
   ) +
   geom_point() +
@@ -191,8 +191,8 @@ ggplot(
 #| output-location: column
 #| code-line-numbers: "8"
 ggplot(
-    bikes, 
-    aes(x = temp_feel, y = count, 
+    bikes,
+    aes(x = temp_feel, y = count,
         color = humidity)
   ) +
   geom_point() +
@@ -212,8 +212,8 @@ ggplot(
 #| output-location: column
 #| code-line-numbers: "7"
 ggplot(
-    bikes, 
-    aes(x = temp_feel, y = count, 
+    bikes,
+    aes(x = temp_feel, y = count,
         color = humidity)
   ) +
   geom_point() +
@@ -233,8 +233,8 @@ ggplot(
 #| output-location: column
 #| code-line-numbers: "8"
 ggplot(
-    bikes, 
-    aes(x = temp_feel, y = count, 
+    bikes,
+    aes(x = temp_feel, y = count,
         color = humidity)
   ) +
   geom_point() +
@@ -254,8 +254,8 @@ ggplot(
 #| output-location: column
 #| code-line-numbers: "10"
 ggplot(
-    bikes, 
-    aes(x = temp_feel, y = count, 
+    bikes,
+    aes(x = temp_feel, y = count,
         color = humidity)
   ) +
   geom_point() +
@@ -278,8 +278,8 @@ ggplot(
 #| output-location: column
 #| code-line-numbers: "10"
 ggplot(
-    bikes, 
-    aes(x = temp_feel, y = count, 
+    bikes,
+    aes(x = temp_feel, y = count,
         color = humidity)
   ) +
   geom_point() +
@@ -306,8 +306,8 @@ ggplot(
 #| output-location: column
 #| code-line-numbers: "19|7,10|8,9|13,14,15"
 ggplot(
-    bikes, 
-    aes(x = temp_feel, y = count, 
+    bikes,
+    aes(x = temp_feel, y = count,
         color = humidity)
   ) +
   geom_point() +
@@ -334,8 +334,8 @@ ggplot(
 #| output-location: column
 #| code-line-numbers: "14,15"
 ggplot(
-    bikes, 
-    aes(x = temp_feel, y = count, 
+    bikes,
+    aes(x = temp_feel, y = count,
         color = humidity)
   ) +
   geom_point() +
@@ -364,8 +364,8 @@ ggplot(
 #| output-location: column
 #| code-line-numbers: "13"
 ggplot(
-    bikes, 
-    aes(x = temp_feel, y = count, 
+    bikes,
+    aes(x = temp_feel, y = count,
         color = humidity)
   ) +
   geom_point() +
@@ -393,8 +393,8 @@ ggplot(
 #| code-line-numbers: "1,2,3,4,5,6|7,8,9,10,11|12,13,14,15|16,17,18"
 ggplot(
     bikes,
-    aes(x = lubridate::week(date), 
-        y = count,   
+    aes(x = lubridate::week(date),
+        y = count,
         color = day_night)
   ) +
   stat_summary(
@@ -419,8 +419,8 @@ ggplot(
 #| code-line-numbers: "10"
 ggplot(
     bikes,
-    aes(x = lubridate::week(date), 
-        y = count,   
+    aes(x = lubridate::week(date),
+        y = count,
         color = day_night)
   ) +
   stat_summary(
@@ -446,8 +446,8 @@ ggplot(
 #| code-line-numbers: "10"
 ggplot(
     bikes,
-    aes(x = lubridate::week(date), 
-        y = count,   
+    aes(x = lubridate::week(date),
+        y = count,
         color = day_night)
   ) +
   stat_summary(
@@ -472,24 +472,24 @@ ggplot(
 #| output-location: column
 #| code-line-numbers: "1,2,3|5,6,7,8,9,10,11,12,13,14,15,16,17|18,19,20,21,22,23,24|25,26,27,28,29|30,31,32,33,34|35,36,37,38"
 library(colorspace)
-shades <- c(lighten(pal, .3), 
+shades <- c(lighten(pal, .3),
                   darken(pal, .3))
 
-g <- 
-  bikes %>% 
-  arrange(day_night, date) %>% 
+g <-
+  bikes %>%
+  arrange(day_night, date) %>%
   mutate(
     season_day = paste(
       str_to_title(season), day_night
     ),
     season_day = forcats::fct_inorder(season_day)
-  ) %>% 
+  ) %>%
   ggplot(
     aes(x = season, y = count,
         fill = season_day)
   ) +
   stat_summary(
-    geom = "col", fun = sum, 
+    geom = "col", fun = sum,
     position = position_dodge2(
       width = .2, padding = .1
     )
@@ -502,7 +502,7 @@ g <-
   ) +
   scale_y_continuous(
     labels = scales::comma_format(),
-    expand = c(0, 0), 
+    expand = c(0, 0),
     limits = c(NA, 4500000)
   ) +
   theme(
@@ -532,7 +532,7 @@ g +
 #| fig-align: "center"
 #| code-line-numbers: "2"
 g +
-  guides(fill = guide_legend(byrow = TRUE)) + 
+  guides(fill = guide_legend(byrow = TRUE)) +
   theme(legend.position = "top")
 ```
 
@@ -569,10 +569,10 @@ theme_update(
   plot.background = element_rect(fill = "white", color = "white")
 )
 
-bikes_sorted <- 
-  bikes %>% 
-  filter(!is.na(weather_type)) %>% 
-  group_by(weather_type) %>% 
+bikes_sorted <-
+  bikes %>%
+  filter(!is.na(weather_type)) %>%
+  group_by(weather_type) %>%
   mutate(sum = sum(count)) %>%
   ungroup() %>%
   mutate(
@@ -590,7 +590,7 @@ p1 <- ggplot(
     geom = "point", fun = "sum", size = 12
   ) +
   stat_summary(
-    geom = "linerange", ymin = 0, fun.max = function(y) sum(y), 
+    geom = "linerange", ymin = 0, fun.max = function(y) sum(y),
     size = 2, show.legend = FALSE
   ) +
   coord_flip(ylim = c(0, NA), clip = "off") +
@@ -609,7 +609,7 @@ p1 <- ggplot(
     axis.line.y = element_blank(),
     axis.text.y = element_text(family = "Pally", color = "grey50", face = "bold",
                                margin = margin(r = 15), lineheight = .9)
-  ) 
+  )
 
 p1
 ```
@@ -632,10 +632,10 @@ p1
 #| fig-width: 10
 #| fig-height: 5.8
 #| echo: false
-p2 <- bikes_sorted %>% 
-  filter(season == "winter", is_weekend == TRUE, day_night == "night") %>% 
-  group_by(weather_type, .drop = FALSE) %>% 
-  mutate(id = row_number()) %>% 
+p2 <- bikes_sorted %>%
+  filter(season == "winter", is_weekend == TRUE, day_night == "night") %>%
+  group_by(weather_type, .drop = FALSE) %>%
+  mutate(id = row_number()) %>%
   ggplot(
       aes(x = weather_type, y = id, color = weather_type)
     ) +
@@ -672,11 +672,11 @@ p2
 #| echo: false
 my_colors <- c("#cc0000", "#000080")
 
-p3 <- bikes %>% 
-  group_by(week = lubridate::week(date), day_night, year) %>% 
-  summarize(count = sum(count)) %>% 
-  group_by(week, day_night) %>% 
-  mutate(avg = mean(count)) %>% 
+p3 <- bikes %>%
+  group_by(week = lubridate::week(date), day_night, year) %>%
+  summarize(count = sum(count)) %>%
+  group_by(week, day_night) %>%
+  mutate(avg = mean(count)) %>%
   ggplot(aes(x = week, y = count, group = interaction(day_night, year))) +
     geom_line(color = "grey65", size = 1) +
     geom_line(aes(y = avg, color = day_night), stat = "unique", size = 1.7) +
@@ -689,7 +689,7 @@ p3 <- bikes %>%
     scale_color_manual(values = my_colors, guide = "none") +
     labs(
       x = "Week of the Year", y = "Reported bike shares\n(cumulative # per week)", tag = "P3",
-    ) 
+    )
 
 p3
 ```
@@ -753,7 +753,7 @@ library(patchwork)
 #| fig-height: 12
 #| fig-align: "center"
 #| code-line-numbers: "2"
-((p1 + p2) / p3 & theme(legend.position = "none")) + 
+((p1 + p2) / p3 & theme(legend.position = "none")) +
   plot_layout(heights = c(.2, .15), widths = c(1.4, 1))
 ```
 
@@ -769,7 +769,7 @@ picasso <- "
 AAAAAABBBBB
 CCCCCCCCCCC
 CCCCCCCCCCC"
-(p1 + p2 + p3 & theme(legend.position = "none")) + plot_layout(design = picasso) 
+(p1 + p2 + p3 & theme(legend.position = "none")) + plot_layout(design = picasso)
 ```
 
 ## Add Labels

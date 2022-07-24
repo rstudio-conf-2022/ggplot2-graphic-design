@@ -39,12 +39,13 @@ execute:
 #| label: prep
 library(tidyverse)
 
+library(tidyverse)
+
 bikes <- readr::read_csv(
-  "https://raw.githubusercontent.com/z3tt/graphic-design-ggplot2/main/data/london-bikes.csv", 
+  here::here("data", "london-bikes-custom.csv"), 
   col_types = "Dcfffilllddddc"
 )
 
-#bikes$season <- factor(bikes$season, levels = c("spring", "summer", "autumn", "winter"))
 bikes$season <- forcats::fct_inorder(bikes$season)
 
 theme_set(theme_light(base_size = 14, base_family = "Roboto Condensed"))

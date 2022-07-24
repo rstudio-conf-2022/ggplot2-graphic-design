@@ -2,8 +2,8 @@
 title: "Graphic Design with ggplot2"
 subtitle: "<span style='font-size:1.75em;line-height:1.1;'>Concepts of the <code>{ggplot2}</code> Package Pt. 1:<br><span style='font-weight:500;'>Solution Exercise 2</span></span>"
 author: "<b style='color:#28a87d;'>Cédric Scherer</b> **//** rstudio::conf **//** July 2022"
-format: 
-  revealjs: 
+format:
+  revealjs:
     theme: css/style.scss
     footer: '**[Cédric Scherer](https::/cedricscherer.com) //** rstudio::conf **//** July 2022'
     #'rstudio::conf(workshop = "Graphic Design with ggplot2", instructor = "Cédric Scherer")'
@@ -22,7 +22,7 @@ format:
     mainfont: Cabinet Grotesk
 editor: source
 knitr:
-  opts_chunk: 
+  opts_chunk:
     dev: "ragg_png"
     retina: 1
     dpi: 300
@@ -54,7 +54,7 @@ execute:
 ```{r}
 #| label: import-data-exercise
 bikes <- readr::read_csv(
-  here::here("data", "london-bikes-custom.csv"), 
+  here::here("data", "london-bikes-custom.csv"),
   col_types = "Dcfffilllddddc"
 )
 
@@ -71,7 +71,7 @@ library(tidyverse)
 #| label: concepts-pt1-exercise-2-1
 #| output-location: column
 ggplot(
-    bikes, 
+    bikes,
     aes(x = weather_type, y = count)
   ) +
   geom_boxplot()
@@ -86,7 +86,7 @@ ggplot(
 #| output-location: column
 #| code-line-numbers: "3"
 ggplot(
-    bikes, 
+    bikes,
     aes(x = count, y = weather_type)
   ) +
   geom_boxplot()
@@ -101,8 +101,8 @@ ggplot(
 #| output-location: column
 #| code-line-numbers: "3,4"
 ggplot(
-    bikes, 
-    aes(x = stringr::str_wrap(weather_type, 6), 
+    bikes,
+    aes(x = stringr::str_wrap(weather_type, 6),
         y = count)
   ) +
   geom_boxplot()
@@ -122,8 +122,8 @@ theme_set(theme_minimal(
 ))
 
 ggplot(
-    bikes, 
-    aes(x = stringr::str_wrap(weather_type, 6), 
+    bikes,
+    aes(x = stringr::str_wrap(weather_type, 6),
         y = count)
   ) +
   geom_boxplot()
@@ -148,8 +148,8 @@ theme_update(
 )
 
 ggplot(
-    bikes, 
-    aes(x = stringr::str_wrap(weather_type, 6), 
+    bikes,
+    aes(x = stringr::str_wrap(weather_type, 6),
         y = count)
   ) +
   geom_boxplot()
@@ -164,8 +164,8 @@ ggplot(
 #| output-location: column
 #| code-line-numbers: "3,4"
 ggplot(
-    bikes, 
-    aes(x = stringr::str_wrap(weather_type, 6), 
+    bikes,
+    aes(x = stringr::str_wrap(weather_type, 6),
         y = count)
   ) +
   geom_boxplot() +
@@ -181,8 +181,8 @@ ggplot(
 #| output-location: column
 #| code-line-numbers: "8,9"
 ggplot(
-    bikes, 
-    aes(x = stringr::str_wrap(weather_type, 6), 
+    bikes,
+    aes(x = stringr::str_wrap(weather_type, 6),
         y = count)
   ) +
   geom_boxplot() +
@@ -206,8 +206,8 @@ theme_update(
 )
 
 ggplot(
-    bikes, 
-    aes(x = stringr::str_wrap(weather_type, 6), 
+    bikes,
+    aes(x = stringr::str_wrap(weather_type, 6),
         y = count)
   ) +
   geom_boxplot() +
@@ -222,8 +222,8 @@ ggplot(
 #| output-location: column
 #| code-line-numbers: "5,6,7"
 ggplot(
-    bikes, 
-    aes(x = stringr::str_wrap(weather_type, 6), 
+    bikes,
+    aes(x = stringr::str_wrap(weather_type, 6),
         y = count)
   ) +
   geom_jitter(
@@ -242,8 +242,8 @@ ggplot(
 #| fig-height: 2.9
 #| code-line-numbers: "6,7,9"
 ggplot(
-    bikes, 
-    aes(x = str_wrap(weather_type, 6), 
+    bikes,
+    aes(x = str_wrap(weather_type, 6),
         y = count)
   ) +
   geom_point(
@@ -257,14 +257,14 @@ ggplot(
 #| fig-height: 2.9
 #| code-line-numbers: "6,7,9"
 ggplot(
-    bikes, 
-    aes(x = str_wrap(weather_type, 6), 
+    bikes,
+    aes(x = str_wrap(weather_type, 6),
         y = count)
   ) +
   geom_point(
     position = position_jitter(),
     alpha = .2
-  ) 
+  )
 ```
 :::
 
@@ -277,14 +277,14 @@ ggplot(
 #| output-location: column
 #| code-line-numbers: "7,8,9,10,11"
 ggplot(
-    bikes, 
-    aes(x = str_wrap(weather_type, 6), 
+    bikes,
+    aes(x = str_wrap(weather_type, 6),
         y = count)
   ) +
   geom_point(
     position = position_jitter(
       seed = 2022,
-      width = .2, 
+      width = .2,
       height = 0
     ),
     alpha = .2
@@ -301,15 +301,15 @@ ggplot(
 #| output-location: column
 #| code-line-numbers: "6"
 ggplot(
-    bikes, 
-    aes(x = str_wrap(weather_type, 6), 
+    bikes,
+    aes(x = str_wrap(weather_type, 6),
         y = count)
   ) +
   geom_boxplot() +
   geom_point(
     position = position_jitter(
       seed = 2022,
-      width = .2, 
+      width = .2,
       height = 0
     ),
     alpha = .2
@@ -326,8 +326,8 @@ ggplot(
 #| output-location: column
 #| code-line-numbers: "7,8,9"
 ggplot(
-    bikes, 
-    aes(x = str_wrap(weather_type, 6), 
+    bikes,
+    aes(x = str_wrap(weather_type, 6),
         y = count)
   ) +
   geom_boxplot(
@@ -338,7 +338,7 @@ ggplot(
   geom_point(
     position = position_jitter(
       seed = 2022,
-      width = .2, 
+      width = .2,
       height = 0
     ),
     alpha = .2
@@ -355,11 +355,11 @@ ggplot(
 #| output-location: column
 #| code-line-numbers: "4,5,6"
 ggplot(
-    bikes, 
+    bikes,
     aes(
       x = forcats::fct_reorder(
         str_wrap(weather_type, 6), -count
-      ), 
+      ),
       y = count)
   ) +
   geom_boxplot(
@@ -370,7 +370,7 @@ ggplot(
   geom_point(
     position = position_jitter(
       seed = 2022,
-      width = .2, 
+      width = .2,
       height = 0
     ),
     alpha = .2
@@ -384,14 +384,14 @@ ggplot(
 
 ```{r}
 #| label: concepts-pt1-exercise-2-16
-ggsave(here::here("exercises", "plots", "02_concepts_pt1_ex2.pdf"), 
+ggsave(here::here("exercises", "plots", "02_concepts_pt1_ex2.pdf"),
        width = 5, height = 6.5, device = cairo_pdf)
 ```
 
 ```{r}
 #| label: concepts-pt1-exercise-2-16-png
 #| include: false
-ggsave(here::here("exercises", "plots", "02_concepts_pt1_ex2.png"), 
+ggsave(here::here("exercises", "plots", "02_concepts_pt1_ex2.png"),
        width = 5, height = 6.5, dpi = 350, bg = "white")
 ```
 
@@ -410,12 +410,12 @@ ggsave(here::here("exercises", "plots", "02_concepts_pt1_ex2.png"),
 
 ```{r}
 #| label: sort-weather-type
-bikes <- 
-  bikes %>% 
+bikes <-
+  bikes %>%
   mutate(
     weather_type_fct = stringr::str_wrap(
       weather_type, 6
-    ), 
+    ),
     weather_type_fct = forcats::fct_reorder(
       weather_type_fct, -count
     )
@@ -430,10 +430,10 @@ levels(bikes$weather_type_fct)
 
 ```{r}
 #| label: store-basic-setup
-g <- 
+g <-
   ggplot(
-    bikes, 
-    aes(x = weather_type_fct, 
+    bikes,
+    aes(x = weather_type_fct,
         y = count)
   ) +
   ggtitle(
@@ -455,7 +455,7 @@ g +
   ) +
   ggbeeswarm::geom_beeswarm(
     size = .3,
-    alpha = .2, 
+    alpha = .2,
     cex = .6
   )
 ```
@@ -473,7 +473,7 @@ g +
      outlier.shape = NA
   ) +
   ggbeeswarm::geom_quasirandom(
-    size = .3, 
+    size = .3,
     alpha = .2,
     width = .3,
     varwidth = TRUE
@@ -517,7 +517,7 @@ g +
     size = 8,
     alpha = .1,
     position = position_nudge(x = -.15)
-  ) 
+  )
 ```
 
 
@@ -545,7 +545,7 @@ g +
     scale = "count",
     draw_quantiles = c(.5),
     fill = "grey80"
-  ) 
+  )
 ```
 
 
@@ -648,7 +648,7 @@ g +
     width = .1,
     size = .5,
     alpha = .1
-  ) 
+  )
 ```
 
 
@@ -674,7 +674,7 @@ g +
     width = .1,
     size = .5,
     alpha = .1
-  ) 
+  )
 ```
 
 
@@ -697,8 +697,8 @@ g +
     outlier.size = .2
   ) +
   gghalves::geom_half_point(
-    side = "l", 
-    range_scale = .4, 
+    side = "l",
+    range_scale = .4,
     size = .3,
     alpha = .1
   )
@@ -724,8 +724,8 @@ g +
     outlier.size = .2
   ) +
   gghalves::geom_half_point(
-    side = "l", 
-    range_scale = .4, 
+    side = "l",
+    range_scale = .4,
     size = .3,
     alpha = .1
   ) +

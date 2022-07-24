@@ -1,6 +1,6 @@
 #------------------------------------------------------------------------------#
 #                                                                              #
-#                         Graphic Design with ggplot2:                         # 
+#                         Graphic Design with ggplot2:                         #
 #            How to Create Engaging and Complex Visualizations in R            #
 #                                                                              #
 #                   Concepts of the {ggplot2} Package: Part 1                  #
@@ -29,7 +29,7 @@ library(tidyverse)
 
 ## -----------------------------------------------------------------------------
 bikes <- readr::read_csv(
-  here::here("data", "london-bikes-custom.csv"), 
+  here::here("data", "london-bikes-custom.csv"),
   col_types = "Dcfffilllddddc"
 )
 
@@ -43,7 +43,7 @@ bikes$season <- forcats::fct_inorder(bikes$season)
 
 
 ## -----------------------------------------------------------------------------
-ggplot(data = bikes) 
+ggplot(data = bikes)
 
 
 
@@ -82,7 +82,7 @@ ggplot(bikes, aes(x = temp_feel, y = count))
 
 ## -----------------------------------------------------------------------------
 ggplot(
-    bikes, 
+    bikes,
     aes(x = temp_feel, y = count)
   ) +
   geom_point()
@@ -90,7 +90,7 @@ ggplot(
 
 ## -----------------------------------------------------------------------------
 ggplot(
-    bikes, 
+    bikes,
     aes(x = temp_feel, y = count)
   ) +
   geom_point(
@@ -104,7 +104,7 @@ ggplot(
 
 ## -----------------------------------------------------------------------------
 ggplot(
-    bikes, 
+    bikes,
     aes(x = temp_feel, y = count)
   ) +
   geom_point(
@@ -115,7 +115,7 @@ ggplot(
 
 ## -----------------------------------------------------------------------------
 ggplot(
-    bikes, 
+    bikes,
     aes(x = temp_feel, y = count)
   ) +
   geom_point(
@@ -126,7 +126,7 @@ ggplot(
 
 ## -----------------------------------------------------------------------------
 ggplot(
-    bikes, 
+    bikes,
     aes(x = temp_feel, y = count)
   ) +
   geom_point(
@@ -150,7 +150,7 @@ ggplot(
 
 ## -----------------------------------------------------------------------------
 ggplot(
-    bikes, 
+    bikes,
     aes(x = temp, y = temp_feel)
   ) +
   geom_point(
@@ -162,7 +162,7 @@ ggplot(
 
 ## -----------------------------------------------------------------------------
 ggplot(
-    bikes, 
+    bikes,
     aes(x = temp, y = temp_feel)
   ) +
   geom_point(
@@ -213,7 +213,7 @@ ggplot(
 
 ## -----------------------------------------------------------------------------
 ggplot(
-    bikes, 
+    bikes,
     aes(x = temp, y = temp_feel)
   ) +
   geom_point(
@@ -240,7 +240,7 @@ ggplot(
 
 ## -----------------------------------------------------------------------------
 ggplot(
-    filter(bikes, !is.na(weather_type)), 
+    filter(bikes, !is.na(weather_type)),
     aes(x = temp, y = temp_feel)
   ) +
   geom_point(
@@ -253,7 +253,7 @@ ggplot(
 
 ## -----------------------------------------------------------------------------
 ggplot(
-    bikes %>% filter(!is.na(weather_type)), 
+    bikes %>% filter(!is.na(weather_type)),
     aes(x = temp, y = temp_feel)
   ) +
   geom_point(
@@ -266,7 +266,7 @@ ggplot(
 
 ## -----------------------------------------------------------------------------
 ggplot(
-    bikes, 
+    bikes,
     aes(x = temp_feel, y = count)
   ) +
   geom_point(
@@ -277,7 +277,7 @@ ggplot(
 
 ## -----------------------------------------------------------------------------
 ggplot(
-    bikes, 
+    bikes,
     aes(x = temp_feel, y = count,
         color = season)
   ) +
@@ -288,21 +288,7 @@ ggplot(
 
 ## -----------------------------------------------------------------------------
 ggplot(
-    bikes, 
-    aes(x = temp_feel, y = count,
-        color = season)
-  ) +
-  geom_point(
-    alpha = .5
-  ) +
-  geom_smooth(
-    method = "lm"
-  )
-
-
-## -----------------------------------------------------------------------------
-ggplot(
-    bikes, 
+    bikes,
     aes(x = temp_feel, y = count,
         color = season)
   ) +
@@ -316,7 +302,21 @@ ggplot(
 
 ## -----------------------------------------------------------------------------
 ggplot(
-    bikes, 
+    bikes,
+    aes(x = temp_feel, y = count,
+        color = season)
+  ) +
+  geom_point(
+    alpha = .5
+  ) +
+  geom_smooth(
+    method = "lm"
+  )
+
+
+## -----------------------------------------------------------------------------
+ggplot(
+    bikes,
     aes(x = temp_feel, y = count)
   ) +
   geom_point(
@@ -330,7 +330,7 @@ ggplot(
 
 ## -----------------------------------------------------------------------------
 ggplot(
-    bikes, 
+    bikes,
     aes(x = temp_feel, y = count)
   ) +
   geom_point(
@@ -345,7 +345,7 @@ ggplot(
 
 ## -----------------------------------------------------------------------------
 ggplot(
-    bikes, 
+    bikes,
     aes(x = temp_feel, y = count,
         color = season,
         group = day_night)
@@ -360,7 +360,7 @@ ggplot(
 
 ## -----------------------------------------------------------------------------
 ggplot(
-    bikes, 
+    bikes,
     aes(x = temp_feel, y = count,
         color = season,
         group = day_night)
@@ -380,9 +380,9 @@ ggplot(
 
 
 ## -----------------------------------------------------------------------------
-g <- 
+g <-
   ggplot(
-    bikes, 
+    bikes,
     aes(x = temp_feel, y = count,
         color = season,
         group = day_night)
@@ -591,4 +591,3 @@ ggsave("my_plot.pdf", width = 20, height = 12, unit = "cm", device = cairo_pdf)
 grDevices::cairo_pdf("my_plot.pdf", width = 10, height = 7)
 g
 dev.off()
-
