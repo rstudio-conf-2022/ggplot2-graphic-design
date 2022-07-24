@@ -20,7 +20,7 @@ format:
       buttons: true
     pause: true
     mainfont: Cabinet Grotesk
-editor: visual
+editor: source
 knitr:
   opts_chunk: 
     dev: "ragg_png"

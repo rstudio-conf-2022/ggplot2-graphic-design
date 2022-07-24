@@ -29,7 +29,7 @@ library(tidyverse)
 
 ## -----------------------------------------------------------------------------
 bikes <- readr::read_csv(
-  "https://raw.githubusercontent.com/z3tt/graphic-design-ggplot2/main/data/london-bikes-custom.csv", 
+  here::here("data", "london-bikes-custom.csv"), 
   col_types = "Dcfffilllddddc"
 )
 

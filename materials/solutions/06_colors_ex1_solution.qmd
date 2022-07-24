@@ -1,0 +1,469 @@
+---
+title: "Graphic Design with ggplot2"
+subtitle: "<span style='font-size:1.75em;line-height:1.1;'>Working with Colors:<br><span style='font-weight:500;'>Solution Exercise 1</span></span>"
+author: "<b style='color:#28a87d;'>Cédric Scherer</b> **//** rstudio::conf **//** July 2022"
+format: 
+  revealjs: 
+    theme: css/style.scss
+    footer: '**[Cédric Scherer](https::/cedricscherer.com) //** rstudio::conf **//** July 2022'
+    #'rstudio::conf(workshop = "Graphic Design with ggplot2", instructor = "Cédric Scherer")'
+    transition: fade
+    progress: true
+    multiplex: false
+    preview-links: true
+    scrollable: false
+    hide-inactive-cursor: true
+    highlight-style: printing
+    chalkboard:
+      theme: whiteboard
+      boardmarker-width: 4
+      buttons: true
+    pause: true
+    mainfont: Cabinet Grotesk
+editor: source
+knitr:
+  opts_chunk: 
+    dev: "ragg_png"
+    retina: 1
+    dpi: 300
+execute:
+  freeze: auto
+  echo: true
+  fig-width: 5
+  fig-height: 6
+---
+
+## Exercise
+
+::: question
+-   **Create a similar visualization as close as possible:**
+:::
+
+```{r}
+#| label: exercise-jittered-errorbars
+#| echo: false
+#| fig-width: 10
+#| fig-align: "center"
+library(tidyverse)
+library(colorspace)
+library(ggtext)
+
+bikes <- readr::read_csv(
+  "https://raw.githubusercontent.com/z3tt/graphic-design-ggplot2/main/data/london-bikes-custom.csv", 
+  col_types = "Dcfffilllddddc"
+)
+
+bikes$season <- forcats::fct_inorder(bikes$season)
+
+colors <- c("#987708", "#663399")
+
+ggplot(bikes, aes(x = season, y = count)) +
+  ggforce::geom_sina(
+    aes(
+      color = stage(
+        day_night, after_scale = lighten(color, .6)
+    )),
+    position = position_dodge(width = .6),
+    alpha = .5
+  ) + 
+  stat_summary(
+    aes(color = day_night),
+    position = position_dodge(width = .6),
+    fun = mean,
+    fun.max = function(y) mean(y) + sd(y),
+    fun.min = function(y) mean(y) - sd(y),
+    size = .8
+  ) +
+  stat_summary(
+    geom = "text",
+    aes(
+      color = day_night,
+      label = paste0(sprintf("%2.1f", stat(y) / 1000), "K")
+    ),
+    position = position_dodge(width = .6),
+    hjust = -.2, size = 5.5, family = "Tabular", fontface = "bold"
+  ) +
+  coord_cartesian(clip = "off") +
+  scale_x_discrete(
+    labels = str_to_title
+  ) +
+  scale_y_continuous(
+    labels = scales::comma_format(), 
+    expand = c(0, 0), 
+    limits = c(0, NA)
+  ) +
+  scale_color_manual(values = colors) +
+  labs(
+    x = NULL, y = NULL,
+    title = paste0("Reported bike shares in London during <span style='color:", colors[1], ";'>day</span> and <span style='color:", colors[2], ";'>night</span> times"),
+    subtitle = "TfL bike sharing data from 2015 to 2016 per season and time of day.\nErrorbars show the mean ± standard deviation."
+  ) +
+  theme_minimal(base_size = 18, base_family = "Cabinet Grotesk") +
+  theme(
+    legend.position = "none",
+    panel.grid.major.x = element_blank(),
+    panel.grid.minor = element_blank(),
+    plot.title.position = "plot",
+    plot.title = ggtext::element_markdown(face = "bold", size = 26),
+    plot.subtitle = element_text(color = "grey30", margin = margin(t = 6, b = 12)),
+    axis.text.x = element_text(size = 17, face = "bold"),
+    axis.text.y = element_text(family = "Tabular"),
+    axis.line.x = element_line(size = 1.2, color = "grey65"),
+    plot.margin = margin(rep(15, 4))
+  )
+```
+
+## Import the Data Set
+
+```{r}
+#| label: import-data-exercise
+library(tidyverse)
+
+bikes <- readr::read_csv(
+  "https://raw.githubusercontent.com/z3tt/graphic-design-ggplot2/main/data/london-bikes-custom.csv", 
+  col_types = "Dcfffilllddddc"
+)
+
+bikes$season <- forcats::fct_inorder(bikes$season)
+```
+
+## Create Sina Plot
+
+```{r}
+#| label: colors-exercise-ex-1-1
+#| eval: false
+#| code-line-numbers: "5,6,7,8,9|7"
+ggplot(
+    bikes, 
+    aes(x = season, y = count)
+  ) +
+  ggforce::geom_sina(
+    aes(color = day_night),
+    position = position_dodge(width = .6),
+    alpha = .5
+  ) +
+  theme_minimal(
+    base_size = 18, 
+    base_family = "Cabinet Grotesk"
+  )
+```
+
+## Create Sina Plot
+
+```{r}
+#| label: colors-exercise-ex-1-1
+#| echo: false
+#| fig-width: 10
+#| fig-align: "center"
+```
+
+## Add Errorbars
+
+```{r}
+#| label: colors-exercise-ex-1-2
+#| eval: false
+#| code-line-numbers: "10,11,12,13,14|6,11|7,12"
+ggplot(
+    bikes, 
+    aes(x = season, y = count)
+  ) +
+  ggforce::geom_sina(
+    aes(color = day_night),
+    position = position_dodge(width = .6),
+    alpha = .5
+  ) + 
+  stat_summary(
+    aes(color = day_night),
+    position = position_dodge(width = .6),
+    size = .8
+  ) +
+  theme_minimal(
+    base_size = 18, 
+    base_family = "Cabinet Grotesk"
+  )
+```
+
+## Add Errorbars
+
+```{r}
+#| label: colors-exercise-ex-1-2
+#| echo: false
+#| fig-width: 10
+#| fig-align: "center"
+```
+
+## Use Lighter Point Colors
+
+```{r}
+#| label: colors-exercise-ex-1-3
+#| eval: false
+#| code-line-numbers: "6,7,8,9"
+ggplot(
+    bikes, 
+    aes(x = season, y = count)
+  ) +
+  ggforce::geom_sina(
+    aes(color = stage(
+      day_night, 
+      after_scale = lighten(color, .6)
+    )),
+    position = position_dodge(width = .6),
+    alpha = .5
+  ) + 
+  stat_summary(
+    aes(color = day_night),
+    position = position_dodge(width = .6),
+    size = .8
+  ) +
+  theme_minimal(
+    base_size = 18, 
+    base_family = "Cabinet Grotesk"
+  )
+```
+
+## Use Lighter Point Colors
+
+```{r}
+#| label: colors-exercise-ex-1-3
+#| echo: false
+#| fig-width: 10
+#| fig-align: "center"
+```
+
+## Use Standard Deviation
+
+```{r}
+#| label: colors-exercise-ex-1-4
+#| eval: false
+#| code-line-numbers: "15,16,17"
+p1 <- ggplot(
+    bikes, 
+    aes(x = season, y = count)
+  ) +
+  ggforce::geom_sina(
+    aes(color = stage(
+      day_night, 
+      after_scale = lighten(color, .6)
+    )),
+    position = position_dodge(width = .6),
+    alpha = .5
+  ) + 
+  stat_summary(
+    aes(color = day_night),
+    fun = mean,
+    fun.max = function(y) mean(y) + sd(y),
+    fun.min = function(y) mean(y) - sd(y),
+    position = position_dodge(width = .6),
+    size = .8
+  ) +
+  theme_minimal(
+    base_size = 18, 
+    base_family = "Cabinet Grotesk"
+  )
+
+p1
+```
+
+## Add Annotations
+
+```{r}
+#| label: colors-exercise-ex-1-4
+#| echo: false
+#| fig-width: 10
+#| fig-align: "center"
+```
+
+## Add Annotations
+
+```{r}
+#| label: colors-exercise-ex-1-5
+#| eval: false
+#| code-line-numbers: "2,3,4,5,6,7,8,9,10,11,12,13|3|6,7,8|10"
+p2 <- p1 +
+  stat_summary(
+    geom = "text",
+    aes(
+      color = day_night,
+      label = paste0(
+        sprintf("%2.1f", stat(y) / 1000), "K"
+      )
+    ),
+    position = position_dodge(width = .6),
+    hjust = -.2, family = "Tabular", 
+    size = 5.5, fontface = "bold"
+  ) 
+
+p2
+```
+
+## Add Annotations
+
+```{r}
+#| label: colors-exercise-ex-1-5
+#| echo: false
+#| fig-width: 10
+#| fig-align: "center"
+```
+
+## Adjust Axes + Clipping
+
+```{r}
+#| label: colors-exercise-ex-1-6
+#| eval: false
+#| code-line-numbers: "2|3,4,5|6,7,8,9,10"
+p3 <- p2 +
+  coord_cartesian(clip = "off") +
+  scale_x_discrete(
+    labels = str_to_title
+  ) +
+  scale_y_continuous(
+    labels = scales::comma_format(), 
+    expand = c(0, 0), 
+    limits = c(0, NA)
+  ) 
+
+p3
+```
+
+## Adjust Axes + Clipping
+
+```{r}
+#| label: colors-exercise-ex-1-6
+#| echo: false
+#| fig-width: 10
+#| fig-align: "center"
+```
+
+## Add Colors + Labels
+
+```{r}
+#| label: colors-exercise-ex-1-7
+#| eval: false
+#| code-line-numbers: "1|4,5,6|7,8,9,10,11"
+colors <- c("#987708", "#663399")
+
+p4 <- p3  +
+  scale_color_manual(
+    values = colors
+  ) +
+  labs(
+    x = NULL, y = NULL,
+    title = paste0("Reported bike shares in London during <span style='color:", colors[1], ";'>day</span> and <span style='color:", colors[2], ";'>night</span> times"),
+    subtitle = "TfL bike sharing data from 2015 to 2016 per season and time of day.\nErrorbars show the mean ± standard deviation."
+  )
+
+p4
+```
+
+## Add Colors + Labels
+
+```{r}
+#| label: colors-exercise-ex-1-7
+#| echo: false
+#| fig-width: 10
+#| fig-align: "center"
+```
+
+## Theme Styling
+
+```{r}
+#| label: colors-exercise-ex-1-8
+#| eval: false
+#| code-line-numbers: "2|3,4|5,6,7|8,9|10|11"
+p4 +
+  theme(
+    legend.position = "none",
+    panel.grid.major.x = element_blank(),
+    panel.grid.minor = element_blank(),
+    plot.title.position = "plot",
+    plot.title = ggtext::element_markdown(face = "bold", size = 26),
+    plot.subtitle = element_text(color = "grey30", margin = margin(t = 6, b = 12)),
+    axis.text.x = element_text(size = 17, face = "bold"),
+    axis.text.y = element_text(family = "Tabular"),
+    axis.line.x = element_line(size = 1.2, color = "grey65"),
+    plot.margin = margin(rep(15, 4))
+  )
+```
+
+## Theme Styling
+
+```{r}
+#| label: colors-exercise-ex-1-8
+#| echo: false
+#| fig-width: 10
+#| fig-align: "center"
+```
+
+## Full Code
+
+```{r}
+#| label: exercise-jittered-errorbars-full-code
+#| eval: false
+library(tidyverse)
+library(colorspace)
+library(ggtext)
+
+bikes <- readr::read_csv(
+  "https://raw.githubusercontent.com/z3tt/graphic-design-ggplot2/main/data/london-bikes-custom.csv", 
+  col_types = "Dcfffilllddddc"
+)
+
+bikes$season <- forcats::fct_inorder(bikes$season)
+
+colors <- c("#987708", "#663399")
+
+ggplot(bikes, aes(x = season, y = count)) +
+  ggforce::geom_sina(
+    aes(
+      color = stage(
+        day_night, after_scale = lighten(color, .6)
+    )),
+    position = position_dodge(width = .6),
+    alpha = .5
+  ) + 
+  stat_summary(
+    aes(color = day_night),
+    position = position_dodge(width = .6),
+    fun = mean,
+    fun.max = function(y) mean(y) + sd(y),
+    fun.min = function(y) mean(y) - sd(y),
+    size = .8
+  ) +
+  stat_summary(
+    geom = "text",
+    aes(
+      color = day_night,
+      label = paste0(sprintf("%2.1f", stat(y) / 1000), "K")
+    ),
+    position = position_dodge(width = .6),
+    hjust = -.2, size = 5.5, family = "Tabular", fontface = "bold"
+  ) +
+  coord_cartesian(clip = "off") +
+  scale_x_discrete(
+    labels = str_to_title
+  ) +
+  scale_y_continuous(
+    labels = scales::comma_format(), 
+    expand = c(0, 0), 
+    limits = c(0, NA)
+  ) +
+  scale_color_manual(values = colors) +
+  labs(
+    x = NULL, y = NULL,
+    title = paste0("Reported bike shares in London during <span style='color:", colors[1], ";'>day</span> and <span style='color:", colors[2], ";'>night</span> times"),
+    subtitle = "TfL bike sharing data from 2015 to 2016 per season and time of day.\nErrorbars show the mean ± standard deviation."
+  ) +
+  theme_minimal(base_size = 18, base_family = "Cabinet Grotesk") +
+  theme(
+    legend.position = "none",
+    panel.grid.major.x = element_blank(),
+    panel.grid.minor = element_blank(),
+    plot.title.position = "plot",
+    plot.title = element_markdown(face = "bold", size = 26),
+    plot.subtitle = element_text(color = "grey30", margin = margin(t = 6, b = 12)),
+    axis.text.x = element_text(size = 17, face = "bold"),
+    axis.text.y = element_text(family = "Tabular"),
+    axis.line.x = element_line(size = 1.2, color = "grey65"),
+    plot.margin = margin(rep(15, 4))
+  )
+```
