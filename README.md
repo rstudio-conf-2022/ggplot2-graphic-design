@@ -46,8 +46,7 @@ The workshop will also cover the basic logic of ggplot2 and its compontents. How
 
 The example codes and the hands-on workshop parts are run in the Rstudio cloud. Thus, nothing but a laptop is needed.
 
-
-If you want to run  the workshop content locally on your machine, please make sure to install a suitable IDE (Rstudio, VS Code or others), a recent version of R (4.1+) and the following packages and typefaces.
+If you want to run the workshop content locally on your machine, please make sure to install a suitable IDE (Rstudio, VS Code or others), a recent version of R (4.1+) and the following packages and typefaces.
 
 ### R Packages Installation
 
@@ -106,7 +105,7 @@ If you want to run  the workshop content locally on your machine, please make su
     remotes::install_github("wilkelab/cowplot")
     remotes::install_github("clauswilke/colorblindr")
 
-### Typeface Installation 
+### Typeface Installation
 
 We will make use of custom fonts. If you want to follow all contents, make sure the following typefaces are installed:
 
@@ -117,34 +116,6 @@ We will make use of custom fonts. If you want to follow all contents, make sure 
 -   Pally: [fontshare.com/fonts/pally](www.fontshare.com/fonts/pally)
 
 *For Mac OS users:* Please make sure that [XQuartz is installed](https://www.xquartz.org/) which is needed to use the cairo pdf device.
-
-## Schedule
-
-### Day 1
-
-| Time          | Activity                   |
-|:--------------|:---------------------------|
-| 09:00 - 09:30 | Introduction               |
-| 09:30 - 10:30 | Concepts Pt. 1             |
-| 10:30 - 11:00 | *Coffee break*             |
-| 11:00 - 12:00 | Concepts Pt. 1 (continued) |
-| 12:00 - 12:30 | Concepts Pt. 2             |
-| 12:30 - 13:30 | *Lunch break*              |
-| 13:30 - 15:00 | Concepts Pt. 2 (continued) |
-| 15:00 - 15:30 | *Coffee break*             |
-| 15:30 - 17:00 | Data Communication         |
-
-### Day 2
-
-| Time          | Activity               |
-|:--------------|:-----------------------|
-| 09:00 - 10:30 | Labels and Annotations |
-| 10:30 - 11:00 | *Coffee break*         |
-| 11:00 - 12:30 | Colors                 |
-| 12:30 - 13:30 | *Lunch break*          |
-| 13:30 - 15:00 | Layout and Composition |
-| 15:00 - 15:30 | *Coffee break*         |
-| 15:30 - 17:00 | Group Project          |
 
 ## Instructor
 
