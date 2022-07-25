@@ -1,5 +1,5 @@
 ---
-title: Graphic Design with ggplot2
+title: "<span style='font-family: Boska; font-size: 2.75rem; font-weight: 800;'>Graphic Design with ggplot2</span></span>"
 ---
 
 # Graphic Design with ggplot2: How to Create Engaging and Complex Visualizations in R
@@ -10,10 +10,10 @@ by Cédric Scherer
 
 ------------------------------------------------------------------------
 
-:spiral_calendar: July 25 and 26, 2022\
-:alarm_clock: 09:00 - 17:00\
-:hotel: National Harbor 4/5\
-:writing_hand: [rstd.io/conf](http://rstd.io/conf)
+🗓️ July 25 and 26, 2022\
+⏰ 09:00 - 17:00\
+🏨 National Harbor 4/5\
+✍️ [rstd.io/conf](http://rstd.io/conf)
 
 ------------------------------------------------------------------------
 
@@ -121,35 +121,7 @@ We will make use of custom fonts. If you want to follow all contents, make sure 
 
 *For Mac OS users:* Please make sure that [XQuartz is installed](https://www.xquartz.org/) which is needed to use the cairo pdf device.
 
-## Schedule
-
-### Day 1
-
-| Time          | Activity                   |
-|:--------------|:---------------------------|
-| 09:00 - 09:30 | Introduction               |
-| 09:30 - 10:30 | Concepts Pt. 1             |
-| 10:30 - 11:00 | *Coffee break*             |
-| 11:00 - 12:00 | Concepts Pt. 1 (continued) |
-| 12:00 - 12:30 | Concepts Pt. 2             |
-| 12:30 - 13:30 | *Lunch break*              |
-| 13:30 - 15:00 | Concepts Pt. 2 (continued) |
-| 15:00 - 15:30 | *Coffee break*             |
-| 15:30 - 17:00 | Data Communication         |
-
-### Day 2
-
-| Time          | Activity               |
-|:--------------|:-----------------------|
-| 09:00 - 10:30 | Labels and Annotations |
-| 10:30 - 11:00 | *Coffee break*         |
-| 11:00 - 12:30 | Colors                 |
-| 12:30 - 13:30 | *Lunch break*          |
-| 13:30 - 15:00 | Layout and Composition |
-| 15:00 - 15:30 | *Coffee break*         |
-| 15:30 - 17:00 | Group Project          |
-
-# Instructors
+# Instructor
 
 ![](images/cedric.jpeg){style="float:right;padding: 0 0 0 10px;" fig-alt="Headshot of Dr. Cédric Scherer" width="200"}
 
