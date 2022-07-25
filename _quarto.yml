@@ -31,7 +31,7 @@ website:
     pinned: true
     align: center
     right:
-      - icon: font
+      - icon: bulb
         text: Solutions
         menu: 
           - text: 02_concepts_pt1_ex1_solution
