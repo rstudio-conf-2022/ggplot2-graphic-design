@@ -32,6 +32,17 @@ website:
     align: center
     right:
       - icon: font
+        text: Solutions
+        menu: 
+          - text: 02_concepts_pt1_ex1_solution
+            href: materials/solutions/02_concepts_pt1_ex1_solution.qmd
+          - text: 02_concepts_pt1_ex2_solution
+            href: materials/solutions/02_concepts_pt1_ex2_solution.qmd
+          - text: 03_concepts_pt2_ex1_solution
+            href: materials/solutions/03_concepts_pt2_ex1_solution.qmd
+          - text: 03_concepts_pt2_ex2_solution
+            href: materials/solutions/03_concepts_pt2_ex2_solution.qmd
+      - icon: font
         href: course_fonts.zip
         text: Fonts
       - icon: github

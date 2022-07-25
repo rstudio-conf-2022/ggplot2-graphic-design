@@ -2331,6 +2331,13 @@
     "text": "Resort Legend\n\ng +\n  guides(fill = guide_legend(byrow = TRUE)) +\n  theme(legend.position = \"top\")\n\n\n\n\nCédric Scherer // rstudio::conf // July 2022"
   },
   {
+    "objectID": "materials/08_group_project.html#group-projects",
+    "href": "materials/08_group_project.html#group-projects",
+    "title": "Graphic Design with ggplot2",
+    "section": "Group Projects",
+    "text": "Group Projects\n\n\nForm groups and work one of the following suggested projects:\n\nCarbon Footprint of Travel (OWID / UK.gov)\nSpending Before and During the Pandemic (JP Morgan Chase)\nSpeed of Languages (Economist / Coupé et al.)\nWhimbrel Bird Migration (Movebank / Watts et al.)"
+  },
+  {
     "objectID": "materials/solutions/02_concepts_pt1_ex1_solution.html#exercise-1",
     "href": "materials/solutions/02_concepts_pt1_ex1_solution.html#exercise-1",
     "title": "Graphic Design with ggplot2",
