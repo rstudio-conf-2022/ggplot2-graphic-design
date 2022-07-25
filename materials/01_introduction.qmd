@@ -66,7 +66,11 @@ execute:
 
 ##  {background-image="img/intro/team-3.png" background-position="center" background-size="75%"}
 
+##  {background-image="img/portfolio/thomas_artwork.png" background-position="center" background-size="60%"}
+
 ##  {background-image="img/intro/team-4.png" background-position="center" background-size="75%"}
+
+##  {background-image="img/portfolio/ahmadou_african_patterns.png" background-position="center" background-size="38%"}
 
 ##  {background-image="img/intro/team-5.png" background-position="center" background-size="75%"}
 
@@ -74,7 +78,7 @@ execute:
 
 ##  {background-image="img/intro/team.png" background-position="center" background-size="75%"}
 
-##  {background-image="img/portfolio/hassan_geom_tile_34_0.png" background-position="center" background-size="75%"}
+##  {background-image="img/portfolio/hassan_periodic_table.png" background-position="center" background-size="74%"}
 
 ##  {background-image="img/intro/hello-course.png" background-position="center" background-size="65%"}
 

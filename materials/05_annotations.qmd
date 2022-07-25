@@ -1333,11 +1333,11 @@ ggplot(bikes, aes(date, temp_feel)) +
 
 ```{r}
 #| label: exercise-text-styling
-#| fig-width: 6
-#| fig-height: 3.7
-#| fig-pos: "center"
 #| echo: false
 #| purl: false
+#| fig-pos: "center"
+#| fig-width: 6
+#| fig-height: 3.7
 library(palmerpenguins)
 
 penguins_labs <-
@@ -1422,6 +1422,7 @@ ggplot(
 ```{r}
 #| label: countdown-ex-1
 #| echo: false
+#| purl: false
 countdown::countdown(minutes = 20, font_size = ".5em")
 ```
 
@@ -1436,6 +1437,7 @@ countdown::countdown(minutes = 20, font_size = ".5em")
 ```{r}
 #| label: annotate-custom-rstudioconf
 #| echo: false
+#| purl: false
 #| fig-align: "center"
 skyline <- magick::image_read(here::here("materials", "exercises", "img", "rstudioconf-washington-bg.png"))
 
@@ -1468,5 +1470,6 @@ ggplot(mapping = aes(x = 0, y = 0)) +
 ```{r}
 #| label: countdown-ex-2
 #| echo: false
+#| purl: false
 countdown::countdown(minutes = 10, font_size = ".5em")
 ```
