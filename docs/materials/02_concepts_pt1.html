@@ -385,7 +385,7 @@
   <link href="../site_libs/countdown-0.3.5/countdown.css" rel="stylesheet">
   <script src="../site_libs/countdown-0.3.5/countdown.js"></script>
 <meta name="twitter:title" content="Graphic Design with ggplot2">
-<meta name="twitter:description" content="Concepts of the {ggplot2} Package Pt. 1:Data, Aesthetics, and Geometries + Misc Stuff">
+<meta name="twitter:description" content="Concepts of the {ggplot2} Package Pt. 1:Data, Aesthetics, and Layers + Misc Stuff">
 <meta name="twitter:image" content="https://rstudio-conf-2022.github.io/ggplot2-graphic-design//images/twitter-card.png">
 <meta name="twitter:creator" content="@CedScherer">
 <meta name="twitter:image-height" content="622">
@@ -398,7 +398,7 @@
 
 <section id="title-slide" class="center">
   <h1 class="title">Graphic Design with ggplot2</h1>
-  <p class="subtitle"><span style="font-size:1.75em;line-height:1.1;">Concepts of the <code>{ggplot2}</code> Package Pt. 1:<br><span style="font-weight:500;">Data, Aesthetics, and Geometries + <span class="circle-highlight">Misc Stuff</span></span></span></p>
+  <p class="subtitle"><span style="font-size:1.75em;line-height:1.1;">Concepts of the <code>{ggplot2}</code> Package Pt. 1:<br><span style="font-weight:500;">Data, Aesthetics, and Layers + <span class="circle-highlight">Misc Stuff</span></span></span></p>
   <p class="author"><b style="color:#28a87d;">Cédric Scherer</b> <strong>//</strong> rstudio::conf <strong>//</strong> July 2022</p>
 </section>
 
@@ -443,11 +443,160 @@
 </section>
 <section id="the-grammar-of-ggplot2-1" class="slide level2">
 <h2>The Grammar of {ggplot2}</h2>
-<p><br> 31b8e172-b470-440e-83d8-e6b185028602:dAB5AHAAZQA6AE8AQQBCAGwAQQBHAFkAQQBOAFEAQgBoAEEARABjAEEATgB3AEEAeQBBAEMAMABBAFoAQQBCAGsAQQBEAFkAQQBNAHcAQQB0AEEARABRAEEATgBnAEEAeQBBAEQASQBBAEwAUQBBADQAQQBEAFEAQQBZAGcAQgBtAEEAQwAwAEEAWQBRAEIAbQBBAEQARQBBAE8AUQBBADUAQQBEAFUAQQBZAFEAQQB4AEEARwBJAEEATQBnAEIAaQBBAEQAawBBAAoAcABvAHMAaQB0AGkAbwBuADoATQBRAEEANABBAEQAUQBBAE0AdwBBAD0ACgBwAHIAZQBmAGkAeAA6AAoAcwBvAHUAcgBjAGUAOgBQAEEAQgAwAEEARwBFAEEAWQBnAEIAcwBBAEcAVQBBAEkAQQBCAHoAQQBIAFEAQQBlAFEAQgBzAEEARwBVAEEAUABRAEEAbgBBAEgAYwBBAGEAUQBCAGsAQQBIAFEAQQBhAEEAQQA2AEEARABFAEEATQBBAEEAdwBBAEMAVQBBAE8AdwBCAG0AQQBHADgAQQBiAGcAQgAwAEEAQwAwAEEAYwB3AEIAcABBAEgAbwBBAFoAUQBBADYAQQBEAEUAQQBOAEEAQgB3AEEASABRAEEATwB3AEEAbgBBAEQANABBAEMAZwBBAGcAQQBDAEEAQQBQAEEAQgAwAEEASABJAEEAUABnAEEASwBBAEMAQQBBAEkAQQBBAGcAQQBDAEEAQQBQAEEAQgAwAEEARwBnAEEAUABnAEIARABBAEcAOABBAGIAUQBCAHcAQQBHADgAQQBiAGcAQgBsAEEARwA0AEEAZABBAEEAOABBAEMAOABBAGQAQQBCAG8AQQBEADQAQQBDAGcAQQBnAEEAQwBBAEEASQBBAEEAZwBBAEQAdwBBAGQAQQBCAG8AQQBEADQAQQBSAGcAQgAxAEEARwA0AEEAWQB3AEIAMABBAEcAawBBAGIAdwBCAHUAQQBEAHcAQQBMAHcAQgAwAEEARwBnAEEAUABnAEEASwBBAEMAQQBBAEkAQQBBAGcAQQBDAEEAQQBQAEEAQgAwAEEARwBnAEEAUABnAEIARgBBAEgAZwBBAGMAQQBCAHMAQQBHAEUAQQBiAGcAQgBoAEEASABRAEEAYQBRAEIAdgBBAEcANABBAFAAQQBBAHYAQQBIAFEAQQBhAEEAQQArAEEAQQBvAEEASQBBAEEAZwBBAEQAdwBBAEwAdwBCADAAQQBIAEkAQQBQAGcAQQBLAEEAQwBBAEEASQBBAEEAOABBAEgAUQBBAGMAZwBBACsAQQBBAG8AQQBJAEEAQQBnAEEAQwBBAEEASQBBAEEAOABBAEgAUQBBAFoAQQBBACsAQQBEAHcAQQBZAGcAQQBnAEEASABNAEEAZABBAEIANQBBAEcAdwBBAFoAUQBBADkAQQBDAGMAQQBZAHcAQgB2AEEARwB3AEEAYgB3AEIAeQBBAEQAbwBBAEkAdwBBADIAQQBEAGMAQQBOAGcAQQAzAEEARABZAEEATwB3AEEAbgBBAEQANABBAFIAQQBCAGgAQQBIAFEAQQBZAFEAQQA4AEEAQwA4AEEAWQBnAEEAKwBBAEQAdwBBAEwAdwBCADAAQQBHAFEAQQBQAGcAQQBLAEEAQwBBAEEASQBBAEEAZwBBAEMAQQBBAFAAQQBCADAAQQBHAFEAQQBQAGcAQQA4AEEARwBNAEEAYgB3AEIAawBBAEcAVQBBAFAAZwBCAG4AQQBHAGMAQQBjAEEAQgBzAEEARwA4AEEAZABBAEEAbwBBAEcAUQBBAFkAUQBCADAAQQBHAEUAQQBLAFEAQQA4AEEAQwA4AEEAWQB3AEIAdgBBAEcAUQBBAFoAUQBBACsAQQBDAFkAQQBiAGcAQgBpAEEASABNAEEAYwBBAEEANwBBAEMAWQBBAGIAZwBCAGkAQQBIAE0AQQBjAEEAQQA3AEEAQwBZAEEAYgBnAEIAaQBBAEgATQBBAGMAQQBBADcAQQBDAFkAQQBiAGcAQgBpAEEASABNAEEAYwBBAEEANwBBAEMAWQBBAGIAZwBCAGkAQQBIAE0AQQBjAEEAQQA3AEEAQwBZAEEAYgBnAEIAaQBBAEgATQBBAGMAQQBBADcAQQBDAFkAQQBiAGcAQgBpAEEASABNAEEAYwBBAEEANwBBAEMAWQBBAGIAZwBCAGkAQQBIAE0AQQBjAEEAQQA3AEEAQwBZAEEAYgBnAEIAaQBBAEgATQBBAGMAQQBBADcAQQBEAHcAQQBMAHcAQgAwAEEARwBRAEEAUABnAEEASwBBAEMAQQBBAEkAQQBBAGcAQQBDAEEAQQBQAEEAQgAwAEEARwBRAEEAUABnAEEAcQBBAEYAUQBBAGEAQQBCAGwAQQBDAEEAQQBjAGcAQgBoAEEASABjAEEASQBBAEIAawBBAEcARQBBAGQAQQBCAGgAQQBDAEEAQQBkAEEAQgBvAEEARwBFAEEAZABBAEEAZwBBAEgAawBBAGIAdwBCADEAQQBDAEEAQQBkAHcAQgBoAEEARwA0AEEAZABBAEEAZwBBAEgAUQBBAGIAdwBBAGcAQQBIAFkAQQBhAFEAQgB6AEEASABVAEEAWQBRAEIAcwBBAEcAawBBAGMAdwBCAGwAQQBDADQAQQBLAGcAQQA4AEEAQwA4AEEAZABBAEIAawBBAEQANABBAEMAZwBBAGcAQQBDAEEAQQBQAEEAQQB2AEEASABRAEEAYwBnAEEAKwBBAEEAbwBBAEkAQQBBAGcAQQBEAHcAQQBkAEEAQgB5AEEARAA0AEEAQwBnAEEAZwBBAEMAQQBBAEkAQQBBAGcAQQBEAHcAQQBkAEEAQgBrAEEARAA0AEEAUABBAEIAaQBBAEMAQQBBAGMAdwBCADAAQQBIAGsAQQBiAEEAQgBsAEEARAAwAEEASgB3AEIAagBBAEcAOABBAGIAQQBCAHYAQQBIAEkAQQBPAGcAQQBqAEEARABZAEEATgB3AEEAMgBBAEQAYwBBAE4AZwBBADcAQQBDAGMAQQBQAGcAQgBCAEEARwBVAEEAYwB3AEIAMABBAEcAZwBBAFoAUQBCADAAQQBHAGsAQQBZAHcAQgB6AEEAQwBZAEEAYgBnAEIAaQBBAEgATQBBAGMAQQBBADcAQQBDAFkAQQBiAGcAQgBpAEEASABNAEEAYwBBAEEANwBBAEMAWQBBAGIAZwBCAGkAQQBIAE0AQQBjAEEAQQA3AEEAQwBZAEEAYgBnAEIAaQBBAEgATQBBAGMAQQBBADcAQQBDAFkAQQBiAGcAQgBpAEEASABNAEEAYwBBAEEANwBBAEMAWQBBAGIAZwBCAGkAQQBIAE0AQQBjAEEAQQA3AEEAQwBZAEEAYgBnAEIAaQBBAEgATQBBAGMAQQBBADcAQQBDAFkAQQBiAGcAQgBpAEEASABNAEEAYwBBAEEANwBBAEMAWQBBAGIAZwBCAGkAQQBIAE0AQQBjAEEAQQA3AEEAQwBZAEEAYgBnAEIAaQBBAEgATQBBAGMAQQBBADcAQQBEAHcAQQBMAHcAQgBpAEEARAA0AEEAUABBAEEAdgBBAEgAUQBBAFoAQQBBACsAQQBBAG8AQQBJAEEAQQBnAEEAQwBBAEEASQBBAEEAOABBAEgAUQBBAFoAQQBBACsAQQBEAHcAQQBZAHcAQgB2AEEARwBRAEEAWgBRAEEAKwBBAEcARQBBAFoAUQBCAHoAQQBDAGcAQQBLAFEAQQA4AEEAQwA4AEEAWQB3AEIAdgBBAEcAUQBBAFoAUQBBACsAQQBEAHcAQQBMAHcAQgAwAEEARwBRAEEAUABnAEEASwBBAEMAQQBBAEkAQQBBAGcAQQBDAEEAQQBQAEEAQgAwAEEARwBRAEEAUABnAEEAcQBBAEUARQBBAFoAUQBCAHoAQQBIAFEAQQBhAEEAQgBsAEEASABRAEEAYQBRAEIAagBBAEMAQQBBAGIAUQBCAGgAQQBIAEEAQQBjAEEAQgBwAEEARwA0AEEAWgB3AEIAegBBAEMAQQBBAFkAZwBCAGwAQQBIAFEAQQBkAHcAQgBsAEEARwBVAEEAYgBnAEEAZwBBAEgAWQBBAFkAUQBCAHkAQQBHAGsAQQBZAFEAQgBpAEEARwB3AEEAWgBRAEIAegBBAEMAQQBBAFkAUQBCAHUAQQBHAFEAQQBJAEEAQgAyAEEARwBrAEEAYwB3AEIAMQBBAEcARQBBAGIAQQBBAGcAQQBIAEEAQQBjAGcAQgB2AEEASABBAEEAWgBRAEIAeQBBAEgAUQBBAGEAUQBCAGwAQQBIAE0AQQBMAGcAQQB1AEEAQwBvAEEAUABBAEEAdgBBAEgAUQBBAFoAQQBBACsAQQBBAG8AQQBJAEEAQQBnAEEARAB3AEEAZABBAEIAeQBBAEQANABBAEMAZwBBAGcAQQBDAEEAQQBJAEEAQQBnAEEARAB3AEEAZABBAEIAawBBAEQANABBAFAAQQBCAGkAQQBDAEEAQQBjAHcAQgAwAEEASABrAEEAYgBBAEIAbABBAEQAMABBAEoAdwBCAGoAQQBHADgAQQBiAEEAQgB2AEEASABJAEEATwBnAEEAagBBAEQAWQBBAE4AdwBBADIAQQBEAGMAQQBOAGcAQQA3AEEAQwBjAEEAUABnAEIASABBAEcAVQBBAGIAdwBCAHQAQQBHAFUAQQBkAEEAQgB5AEEARwBrAEEAWgBRAEIAegBBAEQAdwBBAEwAdwBCAGkAQQBEADQAQQBQAEEAQQB2AEEASABRAEEAWgBBAEEAKwBBAEEAbwBBAEkAQQBBAGcAQQBDAEEAQQBJAEEAQQA4AEEASABRAEEAWgBBAEEAKwBBAEQAdwBBAFkAdwBCAHYAQQBHAFEAQQBaAFEAQQArAEEARwBjAEEAWgBRAEIAdgBBAEcAMABBAFgAdwBBAHEAQQBDAGcAQQBLAFEAQQA4AEEAQwA4AEEAWQB3AEIAdgBBAEcAUQBBAFoAUQBBACsAQQBEAHcAQQBMAHcAQgAwAEEARwBRAEEAUABnAEEASwBBAEMAQQBBAEkAQQBBAGcAQQBDAEEAQQBQAEEAQgAwAEEARwBRAEEAUABnAEEAcQBBAEYAUQBBAGEAQQBCAGwAQQBDAEEAQQBaAHcAQgBsAEEARwA4AEEAYgBRAEIAbABBAEgAUQBBAGMAZwBCAHAAQQBHAE0AQQBJAEEAQgB6AEEARwBnAEEAWQBRAEIAdwBBAEcAVQBBAGMAdwBBAGcAQQBIAEkAQQBaAFEAQgB3AEEASABJAEEAWgBRAEIAegBBAEcAVQBBAGIAZwBCADAAQQBHAGsAQQBiAGcAQgBuAEEAQwBBAEEAZABBAEIAbwBBAEcAVQBBAEkAQQBCAGsAQQBHAEUAQQBkAEEAQgBoAEEAQwA0AEEASwBnAEEAOABBAEMAOABBAGQAQQBCAGsAQQBEADQAQQBDAGcAQQBnAEEAQwBBAEEAUABBAEEAdgBBAEgAUQBBAGMAZwBBACsAQQBBAG8AQQBQAEEAQQB2AEEASABRAEEAWQBRAEIAaQBBAEcAdwBBAFoAUQBBACsAQQBBAD0APQAKAHMAdQBmAGYAaQB4ADoA:31b8e172-b470-440e-83d8-e6b185028602</p>
+<br>
+
+<table style="width:100%;font-size:14pt;">
+<tbody><tr>
+<th>
+Component
+</th>
+<th>
+Function
+</th>
+<th>
+Explanation
+</th>
+</tr>
+<tr>
+<td>
+<b style="color:#67676;">Data</b>
+</td>
+<td>
+<code>ggplot(data)</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</td>
+<td>
+<em>The raw data that you want to visualise.</em>
+</td>
+</tr>
+<tr>
+<td>
+<b style="color:#67676;">Aesthetics&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>
+</td>
+<td>
+<code>aes()</code>
+</td>
+<td>
+<em>Aesthetic mappings between variables and visual properties..</em>
+</td>
+</tr><tr>
+<td>
+<b style="color:#67676;">Geometries</b>
+</td>
+<td>
+<code>geom_*()</code>
+</td>
+<td>
+<em>The geometric shapes representing the data.</em>
+</td>
+</tr>
+
+</tbody></table>
 </section>
 <section id="the-grammar-of-ggplot2-2" class="slide level2">
 <h2>The Grammar of {ggplot2}</h2>
-<p><br> 31b8e172-b470-440e-83d8-e6b185028602:dAB5AHAAZQA6AE8AQQBCAGwAQQBHAFkAQQBOAFEAQgBoAEEARABjAEEATgB3AEEAeQBBAEMAMABBAFoAQQBCAGsAQQBEAFkAQQBNAHcAQQB0AEEARABRAEEATgBnAEEAeQBBAEQASQBBAEwAUQBBADQAQQBEAFEAQQBZAGcAQgBtAEEAQwAwAEEAWQBRAEIAbQBBAEQARQBBAE8AUQBBADUAQQBEAFUAQQBZAFEAQQB4AEEARwBJAEEATQBnAEIAaQBBAEQAawBBAAoAcABvAHMAaQB0AGkAbwBuADoATQBnAEEAMgBBAEQARQBBAE8AUQBBAD0ACgBwAHIAZQBmAGkAeAA6AAoAcwBvAHUAcgBjAGUAOgBQAEEAQgAwAEEARwBFAEEAWQBnAEIAcwBBAEcAVQBBAEkAQQBCAHoAQQBIAFEAQQBlAFEAQgBzAEEARwBVAEEAUABRAEEAbgBBAEgAYwBBAGEAUQBCAGsAQQBIAFEAQQBhAEEAQQA2AEEARABFAEEATQBBAEEAdwBBAEMAVQBBAE8AdwBCAG0AQQBHADgAQQBiAGcAQgAwAEEAQwAwAEEAYwB3AEIAcABBAEgAbwBBAFoAUQBBADYAQQBEAEUAQQBOAEEAQgB3AEEASABRAEEATwB3AEEAbgBBAEQANABBAEMAZwBBAGcAQQBDAEEAQQBQAEEAQgAwAEEASABJAEEAUABnAEEASwBBAEMAQQBBAEkAQQBBAGcAQQBDAEEAQQBQAEEAQgAwAEEARwBnAEEAUABnAEIARABBAEcAOABBAGIAUQBCAHcAQQBHADgAQQBiAGcAQgBsAEEARwA0AEEAZABBAEEAOABBAEMAOABBAGQAQQBCAG8AQQBEADQAQQBDAGcAQQBnAEEAQwBBAEEASQBBAEEAZwBBAEQAdwBBAGQAQQBCAG8AQQBEADQAQQBSAGcAQgAxAEEARwA0AEEAWQB3AEIAMABBAEcAawBBAGIAdwBCAHUAQQBEAHcAQQBMAHcAQgAwAEEARwBnAEEAUABnAEEASwBBAEMAQQBBAEkAQQBBAGcAQQBDAEEAQQBQAEEAQgAwAEEARwBnAEEAUABnAEIARgBBAEgAZwBBAGMAQQBCAHMAQQBHAEUAQQBiAGcAQgBoAEEASABRAEEAYQBRAEIAdgBBAEcANABBAFAAQQBBAHYAQQBIAFEAQQBhAEEAQQArAEEAQQBvAEEASQBBAEEAZwBBAEQAdwBBAEwAdwBCADAAQQBIAEkAQQBQAGcAQQBLAEEAQwBBAEEASQBBAEEAOABBAEgAUQBBAGMAZwBBACsAQQBBAG8AQQBJAEEAQQBnAEEAQwBBAEEASQBBAEEAOABBAEgAUQBBAFoAQQBBACsAQQBEAHcAQQBZAGcAQQBnAEEASABNAEEAZABBAEIANQBBAEcAdwBBAFoAUQBBADkAQQBDAGMAQQBZAHcAQgB2AEEARwB3AEEAYgB3AEIAeQBBAEQAbwBBAEkAdwBBADIAQQBEAGMAQQBOAGcAQQAzAEEARABZAEEATwB3AEEAbgBBAEQANABBAFIAQQBCAGgAQQBIAFEAQQBZAFEAQQA4AEEAQwA4AEEAWQBnAEEAKwBBAEQAdwBBAEwAdwBCADAAQQBHAFEAQQBQAGcAQQBLAEEAQwBBAEEASQBBAEEAZwBBAEMAQQBBAFAAQQBCADAAQQBHAFEAQQBQAGcAQQA4AEEARwBNAEEAYgB3AEIAawBBAEcAVQBBAFAAZwBCAG4AQQBHAGMAQQBjAEEAQgBzAEEARwA4AEEAZABBAEEAbwBBAEcAUQBBAFkAUQBCADAAQQBHAEUAQQBLAFEAQQA4AEEAQwA4AEEAWQB3AEIAdgBBAEcAUQBBAFoAUQBBACsAQQBDAFkAQQBiAGcAQgBpAEEASABNAEEAYwBBAEEANwBBAEMAWQBBAGIAZwBCAGkAQQBIAE0AQQBjAEEAQQA3AEEAQwBZAEEAYgBnAEIAaQBBAEgATQBBAGMAQQBBADcAQQBDAFkAQQBiAGcAQgBpAEEASABNAEEAYwBBAEEANwBBAEMAWQBBAGIAZwBCAGkAQQBIAE0AQQBjAEEAQQA3AEEAQwBZAEEAYgBnAEIAaQBBAEgATQBBAGMAQQBBADcAQQBDAFkAQQBiAGcAQgBpAEEASABNAEEAYwBBAEEANwBBAEMAWQBBAGIAZwBCAGkAQQBIAE0AQQBjAEEAQQA3AEEAQwBZAEEAYgBnAEIAaQBBAEgATQBBAGMAQQBBADcAQQBEAHcAQQBMAHcAQgAwAEEARwBRAEEAUABnAEEASwBBAEMAQQBBAEkAQQBBAGcAQQBDAEEAQQBQAEEAQgAwAEEARwBRAEEAUABnAEEAcQBBAEYAUQBBAGEAQQBCAGwAQQBDAEEAQQBjAGcAQgBoAEEASABjAEEASQBBAEIAawBBAEcARQBBAGQAQQBCAGgAQQBDAEEAQQBkAEEAQgBvAEEARwBFAEEAZABBAEEAZwBBAEgAawBBAGIAdwBCADEAQQBDAEEAQQBkAHcAQgBoAEEARwA0AEEAZABBAEEAZwBBAEgAUQBBAGIAdwBBAGcAQQBIAFkAQQBhAFEAQgB6AEEASABVAEEAWQBRAEIAcwBBAEcAawBBAGMAdwBCAGwAQQBDADQAQQBLAGcAQQA4AEEAQwA4AEEAZABBAEIAawBBAEQANABBAEMAZwBBAGcAQQBDAEEAQQBQAEEAQQB2AEEASABRAEEAYwBnAEEAKwBBAEEAbwBBAEkAQQBBAGcAQQBEAHcAQQBkAEEAQgB5AEEARAA0AEEAQwBnAEEAZwBBAEMAQQBBAEkAQQBBAGcAQQBEAHcAQQBkAEEAQgBrAEEARAA0AEEAUABBAEIAaQBBAEMAQQBBAGMAdwBCADAAQQBIAGsAQQBiAEEAQgBsAEEARAAwAEEASgB3AEIAagBBAEcAOABBAGIAQQBCAHYAQQBIAEkAQQBPAGcAQQBqAEEARABZAEEATgB3AEEAMgBBAEQAYwBBAE4AZwBBADcAQQBDAGMAQQBQAGcAQgBCAEEARwBVAEEAYwB3AEIAMABBAEcAZwBBAFoAUQBCADAAQQBHAGsAQQBZAHcAQgB6AEEAQwBZAEEAYgBnAEIAaQBBAEgATQBBAGMAQQBBADcAQQBDAFkAQQBiAGcAQgBpAEEASABNAEEAYwBBAEEANwBBAEMAWQBBAGIAZwBCAGkAQQBIAE0AQQBjAEEAQQA3AEEAQwBZAEEAYgBnAEIAaQBBAEgATQBBAGMAQQBBADcAQQBDAFkAQQBiAGcAQgBpAEEASABNAEEAYwBBAEEANwBBAEMAWQBBAGIAZwBCAGkAQQBIAE0AQQBjAEEAQQA3AEEAQwBZAEEAYgBnAEIAaQBBAEgATQBBAGMAQQBBADcAQQBDAFkAQQBiAGcAQgBpAEEASABNAEEAYwBBAEEANwBBAEMAWQBBAGIAZwBCAGkAQQBIAE0AQQBjAEEAQQA3AEEAQwBZAEEAYgBnAEIAaQBBAEgATQBBAGMAQQBBADcAQQBEAHcAQQBMAHcAQgBpAEEARAA0AEEAUABBAEEAdgBBAEgAUQBBAFoAQQBBACsAQQBBAG8AQQBJAEEAQQBnAEEAQwBBAEEASQBBAEEAOABBAEgAUQBBAFoAQQBBACsAQQBEAHcAQQBZAHcAQgB2AEEARwBRAEEAWgBRAEEAKwBBAEcARQBBAFoAUQBCAHoAQQBDAGcAQQBLAFEAQQA4AEEAQwA4AEEAWQB3AEIAdgBBAEcAUQBBAFoAUQBBACsAQQBEAHcAQQBMAHcAQgAwAEEARwBRAEEAUABnAEEASwBBAEMAQQBBAEkAQQBBAGcAQQBDAEEAQQBQAEEAQgAwAEEARwBRAEEAUABnAEEAcQBBAEUARQBBAFoAUQBCAHoAQQBIAFEAQQBhAEEAQgBsAEEASABRAEEAYQBRAEIAagBBAEMAQQBBAGIAUQBCAGgAQQBIAEEAQQBjAEEAQgBwAEEARwA0AEEAWgB3AEIAegBBAEMAQQBBAFkAZwBCAGwAQQBIAFEAQQBkAHcAQgBsAEEARwBVAEEAYgBnAEEAZwBBAEgAWQBBAFkAUQBCAHkAQQBHAGsAQQBZAFEAQgBpAEEARwB3AEEAWgBRAEIAegBBAEMAQQBBAFkAUQBCAHUAQQBHAFEAQQBJAEEAQgAyAEEARwBrAEEAYwB3AEIAMQBBAEcARQBBAGIAQQBBAGcAQQBIAEEAQQBjAGcAQgB2AEEASABBAEEAWgBRAEIAeQBBAEgAUQBBAGEAUQBCAGwAQQBIAE0AQQBMAGcAQQB1AEEAQwBvAEEAUABBAEEAdgBBAEgAUQBBAFoAQQBBACsAQQBBAG8AQQBJAEEAQQBnAEEARAB3AEEAZABBAEIAeQBBAEQANABBAEMAZwBBAGcAQQBDAEEAQQBJAEEAQQBnAEEARAB3AEEAZABBAEIAawBBAEQANABBAFAAQQBCAGkAQQBDAEEAQQBjAHcAQgAwAEEASABrAEEAYgBBAEIAbABBAEQAMABBAEoAdwBCAGoAQQBHADgAQQBiAEEAQgB2AEEASABJAEEATwBnAEEAagBBAEQAWQBBAE4AdwBBADIAQQBEAGMAQQBOAGcAQQA3AEEAQwBjAEEAUABnAEIASABBAEcAVQBBAGIAdwBCAHQAQQBHAFUAQQBkAEEAQgB5AEEARwBrAEEAWgBRAEIAegBBAEQAdwBBAEwAdwBCAGkAQQBEADQAQQBQAEEAQQB2AEEASABRAEEAWgBBAEEAKwBBAEEAbwBBAEkAQQBBAGcAQQBDAEEAQQBJAEEAQQA4AEEASABRAEEAWgBBAEEAKwBBAEQAdwBBAFkAdwBCAHYAQQBHAFEAQQBaAFEAQQArAEEARwBjAEEAWgBRAEIAdgBBAEcAMABBAFgAdwBBAHEAQQBDAGcAQQBLAFEAQQA4AEEAQwA4AEEAWQB3AEIAdgBBAEcAUQBBAFoAUQBBACsAQQBEAHcAQQBMAHcAQgAwAEEARwBRAEEAUABnAEEASwBBAEMAQQBBAEkAQQBBAGcAQQBDAEEAQQBQAEEAQgAwAEEARwBRAEEAUABnAEEAcQBBAEYAUQBBAGEAQQBCAGwAQQBDAEEAQQBaAHcAQgBsAEEARwA4AEEAYgBRAEIAbABBAEgAUQBBAGMAZwBCAHAAQQBHAE0AQQBJAEEAQgB6AEEARwBnAEEAWQBRAEIAdwBBAEcAVQBBAGMAdwBBAGcAQQBIAEkAQQBaAFEAQgB3AEEASABJAEEAWgBRAEIAegBBAEcAVQBBAGIAZwBCADAAQQBHAGsAQQBiAGcAQgBuAEEAQwBBAEEAZABBAEIAbwBBAEcAVQBBAEkAQQBCAGsAQQBHAEUAQQBkAEEAQgBoAEEAQwA0AEEASwBnAEEAOABBAEMAOABBAGQAQQBCAGsAQQBEADQAQQBDAGcAQQBnAEEAQwBBAEEAUABBAEEAdgBBAEgAUQBBAGMAZwBBACsAQQBBAG8AQQBJAEEAQQBnAEEARAB3AEEAZABBAEIAeQBBAEQANABBAEMAZwBBAGcAQQBDAEEAQQBJAEEAQQBnAEEARAB3AEEAZABBAEIAawBBAEQANABBAFAAQQBCAGkAQQBDAEEAQQBjAHcAQgAwAEEASABrAEEAYgBBAEIAbABBAEQAMABBAEoAdwBCAGoAQQBHADgAQQBiAEEAQgB2AEEASABJAEEATwBnAEEAagBBAEQAWQBBAE4AdwBBADIAQQBEAGMAQQBOAGcAQQA3AEEAQwBjAEEAUABnAEIAVABBAEgAUQBBAFkAUQBCADAAQQBHAGsAQQBjAHcAQgAwAEEARwBrAEEAWQB3AEIAegBBAEQAdwBBAEwAdwBCAGkAQQBEADQAQQBQAEEAQQB2AEEASABRAEEAWgBBAEEAKwBBAEEAbwBBAEkAQQBBAGcAQQBDAEEAQQBJAEEAQQA4AEEASABRAEEAWgBBAEEAKwBBAEQAdwBBAFkAdwBCAHYAQQBHAFEAQQBaAFEAQQArAEEASABNAEEAZABBAEIAaABBAEgAUQBBAFgAdwBBAHEAQQBDAGcAQQBLAFEAQQA4AEEAQwA4AEEAWQB3AEIAdgBBAEcAUQBBAFoAUQBBACsAQQBEAHcAQQBMAHcAQgAwAEEARwBRAEEAUABnAEEASwBBAEMAQQBBAEkAQQBBAGcAQQBDAEEAQQBQAEEAQgAwAEEARwBRAEEAUABnAEEAcQBBAEYAUQBBAGEAQQBCAGwAQQBDAEEAQQBjAHcAQgAwAEEARwBFAEEAZABBAEIAcABBAEgATQBBAGQAQQBCAHAAQQBHAE0AQQBZAFEAQgBzAEEAQwBBAEEAZABBAEIAeQBBAEcARQBBAGIAZwBCAHoAQQBHAFkAQQBiAHcAQgB5AEEARwAwAEEAWQBRAEIAMABBAEcAawBBAGIAdwBCAHUAQQBIAE0AQQBJAEEAQgBoAEEASABBAEEAYwBBAEIAcwBBAEcAawBBAFoAUQBCAGsAQQBDAEEAQQBkAEEAQgB2AEEAQwBBAEEAZABBAEIAbwBBAEcAVQBBAEkAQQBCAGsAQQBHAEUAQQBkAEEAQgBoAEEAQwA0AEEASwBnAEEAOABBAEMAOABBAGQAQQBCAGsAQQBEADQAQQBDAGcAQQBnAEEAQwBBAEEAUABBAEEAdgBBAEgAUQBBAGMAZwBBACsAQQBBAG8AQQBJAEEAQQBnAEEARAB3AEEAZABBAEIAeQBBAEQANABBAEMAZwBBAGcAQQBDAEEAQQBJAEEAQQBnAEEARAB3AEEAZABBAEIAawBBAEQANABBAFAAQQBCAGkAQQBDAEEAQQBjAHcAQgAwAEEASABrAEEAYgBBAEIAbABBAEQAMABBAEoAdwBCAGoAQQBHADgAQQBiAEEAQgB2AEEASABJAEEATwBnAEEAagBBAEQAWQBBAE4AdwBBADIAQQBEAGMAQQBOAGcAQQA3AEEAQwBjAEEAUABnAEIAVABBAEcATQBBAFkAUQBCAHMAQQBHAFUAQQBjAHcAQQA4AEEAQwA4AEEAWQBnAEEAKwBBAEQAdwBBAEwAdwBCADAAQQBHAFEAQQBQAGcAQQBLAEEAQwBBAEEASQBBAEEAZwBBAEMAQQBBAFAAQQBCADAAQQBHAFEAQQBQAGcAQQA4AEEARwBNAEEAYgB3AEIAawBBAEcAVQBBAFAAZwBCAHoAQQBHAE0AQQBZAFEAQgBzAEEARwBVAEEAWAB3AEEAcQBBAEMAZwBBAEsAUQBBADgAQQBDADgAQQBZAHcAQgB2AEEARwBRAEEAWgBRAEEAKwBBAEQAdwBBAEwAdwBCADAAQQBHAFEAQQBQAGcAQQBLAEEAQwBBAEEASQBBAEEAZwBBAEMAQQBBAFAAQQBCADAAQQBHAFEAQQBQAGcAQQBxAEEARQAwAEEAWQBRAEIAdwBBAEgATQBBAEkAQQBCAGkAQQBHAFUAQQBkAEEAQgAzAEEARwBVAEEAWgBRAEIAdQBBAEMAQQBBAGQAQQBCAG8AQQBHAFUAQQBJAEEAQgBrAEEARwBFAEEAZABBAEIAaABBAEMAQQBBAFkAUQBCAHUAQQBHAFEAQQBJAEEAQgAwAEEARwBnAEEAWgBRAEEAZwBBAEcARQBBAFoAUQBCAHoAQQBIAFEAQQBhAEEAQgBsAEEASABRAEEAYQBRAEIAagBBAEMAQQBBAFoAQQBCAHAAQQBHADAAQQBaAFEAQgB1AEEASABNAEEAYQBRAEIAdgBBAEcANABBAGMAdwBBAHUAQQBDAG8AQQBQAEEAQQB2AEEASABRAEEAWgBBAEEAKwBBAEEAbwBBAEkAQQBBAGcAQQBEAHcAQQBMAHcAQgAwAEEASABJAEEAUABnAEEASwBBAEMAQQBBAEkAQQBBADgAQQBIAFEAQQBjAGcAQQArAEEAQQBvAEEASQBBAEEAZwBBAEMAQQBBAEkAQQBBADgAQQBIAFEAQQBaAEEAQQArAEEARAB3AEEAWQBnAEEAZwBBAEgATQBBAGQAQQBCADUAQQBHAHcAQQBaAFEAQQA5AEEAQwBjAEEAWQB3AEIAdgBBAEcAdwBBAGIAdwBCAHkAQQBEAG8AQQBJAHcAQQAyAEEARABjAEEATgBnAEEAMwBBAEQAWQBBAE8AdwBBAG4AQQBEADQAQQBRAHcAQgB2AEEARwA4AEEAYwBnAEIAawBBAEcAawBBAGIAZwBCAGgAQQBIAFEAQQBaAFEAQQBnAEEARgBNAEEAZQBRAEIAegBBAEgAUQBBAFoAUQBCAHQAQQBEAHcAQQBMAHcAQgBpAEEARAA0AEEAUABBAEEAdgBBAEgAUQBBAFoAQQBBACsAQQBBAG8AQQBJAEEAQQBnAEEAQwBBAEEASQBBAEEAOABBAEgAUQBBAFoAQQBBACsAQQBEAHcAQQBZAHcAQgB2AEEARwBRAEEAWgBRAEEAKwBBAEcATQBBAGIAdwBCAHYAQQBIAEkAQQBaAEEAQgBmAEEAQwBvAEEASwBBAEEAcABBAEQAdwBBAEwAdwBCAGoAQQBHADgAQQBaAEEAQgBsAEEARAA0AEEAUABBAEEAdgBBAEgAUQBBAFoAQQBBACsAQQBBAG8AQQBJAEEAQQBnAEEAQwBBAEEASQBBAEEAOABBAEgAUQBBAFoAQQBBACsAQQBDAG8AQQBUAFEAQgBoAEEASABBAEEAYwB3AEEAZwBBAEcAUQBBAFkAUQBCADAAQQBHAEUAQQBJAEEAQgBwAEEARwA0AEEAZABBAEIAdgBBAEMAQQBBAGQAQQBCAG8AQQBHAFUAQQBJAEEAQgB3AEEARwB3AEEAWQBRAEIAdQBBAEcAVQBBAEkAQQBCAHYAQQBHAFkAQQBJAEEAQgAwAEEARwBnAEEAWgBRAEEAZwBBAEcAUQBBAFkAUQBCADAAQQBHAEUAQQBJAEEAQgB5AEEARwBVAEEAWQB3AEIAMABBAEcARQBBAGIAZwBCAG4AQQBHAHcAQQBaAFEAQQB1AEEAQwBvAEEAUABBAEEAdgBBAEgAUQBBAFoAQQBBACsAQQBBAG8AQQBJAEEAQQBnAEEARAB3AEEATAB3AEIAMABBAEgASQBBAFAAZwBBAEsAQQBDAEEAQQBJAEEAQQA4AEEASABRAEEAYwBnAEEAKwBBAEEAbwBBAEkAQQBBAGcAQQBDAEEAQQBJAEEAQQA4AEEASABRAEEAWgBBAEEAKwBBAEQAdwBBAFkAZwBBAGcAQQBIAE0AQQBkAEEAQgA1AEEARwB3AEEAWgBRAEEAOQBBAEMAYwBBAFkAdwBCAHYAQQBHAHcAQQBiAHcAQgB5AEEARABvAEEASQB3AEEAMgBBAEQAYwBBAE4AZwBBADMAQQBEAFkAQQBPAHcAQQBuAEEARAA0AEEAUgBnAEIAaABBAEcATQBBAFoAUQBCADAAQQBIAE0AQQBQAEEAQQB2AEEARwBJAEEAUABnAEEAOABBAEMAOABBAGQAQQBCAGsAQQBEADQAQQBDAGcAQQBnAEEAQwBBAEEASQBBAEEAZwBBAEQAdwBBAGQAQQBCAGsAQQBEADQAQQBQAEEAQgBqAEEARwA4AEEAWgBBAEIAbABBAEQANABBAFoAZwBCAGgAQQBHAE0AQQBaAFEAQgAwAEEARgA4AEEASwBnAEEAbwBBAEMAawBBAFAAQQBBAHYAQQBHAE0AQQBiAHcAQgBrAEEARwBVAEEAUABnAEEAOABBAEMAOABBAGQAQQBCAGsAQQBEADQAQQBDAGcAQQBnAEEAQwBBAEEASQBBAEEAZwBBAEQAdwBBAGQAQQBCAGsAQQBEADQAQQBLAGcAQgBVAEEARwBnAEEAWgBRAEEAZwBBAEcARQBBAGMAZwBCAHkAQQBHAEUAQQBiAGcAQgBuAEEARwBVAEEAYgBRAEIAbABBAEcANABBAGQAQQBBAGcAQQBHADgAQQBaAGcAQQBnAEEASABRAEEAYQBBAEIAbABBAEMAQQBBAFoAQQBCAGgAQQBIAFEAQQBZAFEAQQBnAEEARwBrAEEAYgBnAEIAMABBAEcAOABBAEkAQQBCAGgAQQBDAEEAQQBaAHcAQgB5AEEARwBrAEEAWgBBAEEAZwBBAEcAOABBAFoAZwBBAGcAQQBIAEEAQQBiAEEAQgB2AEEASABRAEEAYwB3AEEAdQBBAEMAbwBBAFAAQQBBAHYAQQBIAFEAQQBaAEEAQQArAEEAQQBvAEEASQBBAEEAZwBBAEQAdwBBAEwAdwBCADAAQQBIAEkAQQBQAGcAQQBLAEEAQwBBAEEASQBBAEEAOABBAEgAUQBBAGMAZwBBACsAQQBBAG8AQQBJAEEAQQBnAEEAQwBBAEEASQBBAEEAOABBAEgAUQBBAFoAQQBBACsAQQBEAHcAQQBZAGcAQQBnAEEASABNAEEAZABBAEIANQBBAEcAdwBBAFoAUQBBADkAQQBDAGMAQQBZAHcAQgB2AEEARwB3AEEAYgB3AEIAeQBBAEQAbwBBAEkAdwBBADIAQQBEAGMAQQBOAGcAQQAzAEEARABZAEEATwB3AEEAbgBBAEQANABBAFYAZwBCAHAAQQBIAE0AQQBkAFEAQgBoAEEARwB3AEEASQBBAEIAVQBBAEcAZwBBAFoAUQBCAHQAQQBHAFUAQQBjAHcAQQA4AEEAQwA4AEEAWQBnAEEAKwBBAEQAdwBBAEwAdwBCADAAQQBHAFEAQQBQAGcAQQBLAEEAQwBBAEEASQBBAEEAZwBBAEMAQQBBAFAAQQBCADAAQQBHAFEAQQBQAGcAQQA4AEEARwBNAEEAYgB3AEIAawBBAEcAVQBBAFAAZwBCADAAQQBHAGcAQQBaAFEAQgB0AEEARwBVAEEASwBBAEEAcABBAEQAdwBBAEwAdwBCAGoAQQBHADgAQQBaAEEAQgBsAEEARAA0AEEASQBBAEIAaABBAEcANABBAFoAQQBBAGcAQQBEAHcAQQBZAHcAQgB2AEEARwBRAEEAWgBRAEEAKwBBAEgAUQBBAGEAQQBCAGwAQQBHADAAQQBaAFEAQgBmAEEAQwBvAEEASwBBAEEAcABBAEQAdwBBAEwAdwBCAGoAQQBHADgAQQBaAEEAQgBsAEEARAA0AEEAUABBAEEAdgBBAEgAUQBBAFoAQQBBACsAQQBBAG8AQQBJAEEAQQBnAEEAQwBBAEEASQBBAEEAOABBAEgAUQBBAFoAQQBBACsAQQBDAG8AQQBWAEEAQgBvAEEARwBVAEEASQBBAEIAdgBBAEgAWQBBAFoAUQBCAHkAQQBHAEUAQQBiAEEAQgBzAEEAQwBBAEEAZABnAEIAcABBAEgATQBBAGQAUQBCAGgAQQBHAHcAQQBJAEEAQgBrAEEARwBVAEEAWgBnAEIAaABBAEgAVQBBAGIAQQBCADAAQQBIAE0AQQBJAEEAQgB2AEEARwBZAEEASQBBAEIAaABBAEMAQQBBAGMAQQBCAHMAQQBHADgAQQBkAEEAQQB1AEEAQwBvAEEAUABBAEEAdgBBAEgAUQBBAFoAQQBBACsAQQBBAG8AQQBJAEEAQQBnAEEARAB3AEEATAB3AEIAMABBAEgASQBBAFAAZwBBAEsAQQBEAHcAQQBMAHcAQgAwAEEARwBFAEEAWQBnAEIAcwBBAEcAVQBBAFAAZwBBAD0ACgBzAHUAZgBmAGkAeAA6AA==:31b8e172-b470-440e-83d8-e6b185028602</p>
+<br>
+
+<table style="width:100%;font-size:14pt;">
+<tbody><tr>
+<th>
+Component
+</th>
+<th>
+Function
+</th>
+<th>
+Explanation
+</th>
+</tr>
+<tr>
+<td>
+<b style="color:#67676;">Data</b>
+</td>
+<td>
+<code>ggplot(data)</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</td>
+<td>
+<em>The raw data that you want to visualise.</em>
+</td>
+</tr>
+<tr>
+<td>
+<b style="color:#67676;">Aesthetics&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>
+</td>
+<td>
+<code>aes()</code>
+</td>
+<td>
+<em>Aesthetic mappings between variables and visual properties..</em>
+</td>
+</tr><tr>
+<td>
+<b style="color:#67676;">Geometries</b>
+</td>
+<td>
+<code>geom_*()</code>
+</td>
+<td>
+<em>The geometric shapes representing the data.</em>
+</td>
+</tr>
+<tr>
+<td>
+<b style="color:#67676;">Statistics</b>
+</td>
+<td>
+<code>stat_*()</code>
+</td>
+<td>
+<em>The statistical transformations applied to the data.</em>
+</td>
+</tr>
+<tr>
+<td>
+<b style="color:#67676;">Scales</b>
+</td>
+<td>
+<code>scale_*()</code>
+</td>
+<td>
+<em>Maps between the data and the aesthetic dimensions.</em>
+</td>
+</tr>
+<tr>
+<td>
+<b style="color:#67676;">Coordinate System</b>
+</td>
+<td>
+<code>coord_*()</code>
+</td>
+<td>
+<em>Maps data into the plane of the data rectangle.</em>
+</td>
+</tr>
+<tr>
+<td>
+<b style="color:#67676;">Facets</b>
+</td>
+<td>
+<code>facet_*()</code>
+</td>
+<td>
+<em>The arrangement of the data into a grid of plots.</em>
+</td>
+</tr>
+<tr>
+<td>
+<b style="color:#67676;">Visual Themes</b>
+</td>
+<td>
+<code>theme()</code> and <code>theme_*()</code>
+</td>
+<td>
+<em>The overall visual defaults of a plot.</em>
+</td>
+</tr>
+
+</tbody></table>
 </section></section>
 <section>
 <section id="a-basic-ggplot-example" class="title-slide slide level1 center">
@@ -770,7 +919,7 @@
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_62dd6d5c" style="right:0;bottom:0;font-size:.5em;" data-warnwhen="0">
+<div class="countdown" id="timer_62de0982" style="right:0;bottom:0;font-size:.5em;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 </div>
@@ -1144,6 +1293,145 @@
 </div>
 </section></section>
 <section>
+<section id="statistical-layers" class="title-slide slide level1 center">
+<h1>Statistical Layers</h1>
+
+</section>
+<section id="stat_-and-geom_" class="slide level2">
+<h2>`stat_*()` and `geom_*()`</h2>
+<div class="quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="cell quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="sourceCode cell-code" id="cb32" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1"></a><span class="fu">ggplot</span>(bikes, <span class="fu">aes</span>(<span class="at">x =</span> temp_feel, <span class="at">y =</span> count)) <span class="sc">+</span></span>
+<span id="cb32-2"><a href="#cb32-2"></a>  <span class="fu">stat_smooth</span>(<span class="at">geom =</span> <span class="st">"smooth"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img data-src="02_concepts_pt1_files/figure-revealjs/stat-geom-1.png" width="1500"></p>
+</div>
+</div>
+<div class="cell quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="sourceCode cell-code" id="cb33" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a><span class="fu">ggplot</span>(bikes, <span class="fu">aes</span>(<span class="at">x =</span> temp_feel, <span class="at">y =</span> count)) <span class="sc">+</span></span>
+<span id="cb33-2"><a href="#cb33-2"></a>  <span class="fu">geom_smooth</span>(<span class="at">stat =</span> <span class="st">"smooth"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img data-src="02_concepts_pt1_files/figure-revealjs/geom-stat-1.png" width="1500"></p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="stat_-and-geom_-1" class="slide level2">
+<h2>`stat_*()` and `geom_*()`</h2>
+<div class="quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="cell quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="sourceCode cell-code" id="cb34" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1"></a><span class="fu">ggplot</span>(bikes, <span class="fu">aes</span>(<span class="at">x =</span> season)) <span class="sc">+</span></span>
+<span id="cb34-2"><a href="#cb34-2"></a>  <span class="fu">stat_count</span>(<span class="at">geom =</span> <span class="st">"bar"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img data-src="02_concepts_pt1_files/figure-revealjs/stat-geom-2-1.png" width="1500"></p>
+</div>
+</div>
+<div class="cell quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="sourceCode cell-code" id="cb35" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a><span class="fu">ggplot</span>(bikes, <span class="fu">aes</span>(<span class="at">x =</span> season)) <span class="sc">+</span></span>
+<span id="cb35-2"><a href="#cb35-2"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"count"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img data-src="02_concepts_pt1_files/figure-revealjs/geom-stat-2-1.png" width="1500"></p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="stat_-and-geom_-2" class="slide level2">
+<h2>`stat_*()` and `geom_*()`</h2>
+<p>::: {layout-ncol=“2”}</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1"></a><span class="fu">ggplot</span>(bikes, <span class="fu">aes</span>(<span class="at">x =</span> date, <span class="at">y =</span> temp_feel)) <span class="sc">+</span></span>
+<span id="cb36-2"><a href="#cb36-2"></a>  <span class="fu">stat_identity</span>(<span class="at">geom =</span> <span class="st">"point"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img data-src="02_concepts_pt1_files/figure-revealjs/stat-geom-3-1.png" width="1500"></p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1"></a><span class="fu">ggplot</span>(bikes, <span class="fu">aes</span>(<span class="at">x =</span> date, <span class="at">y =</span> temp_feel)) <span class="sc">+</span></span>
+<span id="cb37-2"><a href="#cb37-2"></a>  <span class="fu">geom_point</span>(<span class="at">stat =</span> <span class="st">"identity"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img data-src="02_concepts_pt1_files/figure-revealjs/geom-stat-3-1.png" width="1500"></p>
+</div>
+</div>
+<p>:::## Statistical Summaries</p>
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb38" data-code-line-numbers="3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1"></a><span class="fu">ggplot</span>(</span>
+<span id="cb38-2"><a href="#cb38-2"></a>    bikes, </span>
+<span id="cb38-3"><a href="#cb38-3"></a>    <span class="fu">aes</span>(<span class="at">x =</span> season, <span class="at">y =</span> temp_feel)</span>
+<span id="cb38-4"><a href="#cb38-4"></a>  ) <span class="sc">+</span></span>
+<span id="cb38-5"><a href="#cb38-5"></a>  <span class="fu">stat_summary</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div class="cell-output-display">
+<p><img data-src="02_concepts_pt1_files/figure-revealjs/stat-summary-1.png" width="1500"></p>
+</div>
+</div>
+</div>
+</section>
+<section id="statistical-summaries" class="slide level2">
+<h2>Statistical Summaries</h2>
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb39" data-code-line-numbers="6,7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1"></a><span class="fu">ggplot</span>(</span>
+<span id="cb39-2"><a href="#cb39-2"></a>    bikes, </span>
+<span id="cb39-3"><a href="#cb39-3"></a>    <span class="fu">aes</span>(<span class="at">x =</span> season, <span class="at">y =</span> temp_feel)</span>
+<span id="cb39-4"><a href="#cb39-4"></a>  ) <span class="sc">+</span></span>
+<span id="cb39-5"><a href="#cb39-5"></a>  <span class="fu">stat_summary</span>(</span>
+<span id="cb39-6"><a href="#cb39-6"></a>    <span class="at">fun =</span> mean_se, <span class="do">## the default</span></span>
+<span id="cb39-7"><a href="#cb39-7"></a>    <span class="at">geom =</span> <span class="st">"errorbar"</span>  <span class="do">## the default</span></span>
+<span id="cb39-8"><a href="#cb39-8"></a>  ) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div class="cell-output-display">
+<p><img data-src="02_concepts_pt1_files/figure-revealjs/stat-summary-defaults-1.png" width="1500"></p>
+</div>
+</div>
+</div>
+</section>
+<section id="statistical-summaries-1" class="slide level2">
+<h2>Statistical Summaries</h2>
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb40" data-code-line-numbers="6,7,8,9,10|7,8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1"></a><span class="fu">ggplot</span>(</span>
+<span id="cb40-2"><a href="#cb40-2"></a>    bikes, </span>
+<span id="cb40-3"><a href="#cb40-3"></a>    <span class="fu">aes</span>(<span class="at">x =</span> season, <span class="at">y =</span> temp_feel)</span>
+<span id="cb40-4"><a href="#cb40-4"></a>  ) <span class="sc">+</span></span>
+<span id="cb40-5"><a href="#cb40-5"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb40-6"><a href="#cb40-6"></a>  <span class="fu">stat_summary</span>(</span>
+<span id="cb40-7"><a href="#cb40-7"></a>    <span class="at">fun =</span> median,</span>
+<span id="cb40-8"><a href="#cb40-8"></a>    <span class="at">geom =</span> <span class="st">"point"</span>,</span>
+<span id="cb40-9"><a href="#cb40-9"></a>    <span class="at">color =</span> <span class="st">"#28a87d"</span></span>
+<span id="cb40-10"><a href="#cb40-10"></a>  ) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div class="cell-output-display">
+<p><img data-src="02_concepts_pt1_files/figure-revealjs/stat-summary-median-1.png" width="1500"></p>
+</div>
+</div>
+</div>
+</section>
+<section id="statistical-summaries-2" class="slide level2">
+<h2>Statistical Summaries</h2>
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb41" data-code-line-numbers="5,6,7,8,9|7,8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1"></a><span class="fu">ggplot</span>(</span>
+<span id="cb41-2"><a href="#cb41-2"></a>    bikes, </span>
+<span id="cb41-3"><a href="#cb41-3"></a>    <span class="fu">aes</span>(<span class="at">x =</span> season, <span class="at">y =</span> temp_feel)</span>
+<span id="cb41-4"><a href="#cb41-4"></a>  ) <span class="sc">+</span></span>
+<span id="cb41-5"><a href="#cb41-5"></a>  <span class="fu">stat_summary</span>(</span>
+<span id="cb41-6"><a href="#cb41-6"></a>    <span class="at">fun =</span> mean, </span>
+<span id="cb41-7"><a href="#cb41-7"></a>    <span class="at">fun.max =</span> <span class="cf">function</span>(y) <span class="fu">mean</span>(y) <span class="sc">+</span> <span class="fu">sd</span>(y), </span>
+<span id="cb41-8"><a href="#cb41-8"></a>    <span class="at">fun.min =</span> <span class="cf">function</span>(y) <span class="fu">mean</span>(y) <span class="sc">-</span> <span class="fu">sd</span>(y) </span>
+<span id="cb41-9"><a href="#cb41-9"></a>  ) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div class="cell-output-display">
+<p><img data-src="02_concepts_pt1_files/figure-revealjs/stat-summary-custom-1.png" width="1500"></p>
+</div>
+</div>
+</div>
+</section></section>
+<section>
 <section id="extending-a-ggplot" class="title-slide slide level1 center">
 <h1>Extending a ggplot</h1>
 
@@ -1151,22 +1439,22 @@
 <section id="store-a-ggplot-as-object" class="slide level2">
 <h2>Store a ggplot as Object</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb32" data-code-line-numbers="1,16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1"></a>g <span class="ot">&lt;-</span></span>
-<span id="cb32-2"><a href="#cb32-2"></a>  <span class="fu">ggplot</span>(</span>
-<span id="cb32-3"><a href="#cb32-3"></a>    bikes,</span>
-<span id="cb32-4"><a href="#cb32-4"></a>    <span class="fu">aes</span>(<span class="at">x =</span> temp_feel, <span class="at">y =</span> count,</span>
-<span id="cb32-5"><a href="#cb32-5"></a>        <span class="at">color =</span> season,</span>
-<span id="cb32-6"><a href="#cb32-6"></a>        <span class="at">group =</span> day_night)</span>
-<span id="cb32-7"><a href="#cb32-7"></a>  ) <span class="sc">+</span></span>
-<span id="cb32-8"><a href="#cb32-8"></a>  <span class="fu">geom_point</span>(</span>
-<span id="cb32-9"><a href="#cb32-9"></a>    <span class="at">alpha =</span> .<span class="dv">5</span></span>
-<span id="cb32-10"><a href="#cb32-10"></a>  ) <span class="sc">+</span></span>
-<span id="cb32-11"><a href="#cb32-11"></a>  <span class="fu">geom_smooth</span>(</span>
-<span id="cb32-12"><a href="#cb32-12"></a>    <span class="at">method =</span> <span class="st">"lm"</span>,</span>
-<span id="cb32-13"><a href="#cb32-13"></a>    <span class="at">color =</span> <span class="st">"black"</span></span>
-<span id="cb32-14"><a href="#cb32-14"></a>  )</span>
-<span id="cb32-15"><a href="#cb32-15"></a></span>
-<span id="cb32-16"><a href="#cb32-16"></a><span class="fu">class</span>(g)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb42" data-code-line-numbers="1,16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1"></a>g <span class="ot">&lt;-</span></span>
+<span id="cb42-2"><a href="#cb42-2"></a>  <span class="fu">ggplot</span>(</span>
+<span id="cb42-3"><a href="#cb42-3"></a>    bikes,</span>
+<span id="cb42-4"><a href="#cb42-4"></a>    <span class="fu">aes</span>(<span class="at">x =</span> temp_feel, <span class="at">y =</span> count,</span>
+<span id="cb42-5"><a href="#cb42-5"></a>        <span class="at">color =</span> season,</span>
+<span id="cb42-6"><a href="#cb42-6"></a>        <span class="at">group =</span> day_night)</span>
+<span id="cb42-7"><a href="#cb42-7"></a>  ) <span class="sc">+</span></span>
+<span id="cb42-8"><a href="#cb42-8"></a>  <span class="fu">geom_point</span>(</span>
+<span id="cb42-9"><a href="#cb42-9"></a>    <span class="at">alpha =</span> .<span class="dv">5</span></span>
+<span id="cb42-10"><a href="#cb42-10"></a>  ) <span class="sc">+</span></span>
+<span id="cb42-11"><a href="#cb42-11"></a>  <span class="fu">geom_smooth</span>(</span>
+<span id="cb42-12"><a href="#cb42-12"></a>    <span class="at">method =</span> <span class="st">"lm"</span>,</span>
+<span id="cb42-13"><a href="#cb42-13"></a>    <span class="at">color =</span> <span class="st">"black"</span></span>
+<span id="cb42-14"><a href="#cb42-14"></a>  )</span>
+<span id="cb42-15"><a href="#cb42-15"></a></span>
+<span id="cb42-16"><a href="#cb42-16"></a><span class="fu">class</span>(g)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "gg"     "ggplot"</code></pre>
 </div>
@@ -1175,30 +1463,32 @@
 <section id="inspect-a-ggplot-object" class="slide level2">
 <h2>Inspect a ggplot Object</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1"></a>g<span class="sc">$</span>data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1"></a>g<span class="sc">$</span>data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1,454 × 14
-   date       day_night year  month season count is_workday is_weekend
-   &lt;date&gt;     &lt;chr&gt;     &lt;fct&gt; &lt;fct&gt; &lt;fct&gt;  &lt;int&gt; &lt;lgl&gt;      &lt;lgl&gt;     
- 1 2015-01-04 day       2015  1     winter  6830 FALSE      TRUE      
- 2 2015-01-04 night     2015  1     winter  2404 FALSE      TRUE      
- 3 2015-01-05 day       2015  1     winter 14763 TRUE       FALSE     
- 4 2015-01-05 night     2015  1     winter  5609 TRUE       FALSE     
- 5 2015-01-06 day       2015  1     winter 14501 TRUE       FALSE     
- 6 2015-01-06 night     2015  1     winter  6112 TRUE       FALSE     
- 7 2015-01-07 day       2015  1     winter 16358 TRUE       FALSE     
- 8 2015-01-07 night     2015  1     winter  4706 TRUE       FALSE     
- 9 2015-01-08 day       2015  1     winter  9971 TRUE       FALSE     
-10 2015-01-08 night     2015  1     winter  5630 TRUE       FALSE     
-# … with 1,444 more rows, and 6 more variables: is_holiday &lt;lgl&gt;, temp &lt;dbl&gt;,
-#   temp_feel &lt;dbl&gt;, humidity &lt;dbl&gt;, wind_speed &lt;dbl&gt;, weather_type &lt;chr&gt;</code></pre>
+   date       day_night year  month season count is_work…¹ is_we…² is_ho…³  temp
+   &lt;date&gt;     &lt;chr&gt;     &lt;fct&gt; &lt;fct&gt; &lt;fct&gt;  &lt;int&gt; &lt;lgl&gt;     &lt;lgl&gt;   &lt;lgl&gt;   &lt;dbl&gt;
+ 1 2015-01-04 day       2015  1     winter  6830 FALSE     TRUE    FALSE    2.17
+ 2 2015-01-04 night     2015  1     winter  2404 FALSE     TRUE    FALSE    2.79
+ 3 2015-01-05 day       2015  1     winter 14763 TRUE      FALSE   FALSE    8.96
+ 4 2015-01-05 night     2015  1     winter  5609 TRUE      FALSE   FALSE    7.12
+ 5 2015-01-06 day       2015  1     winter 14501 TRUE      FALSE   FALSE    9   
+ 6 2015-01-06 night     2015  1     winter  6112 TRUE      FALSE   FALSE    6.71
+ 7 2015-01-07 day       2015  1     winter 16358 TRUE      FALSE   FALSE    8.17
+ 8 2015-01-07 night     2015  1     winter  4706 TRUE      FALSE   FALSE    6.68
+ 9 2015-01-08 day       2015  1     winter  9971 TRUE      FALSE   FALSE    9.46
+10 2015-01-08 night     2015  1     winter  5630 TRUE      FALSE   FALSE   10.0 
+# … with 1,444 more rows, 4 more variables: temp_feel &lt;dbl&gt;, humidity &lt;dbl&gt;,
+#   wind_speed &lt;dbl&gt;, weather_type &lt;chr&gt;, and abbreviated variable names
+#   ¹​is_workday, ²​is_weekend, ³​is_holiday
+# ℹ Use `print(n = ...)` to see more rows, and `colnames()` to see all variable names</code></pre>
 </div>
 </div>
 </section>
 <section id="inspect-a-ggplot-object-1" class="slide level2">
 <h2>Inspect a ggplot Object</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1"></a>g<span class="sc">$</span>mapping</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1"></a>g<span class="sc">$</span>mapping</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Aesthetic mapping: 
 * `x`      -&gt; `temp_feel`
@@ -1212,10 +1502,10 @@
 <h2>Extend a ggplot Object: Add Layers</h2>
 <div class="cell columns column-output-location">
 <div class="column">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1"></a>g <span class="sc">+</span></span>
-<span id="cb38-2"><a href="#cb38-2"></a>  <span class="fu">geom_rug</span>(</span>
-<span id="cb38-3"><a href="#cb38-3"></a>    <span class="at">alpha =</span> .<span class="dv">2</span></span>
-<span id="cb38-4"><a href="#cb38-4"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1"></a>g <span class="sc">+</span></span>
+<span id="cb48-2"><a href="#cb48-2"></a>  <span class="fu">geom_rug</span>(</span>
+<span id="cb48-3"><a href="#cb48-3"></a>    <span class="at">alpha =</span> .<span class="dv">2</span></span>
+<span id="cb48-4"><a href="#cb48-4"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
 <p><img data-src="02_concepts_pt1_files/figure-revealjs/ggplot-object-extend-geom-1.png" width="1500"></p>
@@ -1227,11 +1517,11 @@
 <h2>Remove a Layer from the Legend</h2>
 <div class="cell columns column-output-location">
 <div class="column">
-<div class="sourceCode cell-code" id="cb39" data-code-line-numbers="4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1"></a>g <span class="sc">+</span></span>
-<span id="cb39-2"><a href="#cb39-2"></a>  <span class="fu">geom_rug</span>(</span>
-<span id="cb39-3"><a href="#cb39-3"></a>    <span class="at">alpha =</span> .<span class="dv">2</span>,</span>
-<span id="cb39-4"><a href="#cb39-4"></a>    <span class="at">show.legend =</span> <span class="cn">FALSE</span></span>
-<span id="cb39-5"><a href="#cb39-5"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb49" data-code-line-numbers="4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1"></a>g <span class="sc">+</span></span>
+<span id="cb49-2"><a href="#cb49-2"></a>  <span class="fu">geom_rug</span>(</span>
+<span id="cb49-3"><a href="#cb49-3"></a>    <span class="at">alpha =</span> .<span class="dv">2</span>,</span>
+<span id="cb49-4"><a href="#cb49-4"></a>    <span class="at">show.legend =</span> <span class="cn">FALSE</span></span>
+<span id="cb49-5"><a href="#cb49-5"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
 <p><img data-src="02_concepts_pt1_files/figure-revealjs/geom-guide-none-1.png" width="1500"></p>
@@ -1243,10 +1533,10 @@
 <h2>Extend a ggplot Object: Add Labels</h2>
 <div class="cell columns column-output-location">
 <div class="column">
-<div class="sourceCode cell-code" id="cb40" data-code-line-numbers="2,3,4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1"></a>g <span class="sc">+</span></span>
-<span id="cb40-2"><a href="#cb40-2"></a>  <span class="fu">xlab</span>(<span class="st">"Feels-like temperature (°F)"</span>) <span class="sc">+</span></span>
-<span id="cb40-3"><a href="#cb40-3"></a>  <span class="fu">ylab</span>(<span class="st">"Reported bike shares"</span>) <span class="sc">+</span></span>
-<span id="cb40-4"><a href="#cb40-4"></a>  <span class="fu">ggtitle</span>(<span class="st">"TfL bike sharing trends"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb50" data-code-line-numbers="2,3,4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1"></a>g <span class="sc">+</span></span>
+<span id="cb50-2"><a href="#cb50-2"></a>  <span class="fu">xlab</span>(<span class="st">"Feels-like temperature (°F)"</span>) <span class="sc">+</span></span>
+<span id="cb50-3"><a href="#cb50-3"></a>  <span class="fu">ylab</span>(<span class="st">"Reported bike shares"</span>) <span class="sc">+</span></span>
+<span id="cb50-4"><a href="#cb50-4"></a>  <span class="fu">ggtitle</span>(<span class="st">"TfL bike sharing trends"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
 <p><img data-src="02_concepts_pt1_files/figure-revealjs/ggplot-labs-individual-1.png" width="1500"></p>
@@ -1258,12 +1548,12 @@
 <h2>Extend a ggplot Object: Add Labels</h2>
 <div class="cell columns column-output-location">
 <div class="column">
-<div class="sourceCode cell-code" id="cb41" data-code-line-numbers="2,3,4,5,6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1"></a>g <span class="sc">+</span></span>
-<span id="cb41-2"><a href="#cb41-2"></a>  <span class="fu">labs</span>(</span>
-<span id="cb41-3"><a href="#cb41-3"></a>    <span class="at">x =</span> <span class="st">"Feels-like temperature (°F)"</span>,</span>
-<span id="cb41-4"><a href="#cb41-4"></a>    <span class="at">y =</span> <span class="st">"Reported bike shares"</span>,</span>
-<span id="cb41-5"><a href="#cb41-5"></a>    <span class="at">title =</span> <span class="st">"TfL bike sharing trends"</span></span>
-<span id="cb41-6"><a href="#cb41-6"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb51" data-code-line-numbers="2,3,4,5,6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1"></a>g <span class="sc">+</span></span>
+<span id="cb51-2"><a href="#cb51-2"></a>  <span class="fu">labs</span>(</span>
+<span id="cb51-3"><a href="#cb51-3"></a>    <span class="at">x =</span> <span class="st">"Feels-like temperature (°F)"</span>,</span>
+<span id="cb51-4"><a href="#cb51-4"></a>    <span class="at">y =</span> <span class="st">"Reported bike shares"</span>,</span>
+<span id="cb51-5"><a href="#cb51-5"></a>    <span class="at">title =</span> <span class="st">"TfL bike sharing trends"</span></span>
+<span id="cb51-6"><a href="#cb51-6"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
 <p><img data-src="02_concepts_pt1_files/figure-revealjs/ggplot-labs-bundled-1.png" width="1500"></p>
@@ -1275,15 +1565,15 @@
 <h2>Extend a ggplot Object: Add Labels</h2>
 <div class="cell columns column-output-location">
 <div class="column">
-<div class="sourceCode cell-code" id="cb42" data-code-line-numbers="5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1"></a>g <span class="ot">&lt;-</span> g <span class="sc">+</span></span>
-<span id="cb42-2"><a href="#cb42-2"></a>  <span class="fu">labs</span>(</span>
-<span id="cb42-3"><a href="#cb42-3"></a>    <span class="at">x =</span> <span class="st">"Feels-like temperature (°F)"</span>,</span>
-<span id="cb42-4"><a href="#cb42-4"></a>    <span class="at">y =</span> <span class="st">"Reported bike shares"</span>,</span>
-<span id="cb42-5"><a href="#cb42-5"></a>    <span class="at">title =</span> <span class="st">"TfL bike sharing trends"</span>,</span>
-<span id="cb42-6"><a href="#cb42-6"></a>    <span class="at">color =</span> <span class="st">"Season:"</span></span>
-<span id="cb42-7"><a href="#cb42-7"></a>  )</span>
-<span id="cb42-8"><a href="#cb42-8"></a></span>
-<span id="cb42-9"><a href="#cb42-9"></a>g</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb52" data-code-line-numbers="5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1"></a>g <span class="ot">&lt;-</span> g <span class="sc">+</span></span>
+<span id="cb52-2"><a href="#cb52-2"></a>  <span class="fu">labs</span>(</span>
+<span id="cb52-3"><a href="#cb52-3"></a>    <span class="at">x =</span> <span class="st">"Feels-like temperature (°F)"</span>,</span>
+<span id="cb52-4"><a href="#cb52-4"></a>    <span class="at">y =</span> <span class="st">"Reported bike shares"</span>,</span>
+<span id="cb52-5"><a href="#cb52-5"></a>    <span class="at">title =</span> <span class="st">"TfL bike sharing trends"</span>,</span>
+<span id="cb52-6"><a href="#cb52-6"></a>    <span class="at">color =</span> <span class="st">"Season:"</span></span>
+<span id="cb52-7"><a href="#cb52-7"></a>  )</span>
+<span id="cb52-8"><a href="#cb52-8"></a></span>
+<span id="cb52-9"><a href="#cb52-9"></a>g</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
 <p><img data-src="02_concepts_pt1_files/figure-revealjs/ggplot-labs-bundled-color-1.png" width="1500"></p>
@@ -1295,16 +1585,16 @@
 <h2>Extend a ggplot Object: Add Labels</h2>
 <div class="cell columns column-output-location">
 <div class="column">
-<div class="sourceCode cell-code" id="cb43" data-code-line-numbers="5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1"></a>g <span class="sc">+</span></span>
-<span id="cb43-2"><a href="#cb43-2"></a>  <span class="fu">labs</span>(</span>
-<span id="cb43-3"><a href="#cb43-3"></a>    <span class="at">x =</span> <span class="st">"Feels-like temperature (°F)"</span>,</span>
-<span id="cb43-4"><a href="#cb43-4"></a>    <span class="at">y =</span> <span class="st">"Reported bike shares"</span>,</span>
-<span id="cb43-5"><a href="#cb43-5"></a>    <span class="at">title =</span> <span class="st">"TfL bike sharing trends"</span>,</span>
-<span id="cb43-6"><a href="#cb43-6"></a>    <span class="at">subtitle =</span> <span class="st">"Reported bike rents versus feels-like temperature in London"</span>,</span>
-<span id="cb43-7"><a href="#cb43-7"></a>    <span class="at">caption =</span> <span class="st">"Data: TfL"</span>,</span>
-<span id="cb43-8"><a href="#cb43-8"></a>    <span class="at">color =</span> <span class="st">"Season:"</span>,</span>
-<span id="cb43-9"><a href="#cb43-9"></a>    <span class="at">tag =</span> <span class="st">"Fig. 1"</span></span>
-<span id="cb43-10"><a href="#cb43-10"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb53" data-code-line-numbers="5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1"></a>g <span class="sc">+</span></span>
+<span id="cb53-2"><a href="#cb53-2"></a>  <span class="fu">labs</span>(</span>
+<span id="cb53-3"><a href="#cb53-3"></a>    <span class="at">x =</span> <span class="st">"Feels-like temperature (°F)"</span>,</span>
+<span id="cb53-4"><a href="#cb53-4"></a>    <span class="at">y =</span> <span class="st">"Reported bike shares"</span>,</span>
+<span id="cb53-5"><a href="#cb53-5"></a>    <span class="at">title =</span> <span class="st">"TfL bike sharing trends"</span>,</span>
+<span id="cb53-6"><a href="#cb53-6"></a>    <span class="at">subtitle =</span> <span class="st">"Reported bike rents versus feels-like temperature in London"</span>,</span>
+<span id="cb53-7"><a href="#cb53-7"></a>    <span class="at">caption =</span> <span class="st">"Data: TfL"</span>,</span>
+<span id="cb53-8"><a href="#cb53-8"></a>    <span class="at">color =</span> <span class="st">"Season:"</span>,</span>
+<span id="cb53-9"><a href="#cb53-9"></a>    <span class="at">tag =</span> <span class="st">"Fig. 1"</span></span>
+<span id="cb53-10"><a href="#cb53-10"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
 <p><img data-src="02_concepts_pt1_files/figure-revealjs/ggplot-labs-bundled-extended-1.png" width="1500"></p>
@@ -1317,21 +1607,21 @@
 <div class="quarto-layout-panel">
 <div class="quarto-layout-row quarto-layout-valign-top">
 <div class="cell quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<div class="sourceCode cell-code" id="cb44" data-code-line-numbers="3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1"></a>g <span class="sc">+</span></span>
-<span id="cb44-2"><a href="#cb44-2"></a>  <span class="fu">labs</span>(</span>
-<span id="cb44-3"><a href="#cb44-3"></a>    <span class="at">x =</span> <span class="st">""</span>,</span>
-<span id="cb44-4"><a href="#cb44-4"></a>    <span class="at">caption =</span> <span class="st">"Data: TfL"</span></span>
-<span id="cb44-5"><a href="#cb44-5"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb54" data-code-line-numbers="3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1"></a>g <span class="sc">+</span></span>
+<span id="cb54-2"><a href="#cb54-2"></a>  <span class="fu">labs</span>(</span>
+<span id="cb54-3"><a href="#cb54-3"></a>    <span class="at">x =</span> <span class="st">""</span>,</span>
+<span id="cb54-4"><a href="#cb54-4"></a>    <span class="at">caption =</span> <span class="st">"Data: TfL"</span></span>
+<span id="cb54-5"><a href="#cb54-5"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img data-src="02_concepts_pt1_files/figure-revealjs/ggplot-labs-empty-vs-null-A-1.png" width="1500"></p>
 </div>
 </div>
 <div class="cell quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<div class="sourceCode cell-code" id="cb45" data-code-line-numbers="3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1"></a>g <span class="sc">+</span></span>
-<span id="cb45-2"><a href="#cb45-2"></a>  <span class="fu">labs</span>(</span>
-<span id="cb45-3"><a href="#cb45-3"></a>    <span class="at">x =</span> <span class="cn">NULL</span>,</span>
-<span id="cb45-4"><a href="#cb45-4"></a>    <span class="at">caption =</span> <span class="st">"Data: TfL"</span></span>
-<span id="cb45-5"><a href="#cb45-5"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb55" data-code-line-numbers="3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1"></a>g <span class="sc">+</span></span>
+<span id="cb55-2"><a href="#cb55-2"></a>  <span class="fu">labs</span>(</span>
+<span id="cb55-3"><a href="#cb55-3"></a>    <span class="at">x =</span> <span class="cn">NULL</span>,</span>
+<span id="cb55-4"><a href="#cb55-4"></a>    <span class="at">caption =</span> <span class="st">"Data: TfL"</span></span>
+<span id="cb55-5"><a href="#cb55-5"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img data-src="02_concepts_pt1_files/figure-revealjs/ggplot-labs-empty-vs-null-B-1.png" width="1500"></p>
 </div>
@@ -1349,14 +1639,14 @@
 <div class="quarto-layout-panel">
 <div class="quarto-layout-row quarto-layout-valign-top">
 <div class="cell quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1"></a>g <span class="sc">+</span> <span class="fu">theme_light</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1"></a>g <span class="sc">+</span> <span class="fu">theme_light</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img data-src="02_concepts_pt1_files/figure-revealjs/ggplot-object-extend-theme-light-1.png" width="1500"></p>
 </div>
 </div>
 <div class="fragment quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1"></a>g <span class="sc">+</span> <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1"></a>g <span class="sc">+</span> <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img data-src="02_concepts_pt1_files/figure-revealjs/ggplot-object-extend-theme-minimal-1.png" width="1500"></p>
 </div>
@@ -1369,10 +1659,10 @@
 <h2>Change the Theme Base Settings</h2>
 <div class="cell columns column-output-location">
 <div class="column">
-<div class="sourceCode cell-code" id="cb48" data-code-line-numbers="2,3|1,2,3,4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1"></a>g <span class="sc">+</span> <span class="fu">theme_light</span>(</span>
-<span id="cb48-2"><a href="#cb48-2"></a>  <span class="at">base_size =</span> <span class="dv">14</span>,</span>
-<span id="cb48-3"><a href="#cb48-3"></a>  <span class="at">base_family =</span> <span class="st">"Roboto Condensed"</span></span>
-<span id="cb48-4"><a href="#cb48-4"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb58" data-code-line-numbers="2,3|1,2,3,4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1"></a>g <span class="sc">+</span> <span class="fu">theme_light</span>(</span>
+<span id="cb58-2"><a href="#cb58-2"></a>  <span class="at">base_size =</span> <span class="dv">14</span>,</span>
+<span id="cb58-3"><a href="#cb58-3"></a>  <span class="at">base_family =</span> <span class="st">"Roboto Condensed"</span></span>
+<span id="cb58-4"><a href="#cb58-4"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
 <p><img data-src="02_concepts_pt1_files/figure-revealjs/ggplot-theme-extend-theme-base-1.png" width="1500"></p>
@@ -1384,9 +1674,9 @@
 <h2>Set a Theme Globally</h2>
 <div class="cell columns column-output-location">
 <div class="column">
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1"></a><span class="fu">theme_set</span>(<span class="fu">theme_light</span>())</span>
-<span id="cb49-2"><a href="#cb49-2"></a></span>
-<span id="cb49-3"><a href="#cb49-3"></a>g</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1"></a><span class="fu">theme_set</span>(<span class="fu">theme_light</span>())</span>
+<span id="cb59-2"><a href="#cb59-2"></a></span>
+<span id="cb59-3"><a href="#cb59-3"></a>g</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
 <p><img data-src="02_concepts_pt1_files/figure-revealjs/ggplot-theme-global-1.png" width="1500"></p>
@@ -1398,12 +1688,12 @@
 <h2>Change the Theme Base Settings</h2>
 <div class="cell columns column-output-location">
 <div class="column">
-<div class="sourceCode cell-code" id="cb50" data-code-line-numbers="2,3|1,2,3,4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1"></a><span class="fu">theme_set</span>(<span class="fu">theme_light</span>(</span>
-<span id="cb50-2"><a href="#cb50-2"></a>  <span class="at">base_size =</span> <span class="dv">14</span>,</span>
-<span id="cb50-3"><a href="#cb50-3"></a>  <span class="at">base_family =</span> <span class="st">"Roboto Condensed"</span></span>
-<span id="cb50-4"><a href="#cb50-4"></a>))</span>
-<span id="cb50-5"><a href="#cb50-5"></a></span>
-<span id="cb50-6"><a href="#cb50-6"></a>g</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb60" data-code-line-numbers="2,3|1,2,3,4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1"></a><span class="fu">theme_set</span>(<span class="fu">theme_light</span>(</span>
+<span id="cb60-2"><a href="#cb60-2"></a>  <span class="at">base_size =</span> <span class="dv">14</span>,</span>
+<span id="cb60-3"><a href="#cb60-3"></a>  <span class="at">base_family =</span> <span class="st">"Roboto Condensed"</span></span>
+<span id="cb60-4"><a href="#cb60-4"></a>))</span>
+<span id="cb60-5"><a href="#cb60-5"></a></span>
+<span id="cb60-6"><a href="#cb60-6"></a>g</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
 <p><img data-src="02_concepts_pt1_files/figure-revealjs/ggplot-theme-global-base-1.png" width="1500"></p>
@@ -1414,40 +1704,43 @@
 <section id="systemfonts" class="slide level2">
 <h2>{systemfonts}</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb51" data-code-line-numbers="5,6,7,8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1"></a><span class="co"># install.packages("systemfonts")</span></span>
-<span id="cb51-2"><a href="#cb51-2"></a></span>
-<span id="cb51-3"><a href="#cb51-3"></a><span class="fu">library</span>(systemfonts)</span>
-<span id="cb51-4"><a href="#cb51-4"></a></span>
-<span id="cb51-5"><a href="#cb51-5"></a><span class="fu">system_fonts</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb51-6"><a href="#cb51-6"></a>  <span class="fu">filter</span>(<span class="fu">str_detect</span>(family, <span class="st">"Cabinet"</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb51-7"><a href="#cb51-7"></a>  <span class="fu">pull</span>(name) <span class="sc">%&gt;%</span></span>
-<span id="cb51-8"><a href="#cb51-8"></a>  <span class="fu">sort</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb61" data-code-line-numbers="5,6,7,8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1"></a><span class="co"># install.packages("systemfonts")</span></span>
+<span id="cb61-2"><a href="#cb61-2"></a></span>
+<span id="cb61-3"><a href="#cb61-3"></a><span class="fu">library</span>(systemfonts)</span>
+<span id="cb61-4"><a href="#cb61-4"></a></span>
+<span id="cb61-5"><a href="#cb61-5"></a><span class="fu">system_fonts</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb61-6"><a href="#cb61-6"></a>  <span class="fu">filter</span>(<span class="fu">str_detect</span>(family, <span class="st">"Cabinet"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb61-7"><a href="#cb61-7"></a>  <span class="fu">pull</span>(name) <span class="sc">%&gt;%</span></span>
+<span id="cb61-8"><a href="#cb61-8"></a>  <span class="fu">sort</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "false" "false"</code></pre>
+<pre><code>[1] "CabinetGrotesk-Black"      "CabinetGrotesk-Bold"      
+[3] "CabinetGrotesk-Extrabold"  "CabinetGrotesk-Extralight"
+[5] "CabinetGrotesk-Light"      "CabinetGrotesk-Medium"    
+[7] "CabinetGrotesk-Regular"    "CabinetGrotesk-Thin"      </code></pre>
 </div>
 </div>
 </section>
 <section id="systemfonts-1" class="slide level2">
 <h2>{systemfonts}</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1"></a><span class="co"># install.packages("systemfonts")</span></span>
-<span id="cb53-2"><a href="#cb53-2"></a><span class="fu">register_variant</span>(</span>
-<span id="cb53-3"><a href="#cb53-3"></a>  <span class="at">name =</span> <span class="st">"Cabinet Grotesk Black"</span>,</span>
-<span id="cb53-4"><a href="#cb53-4"></a>  <span class="at">family =</span> <span class="st">"Cabinet Grotesk"</span>,</span>
-<span id="cb53-5"><a href="#cb53-5"></a>  <span class="at">weight =</span> <span class="st">"heavy"</span>,</span>
-<span id="cb53-6"><a href="#cb53-6"></a>  <span class="at">features =</span> <span class="fu">font_feature</span>(<span class="at">letters =</span> <span class="st">"stylistic"</span>)</span>
-<span id="cb53-7"><a href="#cb53-7"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1"></a><span class="co"># install.packages("systemfonts")</span></span>
+<span id="cb63-2"><a href="#cb63-2"></a><span class="fu">register_variant</span>(</span>
+<span id="cb63-3"><a href="#cb63-3"></a>  <span class="at">name =</span> <span class="st">"Cabinet Grotesk Black"</span>,</span>
+<span id="cb63-4"><a href="#cb63-4"></a>  <span class="at">family =</span> <span class="st">"Cabinet Grotesk"</span>,</span>
+<span id="cb63-5"><a href="#cb63-5"></a>  <span class="at">weight =</span> <span class="st">"heavy"</span>,</span>
+<span id="cb63-6"><a href="#cb63-6"></a>  <span class="at">features =</span> <span class="fu">font_feature</span>(<span class="at">letters =</span> <span class="st">"stylistic"</span>)</span>
+<span id="cb63-7"><a href="#cb63-7"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="systemfonts-ggplot2" class="slide level2">
 <h2>{systemfonts} + {ggplot2}</h2>
 <div class="cell columns column-output-location">
 <div class="column">
-<div class="sourceCode cell-code" id="cb54" data-code-line-numbers="4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1"></a>g <span class="sc">+</span></span>
-<span id="cb54-2"><a href="#cb54-2"></a>  <span class="fu">theme_light</span>(</span>
-<span id="cb54-3"><a href="#cb54-3"></a>    <span class="at">base_size =</span> <span class="dv">18</span>,</span>
-<span id="cb54-4"><a href="#cb54-4"></a>    <span class="at">base_family =</span> <span class="st">"Cabinet Grotesk Black"</span></span>
-<span id="cb54-5"><a href="#cb54-5"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb64" data-code-line-numbers="4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1"></a>g <span class="sc">+</span></span>
+<span id="cb64-2"><a href="#cb64-2"></a>  <span class="fu">theme_light</span>(</span>
+<span id="cb64-3"><a href="#cb64-3"></a>    <span class="at">base_size =</span> <span class="dv">18</span>,</span>
+<span id="cb64-4"><a href="#cb64-4"></a>    <span class="at">base_family =</span> <span class="st">"Cabinet Grotesk Black"</span></span>
+<span id="cb64-5"><a href="#cb64-5"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
 <p><img data-src="02_concepts_pt1_files/figure-revealjs/systemfonts-register-plot-1.png" width="1500"></p>
@@ -1459,10 +1752,10 @@
 <h2>Overwrite Specific Theme Settings</h2>
 <div class="cell columns column-output-location">
 <div class="column">
-<div class="sourceCode cell-code" id="cb55" data-code-line-numbers="2|3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1"></a>g <span class="sc">+</span></span>
-<span id="cb55-2"><a href="#cb55-2"></a>  <span class="fu">theme</span>(</span>
-<span id="cb55-3"><a href="#cb55-3"></a>    <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>()</span>
-<span id="cb55-4"><a href="#cb55-4"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb65" data-code-line-numbers="2|3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1"></a>g <span class="sc">+</span></span>
+<span id="cb65-2"><a href="#cb65-2"></a>  <span class="fu">theme</span>(</span>
+<span id="cb65-3"><a href="#cb65-3"></a>    <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>()</span>
+<span id="cb65-4"><a href="#cb65-4"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
 <p><img data-src="02_concepts_pt1_files/figure-revealjs/ggplot-theme-settings-individual-1-1.png" width="1500"></p>
@@ -1474,11 +1767,11 @@
 <h2>Overwrite Specific Theme Settings</h2>
 <div class="cell columns column-output-location">
 <div class="column">
-<div class="sourceCode cell-code" id="cb56" data-code-line-numbers="4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1"></a>g <span class="sc">+</span></span>
-<span id="cb56-2"><a href="#cb56-2"></a>  <span class="fu">theme</span>(</span>
-<span id="cb56-3"><a href="#cb56-3"></a>    <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb56-4"><a href="#cb56-4"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>)</span>
-<span id="cb56-5"><a href="#cb56-5"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb66" data-code-line-numbers="4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1"></a>g <span class="sc">+</span></span>
+<span id="cb66-2"><a href="#cb66-2"></a>  <span class="fu">theme</span>(</span>
+<span id="cb66-3"><a href="#cb66-3"></a>    <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb66-4"><a href="#cb66-4"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>)</span>
+<span id="cb66-5"><a href="#cb66-5"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
 <p><img data-src="02_concepts_pt1_files/figure-revealjs/ggplot-theme-settings-individual-2-1.png" width="1500"></p>
@@ -1490,12 +1783,12 @@
 <h2>Overwrite Specific Theme Settings</h2>
 <div class="cell columns column-output-location">
 <div class="column">
-<div class="sourceCode cell-code" id="cb57" data-code-line-numbers="5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1"></a>g <span class="sc">+</span></span>
-<span id="cb57-2"><a href="#cb57-2"></a>  <span class="fu">theme</span>(</span>
-<span id="cb57-3"><a href="#cb57-3"></a>    <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb57-4"><a href="#cb57-4"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>),</span>
-<span id="cb57-5"><a href="#cb57-5"></a>    <span class="at">legend.position =</span> <span class="st">"top"</span></span>
-<span id="cb57-6"><a href="#cb57-6"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb67" data-code-line-numbers="5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1"></a>g <span class="sc">+</span></span>
+<span id="cb67-2"><a href="#cb67-2"></a>  <span class="fu">theme</span>(</span>
+<span id="cb67-3"><a href="#cb67-3"></a>    <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb67-4"><a href="#cb67-4"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>),</span>
+<span id="cb67-5"><a href="#cb67-5"></a>    <span class="at">legend.position =</span> <span class="st">"top"</span></span>
+<span id="cb67-6"><a href="#cb67-6"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
 <p><img data-src="02_concepts_pt1_files/figure-revealjs/ggplot-theme-settings-individual-3-1.png" width="1500"></p>
@@ -1507,13 +1800,13 @@
 <h2>Overwrite Specific Theme Settings</h2>
 <div class="cell columns column-output-location">
 <div class="column">
-<div class="sourceCode cell-code" id="cb58" data-code-line-numbers="6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1"></a>g <span class="sc">+</span></span>
-<span id="cb58-2"><a href="#cb58-2"></a>  <span class="fu">theme</span>(</span>
-<span id="cb58-3"><a href="#cb58-3"></a>    <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb58-4"><a href="#cb58-4"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>),</span>
-<span id="cb58-5"><a href="#cb58-5"></a>    <span class="at">legend.position =</span> <span class="st">"top"</span>,</span>
-<span id="cb58-6"><a href="#cb58-6"></a>    <span class="at">plot.title.position =</span> <span class="st">"plot"</span></span>
-<span id="cb58-7"><a href="#cb58-7"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb68" data-code-line-numbers="6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1"></a>g <span class="sc">+</span></span>
+<span id="cb68-2"><a href="#cb68-2"></a>  <span class="fu">theme</span>(</span>
+<span id="cb68-3"><a href="#cb68-3"></a>    <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb68-4"><a href="#cb68-4"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>),</span>
+<span id="cb68-5"><a href="#cb68-5"></a>    <span class="at">legend.position =</span> <span class="st">"top"</span>,</span>
+<span id="cb68-6"><a href="#cb68-6"></a>    <span class="at">plot.title.position =</span> <span class="st">"plot"</span></span>
+<span id="cb68-7"><a href="#cb68-7"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
 <p><img data-src="02_concepts_pt1_files/figure-revealjs/ggplot-theme-settings-individual-4-1.png" width="1500"></p>
@@ -1525,14 +1818,14 @@
 <h2>Overwrite Theme Settings Globally</h2>
 <div class="cell columns column-output-location">
 <div class="column">
-<div class="sourceCode cell-code" id="cb59" data-code-line-numbers="1|2,3,4,5|1,2,3,4,5,6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1"></a><span class="fu">theme_update</span>(</span>
-<span id="cb59-2"><a href="#cb59-2"></a>  <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb59-3"><a href="#cb59-3"></a>  <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>),</span>
-<span id="cb59-4"><a href="#cb59-4"></a>  <span class="at">legend.position =</span> <span class="st">"top"</span>,</span>
-<span id="cb59-5"><a href="#cb59-5"></a>  <span class="at">plot.title.position =</span> <span class="st">"plot"</span></span>
-<span id="cb59-6"><a href="#cb59-6"></a>)</span>
-<span id="cb59-7"><a href="#cb59-7"></a></span>
-<span id="cb59-8"><a href="#cb59-8"></a>g</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb69" data-code-line-numbers="1|2,3,4,5|1,2,3,4,5,6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1"></a><span class="fu">theme_update</span>(</span>
+<span id="cb69-2"><a href="#cb69-2"></a>  <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb69-3"><a href="#cb69-3"></a>  <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>),</span>
+<span id="cb69-4"><a href="#cb69-4"></a>  <span class="at">legend.position =</span> <span class="st">"top"</span>,</span>
+<span id="cb69-5"><a href="#cb69-5"></a>  <span class="at">plot.title.position =</span> <span class="st">"plot"</span></span>
+<span id="cb69-6"><a href="#cb69-6"></a>)</span>
+<span id="cb69-7"><a href="#cb69-7"></a></span>
+<span id="cb69-8"><a href="#cb69-8"></a>g</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
 <p><img data-src="02_concepts_pt1_files/figure-revealjs/ggplot-theme-settings-global-1.png" width="1500"></p>
@@ -1543,28 +1836,28 @@
 <section id="save-the-graphic" class="slide level2">
 <h2>Save the Graphic</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1"></a><span class="fu">ggsave</span>(g, <span class="at">filename =</span> <span class="st">"my_plot.png"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1"></a><span class="fu">ggsave</span>(g, <span class="at">filename =</span> <span class="st">"my_plot.png"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1"></a><span class="fu">ggsave</span>(<span class="st">"my_plot.png"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-<div class="fragment">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1"></a><span class="fu">ggsave</span>(<span class="st">"my_plot.png"</span>, <span class="at">width =</span> <span class="dv">8</span>, <span class="at">height =</span> <span class="dv">5</span>, <span class="at">dpi =</span> <span class="dv">600</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href="#cb71-1"></a><span class="fu">ggsave</span>(<span class="st">"my_plot.png"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1"></a><span class="fu">ggsave</span>(<span class="st">"my_plot.pdf"</span>, <span class="at">width =</span> <span class="dv">20</span>, <span class="at">height =</span> <span class="dv">12</span>, <span class="at">unit =</span> <span class="st">"cm"</span>, <span class="at">device =</span> cairo_pdf)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1"></a><span class="fu">ggsave</span>(<span class="st">"my_plot.png"</span>, <span class="at">width =</span> <span class="dv">8</span>, <span class="at">height =</span> <span class="dv">5</span>, <span class="at">dpi =</span> <span class="dv">600</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1"></a>grDevices<span class="sc">::</span><span class="fu">cairo_pdf</span>(<span class="st">"my_plot.pdf"</span>, <span class="at">width =</span> <span class="dv">10</span>, <span class="at">height =</span> <span class="dv">7</span>)</span>
-<span id="cb64-2"><a href="#cb64-2"></a>g</span>
-<span id="cb64-3"><a href="#cb64-3"></a><span class="fu">dev.off</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1"></a><span class="fu">ggsave</span>(<span class="st">"my_plot.pdf"</span>, <span class="at">width =</span> <span class="dv">20</span>, <span class="at">height =</span> <span class="dv">12</span>, <span class="at">unit =</span> <span class="st">"cm"</span>, <span class="at">device =</span> cairo_pdf)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1"></a>grDevices<span class="sc">::</span><span class="fu">cairo_pdf</span>(<span class="st">"my_plot.pdf"</span>, <span class="at">width =</span> <span class="dv">10</span>, <span class="at">height =</span> <span class="dv">7</span>)</span>
+<span id="cb74-2"><a href="#cb74-2"></a>g</span>
+<span id="cb74-3"><a href="#cb74-3"></a><span class="fu">dev.off</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </section>
@@ -1646,7 +1939,7 @@
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_62dd6d78" style="right:0;bottom:0;font-size:.5em;" data-warnwhen="0">
+<div class="countdown" id="timer_62de06e5" style="right:0;bottom:0;font-size:.5em;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">15</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 </div>
@@ -1674,7 +1967,7 @@
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_62dd6e39" style="right:0;bottom:0;font-size:.5em;" data-warnwhen="0">
+<div class="countdown" id="timer_62de0779" style="right:0;bottom:0;font-size:.5em;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">25</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 </div>

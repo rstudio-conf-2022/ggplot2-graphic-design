@@ -31,6 +31,9 @@ website:
     pinned: true
     align: center
     right:
+      - icon: font
+        href: course_fonts.zip
+        text: Fonts
       - icon: github
         href: https://github.com/rstudio-conf-2022/ggplot2-graphic-design
         text: GitHub
@@ -41,7 +44,6 @@ website:
      - href: index.qmd
        text: Home
      - href: schedule.qmd
-     - href: resources.qmd
      - href: license.qmd
 
 format:
