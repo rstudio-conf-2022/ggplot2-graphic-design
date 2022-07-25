@@ -1,6 +1,6 @@
 ---
 title: "Data Communication"
-subtitle: "15:30 - 16:15"
+subtitle: "15:30 - 17:00"
 date: "2022-07-25"
 image: "images/session4.png"
 tbl-colwidths: [5,20,75]
@@ -16,10 +16,10 @@ tbl-colwidths: [5,20,75]
 
 ## Slides
 
-[View slides in full screen](../materials/03_concepts_pt2.html)
+[View slides in full screen](../materials/04_data_communication.pdf)
 
 ```{=html}
-<iframe class="slide-deck" src="../materials/03_concepts_pt2.html" height="420" width="747" style="border: 1px solid #2e3846;"></iframe>
+<iframe class="slide-deck" src="../materials/04_data_communication.pdf" height="420" width="747" style="border: 1px solid #2e3846;"></iframe>
 ```
 ## Exercises
 
