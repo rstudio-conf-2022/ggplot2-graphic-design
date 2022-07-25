@@ -1,10 +1,24 @@
 /*-- scss:defaults --*/
 
 @font-face {
-    font-family: 'Cabinet Grotesk';
-    src: url('fonts/CabinetGrotesk-Regular.ttf') format("truetype");
-  }
-  
+  font-family: 'Cabinet Grotesk';
+  src: url('fonts/CabinetGrotesk-Regular.ttf') format("truetype");
+}
+@font-face {
+  font-family: 'Cabinet Grotesk';
+  font-weight: bold;
+  src: url('fonts/CabinetGrotesk-Bold.ttf') format("truetype");
+}
+@font-face {
+  font-family: 'Cabinet Grotesk';
+  font-weight: 800;
+  src: url('fonts/CabinetGrotesk-ExtraBold.ttf') format("truetype");
+} 
+@font-face {
+  font-family: 'Boska';
+  font-weight: 800;
+  src: url('fonts/Boska-Black.ttf') format("truetype");
+}
   
 $font-family-sans-serif: "Cabinet Grotesk", Impact, 'Arial', sans-serif;
 $font-family-serif: "Boska", Georgia, 'Times New Roman', Times, serif;

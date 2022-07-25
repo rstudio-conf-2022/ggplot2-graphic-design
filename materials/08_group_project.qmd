@@ -1,0 +1,68 @@
+---
+title: "Graphic Design with ggplot2"
+subtitle: "<span style='font-size:1.75em;line-height:1.1;'>Group Projetcs</span>"
+author: "<b style='color:#28a87d;'>Cédric Scherer</b> **//** rstudio::conf **//** July 2022"
+format:
+  revealjs:
+    theme: css/style.scss
+    footer: '**[Cédric Scherer](https::/cedricscherer.com) //** rstudio::conf **//** July 2022'
+    #'rstudio::conf(workshop = "Graphic Design with ggplot2", instructor = "Cédric Scherer")'
+    transition: fade
+    progress: true
+    multiplex: false
+    preview-links: true
+    scrollable: false
+    hide-inactive-cursor: true
+    highlight-style: printing
+    chalkboard:
+      theme: whiteboard
+      boardmarker-width: 4
+      buttons: true
+    pause: true
+    mainfont: Cabinet Grotesk
+editor: source
+knitr:
+  opts_chunk:
+    dev: "ragg_png"
+    retina: 1
+    dpi: 300
+execute:
+  freeze: auto
+  echo: true
+  fig-width: 5
+  fig-height: 6
+---
+
+## Group Projects
+
+::: question
+-   Form groups and work one of the following suggested projects:
+    - Carbon Footprint of Travel (OWID / UK.gov)
+    - Spending Before and During the Pandemic (JP Morgan Chase)
+    - Speed of Languages (Economist / Coupé et al.)
+    - Whimbrel Bird Migration (Movebank / Watts et al.)
+:::
+
+
+---
+
+
+![](materials/img/exercises/project-OWID.png)
+
+
+---
+
+
+![JPMorgan Chase Institute](materials/img/exercises/project-jpmorgan.png)
+
+
+---
+
+
+![[The Economists](https://www.economist.com/graphic-detail/2019/09/28/why-are-some-languages-spoken-faster-than-others)](materials/img/exercises/project-OWID.png)
+
+
+---
+
+
+![]()
