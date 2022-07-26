@@ -397,6 +397,92 @@
   <p class="author"><b style="color:#28a87d;">Cédric Scherer</b> <strong>//</strong> rstudio::conf <strong>//</strong> July 2022</p>
 </section>
 
+<section id="group-projects" class="slide level2">
+<h2>Group Projects</h2>
+<div class="question">
+<ul>
+<li>Form groups and work one of the following suggested projects:
+<ul>
+<li>Carbon Footprint of Travel (OWID / UK.gov)</li>
+<li>Spending Before and During the Pandemic (JP Morgan Chase)</li>
+<li>Speed of Languages (Economist / Coupé et al.)</li>
+<li>US Drought Patterns (Drought Monitor)</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section class="slide level2">
+
+
+<img data-src="img/project-OWID.png" alt="A very colorful bar chart by Our World in Data showing the carbon footrprint per passenger for differen types of mid- to long-distance transportation." class="r-stretch quarto-figure-center"><p class="caption">Graphic Source: <a href="https://ourworldindata.org/travel-carbon-footprint">Our World in Data</a></p></section>
+<section class="slide level2">
+
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2"></a></span>
+<span id="cb1-3"><a href="#cb1-3"></a>data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"carbon-footprint-travel.csv"</span>))</span>
+<span id="cb1-4"><a href="#cb1-4"></a></span>
+<span id="cb1-5"><a href="#cb1-5"></a>data <span class="sc">%&gt;%</span> </span>
+<span id="cb1-6"><a href="#cb1-6"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb1-7"><a href="#cb1-7"></a>    <span class="at">type =</span> <span class="fu">case_when</span>(</span>
+<span id="cb1-8"><a href="#cb1-8"></a>      <span class="fu">str_detect</span>(entity, <span class="st">"car|Motorcycle"</span>) <span class="sc">~</span> <span class="st">"Private motorized transport"</span>,</span>
+<span id="cb1-9"><a href="#cb1-9"></a>      <span class="fu">str_detect</span>(entity, <span class="st">"flight"</span>) <span class="sc">~</span> <span class="st">"Public air transport"</span>,</span>
+<span id="cb1-10"><a href="#cb1-10"></a>      <span class="fu">str_detect</span>(entity, <span class="st">"Ferry"</span>) <span class="sc">~</span> <span class="st">"Public water transport"</span>,</span>
+<span id="cb1-11"><a href="#cb1-11"></a>      <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">"Public land transport"</span></span>
+<span id="cb1-12"><a href="#cb1-12"></a>    )</span>
+<span id="cb1-13"><a href="#cb1-13"></a>  ) <span class="sc">%&gt;%</span> </span>
+<span id="cb1-14"><a href="#cb1-14"></a>  <span class="fu">ggplot</span>(</span>
+<span id="cb1-15"><a href="#cb1-15"></a>    <span class="fu">aes</span>(<span class="at">x =</span> emissions, </span>
+<span id="cb1-16"><a href="#cb1-16"></a>        <span class="at">y =</span> forcats<span class="sc">::</span><span class="fu">fct_reorder</span>(entity, emissions), </span>
+<span id="cb1-17"><a href="#cb1-17"></a>        <span class="at">fill =</span> type)</span>
+<span id="cb1-18"><a href="#cb1-18"></a>  ) <span class="sc">+</span></span>
+<span id="cb1-19"><a href="#cb1-19"></a>  <span class="fu">geom_col</span>(<span class="at">orientation =</span> <span class="st">"y"</span>, <span class="at">width =</span> .<span class="dv">8</span>) <span class="sc">+</span></span>
+<span id="cb1-20"><a href="#cb1-20"></a>  <span class="fu">geom_text</span>(</span>
+<span id="cb1-21"><a href="#cb1-21"></a>    <span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">paste0</span>(emissions, <span class="st">"g"</span>)),</span>
+<span id="cb1-22"><a href="#cb1-22"></a>    <span class="at">nudge_x =</span> <span class="dv">5</span>,</span>
+<span id="cb1-23"><a href="#cb1-23"></a>    <span class="at">hjust =</span> <span class="dv">0</span>,</span>
+<span id="cb1-24"><a href="#cb1-24"></a>    <span class="at">size =</span> <span class="dv">5</span>,</span>
+<span id="cb1-25"><a href="#cb1-25"></a>    <span class="at">family =</span> <span class="st">"Lato"</span>,</span>
+<span id="cb1-26"><a href="#cb1-26"></a>    <span class="at">color =</span> <span class="st">"grey40"</span></span>
+<span id="cb1-27"><a href="#cb1-27"></a>  ) <span class="sc">+</span></span>
+<span id="cb1-28"><a href="#cb1-28"></a>  <span class="fu">scale_x_continuous</span>(</span>
+<span id="cb1-29"><a href="#cb1-29"></a>    <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">250</span>, <span class="at">by =</span> <span class="dv">50</span>), </span>
+<span id="cb1-30"><a href="#cb1-30"></a>    <span class="at">labels =</span> <span class="cf">function</span>(x) glue<span class="sc">::</span><span class="fu">glue</span>(<span class="st">"{x} g"</span>),</span>
+<span id="cb1-31"><a href="#cb1-31"></a>    <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>),</span>
+<span id="cb1-32"><a href="#cb1-32"></a>    <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">285</span>)</span>
+<span id="cb1-33"><a href="#cb1-33"></a>  ) <span class="sc">+</span></span>
+<span id="cb1-34"><a href="#cb1-34"></a>  <span class="fu">scale_fill_manual</span>(</span>
+<span id="cb1-35"><a href="#cb1-35"></a>    <span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#dfb468"</span>, <span class="st">"#8fb9bf"</span>, <span class="st">"#28a87d"</span>), <span class="at">name =</span> <span class="cn">NULL</span></span>
+<span id="cb1-36"><a href="#cb1-36"></a>  ) <span class="sc">+</span></span>
+<span id="cb1-37"><a href="#cb1-37"></a>  <span class="fu">labs</span>(</span>
+<span id="cb1-38"><a href="#cb1-38"></a>    <span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="cn">NULL</span>,</span>
+<span id="cb1-39"><a href="#cb1-39"></a>    <span class="at">title =</span> <span class="st">"Carbon footprint of travel per kilometer, 2018"</span>, </span>
+<span id="cb1-40"><a href="#cb1-40"></a>    <span class="at">subtitle =</span> <span class="st">"The carbon footprint of travel is measured in grams of carbon dioxide equivalents per passenger kilometer.</span><span class="sc">\n</span><span class="st">This includes carbon dioxide, but also other greenhouse gases, and increased warming from aviation emissions at altitude."</span>, </span>
+<span id="cb1-41"><a href="#cb1-41"></a>    <span class="at">caption =</span> <span class="st">"Source: UK Department for Business, Energy &amp; Industrial Grenhouse gas reporting: conversion factors 2019.</span><span class="sc">\n</span><span class="st">Note: Data is based on official conversion factors used in UK reporting. These factors may vary slightly depending on the country.</span><span class="sc">\n\n</span><span class="st">Original visualization by Hannah Ritchie, OurWorldInData.org | Makeover by Cédric Scherer"</span></span>
+<span id="cb1-42"><a href="#cb1-42"></a>  ) <span class="sc">+</span></span>
+<span id="cb1-43"><a href="#cb1-43"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">18</span>, <span class="at">base_family =</span> <span class="st">"Cabinet Grotesk"</span>) <span class="sc">+</span></span>
+<span id="cb1-44"><a href="#cb1-44"></a>  <span class="fu">theme</span>(</span>
+<span id="cb1-45"><a href="#cb1-45"></a>    <span class="at">panel.grid.major =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb1-46"><a href="#cb1-46"></a>    <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb1-47"><a href="#cb1-47"></a>    <span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">"grey30"</span>),</span>
+<span id="cb1-48"><a href="#cb1-48"></a>    <span class="at">axis.text.y =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>),</span>
+<span id="cb1-49"><a href="#cb1-49"></a>    <span class="at">axis.text.x =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb1-50"><a href="#cb1-50"></a>    <span class="at">legend.position =</span> <span class="fu">c</span>(.<span class="dv">75</span>, .<span class="dv">2</span>),</span>
+<span id="cb1-51"><a href="#cb1-51"></a>    <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">20</span>),</span>
+<span id="cb1-52"><a href="#cb1-52"></a>    <span class="at">legend.key.height =</span> <span class="fu">unit</span>(<span class="fl">2.6</span>, <span class="st">"lines"</span>),</span>
+<span id="cb1-53"><a href="#cb1-53"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"Cabinet Grotesk"</span>, <span class="at">size =</span> <span class="dv">40</span>, <span class="at">color =</span> <span class="st">"grey30"</span>, <span class="at">margin =</span> <span class="fu">margin</span>(<span class="at">b =</span> <span class="dv">10</span>)),</span>
+<span id="cb1-54"><a href="#cb1-54"></a>    <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">17</span>, <span class="at">color =</span> <span class="st">"grey30"</span>, <span class="at">margin =</span> <span class="fu">margin</span>(<span class="at">b =</span> <span class="dv">20</span>)),</span>
+<span id="cb1-55"><a href="#cb1-55"></a>    <span class="at">plot.title.position =</span> <span class="st">"plot"</span>,</span>
+<span id="cb1-56"><a href="#cb1-56"></a>    <span class="at">plot.caption =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">14</span>, <span class="at">hjust =</span> <span class="dv">0</span>, <span class="at">color =</span> <span class="st">"grey60"</span>, <span class="at">margin =</span> <span class="fu">margin</span>(<span class="at">t =</span> <span class="dv">20</span>), <span class="at">lineheight =</span> <span class="fl">1.2</span>),</span>
+<span id="cb1-57"><a href="#cb1-57"></a>    <span class="at">plot.caption.position =</span> <span class="st">"plot"</span>,</span>
+<span id="cb1-58"><a href="#cb1-58"></a>    <span class="at">plot.margin =</span> <span class="fu">margin</span>(<span class="dv">15</span>, <span class="dv">15</span>, <span class="dv">15</span>, <span class="dv">15</span>)</span>
+<span id="cb1-59"><a href="#cb1-59"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section class="slide level2">
+
+
+<img data-src="08_group_projects_solutions_files/figure-revealjs/owid-barchart-1.png" width="4500" class="r-stretch quarto-figure-center"></section>
 <section class="slide level2">
 
 
@@ -404,85 +490,85 @@
 <section class="slide level2">
 
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="fu">library</span>(gghighlight)</span>
-<span id="cb1-3"><a href="#cb1-3"></a><span class="fu">library</span>(lubridate)</span>
-<span id="cb1-4"><a href="#cb1-4"></a></span>
-<span id="cb1-5"><a href="#cb1-5"></a><span class="fu">invisible</span>(<span class="fu">Sys.setlocale</span>(<span class="st">"LC_TIME"</span>, <span class="st">"C"</span>))</span>
-<span id="cb1-6"><a href="#cb1-6"></a></span>
-<span id="cb1-7"><a href="#cb1-7"></a>data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"spending-jpmorgan.csv"</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb1-8"><a href="#cb1-8"></a>  <span class="fu">mutate</span>(<span class="at">category =</span> <span class="fu">fct_inorder</span>(category))</span>
-<span id="cb1-9"><a href="#cb1-9"></a></span>
-<span id="cb1-10"><a href="#cb1-10"></a>label_df <span class="ot">&lt;-</span></span>
-<span id="cb1-11"><a href="#cb1-11"></a>  <span class="fu">tibble</span>(</span>
-<span id="cb1-12"><a href="#cb1-12"></a>    <span class="at">date =</span> <span class="fu">ymd</span>(<span class="st">"2020-03-13"</span>),</span>
-<span id="cb1-13"><a href="#cb1-13"></a>    <span class="at">change =</span> <span class="sc">-</span><span class="dv">60</span>,</span>
-<span id="cb1-14"><a href="#cb1-14"></a>    <span class="at">label =</span> <span class="st">"National emergency</span><span class="sc">\n</span><span class="st">declared March 13"</span>,</span>
-<span id="cb1-15"><a href="#cb1-15"></a>    <span class="at">category =</span> <span class="fu">factor</span>(<span class="st">"Groceries"</span>, <span class="at">levels =</span> <span class="fu">levels</span>(data<span class="sc">$</span>category))</span>
-<span id="cb1-16"><a href="#cb1-16"></a>  )</span>
-<span id="cb1-17"><a href="#cb1-17"></a></span>
-<span id="cb1-18"><a href="#cb1-18"></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(date, change, <span class="at">color =</span> category)) <span class="sc">+</span></span>
-<span id="cb1-19"><a href="#cb1-19"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb1-20"><a href="#cb1-20"></a>    <span class="fu">geom_line</span>(<span class="at">size =</span> .<span class="dv">8</span>, <span class="at">alpha =</span> .<span class="dv">5</span>) <span class="sc">+</span></span>
-<span id="cb1-21"><a href="#cb1-21"></a>    <span class="fu">gghighlight</span>(</span>
-<span id="cb1-22"><a href="#cb1-22"></a>      <span class="at">use_direct_label =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb1-23"><a href="#cb1-23"></a>      <span class="at">unhighlighted_params =</span> <span class="fu">list</span>(<span class="at">color =</span> <span class="st">"grey80"</span>, <span class="at">size =</span> .<span class="dv">5</span>)</span>
-<span id="cb1-24"><a href="#cb1-24"></a>    ) <span class="sc">+</span></span>
-<span id="cb1-25"><a href="#cb1-25"></a>    <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fu">ymd</span>(<span class="st">"2020-03-13"</span>), <span class="at">color =</span> <span class="st">"grey25"</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
-<span id="cb1-26"><a href="#cb1-26"></a>    <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">color =</span> <span class="st">"grey30"</span>, <span class="at">size =</span> .<span class="dv">8</span>) <span class="sc">+</span></span>
-<span id="cb1-27"><a href="#cb1-27"></a>    <span class="fu">geom_area</span>(<span class="at">alpha =</span> .<span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb1-28"><a href="#cb1-28"></a>    <span class="fu">geom_line</span>(<span class="at">size =</span> <span class="fl">1.2</span>) <span class="sc">+</span></span>
-<span id="cb1-29"><a href="#cb1-29"></a>    <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="fl">1.8</span>) <span class="sc">+</span></span>
-<span id="cb1-30"><a href="#cb1-30"></a>    <span class="fu">geom_text</span>(</span>
-<span id="cb1-31"><a href="#cb1-31"></a>      <span class="at">data =</span> label_df,</span>
-<span id="cb1-32"><a href="#cb1-32"></a>      <span class="fu">aes</span>(<span class="at">label =</span> label),</span>
-<span id="cb1-33"><a href="#cb1-33"></a>      <span class="at">color =</span> <span class="st">"grey25"</span>,</span>
-<span id="cb1-34"><a href="#cb1-34"></a>      <span class="at">family =</span> <span class="st">"Cabinet Grotesk"</span>,</span>
-<span id="cb1-35"><a href="#cb1-35"></a>      <span class="at">size =</span> <span class="fl">4.1</span>,</span>
-<span id="cb1-36"><a href="#cb1-36"></a>      <span class="at">lineheight =</span> .<span class="dv">95</span>,</span>
-<span id="cb1-37"><a href="#cb1-37"></a>      <span class="at">hjust =</span> <span class="fl">1.1</span></span>
-<span id="cb1-38"><a href="#cb1-38"></a>    ) <span class="sc">+</span></span>
-<span id="cb1-39"><a href="#cb1-39"></a>    <span class="fu">facet_wrap</span>(<span class="sc">~</span> category, <span class="at">ncol =</span> <span class="dv">4</span>, <span class="at">scales =</span> <span class="st">"free_x"</span>) <span class="sc">+</span></span>
-<span id="cb1-40"><a href="#cb1-40"></a>    <span class="fu">coord_cartesian</span>(<span class="at">clip =</span> <span class="st">"off"</span>) <span class="sc">+</span></span>
-<span id="cb1-41"><a href="#cb1-41"></a>    <span class="fu">scale_x_date</span>(</span>
-<span id="cb1-42"><a href="#cb1-42"></a>      <span class="at">expand =</span> <span class="fu">c</span>(.<span class="dv">003</span>, .<span class="dv">003</span>),</span>
-<span id="cb1-43"><a href="#cb1-43"></a>      <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="fu">ymd</span>(<span class="st">"2020-01-04"</span>), <span class="fu">ymd</span>(<span class="st">"2020-04-11"</span>), <span class="at">length.out =</span> <span class="dv">8</span>),</span>
-<span id="cb1-44"><a href="#cb1-44"></a>      <span class="at">date_labels =</span> <span class="st">"%b %d"</span></span>
-<span id="cb1-45"><a href="#cb1-45"></a>    ) <span class="sc">+</span></span>
-<span id="cb1-46"><a href="#cb1-46"></a>    <span class="fu">scale_y_continuous</span>(</span>
-<span id="cb1-47"><a href="#cb1-47"></a>      <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">80</span>, <span class="dv">60</span>, <span class="at">by =</span> <span class="dv">20</span>),</span>
-<span id="cb1-48"><a href="#cb1-48"></a>      <span class="at">labels =</span> glue<span class="sc">::</span><span class="fu">glue</span>(<span class="st">"{seq(-80, 60, by = 20)}%"</span>)</span>
-<span id="cb1-49"><a href="#cb1-49"></a>    ) <span class="sc">+</span></span>
-<span id="cb1-50"><a href="#cb1-50"></a>    rcartocolor<span class="sc">::</span><span class="fu">scale_color_carto_d</span>(</span>
-<span id="cb1-51"><a href="#cb1-51"></a>      <span class="at">palette =</span> <span class="st">"Prism"</span>, <span class="at">guide =</span> <span class="st">"none"</span></span>
-<span id="cb1-52"><a href="#cb1-52"></a>    ) <span class="sc">+</span></span>
-<span id="cb1-53"><a href="#cb1-53"></a>    <span class="fu">labs</span>(</span>
-<span id="cb1-54"><a href="#cb1-54"></a>      <span class="at">x =</span> <span class="st">"End of week"</span>, <span class="at">y =</span> <span class="cn">NULL</span>,</span>
-<span id="cb1-55"><a href="#cb1-55"></a>      <span class="at">title =</span> <span class="st">"Year-over-year percent change in spending by essential category"</span>,</span>
-<span id="cb1-56"><a href="#cb1-56"></a>      <span class="at">caption =</span> <span class="st">"Source: JPMorgan Chase Institute | Makeover: Cédric Scherer"</span></span>
-<span id="cb1-57"><a href="#cb1-57"></a>    ) <span class="sc">+</span></span>
-<span id="cb1-58"><a href="#cb1-58"></a>    <span class="fu">theme_minimal</span>(</span>
-<span id="cb1-59"><a href="#cb1-59"></a>      <span class="at">base_family =</span> <span class="st">"Cabinet Grotesk"</span>, <span class="at">base_size =</span> <span class="dv">14</span></span>
-<span id="cb1-60"><a href="#cb1-60"></a>    ) <span class="sc">+</span></span>
-<span id="cb1-61"><a href="#cb1-61"></a>    <span class="fu">theme</span>(</span>
-<span id="cb1-62"><a href="#cb1-62"></a>      <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">22</span>, <span class="at">margin =</span> <span class="fu">margin</span>(<span class="at">b =</span> <span class="dv">20</span>)),</span>
-<span id="cb1-63"><a href="#cb1-63"></a>      <span class="at">plot.title.position =</span> <span class="st">"plot"</span>,</span>
-<span id="cb1-64"><a href="#cb1-64"></a>      <span class="at">plot.caption =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">"grey25"</span>, <span class="at">size =</span> <span class="dv">10</span>, <span class="at">margin =</span> <span class="fu">margin</span>(<span class="at">t =</span> <span class="dv">0</span>)),</span>
-<span id="cb1-65"><a href="#cb1-65"></a>      <span class="at">plot.caption.position =</span> <span class="st">"plot"</span>,</span>
-<span id="cb1-66"><a href="#cb1-66"></a>      <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>),</span>
-<span id="cb1-67"><a href="#cb1-67"></a>      <span class="at">axis.text.y =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>, <span class="at">margin =</span> <span class="fu">margin</span>(<span class="at">l =</span> <span class="dv">10</span>, <span class="at">r =</span> <span class="dv">7</span>)),</span>
-<span id="cb1-68"><a href="#cb1-68"></a>      <span class="at">axis.title.x =</span> <span class="fu">element_text</span>(<span class="at">margin =</span> <span class="fu">margin</span>(<span class="at">t =</span> <span class="dv">15</span>)),</span>
-<span id="cb1-69"><a href="#cb1-69"></a>      <span class="at">axis.line.x =</span> <span class="fu">element_line</span>(),</span>
-<span id="cb1-70"><a href="#cb1-70"></a>      <span class="at">axis.ticks.x =</span> <span class="fu">element_line</span>(<span class="at">color =</span> <span class="st">"black"</span>),</span>
-<span id="cb1-71"><a href="#cb1-71"></a>      <span class="at">axis.ticks.length.x =</span> <span class="fu">unit</span>(.<span class="dv">5</span>, <span class="st">"lines"</span>),</span>
-<span id="cb1-72"><a href="#cb1-72"></a>      <span class="at">strip.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">15</span>, <span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">margin =</span> <span class="fu">margin</span>(<span class="at">b =</span> <span class="dv">0</span>)),</span>
-<span id="cb1-73"><a href="#cb1-73"></a>      <span class="at">panel.grid.major.y =</span> <span class="fu">element_line</span>(<span class="at">color =</span> <span class="st">"grey90"</span>, <span class="at">size =</span> .<span class="dv">4</span>),</span>
-<span id="cb1-74"><a href="#cb1-74"></a>      <span class="at">panel.grid.major.x =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb1-75"><a href="#cb1-75"></a>      <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb1-76"><a href="#cb1-76"></a>      <span class="at">panel.spacing.x =</span> <span class="fu">unit</span>(<span class="fl">2.5</span>, <span class="st">"lines"</span>),</span>
-<span id="cb1-77"><a href="#cb1-77"></a>      <span class="at">panel.spacing.y =</span> <span class="fu">unit</span>(<span class="fl">1.5</span>, <span class="st">"lines"</span>),</span>
-<span id="cb1-78"><a href="#cb1-78"></a>      <span class="at">plot.margin =</span> <span class="fu">margin</span>(<span class="dv">20</span>, <span class="dv">35</span>, <span class="dv">20</span>, <span class="dv">20</span>)</span>
-<span id="cb1-79"><a href="#cb1-79"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="fu">library</span>(gghighlight)</span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="fu">library</span>(lubridate)</span>
+<span id="cb2-4"><a href="#cb2-4"></a></span>
+<span id="cb2-5"><a href="#cb2-5"></a><span class="fu">invisible</span>(<span class="fu">Sys.setlocale</span>(<span class="st">"LC_TIME"</span>, <span class="st">"C"</span>))</span>
+<span id="cb2-6"><a href="#cb2-6"></a></span>
+<span id="cb2-7"><a href="#cb2-7"></a>data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"spending-jpmorgan.csv"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb2-8"><a href="#cb2-8"></a>  <span class="fu">mutate</span>(<span class="at">category =</span> <span class="fu">fct_inorder</span>(category))</span>
+<span id="cb2-9"><a href="#cb2-9"></a></span>
+<span id="cb2-10"><a href="#cb2-10"></a>label_df <span class="ot">&lt;-</span></span>
+<span id="cb2-11"><a href="#cb2-11"></a>  <span class="fu">tibble</span>(</span>
+<span id="cb2-12"><a href="#cb2-12"></a>    <span class="at">date =</span> <span class="fu">ymd</span>(<span class="st">"2020-03-13"</span>),</span>
+<span id="cb2-13"><a href="#cb2-13"></a>    <span class="at">change =</span> <span class="sc">-</span><span class="dv">60</span>,</span>
+<span id="cb2-14"><a href="#cb2-14"></a>    <span class="at">label =</span> <span class="st">"National emergency</span><span class="sc">\n</span><span class="st">declared March 13"</span>,</span>
+<span id="cb2-15"><a href="#cb2-15"></a>    <span class="at">category =</span> <span class="fu">factor</span>(<span class="st">"Groceries"</span>, <span class="at">levels =</span> <span class="fu">levels</span>(data<span class="sc">$</span>category))</span>
+<span id="cb2-16"><a href="#cb2-16"></a>  )</span>
+<span id="cb2-17"><a href="#cb2-17"></a></span>
+<span id="cb2-18"><a href="#cb2-18"></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(date, change, <span class="at">color =</span> category)) <span class="sc">+</span></span>
+<span id="cb2-19"><a href="#cb2-19"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb2-20"><a href="#cb2-20"></a>    <span class="fu">geom_line</span>(<span class="at">size =</span> .<span class="dv">8</span>, <span class="at">alpha =</span> .<span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb2-21"><a href="#cb2-21"></a>    <span class="fu">gghighlight</span>(</span>
+<span id="cb2-22"><a href="#cb2-22"></a>      <span class="at">use_direct_label =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb2-23"><a href="#cb2-23"></a>      <span class="at">unhighlighted_params =</span> <span class="fu">list</span>(<span class="at">color =</span> <span class="st">"grey80"</span>, <span class="at">size =</span> .<span class="dv">5</span>)</span>
+<span id="cb2-24"><a href="#cb2-24"></a>    ) <span class="sc">+</span></span>
+<span id="cb2-25"><a href="#cb2-25"></a>    <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fu">ymd</span>(<span class="st">"2020-03-13"</span>), <span class="at">color =</span> <span class="st">"grey25"</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
+<span id="cb2-26"><a href="#cb2-26"></a>    <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">color =</span> <span class="st">"grey30"</span>, <span class="at">size =</span> .<span class="dv">8</span>) <span class="sc">+</span></span>
+<span id="cb2-27"><a href="#cb2-27"></a>    <span class="fu">geom_area</span>(<span class="at">alpha =</span> .<span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb2-28"><a href="#cb2-28"></a>    <span class="fu">geom_line</span>(<span class="at">size =</span> <span class="fl">1.2</span>) <span class="sc">+</span></span>
+<span id="cb2-29"><a href="#cb2-29"></a>    <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="fl">1.8</span>) <span class="sc">+</span></span>
+<span id="cb2-30"><a href="#cb2-30"></a>    <span class="fu">geom_text</span>(</span>
+<span id="cb2-31"><a href="#cb2-31"></a>      <span class="at">data =</span> label_df,</span>
+<span id="cb2-32"><a href="#cb2-32"></a>      <span class="fu">aes</span>(<span class="at">label =</span> label),</span>
+<span id="cb2-33"><a href="#cb2-33"></a>      <span class="at">color =</span> <span class="st">"grey25"</span>,</span>
+<span id="cb2-34"><a href="#cb2-34"></a>      <span class="at">family =</span> <span class="st">"Cabinet Grotesk"</span>,</span>
+<span id="cb2-35"><a href="#cb2-35"></a>      <span class="at">size =</span> <span class="fl">4.1</span>,</span>
+<span id="cb2-36"><a href="#cb2-36"></a>      <span class="at">lineheight =</span> .<span class="dv">95</span>,</span>
+<span id="cb2-37"><a href="#cb2-37"></a>      <span class="at">hjust =</span> <span class="fl">1.1</span></span>
+<span id="cb2-38"><a href="#cb2-38"></a>    ) <span class="sc">+</span></span>
+<span id="cb2-39"><a href="#cb2-39"></a>    <span class="fu">facet_wrap</span>(<span class="sc">~</span> category, <span class="at">ncol =</span> <span class="dv">4</span>, <span class="at">scales =</span> <span class="st">"free_x"</span>) <span class="sc">+</span></span>
+<span id="cb2-40"><a href="#cb2-40"></a>    <span class="fu">coord_cartesian</span>(<span class="at">clip =</span> <span class="st">"off"</span>) <span class="sc">+</span></span>
+<span id="cb2-41"><a href="#cb2-41"></a>    <span class="fu">scale_x_date</span>(</span>
+<span id="cb2-42"><a href="#cb2-42"></a>      <span class="at">expand =</span> <span class="fu">c</span>(.<span class="dv">003</span>, .<span class="dv">003</span>),</span>
+<span id="cb2-43"><a href="#cb2-43"></a>      <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="fu">ymd</span>(<span class="st">"2020-01-04"</span>), <span class="fu">ymd</span>(<span class="st">"2020-04-11"</span>), <span class="at">length.out =</span> <span class="dv">8</span>),</span>
+<span id="cb2-44"><a href="#cb2-44"></a>      <span class="at">date_labels =</span> <span class="st">"%b %d"</span></span>
+<span id="cb2-45"><a href="#cb2-45"></a>    ) <span class="sc">+</span></span>
+<span id="cb2-46"><a href="#cb2-46"></a>    <span class="fu">scale_y_continuous</span>(</span>
+<span id="cb2-47"><a href="#cb2-47"></a>      <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">80</span>, <span class="dv">60</span>, <span class="at">by =</span> <span class="dv">20</span>),</span>
+<span id="cb2-48"><a href="#cb2-48"></a>      <span class="at">labels =</span> glue<span class="sc">::</span><span class="fu">glue</span>(<span class="st">"{seq(-80, 60, by = 20)}%"</span>)</span>
+<span id="cb2-49"><a href="#cb2-49"></a>    ) <span class="sc">+</span></span>
+<span id="cb2-50"><a href="#cb2-50"></a>    rcartocolor<span class="sc">::</span><span class="fu">scale_color_carto_d</span>(</span>
+<span id="cb2-51"><a href="#cb2-51"></a>      <span class="at">palette =</span> <span class="st">"Prism"</span>, <span class="at">guide =</span> <span class="st">"none"</span></span>
+<span id="cb2-52"><a href="#cb2-52"></a>    ) <span class="sc">+</span></span>
+<span id="cb2-53"><a href="#cb2-53"></a>    <span class="fu">labs</span>(</span>
+<span id="cb2-54"><a href="#cb2-54"></a>      <span class="at">x =</span> <span class="st">"End of week"</span>, <span class="at">y =</span> <span class="cn">NULL</span>,</span>
+<span id="cb2-55"><a href="#cb2-55"></a>      <span class="at">title =</span> <span class="st">"Year-over-year percent change in spending by essential category"</span>,</span>
+<span id="cb2-56"><a href="#cb2-56"></a>      <span class="at">caption =</span> <span class="st">"Source: JPMorgan Chase Institute | Makeover: Cédric Scherer"</span></span>
+<span id="cb2-57"><a href="#cb2-57"></a>    ) <span class="sc">+</span></span>
+<span id="cb2-58"><a href="#cb2-58"></a>    <span class="fu">theme_minimal</span>(</span>
+<span id="cb2-59"><a href="#cb2-59"></a>      <span class="at">base_family =</span> <span class="st">"Cabinet Grotesk"</span>, <span class="at">base_size =</span> <span class="dv">14</span></span>
+<span id="cb2-60"><a href="#cb2-60"></a>    ) <span class="sc">+</span></span>
+<span id="cb2-61"><a href="#cb2-61"></a>    <span class="fu">theme</span>(</span>
+<span id="cb2-62"><a href="#cb2-62"></a>      <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">22</span>, <span class="at">margin =</span> <span class="fu">margin</span>(<span class="at">b =</span> <span class="dv">20</span>)),</span>
+<span id="cb2-63"><a href="#cb2-63"></a>      <span class="at">plot.title.position =</span> <span class="st">"plot"</span>,</span>
+<span id="cb2-64"><a href="#cb2-64"></a>      <span class="at">plot.caption =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">"grey25"</span>, <span class="at">size =</span> <span class="dv">10</span>, <span class="at">margin =</span> <span class="fu">margin</span>(<span class="at">t =</span> <span class="dv">0</span>)),</span>
+<span id="cb2-65"><a href="#cb2-65"></a>      <span class="at">plot.caption.position =</span> <span class="st">"plot"</span>,</span>
+<span id="cb2-66"><a href="#cb2-66"></a>      <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>),</span>
+<span id="cb2-67"><a href="#cb2-67"></a>      <span class="at">axis.text.y =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>, <span class="at">margin =</span> <span class="fu">margin</span>(<span class="at">l =</span> <span class="dv">10</span>, <span class="at">r =</span> <span class="dv">7</span>)),</span>
+<span id="cb2-68"><a href="#cb2-68"></a>      <span class="at">axis.title.x =</span> <span class="fu">element_text</span>(<span class="at">margin =</span> <span class="fu">margin</span>(<span class="at">t =</span> <span class="dv">15</span>)),</span>
+<span id="cb2-69"><a href="#cb2-69"></a>      <span class="at">axis.line.x =</span> <span class="fu">element_line</span>(),</span>
+<span id="cb2-70"><a href="#cb2-70"></a>      <span class="at">axis.ticks.x =</span> <span class="fu">element_line</span>(<span class="at">color =</span> <span class="st">"black"</span>),</span>
+<span id="cb2-71"><a href="#cb2-71"></a>      <span class="at">axis.ticks.length.x =</span> <span class="fu">unit</span>(.<span class="dv">5</span>, <span class="st">"lines"</span>),</span>
+<span id="cb2-72"><a href="#cb2-72"></a>      <span class="at">strip.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">15</span>, <span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">margin =</span> <span class="fu">margin</span>(<span class="at">b =</span> <span class="dv">0</span>)),</span>
+<span id="cb2-73"><a href="#cb2-73"></a>      <span class="at">panel.grid.major.y =</span> <span class="fu">element_line</span>(<span class="at">color =</span> <span class="st">"grey90"</span>, <span class="at">size =</span> .<span class="dv">4</span>),</span>
+<span id="cb2-74"><a href="#cb2-74"></a>      <span class="at">panel.grid.major.x =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb2-75"><a href="#cb2-75"></a>      <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb2-76"><a href="#cb2-76"></a>      <span class="at">panel.spacing.x =</span> <span class="fu">unit</span>(<span class="fl">2.5</span>, <span class="st">"lines"</span>),</span>
+<span id="cb2-77"><a href="#cb2-77"></a>      <span class="at">panel.spacing.y =</span> <span class="fu">unit</span>(<span class="fl">1.5</span>, <span class="st">"lines"</span>),</span>
+<span id="cb2-78"><a href="#cb2-78"></a>      <span class="at">plot.margin =</span> <span class="fu">margin</span>(<span class="dv">20</span>, <span class="dv">35</span>, <span class="dv">20</span>, <span class="dv">20</span>)</span>
+<span id="cb2-79"><a href="#cb2-79"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section class="slide level2">
@@ -496,131 +582,131 @@
 <section class="slide level2">
 
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb2-2"><a href="#cb2-2"></a><span class="fu">library</span>(ggtext)</span>
-<span id="cb2-3"><a href="#cb2-3"></a><span class="fu">library</span>(colorspace)</span>
-<span id="cb2-4"><a href="#cb2-4"></a></span>
-<span id="cb2-5"><a href="#cb2-5"></a>data <span class="ot">&lt;-</span> </span>
-<span id="cb2-6"><a href="#cb2-6"></a>  <span class="fu">read_csv</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"information-speech.csv"</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb2-7"><a href="#cb2-7"></a>  <span class="fu">group_by</span>(language) <span class="sc">%&gt;%</span> </span>
-<span id="cb2-8"><a href="#cb2-8"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb2-9"><a href="#cb2-9"></a>    <span class="at">avg_sr =</span> <span class="fu">mean</span>(speech_rate),</span>
-<span id="cb2-10"><a href="#cb2-10"></a>    <span class="at">avg_ir =</span> <span class="fu">mean</span>(info_rate)</span>
-<span id="cb2-11"><a href="#cb2-11"></a>  ) <span class="sc">%&gt;%</span> </span>
-<span id="cb2-12"><a href="#cb2-12"></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb2-13"><a href="#cb2-13"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb2-14"><a href="#cb2-14"></a>    <span class="at">language =</span> <span class="fu">fct_reorder</span>(language, avg_sr),</span>
-<span id="cb2-15"><a href="#cb2-15"></a>    <span class="at">language_long =</span> <span class="fu">fct_reorder</span>(language_long, avg_sr)</span>
-<span id="cb2-16"><a href="#cb2-16"></a>  )</span>
-<span id="cb2-17"><a href="#cb2-17"></a></span>
-<span id="cb2-18"><a href="#cb2-18"></a>systemfonts<span class="sc">::</span><span class="fu">register_variant</span>(</span>
-<span id="cb2-19"><a href="#cb2-19"></a>  <span class="at">name =</span> <span class="st">"Cabinet Grotesk ExtraBold"</span>,</span>
-<span id="cb2-20"><a href="#cb2-20"></a>  <span class="at">family =</span> <span class="st">"Cabinet Grotesk"</span>,</span>
-<span id="cb2-21"><a href="#cb2-21"></a>  <span class="at">weight =</span> <span class="st">"ultrabold"</span></span>
-<span id="cb2-22"><a href="#cb2-22"></a>)</span>
-<span id="cb2-23"><a href="#cb2-23"></a></span>
-<span id="cb2-24"><a href="#cb2-24"></a>systemfonts<span class="sc">::</span><span class="fu">register_variant</span>(</span>
-<span id="cb2-25"><a href="#cb2-25"></a>  <span class="at">name =</span> <span class="st">"Cabinet Grotesk Medium"</span>,</span>
-<span id="cb2-26"><a href="#cb2-26"></a>  <span class="at">family =</span> <span class="st">"Cabinet Grotesk"</span>,</span>
-<span id="cb2-27"><a href="#cb2-27"></a>  <span class="at">weight =</span> <span class="st">"medium"</span></span>
-<span id="cb2-28"><a href="#cb2-28"></a>)</span>
-<span id="cb2-29"><a href="#cb2-29"></a></span>
-<span id="cb2-30"><a href="#cb2-30"></a>data_long <span class="ot">&lt;-</span></span>
-<span id="cb2-31"><a href="#cb2-31"></a>  data <span class="sc">%&gt;%</span> </span>
-<span id="cb2-32"><a href="#cb2-32"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="fu">starts_with</span>(<span class="st">"lang"</span>), speech_rate, info_rate) <span class="sc">%&gt;%</span></span>
-<span id="cb2-33"><a href="#cb2-33"></a>  <span class="do">## normalize</span></span>
-<span id="cb2-34"><a href="#cb2-34"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb2-35"><a href="#cb2-35"></a>    <span class="at">speech_rate =</span> (speech_rate <span class="sc">-</span> <span class="fu">min</span>(speech_rate)) <span class="sc">/</span> (<span class="fu">max</span>(speech_rate) <span class="sc">-</span> <span class="fu">min</span>(speech_rate)),</span>
-<span id="cb2-36"><a href="#cb2-36"></a>    <span class="at">info_rate =</span> (info_rate <span class="sc">-</span> <span class="fu">min</span>(info_rate)) <span class="sc">/</span> (<span class="fu">max</span>(info_rate) <span class="sc">-</span> <span class="fu">min</span>(info_rate))</span>
-<span id="cb2-37"><a href="#cb2-37"></a>  ) <span class="sc">%&gt;%</span> </span>
-<span id="cb2-38"><a href="#cb2-38"></a>  <span class="fu">group_by</span>(language) <span class="sc">%&gt;%</span> </span>
-<span id="cb2-39"><a href="#cb2-39"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb2-40"><a href="#cb2-40"></a>    <span class="at">avg_sr =</span> <span class="fu">median</span>(speech_rate),</span>
-<span id="cb2-41"><a href="#cb2-41"></a>    <span class="at">avg_ir =</span> <span class="fu">median</span>(info_rate)</span>
-<span id="cb2-42"><a href="#cb2-42"></a>  ) <span class="sc">%&gt;%</span> </span>
-<span id="cb2-43"><a href="#cb2-43"></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb2-44"><a href="#cb2-44"></a>  <span class="fu">pivot_longer</span>(</span>
-<span id="cb2-45"><a href="#cb2-45"></a>    <span class="at">cols =</span> <span class="fu">c</span>(speech_rate, info_rate), </span>
-<span id="cb2-46"><a href="#cb2-46"></a>    <span class="at">names_to =</span> <span class="st">"metric"</span>, </span>
-<span id="cb2-47"><a href="#cb2-47"></a>    <span class="at">values_to =</span> <span class="st">"rate"</span></span>
-<span id="cb2-48"><a href="#cb2-48"></a>  ) <span class="sc">%&gt;%</span> </span>
-<span id="cb2-49"><a href="#cb2-49"></a>  <span class="fu">mutate</span>(<span class="at">metric =</span> <span class="fu">factor</span>(metric, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"speech_rate"</span>, <span class="st">"info_rate"</span>)))</span>
-<span id="cb2-50"><a href="#cb2-50"></a></span>
-<span id="cb2-51"><a href="#cb2-51"></a>data_labs <span class="ot">&lt;-</span></span>
-<span id="cb2-52"><a href="#cb2-52"></a>  <span class="fu">data.frame</span>(</span>
-<span id="cb2-53"><a href="#cb2-53"></a>    <span class="at">language_long =</span> <span class="fu">factor</span>(<span class="st">"Japanese"</span>, <span class="at">levels =</span> <span class="fu">levels</span>(data_long<span class="sc">$</span>language_long)),</span>
-<span id="cb2-54"><a href="#cb2-54"></a>    <span class="at">label =</span> <span class="fu">c</span>(<span class="st">"Speak less quickly"</span>, <span class="st">"Convey less information"</span>, <span class="st">"Speak more quickly"</span>, <span class="st">"Convey more information"</span>),</span>
-<span id="cb2-55"><a href="#cb2-55"></a>    <span class="at">metric =</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">"speech_rate"</span>, <span class="st">"info_rate"</span>, <span class="st">"speech_rate"</span>, <span class="st">"info_rate"</span>), <span class="at">levels =</span> <span class="fu">levels</span>(data_long<span class="sc">$</span>metric)),</span>
-<span id="cb2-56"><a href="#cb2-56"></a>    <span class="at">rate =</span> <span class="fu">c</span>(.<span class="dv">01</span>, .<span class="dv">01</span>, .<span class="dv">99</span>, .<span class="dv">99</span>),</span>
-<span id="cb2-57"><a href="#cb2-57"></a>    <span class="at">vjust =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">6.5</span>, <span class="sc">-</span><span class="fl">4.7</span>, <span class="sc">-</span><span class="fl">6.5</span>, <span class="sc">-</span><span class="fl">4.7</span>),</span>
-<span id="cb2-58"><a href="#cb2-58"></a>    <span class="at">hjust =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>)</span>
-<span id="cb2-59"><a href="#cb2-59"></a>  )</span>
-<span id="cb2-60"><a href="#cb2-60"></a></span>
-<span id="cb2-61"><a href="#cb2-61"></a><span class="fu">ggplot</span>(data_long, <span class="fu">aes</span>(<span class="at">x =</span> rate, <span class="at">y =</span> language_long)) <span class="sc">+</span></span>
-<span id="cb2-62"><a href="#cb2-62"></a>  <span class="do">## rain dots</span></span>
-<span id="cb2-63"><a href="#cb2-63"></a>  <span class="fu">geom_point</span>(</span>
-<span id="cb2-64"><a href="#cb2-64"></a>    <span class="fu">aes</span>(<span class="at">color =</span> metric, <span class="at">color =</span> <span class="fu">after_scale</span>(<span class="fu">desaturate</span>(<span class="fu">lighten</span>(color, .<span class="dv">2</span>), .<span class="dv">4</span>))),</span>
-<span id="cb2-65"><a href="#cb2-65"></a>    <span class="at">position =</span> <span class="fu">position_nudge</span>(<span class="at">y =</span> <span class="sc">-</span>.<span class="dv">06</span>), <span class="at">shape =</span> <span class="dv">1</span>, <span class="at">size =</span> .<span class="dv">8</span>, <span class="at">alpha =</span> .<span class="dv">35</span></span>
-<span id="cb2-66"><a href="#cb2-66"></a>  ) <span class="sc">+</span></span>
-<span id="cb2-67"><a href="#cb2-67"></a>  <span class="do">## distribution</span></span>
-<span id="cb2-68"><a href="#cb2-68"></a>  ggdist<span class="sc">::</span><span class="fu">stat_halfeye</span>(</span>
-<span id="cb2-69"><a href="#cb2-69"></a>    <span class="fu">aes</span>(<span class="at">color =</span> metric, <span class="at">fill =</span> <span class="fu">after_scale</span>(color)), </span>
-<span id="cb2-70"><a href="#cb2-70"></a>    <span class="at">slab_alpha =</span> .<span class="dv">35</span>, <span class="at">.width =</span> <span class="dv">0</span>, <span class="at">trim =</span> <span class="cn">TRUE</span>, <span class="at">shape =</span> <span class="dv">21</span>, <span class="at">point_colour =</span> <span class="st">"grey25"</span>, <span class="at">stroke =</span> <span class="fl">1.6</span>, <span class="at">scale =</span> .<span class="dv">86</span></span>
-<span id="cb2-71"><a href="#cb2-71"></a>  ) <span class="sc">+</span></span>
-<span id="cb2-72"><a href="#cb2-72"></a>  <span class="do">## median line</span></span>
-<span id="cb2-73"><a href="#cb2-73"></a>  <span class="fu">geom_linerange</span>(</span>
-<span id="cb2-74"><a href="#cb2-74"></a>    <span class="fu">aes</span>(<span class="at">xmin =</span> avg_sr, <span class="at">xmax =</span> avg_ir), </span>
-<span id="cb2-75"><a href="#cb2-75"></a>    <span class="at">size =</span> .<span class="dv">7</span>, <span class="at">color =</span> <span class="st">"grey25"</span>, <span class="at">stat =</span> <span class="st">"unique"</span></span>
-<span id="cb2-76"><a href="#cb2-76"></a>  ) <span class="sc">+</span></span>
-<span id="cb2-77"><a href="#cb2-77"></a>  <span class="do">## median points</span></span>
-<span id="cb2-78"><a href="#cb2-78"></a>  ggdist<span class="sc">::</span><span class="fu">stat_halfeye</span>(</span>
-<span id="cb2-79"><a href="#cb2-79"></a>    <span class="fu">aes</span>(<span class="at">color =</span> metric), <span class="at">.width =</span> <span class="fu">c</span>(<span class="dv">0</span>), <span class="at">slab_fill =</span> <span class="cn">NA</span></span>
-<span id="cb2-80"><a href="#cb2-80"></a>  ) <span class="sc">+</span></span>
-<span id="cb2-81"><a href="#cb2-81"></a>  <span class="do">## language labels</span></span>
-<span id="cb2-82"><a href="#cb2-82"></a>  <span class="fu">geom_text</span>(</span>
-<span id="cb2-83"><a href="#cb2-83"></a>    <span class="fu">aes</span>(<span class="at">label =</span> language_long, <span class="at">x =</span> .<span class="dv">01</span>), </span>
-<span id="cb2-84"><a href="#cb2-84"></a>    <span class="at">position =</span> <span class="fu">position_nudge</span>(<span class="at">y =</span> .<span class="dv">4</span>), <span class="at">stat =</span> <span class="st">"unique"</span>, <span class="at">hjust =</span> <span class="dv">0</span>,</span>
-<span id="cb2-85"><a href="#cb2-85"></a>    <span class="at">family =</span> <span class="st">"Cabinet Grotesk ExtraBold"</span>, <span class="at">color =</span> <span class="st">"grey25"</span>, <span class="at">size =</span> <span class="fl">5.5</span></span>
-<span id="cb2-86"><a href="#cb2-86"></a>  ) <span class="sc">+</span></span>
-<span id="cb2-87"><a href="#cb2-87"></a>  <span class="fu">geom_text</span>(</span>
-<span id="cb2-88"><a href="#cb2-88"></a>    <span class="at">data =</span> data_labs, <span class="fu">aes</span>(<span class="at">label =</span> label, <span class="at">color =</span> metric, <span class="at">vjust =</span> vjust, <span class="at">hjust =</span> hjust),</span>
-<span id="cb2-89"><a href="#cb2-89"></a>    <span class="at">family =</span> <span class="st">"Cabinet Grotesk Medium"</span>, <span class="at">size =</span> <span class="dv">5</span></span>
-<span id="cb2-90"><a href="#cb2-90"></a>  ) <span class="sc">+</span></span>
-<span id="cb2-91"><a href="#cb2-91"></a>  <span class="fu">coord_cartesian</span>(<span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>), <span class="at">clip =</span> <span class="st">"off"</span>) <span class="sc">+</span></span>
-<span id="cb2-92"><a href="#cb2-92"></a>  <span class="fu">scale_x_continuous</span>(</span>
-<span id="cb2-93"><a href="#cb2-93"></a>    <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>), <span class="at">breaks =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">5</span> <span class="sc">/</span> <span class="dv">5</span>, <span class="at">guide =</span> <span class="st">"none"</span></span>
-<span id="cb2-94"><a href="#cb2-94"></a>  ) <span class="sc">+</span></span>
-<span id="cb2-95"><a href="#cb2-95"></a>  <span class="fu">scale_y_discrete</span>(</span>
-<span id="cb2-96"><a href="#cb2-96"></a>    <span class="at">expand =</span> <span class="fu">c</span>(.<span class="dv">01</span>, .<span class="dv">01</span>)</span>
-<span id="cb2-97"><a href="#cb2-97"></a>  ) <span class="sc">+</span></span>
-<span id="cb2-98"><a href="#cb2-98"></a>  <span class="fu">scale_color_manual</span>(</span>
-<span id="cb2-99"><a href="#cb2-99"></a>    <span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#7d28a8"</span>, <span class="st">"#28a87d"</span>), <span class="at">guide =</span> <span class="st">"none"</span></span>
-<span id="cb2-100"><a href="#cb2-100"></a>  ) <span class="sc">+</span></span>
-<span id="cb2-101"><a href="#cb2-101"></a>  <span class="fu">labs</span>(</span>
-<span id="cb2-102"><a href="#cb2-102"></a>    <span class="at">x =</span> <span class="st">"Normalized rates of &lt;b style='color:#7d28a8;'&gt;speech (syllables per second)&lt;/b&gt; and &lt;b style='color:#28a87d;'&gt;information (bits per second)&lt;/b&gt;"</span>, </span>
-<span id="cb2-103"><a href="#cb2-103"></a>    <span class="at">y =</span> <span class="cn">NULL</span>,</span>
-<span id="cb2-104"><a href="#cb2-104"></a>    <span class="at">title =</span> <span class="st">"Communicating fast doesn't necessarily mean communicating more"</span>,</span>
-<span id="cb2-105"><a href="#cb2-105"></a>    <span class="at">subtitle =</span> <span class="st">"Variation in speech and information rates across languages, shown as normalized rates for direct comparison.</span><span class="sc">\n</span><span class="st">While there are stark cross-linguistic differences in speech rates, information rates are more similar."</span>,</span>
-<span id="cb2-106"><a href="#cb2-106"></a>    <span class="at">caption =</span> <span class="st">"Source: Coupé *et al.* 2019 *Science Advances* **5**(9). DOI: 10.1126/sciadv.aaw2594&lt;br&gt;Graphic: Cédric Scherer  •  Dots show the median rates for each language."</span></span>
-<span id="cb2-107"><a href="#cb2-107"></a>  ) <span class="sc">+</span></span>
-<span id="cb2-108"><a href="#cb2-108"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">16</span>, <span class="at">base_family =</span> <span class="st">"Cabinet Grotesk"</span>) <span class="sc">+</span></span>
-<span id="cb2-109"><a href="#cb2-109"></a>  <span class="fu">theme</span>(</span>
-<span id="cb2-110"><a href="#cb2-110"></a>    <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb2-111"><a href="#cb2-111"></a>    <span class="at">panel.grid.major.x =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb2-112"><a href="#cb2-112"></a>    <span class="at">panel.grid.major.y =</span> <span class="fu">element_line</span>(<span class="at">size =</span> .<span class="dv">6</span>, <span class="at">color =</span> <span class="st">"grey82"</span>),</span>
-<span id="cb2-113"><a href="#cb2-113"></a>    <span class="at">axis.line.x =</span> <span class="fu">element_line</span>(<span class="at">color =</span> <span class="st">"black"</span>, <span class="at">size =</span> .<span class="dv">6</span>),</span>
-<span id="cb2-114"><a href="#cb2-114"></a>    <span class="at">axis.ticks.x =</span> <span class="fu">element_line</span>(<span class="at">color =</span> <span class="st">"black"</span>, <span class="at">size =</span> .<span class="dv">6</span>),</span>
-<span id="cb2-115"><a href="#cb2-115"></a>    <span class="at">axis.ticks.length.x =</span> <span class="fu">unit</span>(.<span class="dv">5</span>, <span class="st">"lines"</span>),</span>
-<span id="cb2-116"><a href="#cb2-116"></a>    <span class="at">axis.title.x =</span> <span class="fu">element_markdown</span>(<span class="at">margin =</span> <span class="fu">margin</span>(<span class="at">t =</span> <span class="dv">10</span>)),</span>
-<span id="cb2-117"><a href="#cb2-117"></a>    <span class="at">axis.title.x.top =</span> <span class="fu">element_markdown</span>(),</span>
-<span id="cb2-118"><a href="#cb2-118"></a>    <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"Tabular"</span>, <span class="at">size =</span> <span class="dv">14</span>, <span class="at">color =</span> <span class="st">"grey25"</span>),</span>
-<span id="cb2-119"><a href="#cb2-119"></a>    <span class="at">axis.text.y =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb2-120"><a href="#cb2-120"></a>    <span class="at">legend.position =</span> <span class="st">"top"</span>,</span>
-<span id="cb2-121"><a href="#cb2-121"></a>    <span class="at">plot.margin =</span> <span class="fu">margin</span>(<span class="dv">30</span>, <span class="dv">35</span>, <span class="dv">20</span>, <span class="dv">35</span>),</span>
-<span id="cb2-122"><a href="#cb2-122"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"Cabinet Grotesk ExtraBold"</span>, <span class="at">size =</span> <span class="dv">25</span>),</span>
-<span id="cb2-123"><a href="#cb2-123"></a>    <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">margin =</span> <span class="fu">margin</span>(<span class="at">b =</span> <span class="dv">45</span>)),</span>
-<span id="cb2-124"><a href="#cb2-124"></a>    <span class="at">plot.caption =</span> <span class="fu">element_markdown</span>(<span class="at">hjust =</span> <span class="dv">0</span>, <span class="at">margin =</span> <span class="fu">margin</span>(<span class="at">t =</span> <span class="dv">18</span>), <span class="at">color =</span> <span class="st">"grey25"</span>, <span class="at">lineheight =</span> <span class="fl">1.15</span>, <span class="at">size =</span> <span class="dv">11</span>)</span>
-<span id="cb2-125"><a href="#cb2-125"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="fu">library</span>(ggtext)</span>
+<span id="cb3-3"><a href="#cb3-3"></a><span class="fu">library</span>(colorspace)</span>
+<span id="cb3-4"><a href="#cb3-4"></a></span>
+<span id="cb3-5"><a href="#cb3-5"></a>data <span class="ot">&lt;-</span> </span>
+<span id="cb3-6"><a href="#cb3-6"></a>  <span class="fu">read_csv</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"information-speech.csv"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-7"><a href="#cb3-7"></a>  <span class="fu">group_by</span>(language) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-8"><a href="#cb3-8"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb3-9"><a href="#cb3-9"></a>    <span class="at">avg_sr =</span> <span class="fu">mean</span>(speech_rate),</span>
+<span id="cb3-10"><a href="#cb3-10"></a>    <span class="at">avg_ir =</span> <span class="fu">mean</span>(info_rate)</span>
+<span id="cb3-11"><a href="#cb3-11"></a>  ) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-12"><a href="#cb3-12"></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb3-13"><a href="#cb3-13"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb3-14"><a href="#cb3-14"></a>    <span class="at">language =</span> <span class="fu">fct_reorder</span>(language, avg_sr),</span>
+<span id="cb3-15"><a href="#cb3-15"></a>    <span class="at">language_long =</span> <span class="fu">fct_reorder</span>(language_long, avg_sr)</span>
+<span id="cb3-16"><a href="#cb3-16"></a>  )</span>
+<span id="cb3-17"><a href="#cb3-17"></a></span>
+<span id="cb3-18"><a href="#cb3-18"></a>systemfonts<span class="sc">::</span><span class="fu">register_variant</span>(</span>
+<span id="cb3-19"><a href="#cb3-19"></a>  <span class="at">name =</span> <span class="st">"Cabinet Grotesk ExtraBold"</span>,</span>
+<span id="cb3-20"><a href="#cb3-20"></a>  <span class="at">family =</span> <span class="st">"Cabinet Grotesk"</span>,</span>
+<span id="cb3-21"><a href="#cb3-21"></a>  <span class="at">weight =</span> <span class="st">"ultrabold"</span></span>
+<span id="cb3-22"><a href="#cb3-22"></a>)</span>
+<span id="cb3-23"><a href="#cb3-23"></a></span>
+<span id="cb3-24"><a href="#cb3-24"></a>systemfonts<span class="sc">::</span><span class="fu">register_variant</span>(</span>
+<span id="cb3-25"><a href="#cb3-25"></a>  <span class="at">name =</span> <span class="st">"Cabinet Grotesk Medium"</span>,</span>
+<span id="cb3-26"><a href="#cb3-26"></a>  <span class="at">family =</span> <span class="st">"Cabinet Grotesk"</span>,</span>
+<span id="cb3-27"><a href="#cb3-27"></a>  <span class="at">weight =</span> <span class="st">"medium"</span></span>
+<span id="cb3-28"><a href="#cb3-28"></a>)</span>
+<span id="cb3-29"><a href="#cb3-29"></a></span>
+<span id="cb3-30"><a href="#cb3-30"></a>data_long <span class="ot">&lt;-</span></span>
+<span id="cb3-31"><a href="#cb3-31"></a>  data <span class="sc">%&gt;%</span> </span>
+<span id="cb3-32"><a href="#cb3-32"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="fu">starts_with</span>(<span class="st">"lang"</span>), speech_rate, info_rate) <span class="sc">%&gt;%</span></span>
+<span id="cb3-33"><a href="#cb3-33"></a>  <span class="do">## normalize</span></span>
+<span id="cb3-34"><a href="#cb3-34"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb3-35"><a href="#cb3-35"></a>    <span class="at">speech_rate =</span> (speech_rate <span class="sc">-</span> <span class="fu">min</span>(speech_rate)) <span class="sc">/</span> (<span class="fu">max</span>(speech_rate) <span class="sc">-</span> <span class="fu">min</span>(speech_rate)),</span>
+<span id="cb3-36"><a href="#cb3-36"></a>    <span class="at">info_rate =</span> (info_rate <span class="sc">-</span> <span class="fu">min</span>(info_rate)) <span class="sc">/</span> (<span class="fu">max</span>(info_rate) <span class="sc">-</span> <span class="fu">min</span>(info_rate))</span>
+<span id="cb3-37"><a href="#cb3-37"></a>  ) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-38"><a href="#cb3-38"></a>  <span class="fu">group_by</span>(language) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-39"><a href="#cb3-39"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb3-40"><a href="#cb3-40"></a>    <span class="at">avg_sr =</span> <span class="fu">median</span>(speech_rate),</span>
+<span id="cb3-41"><a href="#cb3-41"></a>    <span class="at">avg_ir =</span> <span class="fu">median</span>(info_rate)</span>
+<span id="cb3-42"><a href="#cb3-42"></a>  ) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-43"><a href="#cb3-43"></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb3-44"><a href="#cb3-44"></a>  <span class="fu">pivot_longer</span>(</span>
+<span id="cb3-45"><a href="#cb3-45"></a>    <span class="at">cols =</span> <span class="fu">c</span>(speech_rate, info_rate), </span>
+<span id="cb3-46"><a href="#cb3-46"></a>    <span class="at">names_to =</span> <span class="st">"metric"</span>, </span>
+<span id="cb3-47"><a href="#cb3-47"></a>    <span class="at">values_to =</span> <span class="st">"rate"</span></span>
+<span id="cb3-48"><a href="#cb3-48"></a>  ) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-49"><a href="#cb3-49"></a>  <span class="fu">mutate</span>(<span class="at">metric =</span> <span class="fu">factor</span>(metric, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"speech_rate"</span>, <span class="st">"info_rate"</span>)))</span>
+<span id="cb3-50"><a href="#cb3-50"></a></span>
+<span id="cb3-51"><a href="#cb3-51"></a>data_labs <span class="ot">&lt;-</span></span>
+<span id="cb3-52"><a href="#cb3-52"></a>  <span class="fu">data.frame</span>(</span>
+<span id="cb3-53"><a href="#cb3-53"></a>    <span class="at">language_long =</span> <span class="fu">factor</span>(<span class="st">"Japanese"</span>, <span class="at">levels =</span> <span class="fu">levels</span>(data_long<span class="sc">$</span>language_long)),</span>
+<span id="cb3-54"><a href="#cb3-54"></a>    <span class="at">label =</span> <span class="fu">c</span>(<span class="st">"Speak less quickly"</span>, <span class="st">"Convey less information"</span>, <span class="st">"Speak more quickly"</span>, <span class="st">"Convey more information"</span>),</span>
+<span id="cb3-55"><a href="#cb3-55"></a>    <span class="at">metric =</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">"speech_rate"</span>, <span class="st">"info_rate"</span>, <span class="st">"speech_rate"</span>, <span class="st">"info_rate"</span>), <span class="at">levels =</span> <span class="fu">levels</span>(data_long<span class="sc">$</span>metric)),</span>
+<span id="cb3-56"><a href="#cb3-56"></a>    <span class="at">rate =</span> <span class="fu">c</span>(.<span class="dv">01</span>, .<span class="dv">01</span>, .<span class="dv">99</span>, .<span class="dv">99</span>),</span>
+<span id="cb3-57"><a href="#cb3-57"></a>    <span class="at">vjust =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">6.5</span>, <span class="sc">-</span><span class="fl">4.7</span>, <span class="sc">-</span><span class="fl">6.5</span>, <span class="sc">-</span><span class="fl">4.7</span>),</span>
+<span id="cb3-58"><a href="#cb3-58"></a>    <span class="at">hjust =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>)</span>
+<span id="cb3-59"><a href="#cb3-59"></a>  )</span>
+<span id="cb3-60"><a href="#cb3-60"></a></span>
+<span id="cb3-61"><a href="#cb3-61"></a><span class="fu">ggplot</span>(data_long, <span class="fu">aes</span>(<span class="at">x =</span> rate, <span class="at">y =</span> language_long)) <span class="sc">+</span></span>
+<span id="cb3-62"><a href="#cb3-62"></a>  <span class="do">## rain dots</span></span>
+<span id="cb3-63"><a href="#cb3-63"></a>  <span class="fu">geom_point</span>(</span>
+<span id="cb3-64"><a href="#cb3-64"></a>    <span class="fu">aes</span>(<span class="at">color =</span> metric, <span class="at">color =</span> <span class="fu">after_scale</span>(<span class="fu">desaturate</span>(<span class="fu">lighten</span>(color, .<span class="dv">2</span>), .<span class="dv">4</span>))),</span>
+<span id="cb3-65"><a href="#cb3-65"></a>    <span class="at">position =</span> <span class="fu">position_nudge</span>(<span class="at">y =</span> <span class="sc">-</span>.<span class="dv">06</span>), <span class="at">shape =</span> <span class="dv">1</span>, <span class="at">size =</span> .<span class="dv">8</span>, <span class="at">alpha =</span> .<span class="dv">35</span></span>
+<span id="cb3-66"><a href="#cb3-66"></a>  ) <span class="sc">+</span></span>
+<span id="cb3-67"><a href="#cb3-67"></a>  <span class="do">## distribution</span></span>
+<span id="cb3-68"><a href="#cb3-68"></a>  ggdist<span class="sc">::</span><span class="fu">stat_halfeye</span>(</span>
+<span id="cb3-69"><a href="#cb3-69"></a>    <span class="fu">aes</span>(<span class="at">color =</span> metric, <span class="at">fill =</span> <span class="fu">after_scale</span>(color)), </span>
+<span id="cb3-70"><a href="#cb3-70"></a>    <span class="at">slab_alpha =</span> .<span class="dv">35</span>, <span class="at">.width =</span> <span class="dv">0</span>, <span class="at">trim =</span> <span class="cn">TRUE</span>, <span class="at">shape =</span> <span class="dv">21</span>, <span class="at">point_colour =</span> <span class="st">"grey25"</span>, <span class="at">stroke =</span> <span class="fl">1.6</span>, <span class="at">scale =</span> .<span class="dv">86</span></span>
+<span id="cb3-71"><a href="#cb3-71"></a>  ) <span class="sc">+</span></span>
+<span id="cb3-72"><a href="#cb3-72"></a>  <span class="do">## median line</span></span>
+<span id="cb3-73"><a href="#cb3-73"></a>  <span class="fu">geom_linerange</span>(</span>
+<span id="cb3-74"><a href="#cb3-74"></a>    <span class="fu">aes</span>(<span class="at">xmin =</span> avg_sr, <span class="at">xmax =</span> avg_ir), </span>
+<span id="cb3-75"><a href="#cb3-75"></a>    <span class="at">size =</span> .<span class="dv">7</span>, <span class="at">color =</span> <span class="st">"grey25"</span>, <span class="at">stat =</span> <span class="st">"unique"</span></span>
+<span id="cb3-76"><a href="#cb3-76"></a>  ) <span class="sc">+</span></span>
+<span id="cb3-77"><a href="#cb3-77"></a>  <span class="do">## median points</span></span>
+<span id="cb3-78"><a href="#cb3-78"></a>  ggdist<span class="sc">::</span><span class="fu">stat_halfeye</span>(</span>
+<span id="cb3-79"><a href="#cb3-79"></a>    <span class="fu">aes</span>(<span class="at">color =</span> metric), <span class="at">.width =</span> <span class="fu">c</span>(<span class="dv">0</span>), <span class="at">slab_fill =</span> <span class="cn">NA</span></span>
+<span id="cb3-80"><a href="#cb3-80"></a>  ) <span class="sc">+</span></span>
+<span id="cb3-81"><a href="#cb3-81"></a>  <span class="do">## language labels</span></span>
+<span id="cb3-82"><a href="#cb3-82"></a>  <span class="fu">geom_text</span>(</span>
+<span id="cb3-83"><a href="#cb3-83"></a>    <span class="fu">aes</span>(<span class="at">label =</span> language_long, <span class="at">x =</span> .<span class="dv">01</span>), </span>
+<span id="cb3-84"><a href="#cb3-84"></a>    <span class="at">position =</span> <span class="fu">position_nudge</span>(<span class="at">y =</span> .<span class="dv">4</span>), <span class="at">stat =</span> <span class="st">"unique"</span>, <span class="at">hjust =</span> <span class="dv">0</span>,</span>
+<span id="cb3-85"><a href="#cb3-85"></a>    <span class="at">family =</span> <span class="st">"Cabinet Grotesk ExtraBold"</span>, <span class="at">color =</span> <span class="st">"grey25"</span>, <span class="at">size =</span> <span class="fl">5.5</span></span>
+<span id="cb3-86"><a href="#cb3-86"></a>  ) <span class="sc">+</span></span>
+<span id="cb3-87"><a href="#cb3-87"></a>  <span class="fu">geom_text</span>(</span>
+<span id="cb3-88"><a href="#cb3-88"></a>    <span class="at">data =</span> data_labs, <span class="fu">aes</span>(<span class="at">label =</span> label, <span class="at">color =</span> metric, <span class="at">vjust =</span> vjust, <span class="at">hjust =</span> hjust),</span>
+<span id="cb3-89"><a href="#cb3-89"></a>    <span class="at">family =</span> <span class="st">"Cabinet Grotesk Medium"</span>, <span class="at">size =</span> <span class="dv">5</span></span>
+<span id="cb3-90"><a href="#cb3-90"></a>  ) <span class="sc">+</span></span>
+<span id="cb3-91"><a href="#cb3-91"></a>  <span class="fu">coord_cartesian</span>(<span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>), <span class="at">clip =</span> <span class="st">"off"</span>) <span class="sc">+</span></span>
+<span id="cb3-92"><a href="#cb3-92"></a>  <span class="fu">scale_x_continuous</span>(</span>
+<span id="cb3-93"><a href="#cb3-93"></a>    <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>), <span class="at">breaks =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">5</span> <span class="sc">/</span> <span class="dv">5</span>, <span class="at">guide =</span> <span class="st">"none"</span></span>
+<span id="cb3-94"><a href="#cb3-94"></a>  ) <span class="sc">+</span></span>
+<span id="cb3-95"><a href="#cb3-95"></a>  <span class="fu">scale_y_discrete</span>(</span>
+<span id="cb3-96"><a href="#cb3-96"></a>    <span class="at">expand =</span> <span class="fu">c</span>(.<span class="dv">01</span>, .<span class="dv">01</span>)</span>
+<span id="cb3-97"><a href="#cb3-97"></a>  ) <span class="sc">+</span></span>
+<span id="cb3-98"><a href="#cb3-98"></a>  <span class="fu">scale_color_manual</span>(</span>
+<span id="cb3-99"><a href="#cb3-99"></a>    <span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#7d28a8"</span>, <span class="st">"#28a87d"</span>), <span class="at">guide =</span> <span class="st">"none"</span></span>
+<span id="cb3-100"><a href="#cb3-100"></a>  ) <span class="sc">+</span></span>
+<span id="cb3-101"><a href="#cb3-101"></a>  <span class="fu">labs</span>(</span>
+<span id="cb3-102"><a href="#cb3-102"></a>    <span class="at">x =</span> <span class="st">"Normalized rates of &lt;b style='color:#7d28a8;'&gt;speech (syllables per second)&lt;/b&gt; and &lt;b style='color:#28a87d;'&gt;information (bits per second)&lt;/b&gt;"</span>, </span>
+<span id="cb3-103"><a href="#cb3-103"></a>    <span class="at">y =</span> <span class="cn">NULL</span>,</span>
+<span id="cb3-104"><a href="#cb3-104"></a>    <span class="at">title =</span> <span class="st">"Communicating fast doesn't necessarily mean communicating more"</span>,</span>
+<span id="cb3-105"><a href="#cb3-105"></a>    <span class="at">subtitle =</span> <span class="st">"Variation in speech and information rates across languages, shown as normalized rates for direct comparison.</span><span class="sc">\n</span><span class="st">While there are stark cross-linguistic differences in speech rates, information rates are more similar."</span>,</span>
+<span id="cb3-106"><a href="#cb3-106"></a>    <span class="at">caption =</span> <span class="st">"Source: Coupé *et al.* 2019 *Science Advances* **5**(9). DOI: 10.1126/sciadv.aaw2594&lt;br&gt;Graphic: Cédric Scherer  •  Dots show the median rates for each language."</span></span>
+<span id="cb3-107"><a href="#cb3-107"></a>  ) <span class="sc">+</span></span>
+<span id="cb3-108"><a href="#cb3-108"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">16</span>, <span class="at">base_family =</span> <span class="st">"Cabinet Grotesk"</span>) <span class="sc">+</span></span>
+<span id="cb3-109"><a href="#cb3-109"></a>  <span class="fu">theme</span>(</span>
+<span id="cb3-110"><a href="#cb3-110"></a>    <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb3-111"><a href="#cb3-111"></a>    <span class="at">panel.grid.major.x =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb3-112"><a href="#cb3-112"></a>    <span class="at">panel.grid.major.y =</span> <span class="fu">element_line</span>(<span class="at">size =</span> .<span class="dv">6</span>, <span class="at">color =</span> <span class="st">"grey82"</span>),</span>
+<span id="cb3-113"><a href="#cb3-113"></a>    <span class="at">axis.line.x =</span> <span class="fu">element_line</span>(<span class="at">color =</span> <span class="st">"black"</span>, <span class="at">size =</span> .<span class="dv">6</span>),</span>
+<span id="cb3-114"><a href="#cb3-114"></a>    <span class="at">axis.ticks.x =</span> <span class="fu">element_line</span>(<span class="at">color =</span> <span class="st">"black"</span>, <span class="at">size =</span> .<span class="dv">6</span>),</span>
+<span id="cb3-115"><a href="#cb3-115"></a>    <span class="at">axis.ticks.length.x =</span> <span class="fu">unit</span>(.<span class="dv">5</span>, <span class="st">"lines"</span>),</span>
+<span id="cb3-116"><a href="#cb3-116"></a>    <span class="at">axis.title.x =</span> <span class="fu">element_markdown</span>(<span class="at">margin =</span> <span class="fu">margin</span>(<span class="at">t =</span> <span class="dv">10</span>)),</span>
+<span id="cb3-117"><a href="#cb3-117"></a>    <span class="at">axis.title.x.top =</span> <span class="fu">element_markdown</span>(),</span>
+<span id="cb3-118"><a href="#cb3-118"></a>    <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"Tabular"</span>, <span class="at">size =</span> <span class="dv">14</span>, <span class="at">color =</span> <span class="st">"grey25"</span>),</span>
+<span id="cb3-119"><a href="#cb3-119"></a>    <span class="at">axis.text.y =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb3-120"><a href="#cb3-120"></a>    <span class="at">legend.position =</span> <span class="st">"top"</span>,</span>
+<span id="cb3-121"><a href="#cb3-121"></a>    <span class="at">plot.margin =</span> <span class="fu">margin</span>(<span class="dv">30</span>, <span class="dv">35</span>, <span class="dv">20</span>, <span class="dv">35</span>),</span>
+<span id="cb3-122"><a href="#cb3-122"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"Cabinet Grotesk ExtraBold"</span>, <span class="at">size =</span> <span class="dv">25</span>),</span>
+<span id="cb3-123"><a href="#cb3-123"></a>    <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">margin =</span> <span class="fu">margin</span>(<span class="at">b =</span> <span class="dv">45</span>)),</span>
+<span id="cb3-124"><a href="#cb3-124"></a>    <span class="at">plot.caption =</span> <span class="fu">element_markdown</span>(<span class="at">hjust =</span> <span class="dv">0</span>, <span class="at">margin =</span> <span class="fu">margin</span>(<span class="at">t =</span> <span class="dv">18</span>), <span class="at">color =</span> <span class="st">"grey25"</span>, <span class="at">lineheight =</span> <span class="fl">1.15</span>, <span class="at">size =</span> <span class="dv">11</span>)</span>
+<span id="cb3-125"><a href="#cb3-125"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section class="slide level2">

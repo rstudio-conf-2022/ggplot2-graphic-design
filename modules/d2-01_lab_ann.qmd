@@ -56,7 +56,7 @@ tbl-colwidths: [5,20,75]
 
 ## Slides
 
-[View slides in full screen](../materials/01_introduction.html)
+[View slides in full screen](../materials/05_annotations.html)
 
 ```{=html}
 <iframe class="slide-deck" src="../materials/05_annotations.html" height="420" width="747" style="border: 1px solid #2e3846;"></iframe>
