@@ -33,6 +33,103 @@ execute:
   fig-height: 6
 ---
 
+## Group Projects
+
+::: question
+-   Form groups and work one of the following suggested projects:
+    - Carbon Footprint of Travel (OWID / UK.gov)
+    - Spending Before and During the Pandemic (JP Morgan Chase)
+    - Speed of Languages (Economist / Coupé et al.)
+    - US Drought Patterns (Drought Monitor)
+:::
+
+
+---
+
+
+![Graphic Source: [Our World in Data](https://ourworldindata.org/travel-carbon-footprint)](img/project-OWID.png){fig-align="center" fig-alt="A very colorful bar chart by Our World in Data showing the carbon footrprint per passenger for differen types of mid- to long-distance transportation."}
+
+
+---
+
+
+```{r}
+#| label: owid-barchart
+#| eval: false
+library(tidyverse)
+
+data <- read_csv(here::here("data", "carbon-footprint-travel.csv"))
+
+data %>% 
+  mutate(
+    type = case_when(
+      str_detect(entity, "car|Motorcycle") ~ "Private motorized transport",
+      str_detect(entity, "flight") ~ "Public air transport",
+      str_detect(entity, "Ferry") ~ "Public water transport",
+      TRUE ~ "Public land transport"
+    )
+  ) %>% 
+  ggplot(
+    aes(x = emissions, 
+        y = forcats::fct_reorder(entity, emissions), 
+        fill = type)
+  ) +
+  geom_col(orientation = "y", width = .8) +
+  geom_text(
+    aes(label = paste0(emissions, "g")),
+    nudge_x = 5,
+    hjust = 0,
+    size = 5,
+    family = "Lato",
+    color = "grey40"
+  ) +
+  scale_x_continuous(
+    breaks = seq(0, 250, by = 50), 
+    labels = function(x) glue::glue("{x} g"),
+    expand = c(0, 0),
+    limits = c(0, 285)
+  ) +
+  scale_fill_manual(
+    values = c("#dfb468", "#8fb9bf", "#28a87d"), name = NULL
+  ) +
+  labs(
+    x = NULL, y = NULL,
+    title = "Carbon footprint of travel per kilometer, 2018", 
+    subtitle = "The carbon footprint of travel is measured in grams of carbon dioxide equivalents per passenger kilometer.\nThis includes carbon dioxide, but also other greenhouse gases, and increased warming from aviation emissions at altitude.", 
+    caption = "Source: UK Department for Business, Energy & Industrial Grenhouse gas reporting: conversion factors 2019.\nNote: Data is based on official conversion factors used in UK reporting. These factors may vary slightly depending on the country.\n\nOriginal visualization by Hannah Ritchie, OurWorldInData.org | Makeover by Cédric Scherer"
+  ) +
+  theme_minimal(base_size = 18, base_family = "Cabinet Grotesk") +
+  theme(
+    panel.grid.major = element_blank(),
+    panel.grid.minor = element_blank(),
+    axis.text = element_text(color = "grey30"),
+    axis.text.y = element_text(face = "bold"),
+    axis.text.x = element_blank(),
+    legend.position = c(.75, .2),
+    legend.text = element_text(size = 20),
+    legend.key.height = unit(2.6, "lines"),
+    plot.title = element_text(family = "Cabinet Grotesk", size = 40, color = "grey30", margin = margin(b = 10)),
+    plot.subtitle = element_text(size = 17, color = "grey30", margin = margin(b = 20)),
+    plot.title.position = "plot",
+    plot.caption = element_text(size = 14, hjust = 0, color = "grey60", margin = margin(t = 20), lineheight = 1.2),
+    plot.caption.position = "plot",
+    plot.margin = margin(15, 15, 15, 15)
+  )
+```
+
+--- 
+
+```{r}
+#| label: owid-barchart
+#| echo: false
+#| fig-width: 15
+#| fig-height: 10
+#| fig.align: "center"
+```
+
+---
+
+
 ![Graphic Source: [JPMorgan Chase Institute](https://www.jpmorganchase.com/institute/research/household-income-spending/initial-household-spending-response-to-covid-19-evidence-from-credit-card-transactions)](img/project-jpmorgan.png){fig-align="center" fig-alt="A line plot by the JP Morgan Chase institute showing timeseries for 10 different categories before and after the National Emergency in 2020."}
 
 ---
