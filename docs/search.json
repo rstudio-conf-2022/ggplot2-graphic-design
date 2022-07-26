@@ -291,25 +291,32 @@
     "href": "materials/02_concepts_pt1.html#stat_-and-geom_-2",
     "title": "Graphic Design with ggplot2",
     "section": "`stat_*()` and `geom_*()`",
-    "text": "`stat_*()` and `geom_*()`\n::: {layout-ncol=“2”}\n\nggplot(bikes, aes(x = date, y = temp_feel)) +\n  stat_identity(geom = \"point\")\n\n\n\n\n\nggplot(bikes, aes(x = date, y = temp_feel)) +\n  geom_point(stat = \"identity\")\n\n\n\n\n:::## Statistical Summaries\n\n\nggplot(\n    bikes, \n    aes(x = season, y = temp_feel)\n  ) +\n  stat_summary()"
+    "text": "`stat_*()` and `geom_*()`\n\n\n\nggplot(bikes, aes(x = date, y = temp_feel)) +\n  stat_identity(geom = \"point\")\n\n\n\n\n\nggplot(bikes, aes(x = date, y = temp_feel)) +\n  geom_point(stat = \"identity\")"
   },
   {
     "objectID": "materials/02_concepts_pt1.html#statistical-summaries",
     "href": "materials/02_concepts_pt1.html#statistical-summaries",
     "title": "Graphic Design with ggplot2",
     "section": "Statistical Summaries",
-    "text": "Statistical Summaries\n\n\nggplot(\n    bikes, \n    aes(x = season, y = temp_feel)\n  ) +\n  stat_summary(\n    fun = mean_se, ## the default\n    geom = \"errorbar\"  ## the default\n  )"
+    "text": "Statistical Summaries\n\n\nggplot(\n    bikes, \n    aes(x = season, y = temp_feel)\n  ) +\n  stat_summary()"
   },
   {
     "objectID": "materials/02_concepts_pt1.html#statistical-summaries-1",
     "href": "materials/02_concepts_pt1.html#statistical-summaries-1",
     "title": "Graphic Design with ggplot2",
     "section": "Statistical Summaries",
-    "text": "Statistical Summaries\n\n\nggplot(\n    bikes, \n    aes(x = season, y = temp_feel)\n  ) +\n  geom_boxplot() +\n  stat_summary(\n    fun = median,\n    geom = \"point\",\n    color = \"#28a87d\"\n  )"
+    "text": "Statistical Summaries\n\n\nggplot(\n    bikes, \n    aes(x = season, y = temp_feel)\n  ) +\n  stat_summary(\n    fun = mean_se, ## the default\n    geom = \"pointrange\"  ## the default\n  )"
   },
   {
     "objectID": "materials/02_concepts_pt1.html#statistical-summaries-2",
     "href": "materials/02_concepts_pt1.html#statistical-summaries-2",
+    "title": "Graphic Design with ggplot2",
+    "section": "Statistical Summaries",
+    "text": "Statistical Summaries\n\n\nggplot(\n    bikes, \n    aes(x = season, y = temp_feel)\n  ) +\n  geom_boxplot() +\n  stat_summary(\n    fun = mean,\n    geom = \"point\",\n    color = \"#28a87d\",\n    size = 3\n  )"
+  },
+  {
+    "objectID": "materials/02_concepts_pt1.html#statistical-summaries-3",
+    "href": "materials/02_concepts_pt1.html#statistical-summaries-3",
     "title": "Graphic Design with ggplot2",
     "section": "Statistical Summaries",
     "text": "Statistical Summaries\n\n\nggplot(\n    bikes, \n    aes(x = season, y = temp_feel)\n  ) +\n  stat_summary(\n    fun = mean, \n    fun.max = function(y) mean(y) + sd(y), \n    fun.min = function(y) mean(y) - sd(y) \n  )"
@@ -851,7 +858,7 @@
     "href": "materials/03_concepts_pt2.html#scale_xy_date-with-strftime-1",
     "title": "Graphic Design with ggplot2",
     "section": "`scale_x|y_date` with `strftime()`",
-    "text": "`scale_x|y_date` with `strftime()`\n\n\nggplot(\n    bikes,\n    aes(x = date, y = count)\n  ) +\n  geom_point() +\n  scale_x_date(\n    name = NULL,\n    date_breaks = \"4 months\",\n    date_labels = \"%b '%y\"\n  )"
+    "text": "`scale_x|y_date` with `strftime()`\n\n\nggplot(\n    bikes,\n    aes(x = date, y = count,\n        color = season)\n  ) +\n  geom_point() +\n  scale_x_date(\n    name = NULL,\n    date_breaks = \"4 months\",\n    date_labels = \"%b '%y\"\n  )"
   },
   {
     "objectID": "materials/03_concepts_pt2.html#scale_xy_discrete",
@@ -942,7 +949,7 @@
     "href": "materials/03_concepts_pt2.html#your-turn-2",
     "title": "Graphic Design with ggplot2",
     "section": "Your Turn!",
-    "text": "Your Turn!\n\n**Modify our dianmonds facet like this:"
+    "text": "Your Turn!\n\nModify our diamonds facet like this:"
   },
   {
     "objectID": "materials/03_concepts_pt2.html#diamonds-facet-2",
@@ -963,14 +970,14 @@
     "href": "materials/03_concepts_pt2.html#diamonds-facet-4",
     "title": "Graphic Design with ggplot2",
     "section": "Diamonds Facet",
-    "text": "Diamonds Facet\n\n\nfacet +\n  scale_x_continuous(\n    breaks = 0:5\n  ) +\n  scale_y_continuous(\n    limits = c(0, 30000),\n    breaks = 0:3*10000,\n    labels = paste0(\n      \"$\", format(0:3*10000, big.mark = \",\")\n    )\n  )"
+    "text": "Diamonds Facet\n\n\nfacet +\n  scale_x_continuous(\n    breaks = 0:5\n  ) +\n  scale_y_continuous(\n    limits = c(0, 30000),\n    breaks = 0:3*10000,\n    labels = paste0(\n      \"$\", format(0:3*10000, big.mark = \",\", trim = TRUE)\n    )\n  )"
   },
   {
     "objectID": "materials/03_concepts_pt2.html#diamonds-facet-5",
     "href": "materials/03_concepts_pt2.html#diamonds-facet-5",
     "title": "Graphic Design with ggplot2",
     "section": "Diamonds Facet",
-    "text": "Diamonds Facet\n\n\nfacet +\n  scale_x_continuous(\n    breaks = 0:5\n  ) +\n  scale_y_continuous(\n    limits = c(0, 30000),\n    breaks = 0:3*10000,\n    labels = function(y) paste0(\n      \"$\", format(y, big.mark=\",\")\n    )\n  )"
+    "text": "Diamonds Facet\n\n\nfacet +\n  scale_x_continuous(\n    breaks = 0:5\n  ) +\n  scale_y_continuous(\n    limits = c(0, 30000),\n    breaks = 0:3*10000,\n    labels = function(y) paste0(\n      \"$\", format(y, big.mark=\",\", trim = TRUE)\n    )\n  )"
   },
   {
     "objectID": "materials/03_concepts_pt2.html#diamonds-facet-6",
@@ -998,7 +1005,7 @@
     "href": "materials/03_concepts_pt2.html#coordinate-systems-1",
     "title": "Graphic Design with ggplot2",
     "section": "Coordinate Systems",
-    "text": "Coordinate Systems\n\n= interpret the position aesthetics\n\n\nlinear coordinate systems:preserve the geometrical shapes\n\ncoord_cartesian()\ncoord_fixed()\ncoord_flip()\n\nlinear coordinate systems:likely change the geometrical shapes\n\ncoord_polar()\ncoord_map() and coord_sf()\ncoord_trans()"
+    "text": "Coordinate Systems\n\n= interpret the position aesthetics ::: incremental - linear coordinate systems: preserve the geometrical shapes - coord_cartesian() - coord_fixed() - coord_flip() - non-linear coordinate systems: likely change the geometrical shapes - coord_polar() - coord_map() and coord_sf() - coord_trans() :::"
   },
   {
     "objectID": "materials/03_concepts_pt2.html#cartesian-coordinate-system",
@@ -1180,7 +1187,7 @@
     "href": "materials/03_concepts_pt2.html#spatial-coordinate-reference-systems-3",
     "title": "Graphic Design with ggplot2",
     "section": "Spatial Coordinate (Reference) Systems",
-    "text": "Spatial Coordinate (Reference) Systems\n\n\noceans <- rnaturalearth::ne_download(\n  category = \"physical\", type = \"ocean\", returnclass = \"sf\"\n)\n\n\nOGR data source with driver: ESRI Shapefile \nSource: \"/private/var/folders/md/ms6zrv3d6rd4506k3hd7dt140000gn/T/RtmpXCJAmH\", layer: \"ne_110m_ocean\"\nwith 2 features\nIt has 3 fields\n\nggplot() +\n  geom_sf(\n    data = oceans,\n    fill = \"#d8f1f6\"\n  ) +\n  geom_sf(\n    data = countries,\n    color = \"#79dfbd\",\n    fill = \"#28a87d\",\n    size = .3\n  ) +\n  coord_sf(\n    crs = \"+proj=bonne +lat_1=10\"\n  ) +\n  theme_void()"
+    "text": "Spatial Coordinate (Reference) Systems\n\n\noceans <- rnaturalearth::ne_download(\n  category = \"physical\", type = \"ocean\", returnclass = \"sf\"\n)\n\n\nOGR data source with driver: ESRI Shapefile \nSource: \"/private/var/folders/md/ms6zrv3d6rd4506k3hd7dt140000gn/T/RtmpaiBrIP\", layer: \"ne_110m_ocean\"\nwith 2 features\nIt has 3 fields\n\nggplot() +\n  geom_sf(\n    data = oceans,\n    fill = \"#d8f1f6\"\n  ) +\n  geom_sf(\n    data = countries,\n    color = \"#79dfbd\",\n    fill = \"#28a87d\",\n    size = .3\n  ) +\n  coord_sf(\n    crs = \"+proj=bonne +lat_1=10\"\n  ) +\n  theme_void()"
   },
   {
     "objectID": "materials/03_concepts_pt2.html#mapping-of-visual-properties",
@@ -2335,7 +2342,7 @@
     "href": "materials/08_group_project.html#group-projects",
     "title": "Graphic Design with ggplot2",
     "section": "Group Projects",
-    "text": "Group Projects\n\n\nForm groups and work one of the following suggested projects:\n\nCarbon Footprint of Travel (OWID / UK.gov)\nSpending Before and During the Pandemic (JP Morgan Chase)\nSpeed of Languages (Economist / Coupé et al.)\nWhimbrel Bird Migration (Movebank / Watts et al.)"
+    "text": "Group Projects\n\n\nForm groups and work one of the following suggested projects:\n\nCarbon Footprint of Travel (OWID / UK.gov)\nSpending Before and During the Pandemic (JP Morgan Chase)\nSpeed of Languages (Economist / Coupé et al.)\nUS Drought Patterns (Drought Monitor)"
   },
   {
     "objectID": "materials/solutions/02_concepts_pt1_ex1_solution.html#exercise-1",

@@ -919,7 +919,7 @@ Explanation
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_62dea5d4" style="right:0;bottom:0;font-size:.5em;" data-warnwhen="0">
+<div class="countdown" id="timer_62dfe3c4" style="right:0;bottom:0;font-size:.5em;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 </div>
@@ -1049,10 +1049,6 @@ Explanation
 </div>
 </div>
 </section>
-<section class="slide level2">
-
-
-<img data-src="img/concepts/shapes.png" alt="An overview of a set of available shapes, ordered by their use of color and fills." class="r-stretch quarto-figure-center"><p class="caption">Source: <a href="https://blog.albertkuo.me/post/point-shape-options-in-ggplot/">Albert’s Blog</a></p></section>
 <section class="slide level2">
 
 
@@ -1341,22 +1337,27 @@ Explanation
 </section>
 <section id="stat_-and-geom_-2" class="slide level2">
 <h2>`stat_*()` and `geom_*()`</h2>
-<p>::: {layout-ncol=“2”}</p>
-<div class="cell">
+<div class="quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="cell quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div class="sourceCode cell-code" id="cb36" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1"></a><span class="fu">ggplot</span>(bikes, <span class="fu">aes</span>(<span class="at">x =</span> date, <span class="at">y =</span> temp_feel)) <span class="sc">+</span></span>
 <span id="cb36-2"><a href="#cb36-2"></a>  <span class="fu">stat_identity</span>(<span class="at">geom =</span> <span class="st">"point"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img data-src="02_concepts_pt1_files/figure-revealjs/stat-geom-3-1.png" width="1500"></p>
 </div>
 </div>
-<div class="cell">
+<div class="cell quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div class="sourceCode cell-code" id="cb37" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1"></a><span class="fu">ggplot</span>(bikes, <span class="fu">aes</span>(<span class="at">x =</span> date, <span class="at">y =</span> temp_feel)) <span class="sc">+</span></span>
 <span id="cb37-2"><a href="#cb37-2"></a>  <span class="fu">geom_point</span>(<span class="at">stat =</span> <span class="st">"identity"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img data-src="02_concepts_pt1_files/figure-revealjs/geom-stat-3-1.png" width="1500"></p>
 </div>
 </div>
-<p>:::## Statistical Summaries</p>
+</div>
+</div>
+</section>
+<section id="statistical-summaries" class="slide level2">
+<h2>Statistical Summaries</h2>
 <div class="cell columns column-output-location">
 <div class="column">
 <div class="sourceCode cell-code" id="cb38" data-code-line-numbers="3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1"></a><span class="fu">ggplot</span>(</span>
@@ -1371,7 +1372,7 @@ Explanation
 </div>
 </div>
 </section>
-<section id="statistical-summaries" class="slide level2">
+<section id="statistical-summaries-1" class="slide level2">
 <h2>Statistical Summaries</h2>
 <div class="cell columns column-output-location">
 <div class="column">
@@ -1381,7 +1382,7 @@ Explanation
 <span id="cb39-4"><a href="#cb39-4"></a>  ) <span class="sc">+</span></span>
 <span id="cb39-5"><a href="#cb39-5"></a>  <span class="fu">stat_summary</span>(</span>
 <span id="cb39-6"><a href="#cb39-6"></a>    <span class="at">fun =</span> mean_se, <span class="do">## the default</span></span>
-<span id="cb39-7"><a href="#cb39-7"></a>    <span class="at">geom =</span> <span class="st">"errorbar"</span>  <span class="do">## the default</span></span>
+<span id="cb39-7"><a href="#cb39-7"></a>    <span class="at">geom =</span> <span class="st">"pointrange"</span>  <span class="do">## the default</span></span>
 <span id="cb39-8"><a href="#cb39-8"></a>  ) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
@@ -1390,20 +1391,21 @@ Explanation
 </div>
 </div>
 </section>
-<section id="statistical-summaries-1" class="slide level2">
+<section id="statistical-summaries-2" class="slide level2">
 <h2>Statistical Summaries</h2>
 <div class="cell columns column-output-location">
 <div class="column">
-<div class="sourceCode cell-code" id="cb40" data-code-line-numbers="6,7,8,9,10|7,8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1"></a><span class="fu">ggplot</span>(</span>
+<div class="sourceCode cell-code" id="cb40" data-code-line-numbers="6,7,8,9,10,11|7,8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1"></a><span class="fu">ggplot</span>(</span>
 <span id="cb40-2"><a href="#cb40-2"></a>    bikes, </span>
 <span id="cb40-3"><a href="#cb40-3"></a>    <span class="fu">aes</span>(<span class="at">x =</span> season, <span class="at">y =</span> temp_feel)</span>
 <span id="cb40-4"><a href="#cb40-4"></a>  ) <span class="sc">+</span></span>
 <span id="cb40-5"><a href="#cb40-5"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
 <span id="cb40-6"><a href="#cb40-6"></a>  <span class="fu">stat_summary</span>(</span>
-<span id="cb40-7"><a href="#cb40-7"></a>    <span class="at">fun =</span> median,</span>
+<span id="cb40-7"><a href="#cb40-7"></a>    <span class="at">fun =</span> mean,</span>
 <span id="cb40-8"><a href="#cb40-8"></a>    <span class="at">geom =</span> <span class="st">"point"</span>,</span>
-<span id="cb40-9"><a href="#cb40-9"></a>    <span class="at">color =</span> <span class="st">"#28a87d"</span></span>
-<span id="cb40-10"><a href="#cb40-10"></a>  ) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb40-9"><a href="#cb40-9"></a>    <span class="at">color =</span> <span class="st">"#28a87d"</span>,</span>
+<span id="cb40-10"><a href="#cb40-10"></a>    <span class="at">size =</span> <span class="dv">3</span></span>
+<span id="cb40-11"><a href="#cb40-11"></a>  ) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
 <p><img data-src="02_concepts_pt1_files/figure-revealjs/stat-summary-median-1.png" width="1500"></p>
@@ -1411,7 +1413,7 @@ Explanation
 </div>
 </div>
 </section>
-<section id="statistical-summaries-2" class="slide level2">
+<section id="statistical-summaries-3" class="slide level2">
 <h2>Statistical Summaries</h2>
 <div class="cell columns column-output-location">
 <div class="column">
@@ -1565,7 +1567,7 @@ Explanation
 <h2>Extend a ggplot Object: Add Labels</h2>
 <div class="cell columns column-output-location">
 <div class="column">
-<div class="sourceCode cell-code" id="cb52" data-code-line-numbers="5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1"></a>g <span class="ot">&lt;-</span> g <span class="sc">+</span></span>
+<div class="sourceCode cell-code" id="cb52" data-code-line-numbers="6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1"></a>g <span class="ot">&lt;-</span> g <span class="sc">+</span></span>
 <span id="cb52-2"><a href="#cb52-2"></a>  <span class="fu">labs</span>(</span>
 <span id="cb52-3"><a href="#cb52-3"></a>    <span class="at">x =</span> <span class="st">"Feels-like temperature (°F)"</span>,</span>
 <span id="cb52-4"><a href="#cb52-4"></a>    <span class="at">y =</span> <span class="st">"Reported bike shares"</span>,</span>
@@ -1585,7 +1587,7 @@ Explanation
 <h2>Extend a ggplot Object: Add Labels</h2>
 <div class="cell columns column-output-location">
 <div class="column">
-<div class="sourceCode cell-code" id="cb53" data-code-line-numbers="5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1"></a>g <span class="sc">+</span></span>
+<div class="sourceCode cell-code" id="cb53" data-code-line-numbers="6,7,9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1"></a>g <span class="sc">+</span></span>
 <span id="cb53-2"><a href="#cb53-2"></a>  <span class="fu">labs</span>(</span>
 <span id="cb53-3"><a href="#cb53-3"></a>    <span class="at">x =</span> <span class="st">"Feels-like temperature (°F)"</span>,</span>
 <span id="cb53-4"><a href="#cb53-4"></a>    <span class="at">y =</span> <span class="st">"Reported bike shares"</span>,</span>
@@ -1939,7 +1941,7 @@ Explanation
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_62dea601" style="right:0;bottom:0;font-size:.5em;" data-warnwhen="0">
+<div class="countdown" id="timer_62dfe2cf" style="right:0;bottom:0;font-size:.5em;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">15</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 </div>
@@ -1967,7 +1969,7 @@ Explanation
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_62dea741" style="right:0;bottom:0;font-size:.5em;" data-warnwhen="0">
+<div class="countdown" id="timer_62dfe2cc" style="right:0;bottom:0;font-size:.5em;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">25</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 </div>
