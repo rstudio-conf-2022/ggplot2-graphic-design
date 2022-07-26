@@ -910,7 +910,7 @@ ggplot(
 ```{r}
 #| label: scales-xy-date-labels
 #| output-location: column
-#| code-line-numbers: "9"
+#| code-line-numbers: "9,10"
 ggplot(
     bikes,
     aes(x = date, y = count,
@@ -929,10 +929,11 @@ ggplot(
 ```{r}
 #| label: scales-xy-date-labels-special
 #| output-location: column
-#| code-line-numbers: "9"
+#| code-line-numbers: "10"
 ggplot(
     bikes,
-    aes(x = date, y = count)
+    aes(x = date, y = count,
+        color = season)
   ) +
   geom_point() +
   scale_x_date(
@@ -1038,7 +1039,7 @@ ggplot(
 ```{r}
 #| label: scales-color-discrete-type-vector
 #| output-location: column
-#| code-line-numbers: "10,11,12,13|11,12"
+#| code-line-numbers: "7,8,9,10|8,9"
 ggplot(
     bikes,
     aes(x = date, y = count,
@@ -1186,7 +1187,7 @@ ggplot(
 ## Your Turn!
 
 ::: question
-\*\*Modify our dianmonds facet like this:
+**Modify our diamonds facet like this:**
 
 ```{r}
 #| label: exercise-scales
@@ -1262,7 +1263,7 @@ facet +
     limits = c(0, 30000),
     breaks = 0:3*10000,
     labels = paste0(
-      "$", format(0:3*10000, big.mark = ",")
+      "$", format(0:3*10000, big.mark = ",", trim = TRUE)
     )
   )
 ```
@@ -1272,7 +1273,7 @@ facet +
 ```{r}
 #| label: diamonds-facet-scales-y-function
 #| output-location: column
-#| code-line-numbers: "8,9"
+#| code-line-numbers: "8,9,10"
 facet +
   scale_x_continuous(
     breaks = 0:5
@@ -1281,7 +1282,7 @@ facet +
     limits = c(0, 30000),
     breaks = 0:3*10000,
     labels = function(y) paste0(
-      "$", format(y, big.mark=",")
+      "$", format(y, big.mark=",", trim = TRUE)
     )
   )
 ```
@@ -1354,13 +1355,12 @@ facet +
 <br>
 
 <b class='simple-highlight-grn' style='font-size:2.6rem;'>= interpret the position aesthetics</b><br><br>
-
 ::: incremental
--   **linear coordinate systems:**<br>preserve the geometrical shapes
+-   **linear coordinate systems:** preserve the geometrical shapes
     -   `coord_cartesian()`
     -   `coord_fixed()`
     -   `coord_flip()`
--   **linear coordinate systems:**<br>likely change the geometrical shapes
+-   **non-linear coordinate systems:** likely change the geometrical shapes
     -   `coord_polar()`
     -   `coord_map()` and `coord_sf()`
     -   `coord_trans()`
@@ -1539,7 +1539,7 @@ ggplot(
 ::: {layout-ncol="2"}
 ```{r}
 #| label: coord-cartesian-comp-flip
-#| fig-height: 4.9
+#| fig-height: 4.1
 #| code-line-numbers: "6"
 ggplot(
     bikes,
@@ -1552,7 +1552,7 @@ ggplot(
 ::: fragment
 ```{r}
 #| label: coord-flip
-#| fig-height: 4.9
+#| fig-height: 4.1
 #| code-line-numbers: "6"
 ggplot(
     bikes,
@@ -1569,7 +1569,7 @@ ggplot(
 ::: {layout-ncol="2"}
 ```{r}
 #| label: coord-cartesian-switch-x-y
-#| fig-height: 4.9
+#| fig-height: 4.1
 #| code-line-numbers: "3,6"
 ggplot(
     bikes,
@@ -1582,7 +1582,7 @@ ggplot(
 ::: fragment
 ```{r}
 #| label: coord-flip-again
-#| fig-height: 4.9
+#| fig-height: 4.1
 #| code-line-numbers: "6"
 ggplot(
     bikes,
@@ -1599,7 +1599,7 @@ ggplot(
 ```{r}
 #| label: forcats-sort-infreq
 #| output-location: column
-#| code-line-numbers: "1,3"
+#| code-line-numbers: "3|2"
 ggplot(
     filter(bikes, !is.na(weather_type)),
     aes(y = fct_infreq(weather_type))
@@ -1627,7 +1627,7 @@ ggplot(
 ::: {layout-ncol="2"}
 ```{r}
 #| label: coord-polar
-#| fig-height: 4.5
+#| fig-height: 4.1
 #| code-line-numbers: "7"
 ggplot(
     filter(bikes, !is.na(weather_type)),
@@ -1641,7 +1641,7 @@ ggplot(
 ::: fragment
 ```{r}
 #| label: coord-cartesian-comp-polar
-#| fig-height: 4.5
+#| fig-height: 4.1
 #| code-line-numbers: "7"
 ggplot(
     filter(bikes, !is.na(weather_type)),
@@ -1659,7 +1659,7 @@ ggplot(
 ::: {layout-ncol="2"}
 ```{r}
 #| label: coord-polar-coxcomb
-#| fig-height: 4.5
+#| fig-height: 4.1
 #| code-line-numbers: "6,7"
 ggplot(
     filter(bikes, !is.na(weather_type)),
@@ -1672,7 +1672,7 @@ ggplot(
 
 ```{r}
 #| label: coord-cartesian-comp-polar-no-padding
-#| fig-height: 4.5
+#| fig-height: 4.1
 #| code-line-numbers: "6,7"
 ggplot(
     filter(bikes, !is.na(weather_type)),
@@ -1689,7 +1689,7 @@ ggplot(
 ::: {layout-ncol="2"}
 ```{r}
 #| label: coord-polar-theta-x
-#| fig-height: 4.5
+#| fig-height: 4.1
 #| code-line-numbers: "7"
 ggplot(
     filter(bikes, !is.na(weather_type)),
@@ -1703,7 +1703,7 @@ ggplot(
 ::: fragment
 ```{r}
 #| label: coord-polar-theta-y
-#| fig-height: 4.5
+#| fig-height: 4.1
 #| code-line-numbers: "7"
 ggplot(
     filter(bikes, !is.na(weather_type)),
@@ -1721,7 +1721,7 @@ ggplot(
 ::: {layout-ncol="2"}
 ```{r}
 #| label: coord-polar-pie
-#| fig-height: 4.5
+#| fig-height: 4.1
 #| code-line-numbers: "6"
 ggplot(
     filter(bikes, !is.na(weather_type)),
@@ -1735,7 +1735,7 @@ ggplot(
 ::: fragment
 ```{r}
 #| label: coord-cartesian-comp-polar-stacked
-#| fig-height: 4.5
+#| fig-height: 4.1
 #| code-line-numbers: "6"
 ggplot(
     filter(bikes, !is.na(weather_type)),
@@ -1767,7 +1767,7 @@ ggplot(
 ::: {layout-ncol="2"}
 ```{r}
 #| label: trans-log-via-coord
-#| fig-height: 4.5
+#| fig-height: 4.1
 #| code-line-numbers: "6"
 ggplot(
     bikes,
@@ -1782,7 +1782,7 @@ ggplot(
 ::: fragment
 ```{r}
 #| label: trans-log-via-scale
-#| fig-height: 4.5
+#| fig-height: 4.1
 #| code-line-numbers: "6"
 ggplot(
     bikes,

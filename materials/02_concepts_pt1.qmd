@@ -533,10 +533,6 @@ ggplot(
 
 ------------------------------------------------------------------------
 
-![Source: [Albert's Blog](https://blog.albertkuo.me/post/point-shape-options-in-ggplot/)](img/concepts/shapes.png){fig-alt="An overview of a set of available shapes, ordered by their use of color and fills." fig-width="150%"}
-
-------------------------------------------------------------------------
-
 ![Source: [Albert's Blog](https://blog.albertkuo.me/post/point-shape-options-in-ggplot/)](img/concepts/shapes-type.png){fig-alt="An overview of a set of available shapes, ordered by their type of shape (e.g. points, triangles etc)." fig-width="150%"}
 
 ## Setting a Constant Property
@@ -818,7 +814,9 @@ ggplot(bikes, aes(x = date, y = temp_feel)) +
 ggplot(bikes, aes(x = date, y = temp_feel)) +
   geom_point(stat = "identity")
 ```
-:::## Statistical Summaries
+:::
+
+## Statistical Summaries
 
 ```{r}
 #| label: stat-summary
@@ -844,7 +842,7 @@ ggplot(
   ) +
   stat_summary(
     fun = mean_se, ## the default
-    geom = "errorbar"  ## the default
+    geom = "pointrange"  ## the default
   ) 
 ```
 
@@ -854,16 +852,17 @@ ggplot(
 ```{r}
 #| label: stat-summary-median
 #| output-location: column
-#| code-line-numbers: "6,7,8,9,10|7,8"
+#| code-line-numbers: "6,7,8,9,10,11|7,8"
 ggplot(
     bikes, 
     aes(x = season, y = temp_feel)
   ) +
   geom_boxplot() +
   stat_summary(
-    fun = median,
+    fun = mean,
     geom = "point",
-    color = "#28a87d"
+    color = "#28a87d",
+    size = 3
   ) 
 ```
 
@@ -981,7 +980,7 @@ g +
 ```{r}
 #| label: ggplot-labs-bundled-color
 #| output-location: column
-#| code-line-numbers: "5"
+#| code-line-numbers: "6"
 g <- g +
   labs(
     x = "Feels-like temperature (°F)",
@@ -998,7 +997,7 @@ g
 ```{r}
 #| label: ggplot-labs-bundled-extended
 #| output-location: column
-#| code-line-numbers: "5"
+#| code-line-numbers: "6,7,9"
 g +
   labs(
     x = "Feels-like temperature (°F)",

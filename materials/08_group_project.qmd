@@ -1,6 +1,6 @@
 ---
 title: "Graphic Design with ggplot2"
-subtitle: "<span style='font-size:1.75em;line-height:1.1;'>Group Projetcs</span>"
+subtitle: "<span style='font-size:1.75em;line-height:1.1;'>Group Projects</span>"
 author: "<b style='color:#28a87d;'>Cédric Scherer</b> **//** rstudio::conf **//** July 2022"
 format:
   revealjs:
@@ -40,29 +40,23 @@ execute:
     - Carbon Footprint of Travel (OWID / UK.gov)
     - Spending Before and During the Pandemic (JP Morgan Chase)
     - Speed of Languages (Economist / Coupé et al.)
-    - Whimbrel Bird Migration (Movebank / Watts et al.)
+    - US Drought Patterns (Drought Monitor)
 :::
 
 
 ---
 
 
-![](materials/img/exercises/project-OWID.png)
+![Graphic Source: [Our World in Data](https://ourworldindata.org/travel-carbon-footprint)](img/exercises/project-OWID.png){fig-align="center" fig-alt="A very colorful bar chart by Our World in Data showing the carbon footrprint per passenger for differen types of mid- to long-distance transportation."}
 
 
 ---
 
 
-![JPMorgan Chase Institute](materials/img/exercises/project-jpmorgan.png)
+![Graphic Source: [JPMorgan Chase Institute](https://www.jpmorganchase.com/institute/research/household-income-spending/initial-household-spending-response-to-covid-19-evidence-from-credit-card-transactions)](img/exercises/project-jpmorgan.png){fig-align="center" fig-alt="A line plot by the JP Morgan Chase institute showing timeseries for 10 different categories before and after the National Emergency in 2020."}
 
 
 ---
 
 
-![[The Economists](https://www.economist.com/graphic-detail/2019/09/28/why-are-some-languages-spoken-faster-than-others)](materials/img/exercises/project-OWID.png)
-
-
----
-
-
-![]()
+![Graphic Source: [The Economist](https://www.economist.com/graphic-detail/2019/09/28/why-are-some-languages-spoken-faster-than-others)](img/exercises/project-speed-language.png){fig-align="center" fig-alt="A area chart by The Economist showing the distriubtion of information and speech rates for different languages."}
