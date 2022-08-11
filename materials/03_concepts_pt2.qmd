@@ -28,6 +28,7 @@ knitr:
     dpi: 300
 execute:
   freeze: auto
+  cache: true
   echo: true
   fig-width: 5
   fig-height: 6
@@ -527,7 +528,7 @@ The `scale_*()` components control the properties of all the<br><b class='simple
 
 ------------------------------------------------------------------------
 
-![Illustration by Allison Horst](img/concepts/continuous_discrete.png){fig-size="120%" fig-align="center" fig-alt="Allison Horsts illustration ofthe correct use of continuous versus discrete; however, in {ggplot2} these are interpeted in a different way: as quantitative and qualitative."}
+![Illustration by [Allison Horst](https://github.com/allisonhorst/stats-illustrations)](img/concepts/continuous_discrete.png){fig-size="120%" fig-align="center" fig-alt="Allison Horsts illustration ofthe correct use of continuous versus discrete; however, in {ggplot2} these are interpeted in a different way: as quantitative and qualitative."}
 
 ## Continuous vs. Discrete in {ggplot2}
 

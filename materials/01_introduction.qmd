@@ -28,6 +28,7 @@ knitr:
     dpi: 300
 execute:
   freeze: auto
+  cache: true
   echo: true
   fig-width: 5
   fig-height: 6
@@ -105,13 +106,14 @@ countdown::countdown(minutes = 10, font_size = ".5em")
 
 ## Announcements
 
--   **WiFi:** 
-  -   Username: conf22
-	-   Password: together!<br><br>
+#### WiFi
+-   Username: conf22
+-   Password: together!<br><br>
 
--   **Course Materials**
-  -   Webpage: [rstudio-conf-2022.github.io/ggplot2-graphic-design](https://www.rstudio-conf-2022.github.io/ggplot2-graphic-design)
-  -   Rstudio Cloud: [rstudio.cloud/spaces/235465](https://www.rstudio.cloud/spaces/235465)
+#### Course Materials
+-   Webpage: [rstudio-conf-2022.github.io/ggplot2-graphic-design](https://www.rstudio-conf-2022.github.io/ggplot2-graphic-design)
+-   Rstudio Cloud: [rstudio.cloud/spaces/235465](https://www.rstudio.cloud/spaces/235465)
+
 
 ## Announcements
 
@@ -121,7 +123,7 @@ countdown::countdown(minutes = 10, font_size = ".5em")
   -   there is also has a dedicated room behind the reception
 -   lactation room is located at Potomac Dressing Room, open 8am-5pm, Monday-Thursday.
 -   participants with red lanyards wish to be not photographed, please note everyone's lanyard colors before taking a photo
--   The Code of Conduct and COVID policies can be found at [rstudio.com/conference/2022/2022-conf-code-of-conduct](https://www.rstudio.com/conference/2022/2022-conf-code-of-conduct), please review them carefully
+-   The Code of Conduct and COVID policies can be found at [rstudio.com/conference/2022/2022-conf-code-of-conduct](https://www.rstudio.com/conference/2022/2022-conf-code-of-conduct),<br>please review them carefully
 :::
 
 ## Communication Strategy
@@ -153,7 +155,7 @@ countdown::countdown(minutes = 10, font_size = ".5em")
 <b style='font-size:30pt;'><code>{ggplot2}</code> is a system for declaratively creating graphics,<br>based on "The Grammar of Graphics" (Wilkinson, 2005).</b>
 
 ::: fragment
-[You provide the data, tell <code>{ggplot2}</code> how to]{style="font-size:24pt;"}[map variables to aesthetics,]{.circle-highlight}<br>what graphical primitives to use, and it takes care of the details.
+[You provide the data, tell <code>{ggplot2}</code> how to ]{style="font-size:24pt;"}[map variables to aesthetics,]{.circle-highlight}<br>what graphical primitives to use, and it takes care of the details.
 :::
 
 ## Advantages of {ggplot2}
@@ -168,7 +170,7 @@ countdown::countdown(minutes = 10, font_size = ".5em")
 
 ------------------------------------------------------------------------
 
-![Illustration by Allison Horst](img/intro/ah_ggplot2_exploratory.png){fig-align="center" fig-alt="Allison Horsts monster illustration of explorative plotting with ggplot2."}
+![Illustration by [Allison Horst](https://github.com/allisonhorst/stats-illustrations)](img/intro/ah_ggplot2_exploratory.png){fig-align="center" fig-alt="Allison Horsts monster illustration of explorative plotting with ggplot2."}
 
 ::: footer
 :::
@@ -182,7 +184,7 @@ countdown::countdown(minutes = 10, font_size = ".5em")
 
 ------------------------------------------------------------------------
 
-![Illustration by Allison Horst](img/intro/ah_ggplot2_masterpiece.png){fig-align="center" fig-alt="Allison Horsts monster illustration of building  data masterpiece ith ggplot2 featuring a little Picasso monster :)"}
+![Illustration by [Allison Horst](https://github.com/allisonhorst/stats-illustrations)](img/intro/ah_ggplot2_masterpiece.png){fig-align="center" fig-alt="Allison Horsts monster illustration of building  data masterpiece ith ggplot2 featuring a little Picasso monster :)"}
 
 ##  {background-image="img/intro/evol-ggplot-1.gif" background-position="center" background-size="65%"}
 
@@ -237,13 +239,13 @@ countdown::countdown(minutes = 10, font_size = ".5em")
 
 ------------------------------------------------------------------------
 
-![Pixel art by [Georgios Karamanis](https://karaman.is/)](img/showcase/bob-ross-pixel-art-georgios.png){fig-align="center" fig-alt="A set of small multiples using pixelated encodings of certain elements in Bob Ross' paintings."}
+![Pixel Art by [Georgios Karamanis](https://karaman.is/)](img/showcase/bob-ross-pixel-art-georgios.png){fig-align="center" fig-alt="A set of small multiples using pixelated encodings of certain elements in Bob Ross' paintings."}
 
 ------------------------------------------------------------------------
 
-![Generative art by [Thomas Lin Pedersen](https://www.data-imaginist.com/art)](img/showcase/genart.png){fig-align="center" fig-alt="Two artworks by Thomas Pedersen, completely generated in R with ggplot2 (and pure magic)."}
+![Generative Art by [Thomas Lin Pedersen](https://www.data-imaginist.com/art)](img/showcase/genart.png){fig-align="center" fig-alt="Two artworks by Thomas Pedersen, completely generated in R with ggplot2 (and pure magic)."}
 
-# A Step-by-Step Example
+# A Motivational Example
 
 ```{r}
 #| label: load-data-example

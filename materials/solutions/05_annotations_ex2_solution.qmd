@@ -28,6 +28,7 @@ knitr:
     dpi: 300
 execute:
   freeze: auto
+  cache: true
   echo: true
   fig-width: 5
   fig-height: 5.8

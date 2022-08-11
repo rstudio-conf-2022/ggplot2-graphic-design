@@ -28,6 +28,7 @@ knitr:
     dpi: 300
 execute:
   freeze: auto
+  cache: true
   echo: true
   fig-width: 5
   fig-height: 6
@@ -469,7 +470,7 @@ ggplot(
 
 ------------------------------------------------------------------------
 
-![Illustration by Allison Horst](img/layout/ah_patchwork.jpg){fig-align="center" fig-alt="Allison Horsts monster illustration of the patchwork extension package."}
+![Illustration by [Allison Horst](https://github.com/allisonhorst/stats-illustrations)](img/layout/ah_patchwork.jpg){fig-align="center" fig-alt="Allison Horsts monster illustration of the patchwork extension package."}
 
 ::: footer
 :::

@@ -28,6 +28,7 @@ knitr:
     dpi: 300
 execute:
   freeze: auto
+  cache: true
   echo: true
   fig-width: 5
   fig-height: 6
@@ -115,6 +116,8 @@ data %>%
     plot.caption.position = "plot",
     plot.margin = margin(15, 15, 15, 15)
   )
+
+ggsave("emissions.png", width = 15, height = 10)
 ```
 
 --- 

@@ -11,7 +11,7 @@ tbl-colwidths: [5,20,75]
 -   Introduction
     -   Advantages of {ggplot2}
 -   The {ggplot2} Showcase
--   A Step-by-Step Example
+-   A Motivational Example
 
 ## Slides
 

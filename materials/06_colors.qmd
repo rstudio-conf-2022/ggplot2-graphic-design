@@ -28,6 +28,7 @@ knitr:
     dpi: 300
 execute:
   freeze: auto
+  cache: true
   echo: true
   fig-width: 5
   fig-height: 6
@@ -777,6 +778,9 @@ ggplot(
 ```
 
 # Build Your Own<br>`scale_color|fill_*()`
+
+
+---
 
 ![Illustration by W. E. B. Du Bois, Courtesy Library of Congress](img/colors/dubois-viz.png){fig-alt="“Black Lives 1900: W. E. B. Du Bois at the Paris Exposition” reprints some of the striking photographs and graphics that Du Bois and his curators commissioned for the World’s Fair, here the colorful stacked bar chart on income and expenditure of 150 negro families in Atlanta." fig-width="60%"}
 

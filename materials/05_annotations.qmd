@@ -28,6 +28,7 @@ knitr:
     dpi: 300
 execute:
   freeze: auto
+  cache: true
   echo: true
   fig-width: 5
   fig-height: 6
@@ -1326,7 +1327,7 @@ ggplot(bikes, aes(date, temp_feel)) +
 -   **Create the following visualization, as close as possible**, with the `penguins` dataset which is provided by the [{palmerpenguins} package](https://allisonhorst.github.io/palmerpenguins/).
     -   For the species labels, you likely have to create a summary data set.
     -   Use the {ggtext} geometries and theme elements to format the labels.
-    -   Also, make use of the other components such as scales, original theme, and theme customization.
+    -   Also, make use of the other components such as scales, complete themes, and theme customization.
 :::
 
 ------------------------------------------------------------------------
