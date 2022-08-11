@@ -46,8 +46,8 @@
       src: url("../fonts/InputMonoCondensed-Italic.ttf") format("truetype");
   }
 
-$font-family-sans-serif: "Cabinet Grotesk", Impact, 'Arial', sans-serif;
-$font-family-serif: "Boska", Georgia, 'Times New Roman', Times, serif;
+$font-family-sans-serif: 'Cabinet Grotesk', 'Arial Black', 'Arial', sans-serif;
+$font-family-serif: 'Boska', 'Georgia', 'Times New Roman', 'Times', serif;
 $presentation-heading-color: #28A87D;
 $presentation-heading-font-weight: 800;
 $link-color: #28a87d;
@@ -61,7 +61,7 @@ $presentation-block-margin: .0375rem;
 /*-- scss:rules --*/
 
 h1.title {
-  font-family: 'Boska', "Cabinet Grotesk", Impact, 'Arial', sans-serif;
+  font-family: 'Boska', 'Cabinet Grotesk', 'Arial Black', 'Arial', sans-serif;
   color: #28A87D;
   font-size: 2.1em;
   font-style: italic;
@@ -90,7 +90,7 @@ p.author {
 }
 
 .title-slide h1 {
-  font-family: 'Boska', "Cabinet Grotesk", Impact, 'Arial', sans-serif;
+  font-family: 'Boska', 'Cabinet Grotesk', 'Arial Black', 'Arial', sans-serif;
   text-align: center;
   font-size: 1.7em;
   color: #663399;

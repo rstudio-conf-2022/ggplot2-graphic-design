@@ -15,6 +15,11 @@
   src: url('fonts/CabinetGrotesk-ExtraBold.ttf') format("truetype");
 } 
 @font-face {
+  font-family: 'Cabinet Grotesk';
+  font-weight: 900;
+  src: url('fonts/CabinetGrotesk-Black.ttf') format("truetype");
+} 
+@font-face {
   font-family: 'Boska';
   font-weight: 800;
   src: url('fonts/Boska-Black.ttf') format("truetype");
@@ -33,3 +38,11 @@ $presentation-title-slide-text-align: "left";
 $presentation-block-margin: .0375rem;
 
 /*-- scss:rules --*/
+
+h1, .navbar-title {
+  font-weight: 800;
+}
+
+code, .code {
+  font-family: 'Tabular', monospace;
+}
