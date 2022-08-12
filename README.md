@@ -13,11 +13,11 @@ by Cédric Scherer
 
 ------------------------------------------------------------------------
 
-## Overview
+# Course Overview
 
 Creating engaging and accessible data visualizations of high quality in an efficient and preferably reproducible way is an essential tool in a data scientist's toolbox. After completing the course, participants will have a solid understanding of data visualization principles and the functionality of the ggplot2 graphics library and helpful extension libraries to create highly customized graphics without the need for post-processing.
 
-We will discuss the main concepts of the grammar of graphics and use hands-on examples to explore ggplot2’s utility to create multi-layered, more complex graphs. The workshop covers a short overview of the basics of ggplot2 and quickly focuses on the most important steps and helpful tips to create visually appealing and complex graphics both in theory and practice. The power of ggplot2 will be illustrated with advanced real–life examples that help to understand data visualization principles and useful coding tricks.
+We will discuss the main concepts of the grammar of graphics and use hands-on examples to explore ggplot2's utility to create multi-layered, more complex graphs. The workshop covers a short overview of the basics of ggplot2 and quickly focuses on the most important steps and helpful tips to create visually appealing and complex graphics both in theory and practice. The power of ggplot2 will be illustrated with advanced real--life examples that help to understand data visualization principles and useful coding tricks.
 
 The course covers complex code examples that are suited for more experienced ggplot2 users but designed to be informative for participants with minimal prior experience in ggplot2 and data visualization. As part of the training, attendees can download the course material from the course webpage for future reference.
 
@@ -38,55 +38,37 @@ This course will be appropriate for you if you answer yes to these questions:
 
 -   Would you like to learn how to improve future data visualizations in terms of accessibility, impact, and complexity?
 
-## Prework
 
-The workshop will also cover the basic logic of ggplot2 and its compontents. However, some pre-knowledge on how the package works is beneficial for following the examples and for the group exercises. A good overview is provided might by the “First Steps” chapter of the ggplot2 book by Hadley Wickham et al.: <https://ggplot2-book.org/getting-started.html>
+# Instructor
 
-## Requirements
+[**Dr. Cédric Scherer**](http://cedricscherer.com/) (he/him) is a graduated computational ecologist with a passion for design. After his PhD, he combined his expertise in analyzing and visualizing large data sets in R with his passion to become an independent data visualization designer and specialist. Cédric has created visualizations across all disciplines, purposes, and styles and regularly teaches data visualization principles, the R programming language, and ggplot2. Due to regular participation in social data challenges such as [#TidyTuesday](https://github.com/rfordatascience/tidytuesday), he is now well known for complex and visually appealing figures, entirely made with ggplot2, that look as if they have been created with a vector design tool.
+
+
+# Prework
+
+The workshop will also cover the basic logic of ggplot2 and its components. However, some pre-knowledge on how the package works is beneficial for following the examples and for the group exercises. A good overview is provided might by the "First Steps" chapter of the ggplot2 book by Hadley Wickham et al.: [ggplot2-book.org/getting-started.html](https://ggplot2-book.org/getting-started.html)
 
 The example codes and the hands-on workshop parts are run in the Rstudio cloud. Thus, nothing but a laptop is needed.
 
 If you want to run the workshop content locally on your machine, please make sure to install a suitable IDE (Rstudio, VS Code or others), a recent version of R (4.1+) and the following packages and typefaces.
 
-### R Packages Installation
+*For Mac OS users:*  
+Please make sure that [XQuartz is installed](https://www.xquartz.org/) which is needed to use the cairo pdf device.
 
--   tidyverse
-    -   ggplot2
-    -   readr
-    -   tibble
-    -   dplyr
-    -   tidyr
-    -   forcats
-    -   stringr
--   lubridate
--   here
--   systemfonts
--   magick
--   scales
--   grid
--   grDevices
--   viridis
--   colorblindr
--   colorspace
--   RColorBrewer
--   rcartocolor
--   scico
--   ggsci
--   ggthemes
--   nord
--   MetBrewer
--   ggrepel
--   ggforce
--   ggtext
--   ggdist
--   ggbeeswarm
--   gghalves
--   ggblur
--   patchwork
--   palmerpenguins
--   rnaturalearth
--   sf
--   rmapshaper
+### Required Packages
+
+-   **tidyverse packages and friends**
+    -   ggplot2, readr, tibble, dplyr, tidyr, forcats, stringr, lubridate, here, systemfonts, scales
+-   **extension packages**
+    -   ggrepel, ggforce, ggtext, ggdist, ggbeeswarm, gghalves, ggblur, patchwork
+-   **color packages**
+    -   viridis, RColorBrewer, rcartocolor, scico, ggsci, ggthemes, nord, MetBrewer, colorspace, colorblindr
+-   **util packages**
+    -   magick, grid, grDevices
+-   **data packages**
+    -   palmerpenguins, rnaturalearth
+-   **rspatial packages**
+    -   sf, rmapshaper
 
 #### Run this code to install the packages if needed:
 
@@ -105,21 +87,16 @@ If you want to run the workshop content locally on your machine, please make sur
     remotes::install_github("wilkelab/cowplot")
     remotes::install_github("clauswilke/colorblindr")
 
-### Typeface Installation
+## Required Typefaces
 
-We will make use of custom fonts. If you want to follow all contents, make sure the following typefaces are installed:
+We will make use of custom fonts. A lot.  
+If you want to follow all contents locally, make sure the following typefaces are installed:
 
 -   Roboto Condensed: [fonts.google.com/specimen/Roboto+Condensed](www.fonts.google.com/specimen/Roboto+Condensed)
 -   Cabinet Grotesk: [fontshare.com/fonts/cabinet-grotesk](www.fontshare.com/fonts/cabinet-grotesk)
 -   Tabular: [fontshare.com/fonts/tabular](www.fontshare.com/fonts/tabular)
 -   Boska: [fontshare.com/fonts/boska](www.fontshare.com/fonts/boska)
 -   Pally: [fontshare.com/fonts/pally](www.fontshare.com/fonts/pally)
-
-*For Mac OS users:* Please make sure that [XQuartz is installed](https://www.xquartz.org/) which is needed to use the cairo pdf device.
-
-## Instructor
-
-Cédric Scherer is a graduated computational ecologist with a passion for design. After his PhD, he combined his expertise in analyzing and visualizing large data sets in R with his passion to become an independent data visualization designer and specialist. Cédric has created visualizations across all disciplines, purposes, and styles and regularly teaches data visualization principles, the R programing language, and ggplot2. Due to regular participation in social data challenges such as #TidyTuesday, he is now well known for complex and visually appealing figures, entirely made with ggplot2, that look as if they have been created with a vector design tool.
 
 ------------------------------------------------------------------------
 
