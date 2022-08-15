@@ -52,7 +52,46 @@ tbl-colwidths: [5,20,75]
 ```{=html}
 <iframe class="slide-deck" src="../materials/02_concepts_pt1.html" height="420" width="747" style="border: 1px solid #2e3846;"></iframe>
 ```
+
+# Recap
+
+::: recap
+-   `{ggplot2}` is a powerful library for reproducible graphic design
+-   the components follow a consistent syntax
+-   each ggplot needs at least **data**, some **aesthetics**, and a **layer**
+-   we **set** constant propeties outside `aes()`
+-   ... and **map** data-related properties inside `aes()`
+-   local settings and mappings override global properties
+-   grouping allows applying layers for subsets
+-   we can store a ggplot object and extend it afterwards
+-   we can change the appearance for all plots with `theme_set()` and `theme_update()`
+:::
+
 ## Exercises
 
-::: {#exercises}
+### Exercise 1
+
+::: question
+-   Open the script `exercises/02_concepts_pt1_ex1.qmd`.
+-   Explore the TfL bike share data visually:<br>**create a timeseries of reported bike shares on weekend days**
+    -   Highlight day and night encoded by colors and shapes.
+    -   Connect the points of each period with lines.
+        -   What is the difference between `geom_line()` and `geom_path()`?
+    -   Apply your favorite theme to the plot.
+    -   Add meaningful labels.
+-   Save the plot as a vector graphic with a decent plot size.
+:::
+
+### Exercise 2
+
+::: question
+-   Open the script `exercises/02_concepts_pt1_ex2.qmd`.
+-   Explore the TfL bike sharing data visually:<br>**create a boxplot of counts per weather type**
+    -   Turn the plot into a jitter strips plot (random noise across the x axis)
+    -   Combine both chart types (jittered points on top of the boxplots)
+    -   [Bonus: Sort the boxplot-jitter hybrid by median counts]{style="color:#5DB699;"}
+    -   Apply your favorite theme to the plot.
+    -   Add meaningful labels.
+    -   [Bonus: Explore other chart types to visualize the distributions.]{style="color:#5DB699;"}
+-   Save the plot as a vector graphic with a decent plot size.
 :::

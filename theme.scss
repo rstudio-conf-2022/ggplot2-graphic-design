@@ -46,3 +46,19 @@ h1, .navbar-title {
 code, .code {
   font-family: 'Tabular', monospace;
 }
+
+.question {
+  border-left: 3px solid #28a87d;
+  padding: 0.5rem 0.5rem 0.2rem 1rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.3rem;
+  background: #d9f6ec;
+}
+
+.recap {
+  border-left: 3px solid #663399;
+  padding: 0.5rem 0.5rem 0.2rem 1rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  background: #e6d9f2;
+}

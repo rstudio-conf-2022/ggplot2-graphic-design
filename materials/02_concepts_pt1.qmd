@@ -93,7 +93,7 @@ library(tidyverse)
   <tr>
     <td><b style='color:#67676;'>Aesthetics&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td>
     <td><code>aes()</code></td>
-    <td>*Aesthetic mappings between variables and visual properties..*</td>
+    <td>*Aesthetic mappings between variables and visual properties.*</td>
   <tr>
     <td><b style='color:#67676;'>Geometries</b></td>
     <td><code>geom_*()</code></td>
@@ -121,7 +121,7 @@ library(tidyverse)
   <tr>
     <td><b style='color:#67676;'>Aesthetics&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td>
     <td><code>aes()</code></td>
-    <td>*Aesthetic mappings between variables and visual properties..*</td>
+    <td>*Aesthetic mappings between variables and visual properties.*</td>
   <tr>
     <td><b style='color:#67676;'>Geometries</b></td>
     <td><code>geom_*()</code></td>
@@ -263,7 +263,7 @@ ggplot(data = bikes) +
   aes(x = temp_feel, y = count)
 ```
 
-## `aes`thetics
+## <span style='color:#4758AB;'>aes</span>thetics
 
 `aes()` outside as component
 
@@ -364,7 +364,7 @@ ggplot(
 ```{r}
 #| label: geom-point-properties-set
 #| fig-height: 3.5
-#| code-line-numbers: "6,7"
+#| code-line-numbers: "6"
 ggplot(
     bikes,
     aes(x = temp_feel, y = count)
@@ -822,7 +822,7 @@ ggplot(bikes, aes(x = date, y = temp_feel)) +
 ```{r}
 #| label: stat-summary
 #| output-location: column
-#| code-line-numbers: "3"
+#| code-line-numbers: "5|3"
 ggplot(
     bikes, 
     aes(x = season, y = temp_feel)
@@ -853,7 +853,7 @@ ggplot(
 ```{r}
 #| label: stat-summary-median
 #| output-location: column
-#| code-line-numbers: "6,7,8,9,10,11|7,8"
+#| code-line-numbers: "5|5,6,11|6,7,8,9,10,11|7,8"
 ggplot(
     bikes, 
     aes(x = season, y = temp_feel)
@@ -1097,7 +1097,7 @@ g
 
 ```{r}
 #| label: systemfonts
-#| code-line-numbers: "5,6,7,8"
+#| code-line-numbers: "3,5,6,7,8|5,6,7,8"
 # install.packages("systemfonts")
 
 library(systemfonts)
@@ -1112,7 +1112,7 @@ system_fonts() %>%
 
 ```{r}
 #| label: systemfonts-register
-# install.packages("systemfonts")
+#| code-line-numbers: "1,2,34,5,6|1,2,3|4"
 register_variant(
   name = "Cabinet Grotesk Black",
   family = "Cabinet Grotesk",
@@ -1176,9 +1176,23 @@ g +
 ## Overwrite Specific Theme Settings
 
 ```{r}
+#| label: ggplot-theme-settings-individual-legend-none
+#| output-location: column
+#| code-line-numbers: "5"
+g +
+  theme(
+    panel.grid.minor = element_blank(),
+    plot.title = element_text(face = "bold"),
+    legend.position = "none"
+  )
+```
+
+## Overwrite Specific Theme Settings
+
+```{r}
 #| label: ggplot-theme-settings-individual-4
 #| output-location: column
-#| code-line-numbers: "6"
+#| code-line-numbers: "6|2,3,4,6,7"
 g +
   theme(
     panel.grid.minor = element_blank(),
@@ -1287,7 +1301,7 @@ dev.off()
 -   local settings and mappings override global properties
 -   grouping allows applying layers for subsets
 -   we can store a ggplot object and extend it afterwards
--   we can change the appearance for all plots with `theme_set()` and `theme_update()`
+-   we can change the appearance for all plots with `theme_set()`<br>and `theme_update()`
 :::
 :::
 

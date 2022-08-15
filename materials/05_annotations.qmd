@@ -73,10 +73,10 @@ g <- ggplot(
     alpha = .5
   ) +
   labs(
-    x = "Feels-like temperature (°F)",
+    x = "Feels Like temperature (°F)",
     y = "Reported bike shares",
     title = "TfL bike sharing trends",
-    subtitle = "Reported bike rents versus feels-like temperature in London",
+    subtitle = "Reported bike rents versus Feels Like temperature in London",
     caption = "Data: TfL",
     color = "Season:",
     tag = "1."
@@ -106,7 +106,7 @@ g + theme(
   plot.title = element_text(face = "bold"),
   plot.title.position = "plot",
   axis.text = element_text(
-    color = "grey40"
+    color = "#28a87d"
   )
 )
 ```
@@ -121,7 +121,7 @@ g + theme(
   plot.title = element_text(face = "bold"),
   plot.title.position = "plot",
   axis.text = element_text(
-    color = "grey40",
+    color = "#28a87d",
     family = "Tabular",
     face = "italic",
     hjust = 1,
@@ -143,7 +143,7 @@ g + theme(
   plot.title = element_text(face = "bold"),
   plot.title.position = "plot",
   axis.text = element_text(
-    color = "grey40",
+    color = "#28a87d",
     family = "Tabular",
     face = "italic",
     colour = NULL,
@@ -170,7 +170,7 @@ g + theme(
   plot.title = element_text(face = "bold"),
   plot.title.position = "plot",
   axis.text = element_text(
-    color = "grey40",
+    color = "#28a87d",
     family = "Tabular",
     face = "italic",
     colour = NULL,
@@ -197,7 +197,7 @@ g + theme(
   plot.title = element_text(face = "bold"),
   plot.title.position = "plot",
   axis.text = element_text(
-    color = "grey40",
+    color = "#28a87d",
     family = "Tabular",
     face = "italic",
     colour = NULL,
@@ -223,8 +223,9 @@ g + theme(
 ```{r}
 #| label: scales-xy-continuous-labels-scales-prep
 #| output-location: column
-#| code-line-numbers: "1|3,4,5,6"
-g <- g + labs(title = NULL, subtitle = NULL, tag = NULL)
+#| code-line-numbers: "1,2|4,5,6,7"
+g <- g + labs(tag = NULL, title = NULL, 
+              subtitle = NULL)
 
 g +
   scale_y_continuous(
@@ -250,7 +251,7 @@ g +
 ```{r}
 #| label: scales-xy-continuous-labels-scales-2
 #| output-location: column
-#| code-line-numbers: "5|7"
+#| code-line-numbers: "4,5,6|5|7"
 g +
   scale_y_continuous(
     breaks = 0:4*15000,
@@ -317,11 +318,11 @@ g +
 ```{r}
 #| label: scales-xy-continuous-labels-function-paste
 #| output-location: column
-#| code-line-numbers: "2|3|4"
+#| code-line-numbers: "2,5|3|4"
 g +
   scale_x_continuous(
     labels = function(y) paste0(y, "°F"),
-    name = "Feels-Like Temperature"
+    name = "Feels Like Temperature"
   )
 ```
 
@@ -375,7 +376,8 @@ g +
 ```{r}
 #| label: ggtext-prep-markdown
 #| output-location: column
-#| code-line-numbers: "2"
+#| code-line-numbers: "4"
+# install.packages("ggtext")
 
 g +
   ggtitle("**TfL bike sharing trends by _season_**")
@@ -414,7 +416,7 @@ g +
 
 <p style="font-size:12pt;">
 
-`<b style='font-family:tabular;font-size:25pt'>TfL</b> bike sharing trends by <i style='color:#28a87d;'>season</i>`
+`<b style='font-family:tabular;font-size:15pt;'>TfL</b> bike sharing trends by <i style='color:#28a87d;'>season</i>`
 
 </p>
 
@@ -579,7 +581,7 @@ g +
 ```{r}
 #| label: ggtext-textbox-default
 #| output-location: column
-#| code-line-numbers: "2|3,4,5,6|4"
+#| code-line-numbers: "5,6"
 g +
   ggtitle("TfL bike sharing trends in 2015 and 2016 by season for day and night periods") +
   theme(
@@ -690,7 +692,7 @@ ggplot(bikes, aes(humidity, temp)) +
 ```{r}
 #| label: annotate-text-multiple
 #| output-location: column
-#| code-line-numbers: "8,9,10,11"
+#| code-line-numbers: "6,7,8,9,10,11|6,7,8|9,10,11"
 ggplot(bikes, aes(humidity, temp)) +
   geom_point(size = 2, color = "grey") +
   annotate(
@@ -709,7 +711,7 @@ ggplot(bikes, aes(humidity, temp)) +
 ```{r}
 #| label: annotate-box
 #| output-location: column
-#| code-line-numbers: "4,5,6,7,8,9|4|5,6,7,8"
+#| code-line-numbers: "4,5,6,7,8,9|4|5,6,7,8|5,8"
 ggplot(bikes, aes(humidity, temp)) +
   geom_point(size = 2, color = "grey") +
   annotate(
@@ -791,7 +793,7 @@ ggplot(bikes, aes(humidity, temp)) +
 ```{r}
 #| label: annotate-text-arrow
 #| output-location: column
-#| code-line-numbers: "13"
+#| code-line-numbers: "15,16"
 ggplot(bikes, aes(humidity, temp)) +
   geom_point(size = 2, color = "grey") +
   annotate(
@@ -816,7 +818,7 @@ ggplot(bikes, aes(humidity, temp)) +
 ```{r}
 #| label: annotate-text-arrow-type2
 #| output-location: column
-#| code-line-numbers: "12,14,15,16,17|14,15,16"
+#| code-line-numbers: "16,17,18,19,20|17,18,19"
 ggplot(bikes, aes(humidity, temp)) +
   geom_point(size = 2, color = "grey") +
   annotate(
@@ -845,7 +847,7 @@ ggplot(bikes, aes(humidity, temp)) +
 ```{r}
 #| label: annotate-text-arrow-skewed
 #| output-location: column
-#| code-line-numbers: "15,16"
+#| code-line-numbers: "16|13,14,15"
 ggplot(bikes, aes(humidity, temp)) +
   geom_point(size = 2, color = "grey") +
   annotate(
@@ -869,7 +871,7 @@ ggplot(bikes, aes(humidity, temp)) +
   )
 ```
 
-# Annotations with \`geom\_\*()\`'s'
+# Annotations with `geom_*()`
 
 ## Highlight Hot Periods
 
@@ -877,7 +879,7 @@ ggplot(bikes, aes(humidity, temp)) +
 #| label: highlight-hot-periods
 #| output-location: column
 #| code-line-numbers: "1,2,3,4,5,6,7,8,9|2|2,9|5,6,7,8|6"
-g <- ggplot(
+ggplot(
     filter(bikes, temp >= 27),
     aes(x = humidity, y = temp)
   ) +
@@ -1427,13 +1429,14 @@ ggplot(
 countdown::countdown(minutes = 20, font_size = ".5em")
 ```
 
+
+##  {background-image="img/exercises/exercise-what-now.png" background-position="center" background-size="65%"}
+
 ## Exercise 2
 
 ::: question
 -   **Create this logo with the image file `exercises/rstudioconf-washington-bg.png`:**
 :::
-
-<br>
 
 ```{r}
 #| label: annotate-custom-rstudioconf
@@ -1474,3 +1477,6 @@ ggplot(mapping = aes(x = 0, y = 0)) +
 #| purl: false
 countdown::countdown(minutes = 10, font_size = ".5em")
 ```
+
+
+##  {background-image="img/exercises/exercise-what-now.png" background-position="center" background-size="65%"}

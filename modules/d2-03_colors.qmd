@@ -47,10 +47,10 @@ tbl-colwidths: [5,20,75]
 
 ### Part 2
 
-[View slides in full screen](../materials/06_colors.qmd)
+[View slides in full screen](../materials/06_colors.html)
 
 ```{=html}
-<iframe class="slide-deck" src="../materials/06_colors.qmd" height="420" width="747" style="border: 1px solid #2e3846;"></iframe>
+<iframe class="slide-deck" src="../materials/06_colors.html" height="420" width="747" style="border: 1px solid #2e3846;"></iframe>
 ```
 
 ## Exercises

@@ -182,7 +182,7 @@ ggplot(
   ) +
   geom_boxplot() +
   rcartocolor::scale_fill_carto_d(
-    name = "Vivid" 
+    palette = "Vivid" 
   )
 ```
 
@@ -422,28 +422,7 @@ ggplot(
 ```{r}
 #| label: color-palettes-carto-custom-2
 #| output-location: column
-#| code-line-numbers: "12"
-library("rcartocolor")
-
-ggplot(
-    bikes, 
-    aes(x = day_night, y = count, 
-        fill = season)
-  ) +
-  geom_boxplot() +
-  scale_fill_manual(
-    values = carto_pal(
-      name = "Vivid", n = 6
-    )[c(1, 3:5)]
-  )
-```
-
-## Customize Existing Palettes
-
-```{r}
-#| label: color-palettes-carto-custom-3
-#| output-location: column
-#| code-line-numbers: "12"
+#| code-line-numbers: "11,12"
 library("rcartocolor")
 
 ggplot(
@@ -486,7 +465,7 @@ ggplot(
 ```{r}
 #| label: color-palettes-carto-light
 #| output-location: column
-#| code-line-numbers: "2,4|12"
+#| code-line-numbers: "2,4|13"
 # install.packages("colorspace")
 library(colorspace)
 
@@ -508,7 +487,7 @@ ggplot(
 ```{r}
 #| label: color-palettes-carto-afterscale
 #| output-location: column
-#| code-line-numbers: "6,7,8,9,12|7|8|"
+#| code-line-numbers: "12|6,7,8,9|6|7,9|8|"
 ggplot(
     bikes, 
     aes(x = day_night, y = count)
@@ -517,7 +496,7 @@ ggplot(
     aes(fill = season,
         fill = after_scale(
           lighten(fill, .8)
-        ))
+    ))
   ) +
   scale_fill_manual(
     values = carto_custom
@@ -529,7 +508,7 @@ ggplot(
 ```{r}
 #| label: color-palettes-carto-afterscale-stage
 #| output-location: column
-#| code-line-numbers: "7,8,9,10,11"
+#| code-line-numbers: "7,8,9,10,11|7|9|10"
 ggplot(
     bikes, 
     aes(x = day_night, y = count)
@@ -553,7 +532,7 @@ ggplot(
 ```{r}
 #| label: color-palettes-carto-afterscale-2
 #| output-location: column
-#| code-line-numbers: "6|7,8,9|11"
+#| code-line-numbers: "6,11|7,8,9"
 ggplot(
     bikes, 
     aes(x = day_night, y = count)
@@ -562,7 +541,7 @@ ggplot(
     aes(color = season,
         fill = after_scale(
           lighten(color, .8)
-        ))
+    ))
   ) +
   scale_color_manual(
     values = carto_custom
@@ -583,7 +562,7 @@ ggplot(
     aes(color = season,
         fill = after_scale(
           lighten(color, .8)
-        ))
+    ))
   ) +
   geom_jitter(
     aes(color = season), 
@@ -603,7 +582,7 @@ ggplot(
 ```{r}
 #| label: color-palettes-carto-afterscale-combined-2
 #| output-location: column
-#| code-line-numbers: "13,14,15"
+#| code-line-numbers: "12,13,14,15|14"
 ggplot(
     bikes, 
     aes(x = day_night, y = count)
@@ -618,7 +597,7 @@ ggplot(
     aes(color = season,
         color = after_scale(
           darken(color, .3)
-        )), 
+    )), 
     position = position_jitterdodge(
       dodge.width = .75, 
       jitter.width = .2
@@ -687,7 +666,7 @@ ggplot(
 ```{r}
 #| label: color-palettes-gradient2
 #| output-location: column
-#| code-line-numbers: "7,11|8,9,10"
+#| code-line-numbers: "7,11|8,9,10|10"
 ggplot(
     bikes, 
     aes(x = temp_feel, y = count, 
@@ -764,7 +743,7 @@ ggplot(
 ```{r}
 #| label: color-palettes-gradientn-weight
 #| output-location: column
-#| code-line-numbers: "10"
+#| code-line-numbers: "9"
 ggplot(
     bikes, 
     aes(x = temp_feel, y = count, 
@@ -942,7 +921,9 @@ g
 ```{r}
 #| label: cvd-emulation-all
 #| output-location: column
-# devtools::install_github("clauswilke/colorblindr")
+# devtools::install_github(
+#   "clauswilke/colorblindr"
+# )
 
 colorblindr::cvd_grid(g)
 ```
@@ -951,7 +932,7 @@ colorblindr::cvd_grid(g)
 
 ```{r}
 #| label: cvd-emulation-all-2-prep
-#| include: false
+#| echo: false
 g2 <- 
   ggplot(
     bikes, 
@@ -978,7 +959,7 @@ colorblindr::cvd_grid(g2)
 
 ```{r}
 #| label: cvd-emulation-all-3-prep
-#| output-location: column
+#| echo: false
 g3 <- 
   g2 +
   scale_color_manual(

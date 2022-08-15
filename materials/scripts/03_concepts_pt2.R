@@ -3,11 +3,11 @@
 #                         Graphic Design with ggplot2:                         #
 #            How to Create Engaging and Complex Visualizations in R            #
 #                                                                              #
-#                   Concepts of the {ggplot2} Package: Part 2                  #
+#                   Concepts of the {ggplot2} Package Part 2                   #
 #                                                                              #
-#                              Dr. Cédric Scherer                              #
+#                              Dr. Cedric Scherer                              #
 #                         rstudio::conf(2022) workshop                         #
-#                              July 25–26th, 2022                              #
+#                              July 25-26th, 2022                              #
 #                                                                              #
 #------------------------------------------------------------------------------#
 
@@ -32,11 +32,7 @@ theme_update(
   plot.title.position = "plot"
 )
 
-
-
-
-## Facets ######################################################################
-## = split variables to multiple panels
+invisible(Sys.setlocale("LC_TIME", "C"))
 
 
 ## -----------------------------------------------------------------------------
@@ -167,18 +163,6 @@ g +
   )
 
 
-
-## Exercise --------------------------------------------------------------------
-
-## Create this facet from the `diamonds` data: img/exercise-facets.png
-## Bonus: create this dark version: img/exercise-facets-bonus.png
-
-diamonds
-
-
-
-
-
 ## -----------------------------------------------------------------------------
 ggplot(
     diamonds,
@@ -237,13 +221,6 @@ ggplot(
     base_size = 14,
     base_family = "Roboto Condensed"
   )
-
-
-
-
-
-## Scales ######################################################################
-## = translate between variable ranges and property ranges
 
 
 ## -----------------------------------------------------------------------------
@@ -308,13 +285,13 @@ ggplot(
     bikes,
     aes(x = date, y = count,
         color = season)
-  ) +
+  ) +  
   geom_point() +
-  scale_x_date() +
+  scale_x_continuous() +
   scale_y_continuous(
     trans = "log10"
   ) +
-  scale_color_discrete()
+  scale_color_viridis_d()
 
 
 ## -----------------------------------------------------------------------------
@@ -324,11 +301,9 @@ ggplot(
         color = season)
   ) +
   geom_point() +
-  scale_x_date() +
   scale_y_continuous(
     name = "Reported bike shares"
-  ) +
-  scale_color_discrete()
+  ) 
 
 
 ## -----------------------------------------------------------------------------
@@ -338,12 +313,10 @@ ggplot(
         color = season)
   ) +
   geom_point() +
-  scale_x_date() +
   scale_y_continuous(
     name = "Reported bike shares",
     breaks = seq(0, 60000, by = 15000)
-  ) +
-  scale_color_discrete()
+  ) 
 
 
 ## -----------------------------------------------------------------------------
@@ -353,12 +326,10 @@ ggplot(
         color = season)
   ) +
   geom_point() +
-  scale_x_date() +
   scale_y_continuous(
     name = "Reported bike shares",
     breaks = 0:4*15000
-  ) +
-  scale_color_discrete()
+  )
 
 
 ## -----------------------------------------------------------------------------
@@ -368,12 +339,11 @@ ggplot(
         color = season)
   ) +
   geom_point() +
-  scale_x_date() +
   scale_y_continuous(
     name = "Reported bike shares",
-    breaks = c(0, seq(5000, 30000, by = 2500), 40000, 50000)
-  ) +
-  scale_color_discrete()
+    breaks = 
+      c(0, seq(5000, 30000, by = 2500), 40000, 50000)
+  ) 
 
 
 ## -----------------------------------------------------------------------------
@@ -383,13 +353,11 @@ ggplot(
         color = season)
   ) +
   geom_point() +
-  scale_x_date() +
   scale_y_continuous(
     name = "Reported bike shares in thousands",
     breaks = 0:4*15000,
     labels = 0:4*15
-  ) +
-  scale_color_discrete()
+  ) 
 
 
 ## -----------------------------------------------------------------------------
@@ -399,13 +367,11 @@ ggplot(
         color = season)
   ) +
   geom_point() +
-  scale_x_date() +
   scale_y_continuous(
     name = "Reported bike shares in thousands",
-    breaks = 0:4,
+    breaks = 0:4*15000,
     labels = paste(0:4*15000, "bikes")
-  ) +
-  scale_color_discrete()
+  ) 
 
 
 ## -----------------------------------------------------------------------------
@@ -415,13 +381,11 @@ ggplot(
         color = season)
   ) +
   geom_point() +
-  scale_x_date() +
   scale_y_continuous(
     name = "Reported bike shares",
     breaks = 0:4*15000,
     limits = c(NA, 60000)
-  ) +
-  scale_color_discrete()
+  ) 
 
 
 ## -----------------------------------------------------------------------------
@@ -431,13 +395,11 @@ ggplot(
         color = season)
   ) +
   geom_point() +
-  scale_x_date() +
   scale_y_continuous(
     name = "Reported bike shares",
     breaks = 0:4*15000,
     expand = c(0, 0)
-  ) +
-  scale_color_discrete()
+  ) 
 
 
 ## -----------------------------------------------------------------------------
@@ -447,13 +409,25 @@ ggplot(
         color = season)
   ) +
   geom_point() +
-  scale_x_date() +
   scale_y_continuous(
     name = "Reported bike shares",
     breaks = -1:5*15000,
-    expand = c(.5, .5)
+    expand = c(.5, .5) ## c(add, mult)
+  ) 
+
+
+## -----------------------------------------------------------------------------
+ggplot(
+    bikes,
+    aes(x = date, y = count,
+        color = season)
   ) +
-  scale_color_discrete()
+  geom_point() +
+  scale_y_continuous(
+    name = "Reported bike shares",
+    breaks = -1:5*15000,
+    expand = expansion(add = 2000)
+  ) 
 
 
 ## -----------------------------------------------------------------------------
@@ -479,7 +453,7 @@ ggplot(
   geom_point() +
   scale_x_date(
     name = NULL,
-    date_breaks = "3 months"
+    date_breaks = "4 months"
   )
 
 
@@ -505,7 +479,7 @@ ggplot(
   geom_point() +
   scale_x_date(
     name = NULL,
-    date_breaks = "4 months",
+    date_breaks = "6 months",
     date_labels = "%Y/%m/%d"
   )
 
@@ -513,12 +487,13 @@ ggplot(
 ## -----------------------------------------------------------------------------
 ggplot(
     bikes,
-    aes(x = date, y = count)
+    aes(x = date, y = count,
+        color = season)
   ) +
   geom_point() +
   scale_x_date(
     name = NULL,
-    date_breaks = "4 months",
+    date_breaks = "6 months",
     date_labels = "%b '%y"
   )
 
@@ -543,7 +518,7 @@ ggplot(
   geom_boxplot() +
   scale_x_discrete(
     name = "Season",
-    expand = c(.5, .5)
+    expand = c(.5, 0) ## add, mult
   )
 
 
@@ -576,7 +551,8 @@ ggplot(
 ## -----------------------------------------------------------------------------
 ggplot(
     bikes,
-    aes(x = as.numeric(season) + as.numeric(season) / 8,
+    aes(x = as.numeric(season) + 
+            as.numeric(season) / 8,
         y = count)
   ) +
   geom_boxplot(
@@ -611,20 +587,20 @@ g <- ggplot(
   geom_point() +
   scale_color_discrete(
     name = "Season:",
-    type = c("#69b0d4", "#00CB79", "#F7B01B", "#a78f5f")
+    type = c("#3ca7d9", "#1ec99b", "#F7B01B", "#bb7e8f")
   )
 
 gb <- ggplot_build(g)
 
-gb$data[[1]][1:10,]
+gb$data[[1]][c(1:5, 200:205, 400:405), 1:5]
 
 
 ## -----------------------------------------------------------------------------
 my_colors <- c(
-  `winter` = "#69b0d4",
-  `spring` = "#00CB79",
+  `winter` = "#3c89d9",
+  `spring` = "#1ec99b",
   `summer` = "#F7B01B",
-  `autumn` = "#a78f5f"
+  `autumn` = "#a26e7c"
 )
 
 ggplot(
@@ -641,10 +617,10 @@ ggplot(
 
 ## -----------------------------------------------------------------------------
 my_colors_alphabetical <- c(
-  `autumn` = "#a78f5f",
-  `spring` = "#00CB79",
+  `autumn` = "#a26e7c",
+  `spring` = "#1ec99b",
   `summer` = "#F7B01B",
-  `winter` = "#69b0d4"
+  `winter` = "#3c89d9"
 )
 
 ggplot(
@@ -704,15 +680,6 @@ ggplot(
   )
 
 
-
-## Exercise --------------------------------------------------------------------
-
-## Modify our diamonds facet like this: img/exercise-scales.png
-
-
-
-
-
 ## -----------------------------------------------------------------------------
 facet <-
   ggplot(
@@ -757,7 +724,7 @@ facet +
     limits = c(0, 30000),
     breaks = 0:3*10000,
     labels = paste0(
-      "$", format(0:3*10000, big.mark = ",")
+      "$", format(0:3*10000, big.mark = ",", trim = TRUE)
     )
   )
 
@@ -771,7 +738,7 @@ facet +
     limits = c(0, 30000),
     breaks = 0:3*10000,
     labels = function(y) paste0(
-      "$", format(y, big.mark=",")
+      "$", format(y, big.mark=",", trim = TRUE)
     )
   )
 
@@ -820,12 +787,6 @@ facet +
   theme(
     legend.position = "none"
   )
-
-
-
-
-## Coordinate Systems###########################################################
-## = interpret the position aesthetics
 
 
 ## -----------------------------------------------------------------------------
@@ -1061,11 +1022,19 @@ ggplot(
 ## -----------------------------------------------------------------------------
 ggplot(
     filter(bikes, !is.na(weather_type)),
-    aes(x = 1,
-        fill = fct_rev(fct_infreq(weather_type)))
+    aes(x = 1, fill = weather_type)
   ) +
   geom_bar(position = "stack") +
-  coord_polar(theta = "y")
+  coord_polar(theta = "y") 
+
+
+## -----------------------------------------------------------------------------
+ggplot(
+    filter(bikes, !is.na(weather_type)),
+    aes(x = 1, fill = weather_type)
+  ) +
+  geom_bar(position = "stack") +
+  coord_cartesian() 
 
 
 ## -----------------------------------------------------------------------------
@@ -1075,7 +1044,19 @@ ggplot(
         fill = fct_rev(fct_infreq(weather_type)))
   ) +
   geom_bar(position = "stack") +
-  coord_cartesian()
+  coord_polar(theta = "y") +
+  scale_fill_discrete(name = NULL)
+
+
+## -----------------------------------------------------------------------------
+ggplot(
+    filter(bikes, !is.na(weather_type)),
+    aes(x = 1,
+        fill = fct_rev(fct_infreq(weather_type)))
+  ) +
+  geom_bar(position = "stack") +
+  coord_cartesian() +
+  scale_fill_discrete(name = NULL)
 
 
 ## -----------------------------------------------------------------------------
@@ -1108,6 +1089,13 @@ ggplot(
   geom_smooth(method = "lm") +
   scale_y_log10()
 
+
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+#                                                                              #
+#  APPENDIX                                                                    #
+#                                                                              #
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 
 ## -----------------------------------------------------------------------------
 countries <- rnaturalearth::ne_countries(
@@ -1154,6 +1142,8 @@ oceans <- rnaturalearth::ne_download(
   category = "physical", type = "ocean", returnclass = "sf"
 )
 
+
+## -----------------------------------------------------------------------------
 ggplot() +
   geom_sf(
     data = oceans,
@@ -1169,3 +1159,53 @@ ggplot() +
     crs = "+proj=bonne +lat_1=10"
   ) +
   theme_void()
+
+
+## -----------------------------------------------------------------------------
+ggplot() +
+  geom_sf(
+    data = oceans,
+    fill = "#d8f1f6",
+    color = "white"
+  ) +
+  geom_sf(
+    data = countries,
+    aes(fill = economy),
+    color = "white",
+    size = .3
+  ) +
+  coord_sf(
+    crs = "+proj=bonne +lat_1=10"
+  ) +
+  scale_fill_viridis_d(option = "magma") +
+  theme_void() +
+  theme(legend.position = "top")
+
+
+## -----------------------------------------------------------------------------
+borders <- rmapshaper::ms_innerlines(countries)
+
+ggplot() +
+  geom_sf(
+    data = oceans,
+    fill = "#d8f1f6",
+    color = "white"
+  ) +
+  geom_sf(
+    data = countries,
+    aes(fill = economy),
+    color = "transparent"
+  ) +
+  geom_sf(
+    data = borders,
+    fill = "transparent",
+    color = "white",
+    size = .3
+  ) +
+  coord_sf(
+    crs = "+proj=bonne +lat_1=10"
+  ) +
+  scale_fill_viridis_d(option = "magma") +
+  theme_void() +
+  theme(legend.position = "top")
+
