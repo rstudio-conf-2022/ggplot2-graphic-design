@@ -1,22 +1,38 @@
 ---
 title: "Working with Colors"
-subtitle: "11:00 - 12:30"
+subtitle: "`11:00 - 12:30`"
 date: "2022-07-26"
 image: "images/session6.png"
 tbl-colwidths: [5,20,75]
 ---
 
-## Outline
+### Part 1: Colorful Graphics
 
-### Part 1 - Colorful Graphics
--   Challenge to encode Information
+```{=html}
+<iframe class="slide-deck" src="../materials/06_colorful_graphics.pdf" height="420" width="747" style="border: 1px solid #2e3846;"></iframe>
+```
+
+[View slides in full screen](../materials/06_colorful_graphics.pdf)
+
+### Part 2: Working with Colors
+
+```{=html}
+<iframe class="slide-deck" src="../materials/06_colors.html" height="420" width="747" style="border: 1px solid #2e3846;"></iframe>
+```
+
+[View slides in full screen](../materials/06_colors.html)&ensp;|&ensp;[Run the code yourself](../materials/scripts/06_colors.R)
+
+# Outline
+
+### Part 1: Colorful Graphics
+-   Channels to Encode Information
 -   Color Spaces
 -   Color Palette Choice
--   Use Color wisely (and correctly)
+-   Use Color Wisely (and Correctly)
 -   Designing for Colorblindness
 -   Beyond the Rainbow
 
-### Part 2 - Working with Colors
+### Part 2: Working with Colors
 -   Color Palettes
     -   Pre-Defined Color Palettes: Viridis
     -   Pre-Defined Color Palettes: Brewer
@@ -36,24 +52,25 @@ tbl-colwidths: [5,20,75]
 -   Test Your Palettes
     -   Emulate CVD
 
-## Slides
+# Recap
 
-### Part 1
-[View slides in full screen](../materials/06_colorful_graphics.pdf)
+::: recap
+-   use **categorical** palettes for **qualitative** data
+    -  e.g. `scale_*_discrete()` and `scale_*_manual()` for custom options
+    -  e.g. `scale_*_viridis_d` and `scale_*_brewer()` for pre-defined options
+-   use **sequential or diverging** palettes for **quantitative** data
+    -  e.g. `scale_*_gradient()` or `scale_*_gradient2()` for custom options
+    -  e.g. `scale_*_viridis_c` and `scale_*_distiller()` for pre-defined options
+-   various packages provide palettes incl. `scale_*` components
+    - e.g. `{rcartocolors}`, `{scico}`, `{ggsci}`, `{ggthemes}`, `{nord}`
+-   those and even more packages return palettes as vectors
+    - modify and supply thehm to `scale_*_manual()` and `scale_*_gradientn()`
+-   use **`after_scale`** to modify and recycle color scales 
+:::
 
-```{=html}
-<iframe class="slide-deck" src="../materials/06_colorful_graphics.pdf" height="420" width="747" style="border: 1px solid #2e3846;"></iframe>
-```
+# Exercise
 
-### Part 2
-
-[View slides in full screen](../materials/06_colors.html)
-
-```{=html}
-<iframe class="slide-deck" src="../materials/06_colors.html" height="420" width="747" style="border: 1px solid #2e3846;"></iframe>
-```
-
-## Exercises
-
-::: {#exercises}
+::: question
+-   Open the script [`exercises/06_colors_ex1.qmd`](../materials/exercises/06_colors_ex1.qmd) (or the `.rmd`).
+-   Create a similar visualization as the one in the folder `exercises/6-1-bikes-jitter`; try to replicate it as close as possible:<br><br>![](https://github.com/rstudio-conf-2022/ggplot2-graphic-design/raw/main/materials/exercises/6-1-bikes-jitter/jittered-errorbars.png)
 :::

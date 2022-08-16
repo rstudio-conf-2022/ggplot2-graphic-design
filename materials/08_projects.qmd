@@ -1,0 +1,63 @@
+---
+title: "Graphic Design with ggplot2"
+subtitle: "<span style='font-size:1.75em;line-height:1.1;'>Group Projects</span>"
+author: "<b style='color:#28a87d;'>Cédric Scherer</b> **//** rstudio::conf **//** July 2022"
+format:
+  revealjs:
+    theme: css/style.scss
+    footer: '**[Cédric Scherer](https::/cedricscherer.com) //** rstudio::conf **//** July 2022'
+    #'rstudio::conf(workshop = "Graphic Design with ggplot2", instructor = "Cédric Scherer")'
+    transition: fade
+    progress: true
+    multiplex: false
+    preview-links: true
+    scrollable: false
+    hide-inactive-cursor: true
+    highlight-style: printing
+    chalkboard:
+      theme: whiteboard
+      boardmarker-width: 4
+      buttons: true
+    pause: true
+    mainfont: Cabinet Grotesk
+editor: source
+knitr:
+  opts_chunk:
+    dev: "ragg_png"
+    retina: 1
+    dpi: 200
+execute:
+  freeze: auto
+  cache: true
+  echo: true
+  fig-width: 5
+  fig-height: 6
+---
+
+## Group Projects
+
+::: question
+-   Form groups and work one of the following suggested projects:
+    - Carbon Footprint of Travel (OWID / UK.gov)
+    - Spending Before and During the Pandemic (JP Morgan Chase)
+    - Speed of Languages (Economist / Coupé et al.)
+    - US Drought Patterns (Drought Monitor)
+:::
+
+
+---
+
+
+![Graphic Source: [Our World in Data](https://ourworldindata.org/travel-carbon-footprint)](img/exercises/project-OWID.png){fig-align="center" fig-alt="A very colorful bar chart by Our World in Data showing the carbon footrprint per passenger for differen types of mid- to long-distance transportation."}
+
+
+---
+
+
+![Graphic Source: [JPMorgan Chase Institute](https://www.jpmorganchase.com/institute/research/household-income-spending/initial-household-spending-response-to-covid-19-evidence-from-credit-card-transactions)](img/exercises/project-jpmorgan.png){fig-align="center" fig-alt="A line plot by the JP Morgan Chase institute showing timeseries for 10 different categories before and after the National Emergency in 2020."}
+
+
+---
+
+
+![Graphic Source: [The Economist](https://www.economist.com/graphic-detail/2019/09/28/why-are-some-languages-spoken-faster-than-others)](img/exercises/project-speed-language.png){fig-align="center" fig-alt="A area chart by The Economist showing the distriubtion of information and speech rates for different languages."}

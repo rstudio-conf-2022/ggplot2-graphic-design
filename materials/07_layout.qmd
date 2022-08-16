@@ -25,7 +25,7 @@ knitr:
   opts_chunk:
     dev: "ragg_png"
     retina: 1
-    dpi: 300
+    dpi: 200
 execute:
   freeze: auto
   cache: true
@@ -56,14 +56,14 @@ theme_update(
 )
 ```
 
-# Legend Placement<br>and Styling
+# Legend Placement <br>and Styling
 
 ## Discrete Legend
 
 ```{r}
 #| label: legend-discrete-default
 #| output-location: column
-#| code-line-numbers: "6|9"
+#| code-line-numbers: "6|1,9"
 pal <- c("#3c89d9", "#1ec99b", "#F7B01B", "#a26e7c")
 
 ggplot(
@@ -305,7 +305,7 @@ ggplot(
 ```{r}
 #| label: legend-guide-function-customize-ticks
 #| output-location: column
-#| code-line-numbers: "19|7,10|8,9|13,14,15"
+#| code-line-numbers: "19|7,10,16,17|8,9|13,14,15"
 ggplot(
     bikes,
     aes(x = temp_feel, y = count,
@@ -371,7 +371,7 @@ ggplot(
   ) +
   geom_point() +
   scale_color_viridis_c(
-    breaks = 4:10*10,
+    breaks = 3:10*10,
     limits = c(30, 100),
     guide = guide_colorbar(
       title.position = "top",
@@ -485,7 +485,7 @@ ggplot(
 #| fig-width: 10
 #| fig-height: 5.8
 #| echo: false
-theme_set(theme_minimal(base_size = 18, base_family = "Pally"))
+theme_std <- theme_set(theme_minimal(base_size = 18, base_family = "Pally"))
 theme_update(
   text = element_text(family = "Pally"),
   panel.grid = element_blank(),
@@ -684,7 +684,7 @@ library(patchwork)
 #| fig-align: "center"
 #| code-line-numbers: "2"
 ((p1 + p2) / p3 & theme(legend.position = "none")) +
-  plot_layout(heights = c(.2, .15), widths = c(1.4, 1))
+  plot_layout(heights = c(.2, .1), widths = c(2, 1))
 ```
 
 ## Use A Custom Layout
@@ -697,8 +697,8 @@ library(patchwork)
 #| code-line-numbers: "1,2,3,4|5"
 picasso <- "
 AAAAAA#BBBB
-CCCCCCCCCCC
-CCCCCCCCCCC"
+CCCCCCCCC##
+CCCCCCCCC##"
 (p1 + p2 + p3 & theme(legend.position = "none")) + plot_layout(design = picasso)
 ```
 
@@ -820,9 +820,15 @@ qualitative
 ## Legend with Color Shading
 
 ```{r}
+#| label: reset-theme-std
+#| include: false
+theme_set(theme_std)
+```
+
+```{r}
 #| label: legend-shades
 #| output-location: column
-#| code-line-numbers: "1,2,3|5,6,7,8,9,10,11,12,13,14,15,16,17|18,19,20,21,22,23,24|25,26,27,28,29|30,31,32,33,34|35,36,37,38"
+#| code-line-numbers: "1,2,3|5,6,7,8,9,10,11,12,13,14,15,16,17|18,19,20,21,22,23,24|25,26,27,28,29|30,31,32,33,34|35|36,37,38,39"
 library(colorspace)
 shades <- c(lighten(pal, .3),
                   darken(pal, .3))
@@ -857,6 +863,7 @@ g <-
     expand = c(0, 0),
     limits = c(NA, 4500000)
   ) +
+  labs(x = NULL, y = "Reported bike shares") +
   theme(
     panel.grid.major.x = element_blank(),
     axis.title = element_blank()

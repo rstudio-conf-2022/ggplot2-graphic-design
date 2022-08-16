@@ -5,9 +5,9 @@
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
+<link href="../../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.0.36">
+  <meta name="generator" content="quarto-0.9.566">
 
   <meta name="author" content="Cédric Scherer // rstudio::conf // July 2022">
   <title>Graphic Design with ggplot2</title>
@@ -380,14 +380,13 @@
     }
   </style>
 <meta name="twitter:title" content="Graphic Design with ggplot2">
-<meta name="twitter:description" content="Working with Colors:Solution Exercise 1">
 <meta name="twitter:image" content="https://rstudio-conf-2022.github.io/ggplot2-graphic-design//images/twitter-card.png">
 <meta name="twitter:creator" content="@CedScherer">
 <meta name="twitter:image-height" content="622">
 <meta name="twitter:image-width" content="890">
 <meta name="twitter:card" content="summary_large_image">
 </head>
-<body class="quarto-light">
+<body>
   <div class="reveal">
     <div class="slides">
 
@@ -405,10 +404,10 @@
 </ul>
 </div>
 
-<img data-src="06_colors_ex1_solution_files/figure-revealjs/exercise-jittered-errorbars-1.png" width="3000" class="r-stretch quarto-figure-center"></section>
+<img data-src="06_colors_ex1_solution_files/figure-revealjs/exercise-jittered-errorbars-1.png" width="2000" class="r-stretch quarto-figure-center"></section>
 <section id="import-the-data-set" class="slide level2">
 <h2>Import the Data Set</h2>
-<div class="cell">
+<div class="cell" data-hash="06_colors_ex1_solution_cache/revealjs/import-data-exercise_9747303b47a0ed3c76eaaba0104794a5">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-2"><a href="#cb1-2"></a></span>
 <span id="cb1-3"><a href="#cb1-3"></a>bikes <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(</span>
@@ -421,7 +420,7 @@
 </section>
 <section id="create-sina-plot" class="slide level2">
 <h2>Create Sina Plot</h2>
-<div class="cell">
+<div class="cell" data-hash="06_colors_ex1_solution_cache/revealjs/colors-exercise-ex-1-1_0a9a503dab4f31407aeb62d0e886515b">
 <div class="sourceCode cell-code" id="cb2" data-code-line-numbers="5,6,7,8,9|7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">ggplot</span>(</span>
 <span id="cb2-2"><a href="#cb2-2"></a>    bikes,</span>
 <span id="cb2-3"><a href="#cb2-3"></a>    <span class="fu">aes</span>(<span class="at">x =</span> season, <span class="at">y =</span> count)</span>
@@ -440,10 +439,10 @@
 <section id="create-sina-plot-1" class="slide level2">
 <h2>Create Sina Plot</h2>
 
-<img data-src="06_colors_ex1_solution_files/figure-revealjs/colors-exercise-ex-1-1-1.png" width="3000" class="r-stretch quarto-figure-center"></section>
+<img data-src="06_colors_ex1_solution_files/figure-revealjs/colors-exercise-ex-1-1-1.png" width="2000" class="r-stretch quarto-figure-center"></section>
 <section id="add-errorbars" class="slide level2">
 <h2>Add Errorbars</h2>
-<div class="cell">
+<div class="cell" data-hash="06_colors_ex1_solution_cache/revealjs/colors-exercise-ex-1-2_e8505605da22ae6e1b5679b73a3618d9">
 <div class="sourceCode cell-code" id="cb3" data-code-line-numbers="10,11,12,13,14|6,11|7,12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">ggplot</span>(</span>
 <span id="cb3-2"><a href="#cb3-2"></a>    bikes,</span>
 <span id="cb3-3"><a href="#cb3-3"></a>    <span class="fu">aes</span>(<span class="at">x =</span> season, <span class="at">y =</span> count)</span>
@@ -467,10 +466,10 @@
 <section id="add-errorbars-1" class="slide level2">
 <h2>Add Errorbars</h2>
 
-<img data-src="06_colors_ex1_solution_files/figure-revealjs/colors-exercise-ex-1-2-1.png" width="3000" class="r-stretch quarto-figure-center"></section>
+<img data-src="06_colors_ex1_solution_files/figure-revealjs/colors-exercise-ex-1-2-1.png" width="2000" class="r-stretch quarto-figure-center"></section>
 <section id="use-lighter-point-colors" class="slide level2">
 <h2>Use Lighter Point Colors</h2>
-<div class="cell">
+<div class="cell" data-hash="06_colors_ex1_solution_cache/revealjs/colors-exercise-ex-1-3_b0bfe514661f03aeb7db0064a4eeb579">
 <div class="sourceCode cell-code" id="cb4" data-code-line-numbers="6,7,8,9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="fu">ggplot</span>(</span>
 <span id="cb4-2"><a href="#cb4-2"></a>    bikes,</span>
 <span id="cb4-3"><a href="#cb4-3"></a>    <span class="fu">aes</span>(<span class="at">x =</span> season, <span class="at">y =</span> count)</span>
@@ -497,10 +496,10 @@
 <section id="use-lighter-point-colors-1" class="slide level2">
 <h2>Use Lighter Point Colors</h2>
 
-<img data-src="06_colors_ex1_solution_files/figure-revealjs/colors-exercise-ex-1-3-1.png" width="3000" class="r-stretch quarto-figure-center"></section>
+<img data-src="06_colors_ex1_solution_files/figure-revealjs/colors-exercise-ex-1-3-1.png" width="2000" class="r-stretch quarto-figure-center"></section>
 <section id="use-standard-deviation" class="slide level2">
 <h2>Use Standard Deviation</h2>
-<div class="cell">
+<div class="cell" data-hash="06_colors_ex1_solution_cache/revealjs/colors-exercise-ex-1-4_7486b5e80908f3830e2e9bc5e63505cf">
 <div class="sourceCode cell-code" id="cb5" data-code-line-numbers="15,16,17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(</span>
 <span id="cb5-2"><a href="#cb5-2"></a>    bikes,</span>
 <span id="cb5-3"><a href="#cb5-3"></a>    <span class="fu">aes</span>(<span class="at">x =</span> season, <span class="at">y =</span> count)</span>
@@ -532,10 +531,10 @@
 <section id="add-annotations" class="slide level2">
 <h2>Add Annotations</h2>
 
-<img data-src="06_colors_ex1_solution_files/figure-revealjs/colors-exercise-ex-1-4-1.png" width="3000" class="r-stretch quarto-figure-center"></section>
+<img data-src="06_colors_ex1_solution_files/figure-revealjs/colors-exercise-ex-1-4-1.png" width="2000" class="r-stretch quarto-figure-center"></section>
 <section id="add-annotations-1" class="slide level2">
 <h2>Add Annotations</h2>
-<div class="cell">
+<div class="cell" data-hash="06_colors_ex1_solution_cache/revealjs/colors-exercise-ex-1-5_817a6c4978402be4343764a6eba1b0a2">
 <div class="sourceCode cell-code" id="cb6" data-code-line-numbers="2,3,4,5,6,7,8,9,10,11,12,13|3|6,7,8|10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>p2 <span class="ot">&lt;-</span> p1 <span class="sc">+</span></span>
 <span id="cb6-2"><a href="#cb6-2"></a>  <span class="fu">stat_summary</span>(</span>
 <span id="cb6-3"><a href="#cb6-3"></a>    <span class="at">geom =</span> <span class="st">"text"</span>,</span>
@@ -556,10 +555,10 @@
 <section id="add-annotations-2" class="slide level2">
 <h2>Add Annotations</h2>
 
-<img data-src="06_colors_ex1_solution_files/figure-revealjs/colors-exercise-ex-1-5-1.png" width="3000" class="r-stretch quarto-figure-center"></section>
+<img data-src="06_colors_ex1_solution_files/figure-revealjs/colors-exercise-ex-1-5-1.png" width="2000" class="r-stretch quarto-figure-center"></section>
 <section id="adjust-axes-clipping" class="slide level2">
 <h2>Adjust Axes + Clipping</h2>
-<div class="cell">
+<div class="cell" data-hash="06_colors_ex1_solution_cache/revealjs/colors-exercise-ex-1-6_836f5ea19c38bbf0ed31057e1e091001">
 <div class="sourceCode cell-code" id="cb7" data-code-line-numbers="2|3,4,5|6,7,8,9,10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>p3 <span class="ot">&lt;-</span> p2 <span class="sc">+</span></span>
 <span id="cb7-2"><a href="#cb7-2"></a>  <span class="fu">coord_cartesian</span>(<span class="at">clip =</span> <span class="st">"off"</span>) <span class="sc">+</span></span>
 <span id="cb7-3"><a href="#cb7-3"></a>  <span class="fu">scale_x_discrete</span>(</span>
@@ -577,10 +576,10 @@
 <section id="adjust-axes-clipping-1" class="slide level2">
 <h2>Adjust Axes + Clipping</h2>
 
-<img data-src="06_colors_ex1_solution_files/figure-revealjs/colors-exercise-ex-1-6-1.png" width="3000" class="r-stretch quarto-figure-center"></section>
+<img data-src="06_colors_ex1_solution_files/figure-revealjs/colors-exercise-ex-1-6-1.png" width="2000" class="r-stretch quarto-figure-center"></section>
 <section id="add-colors-labels" class="slide level2">
 <h2>Add Colors + Labels</h2>
-<div class="cell">
+<div class="cell" data-hash="06_colors_ex1_solution_cache/revealjs/colors-exercise-ex-1-7_2a13b8053686c8d42b25e7a4d11f1fea">
 <div class="sourceCode cell-code" id="cb8" data-code-line-numbers="1|4,5,6|7,8,9,10,11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>colors <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"#987708"</span>, <span class="st">"#663399"</span>)</span>
 <span id="cb8-2"><a href="#cb8-2"></a></span>
 <span id="cb8-3"><a href="#cb8-3"></a>p4 <span class="ot">&lt;-</span> p3  <span class="sc">+</span></span>
@@ -599,10 +598,10 @@
 <section id="add-colors-labels-1" class="slide level2">
 <h2>Add Colors + Labels</h2>
 
-<img data-src="06_colors_ex1_solution_files/figure-revealjs/colors-exercise-ex-1-7-1.png" width="3000" class="r-stretch quarto-figure-center"></section>
+<img data-src="06_colors_ex1_solution_files/figure-revealjs/colors-exercise-ex-1-7-1.png" width="2000" class="r-stretch quarto-figure-center"></section>
 <section id="theme-styling" class="slide level2">
 <h2>Theme Styling</h2>
-<div class="cell">
+<div class="cell" data-hash="06_colors_ex1_solution_cache/revealjs/colors-exercise-ex-1-8_67a4819a08b847ac1c312871cd5c8db4">
 <div class="sourceCode cell-code" id="cb9" data-code-line-numbers="2|3,4|5,6,7|8,9|10|11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a>p4 <span class="sc">+</span></span>
 <span id="cb9-2"><a href="#cb9-2"></a>  <span class="fu">theme</span>(</span>
 <span id="cb9-3"><a href="#cb9-3"></a>    <span class="at">legend.position =</span> <span class="st">"none"</span>,</span>
@@ -621,10 +620,10 @@
 <section id="theme-styling-1" class="slide level2">
 <h2>Theme Styling</h2>
 
-<img data-src="06_colors_ex1_solution_files/figure-revealjs/colors-exercise-ex-1-8-1.png" width="3000" class="r-stretch quarto-figure-center"></section>
+<img data-src="06_colors_ex1_solution_files/figure-revealjs/colors-exercise-ex-1-8-1.png" width="2000" class="r-stretch quarto-figure-center"></section>
 <section id="full-code" class="slide level2">
 <h2>Full Code</h2>
-<div class="cell">
+<div class="cell" data-hash="06_colors_ex1_solution_cache/revealjs/exercise-jittered-errorbars-full-code_8ed1ec17668bda2a1f993aba63600f53">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb10-2"><a href="#cb10-2"></a><span class="fu">library</span>(colorspace)</span>
 <span id="cb10-3"><a href="#cb10-3"></a><span class="fu">library</span>(ggtext)</span>
@@ -955,24 +954,6 @@
 
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
-      const toggleBodyColorMode = (bsSheetEl) => {
-        const mode = bsSheetEl.getAttribute("data-mode");
-        const bodyEl = window.document.querySelector("body");
-        if (mode === "dark") {
-          bodyEl.classList.add("quarto-dark");
-          bodyEl.classList.remove("quarto-light");
-        } else {
-          bodyEl.classList.add("quarto-light");
-          bodyEl.classList.remove("quarto-dark");
-        }
-      }
-      const toggleBodyColorPrimary = () => {
-        const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
-        if (bsSheetEl) {
-          toggleBodyColorMode(bsSheetEl);
-        }
-      }
-      toggleBodyColorPrimary();  
       const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
       tabsets.forEach(function(tabset) {
         const tabby = new Tabby('#' + tabset.id);

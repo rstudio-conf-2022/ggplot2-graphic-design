@@ -25,7 +25,7 @@ knitr:
   opts_chunk:
     dev: "ragg_png"
     retina: 1
-    dpi: 300
+    dpi: 200
 execute:
   freeze: auto
   echo: true
@@ -171,7 +171,7 @@ g <-
 g
 ```
 
-## Wrapped Facet
+## Wrapped Facets
 
 ```{r}
 #| label: facet-wrap
@@ -183,7 +183,7 @@ g +
   )
 ```
 
-## Wrapped Facet
+## Wrapped Facets
 
 ```{r}
 #| label: facet-wrap-circumflex
@@ -262,7 +262,7 @@ g +
   )
 ```
 
-## Gridded Facet
+## Gridded Facets
 
 ```{r}
 #| label: facet-grid
@@ -275,7 +275,7 @@ g +
   )
 ```
 
-## Gridded Facet
+## Gridded Facets
 
 ```{r}
 #| label: facet-grid-circumflex
@@ -1853,41 +1853,19 @@ ggplot(
 -   Which theme was used and how was it modified?
 :::
 
-```{r}
-#| label: countdown-ex1
-#| echo: false
-#| purl: false
-countdown::countdown(minutes = 10, font_size = ".5em")
-```
-
 ##  {background-image="img/exercises/astronaut-viz-detail.png" background-position="center" background-size="61%"}
-
-```{r}
-#| label: countdown-ex1-viz
-#| echo: false
-#| purl: false
-countdown::countdown(minutes = 10, font_size = ".5em")
-```
 
 ##  {background-image="img/exercises/exercise-what-now.png" background-position="center" background-size="65%"}
 
 ## Exercise 2
 
 ::: question
--   Open the script `exercises/03_concepts_pt2_ex2.qmd`.
 -   Create a circular lollipop plot of reported bike shares per season.
 -   The data is not in the right format as there are no totals.<br>How can you solve it?
 -   Remove all legend elements (with a single line of code).
 -   How can you add the labels next to the starting point of each lollipop?
 -   How could you add a baseline?
 :::
-
-```{r}
-#| label: countdown-ex2
-#| echo: false
-#| purl: false
-countdown::countdown(minutes = 30, font_size = ".5em")
-```
 
 ##  {background-image="img/exercises/concepts-pt2-exercise-2-1-1.png" background-position="center" background-size="37%"}
 

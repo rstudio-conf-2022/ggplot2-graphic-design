@@ -2,146 +2,178 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://rstudio-conf-2022.github.io/ggplot2-graphic-design/index.html</loc>
-    <lastmod>2022-07-26T13:04:01.337Z</lastmod>
+    <lastmod>2022-08-16T15:45:42.089Z</lastmod>
   </url>
   <url>
     <loc>https://rstudio-conf-2022.github.io/ggplot2-graphic-design/license.html</loc>
-    <lastmod>2022-07-26T13:04:02.079Z</lastmod>
+    <lastmod>2022-08-16T15:45:43.086Z</lastmod>
   </url>
   <url>
     <loc>https://rstudio-conf-2022.github.io/ggplot2-graphic-design/materials/01_introduction.html</loc>
-    <lastmod>2022-07-26T13:04:04.565Z</lastmod>
+    <lastmod>2022-08-16T15:45:46.632Z</lastmod>
   </url>
   <url>
     <loc>https://rstudio-conf-2022.github.io/ggplot2-graphic-design/materials/02_concepts_pt1.html</loc>
-    <lastmod>2022-07-26T13:04:06.884Z</lastmod>
+    <lastmod>2022-08-16T16:18:07.250Z</lastmod>
   </url>
   <url>
     <loc>https://rstudio-conf-2022.github.io/ggplot2-graphic-design/materials/03_concepts_pt2.html</loc>
-    <lastmod>2022-07-26T13:04:09.836Z</lastmod>
+    <lastmod>2022-08-16T15:52:50.258Z</lastmod>
   </url>
   <url>
     <loc>https://rstudio-conf-2022.github.io/ggplot2-graphic-design/materials/05_annotations.html</loc>
-    <lastmod>2022-07-26T13:04:11.932Z</lastmod>
+    <lastmod>2022-08-16T15:52:55.876Z</lastmod>
   </url>
   <url>
     <loc>https://rstudio-conf-2022.github.io/ggplot2-graphic-design/materials/06_colors.html</loc>
-    <lastmod>2022-07-26T13:04:13.768Z</lastmod>
+    <lastmod>2022-08-16T15:53:00.397Z</lastmod>
   </url>
   <url>
     <loc>https://rstudio-conf-2022.github.io/ggplot2-graphic-design/materials/07_layout.html</loc>
-    <lastmod>2022-07-26T13:04:15.528Z</lastmod>
+    <lastmod>2022-08-16T15:53:03.484Z</lastmod>
   </url>
   <url>
-    <loc>https://rstudio-conf-2022.github.io/ggplot2-graphic-design/materials/08_group_project.html</loc>
-    <lastmod>2022-07-26T13:04:16.041Z</lastmod>
+    <loc>https://rstudio-conf-2022.github.io/ggplot2-graphic-design/materials/08_projects.html</loc>
+    <lastmod>2022-08-16T15:53:04.377Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rstudio-conf-2022.github.io/ggplot2-graphic-design/materials/exercises/02_concepts_pt1_ex1.html</loc>
+    <lastmod>2022-08-16T15:53:11.040Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rstudio-conf-2022.github.io/ggplot2-graphic-design/materials/exercises/02_concepts_pt1_ex2.html</loc>
+    <lastmod>2022-08-16T15:53:30.816Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rstudio-conf-2022.github.io/ggplot2-graphic-design/materials/exercises/03_concepts_pt2_ex1.html</loc>
+    <lastmod>2022-08-16T15:53:33.260Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rstudio-conf-2022.github.io/ggplot2-graphic-design/materials/exercises/03_concepts_pt2_ex2.html</loc>
+    <lastmod>2022-08-16T15:53:39.634Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rstudio-conf-2022.github.io/ggplot2-graphic-design/materials/exercises/05_labels_ex1.html</loc>
+    <lastmod>2022-08-16T15:53:46.266Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rstudio-conf-2022.github.io/ggplot2-graphic-design/materials/exercises/05_labels_ex2.html</loc>
+    <lastmod>2022-08-16T15:53:49.071Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rstudio-conf-2022.github.io/ggplot2-graphic-design/materials/exercises/06_colors_ex1.html</loc>
+    <lastmod>2022-08-16T15:53:55.276Z</lastmod>
   </url>
   <url>
     <loc>https://rstudio-conf-2022.github.io/ggplot2-graphic-design/materials/solutions/02_concepts_pt1_ex1_solution.html</loc>
-    <lastmod>2022-07-26T13:04:17.159Z</lastmod>
+    <lastmod>2022-08-16T15:53:57.192Z</lastmod>
   </url>
   <url>
     <loc>https://rstudio-conf-2022.github.io/ggplot2-graphic-design/materials/solutions/02_concepts_pt1_ex2_solution.html</loc>
-    <lastmod>2022-07-26T13:04:18.667Z</lastmod>
+    <lastmod>2022-08-16T15:53:59.867Z</lastmod>
   </url>
   <url>
     <loc>https://rstudio-conf-2022.github.io/ggplot2-graphic-design/materials/solutions/03_concepts_pt2_ex1_solution.html</loc>
-    <lastmod>2022-07-26T13:04:19.601Z</lastmod>
+    <lastmod>2022-08-16T15:54:01.317Z</lastmod>
   </url>
   <url>
     <loc>https://rstudio-conf-2022.github.io/ggplot2-graphic-design/materials/solutions/03_concepts_pt2_ex2_solution.html</loc>
-    <lastmod>2022-07-26T13:04:20.585Z</lastmod>
+    <lastmod>2022-08-16T15:54:03.142Z</lastmod>
   </url>
   <url>
     <loc>https://rstudio-conf-2022.github.io/ggplot2-graphic-design/materials/solutions/05_annotations_ex1_solution.html</loc>
-    <lastmod>2022-07-26T13:04:21.668Z</lastmod>
+    <lastmod>2022-08-16T15:54:05.268Z</lastmod>
   </url>
   <url>
     <loc>https://rstudio-conf-2022.github.io/ggplot2-graphic-design/materials/solutions/05_annotations_ex2_solution.html</loc>
-    <lastmod>2022-07-26T13:04:22.528Z</lastmod>
+    <lastmod>2022-08-16T15:54:06.726Z</lastmod>
   </url>
   <url>
     <loc>https://rstudio-conf-2022.github.io/ggplot2-graphic-design/materials/solutions/06_colors_ex1_solution.html</loc>
-    <lastmod>2022-07-26T13:04:23.528Z</lastmod>
+    <lastmod>2022-08-16T15:54:08.563Z</lastmod>
   </url>
   <url>
-    <loc>https://rstudio-conf-2022.github.io/ggplot2-graphic-design/materials/solutions/08_group_projects_solutions.html</loc>
-    <lastmod>2022-07-26T13:04:24.507Z</lastmod>
+    <loc>https://rstudio-conf-2022.github.io/ggplot2-graphic-design/materials/solutions/08_projects_solutions.html</loc>
+    <lastmod>2022-08-16T15:54:10.205Z</lastmod>
   </url>
   <url>
     <loc>https://rstudio-conf-2022.github.io/ggplot2-graphic-design/modules/d1-01_introduction.html</loc>
-    <lastmod>2022-07-26T13:04:25.232Z</lastmod>
+    <lastmod>2022-08-16T16:18:10.706Z</lastmod>
   </url>
   <url>
     <loc>https://rstudio-conf-2022.github.io/ggplot2-graphic-design/modules/d1-02_concepts_pt1.html</loc>
-    <lastmod>2022-07-26T13:04:25.936Z</lastmod>
+    <lastmod>2022-08-16T16:09:53.517Z</lastmod>
   </url>
   <url>
     <loc>https://rstudio-conf-2022.github.io/ggplot2-graphic-design/modules/d1-03_coffee_break.html</loc>
-    <lastmod>2022-07-26T13:04:26.401Z</lastmod>
+    <lastmod>2022-08-16T15:54:13.157Z</lastmod>
   </url>
   <url>
-    <loc>https://rstudio-conf-2022.github.io/ggplot2-graphic-design/modules/d1-04_concepts_p1_ex.html</loc>
-    <lastmod>2022-07-26T13:04:27.064Z</lastmod>
+    <loc>https://rstudio-conf-2022.github.io/ggplot2-graphic-design/modules/d1-04_concepts_p1_cont.html</loc>
+    <lastmod>2022-08-16T15:54:14.265Z</lastmod>
   </url>
   <url>
     <loc>https://rstudio-conf-2022.github.io/ggplot2-graphic-design/modules/d1-05_concepts_pt2.html</loc>
-    <lastmod>2022-07-26T13:04:27.619Z</lastmod>
+    <lastmod>2022-08-16T15:54:15.445Z</lastmod>
   </url>
   <url>
     <loc>https://rstudio-conf-2022.github.io/ggplot2-graphic-design/modules/d1-06_lunch_break.html</loc>
-    <lastmod>2022-07-26T13:04:28.355Z</lastmod>
+    <lastmod>2022-08-16T15:54:16.215Z</lastmod>
   </url>
   <url>
     <loc>https://rstudio-conf-2022.github.io/ggplot2-graphic-design/modules/d1-07_concepts_pt2.html</loc>
-    <lastmod>2022-07-26T13:04:29.055Z</lastmod>
+    <lastmod>2022-08-16T15:54:17.324Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rstudio-conf-2022.github.io/ggplot2-graphic-design/modules/d1-07_concepts_pt2_cont.html</loc>
+    <lastmod>2022-08-16T15:54:18.488Z</lastmod>
   </url>
   <url>
     <loc>https://rstudio-conf-2022.github.io/ggplot2-graphic-design/modules/d1-09_coffee_break.html</loc>
-    <lastmod>2022-07-26T13:04:29.571Z</lastmod>
+    <lastmod>2022-08-16T15:54:19.340Z</lastmod>
   </url>
   <url>
     <loc>https://rstudio-conf-2022.github.io/ggplot2-graphic-design/modules/d1-10_data_com.html</loc>
-    <lastmod>2022-07-26T13:04:30.065Z</lastmod>
+    <lastmod>2022-08-16T15:54:20.266Z</lastmod>
   </url>
   <url>
     <loc>https://rstudio-conf-2022.github.io/ggplot2-graphic-design/modules/d2-01_lab_ann.html</loc>
-    <lastmod>2022-07-26T13:04:30.694Z</lastmod>
+    <lastmod>2022-08-16T15:54:21.489Z</lastmod>
   </url>
   <url>
     <loc>https://rstudio-conf-2022.github.io/ggplot2-graphic-design/modules/d2-02_coffee_break.html</loc>
-    <lastmod>2022-07-26T13:04:31.322Z</lastmod>
+    <lastmod>2022-08-16T15:54:22.497Z</lastmod>
   </url>
   <url>
     <loc>https://rstudio-conf-2022.github.io/ggplot2-graphic-design/modules/d2-03_colors.html</loc>
-    <lastmod>2022-07-26T13:04:32.039Z</lastmod>
+    <lastmod>2022-08-16T15:54:23.447Z</lastmod>
   </url>
   <url>
     <loc>https://rstudio-conf-2022.github.io/ggplot2-graphic-design/modules/d2-04_lunch_break.html</loc>
-    <lastmod>2022-07-26T13:04:32.534Z</lastmod>
+    <lastmod>2022-08-16T15:54:24.420Z</lastmod>
   </url>
   <url>
     <loc>https://rstudio-conf-2022.github.io/ggplot2-graphic-design/modules/d2-05_layout.html</loc>
-    <lastmod>2022-07-26T13:04:33.168Z</lastmod>
+    <lastmod>2022-08-16T15:54:25.486Z</lastmod>
   </url>
   <url>
     <loc>https://rstudio-conf-2022.github.io/ggplot2-graphic-design/modules/d2-06_coffee_break.html</loc>
-    <lastmod>2022-07-26T13:04:33.720Z</lastmod>
+    <lastmod>2022-08-16T15:54:26.350Z</lastmod>
   </url>
   <url>
-    <loc>https://rstudio-conf-2022.github.io/ggplot2-graphic-design/modules/d2-07_group.html</loc>
-    <lastmod>2022-07-26T13:04:34.373Z</lastmod>
+    <loc>https://rstudio-conf-2022.github.io/ggplot2-graphic-design/modules/d2-07_project.html</loc>
+    <lastmod>2022-08-16T15:54:27.264Z</lastmod>
   </url>
   <url>
     <loc>https://rstudio-conf-2022.github.io/ggplot2-graphic-design/resources.html</loc>
-    <lastmod>2022-07-26T13:04:35.091Z</lastmod>
+    <lastmod>2022-08-16T15:54:28.151Z</lastmod>
   </url>
   <url>
     <loc>https://rstudio-conf-2022.github.io/ggplot2-graphic-design/schedule.html</loc>
-    <lastmod>2022-07-26T13:04:36.086Z</lastmod>
+    <lastmod>2022-08-16T15:54:30.374Z</lastmod>
   </url>
   <url>
     <loc>https://rstudio-conf-2022.github.io/ggplot2-graphic-design/team.html</loc>
-    <lastmod>2022-07-26T13:04:36.635Z</lastmod>
+    <lastmod>2022-08-16T15:54:31.285Z</lastmod>
   </url>
 </urlset>

@@ -5,9 +5,9 @@
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
+<link href="../../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.0.36">
+  <meta name="generator" content="quarto-0.9.566">
 
   <meta name="author" content="Cédric Scherer // rstudio::conf // July 2022">
   <title>Graphic Design with ggplot2</title>
@@ -380,14 +380,13 @@
     }
   </style>
 <meta name="twitter:title" content="Graphic Design with ggplot2">
-<meta name="twitter:description" content="Concepts of the {ggplot2} Package Pt. 2:Solution Exercise 2">
 <meta name="twitter:image" content="https://rstudio-conf-2022.github.io/ggplot2-graphic-design//images/twitter-card.png">
 <meta name="twitter:creator" content="@CedScherer">
 <meta name="twitter:image-height" content="622">
 <meta name="twitter:image-width" content="890">
 <meta name="twitter:card" content="summary_large_image">
 </head>
-<body class="quarto-light">
+<body>
   <div class="reveal">
     <div class="slides">
 
@@ -414,10 +413,10 @@
 <section class="slide level2">
 
 
-<img data-src="03_concepts_pt2_ex2_solution_files/figure-revealjs/ciruclar-lollipop-exercise-1.png" width="1800" class="r-stretch quarto-figure-center"></section>
+<img data-src="03_concepts_pt2_ex2_solution_files/figure-revealjs/ciruclar-lollipop-exercise-1.png" width="1200" class="r-stretch quarto-figure-center"></section>
 <section id="preparation" class="slide level2">
 <h2>Preparation</h2>
-<div class="cell">
+<div class="cell" data-hash="03_concepts_pt2_ex2_solution_cache/revealjs/prep_7956076973a69f2a6eb021a9a4d882c7">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-2"><a href="#cb1-2"></a></span>
 <span id="cb1-3"><a href="#cb1-3"></a>bikes <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(</span>
@@ -433,12 +432,12 @@
 </section>
 <section id="lollipop-plot-with-pre-calculated-sums" class="slide level2">
 <h2>Lollipop Plot with Pre-Calculated Sums</h2>
-<div class="cell">
+<div class="cell" data-hash="03_concepts_pt2_ex2_solution_cache/revealjs/concepts-exercise-lollipop-cartesian-data_624aaa769389b62aa8bddc1553345013">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>bikes <span class="sc">%&gt;%</span></span>
 <span id="cb2-2"><a href="#cb2-2"></a>  <span class="fu">group_by</span>(season) <span class="sc">%&gt;%</span></span>
 <span id="cb2-3"><a href="#cb2-3"></a>  <span class="fu">summarize</span>(<span class="at">count =</span> <span class="fu">sum</span>(count))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 4 × 2
+<pre><code># A tibble: 4 x 2
   season   count
   &lt;fct&gt;    &lt;int&gt;
 1 Winter 3520407
@@ -450,7 +449,7 @@
 </section>
 <section id="lollipop-plot-with-pre-calculated-sums-1" class="slide level2">
 <h2>Lollipop Plot with Pre-Calculated Sums</h2>
-<div class="cell columns column-output-location">
+<div class="cell columns column-output-location" data-hash="03_concepts_pt2_ex2_solution_cache/revealjs/concepts-pt2-exercise-2-1_50b1defc4a3a2a608feaef3e28ef8fb0">
 <div class="column">
 <div class="sourceCode cell-code" id="cb4" data-code-line-numbers="1,2,3|4,5,6,7,8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>bikes <span class="sc">%&gt;%</span></span>
 <span id="cb4-2"><a href="#cb4-2"></a>  <span class="fu">group_by</span>(season) <span class="sc">%&gt;%</span></span>
@@ -462,14 +461,14 @@
 <span id="cb4-8"><a href="#cb4-8"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
-<p><img data-src="03_concepts_pt2_ex2_solution_files/figure-revealjs/concepts-pt2-exercise-2-1-1.png" width="1500"></p>
+<p><img data-src="03_concepts_pt2_ex2_solution_files/figure-revealjs/concepts-pt2-exercise-2-1-1.png" width="1000"></p>
 </div>
 </div>
 </div>
 </section>
 <section id="calculate-sums-via-stat_summary" class="slide level2">
 <h2>Calculate Sums via <code>stat_summary()</code></h2>
-<div class="cell columns column-output-location">
+<div class="cell columns column-output-location" data-hash="03_concepts_pt2_ex2_solution_cache/revealjs/concepts-exercise-lollipop-cartesian-stat_f4c9238c216a1822ab0c0a41f3b401fc">
 <div class="column">
 <div class="sourceCode cell-code" id="cb5" data-code-line-numbers="2,3,4|5,6,7,8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">ggplot</span>(bikes, <span class="fu">aes</span>(<span class="at">x =</span> season, <span class="at">y =</span> count)) <span class="sc">+</span></span>
 <span id="cb5-2"><a href="#cb5-2"></a>  <span class="fu">stat_summary</span>(</span>
@@ -481,14 +480,14 @@
 <span id="cb5-8"><a href="#cb5-8"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
-<p><img data-src="03_concepts_pt2_ex2_solution_files/figure-revealjs/concepts-exercise-lollipop-cartesian-stat-1.png" width="1500"></p>
+<p><img data-src="03_concepts_pt2_ex2_solution_files/figure-revealjs/concepts-exercise-lollipop-cartesian-stat-1.png" width="1000"></p>
 </div>
 </div>
 </div>
 </section>
 <section id="calculate-sums-via-stat_summary-1" class="slide level2">
 <h2>Calculate Sums via <code>stat_summary()</code></h2>
-<div class="cell columns column-output-location">
+<div class="cell columns column-output-location" data-hash="03_concepts_pt2_ex2_solution_cache/revealjs/concepts-exercise-lollipop-cartesian-stat-zero_249200b1de25dd09e853cca190e190da">
 <div class="column">
 <div class="sourceCode cell-code" id="cb6" data-code-line-numbers="9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="fu">ggplot</span>(bikes, <span class="fu">aes</span>(<span class="at">x =</span> season, <span class="at">y =</span> count)) <span class="sc">+</span></span>
 <span id="cb6-2"><a href="#cb6-2"></a>  <span class="fu">stat_summary</span>(</span>
@@ -501,14 +500,14 @@
 <span id="cb6-9"><a href="#cb6-9"></a>  <span class="fu">coord_cartesian</span>(<span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="cn">NA</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
-<p><img data-src="03_concepts_pt2_ex2_solution_files/figure-revealjs/concepts-exercise-lollipop-cartesian-stat-zero-1.png" width="1500"></p>
+<p><img data-src="03_concepts_pt2_ex2_solution_files/figure-revealjs/concepts-exercise-lollipop-cartesian-stat-zero-1.png" width="1000"></p>
 </div>
 </div>
 </div>
 </section>
 <section id="apply-a-polar-coordinate-system" class="slide level2">
 <h2>Apply a Polar Coordinate System</h2>
-<div class="cell columns column-output-location">
+<div class="cell columns column-output-location" data-hash="03_concepts_pt2_ex2_solution_cache/revealjs/concepts-pt2-exercise-2-2_a78a2f8424bbbd7d799f0ac840ff12c7">
 <div class="column">
 <div class="sourceCode cell-code" id="cb7" data-code-line-numbers="9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>bikes <span class="sc">%&gt;%</span></span>
 <span id="cb7-2"><a href="#cb7-2"></a>  <span class="fu">group_by</span>(season) <span class="sc">%&gt;%</span></span>
@@ -521,14 +520,14 @@
 <span id="cb7-9"><a href="#cb7-9"></a>  <span class="fu">coord_polar</span>(<span class="at">theta =</span> <span class="st">"y"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
-<p><img data-src="03_concepts_pt2_ex2_solution_files/figure-revealjs/concepts-pt2-exercise-2-2-1.png" width="1500"></p>
+<p><img data-src="03_concepts_pt2_ex2_solution_files/figure-revealjs/concepts-pt2-exercise-2-2-1.png" width="1000"></p>
 </div>
 </div>
 </div>
 </section>
 <section id="fix-axis-ranges" class="slide level2">
 <h2>Fix Axis Ranges</h2>
-<div class="cell columns column-output-location">
+<div class="cell columns column-output-location" data-hash="03_concepts_pt2_ex2_solution_cache/revealjs/concepts-pt2-exercise-2-3_632fa808a8d043b76b24bf2c594de881">
 <div class="column">
 <div class="sourceCode cell-code" id="cb8" data-code-line-numbers="10,11,12,13,14,15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>bikes <span class="sc">%&gt;%</span></span>
 <span id="cb8-2"><a href="#cb8-2"></a>  <span class="fu">group_by</span>(season) <span class="sc">%&gt;%</span></span>
@@ -547,14 +546,14 @@
 <span id="cb8-15"><a href="#cb8-15"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
-<p><img data-src="03_concepts_pt2_ex2_solution_files/figure-revealjs/concepts-pt2-exercise-2-3-1.png" width="1500"></p>
+<p><img data-src="03_concepts_pt2_ex2_solution_files/figure-revealjs/concepts-pt2-exercise-2-3-1.png" width="1000"></p>
 </div>
 </div>
 </div>
 </section>
 <section id="remove-all-theme-components" class="slide level2">
 <h2>Remove All Theme Components</h2>
-<div class="cell columns column-output-location">
+<div class="cell columns column-output-location" data-hash="03_concepts_pt2_ex2_solution_cache/revealjs/concepts-pt2-exercise-2-4_a128554eeb33f324b87ccd39c12b766e">
 <div class="column">
 <div class="sourceCode cell-code" id="cb9" data-code-line-numbers="16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a>bikes <span class="sc">%&gt;%</span></span>
 <span id="cb9-2"><a href="#cb9-2"></a>  <span class="fu">group_by</span>(season) <span class="sc">%&gt;%</span></span>
@@ -574,14 +573,14 @@
 <span id="cb9-16"><a href="#cb9-16"></a>  <span class="fu">theme_void</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
-<p><img data-src="03_concepts_pt2_ex2_solution_files/figure-revealjs/concepts-pt2-exercise-2-4-1.png" width="1500"></p>
+<p><img data-src="03_concepts_pt2_ex2_solution_files/figure-revealjs/concepts-pt2-exercise-2-4-1.png" width="1000"></p>
 </div>
 </div>
 </div>
 </section>
 <section id="fix-plot-margin" class="slide level2">
 <h2>Fix Plot Margin</h2>
-<div class="cell columns column-output-location">
+<div class="cell columns column-output-location" data-hash="03_concepts_pt2_ex2_solution_cache/revealjs/concepts-pt2-exercise-2-5_cf3007ef11648fc85a01db74af69595d">
 <div class="column">
 <div class="sourceCode cell-code" id="cb10" data-code-line-numbers="17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>bikes <span class="sc">%&gt;%</span></span>
 <span id="cb10-2"><a href="#cb10-2"></a>  <span class="fu">group_by</span>(season) <span class="sc">%&gt;%</span></span>
@@ -602,14 +601,14 @@
 <span id="cb10-17"><a href="#cb10-17"></a>  <span class="fu">theme</span>(<span class="at">plot.margin =</span> <span class="fu">margin</span>(<span class="fu">rep</span>(<span class="sc">-</span><span class="dv">100</span>, <span class="dv">4</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
-<p><img data-src="03_concepts_pt2_ex2_solution_files/figure-revealjs/concepts-pt2-exercise-2-5-1.png" width="1500"></p>
+<p><img data-src="03_concepts_pt2_ex2_solution_files/figure-revealjs/concepts-pt2-exercise-2-5-1.png" width="1000"></p>
 </div>
 </div>
 </div>
 </section>
 <section id="add-axis-text" class="slide level2">
 <h2>Add “Axis” Text</h2>
-<div class="cell columns column-output-location">
+<div class="cell columns column-output-location" data-hash="03_concepts_pt2_ex2_solution_cache/revealjs/concepts-pt2-exercise-2-6_f3e311977e22f1067040b224b00b633c">
 <div class="column">
 <div class="sourceCode cell-code" id="cb11" data-code-line-numbers="9,10,11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a>bikes <span class="sc">%&gt;%</span></span>
 <span id="cb11-2"><a href="#cb11-2"></a>  <span class="fu">group_by</span>(season) <span class="sc">%&gt;%</span></span>
@@ -633,14 +632,14 @@
 <span id="cb11-20"><a href="#cb11-20"></a>  <span class="fu">theme</span>(<span class="at">plot.margin =</span> <span class="fu">margin</span>(<span class="fu">rep</span>(<span class="sc">-</span><span class="dv">100</span>, <span class="dv">4</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
-<p><img data-src="03_concepts_pt2_ex2_solution_files/figure-revealjs/concepts-pt2-exercise-2-6-1.png" width="1500"></p>
+<p><img data-src="03_concepts_pt2_ex2_solution_files/figure-revealjs/concepts-pt2-exercise-2-6-1.png" width="1000"></p>
 </div>
 </div>
 </div>
 </section>
 <section id="style-axis-text" class="slide level2">
 <h2>Style “Axis” Text</h2>
-<div class="cell columns column-output-location">
+<div class="cell columns column-output-location" data-hash="03_concepts_pt2_ex2_solution_cache/revealjs/concepts-pt2-exercise-2-7_efb0f6de223cf71dbe93abcc512a3e1c">
 <div class="column">
 <div class="sourceCode cell-code" id="cb12" data-code-line-numbers="11,12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>bikes <span class="sc">%&gt;%</span></span>
 <span id="cb12-2"><a href="#cb12-2"></a>  <span class="fu">group_by</span>(season) <span class="sc">%&gt;%</span></span>
@@ -666,14 +665,14 @@
 <span id="cb12-22"><a href="#cb12-22"></a>  <span class="fu">theme</span>(<span class="at">plot.margin =</span> <span class="fu">margin</span>(<span class="fu">rep</span>(<span class="sc">-</span><span class="dv">100</span>, <span class="dv">4</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
-<p><img data-src="03_concepts_pt2_ex2_solution_files/figure-revealjs/concepts-pt2-exercise-2-7-1.png" width="1500"></p>
+<p><img data-src="03_concepts_pt2_ex2_solution_files/figure-revealjs/concepts-pt2-exercise-2-7-1.png" width="1000"></p>
 </div>
 </div>
 </div>
 </section>
 <section id="alternatively-add-direct-labels" class="slide level2">
 <h2>Alternatively: Add Direct Labels</h2>
-<div class="cell columns column-output-location">
+<div class="cell columns column-output-location" data-hash="03_concepts_pt2_ex2_solution_cache/revealjs/concepts-exercise-lollipop-label-season-direct_7a5107d198c3a57227bf0c78cf2908c7">
 <div class="column">
 <div class="sourceCode cell-code" id="cb13" data-code-line-numbers="14,15,16,17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a>bikes <span class="sc">%&gt;%</span></span>
 <span id="cb13-2"><a href="#cb13-2"></a>  <span class="fu">group_by</span>(season) <span class="sc">%&gt;%</span></span>
@@ -703,14 +702,14 @@
 <span id="cb13-26"><a href="#cb13-26"></a>  <span class="fu">theme</span>(<span class="at">plot.margin =</span> <span class="fu">margin</span>(<span class="fu">rep</span>(<span class="sc">-</span><span class="dv">100</span>, <span class="dv">4</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
-<p><img data-src="03_concepts_pt2_ex2_solution_files/figure-revealjs/concepts-exercise-lollipop-label-season-direct-1.png" width="1500"></p>
+<p><img data-src="03_concepts_pt2_ex2_solution_files/figure-revealjs/concepts-exercise-lollipop-label-season-direct-1.png" width="1000"></p>
 </div>
 </div>
 </div>
 </section>
 <section id="add-a-baseline-ugly-but-simple" class="slide level2">
 <h2>Add a Baseline — <em>ugly but simple</em></h2>
-<div class="cell columns column-output-location">
+<div class="cell columns column-output-location" data-hash="03_concepts_pt2_ex2_solution_cache/revealjs/concepts-exercise-lollipop-baseline-geom-hline_815a17e21e0ae059ada26b0a219cd697">
 <div class="column">
 <div class="sourceCode cell-code" id="cb14" data-code-line-numbers="9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a>bikes <span class="sc">%&gt;%</span></span>
 <span id="cb14-2"><a href="#cb14-2"></a>  <span class="fu">group_by</span>(season) <span class="sc">%&gt;%</span></span>
@@ -737,14 +736,14 @@
 <span id="cb14-23"><a href="#cb14-23"></a>  <span class="fu">theme</span>(<span class="at">plot.margin =</span> <span class="fu">margin</span>(<span class="fu">rep</span>(<span class="sc">-</span><span class="dv">100</span>, <span class="dv">4</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
-<p><img data-src="03_concepts_pt2_ex2_solution_files/figure-revealjs/concepts-exercise-lollipop-baseline-geom-hline-1.png" width="1500"></p>
+<p><img data-src="03_concepts_pt2_ex2_solution_files/figure-revealjs/concepts-exercise-lollipop-baseline-geom-hline-1.png" width="1000"></p>
 </div>
 </div>
 </div>
 </section>
 <section id="add-a-baseline-nice-but-unusual" class="slide level2">
 <h2>Add a Baseline — <em>nice but unusual</em></h2>
-<div class="cell columns column-output-location">
+<div class="cell columns column-output-location" data-hash="03_concepts_pt2_ex2_solution_cache/revealjs/concepts-exercise-lollipop-baseline-geom-linerange_453d67c08822215bcc6528d6a604d109">
 <div class="column">
 <div class="sourceCode cell-code" id="cb15" data-code-line-numbers="4|4,9,10,11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a>bikes <span class="sc">%&gt;%</span></span>
 <span id="cb15-2"><a href="#cb15-2"></a>  <span class="fu">group_by</span>(season) <span class="sc">%&gt;%</span></span>
@@ -773,14 +772,14 @@
 <span id="cb15-25"><a href="#cb15-25"></a>  <span class="fu">theme</span>(<span class="at">plot.margin =</span> <span class="fu">margin</span>(<span class="fu">rep</span>(<span class="sc">-</span><span class="dv">100</span>, <span class="dv">4</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
-<p><img data-src="03_concepts_pt2_ex2_solution_files/figure-revealjs/concepts-exercise-lollipop-baseline-geom-linerange-1.png" width="1500"></p>
+<p><img data-src="03_concepts_pt2_ex2_solution_files/figure-revealjs/concepts-exercise-lollipop-baseline-geom-linerange-1.png" width="1000"></p>
 </div>
 </div>
 </div>
 </section>
 <section id="add-a-baseline-yeah-thats-it" class="slide level2">
 <h2>Add a Baseline — <em>yeah, that’s it!</em></h2>
-<div class="cell columns column-output-location">
+<div class="cell columns column-output-location" data-hash="03_concepts_pt2_ex2_solution_cache/revealjs/concepts-pt2-exercise-2-8_0b1641c71499617c68b9682c84ea68b1">
 <div class="column">
 <div class="sourceCode cell-code" id="cb16" data-code-line-numbers="4,9,10,11,12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a>bikes <span class="sc">%&gt;%</span></span>
 <span id="cb16-2"><a href="#cb16-2"></a>  <span class="fu">group_by</span>(season) <span class="sc">%&gt;%</span></span>
@@ -810,14 +809,14 @@
 <span id="cb16-26"><a href="#cb16-26"></a>  <span class="fu">theme</span>(<span class="at">plot.margin =</span> <span class="fu">margin</span>(<span class="fu">rep</span>(<span class="sc">-</span><span class="dv">100</span>, <span class="dv">4</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
-<p><img data-src="03_concepts_pt2_ex2_solution_files/figure-revealjs/concepts-pt2-exercise-2-8-1.png" width="1500"></p>
+<p><img data-src="03_concepts_pt2_ex2_solution_files/figure-revealjs/concepts-pt2-exercise-2-8-1.png" width="1000"></p>
 </div>
 </div>
 </div>
 </section>
 <section id="solution-using-stat_summary" class="slide level2">
 <h2>Solution using <code>stat_summary()</code></h2>
-<div class="cell columns column-output-location">
+<div class="cell columns column-output-location" data-hash="03_concepts_pt2_ex2_solution_cache/revealjs/concepts-exercise-lollipop-stat-summary_546a92e1c0b72c1721aa357e6fd858da">
 <div class="column">
 <div class="sourceCode cell-code" id="cb17" data-code-line-numbers="1|2,3,4|5,6,7,8|9,10,11,12,13,14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a><span class="fu">ggplot</span>(bikes, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">as.numeric</span>(season), <span class="at">y =</span> count)) <span class="sc">+</span></span>
 <span id="cb17-2"><a href="#cb17-2"></a>  <span class="fu">stat_summary</span>(</span>
@@ -851,7 +850,7 @@
 <span id="cb17-30"><a href="#cb17-30"></a>  <span class="fu">theme</span>(<span class="at">plot.margin =</span> <span class="fu">margin</span>(<span class="fu">rep</span>(<span class="sc">-</span><span class="dv">100</span>, <span class="dv">4</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
-<p><img data-src="03_concepts_pt2_ex2_solution_files/figure-revealjs/concepts-exercise-lollipop-stat-summary-1.png" width="1500"></p>
+<p><img data-src="03_concepts_pt2_ex2_solution_files/figure-revealjs/concepts-exercise-lollipop-stat-summary-1.png" width="1000"></p>
 </div>
 </div>
 </div>
@@ -1117,24 +1116,6 @@
 
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
-      const toggleBodyColorMode = (bsSheetEl) => {
-        const mode = bsSheetEl.getAttribute("data-mode");
-        const bodyEl = window.document.querySelector("body");
-        if (mode === "dark") {
-          bodyEl.classList.add("quarto-dark");
-          bodyEl.classList.remove("quarto-light");
-        } else {
-          bodyEl.classList.add("quarto-light");
-          bodyEl.classList.remove("quarto-dark");
-        }
-      }
-      const toggleBodyColorPrimary = () => {
-        const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
-        if (bsSheetEl) {
-          toggleBodyColorMode(bsSheetEl);
-        }
-      }
-      toggleBodyColorPrimary();  
       const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
       tabsets.forEach(function(tabset) {
         const tabby = new Tabby('#' + tabset.id);

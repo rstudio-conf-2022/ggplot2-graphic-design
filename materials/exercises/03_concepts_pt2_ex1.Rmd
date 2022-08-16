@@ -28,3 +28,12 @@ format: html
 -   
 -   
 -   
+
+
+<br><br><br>
+
+```{r}
+#| label: i-am-done-what-now
+#| echo: false
+knitr::include_graphics("img/exercise-what-now-sd.png")
+```

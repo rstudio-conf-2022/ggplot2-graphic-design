@@ -6,26 +6,83 @@ image: "images/session3.png"
 tbl-colwidths: [5,20,75]
 ---
 
-## Outline
-
--   Facets
--   Sea of Tranquility
--   Facet Multiple Variables
--   Facet Options: Cols + Rows
--   Facet Options: Free Scaling
--   Facet Options: Switch Labels
--   Gridded Facet
--   Facet Multiple Variables
--   Facet Options: Proportional Spacing
-
-## Slides
-
-[View slides in full screen](../materials/03_concepts_pt2.html)
-
 ```{=html}
 <iframe class="slide-deck" src="../materials/03_concepts_pt2.html" height="420" width="747" style="border: 1px solid #2e3846;"></iframe>
 ```
-## Exercises
 
-::: {#exercises}
+[View slides in full screen](../materials/03_concepts_pt2.html)&ensp;|&ensp;[Run the code yourself](../materials/scripts/05_annotations.R)
+
+# Outline
+
+-   Facet Types
+-   Wrapped Facets
+    -   Facet Multiple Variables
+    -   Facet Options: Cols + Rows
+    -   Facet Options: Free Scaling
+    -   Facet Options: Switch Labels
+-   Gridded Facets
+    -   Facet Multiple Variables
+    -   Facet Options: Proportional Spacing
+-   Scales
+    -   Continuous vs. Discrete in {ggplot2}
+    -   Aesthetics + Scales
+    -   `scale_x|y_continuous`
+    -   `scale_x|y_date`
+    -   `scale_x|y_date` with `strftime()`
+    -   `scale_x|y_discrete`
+    -   Discrete or Continuous?
+    -   `scale_color|fill_discrete`
+    -   Inspect Assigned Colors
+    -   `scale_color|fill_manual`
+    -   `scale_color|fill_carto_d`
+-   Coordinate Systems
+    -   Cartesian Coordinate System
+    -   Changing Limits
+    -   Clipping
+    -   Fixed Coordinate System
+    -   Flipped Coordinate System
+    -   Circular Coordinate System
+    -   Transform a Coordinate System
+    -   Spatial Coordinate (Reference) Systems        
+
+# Recap
+
+::: recap
+-   `facet_*()` functions allow to create small multiples
+-   `scale_*()` functions translate between aesthetics and properties
+-   use `*_continuous()` for numerical data
+-   ... and `*_discrete()` for categorical data
+-   use `scale_color|fill_*()` to customize data-related colors
+-   `coord_*()` functions interpret the positional aesthetics, e.g. create polar plots or work with spatial projections
+-   be careful when adjusting axis limits:
+    -   `scale_*_continuous(limits)` removes the data outside the range
+    -   `coord_*(*lim)` keeps the data and zooms into the range
 :::
+
+# Exercises
+
+## Exercise 1
+
+::: question
+-   Open the script [`exercises/03_concepts_pt2_ex1.qmd`](../materials/exercises/03_concepts_pt2_ex1.qmd) (or the `.rmd`).
+-   Have a look at the visualization in the folder [`exercises/3-1-astronaut-viz`](https://github.com/rstudio-conf-2022/ggplot2-graphic-design/blob/main/materials/exercises/3-1-astronaut-viz/astronaut-viz.png) that shows the cumulative time that cosmo- and astronauts have spent in outer space. The data also contains information on the year of their first and last travel, respectively.<br><br>![](https://github.com/rstudio-conf-2022/ggplot2-graphic-design/raw/main/materials/exercises/3-1-astronaut-viz/astronaut-viz-detail.png)<br><br>
+    -   Together with your group, discuss which layers and modifications are needed to create such a chart with `{ggplot2}`.
+    -   Note down the aesthetics, geometries, and scales used for each element of this graphic.
+    -   What is the coordinate system? Have any adjustments been made?
+    -   Which theme was used and how was it modified?
+:::
+
+**&rarr;&ensp;[Solution](../materials/solutions/03_concepts_pt2_ex1_solution.qmd)**
+
+## Exercise 2
+
+::: question
+-   Open the script [`exercises/03_concepts_pt2_ex2.qmd`](../materials/exercises/03_concepts_pt2_ex2.qmd) (or the `.rmd`).
+-   Create a circular lollipop plot of reported bike shares per season.
+-   The data is not in the right format as there are no totals. How can you solve it?
+-   Remove all legend elements (with a single line of code).
+-   How can you add the labels next to the starting point of each lollipop?
+-   How could you add a baseline?
+:::
+
+**&rarr;&ensp;[Solution](../materials/solutions/03_concepts_pt2_ex2_solution.qmd)**

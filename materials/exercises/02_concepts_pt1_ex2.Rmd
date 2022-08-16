@@ -38,10 +38,13 @@ bikes
 
 ```
 
-  
-  
-  
-  
-```{r i-am-done-what-now, echo=FALSE}
+Add your comments and more code here.
+
+
+<br><br><br>
+```{r}
+#| label: i-am-done-what-now
+#| echo: false
 knitr::include_graphics("img/exercise-what-now-sd.png")
+```::include_graphics("img/exercise-what-now-sd.png")
 ```

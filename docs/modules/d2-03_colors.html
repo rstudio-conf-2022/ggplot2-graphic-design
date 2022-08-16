@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.0.36">
+<meta name="generator" content="quarto-0.9.566">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -33,7 +33,7 @@ ul.task-list{list-style: none;}
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -56,7 +56,7 @@ ul.task-list{list-style: none;}
 
 
 <meta name="twitter:title" content="Graphic Design with ggplot2 - Working with Colors">
-<meta name="twitter:description" content="11:00 - 12:30">
+<meta name="twitter:description" content="View slides in full…">
 <meta name="twitter:image" content="https://rstudio-conf-2022.github.io/ggplot2-graphic-design//images/twitter-card.png">
 <meta name="twitter:creator" content="@CedScherer">
 <meta name="twitter:image-height" content="622">
@@ -91,43 +91,39 @@ ul.task-list{list-style: none;}
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-solutions" role="button" data-bs-toggle="dropdown" aria-expanded="false">Solutions</a>
-    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-solutions">    
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-sessions" role="button" data-bs-toggle="dropdown" aria-expanded="false">Sessions</a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-sessions">    
         <li>
-    <a class="dropdown-item" href="../materials/solutions/02_concepts_pt1_ex1_solution.html">
- <span class="dropdown-text">02_concepts_pt1_ex1_solution</span></a>
+    <a class="dropdown-item" href="../modules/d1-01_introduction.html">
+ <span class="dropdown-text">Introduction</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../materials/solutions/02_concepts_pt1_ex2_solution.html">
- <span class="dropdown-text">02_concepts_pt1_ex2_solution</span></a>
+    <a class="dropdown-item" href="../modules/d1-02_concepts_pt1.html">
+ <span class="dropdown-text">Concepts of ggplot2 Pt. 1</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../materials/solutions/03_concepts_pt2_ex1_solution.html">
- <span class="dropdown-text">03_concepts_pt2_ex1_solution</span></a>
+    <a class="dropdown-item" href="../modules/d1-05_concepts_pt2.html">
+ <span class="dropdown-text">Concepts of ggplot2 Pt. 2</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../materials/solutions/03_concepts_pt2_ex2_solution.html">
- <span class="dropdown-text">03_concepts_pt2_ex2_solution</span></a>
+    <a class="dropdown-item" href="../modules/d1-10_data_com.html">
+ <span class="dropdown-text">Data Communication</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../materials/solutions/04_data_communication_ex1_solution.pdf">
- <span class="dropdown-text">04_data_communication_ex1_solution</span></a>
+    <a class="dropdown-item" href="../modules/d2-01_lab_ann.html">
+ <span class="dropdown-text">Working with Annotations &amp; Labels</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../materials/solutions/05_annotations_ex1_solution.html">
- <span class="dropdown-text">05_annotations_ex1_solution</span></a>
+    <a class="dropdown-item" href="../modules/d2-03_colors.html">
+ <span class="dropdown-text">Working with Colors</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../materials/solutions/05_annotations_ex2_solution.html">
- <span class="dropdown-text">05_annotations_ex2_solution</span></a>
+    <a class="dropdown-item" href="../modules/d2-05_layout.html">
+ <span class="dropdown-text">Working with Layouts &amp; Compostion</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../materials/solutions/06_colors_ex1_solution.html">
- <span class="dropdown-text">06_colors_ex1_solution</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../materials/solutions/08_group_projects_solutions.html">
- <span class="dropdown-text">08_group_projects_solutions</span></a>
+    <a class="dropdown-item" href="../modules/d2-07_project.html">
+ <span class="dropdown-text">Group Project</span></a>
   </li>  
     </ul>
   </li>
@@ -136,9 +132,6 @@ ul.task-list{list-style: none;}
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="https://github.com/rstudio-conf-2022/ggplot2-graphic-design">GitHub</a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="https://rstudio.cloud/spaces/235465">RStudio Cloud+</a>
   </li>  
 </ul>
               <div id="quarto-search" class="" title="Search"></div>
@@ -155,17 +148,15 @@ ul.task-list{list-style: none;}
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#outline" id="toc-outline" class="nav-link active" data-scroll-target="#outline">Outline</a>
+  <li><a href="#part-1-colorful-graphics" id="toc-part-1-colorful-graphics" class="nav-link active" data-scroll-target="#part-1-colorful-graphics">Part 1: Colorful Graphics</a></li>
+  <li><a href="#part-2-working-with-colors" id="toc-part-2-working-with-colors" class="nav-link" data-scroll-target="#part-2-working-with-colors">Part 2: Working with Colors</a></li>
+  <li><a href="#outline" id="toc-outline" class="nav-link" data-scroll-target="#outline">Outline</a>
   <ul class="collapse">
-  <li><a href="#part-1---colorful-graphics" id="toc-part-1---colorful-graphics" class="nav-link" data-scroll-target="#part-1---colorful-graphics">Part 1 - Colorful Graphics</a></li>
-  <li><a href="#part-2---working-with-colors" id="toc-part-2---working-with-colors" class="nav-link" data-scroll-target="#part-2---working-with-colors">Part 2 - Working with Colors</a></li>
+  <li><a href="#part-1-colorful-graphics-1" id="toc-part-1-colorful-graphics-1" class="nav-link" data-scroll-target="#part-1-colorful-graphics-1">Part 1: Colorful Graphics</a></li>
+  <li><a href="#part-2-working-with-colors-1" id="toc-part-2-working-with-colors-1" class="nav-link" data-scroll-target="#part-2-working-with-colors-1">Part 2: Working with Colors</a></li>
   </ul></li>
-  <li><a href="#slides" id="toc-slides" class="nav-link" data-scroll-target="#slides">Slides</a>
-  <ul class="collapse">
-  <li><a href="#part-1" id="toc-part-1" class="nav-link" data-scroll-target="#part-1">Part 1</a></li>
-  <li><a href="#part-2" id="toc-part-2" class="nav-link" data-scroll-target="#part-2">Part 2</a></li>
-  </ul></li>
-  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a></li>
+  <li><a href="#recap" id="toc-recap" class="nav-link" data-scroll-target="#recap">Recap</a></li>
+  <li><a href="#exercise" id="toc-exercise" class="nav-link" data-scroll-target="#exercise">Exercise</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/rstudio-conf-2022/ggplot2-graphic-design/edit/main/modules/d2-03_colors.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/rstudio-conf-2022/ggplot2-graphic-design/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -175,7 +166,7 @@ ul.task-list{list-style: none;}
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">Working with Colors</h1>
-<p class="subtitle lead">11:00 - 12:30</p>
+<p class="subtitle lead"><code>11:00 - 12:30</code></p>
 </div>
 
 
@@ -195,21 +186,31 @@ ul.task-list{list-style: none;}
 
 </header>
 
-<section id="outline" class="level2">
-<h2 class="anchored" data-anchor-id="outline">Outline</h2>
-<section id="part-1---colorful-graphics" class="level3">
-<h3 class="anchored" data-anchor-id="part-1---colorful-graphics">Part 1 - Colorful Graphics</h3>
+<section id="part-1-colorful-graphics" class="level3">
+<h3 class="anchored" data-anchor-id="part-1-colorful-graphics">Part 1: Colorful Graphics</h3>
+<iframe class="slide-deck" src="../materials/06_colorful_graphics.pdf" height="420" width="747" style="border: 1px solid #2e3846;"></iframe>
+<p><a href="../materials/06_colorful_graphics.pdf">View slides in full screen</a></p>
+</section>
+<section id="part-2-working-with-colors" class="level3">
+<h3 class="anchored" data-anchor-id="part-2-working-with-colors">Part 2: Working with Colors</h3>
+<iframe class="slide-deck" src="../materials/06_colors.html" height="420" width="747" style="border: 1px solid #2e3846;"></iframe>
+<p><a href="../materials/06_colors.html">View slides in full screen</a> | <a href="../materials/scripts/06_colors.R">Run the code yourself</a></p>
+</section>
+<section id="outline" class="level1">
+<h1>Outline</h1>
+<section id="part-1-colorful-graphics-1" class="level3">
+<h3 class="anchored" data-anchor-id="part-1-colorful-graphics-1">Part 1: Colorful Graphics</h3>
 <ul>
-<li>Challenge to encode Information</li>
+<li>Channels to Encode Information</li>
 <li>Color Spaces</li>
 <li>Color Palette Choice</li>
-<li>Use Color wisely (and correctly)</li>
+<li>Use Color Wisely (and Correctly)</li>
 <li>Designing for Colorblindness</li>
 <li>Beyond the Rainbow</li>
 </ul>
 </section>
-<section id="part-2---working-with-colors" class="level3">
-<h3 class="anchored" data-anchor-id="part-2---working-with-colors">Part 2 - Working with Colors</h3>
+<section id="part-2-working-with-colors-1" class="level3">
+<h3 class="anchored" data-anchor-id="part-2-working-with-colors-1">Part 2: Working with Colors</h3>
 <ul>
 <li>Color Palettes
 <ul>
@@ -242,23 +243,39 @@ ul.task-list{list-style: none;}
 </ul>
 </section>
 </section>
-<section id="slides" class="level2">
-<h2 class="anchored" data-anchor-id="slides">Slides</h2>
-<section id="part-1" class="level3">
-<h3 class="anchored" data-anchor-id="part-1">Part 1</h3>
-<p><a href="../materials/06_colorful_graphics.pdf">View slides in full screen</a></p>
-<iframe class="slide-deck" src="../materials/06_colorful_graphics.pdf" height="420" width="747" style="border: 1px solid #2e3846;"></iframe>
+<section id="recap" class="level1">
+<h1>Recap</h1>
+<div class="recap">
+<ul>
+<li>use <strong>categorical</strong> palettes for <strong>qualitative</strong> data
+<ul>
+<li>e.g.&nbsp;<code>scale_*_discrete()</code> and <code>scale_*_manual()</code> for custom options</li>
+<li>e.g.&nbsp;<code>scale_*_viridis_d</code> and <code>scale_*_brewer()</code> for pre-defined options</li>
+</ul></li>
+<li>use <strong>sequential or diverging</strong> palettes for <strong>quantitative</strong> data
+<ul>
+<li>e.g.&nbsp;<code>scale_*_gradient()</code> or <code>scale_*_gradient2()</code> for custom options</li>
+<li>e.g.&nbsp;<code>scale_*_viridis_c</code> and <code>scale_*_distiller()</code> for pre-defined options</li>
+</ul></li>
+<li>various packages provide palettes incl.&nbsp;<code>scale_*</code> components
+<ul>
+<li>e.g.&nbsp;<code>{rcartocolors}</code>, <code>{scico}</code>, <code>{ggsci}</code>, <code>{ggthemes}</code>, <code>{nord}</code></li>
+</ul></li>
+<li>those and even more packages return palettes as vectors
+<ul>
+<li>modify and supply thehm to <code>scale_*_manual()</code> and <code>scale_*_gradientn()</code></li>
+</ul></li>
+<li>use <strong><code>after_scale</code></strong> to modify and recycle color scales</li>
+</ul>
+</div>
 </section>
-<section id="part-2" class="level3">
-<h3 class="anchored" data-anchor-id="part-2">Part 2</h3>
-<p><a href="../materials/06_colors.html">View slides in full screen</a></p>
-<iframe class="slide-deck" src="../materials/06_colors.qmd" height="420" width="747" style="border: 1px solid #2e3846;"></iframe>
-</section>
-</section>
-<section id="exercises" class="level2">
-<h2 class="anchored" data-anchor-id="exercises">Exercises</h2>
-<div id="exercises">
-
+<section id="exercise" class="level1">
+<h1>Exercise</h1>
+<div class="question">
+<ul>
+<li>Open the script <a href="../materials/exercises/06_colors_ex1.html"><code>exercises/06_colors_ex1.qmd</code></a> (or the <code>.rmd</code>).</li>
+<li>Create a similar visualization as the one in the folder <code>exercises/6-1-bikes-jitter</code>; try to replicate it as close as possible:<br><br><img src="https://github.com/rstudio-conf-2022/ggplot2-graphic-design/raw/main/materials/exercises/6-1-bikes-jitter/jittered-errorbars.png" class="img-fluid"></li>
+</ul>
 </div>
 
 
@@ -267,24 +284,6 @@ ul.task-list{list-style: none;}
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
-  const toggleBodyColorMode = (bsSheetEl) => {
-    const mode = bsSheetEl.getAttribute("data-mode");
-    const bodyEl = window.document.querySelector("body");
-    if (mode === "dark") {
-      bodyEl.classList.add("quarto-dark");
-      bodyEl.classList.remove("quarto-light");
-    } else {
-      bodyEl.classList.add("quarto-light");
-      bodyEl.classList.remove("quarto-dark");
-    }
-  }
-  const toggleBodyColorPrimary = () => {
-    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
-    if (bsSheetEl) {
-      toggleBodyColorMode(bsSheetEl);
-    }
-  }
-  toggleBodyColorPrimary();  
   const icon = "";
   const anchorJS = new window.AnchorJS();
   anchorJS.options = {

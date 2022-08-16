@@ -1,0 +1,99 @@
+---
+title: "<span>Concepts of the <code>{ggplot2}</code> Package Pt. 1:<br><span style='font-weight:500;'>Data, Aesthetics, and Layers + Misc Stuff (Continued)</span></span>"
+subtitle: "11:00 - 12:00"
+date: "2022-07-25"
+image: "images/session2.png"
+tbl-colwidths: [5,20,75]
+---
+
+```{=html}
+<iframe class="slide-deck" src="../materials/02_concepts_pt1.html" height="420" width="747" style="border: 1px solid #2e3846;"></iframe>
+```
+
+[View slides in full screen](../materials/02_concepts_pt1.html)&ensp;|&ensp;[Run the code yourself](../materials/scripts/02_concepts_pt1.R)
+
+# Outline
+
+-   The Grammar of {ggplot2}
+-   A Basic ggplot Example
+    -   The Data
+    -   Aesthetic Mapping
+    -   `aes`thetics
+-   Geometrical Layers
+    -   Geometries
+    -   Visual Properties of Layers
+    -   Setting vs Mapping of Visual Properties
+    -   Mapping Expressions
+    -   Quick Exercise
+    -   Mapping Expressions
+    -   Mapping to Size
+    -   Setting a Constant Property
+    -   Filter Data
+    -   Local vs. Global Encoding
+    -   Adding More Layers
+    -   Global Color Encoding
+    -   Local Color Encoding
+    -   The \`group\` Aesthetic
+    -   Set Both as Global Aesthetics
+    -   Overwrite Global Aesthetics
+-   Extending a ggplot
+    -   Store a ggplot as Object
+    -   Inspect a ggplot Object
+    -   Extend a ggplot Object: Add Layers
+    -   Remove a Layer from the Legend
+    -   Extend a ggplot Object: Add Labels
+-   A Polished ggplot Example
+    -   Extend a ggplot Object: Themes
+    -   Set a Theme Globally
+    -   Change the Theme Base Settings
+    -   Overwrite Specific Theme Settings
+    -   Save the Graphic
+    -   How to Work with Aspect Ratios
+    -   Setting Plot Sizes in Rmd's
+
+# Recap
+
+::: recap
+-   **`{ggplot2}`** is a powerful library for reproducible graphic design
+-   the components follow a consistent syntax
+-   each ggplot needs at least **data**, some **aesthetics**, and a **layer**
+-   we **set** constant propeties outside `aes()`
+-   ... and **map** data-related properties inside `aes()`
+-   local settings and mappings override global properties
+-   grouping allows applying layers for subsets
+-   we can store a ggplot object and extend it afterwards
+-   we can change the appearance for all plots with `theme_set()` and `theme_update()`
+:::
+
+# Exercises
+
+## Exercise 1
+
+::: question
+-   Open the script [`exercises/02_concepts_pt1_ex1.qmd`](../materials/exercises/02_concepts_pt1_ex1.qmd) (or the `.rmd`).
+-   Explore the TfL bike share data visually:<br>**create a timeseries of reported bike shares on weekend days**
+    -   Highlight day and night encoded by colors and shapes.
+    -   Connect the points of each period with lines.
+    -   Question: What is the difference between `geom_line()` and `geom_path()`?
+    -   Apply your favorite theme to the plot.
+    -   Add meaningful labels.
+-   Save the plot as a vector graphic with a decent plot size.
+:::
+
+**&rarr;&ensp;[Solution](../materials/solutions/02_concepts_pt1_ex1_solution.qmd)**
+
+## Exercise 2
+
+::: question
+-   Open the script [`exercises/02_concepts_pt1_ex2.qmd`](../materials/exercises/02_concepts_pt1_ex2.qmd) (or the `.rmd`).
+-   Explore the TfL bike sharing data visually:<br>**create a boxplot of counts per weather type**
+    -   Turn the plot into a jitter strips plot (random noise across the x axis)
+    -   Combine both chart types (jittered points on top of the boxplots)
+    -   [Bonus: Sort the boxplot-jitter hybrid by median counts]{style="color:#5DB699;font-weight:bold;"}
+    -   Apply your favorite theme to the plot.
+    -   Add meaningful labels.
+    -   [Bonus: Explore other chart types to visualize the distributions.]{style="color:#5DB699;font-weight:bold;"}
+-   Save the plot as a vector graphic with a decent plot size.
+:::
+
+**&rarr;&ensp;[Solution](../materials/solutions/02_concepts_pt1_ex2_solution.qmd)**

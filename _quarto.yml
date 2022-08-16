@@ -32,35 +32,33 @@ website:
     align: center
     right:
       - icon: bulb
-        text: Solutions
+        text: Sessions
         menu: 
-          - text: 02_concepts_pt1_ex1_solution
-            href: materials/solutions/02_concepts_pt1_ex1_solution.qmd
-          - text: 02_concepts_pt1_ex2_solution
-            href: materials/solutions/02_concepts_pt1_ex2_solution.qmd
-          - text: 03_concepts_pt2_ex1_solution
-            href: materials/solutions/03_concepts_pt2_ex1_solution.qmd
-          - text: 03_concepts_pt2_ex2_solution
-            href: materials/solutions/03_concepts_pt2_ex2_solution.qmd
-          - text: 04_data_communication_ex1_solution
-            href: materials/solutions/04_data_communication_ex1_solution.pdf
-          - text: 05_annotations_ex1_solution
-            href: materials/solutions/05_annotations_ex1_solution.qmd
-          - text: 05_annotations_ex2_solution
-            href: materials/solutions/05_annotations_ex2_solution.qmd
-          - text: 06_colors_ex1_solution
-            href: materials/solutions/06_colors_ex1_solution.qmd
-          - text: 08_group_projects_solutions
-            href: materials/solutions/08_group_projects_solutions.qmd
+          - text: Introduction
+            href: modules/d1-01_introduction.qmd
+          - text: Concepts of ggplot2 Pt. 1
+            href: modules/d1-02_concepts_pt1.qmd
+          - text: Concepts of ggplot2 Pt. 2
+            href: modules/d1-05_concepts_pt2.qmd
+          - text: Data Communication
+            href: modules/d1-10_data_com.qmd
+          - text: Working with Annotations & Labels
+            href: modules/d2-01_lab_ann.qmd
+          - text: Working with Colors
+            href: modules/d2-03_colors.qmd
+          - text: Working with Layouts & Compostion
+            href: modules/d2-05_layout.qmd
+          - text: Group Project
+            href: modules/d2-07_project.qmd
       - icon: font
         href: course_fonts.zip
         text: Fonts
       - icon: github
         href: https://github.com/rstudio-conf-2022/ggplot2-graphic-design
         text: GitHub
-      - icon: cloud-fill
-        href: https://rstudio.cloud/spaces/235465
-        text: RStudio Cloud+
+      #- icon: cloud-fill
+      #  href: https://rstudio.cloud/spaces/235465
+      #  text: RStudio Cloud+
     left:
      - href: index.qmd
        text: Home

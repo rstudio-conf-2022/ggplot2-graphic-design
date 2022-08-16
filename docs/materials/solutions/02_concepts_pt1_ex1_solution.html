@@ -5,9 +5,9 @@
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
+<link href="../../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.0.36">
+  <meta name="generator" content="quarto-0.9.566">
 
   <meta name="author" content="Cédric Scherer // rstudio::conf // July 2022">
   <title>Graphic Design with ggplot2</title>
@@ -380,14 +380,13 @@
     }
   </style>
 <meta name="twitter:title" content="Graphic Design with ggplot2">
-<meta name="twitter:description" content="Concepts of the {ggplot2} Package Pt. 1:Solution Exercise 1">
 <meta name="twitter:image" content="https://rstudio-conf-2022.github.io/ggplot2-graphic-design//images/twitter-card.png">
 <meta name="twitter:creator" content="@CedScherer">
 <meta name="twitter:image-height" content="622">
 <meta name="twitter:image-width" content="890">
 <meta name="twitter:card" content="summary_large_image">
 </head>
-<body class="quarto-light">
+<body>
   <div class="reveal">
     <div class="slides">
 
@@ -418,7 +417,7 @@
 </section>
 <section id="import-the-data-set" class="slide level2">
 <h2>Import the Data Set</h2>
-<div class="cell">
+<div class="cell" data-hash="02_concepts_pt1_ex1_solution_cache/revealjs/import-data-exercise_da24f586c9e08b0c6f11359e0b79fcc3">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>bikes <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(</span>
 <span id="cb1-2"><a href="#cb1-2"></a>  here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"london-bikes-custom.csv"</span>),</span>
 <span id="cb1-3"><a href="#cb1-3"></a>  <span class="at">col_types =</span> <span class="st">"Dcfffilllddddc"</span></span>
@@ -431,7 +430,7 @@
 </section>
 <section id="scatterplot-counts-vs.-date" class="slide level2">
 <h2>Scatterplot Counts vs.&nbsp;Date</h2>
-<div class="cell columns column-output-location">
+<div class="cell columns column-output-location" data-hash="02_concepts_pt1_ex1_solution_cache/revealjs/concepts-pt1-exercise-1-1_d35c116a80a4c4410d9400bf9f695b18">
 <div class="column">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">ggplot</span>(</span>
 <span id="cb2-2"><a href="#cb2-2"></a>    <span class="fu">filter</span>(bikes, is_weekend <span class="sc">==</span> <span class="cn">TRUE</span>),</span>
@@ -440,14 +439,14 @@
 <span id="cb2-5"><a href="#cb2-5"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
-<p><img data-src="02_concepts_pt1_ex1_solution_files/figure-revealjs/concepts-pt1-exercise-1-1-1.png" width="1500"></p>
+<p><img data-src="02_concepts_pt1_ex1_solution_files/figure-revealjs/concepts-pt1-exercise-1-1-1.png" width="1000"></p>
 </div>
 </div>
 </div>
 </section>
 <section id="encode-day-period-by-colors-and-shapes" class="slide level2">
 <h2>Encode Day Period by Colors and Shapes</h2>
-<div class="cell columns column-output-location">
+<div class="cell columns column-output-location" data-hash="02_concepts_pt1_ex1_solution_cache/revealjs/concepts-pt1-exercise-1-2_4d773b0fd81483c48be63ea89db62501">
 <div class="column">
 <div class="sourceCode cell-code" id="cb3" data-code-line-numbers="6,7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">ggplot</span>(</span>
 <span id="cb3-2"><a href="#cb3-2"></a>    <span class="fu">filter</span>(bikes, is_weekend <span class="sc">==</span> <span class="cn">TRUE</span>),</span>
@@ -459,14 +458,14 @@
 <span id="cb3-8"><a href="#cb3-8"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
-<p><img data-src="02_concepts_pt1_ex1_solution_files/figure-revealjs/concepts-pt1-exercise-1-2-1.png" width="1500"></p>
+<p><img data-src="02_concepts_pt1_ex1_solution_files/figure-revealjs/concepts-pt1-exercise-1-2-1.png" width="1000"></p>
 </div>
 </div>
 </div>
 </section>
 <section id="add-line" class="slide level2">
 <h2>Add Line</h2>
-<div class="cell columns column-output-location">
+<div class="cell columns column-output-location" data-hash="02_concepts_pt1_ex1_solution_cache/revealjs/concepts-pt1-exercise-1-3_240952ab7372b32e5003e12a87dd315e">
 <div class="column">
 <div class="sourceCode cell-code" id="cb4" data-code-line-numbers="9,10,11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="fu">ggplot</span>(</span>
 <span id="cb4-2"><a href="#cb4-2"></a>    <span class="fu">filter</span>(bikes, is_weekend <span class="sc">==</span> <span class="cn">TRUE</span>),</span>
@@ -481,14 +480,14 @@
 <span id="cb4-11"><a href="#cb4-11"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
-<p><img data-src="02_concepts_pt1_ex1_solution_files/figure-revealjs/concepts-pt1-exercise-1-3-1.png" width="1500"></p>
+<p><img data-src="02_concepts_pt1_ex1_solution_files/figure-revealjs/concepts-pt1-exercise-1-3-1.png" width="1000"></p>
 </div>
 </div>
 </div>
 </section>
 <section id="group-lines-by-day-period" class="slide level2">
 <h2>Group Lines by Day Period</h2>
-<div class="cell columns column-output-location">
+<div class="cell columns column-output-location" data-hash="02_concepts_pt1_ex1_solution_cache/revealjs/concepts-pt1-exercise-1-4_7456e4dc85c9799df7d5c0886b8e4c9f">
 <div class="column">
 <div class="sourceCode cell-code" id="cb5" data-code-line-numbers="10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">ggplot</span>(</span>
 <span id="cb5-2"><a href="#cb5-2"></a>    <span class="fu">filter</span>(bikes, is_weekend <span class="sc">==</span> <span class="cn">TRUE</span>),</span>
@@ -504,14 +503,14 @@
 <span id="cb5-12"><a href="#cb5-12"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
-<p><img data-src="02_concepts_pt1_ex1_solution_files/figure-revealjs/concepts-pt1-exercise-1-4-1.png" width="1500"></p>
+<p><img data-src="02_concepts_pt1_ex1_solution_files/figure-revealjs/concepts-pt1-exercise-1-4-1.png" width="1000"></p>
 </div>
 </div>
 </div>
 </section>
 <section id="order-layers" class="slide level2">
 <h2>Order Layers</h2>
-<div class="cell columns column-output-location">
+<div class="cell columns column-output-location" data-hash="02_concepts_pt1_ex1_solution_cache/revealjs/concepts-pt1-exercise-1-5_a047effafaafa8cff46be297cf8c5858">
 <div class="column">
 <div class="sourceCode cell-code" id="cb6" data-code-line-numbers="5,6,7,8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="fu">ggplot</span>(</span>
 <span id="cb6-2"><a href="#cb6-2"></a>    <span class="fu">filter</span>(bikes, is_weekend <span class="sc">==</span> <span class="cn">TRUE</span>),</span>
@@ -527,14 +526,14 @@
 <span id="cb6-12"><a href="#cb6-12"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
-<p><img data-src="02_concepts_pt1_ex1_solution_files/figure-revealjs/concepts-pt1-exercise-1-5-1.png" width="1500"></p>
+<p><img data-src="02_concepts_pt1_ex1_solution_files/figure-revealjs/concepts-pt1-exercise-1-5-1.png" width="1000"></p>
 </div>
 </div>
 </div>
 </section>
 <section id="use-geom_path-instead" class="slide level2">
 <h2>Use `geom_path()` instead</h2>
-<div class="cell columns column-output-location">
+<div class="cell columns column-output-location" data-hash="02_concepts_pt1_ex1_solution_cache/revealjs/concepts-pt1-exercise-1-6_ce69236a72cb773eb80d59ef51aeee9b">
 <div class="column">
 <div class="sourceCode cell-code" id="cb7" data-code-line-numbers="5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="fu">ggplot</span>(</span>
 <span id="cb7-2"><a href="#cb7-2"></a>    <span class="fu">filter</span>(bikes, is_weekend <span class="sc">==</span> <span class="cn">TRUE</span>),</span>
@@ -550,7 +549,7 @@
 <span id="cb7-12"><a href="#cb7-12"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
-<p><img data-src="02_concepts_pt1_ex1_solution_files/figure-revealjs/concepts-pt1-exercise-1-6-1.png" width="1500"></p>
+<p><img data-src="02_concepts_pt1_ex1_solution_files/figure-revealjs/concepts-pt1-exercise-1-6-1.png" width="1000"></p>
 </div>
 </div>
 </div>
@@ -559,7 +558,7 @@
 <h2>`geom_line()` vs.&nbsp;`geom_path()`</h2>
 <div class="quarto-layout-panel">
 <div class="quarto-layout-row quarto-layout-valign-top">
-<div class="cell quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="cell quarto-layout-cell" data-hash="02_concepts_pt1_ex1_solution_cache/revealjs/concepts-pt1-exercise-1-comp-path_c98a6979d9b5fe1d57a8a5392b255d70" style="flex-basis: 50.0%;justify-content: center;">
 <div class="sourceCode cell-code" id="cb8" data-code-line-numbers="3|5,6,7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="fu">ggplot</span>(</span>
 <span id="cb8-2"><a href="#cb8-2"></a>    <span class="fu">filter</span>(bikes, is_weekend <span class="sc">==</span> <span class="cn">TRUE</span>),</span>
 <span id="cb8-3"><a href="#cb8-3"></a>    <span class="fu">aes</span>(<span class="at">x =</span> temp_feel, <span class="at">y =</span> count)</span>
@@ -568,11 +567,11 @@
 <span id="cb8-6"><a href="#cb8-6"></a>    <span class="fu">aes</span>(<span class="at">color =</span> day_night)</span>
 <span id="cb8-7"><a href="#cb8-7"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img data-src="02_concepts_pt1_ex1_solution_files/figure-revealjs/concepts-pt1-exercise-1-comp-path-1.png" width="1500"></p>
+<p><img data-src="02_concepts_pt1_ex1_solution_files/figure-revealjs/concepts-pt1-exercise-1-comp-path-1.png" width="1000"></p>
 </div>
 </div>
 <div class="fragment quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<div class="cell">
+<div class="cell" data-hash="02_concepts_pt1_ex1_solution_cache/revealjs/concepts-pt1-exercise-1-comp-line_76652e2a4b6b348d619d375fd6618c59">
 <div class="sourceCode cell-code" id="cb9" data-code-line-numbers="5,6,7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="fu">ggplot</span>(</span>
 <span id="cb9-2"><a href="#cb9-2"></a>    <span class="fu">filter</span>(bikes, is_weekend <span class="sc">==</span> <span class="cn">TRUE</span>),</span>
 <span id="cb9-3"><a href="#cb9-3"></a>    <span class="fu">aes</span>(<span class="at">x =</span> temp_feel, <span class="at">y =</span> count)</span>
@@ -581,7 +580,7 @@
 <span id="cb9-6"><a href="#cb9-6"></a>    <span class="fu">aes</span>(<span class="at">color =</span> day_night)</span>
 <span id="cb9-7"><a href="#cb9-7"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img data-src="02_concepts_pt1_ex1_solution_files/figure-revealjs/concepts-pt1-exercise-1-comp-line-1.png" width="1500"></p>
+<p><img data-src="02_concepts_pt1_ex1_solution_files/figure-revealjs/concepts-pt1-exercise-1-comp-line-1.png" width="1000"></p>
 </div>
 </div>
 </div>
@@ -590,7 +589,7 @@
 </section>
 <section id="apply-a-theme" class="slide level2">
 <h2>Apply a Theme</h2>
-<div class="cell columns column-output-location">
+<div class="cell columns column-output-location" data-hash="02_concepts_pt1_ex1_solution_cache/revealjs/concepts-pt1-exercise-1-8_269311bc15b2e160a3c39feb56ad7136">
 <div class="column">
 <div class="sourceCode cell-code" id="cb10" data-code-line-numbers="1|1,14|14,15,16,17,18,19,20,21|15,16,17,18|19,20,21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>g <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(</span>
 <span id="cb10-2"><a href="#cb10-2"></a>    <span class="fu">filter</span>(bikes, is_weekend <span class="sc">==</span> <span class="cn">TRUE</span>),</span>
@@ -616,14 +615,14 @@
 <span id="cb10-22"><a href="#cb10-22"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
-<p><img data-src="02_concepts_pt1_ex1_solution_files/figure-revealjs/concepts-pt1-exercise-1-8-1.png" width="1500"></p>
+<p><img data-src="02_concepts_pt1_ex1_solution_files/figure-revealjs/concepts-pt1-exercise-1-8-1.png" width="1000"></p>
 </div>
 </div>
 </div>
 </section>
 <section id="add-meaningful-labels" class="slide level2">
 <h2>Add Meaningful Labels</h2>
-<div class="cell columns column-output-location">
+<div class="cell columns column-output-location" data-hash="02_concepts_pt1_ex1_solution_cache/revealjs/concepts-pt1-exercise-1-9_0b1c736801922e504dfef64123882567">
 <div class="column">
 <div class="sourceCode cell-code" id="cb11" data-code-line-numbers="2,3,4,5,6,7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a>g <span class="sc">+</span></span>
 <span id="cb11-2"><a href="#cb11-2"></a>  <span class="fu">labs</span>(</span>
@@ -641,14 +640,14 @@
 <span id="cb11-14"><a href="#cb11-14"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
-<p><img data-src="02_concepts_pt1_ex1_solution_files/figure-revealjs/concepts-pt1-exercise-1-9-1.png" width="1500"></p>
+<p><img data-src="02_concepts_pt1_ex1_solution_files/figure-revealjs/concepts-pt1-exercise-1-9-1.png" width="1000"></p>
 </div>
 </div>
 </div>
 </section>
 <section id="add-meaningful-labels-1" class="slide level2">
 <h2>Add Meaningful Labels</h2>
-<div class="cell columns column-output-location">
+<div class="cell columns column-output-location" data-hash="02_concepts_pt1_ex1_solution_cache/revealjs/concepts-pt1-exercise-1-10_a8f93e74a80d4a658a48eaf1532b2a13">
 <div class="column">
 <div class="sourceCode cell-code" id="cb12" data-code-line-numbers="6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>g <span class="sc">+</span></span>
 <span id="cb12-2"><a href="#cb12-2"></a>  <span class="fu">labs</span>(</span>
@@ -667,14 +666,14 @@
 <span id="cb12-15"><a href="#cb12-15"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
-<p><img data-src="02_concepts_pt1_ex1_solution_files/figure-revealjs/concepts-pt1-exercise-1-10-1.png" width="1500"></p>
+<p><img data-src="02_concepts_pt1_ex1_solution_files/figure-revealjs/concepts-pt1-exercise-1-10-1.png" width="1000"></p>
 </div>
 </div>
 </div>
 </section>
 <section id="add-meaningful-labels-2" class="slide level2">
 <h2>Add Meaningful Labels</h2>
-<div class="cell columns column-output-location">
+<div class="cell columns column-output-location" data-hash="02_concepts_pt1_ex1_solution_cache/revealjs/concepts-pt1-exercise-1-11_68d790b92d041343c0e773fd76e20def">
 <div class="column">
 <div class="sourceCode cell-code" id="cb13" data-code-line-numbers="5,6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a>g <span class="sc">+</span></span>
 <span id="cb13-2"><a href="#cb13-2"></a>  <span class="fu">labs</span>(</span>
@@ -693,14 +692,14 @@
 <span id="cb13-15"><a href="#cb13-15"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
-<p><img data-src="02_concepts_pt1_ex1_solution_files/figure-revealjs/concepts-pt1-exercise-1-11-1.png" width="1500"></p>
+<p><img data-src="02_concepts_pt1_ex1_solution_files/figure-revealjs/concepts-pt1-exercise-1-11-1.png" width="1000"></p>
 </div>
 </div>
 </div>
 </section>
 <section id="save-the-plot" class="slide level2">
 <h2>Save the Plot</h2>
-<div class="cell">
+<div class="cell" data-hash="02_concepts_pt1_ex1_solution_cache/revealjs/concepts-pt1-exercise-1-12_0aff7679c33fd99386776b05dcb4cb5a">
 <div class="sourceCode cell-code" id="cb14" data-code-line-numbers="1,2|1|2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="fu">ggsave</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"exercises"</span>, <span class="st">"plots"</span>, <span class="st">"02_concepts_pt1_ex1.pdf"</span>),</span>
 <span id="cb14-2"><a href="#cb14-2"></a>       <span class="at">width =</span> <span class="dv">9</span>, <span class="at">height =</span> <span class="dv">5</span>, <span class="at">device =</span> cairo_pdf)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -711,7 +710,7 @@
 </section>
 <section id="bonus-use-shape-to-encode-sat-vs-sun" class="slide level2">
 <h2>Bonus: Use Shape to Encode Sat vs Sun</h2>
-<div class="cell columns column-output-location">
+<div class="cell columns column-output-location" data-hash="02_concepts_pt1_ex1_solution_cache/revealjs/concepts-pt1-exercise-1-bonus_8c4dff159cce8a64a8e85f2da84c051f">
 <div class="column">
 <div class="sourceCode cell-code" id="cb15" data-code-line-numbers="11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="fu">ggplot</span>(</span>
 <span id="cb15-2"><a href="#cb15-2"></a>    <span class="fu">filter</span>(bikes, is_weekend <span class="sc">==</span> <span class="cn">TRUE</span>),</span>
@@ -741,14 +740,14 @@
 <span id="cb15-26"><a href="#cb15-26"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
-<p><img data-src="02_concepts_pt1_ex1_solution_files/figure-revealjs/concepts-pt1-exercise-1-bonus-1.png" width="1500"></p>
+<p><img data-src="02_concepts_pt1_ex1_solution_files/figure-revealjs/concepts-pt1-exercise-1-bonus-1.png" width="1000"></p>
 </div>
 </div>
 </div>
 </section>
 <section id="bonus-use-shape-to-encode-sat-vs-sun-1" class="slide level2">
 <h2>Bonus: Use Shape to Encode Sat vs Sun</h2>
-<div class="cell columns column-output-location">
+<div class="cell columns column-output-location" data-hash="02_concepts_pt1_ex1_solution_cache/revealjs/concepts-pt1-exercise-1-bonus-1_9db43ae8d827ac8fd617ab31ab9118e1">
 <div class="column">
 <div class="sourceCode cell-code" id="cb16" data-code-line-numbers="11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a><span class="fu">ggplot</span>(</span>
 <span id="cb16-2"><a href="#cb16-2"></a>    <span class="fu">filter</span>(bikes, is_weekend <span class="sc">==</span> <span class="cn">TRUE</span>),</span>
@@ -778,14 +777,14 @@
 <span id="cb16-26"><a href="#cb16-26"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
-<p><img data-src="02_concepts_pt1_ex1_solution_files/figure-revealjs/concepts-pt1-exercise-1-bonus-1-1.png" width="1500"></p>
+<p><img data-src="02_concepts_pt1_ex1_solution_files/figure-revealjs/concepts-pt1-exercise-1-bonus-1-1.png" width="1000"></p>
 </div>
 </div>
 </div>
 </section>
 <section id="bonus-use-shape-to-encode-sat-vs-sun-2" class="slide level2">
 <h2>Bonus: Use Shape to Encode Sat vs Sun</h2>
-<div class="cell columns column-output-location">
+<div class="cell columns column-output-location" data-hash="02_concepts_pt1_ex1_solution_cache/revealjs/concepts-pt1-exercise-1-bonus-2_1d814d9f9905824dd37935076c1bfc01">
 <div class="column">
 <div class="sourceCode cell-code" id="cb17" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a><span class="fu">invisible</span>(</span>
 <span id="cb17-2"><a href="#cb17-2"></a>  <span class="fu">Sys.setlocale</span>(<span class="st">"LC_TIME"</span>, <span class="st">"C"</span>)</span>
@@ -819,14 +818,14 @@
 <span id="cb17-30"><a href="#cb17-30"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
-<p><img data-src="02_concepts_pt1_ex1_solution_files/figure-revealjs/concepts-pt1-exercise-1-bonus-2-1.png" width="1500"></p>
+<p><img data-src="02_concepts_pt1_ex1_solution_files/figure-revealjs/concepts-pt1-exercise-1-bonus-2-1.png" width="1000"></p>
 </div>
 </div>
 </div>
 </section>
 <section id="save-the-plot-1" class="slide level2">
 <h2>Save the Plot</h2>
-<div class="cell">
+<div class="cell" data-hash="02_concepts_pt1_ex1_solution_cache/revealjs/concepts-pt1-exercise-1-bonus-save_0de9a9c0a66ecef3e9cc5039e025f7fe">
 <div class="sourceCode cell-code" id="cb18" data-code-line-numbers="1,2|1|2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a><span class="fu">ggsave</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"exercises"</span>, <span class="st">"plots"</span>, <span class="st">"02_concepts_pt1_ex1_bonus.pdf"</span>),</span>
 <span id="cb18-2"><a href="#cb18-2"></a>       <span class="at">width =</span> <span class="dv">9</span>, <span class="at">height =</span> <span class="dv">5</span>, <span class="at">device =</span> cairo_pdf)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -1096,24 +1095,6 @@
 
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
-      const toggleBodyColorMode = (bsSheetEl) => {
-        const mode = bsSheetEl.getAttribute("data-mode");
-        const bodyEl = window.document.querySelector("body");
-        if (mode === "dark") {
-          bodyEl.classList.add("quarto-dark");
-          bodyEl.classList.remove("quarto-light");
-        } else {
-          bodyEl.classList.add("quarto-light");
-          bodyEl.classList.remove("quarto-dark");
-        }
-      }
-      const toggleBodyColorPrimary = () => {
-        const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
-        if (bsSheetEl) {
-          toggleBodyColorMode(bsSheetEl);
-        }
-      }
-      toggleBodyColorPrimary();  
       const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
       tabsets.forEach(function(tabset) {
         const tabby = new Tabby('#' + tabset.id);

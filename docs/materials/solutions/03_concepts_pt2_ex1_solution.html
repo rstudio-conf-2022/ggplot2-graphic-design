@@ -5,9 +5,9 @@
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
+<link href="../../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.0.36">
+  <meta name="generator" content="quarto-0.9.566">
 
   <meta name="author" content="Cédric Scherer // rstudio::conf // July 2022">
   <title>Graphic Design with ggplot2</title>
@@ -380,14 +380,13 @@
     }
   </style>
 <meta name="twitter:title" content="Graphic Design with ggplot2">
-<meta name="twitter:description" content="Concepts of the {ggplot2} Package Pt. 2:Solution Exercise 1">
 <meta name="twitter:image" content="https://rstudio-conf-2022.github.io/ggplot2-graphic-design//images/twitter-card.png">
 <meta name="twitter:creator" content="@CedScherer">
 <meta name="twitter:image-height" content="622">
 <meta name="twitter:image-width" content="890">
 <meta name="twitter:card" content="summary_large_image">
 </head>
-<body class="quarto-light">
+<body>
   <div class="reveal">
     <div class="slides">
 
@@ -529,7 +528,7 @@
 </section>
 <section id="data-prep" class="slide level2">
 <h2>Data Prep</h2>
-<div class="cell">
+<div class="cell" data-hash="03_concepts_pt2_ex1_solution_cache/revealjs/import-data-astronauts_c6e6cb5c4b1315bb5e6f99920aaa632a">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-2"><a href="#cb1-2"></a></span>
 <span id="cb1-3"><a href="#cb1-3"></a>df_astro <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(</span>
@@ -552,7 +551,7 @@
 </section>
 <section id="code-pt.-1" class="slide level2">
 <h2>Code Pt. 1</h2>
-<div class="cell">
+<div class="cell" data-hash="03_concepts_pt2_ex1_solution_cache/revealjs/astronout-viz-blank_5aaeb16c99df1d3cffeeecb81f8c3785">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># install.packages("scico")</span></span>
 <span id="cb2-2"><a href="#cb2-2"></a></span>
 <span id="cb2-3"><a href="#cb2-3"></a>g1 <span class="ot">&lt;-</span></span>
@@ -587,7 +586,7 @@
 </section>
 <section id="data-prep-labels" class="slide level2">
 <h2>Data Prep Labels</h2>
-<div class="cell">
+<div class="cell" data-hash="03_concepts_pt2_ex1_solution_cache/revealjs/astronout-viz-label-dfs_78d95103994db618ace1424bbad45e58">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>df_labs <span class="ot">&lt;-</span></span>
 <span id="cb3-2"><a href="#cb3-2"></a>  df_missions <span class="sc">%&gt;%</span></span>
 <span id="cb3-3"><a href="#cb3-3"></a>  <span class="fu">filter</span>(year <span class="sc">%in%</span> <span class="sc">-</span><span class="fu">c</span>(<span class="dv">1961</span>, <span class="dv">197</span><span class="sc">:</span><span class="dv">201</span><span class="sc">*</span><span class="dv">10</span>, <span class="dv">2019</span>)) <span class="sc">%&gt;%</span></span>
@@ -607,7 +606,7 @@
 </section>
 <section id="code-pt.-2" class="slide level2">
 <h2>Code Pt. 2</h2>
-<div class="cell">
+<div class="cell" data-hash="03_concepts_pt2_ex1_solution_cache/revealjs/astronout-viz-labels_7619b095965ce4ba18d8f320504bb782">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>g2 <span class="ot">&lt;-</span></span>
 <span id="cb4-2"><a href="#cb4-2"></a>  g1 <span class="sc">+</span></span>
 <span id="cb4-3"><a href="#cb4-3"></a>    <span class="do">## labels years</span></span>
@@ -651,10 +650,10 @@
 <section class="slide level2">
 
 
-<img data-src="03_concepts_pt2_ex1_solution_files/figure-revealjs/astronout-viz-plot-1.png" width="4500" class="r-stretch quarto-figure-center"></section>
+<img data-src="03_concepts_pt2_ex1_solution_files/figure-revealjs/astronout-viz-plot-1.png" width="3000" class="r-stretch quarto-figure-center"></section>
 <section id="code-with-special-extensions" class="slide level2">
 <h2>Code with Special Extensions</h2>
-<div class="cell">
+<div class="cell" data-hash="03_concepts_pt2_ex1_solution_cache/revealjs/astronout-viz-extensions_2bb29ae757f62cfc0b2ef654381bd512">
 <div class="sourceCode cell-code" id="cb5" data-code-line-numbers="1,2,3,7,8,10,11,24,26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="co"># install.packages("ggforce")</span></span>
 <span id="cb5-2"><a href="#cb5-2"></a><span class="co"># install.packages("scico")</span></span>
 <span id="cb5-3"><a href="#cb5-3"></a><span class="co"># devtools::install_github("coolbutuseless/ggblur")</span></span>
@@ -714,7 +713,7 @@
 
 
 
-<img data-src="03_concepts_pt2_ex1_solution_files/figure-revealjs/astronout-viz-extensions-plot-1.png" width="4500" class="r-stretch quarto-figure-center"><div class="footer footer-default">
+<img data-src="03_concepts_pt2_ex1_solution_files/figure-revealjs/astronout-viz-extensions-plot-1.png" width="3000" class="r-stretch quarto-figure-center"><div class="footer footer-default">
 <p><strong><a href="https::/cedricscherer.com">Cédric Scherer</a> //</strong> rstudio::conf <strong>//</strong> July 2022</p>
 </div>
 </section>
@@ -975,24 +974,6 @@
 
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
-      const toggleBodyColorMode = (bsSheetEl) => {
-        const mode = bsSheetEl.getAttribute("data-mode");
-        const bodyEl = window.document.querySelector("body");
-        if (mode === "dark") {
-          bodyEl.classList.add("quarto-dark");
-          bodyEl.classList.remove("quarto-light");
-        } else {
-          bodyEl.classList.add("quarto-light");
-          bodyEl.classList.remove("quarto-dark");
-        }
-      }
-      const toggleBodyColorPrimary = () => {
-        const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
-        if (bsSheetEl) {
-          toggleBodyColorMode(bsSheetEl);
-        }
-      }
-      toggleBodyColorPrimary();  
       const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
       tabsets.forEach(function(tabset) {
         const tabby = new Tabby('#' + tabset.id);

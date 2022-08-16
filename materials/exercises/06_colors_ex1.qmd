@@ -6,20 +6,17 @@ format: html
 execute:
   message: false
   warning: false
-editor: visual
+editor: source
 ---
 
 # Exercise
 
- **Create a similar visualization at the one placed in `exercises/6-1-bikes-jitter` as close as possible:**
+**Create a similar visualization at the one placed in `exercises/6-1-bikes-jitter` as close as possible:**
 
 ![A sina plot combined with an errorbar Reported bike shares in London during day and night times, split by season, using TfL bike sharing data from 2015 to 2016."](exercises/6-1-bikes-jitter/jittered-errorbars.png)
 
-
 ```{r}
 #| label: preparation
-#| warnings: false
-#| messages: false
 library(tidyverse)
 library(colorspace)
 library(ggforce)
@@ -42,13 +39,13 @@ colors <- c("#987708", "#663399")
 
 ```
 
-  
-  
-  
-  
+Add your comments and more code here.
+
+
+<br><br><br>
+
 ```{r}
 #| label: i-am-done-what-now
 #| echo: false
 knitr::include_graphics("img/exercise-what-now-sd.png")
 ```
-

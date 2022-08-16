@@ -38,8 +38,10 @@ ggplot(penguins, aes(x = bill_length_mm, y = bill_depth_mm)) +
  geom_point()
 ```
 
-  
-  
+Add your comments and more code here.
+
+
+<br><br><br>
 ```{r i-am-done-what-now, echo=FALSE}
 knitr::include_graphics("img/exercise-what-now-sd.png")
 ```

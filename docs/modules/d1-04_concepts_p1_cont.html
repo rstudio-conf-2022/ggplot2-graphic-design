@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-0.9.566">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2022-07-25">
+
+<title>Graphic Design with ggplot2 - Concepts of the {ggplot2} Package Pt. 1:Data, Aesthetics, and Layers + Misc Stuff (Continued)</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+<meta name="twitter:title" content="Graphic Design with ggplot2 - Concepts of the {ggplot2} Package Pt. 1:Data, Aesthetics, and Layers + Misc Stuff (Continued)">
+<meta name="twitter:description" content="View slides in full screen | Run the code…">
+<meta name="twitter:image" content="https://rstudio-conf-2022.github.io/ggplot2-graphic-design//images/twitter-card.png">
+<meta name="twitter:creator" content="@CedScherer">
+<meta name="twitter:image-height" content="622">
+<meta name="twitter:image-width" content="890">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <a class="navbar-brand" href="../index.html">
+    <img src="../images/ggplot2.png" alt="">
+    <span class="navbar-title">Graphic Design with ggplot2</span>
+  </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html">Home</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../schedule.html">Schedule</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../license.html">License</a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-sessions" role="button" data-bs-toggle="dropdown" aria-expanded="false">Sessions</a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-sessions">    
+        <li>
+    <a class="dropdown-item" href="../modules/d1-01_introduction.html">
+ <span class="dropdown-text">Introduction</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../modules/d1-02_concepts_pt1.html">
+ <span class="dropdown-text">Concepts of ggplot2 Pt. 1</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../modules/d1-05_concepts_pt2.html">
+ <span class="dropdown-text">Concepts of ggplot2 Pt. 2</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../modules/d1-10_data_com.html">
+ <span class="dropdown-text">Data Communication</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../modules/d2-01_lab_ann.html">
+ <span class="dropdown-text">Working with Annotations &amp; Labels</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../modules/d2-03_colors.html">
+ <span class="dropdown-text">Working with Colors</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../modules/d2-05_layout.html">
+ <span class="dropdown-text">Working with Layouts &amp; Compostion</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../modules/d2-07_project.html">
+ <span class="dropdown-text">Group Project</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../course_fonts.zip">Fonts</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://github.com/rstudio-conf-2022/ggplot2-graphic-design">GitHub</a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#outline" id="toc-outline" class="nav-link active" data-scroll-target="#outline">Outline</a></li>
+  <li><a href="#recap" id="toc-recap" class="nav-link" data-scroll-target="#recap">Recap</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a>
+  <ul class="collapse">
+  <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1">Exercise 1</a></li>
+  <li><a href="#exercise-2" id="toc-exercise-2" class="nav-link" data-scroll-target="#exercise-2">Exercise 2</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/rstudio-conf-2022/ggplot2-graphic-design/edit/main/modules/d1-04_concepts_p1_cont.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/rstudio-conf-2022/ggplot2-graphic-design/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span>Concepts of the <code>{ggplot2}</code> Package Pt. 1:<br><span style="font-weight:500;">Data, Aesthetics, and Layers + Misc Stuff (Continued)</span></span></h1>
+<p class="subtitle lead">11:00 - 12:00</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Date</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">July 25, 2022</p>
+    </div>
+  </div>
+    
+  </div>
+  
+
+</header>
+
+<iframe class="slide-deck" src="../materials/02_concepts_pt1.html" height="420" width="747" style="border: 1px solid #2e3846;"></iframe>
+<p><a href="../materials/02_concepts_pt1.html">View slides in full screen</a> | <a href="../materials/scripts/02_concepts_pt1.R">Run the code yourself</a></p>
+<section id="outline" class="level1">
+<h1>Outline</h1>
+<ul>
+<li>The Grammar of {ggplot2}</li>
+<li>A Basic ggplot Example
+<ul>
+<li>The Data</li>
+<li>Aesthetic Mapping</li>
+<li><code>aes</code>thetics</li>
+</ul></li>
+<li>Geometrical Layers
+<ul>
+<li>Geometries</li>
+<li>Visual Properties of Layers</li>
+<li>Setting vs Mapping of Visual Properties</li>
+<li>Mapping Expressions</li>
+<li>Quick Exercise</li>
+<li>Mapping Expressions</li>
+<li>Mapping to Size</li>
+<li>Setting a Constant Property</li>
+<li>Filter Data</li>
+<li>Local vs.&nbsp;Global Encoding</li>
+<li>Adding More Layers</li>
+<li>Global Color Encoding</li>
+<li>Local Color Encoding</li>
+<li>The `group` Aesthetic</li>
+<li>Set Both as Global Aesthetics</li>
+<li>Overwrite Global Aesthetics</li>
+</ul></li>
+<li>Extending a ggplot
+<ul>
+<li>Store a ggplot as Object</li>
+<li>Inspect a ggplot Object</li>
+<li>Extend a ggplot Object: Add Layers</li>
+<li>Remove a Layer from the Legend</li>
+<li>Extend a ggplot Object: Add Labels</li>
+</ul></li>
+<li>A Polished ggplot Example
+<ul>
+<li>Extend a ggplot Object: Themes</li>
+<li>Set a Theme Globally</li>
+<li>Change the Theme Base Settings</li>
+<li>Overwrite Specific Theme Settings</li>
+<li>Save the Graphic</li>
+<li>How to Work with Aspect Ratios</li>
+<li>Setting Plot Sizes in Rmd’s</li>
+</ul></li>
+</ul>
+</section>
+<section id="recap" class="level1">
+<h1>Recap</h1>
+<div class="recap">
+<ul>
+<li><strong><code>{ggplot2}</code></strong> is a powerful library for reproducible graphic design</li>
+<li>the components follow a consistent syntax</li>
+<li>each ggplot needs at least <strong>data</strong>, some <strong>aesthetics</strong>, and a <strong>layer</strong></li>
+<li>we <strong>set</strong> constant propeties outside <code>aes()</code></li>
+<li>… and <strong>map</strong> data-related properties inside <code>aes()</code></li>
+<li>local settings and mappings override global properties</li>
+<li>grouping allows applying layers for subsets</li>
+<li>we can store a ggplot object and extend it afterwards</li>
+<li>we can change the appearance for all plots with <code>theme_set()</code> and <code>theme_update()</code></li>
+</ul>
+</div>
+</section>
+<section id="exercises" class="level1">
+<h1>Exercises</h1>
+<section id="exercise-1" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-1">Exercise 1</h2>
+<div class="question">
+<ul>
+<li>Open the script <a href="../materials/exercises/02_concepts_pt1_ex1.html"><code>exercises/02_concepts_pt1_ex1.qmd</code></a> (or the <code>.rmd</code>).</li>
+<li>Explore the TfL bike share data visually:<br><strong>create a timeseries of reported bike shares on weekend days</strong>
+<ul>
+<li>Highlight day and night encoded by colors and shapes.</li>
+<li>Connect the points of each period with lines.</li>
+<li>Question: What is the difference between <code>geom_line()</code> and <code>geom_path()</code>?</li>
+<li>Apply your favorite theme to the plot.</li>
+<li>Add meaningful labels.</li>
+</ul></li>
+<li>Save the plot as a vector graphic with a decent plot size.</li>
+</ul>
+</div>
+<p><strong>→ <a href="../materials/solutions/02_concepts_pt1_ex1_solution.html">Solution</a></strong></p>
+</section>
+<section id="exercise-2" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-2">Exercise 2</h2>
+<div class="question">
+<ul>
+<li>Open the script <a href="../materials/exercises/02_concepts_pt1_ex2.html"><code>exercises/02_concepts_pt1_ex2.qmd</code></a> (or the <code>.rmd</code>).</li>
+<li>Explore the TfL bike sharing data visually:<br><strong>create a boxplot of counts per weather type</strong>
+<ul>
+<li>Turn the plot into a jitter strips plot (random noise across the x axis)</li>
+<li>Combine both chart types (jittered points on top of the boxplots)</li>
+<li><span style="color:#5DB699;font-weight:bold;">Bonus: Sort the boxplot-jitter hybrid by median counts</span></li>
+<li>Apply your favorite theme to the plot.</li>
+<li>Add meaningful labels.</li>
+<li><span style="color:#5DB699;font-weight:bold;">Bonus: Explore other chart types to visualize the distributions.</span></li>
+</ul></li>
+<li>Save the plot as a vector graphic with a decent plot size.</li>
+</ul>
+</div>
+<p><strong>→ <a href="../materials/solutions/02_concepts_pt1_ex2_solution.html">Solution</a></strong></p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">This page is built with ❤️ and <a href="https://quarto.org/">Quarto</a>.</div>   
+    <div class="nav-footer-right">© Copyright 2022, Cédric Scherer and Marco Sciaini</div>
+  </div>
+</footer>
+
+
+
+</body></html>

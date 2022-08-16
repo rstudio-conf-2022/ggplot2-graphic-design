@@ -1,6 +1,0 @@
----
-title: "Group Project"
-subtitle: "15:30 - 17:00"
-date: "2022-07-26"
-image: "images/group.png"
----

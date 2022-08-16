@@ -5,8 +5,8 @@ author: "Your Name"
 format: html
 execute:
   message: false
-materials/exercises/02_concepts_pt1_ex1.qmd  warning: false
-editor: visual
+  warning: false
+editor: source
 ---
 
 # Exercise 1
@@ -24,8 +24,6 @@ editor: visual
 
 ```{r}
 #| label: preparation
-#| warnings: false
-#| messages: false
 library(tidyverse)
 
 bikes <- read_csv(
@@ -45,10 +43,10 @@ bikes
 
 ```
 
-  
-  
-  
-  
+Add your comments and more code here.
+
+
+<br><br><br>
 ```{r}
 #| label: i-am-done-what-now
 #| echo: false

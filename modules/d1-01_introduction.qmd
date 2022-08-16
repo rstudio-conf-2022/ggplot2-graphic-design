@@ -6,17 +6,19 @@ image: "images/session1.png"
 tbl-colwidths: [5,20,75]
 ---
 
-## Outline
-
--   Introduction
-    -   Advantages of {ggplot2}
--   The {ggplot2} Showcase
--   A Motivational Example
-
-## Slides
-
-[View slides in full screen](../materials/01_introduction.html)
-
 ```{=html}
 <iframe class="slide-deck" src="../materials/01_introduction.html" height="420" width="747" style="border: 1px solid #2e3846;"></iframe>
 ```
+
+[View slides in full screen](../materials/01_introduction.html)
+
+# Outline
+
+-   Welcome
+    -   Meet the Team
+    -   Meat Each Other
+    -   Announcements
+-   The {ggplot2} Package
+    -   Advantages of {ggplot2}
+    -   The {ggplot2} Showcase
+    -   A Motivational Example

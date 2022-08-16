@@ -25,7 +25,7 @@ knitr:
   opts_chunk:
     dev: "ragg_png"
     retina: 1
-    dpi: 300
+    dpi: 200
 execute:
   freeze: auto
   cache: true
@@ -417,14 +417,6 @@ ggplot(
     -   Turn the points into diamonds.
     -   [Bonus: What do you notice in the legend? How could you fix it?]{style="color:#5DB699;"}
 :::
-
-```{r}
-#| label: countdown-exercise-aes
-#| echo: false
-#| purl: false
-countdown::countdown(minutes = 5, font_size = ".5em")
-theme_set(theme_grey(base_size = 12, base_family = "Roboto Condensed"))
-```
 
 ## Mapping Expressions
 
@@ -1320,13 +1312,6 @@ dev.off()
 -   Save the plot as a vector graphic with a decent plot size.
 :::
 
-```{r}
-#| label: countdown-ex1
-#| echo: false
-#| purl: false
-countdown::countdown(minutes = 15, font_size = ".5em")
-```
-
 ##  {background-image="img/exercises/exercise-what-now.png" background-position="center" background-size="65%"}
 
 ## Exercise 2
@@ -1342,12 +1327,5 @@ countdown::countdown(minutes = 15, font_size = ".5em")
     -   [Bonus: Explore other chart types to visualize the distributions.]{style="color:#5DB699;"}
 -   Save the plot as a vector graphic with a decent plot size.
 :::
-
-```{r}
-#| label: countdown-ex2
-#| echo: false
-#| purl: false
-countdown::countdown(minutes = 25, font_size = ".5em")
-```
 
 ##  {background-image="img/exercises/exercise-what-now.png" background-position="center" background-size="65%"}

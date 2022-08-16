@@ -11,22 +11,20 @@ editor: visual
 
 # Exercise 2
 
-- Explore the TfL bike sharing data visually:  
-  **create a boxplot of counts per weather type**
-    * Turn the plot into a jitter strips plot (random noise across the x axis)
-    * Combine both chart types (jittered points on top of the boxplots)
-    * [Bonus: sort the boxplot-jitter hybrid by median counts]{style="color:#5DB699;"}
-    * Apply your favorite theme to the plot.
-    * Add meaningful labels.
-    * [Bonus: Explore other chart types to visualize the distributions.]{style="color:#5DB699;"}
-- Save the plot as a vector graphic with a decent plot size.
+-   Explore the TfL bike sharing data visually:\
+    **create a boxplot of counts per weather type**
+    -   Turn the plot into a jitter strips plot (random noise across the x axis)
+    -   Combine both chart types (jittered points on top of the boxplots)
+    -   [Bonus: sort the boxplot-jitter hybrid by median counts]{style="color:#5DB699;"}
+    -   Apply your favorite theme to the plot.
+    -   Add meaningful labels.
+    -   [Bonus: Explore other chart types to visualize the distributions.]{style="color:#5DB699;"}
+-   Save the plot as a vector graphic with a decent plot size.
 
 ## Data import
 
 ```{r}
 #| label: preparation
-#| warnings: false
-#| messages: false
 library(tidyverse)
 
 bikes <- read_csv(
@@ -46,13 +44,13 @@ bikes
 
 ```
 
-  
-  
-  
-  
+Add your comments and more code here.
+
+
+<br><br><br>
+
 ```{r}
 #| label: i-am-done-what-now
 #| echo: false
 knitr::include_graphics("img/exercise-what-now-sd.png")
 ```
-

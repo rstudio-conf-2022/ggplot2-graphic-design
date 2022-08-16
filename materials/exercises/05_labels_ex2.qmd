@@ -6,7 +6,7 @@ format: html
 execute:
   message: false
   warning: false
-editor: visual
+editor: source
 ---
 
 # Exercise 2
@@ -15,7 +15,6 @@ editor: visual
 
 ![A blue dot with a capital white R, similar to the Rstudio logo, with the Washington D.C. skyline used for the rstudio::conf webpage placed below.](exercises/5-2-logo/rstudio-conf-logo.png)
 
-
 ## Visualization
 
 ```{r}
@@ -23,13 +22,13 @@ editor: visual
 
 ```
 
-  
-  
-  
-  
+Add your comments and more code here.
+
+
+<br><br><br>
+
 ```{r}
 #| label: i-am-done-what-now
 #| echo: false
 knitr::include_graphics("img/exercise-what-now-sd.png")
 ```
-

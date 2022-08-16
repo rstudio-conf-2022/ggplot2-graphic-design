@@ -25,7 +25,7 @@ knitr:
   opts_chunk:
     dev: "ragg_png"
     retina: 1
-    dpi: 300
+    dpi: 200
 execute:
   freeze: auto
   cache: true

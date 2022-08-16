@@ -5,9 +5,9 @@
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
+<link href="../../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.0.36">
+  <meta name="generator" content="quarto-0.9.566">
 
   <meta name="author" content="Cédric Scherer // rstudio::conf // July 2022">
   <title>Graphic Design with ggplot2</title>
@@ -380,14 +380,13 @@
     }
   </style>
 <meta name="twitter:title" content="Graphic Design with ggplot2">
-<meta name="twitter:description" content="Concepts of the {ggplot2} Package Pt. 1:Solution Exercise 2">
 <meta name="twitter:image" content="https://rstudio-conf-2022.github.io/ggplot2-graphic-design//images/twitter-card.png">
 <meta name="twitter:creator" content="@CedScherer">
 <meta name="twitter:image-height" content="622">
 <meta name="twitter:image-width" content="890">
 <meta name="twitter:card" content="summary_large_image">
 </head>
-<body class="quarto-light">
+<body>
   <div class="reveal">
     <div class="slides">
 
@@ -416,7 +415,7 @@
 </section>
 <section id="import-data-if-not-yet" class="slide level2">
 <h2>Import Data (if not yet)</h2>
-<div class="cell">
+<div class="cell" data-hash="02_concepts_pt1_ex2_solution_cache/revealjs/import-data-exercise_266272d3bd574fac1aff2bf9c82d5120">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>bikes <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(</span>
 <span id="cb1-2"><a href="#cb1-2"></a>  here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"london-bikes-custom.csv"</span>),</span>
 <span id="cb1-3"><a href="#cb1-3"></a>  <span class="at">col_types =</span> <span class="st">"Dcfffilllddddc"</span></span>
@@ -429,7 +428,7 @@
 </section>
 <section id="boxplot-of-counts-vs.-weather-type" class="slide level2">
 <h2>Boxplot of Counts vs.&nbsp;Weather Type</h2>
-<div class="cell columns column-output-location">
+<div class="cell columns column-output-location" data-hash="02_concepts_pt1_ex2_solution_cache/revealjs/concepts-pt1-exercise-2-1_451b2da90c2a8b5307d5582c05b3b9cf">
 <div class="column">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">ggplot</span>(</span>
 <span id="cb2-2"><a href="#cb2-2"></a>    bikes,</span>
@@ -438,14 +437,14 @@
 <span id="cb2-5"><a href="#cb2-5"></a>  <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
-<p><img data-src="02_concepts_pt1_ex2_solution_files/figure-revealjs/concepts-pt1-exercise-2-1-1.png" width="1500"></p>
+<p><img data-src="02_concepts_pt1_ex2_solution_files/figure-revealjs/concepts-pt1-exercise-2-1-1.png" width="1000"></p>
 </div>
 </div>
 </div>
 </section>
 <section id="avoid-overlapping-axis-labels" class="slide level2">
 <h2>Avoid Overlapping Axis Labels</h2>
-<div class="cell columns column-output-location">
+<div class="cell columns column-output-location" data-hash="02_concepts_pt1_ex2_solution_cache/revealjs/concepts-pt1-exercise-2-2_97a572cafed16eefa0e525b6ccc9c74d">
 <div class="column">
 <div class="sourceCode cell-code" id="cb3" data-code-line-numbers="3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">ggplot</span>(</span>
 <span id="cb3-2"><a href="#cb3-2"></a>    bikes,</span>
@@ -454,14 +453,14 @@
 <span id="cb3-5"><a href="#cb3-5"></a>  <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
-<p><img data-src="02_concepts_pt1_ex2_solution_files/figure-revealjs/concepts-pt1-exercise-2-2-1.png" width="1500"></p>
+<p><img data-src="02_concepts_pt1_ex2_solution_files/figure-revealjs/concepts-pt1-exercise-2-2-1.png" width="1000"></p>
 </div>
 </div>
 </div>
 </section>
 <section id="avoid-overlapping-axis-labels-1" class="slide level2">
 <h2>Avoid Overlapping Axis Labels</h2>
-<div class="cell columns column-output-location">
+<div class="cell columns column-output-location" data-hash="02_concepts_pt1_ex2_solution_cache/revealjs/concepts-pt1-exercise-2-3_c7b13da2ed5e970ed87e197511654b99">
 <div class="column">
 <div class="sourceCode cell-code" id="cb4" data-code-line-numbers="3,4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="fu">ggplot</span>(</span>
 <span id="cb4-2"><a href="#cb4-2"></a>    bikes,</span>
@@ -471,14 +470,14 @@
 <span id="cb4-6"><a href="#cb4-6"></a>  <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
-<p><img data-src="02_concepts_pt1_ex2_solution_files/figure-revealjs/concepts-pt1-exercise-2-3-1.png" width="1500"></p>
+<p><img data-src="02_concepts_pt1_ex2_solution_files/figure-revealjs/concepts-pt1-exercise-2-3-1.png" width="1000"></p>
 </div>
 </div>
 </div>
 </section>
 <section id="apply-a-theme" class="slide level2">
 <h2>Apply a Theme</h2>
-<div class="cell columns column-output-location">
+<div class="cell columns column-output-location" data-hash="02_concepts_pt1_ex2_solution_cache/revealjs/concepts-pt1-exercise-2-4_9e942d34260d84e0d37429698c82e987">
 <div class="column">
 <div class="sourceCode cell-code" id="cb5" data-code-line-numbers="1,2,3,4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">theme_set</span>(<span class="fu">theme_minimal</span>(</span>
 <span id="cb5-2"><a href="#cb5-2"></a>  <span class="at">base_size =</span> <span class="dv">14</span>,</span>
@@ -493,14 +492,14 @@
 <span id="cb5-11"><a href="#cb5-11"></a>  <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
-<p><img data-src="02_concepts_pt1_ex2_solution_files/figure-revealjs/concepts-pt1-exercise-2-4-1.png" width="1500"></p>
+<p><img data-src="02_concepts_pt1_ex2_solution_files/figure-revealjs/concepts-pt1-exercise-2-4-1.png" width="1000"></p>
 </div>
 </div>
 </div>
 </section>
 <section id="customize-the-theme" class="slide level2">
 <h2>Customize the Theme</h2>
-<div class="cell columns column-output-location">
+<div class="cell columns column-output-location" data-hash="02_concepts_pt1_ex2_solution_cache/revealjs/concepts-pt1-exercise-2-5_6c9d4a9b83a682d98b693b3f7f0c831b">
 <div class="column">
 <div class="sourceCode cell-code" id="cb6" data-code-line-numbers="6,7,8,9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="fu">theme_set</span>(<span class="fu">theme_minimal</span>(</span>
 <span id="cb6-2"><a href="#cb6-2"></a>  <span class="at">base_size =</span> <span class="dv">14</span>,</span>
@@ -520,14 +519,14 @@
 <span id="cb6-16"><a href="#cb6-16"></a>  <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
-<p><img data-src="02_concepts_pt1_ex2_solution_files/figure-revealjs/concepts-pt1-exercise-2-5-1.png" width="1500"></p>
+<p><img data-src="02_concepts_pt1_ex2_solution_files/figure-revealjs/concepts-pt1-exercise-2-5-1.png" width="1000"></p>
 </div>
 </div>
 </div>
 </section>
 <section id="add-meaningful-labels" class="slide level2">
 <h2>Add Meaningful Labels</h2>
-<div class="cell columns column-output-location">
+<div class="cell columns column-output-location" data-hash="02_concepts_pt1_ex2_solution_cache/revealjs/concepts-pt1-exercise-2-6_2f745319edbd46cfe6d4a8945f6fefde">
 <div class="column">
 <div class="sourceCode cell-code" id="cb7" data-code-line-numbers="3,4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="fu">ggplot</span>(</span>
 <span id="cb7-2"><a href="#cb7-2"></a>    bikes,</span>
@@ -538,14 +537,14 @@
 <span id="cb7-7"><a href="#cb7-7"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="st">"Reported bike shares"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
-<p><img data-src="02_concepts_pt1_ex2_solution_files/figure-revealjs/concepts-pt1-exercise-2-6-1.png" width="1500"></p>
+<p><img data-src="02_concepts_pt1_ex2_solution_files/figure-revealjs/concepts-pt1-exercise-2-6-1.png" width="1000"></p>
 </div>
 </div>
 </div>
 </section>
 <section id="add-meaningful-labels-1" class="slide level2">
 <h2>Add Meaningful Labels</h2>
-<div class="cell columns column-output-location">
+<div class="cell columns column-output-location" data-hash="02_concepts_pt1_ex2_solution_cache/revealjs/concepts-pt1-exercise-2-7_7ff04dbc046f600e3c16062dc10da780">
 <div class="column">
 <div class="sourceCode cell-code" id="cb8" data-code-line-numbers="8,9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="fu">ggplot</span>(</span>
 <span id="cb8-2"><a href="#cb8-2"></a>    bikes,</span>
@@ -559,14 +558,14 @@
 <span id="cb8-10"><a href="#cb8-10"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
-<p><img data-src="02_concepts_pt1_ex2_solution_files/figure-revealjs/concepts-pt1-exercise-2-7-1.png" width="1500"></p>
+<p><img data-src="02_concepts_pt1_ex2_solution_files/figure-revealjs/concepts-pt1-exercise-2-7-1.png" width="1000"></p>
 </div>
 </div>
 </div>
 </section>
 <section id="add-meaningful-labels-2" class="slide level2">
 <h2>Add Meaningful Labels</h2>
-<div class="cell columns column-output-location">
+<div class="cell columns column-output-location" data-hash="02_concepts_pt1_ex2_solution_cache/revealjs/concepts-pt1-exercise-2-8_77dd4ae8d29249f3c426848fdcd0a2bd">
 <div class="column">
 <div class="sourceCode cell-code" id="cb9" data-code-line-numbers="1,2,3,4|2|3|12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="fu">theme_update</span>(</span>
 <span id="cb9-2"><a href="#cb9-2"></a>  <span class="at">plot.title.position =</span> <span class="st">"plot"</span>,</span>
@@ -582,14 +581,14 @@
 <span id="cb9-12"><a href="#cb9-12"></a>  <span class="fu">ggtitle</span>(<span class="st">"Reported bike shares by weather type"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
-<p><img data-src="02_concepts_pt1_ex2_solution_files/figure-revealjs/concepts-pt1-exercise-2-8-1.png" width="1500"></p>
+<p><img data-src="02_concepts_pt1_ex2_solution_files/figure-revealjs/concepts-pt1-exercise-2-8-1.png" width="1000"></p>
 </div>
 </div>
 </div>
 </section>
 <section id="jitter-strips-of-counts-per-weather-type" class="slide level2">
 <h2>Jitter Strips of Counts per Weather Type</h2>
-<div class="cell columns column-output-location">
+<div class="cell columns column-output-location" data-hash="02_concepts_pt1_ex2_solution_cache/revealjs/concepts-pt1-exercise-2-9_b6878055f85d9b70ac6f20a0b6e6d845">
 <div class="column">
 <div class="sourceCode cell-code" id="cb10" data-code-line-numbers="5,6,7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="fu">ggplot</span>(</span>
 <span id="cb10-2"><a href="#cb10-2"></a>    bikes,</span>
@@ -602,7 +601,7 @@
 <span id="cb10-9"><a href="#cb10-9"></a>  <span class="fu">ggtitle</span>(<span class="st">"Reported bike shares by weather type"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
-<p><img data-src="02_concepts_pt1_ex2_solution_files/figure-revealjs/concepts-pt1-exercise-2-9-1.png" width="1500"></p>
+<p><img data-src="02_concepts_pt1_ex2_solution_files/figure-revealjs/concepts-pt1-exercise-2-9-1.png" width="1000"></p>
 </div>
 </div>
 </div>
@@ -611,7 +610,7 @@
 <h2>Jitter Strips of Counts per Weather Type</h2>
 <div class="quarto-layout-panel">
 <div class="quarto-layout-row quarto-layout-valign-top">
-<div class="cell quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="cell quarto-layout-cell" data-hash="02_concepts_pt1_ex2_solution_cache/revealjs/concepts-pt1-exercise-2-10_2322a34071879a19d072b736dfa082a3" style="flex-basis: 50.0%;justify-content: center;">
 <div class="sourceCode cell-code" id="cb11" data-code-line-numbers="6,7,9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="fu">ggplot</span>(</span>
 <span id="cb11-2"><a href="#cb11-2"></a>    bikes,</span>
 <span id="cb11-3"><a href="#cb11-3"></a>    <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">str_wrap</span>(weather_type, <span class="dv">6</span>),</span>
@@ -622,10 +621,10 @@
 <span id="cb11-8"><a href="#cb11-8"></a>    <span class="at">alpha =</span> .<span class="dv">2</span></span>
 <span id="cb11-9"><a href="#cb11-9"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img data-src="02_concepts_pt1_ex2_solution_files/figure-revealjs/concepts-pt1-exercise-2-10-1.png" width="1500"></p>
+<p><img data-src="02_concepts_pt1_ex2_solution_files/figure-revealjs/concepts-pt1-exercise-2-10-1.png" width="1000"></p>
 </div>
 </div>
-<div class="cell quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="cell quarto-layout-cell" data-hash="02_concepts_pt1_ex2_solution_cache/revealjs/concepts-pt1-exercise-2-11_d2c748a195a12a760242b9ac5c8d7c5c" style="flex-basis: 50.0%;justify-content: center;">
 <div class="sourceCode cell-code" id="cb12" data-code-line-numbers="6,7,9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="fu">ggplot</span>(</span>
 <span id="cb12-2"><a href="#cb12-2"></a>    bikes,</span>
 <span id="cb12-3"><a href="#cb12-3"></a>    <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">str_wrap</span>(weather_type, <span class="dv">6</span>),</span>
@@ -636,7 +635,7 @@
 <span id="cb12-8"><a href="#cb12-8"></a>    <span class="at">alpha =</span> .<span class="dv">2</span></span>
 <span id="cb12-9"><a href="#cb12-9"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img data-src="02_concepts_pt1_ex2_solution_files/figure-revealjs/concepts-pt1-exercise-2-11-1.png" width="1500"></p>
+<p><img data-src="02_concepts_pt1_ex2_solution_files/figure-revealjs/concepts-pt1-exercise-2-11-1.png" width="1000"></p>
 </div>
 </div>
 </div>
@@ -644,7 +643,7 @@
 </section>
 <section id="jitter-strips-of-counts-vs.-weather-type" class="slide level2">
 <h2>Jitter Strips of Counts vs.&nbsp;Weather Type</h2>
-<div class="cell columns column-output-location">
+<div class="cell columns column-output-location" data-hash="02_concepts_pt1_ex2_solution_cache/revealjs/concepts-pt1-exercise-2-12_b93a27219ba5a54ff2d242043c832bd7">
 <div class="column">
 <div class="sourceCode cell-code" id="cb13" data-code-line-numbers="7,8,9,10,11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="fu">ggplot</span>(</span>
 <span id="cb13-2"><a href="#cb13-2"></a>    bikes,</span>
@@ -662,14 +661,14 @@
 <span id="cb13-14"><a href="#cb13-14"></a>  <span class="fu">ggtitle</span>(<span class="st">"Reported bike shares by weather type"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
-<p><img data-src="02_concepts_pt1_ex2_solution_files/figure-revealjs/concepts-pt1-exercise-2-12-1.png" width="1500"></p>
+<p><img data-src="02_concepts_pt1_ex2_solution_files/figure-revealjs/concepts-pt1-exercise-2-12-1.png" width="1000"></p>
 </div>
 </div>
 </div>
 </section>
 <section id="boxplot-jitter-strip-hybrid" class="slide level2">
 <h2>Boxplot + Jitter Strip Hybrid</h2>
-<div class="cell columns column-output-location">
+<div class="cell columns column-output-location" data-hash="02_concepts_pt1_ex2_solution_cache/revealjs/concepts-pt1-exercise-2-13_03fa9bea5e0e9d7d6c6104a51a134378">
 <div class="column">
 <div class="sourceCode cell-code" id="cb14" data-code-line-numbers="6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="fu">ggplot</span>(</span>
 <span id="cb14-2"><a href="#cb14-2"></a>    bikes,</span>
@@ -688,14 +687,14 @@
 <span id="cb14-15"><a href="#cb14-15"></a>  <span class="fu">ggtitle</span>(<span class="st">"Reported bike shares by weather type"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
-<p><img data-src="02_concepts_pt1_ex2_solution_files/figure-revealjs/concepts-pt1-exercise-2-13-1.png" width="1500"></p>
+<p><img data-src="02_concepts_pt1_ex2_solution_files/figure-revealjs/concepts-pt1-exercise-2-13-1.png" width="1000"></p>
 </div>
 </div>
 </div>
 </section>
 <section id="boxplot-jitter-strip-hybrid-1" class="slide level2">
 <h2>Boxplot + Jitter Strip Hybrid</h2>
-<div class="cell columns column-output-location">
+<div class="cell columns column-output-location" data-hash="02_concepts_pt1_ex2_solution_cache/revealjs/concepts-pt1-exercise-2-14_e333cc0b04c9edb4dea219bd31942903">
 <div class="column">
 <div class="sourceCode cell-code" id="cb15" data-code-line-numbers="7,8,9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="fu">ggplot</span>(</span>
 <span id="cb15-2"><a href="#cb15-2"></a>    bikes,</span>
@@ -718,14 +717,14 @@
 <span id="cb15-19"><a href="#cb15-19"></a>  <span class="fu">ggtitle</span>(<span class="st">"Reported bike shares by weather type"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
-<p><img data-src="02_concepts_pt1_ex2_solution_files/figure-revealjs/concepts-pt1-exercise-2-14-1.png" width="1500"></p>
+<p><img data-src="02_concepts_pt1_ex2_solution_files/figure-revealjs/concepts-pt1-exercise-2-14-1.png" width="1000"></p>
 </div>
 </div>
 </div>
 </section>
 <section id="bonus-sort-weather-types" class="slide level2">
 <h2>Bonus: Sort Weather Types</h2>
-<div class="cell columns column-output-location">
+<div class="cell columns column-output-location" data-hash="02_concepts_pt1_ex2_solution_cache/revealjs/concepts-pt1-exercise-2-15_de6a9d0a1c65be63019369937b167c08">
 <div class="column">
 <div class="sourceCode cell-code" id="cb16" data-code-line-numbers="4,5,6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a><span class="fu">ggplot</span>(</span>
 <span id="cb16-2"><a href="#cb16-2"></a>    bikes,</span>
@@ -751,14 +750,14 @@
 <span id="cb16-22"><a href="#cb16-22"></a>  <span class="fu">ggtitle</span>(<span class="st">"Reported bike shares by weather type"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
-<p><img data-src="02_concepts_pt1_ex2_solution_files/figure-revealjs/concepts-pt1-exercise-2-15-1.png" width="1500"></p>
+<p><img data-src="02_concepts_pt1_ex2_solution_files/figure-revealjs/concepts-pt1-exercise-2-15-1.png" width="1000"></p>
 </div>
 </div>
 </div>
 </section>
 <section id="save-the-plot" class="slide level2">
 <h2>Save the Plot</h2>
-<div class="cell">
+<div class="cell" data-hash="02_concepts_pt1_ex2_solution_cache/revealjs/concepts-pt1-exercise-2-16_3f0695db9f01a8d7e5c912a756b4d563">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a><span class="fu">ggsave</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"exercises"</span>, <span class="st">"plots"</span>, <span class="st">"02_concepts_pt1_ex2.pdf"</span>),</span>
 <span id="cb17-2"><a href="#cb17-2"></a>       <span class="at">width =</span> <span class="dv">5</span>, <span class="at">height =</span> <span class="fl">6.5</span>, <span class="at">device =</span> cairo_pdf)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -774,7 +773,7 @@
 </section>
 <section id="lets-update-our-data-set" class="slide level2">
 <h2>Let’s Update our Data Set</h2>
-<div class="cell">
+<div class="cell" data-hash="02_concepts_pt1_ex2_solution_cache/revealjs/sort-weather-type_24fb96afab3792e0182cb1761bc64cd2">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a>bikes <span class="ot">&lt;-</span></span>
 <span id="cb18-2"><a href="#cb18-2"></a>  bikes <span class="sc">%&gt;%</span></span>
 <span id="cb18-3"><a href="#cb18-3"></a>  <span class="fu">mutate</span>(</span>
@@ -795,7 +794,7 @@
 </section>
 <section id="lets-store-our-ggplot-setup" class="slide level2">
 <h2>Let’s Store Our ggplot Setup</h2>
-<div class="cell">
+<div class="cell" data-hash="02_concepts_pt1_ex2_solution_cache/revealjs/store-basic-setup_618f737c6adf47fd2eb60848499b74d4">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a>g <span class="ot">&lt;-</span></span>
 <span id="cb20-2"><a href="#cb20-2"></a>  <span class="fu">ggplot</span>(</span>
 <span id="cb20-3"><a href="#cb20-3"></a>    bikes,</span>
@@ -809,7 +808,7 @@
 </section>
 <section id="beeswarm-plots-with-ggbeeswarm" class="slide level2">
 <h2>Beeswarm Plots with {ggbeeswarm}</h2>
-<div class="cell columns column-output-location">
+<div class="cell columns column-output-location" data-hash="02_concepts_pt1_ex2_solution_cache/revealjs/boxplot-beeswarm-hybrid_a00e911d0eab44a1476f4bc944e1bf03">
 <div class="column">
 <div class="sourceCode cell-code" id="cb21" data-code-line-numbers="5,6,7,8,9|5|6,7,8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a>g <span class="sc">+</span></span>
 <span id="cb21-2"><a href="#cb21-2"></a>  <span class="fu">geom_boxplot</span>(</span>
@@ -822,14 +821,14 @@
 <span id="cb21-9"><a href="#cb21-9"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
-<p><img data-src="02_concepts_pt1_ex2_solution_files/figure-revealjs/boxplot-beeswarm-hybrid-1.png" width="1500"></p>
+<p><img data-src="02_concepts_pt1_ex2_solution_files/figure-revealjs/boxplot-beeswarm-hybrid-1.png" width="1000"></p>
 </div>
 </div>
 </div>
 </section>
 <section id="beeswarm-plots-with-ggbeeswarm-1" class="slide level2">
 <h2>Beeswarm Plots with {ggbeeswarm}</h2>
-<div class="cell columns column-output-location">
+<div class="cell columns column-output-location" data-hash="02_concepts_pt1_ex2_solution_cache/revealjs/boxplot-beeswarm-hybrid-quasirandom_34983e8041250276f802ae7e0b94f6fe">
 <div class="column">
 <div class="sourceCode cell-code" id="cb22" data-code-line-numbers="5,6,7,8,9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a>g <span class="sc">+</span></span>
 <span id="cb22-2"><a href="#cb22-2"></a>  <span class="fu">geom_boxplot</span>(</span>
@@ -843,14 +842,14 @@
 <span id="cb22-10"><a href="#cb22-10"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
-<p><img data-src="02_concepts_pt1_ex2_solution_files/figure-revealjs/boxplot-beeswarm-hybrid-quasirandom-1.png" width="1500"></p>
+<p><img data-src="02_concepts_pt1_ex2_solution_files/figure-revealjs/boxplot-beeswarm-hybrid-quasirandom-1.png" width="1000"></p>
 </div>
 </div>
 </div>
 </section>
 <section id="sina-plots-with-ggforce" class="slide level2">
 <h2>Sina Plots with {ggforce}</h2>
-<div class="cell columns column-output-location">
+<div class="cell columns column-output-location" data-hash="02_concepts_pt1_ex2_solution_cache/revealjs/boxplot-sina-hybrid_68eee8fffa3b8a58ad06f8915e8587cc">
 <div class="column">
 <div class="sourceCode cell-code" id="cb23" data-code-line-numbers="5,6,7,8,9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a>g <span class="sc">+</span></span>
 <span id="cb23-2"><a href="#cb23-2"></a>  <span class="fu">geom_boxplot</span>(</span>
@@ -863,14 +862,14 @@
 <span id="cb23-9"><a href="#cb23-9"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
-<p><img data-src="02_concepts_pt1_ex2_solution_files/figure-revealjs/boxplot-sina-hybrid-1.png" width="1500"></p>
+<p><img data-src="02_concepts_pt1_ex2_solution_files/figure-revealjs/boxplot-sina-hybrid-1.png" width="1000"></p>
 </div>
 </div>
 </div>
 </section>
 <section id="barcode-strips" class="slide level2">
 <h2>Barcode Strips</h2>
-<div class="cell columns column-output-location">
+<div class="cell columns column-output-location" data-hash="02_concepts_pt1_ex2_solution_cache/revealjs/boxplot-barcode-hybrid_da7c5dafca0b0f28342c6da5894c8514">
 <div class="column">
 <div class="sourceCode cell-code" id="cb24" data-code-line-numbers="6,7|6,7,8|6,7,8,9|6,7,8,9,10|3,|10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a>g <span class="sc">+</span></span>
 <span id="cb24-2"><a href="#cb24-2"></a>  <span class="fu">geom_boxplot</span>(</span>
@@ -885,27 +884,27 @@
 <span id="cb24-11"><a href="#cb24-11"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
-<p><img data-src="02_concepts_pt1_ex2_solution_files/figure-revealjs/boxplot-barcode-hybrid-1.png" width="1500"></p>
+<p><img data-src="02_concepts_pt1_ex2_solution_files/figure-revealjs/boxplot-barcode-hybrid-1.png" width="1000"></p>
 </div>
 </div>
 </div>
 </section>
 <section id="violin-plots" class="slide level2">
 <h2>Violin Plots</h2>
-<div class="cell columns column-output-location">
+<div class="cell columns column-output-location" data-hash="02_concepts_pt1_ex2_solution_cache/revealjs/violin-ggplot_dc4944ad8c88513510aeff9dabbd87fc">
 <div class="column">
 <div class="sourceCode cell-code" id="cb25" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a>g <span class="sc">+</span></span>
 <span id="cb25-2"><a href="#cb25-2"></a>  <span class="fu">geom_violin</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
-<p><img data-src="02_concepts_pt1_ex2_solution_files/figure-revealjs/violin-ggplot-1.png" width="1500"></p>
+<p><img data-src="02_concepts_pt1_ex2_solution_files/figure-revealjs/violin-ggplot-1.png" width="1000"></p>
 </div>
 </div>
 </div>
 </section>
 <section id="violin-plots-1" class="slide level2">
 <h2>Violin Plots</h2>
-<div class="cell columns column-output-location">
+<div class="cell columns column-output-location" data-hash="02_concepts_pt1_ex2_solution_cache/revealjs/violin-ggplot-custom_8d5f4f45b1a8c17deb37082e0b8bbe0a">
 <div class="column">
 <div class="sourceCode cell-code" id="cb26" data-code-line-numbers="3,4,5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a>g <span class="sc">+</span></span>
 <span id="cb26-2"><a href="#cb26-2"></a>  <span class="fu">geom_violin</span>(</span>
@@ -915,14 +914,14 @@
 <span id="cb26-6"><a href="#cb26-6"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
-<p><img data-src="02_concepts_pt1_ex2_solution_files/figure-revealjs/violin-ggplot-custom-1.png" width="1500"></p>
+<p><img data-src="02_concepts_pt1_ex2_solution_files/figure-revealjs/violin-ggplot-custom-1.png" width="1000"></p>
 </div>
 </div>
 </div>
 </section>
 <section id="violin-plots-2" class="slide level2">
 <h2>Violin Plots</h2>
-<div class="cell columns column-output-location">
+<div class="cell columns column-output-location" data-hash="02_concepts_pt1_ex2_solution_cache/revealjs/violin-ggplot-custom-2_09359639b2f0d711df6583abffc421a9">
 <div class="column">
 <div class="sourceCode cell-code" id="cb27" data-code-line-numbers="3,4,5,6,7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a>g <span class="sc">+</span></span>
 <span id="cb27-2"><a href="#cb27-2"></a>  <span class="fu">geom_violin</span>(</span>
@@ -934,27 +933,27 @@
 <span id="cb27-8"><a href="#cb27-8"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
-<p><img data-src="02_concepts_pt1_ex2_solution_files/figure-revealjs/violin-ggplot-custom-2-1.png" width="1500"></p>
+<p><img data-src="02_concepts_pt1_ex2_solution_files/figure-revealjs/violin-ggplot-custom-2-1.png" width="1000"></p>
 </div>
 </div>
 </div>
 </section>
 <section id="violin-plots-with-ggdist" class="slide level2">
 <h2>Violin Plots with {ggdist}</h2>
-<div class="cell columns column-output-location">
+<div class="cell columns column-output-location" data-hash="02_concepts_pt1_ex2_solution_cache/revealjs/violin-ggdist_db434f920ef6b6e9ceba271896f7b01e">
 <div class="column">
 <div class="sourceCode cell-code" id="cb28" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a>g <span class="sc">+</span></span>
 <span id="cb28-2"><a href="#cb28-2"></a>  ggdist<span class="sc">::</span><span class="fu">stat_eye</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
-<p><img data-src="02_concepts_pt1_ex2_solution_files/figure-revealjs/violin-ggdist-1.png" width="1500"></p>
+<p><img data-src="02_concepts_pt1_ex2_solution_files/figure-revealjs/violin-ggdist-1.png" width="1000"></p>
 </div>
 </div>
 </div>
 </section>
 <section id="violin-plots-with-ggdist-1" class="slide level2">
 <h2>Violin Plots with {ggdist}</h2>
-<div class="cell columns column-output-location">
+<div class="cell columns column-output-location" data-hash="02_concepts_pt1_ex2_solution_cache/revealjs/violin-ggdist-custom-1_c8c5edb4042ee58ed95eb7d89de4ef5d">
 <div class="column">
 <div class="sourceCode cell-code" id="cb29" data-code-line-numbers="3,4,5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a>g <span class="sc">+</span></span>
 <span id="cb29-2"><a href="#cb29-2"></a>  ggdist<span class="sc">::</span><span class="fu">stat_eye</span>(</span>
@@ -964,14 +963,14 @@
 <span id="cb29-6"><a href="#cb29-6"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
-<p><img data-src="02_concepts_pt1_ex2_solution_files/figure-revealjs/violin-ggdist-custom-1-1.png" width="1500"></p>
+<p><img data-src="02_concepts_pt1_ex2_solution_files/figure-revealjs/violin-ggdist-custom-1-1.png" width="1000"></p>
 </div>
 </div>
 </div>
 </section>
 <section id="violin-plots-with-ggdist-2" class="slide level2">
 <h2>Violin Plots with {ggdist}</h2>
-<div class="cell columns column-output-location">
+<div class="cell columns column-output-location" data-hash="02_concepts_pt1_ex2_solution_cache/revealjs/violin-ggdist-custom-2_14dbab5abdd8ae715403257e98f7c412">
 <div class="column">
 <div class="sourceCode cell-code" id="cb30" data-code-line-numbers="3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1"></a>g <span class="sc">+</span></span>
 <span id="cb30-2"><a href="#cb30-2"></a>  ggdist<span class="sc">::</span><span class="fu">stat_eye</span>(</span>
@@ -981,14 +980,14 @@
 <span id="cb30-6"><a href="#cb30-6"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
-<p><img data-src="02_concepts_pt1_ex2_solution_files/figure-revealjs/violin-ggdist-custom-2-1.png" width="1500"></p>
+<p><img data-src="02_concepts_pt1_ex2_solution_files/figure-revealjs/violin-ggdist-custom-2-1.png" width="1000"></p>
 </div>
 </div>
 </div>
 </section>
 <section id="violin-plots-with-ggdist-3" class="slide level2">
 <h2>Violin Plots with {ggdist}</h2>
-<div class="cell columns column-output-location">
+<div class="cell columns column-output-location" data-hash="02_concepts_pt1_ex2_solution_cache/revealjs/violin-ggdist-custom-3_65dae901598fb16c1b41495590fc6d29">
 <div class="column">
 <div class="sourceCode cell-code" id="cb31" data-code-line-numbers="6,7,8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a>g <span class="sc">+</span></span>
 <span id="cb31-2"><a href="#cb31-2"></a>  ggdist<span class="sc">::</span><span class="fu">stat_eye</span>(</span>
@@ -1001,14 +1000,14 @@
 <span id="cb31-9"><a href="#cb31-9"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
-<p><img data-src="02_concepts_pt1_ex2_solution_files/figure-revealjs/violin-ggdist-custom-3-1.png" width="1500"></p>
+<p><img data-src="02_concepts_pt1_ex2_solution_files/figure-revealjs/violin-ggdist-custom-3-1.png" width="1000"></p>
 </div>
 </div>
 </div>
 </section>
 <section id="raincloud-plots-with-ggdist" class="slide level2">
 <h2>Raincloud Plots with {ggdist}</h2>
-<div class="cell columns column-output-location">
+<div class="cell columns column-output-location" data-hash="02_concepts_pt1_ex2_solution_cache/revealjs/raincloud-ggdist-rain_fb6959b02911cf133af8fbe4aee3c742">
 <div class="column">
 <div class="sourceCode cell-code" id="cb32" data-code-line-numbers="2,6,7,8,9,10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1"></a>g <span class="sc">+</span></span>
 <span id="cb32-2"><a href="#cb32-2"></a>  ggdist<span class="sc">::</span><span class="fu">stat_halfeye</span>(</span>
@@ -1024,14 +1023,14 @@
 <span id="cb32-12"><a href="#cb32-12"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
-<p><img data-src="02_concepts_pt1_ex2_solution_files/figure-revealjs/raincloud-ggdist-rain-1.png" width="1500"></p>
+<p><img data-src="02_concepts_pt1_ex2_solution_files/figure-revealjs/raincloud-ggdist-rain-1.png" width="1000"></p>
 </div>
 </div>
 </div>
 </section>
 <section id="raincloud-plots-with-ggdist-1" class="slide level2">
 <h2>Raincloud Plots with {ggdist}</h2>
-<div class="cell columns column-output-location">
+<div class="cell columns column-output-location" data-hash="02_concepts_pt1_ex2_solution_cache/revealjs/raincloud-ggdist-boxplot_0823c05961f268412b6b54801b46a609">
 <div class="column">
 <div class="sourceCode cell-code" id="cb33" data-code-line-numbers="7,8,9,10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a>g <span class="sc">+</span></span>
 <span id="cb33-2"><a href="#cb33-2"></a>  ggdist<span class="sc">::</span><span class="fu">stat_halfeye</span>(</span>
@@ -1051,14 +1050,14 @@
 <span id="cb33-16"><a href="#cb33-16"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
-<p><img data-src="02_concepts_pt1_ex2_solution_files/figure-revealjs/raincloud-ggdist-boxplot-1.png" width="1500"></p>
+<p><img data-src="02_concepts_pt1_ex2_solution_files/figure-revealjs/raincloud-ggdist-boxplot-1.png" width="1000"></p>
 </div>
 </div>
 </div>
 </section>
 <section id="raincloud-plots-with-gghalves" class="slide level2">
 <h2>Raincloud Plots with {gghalves}</h2>
-<div class="cell columns column-output-location">
+<div class="cell columns column-output-location" data-hash="02_concepts_pt1_ex2_solution_cache/revealjs/raincloud-ggdist-rain-gghalves_ec5398d8992564111e94ff57b6652f8c">
 <div class="column">
 <div class="sourceCode cell-code" id="cb34" data-code-line-numbers="12,13,14,15,16,17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1"></a>g <span class="sc">+</span></span>
 <span id="cb34-2"><a href="#cb34-2"></a>  ggdist<span class="sc">::</span><span class="fu">stat_halfeye</span>(</span>
@@ -1079,14 +1078,14 @@
 <span id="cb34-17"><a href="#cb34-17"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
-<p><img data-src="02_concepts_pt1_ex2_solution_files/figure-revealjs/raincloud-ggdist-rain-gghalves-1.png" width="1500"></p>
+<p><img data-src="02_concepts_pt1_ex2_solution_files/figure-revealjs/raincloud-ggdist-rain-gghalves-1.png" width="1000"></p>
 </div>
 </div>
 </div>
 </section>
 <section id="raincloud-plots-with-gghalves-1" class="slide level2">
 <h2>Raincloud Plots with {gghalves}</h2>
-<div class="cell columns column-output-location">
+<div class="cell columns column-output-location" data-hash="02_concepts_pt1_ex2_solution_cache/revealjs/raincloud-ggdist-rain-gghalves-flipped_22b537d22e1e1a74d1d8bb2c313b9503">
 <div class="column">
 <div class="sourceCode cell-code" id="cb35" data-code-line-numbers="18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a>g <span class="sc">+</span></span>
 <span id="cb35-2"><a href="#cb35-2"></a>  ggdist<span class="sc">::</span><span class="fu">stat_halfeye</span>(</span>
@@ -1108,7 +1107,7 @@
 <span id="cb35-18"><a href="#cb35-18"></a>  <span class="fu">coord_flip</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
-<p><img data-src="02_concepts_pt1_ex2_solution_files/figure-revealjs/raincloud-ggdist-rain-gghalves-flipped-1.png" width="1500"></p>
+<p><img data-src="02_concepts_pt1_ex2_solution_files/figure-revealjs/raincloud-ggdist-rain-gghalves-flipped-1.png" width="1000"></p>
 </div>
 </div>
 </div>
@@ -1374,24 +1373,6 @@
 
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
-      const toggleBodyColorMode = (bsSheetEl) => {
-        const mode = bsSheetEl.getAttribute("data-mode");
-        const bodyEl = window.document.querySelector("body");
-        if (mode === "dark") {
-          bodyEl.classList.add("quarto-dark");
-          bodyEl.classList.remove("quarto-light");
-        } else {
-          bodyEl.classList.add("quarto-light");
-          bodyEl.classList.remove("quarto-dark");
-        }
-      }
-      const toggleBodyColorPrimary = () => {
-        const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
-        if (bsSheetEl) {
-          toggleBodyColorMode(bsSheetEl);
-        }
-      }
-      toggleBodyColorPrimary();  
       const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
       tabsets.forEach(function(tabset) {
         const tabby = new Tabby('#' + tabset.id);

@@ -25,7 +25,7 @@ knitr:
   opts_chunk:
     dev: "ragg_png"
     retina: 1
-    dpi: 300
+    dpi: 200
 execute:
   freeze: auto
   cache: true
@@ -576,7 +576,7 @@ g +
   )
 ```
 
-## Handling Long Labels
+## Handling Long Titles
 
 ```{r}
 #| label: ggtext-textbox-default
@@ -591,7 +591,7 @@ g +
   )
 ```
 
-## Handling Long Labels
+## Handling Long Titles
 
 ```{r}
 #| label: ggtext-textbox-margin
@@ -608,7 +608,7 @@ g +
   )
 ```
 
-## Handling Long Labels
+## Handling Long Titles
 
 ```{r}
 #| label: ggtext-textbox-box
@@ -626,7 +626,7 @@ g +
   )
 ```
 
-## Handling Long Labels
+## Handling Long Titles
 
 ```{r}
 #| label: ggtext-textbox-box-styled
@@ -1422,20 +1422,13 @@ ggplot(
   )
 ```
 
-```{r}
-#| label: countdown-ex-1
-#| echo: false
-#| purl: false
-countdown::countdown(minutes = 20, font_size = ".5em")
-```
-
 
 ##  {background-image="img/exercises/exercise-what-now.png" background-position="center" background-size="65%"}
 
 ## Exercise 2
 
 ::: question
--   **Create this logo with the image file `exercises/rstudioconf-washington-bg.png`:**
+-   **Create this logo with the image file `exercises/img/rstudioconf-washington-bg.png` for the skyline:**
 :::
 
 ```{r}
@@ -1469,13 +1462,6 @@ ggplot(mapping = aes(x = 0, y = 0)) +
       fill = "#fffdf9", color = "#fffdf9"
     )
   )
-```
-
-```{r}
-#| label: countdown-ex-2
-#| echo: false
-#| purl: false
-countdown::countdown(minutes = 10, font_size = ".5em")
 ```
 
 

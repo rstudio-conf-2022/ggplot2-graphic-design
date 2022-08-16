@@ -1,12 +1,18 @@
 ---
-title: "<span>Concepts of the <code>{ggplot2}</code> Package Pt. 1:<br><span style='font-weight:500;'>Data, Aesthetics, and Layers + <span class='circle-highlight'>Misc Stuff</span></span></span>"
+title: "<span>Concepts of the <code>{ggplot2}</code> Package Pt. 1:<br><span style='font-weight:500;'>Data, Aesthetics, and Layers + Misc Stuff</span></span>"
 subtitle: "09:30 - 10:30"
 date: "2022-07-25"
 image: "images/session2.png"
 tbl-colwidths: [5,20,75]
 ---
 
-## Outline
+```{=html}
+<iframe class="slide-deck" src="../materials/02_concepts_pt1.html" height="420" width="747" style="border: 1px solid #2e3846;"></iframe>
+```
+
+[View slides in full screen](../materials/02_concepts_pt1.html)&ensp;|&ensp;[Run the code yourself](../materials/scripts/02_concepts_pt1.R)
+
+# Outline
 
 -   The Grammar of {ggplot2}
 -   A Basic ggplot Example
@@ -45,18 +51,10 @@ tbl-colwidths: [5,20,75]
     -   How to Work with Aspect Ratios
     -   Setting Plot Sizes in Rmd's
 
-## Slides
-
-[View slides in full screen](../materials/02_concepts_pt1.html)
-
-```{=html}
-<iframe class="slide-deck" src="../materials/02_concepts_pt1.html" height="420" width="747" style="border: 1px solid #2e3846;"></iframe>
-```
-
 # Recap
 
 ::: recap
--   `{ggplot2}` is a powerful library for reproducible graphic design
+-   **`{ggplot2}`** is a powerful library for reproducible graphic design
 -   the components follow a consistent syntax
 -   each ggplot needs at least **data**, some **aesthetics**, and a **layer**
 -   we **set** constant propeties outside `aes()`
@@ -67,31 +65,35 @@ tbl-colwidths: [5,20,75]
 -   we can change the appearance for all plots with `theme_set()` and `theme_update()`
 :::
 
-## Exercises
+# Exercises
 
-### Exercise 1
+## Exercise 1
 
 ::: question
--   Open the script `exercises/02_concepts_pt1_ex1.qmd`.
+-   Open the script [`exercises/02_concepts_pt1_ex1.qmd`](../materials/exercises/02_concepts_pt1_ex1.qmd) (or the `.rmd`).
 -   Explore the TfL bike share data visually:<br>**create a timeseries of reported bike shares on weekend days**
     -   Highlight day and night encoded by colors and shapes.
     -   Connect the points of each period with lines.
-        -   What is the difference between `geom_line()` and `geom_path()`?
+    -   Question: What is the difference between `geom_line()` and `geom_path()`?
     -   Apply your favorite theme to the plot.
     -   Add meaningful labels.
 -   Save the plot as a vector graphic with a decent plot size.
 :::
 
-### Exercise 2
+**&rarr;&ensp;[Solution](../materials/solutions/02_concepts_pt1_ex1_solution.qmd)**
+
+## Exercise 2
 
 ::: question
--   Open the script `exercises/02_concepts_pt1_ex2.qmd`.
+-   Open the script [`exercises/02_concepts_pt1_ex2.qmd`](../materials/exercises/02_concepts_pt1_ex2.qmd) (or the `.rmd`).
 -   Explore the TfL bike sharing data visually:<br>**create a boxplot of counts per weather type**
     -   Turn the plot into a jitter strips plot (random noise across the x axis)
     -   Combine both chart types (jittered points on top of the boxplots)
-    -   [Bonus: Sort the boxplot-jitter hybrid by median counts]{style="color:#5DB699;"}
+    -   [Bonus: Sort the boxplot-jitter hybrid by median counts]{style="color:#5DB699;font-weight:bold;"}
     -   Apply your favorite theme to the plot.
     -   Add meaningful labels.
-    -   [Bonus: Explore other chart types to visualize the distributions.]{style="color:#5DB699;"}
+    -   [Bonus: Explore other chart types to visualize the distributions.]{style="color:#5DB699;font-weight:bold;"}
 -   Save the plot as a vector graphic with a decent plot size.
 :::
+
+**&rarr;&ensp;[Solution](../materials/solutions/02_concepts_pt1_ex2_solution.qmd)**

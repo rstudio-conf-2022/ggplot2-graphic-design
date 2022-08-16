@@ -5,9 +5,9 @@
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
+<link href="../../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.0.36">
+  <meta name="generator" content="quarto-0.9.566">
 
   <meta name="author" content="Cédric Scherer // rstudio::conf // July 2022">
   <title>Graphic Design with ggplot2</title>
@@ -380,14 +380,13 @@
     }
   </style>
 <meta name="twitter:title" content="Graphic Design with ggplot2">
-<meta name="twitter:description" content="Working with Labels and Annotations:Solution Exercise 1">
 <meta name="twitter:image" content="https://rstudio-conf-2022.github.io/ggplot2-graphic-design//images/twitter-card.png">
 <meta name="twitter:creator" content="@CedScherer">
 <meta name="twitter:image-height" content="622">
 <meta name="twitter:image-width" content="890">
 <meta name="twitter:card" content="summary_large_image">
 </head>
-<body class="quarto-light">
+<body>
   <div class="reveal">
     <div class="slides">
 
@@ -414,16 +413,16 @@
 <section class="slide level2">
 
 
-<img data-src="05_annotations_ex1_solution_files/figure-revealjs/exercise-text-styling-1.png" width="1800" class="r-stretch quarto-figure-center"></section>
+<img data-src="05_annotations_ex1_solution_files/figure-revealjs/exercise-text-styling-1.png" width="1200" class="r-stretch quarto-figure-center"></section>
 <section id="the-data-set" class="slide level2">
 <h2>The Data Set</h2>
-<div class="cell">
+<div class="cell" data-hash="05_annotations_ex1_solution_cache/revealjs/prep_e0dbc1db4f6d2ec4dc7dda6d56dda339">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># install.packages("palmerpenguins")</span></span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="fu">library</span>(palmerpenguins)</span>
 <span id="cb1-3"><a href="#cb1-3"></a></span>
 <span id="cb1-4"><a href="#cb1-4"></a>penguins</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 344 × 8
+<pre><code># A tibble: 344 x 8
    species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
    &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;
  1 Adelie  Torgersen           39.1          18.7               181        3750
@@ -436,13 +435,13 @@
  8 Adelie  Torgersen           39.2          19.6               195        4675
  9 Adelie  Torgersen           34.1          18.1               193        3475
 10 Adelie  Torgersen           42            20.2               190        4250
-# … with 334 more rows, and 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;</code></pre>
+# ... with 334 more rows, and 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;</code></pre>
 </div>
 </div>
 </section>
 <section id="create-a-labeled-bubble-chart" class="slide level2">
 <h2>Create a Labeled Bubble Chart</h2>
-<div class="cell">
+<div class="cell" data-hash="05_annotations_ex1_solution_cache/revealjs/annotations-exercise-1-1_91ac6d994034d50c56f42d47e52aeb88">
 <div class="sourceCode cell-code" id="cb3" data-code-line-numbers="1,2,3,4,5,6|7,8,9,10,11,12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">ggplot</span>(</span>
 <span id="cb3-2"><a href="#cb3-2"></a>    penguins,</span>
 <span id="cb3-3"><a href="#cb3-3"></a>    <span class="fu">aes</span>(<span class="at">x =</span> bill_length_mm, <span class="at">y =</span> bill_depth_mm,</span>
@@ -460,10 +459,10 @@
 <section id="a-labelled-bubble-plot" class="slide level2">
 <h2>A Labelled Bubble Plot</h2>
 
-<img data-src="05_annotations_ex1_solution_files/figure-revealjs/annotations-exercise-1-1-1.png" width="1800" class="r-stretch"></section>
+<img data-src="05_annotations_ex1_solution_files/figure-revealjs/annotations-exercise-1-1-1.png" width="1200" class="r-stretch"></section>
 <section id="add-a-custom-theme" class="slide level2">
 <h2>Add a Custom Theme</h2>
-<div class="cell">
+<div class="cell" data-hash="05_annotations_ex1_solution_cache/revealjs/annotations-exercise-1-2_6780d7de1ed46c8a49314b83f3ac60bc">
 <div class="sourceCode cell-code" id="cb4" data-code-line-numbers="13,14,15,16,17|13|14,15,16,17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="fu">ggplot</span>(</span>
 <span id="cb4-2"><a href="#cb4-2"></a>    penguins,</span>
 <span id="cb4-3"><a href="#cb4-3"></a>    <span class="fu">aes</span>(<span class="at">x =</span> bill_length_mm, <span class="at">y =</span> bill_depth_mm,</span>
@@ -487,10 +486,10 @@
 <section id="add-a-custom-theme-1" class="slide level2">
 <h2>Add a Custom Theme</h2>
 
-<img data-src="05_annotations_ex1_solution_files/figure-revealjs/annotations-exercise-1-2-1.png" width="1800" class="r-stretch"></section>
+<img data-src="05_annotations_ex1_solution_files/figure-revealjs/annotations-exercise-1-2-1.png" width="1200" class="r-stretch"></section>
 <section id="add-an-outline" class="slide level2">
 <h2>Add an Outline</h2>
-<div class="cell">
+<div class="cell" data-hash="05_annotations_ex1_solution_cache/revealjs/annotations-exercise-1-3_fa31c2f6b35dbbdfacf3f9e299c2e3d3">
 <div class="sourceCode cell-code" id="cb5" data-code-line-numbers="8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>p1 <span class="ot">&lt;-</span></span>
 <span id="cb5-2"><a href="#cb5-2"></a>  <span class="fu">ggplot</span>(</span>
 <span id="cb5-3"><a href="#cb5-3"></a>    penguins,</span>
@@ -518,10 +517,10 @@
 <section id="add-an-outline-1" class="slide level2">
 <h2>Add an Outline</h2>
 
-<img data-src="05_annotations_ex1_solution_files/figure-revealjs/annotations-exercise-1-3-1.png" width="1800" class="r-stretch"></section>
+<img data-src="05_annotations_ex1_solution_files/figure-revealjs/annotations-exercise-1-3-1.png" width="1200" class="r-stretch"></section>
 <section id="style-color-legend" class="slide level2">
 <h2>Style Color Legend</h2>
-<div class="cell">
+<div class="cell" data-hash="05_annotations_ex1_solution_cache/revealjs/annotations-exercise-1-4_0e4f6fca604691bd85249ac085bf5f66">
 <div class="sourceCode cell-code" id="cb6" data-code-line-numbers="2,3,4,5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>p1 <span class="sc">+</span></span>
 <span id="cb6-2"><a href="#cb6-2"></a>  <span class="fu">scale_color_manual</span>(</span>
 <span id="cb6-3"><a href="#cb6-3"></a>    <span class="at">name =</span> <span class="st">"Species:"</span>,</span>
@@ -532,10 +531,10 @@
 <section id="style-color-legend-1" class="slide level2">
 <h2>Style Color Legend</h2>
 
-<img data-src="05_annotations_ex1_solution_files/figure-revealjs/annotations-exercise-1-4-1.png" width="1800" class="r-stretch"></section>
+<img data-src="05_annotations_ex1_solution_files/figure-revealjs/annotations-exercise-1-4-1.png" width="1200" class="r-stretch"></section>
 <section id="style-size-legend" class="slide level2">
 <h2>Style Size Legend</h2>
-<div class="cell">
+<div class="cell" data-hash="05_annotations_ex1_solution_cache/revealjs/annotations-exercise-1-5_d96a8d0a1349cc378b811ae0a7677940">
 <div class="sourceCode cell-code" id="cb7" data-code-line-numbers="13,14,15,16,17,18|13,17|16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>p2 <span class="ot">&lt;-</span> p1 <span class="sc">+</span></span>
 <span id="cb7-2"><a href="#cb7-2"></a>  <span class="fu">scale_color_manual</span>(</span>
 <span id="cb7-3"><a href="#cb7-3"></a>    <span class="at">name =</span> <span class="st">"Species:"</span>,</span>
@@ -554,10 +553,10 @@
 <section id="style-size-legend-1" class="slide level2">
 <h2>Style Size Legend</h2>
 
-<img data-src="05_annotations_ex1_solution_files/figure-revealjs/annotations-exercise-1-5-1.png" width="1800" class="r-stretch"></section>
+<img data-src="05_annotations_ex1_solution_files/figure-revealjs/annotations-exercise-1-5-1.png" width="1200" class="r-stretch"></section>
 <section id="adjust-axes" class="slide level2">
 <h2>Adjust Axes</h2>
-<div class="cell">
+<div class="cell" data-hash="05_annotations_ex1_solution_cache/revealjs/annotations-exercise-1-6_d5f6968b934ca0a595afe13fcc28c44b">
 <div class="sourceCode cell-code" id="cb8" data-code-line-numbers="2,3,4,5,6,7,8,9,10,11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>p2 <span class="sc">+</span></span>
 <span id="cb8-2"><a href="#cb8-2"></a>  <span class="fu">scale_x_continuous</span>(</span>
 <span id="cb8-3"><a href="#cb8-3"></a>    <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">30</span>, <span class="dv">60</span>),</span>
@@ -574,10 +573,10 @@
 <section id="adjust-axes-1" class="slide level2">
 <h2>Adjust Axes</h2>
 
-<img data-src="05_annotations_ex1_solution_files/figure-revealjs/annotations-exercise-1-6-1.png" width="1800" class="r-stretch"></section>
+<img data-src="05_annotations_ex1_solution_files/figure-revealjs/annotations-exercise-1-6-1.png" width="1200" class="r-stretch"></section>
 <section id="adjust-axes-2" class="slide level2">
 <h2>Adjust Axes</h2>
-<div class="cell">
+<div class="cell" data-hash="05_annotations_ex1_solution_cache/revealjs/annotations-exercise-1-7_46a66431d58af6746dd2364b76ba877f">
 <div class="sourceCode cell-code" id="cb9" data-code-line-numbers="2,3,4,5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a>p3 <span class="ot">&lt;-</span> p2 <span class="sc">+</span></span>
 <span id="cb9-2"><a href="#cb9-2"></a>  <span class="fu">coord_cartesian</span>(</span>
 <span id="cb9-3"><a href="#cb9-3"></a>    <span class="at">expand =</span> <span class="cn">FALSE</span>,</span>
@@ -598,10 +597,10 @@
 <section id="adjust-axes-3" class="slide level2">
 <h2>Adjust Axes</h2>
 
-<img data-src="05_annotations_ex1_solution_files/figure-revealjs/annotations-exercise-1-7-1.png" width="1800" class="r-stretch"></section>
+<img data-src="05_annotations_ex1_solution_files/figure-revealjs/annotations-exercise-1-7-1.png" width="1200" class="r-stretch"></section>
 <section id="fixed-coordinate-system" class="slide level2">
 <h2>Fixed Coordinate System?</h2>
-<div class="cell">
+<div class="cell" data-hash="05_annotations_ex1_solution_cache/revealjs/annotations-exercise-1-7-fixed_c3487d9fc287b6b30ac18ed24dc57064">
 <div class="sourceCode cell-code" id="cb10" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>p2 <span class="sc">+</span></span>
 <span id="cb10-2"><a href="#cb10-2"></a>  <span class="fu">coord_fixed</span>(</span>
 <span id="cb10-3"><a href="#cb10-3"></a>    <span class="at">expand =</span> <span class="cn">FALSE</span>,</span>
@@ -620,10 +619,10 @@
 <section id="fixed-coordinate-system-1" class="slide level2">
 <h2>Fixed Coordinate System?</h2>
 
-<img data-src="05_annotations_ex1_solution_files/figure-revealjs/annotations-exercise-1-7-fixed-1.png" width="1800" class="r-stretch"></section>
+<img data-src="05_annotations_ex1_solution_files/figure-revealjs/annotations-exercise-1-7-fixed-1.png" width="1200" class="r-stretch"></section>
 <section id="format-labels-with-ggtext" class="slide level2">
 <h2>Format Labels with {ggtext}</h2>
-<div class="cell">
+<div class="cell" data-hash="05_annotations_ex1_solution_cache/revealjs/annotations-exercise-1-8_fbfa78eef9d46999dc5fac0e86c83b08">
 <div class="sourceCode cell-code" id="cb11" data-code-line-numbers="3,4,5,6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a>p3 <span class="sc">+</span></span>
 <span id="cb11-2"><a href="#cb11-2"></a>  <span class="fu">labs</span>(</span>
 <span id="cb11-3"><a href="#cb11-3"></a>    <span class="at">x =</span> <span class="st">"Bill length *(mm)*"</span>,</span>
@@ -636,10 +635,10 @@
 <section id="format-labels-with-ggtext-1" class="slide level2">
 <h2>Format Labels with {ggtext}</h2>
 
-<img data-src="05_annotations_ex1_solution_files/figure-revealjs/annotations-exercise-1-8-1.png" width="1800" class="r-stretch"></section>
+<img data-src="05_annotations_ex1_solution_files/figure-revealjs/annotations-exercise-1-8-1.png" width="1200" class="r-stretch"></section>
 <section id="format-labels-with-ggtext-2" class="slide level2">
 <h2>Format Labels with {ggtext}</h2>
-<div class="cell">
+<div class="cell" data-hash="05_annotations_ex1_solution_cache/revealjs/annotations-exercise-1-9_97ec98ef4e4053f765049ffc51ad2a9d">
 <div class="sourceCode cell-code" id="cb12" data-code-line-numbers="1,11,13,14,16,17,18|12,15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="fu">library</span>(ggtext)</span>
 <span id="cb12-2"><a href="#cb12-2"></a></span>
 <span id="cb12-3"><a href="#cb12-3"></a>p4 <span class="ot">&lt;-</span> p3 <span class="sc">+</span></span>
@@ -666,10 +665,10 @@
 <section id="format-labels-with-ggtext-3" class="slide level2">
 <h2>Format Labels with {ggtext}</h2>
 
-<img data-src="05_annotations_ex1_solution_files/figure-revealjs/annotations-exercise-1-9-1.png" width="1800" class="r-stretch"></section>
+<img data-src="05_annotations_ex1_solution_files/figure-revealjs/annotations-exercise-1-9-1.png" width="1200" class="r-stretch"></section>
 <section id="style-other-theme-elements" class="slide level2">
 <h2>Style Other Theme Elements</h2>
-<div class="cell">
+<div class="cell" data-hash="05_annotations_ex1_solution_cache/revealjs/annotations-exercise-1-10_c7284d6a3b710a99b6a6147e361dbe0a">
 <div class="sourceCode cell-code" id="cb13" data-code-line-numbers="2,3,4,5,6,7|3|4|5,6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a>p5 <span class="ot">&lt;-</span> p4 <span class="sc">+</span></span>
 <span id="cb13-2"><a href="#cb13-2"></a>  <span class="fu">theme</span>(</span>
 <span id="cb13-3"><a href="#cb13-3"></a>    <span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"Tabular"</span>),</span>
@@ -684,10 +683,10 @@
 <section id="style-other-theme-elements-1" class="slide level2">
 <h2>Style Other Theme Elements</h2>
 
-<img data-src="05_annotations_ex1_solution_files/figure-revealjs/annotations-exercise-1-10-1.png" width="1800" class="r-stretch"></section>
+<img data-src="05_annotations_ex1_solution_files/figure-revealjs/annotations-exercise-1-10-1.png" width="1200" class="r-stretch"></section>
 <section id="create-the-summary-data" class="slide level2">
 <h2>Create the Summary Data</h2>
-<div class="cell">
+<div class="cell" data-hash="05_annotations_ex1_solution_cache/revealjs/summary-data_a023c4facb848cdb0323dd698029e3c9">
 <div class="sourceCode cell-code" id="cb14" data-code-line-numbers="1,2,3,4,5,6,7,8,9,10,11,12,13|3|4,5|5,6|7,8,9,10,11,12,13|8|9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb14-2"><a href="#cb14-2"></a></span>
 <span id="cb14-3"><a href="#cb14-3"></a>penguins_labs <span class="ot">&lt;-</span></span>
@@ -704,18 +703,18 @@
 <span id="cb14-14"><a href="#cb14-14"></a></span>
 <span id="cb14-15"><a href="#cb14-15"></a>penguins_labs</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 3 × 4
+<pre><code># A tibble: 3 x 4
   species   bill_length_mm bill_depth_mm species_lab                            
   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt; &lt;chr&gt;                                  
-1 Adelie              38.8          18.3 &lt;b style='font-size:15pt;'&gt;*P. adéliae…
-2 Chinstrap           48.8          18.4 &lt;b style='font-size:15pt;'&gt;*P. antarct…
-3 Gentoo              47.5          15.0 &lt;b style='font-size:15pt;'&gt;*P. papua*&lt;…</code></pre>
+1 Adelie              38.8          18.3 &lt;b style='font-size:15pt;'&gt;*P. adéliae~
+2 Chinstrap           48.8          18.4 &lt;b style='font-size:15pt;'&gt;*P. antarct~
+3 Gentoo              47.5          15.0 &lt;b style='font-size:15pt;'&gt;*P. papua*&lt;~</code></pre>
 </div>
 </div>
 </section>
 <section id="add-species-annotations" class="slide level2">
 <h2>Add Species Annotations</h2>
-<div class="cell">
+<div class="cell" data-hash="05_annotations_ex1_solution_cache/revealjs/annotations-exercise-1-11_6cb8a6e74f4b9a4fafae075e83b0ce18">
 <div class="sourceCode cell-code" id="cb16" data-code-line-numbers="2,3,4,5,6|3|4,5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a>p5 <span class="sc">+</span></span>
 <span id="cb16-2"><a href="#cb16-2"></a>  <span class="fu">geom_richtext</span>(</span>
 <span id="cb16-3"><a href="#cb16-3"></a>    <span class="at">data =</span> penguins_labs,</span>
@@ -727,10 +726,10 @@
 <section id="add-species-annotations-1" class="slide level2">
 <h2>Add Species Annotations</h2>
 
-<img data-src="05_annotations_ex1_solution_files/figure-revealjs/annotations-exercise-1-11-1.png" width="1800" class="r-stretch"></section>
+<img data-src="05_annotations_ex1_solution_files/figure-revealjs/annotations-exercise-1-11-1.png" width="1200" class="r-stretch"></section>
 <section id="style-species-annotations" class="slide level2">
 <h2>Style Species Annotations</h2>
-<div class="cell">
+<div class="cell" data-hash="05_annotations_ex1_solution_cache/revealjs/annotations-exercise-1-12_81acbd6916a8e6dba91680c0a9df0fcd">
 <div class="sourceCode cell-code" id="cb17" data-code-line-numbers="6,7,8,9|6,7|8|9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a>p5 <span class="sc">+</span></span>
 <span id="cb17-2"><a href="#cb17-2"></a>  <span class="fu">geom_richtext</span>(</span>
 <span id="cb17-3"><a href="#cb17-3"></a>    <span class="at">data =</span> penguins_labs,</span>
@@ -746,10 +745,10 @@
 <section id="style-species-annotations-1" class="slide level2">
 <h2>Style Species Annotations</h2>
 
-<img data-src="05_annotations_ex1_solution_files/figure-revealjs/annotations-exercise-1-12-1.png" width="1800" class="r-stretch"></section>
+<img data-src="05_annotations_ex1_solution_files/figure-revealjs/annotations-exercise-1-12-1.png" width="1200" class="r-stretch"></section>
 <section id="style-species-annotations-2" class="slide level2">
 <h2>Style Species Annotations</h2>
-<div class="cell">
+<div class="cell" data-hash="05_annotations_ex1_solution_cache/revealjs/annotations-exercise-1-13_4f04a483b1ebc3b06f21cacfe505605b">
 <div class="sourceCode cell-code" id="cb18" data-code-line-numbers="5,6|6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a>p5 <span class="sc">+</span></span>
 <span id="cb18-2"><a href="#cb18-2"></a>  <span class="fu">geom_richtext</span>(</span>
 <span id="cb18-3"><a href="#cb18-3"></a>    <span class="at">data =</span> penguins_labs,</span>
@@ -766,10 +765,10 @@
 <section id="style-species-annotations-3" class="slide level2">
 <h2>Style Species Annotations</h2>
 
-<img data-src="05_annotations_ex1_solution_files/figure-revealjs/annotations-exercise-1-13-1.png" width="1800" class="r-stretch"></section>
+<img data-src="05_annotations_ex1_solution_files/figure-revealjs/annotations-exercise-1-13-1.png" width="1200" class="r-stretch"></section>
 <section id="and-remove-color-legend" class="slide level2">
 <h2>… and Remove Color Legend</h2>
-<div class="cell">
+<div class="cell" data-hash="05_annotations_ex1_solution_cache/revealjs/annotations-exercise-1-14_1abea2ec00354d282b1535596c0dfbdc">
 <div class="sourceCode cell-code" id="cb19" data-code-line-numbers="13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a>p5 <span class="sc">+</span></span>
 <span id="cb19-2"><a href="#cb19-2"></a>  <span class="fu">geom_richtext</span>(</span>
 <span id="cb19-3"><a href="#cb19-3"></a>    <span class="at">data =</span> penguins_labs,</span>
@@ -790,10 +789,10 @@
 <section id="and-remove-color-legend-1" class="slide level2">
 <h2>… and Remove Color Legend</h2>
 
-<img data-src="05_annotations_ex1_solution_files/figure-revealjs/annotations-exercise-1-14-1.png" width="1800" class="r-stretch"></section>
+<img data-src="05_annotations_ex1_solution_files/figure-revealjs/annotations-exercise-1-14-1.png" width="1200" class="r-stretch"></section>
 <section id="full-code" class="slide level2">
 <h2>Full Code</h2>
-<div class="cell">
+<div class="cell" data-hash="05_annotations_ex1_solution_cache/revealjs/annotations-exercise-full-code_aacd60f4315ee29b5f6ea44514c11b4f">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb20-2"><a href="#cb20-2"></a><span class="fu">library</span>(palmerpenguins)</span>
 <span id="cb20-3"><a href="#cb20-3"></a><span class="fu">library</span>(ggtext)</span>
@@ -1139,24 +1138,6 @@
 
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
-      const toggleBodyColorMode = (bsSheetEl) => {
-        const mode = bsSheetEl.getAttribute("data-mode");
-        const bodyEl = window.document.querySelector("body");
-        if (mode === "dark") {
-          bodyEl.classList.add("quarto-dark");
-          bodyEl.classList.remove("quarto-light");
-        } else {
-          bodyEl.classList.add("quarto-light");
-          bodyEl.classList.remove("quarto-dark");
-        }
-      }
-      const toggleBodyColorPrimary = () => {
-        const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
-        if (bsSheetEl) {
-          toggleBodyColorMode(bsSheetEl);
-        }
-      }
-      toggleBodyColorPrimary();  
       const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
       tabsets.forEach(function(tabset) {
         const tabby = new Tabby('#' + tabset.id);

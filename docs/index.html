@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.0.36">
+<meta name="generator" content="quarto-0.9.566">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -32,7 +32,7 @@ ul.task-list{list-style: none;}
 <link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -55,7 +55,7 @@ ul.task-list{list-style: none;}
 
 
 <meta name="twitter:title" content="Graphic Design with ggplot2 - Graphic Design with ggplot2">
-<meta name="twitter:description" content="Dr.&nbsp;Cédric Scherer (he/him) is a graduated computational ecologist with a passion for design.">
+<meta name="twitter:description" content="An rstudio::conf(2022) Workshop by Cédric…">
 <meta name="twitter:image" content="https://rstudio-conf-2022.github.io/ggplot2-graphic-design//images/twitter-card.png">
 <meta name="twitter:creator" content="@CedScherer">
 <meta name="twitter:image-height" content="622">
@@ -90,43 +90,39 @@ ul.task-list{list-style: none;}
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-solutions" role="button" data-bs-toggle="dropdown" aria-expanded="false">Solutions</a>
-    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-solutions">    
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-sessions" role="button" data-bs-toggle="dropdown" aria-expanded="false">Sessions</a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-sessions">    
         <li>
-    <a class="dropdown-item" href="./materials/solutions/02_concepts_pt1_ex1_solution.html">
- <span class="dropdown-text">02_concepts_pt1_ex1_solution</span></a>
+    <a class="dropdown-item" href="./modules/d1-01_introduction.html">
+ <span class="dropdown-text">Introduction</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./materials/solutions/02_concepts_pt1_ex2_solution.html">
- <span class="dropdown-text">02_concepts_pt1_ex2_solution</span></a>
+    <a class="dropdown-item" href="./modules/d1-02_concepts_pt1.html">
+ <span class="dropdown-text">Concepts of ggplot2 Pt. 1</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./materials/solutions/03_concepts_pt2_ex1_solution.html">
- <span class="dropdown-text">03_concepts_pt2_ex1_solution</span></a>
+    <a class="dropdown-item" href="./modules/d1-05_concepts_pt2.html">
+ <span class="dropdown-text">Concepts of ggplot2 Pt. 2</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./materials/solutions/03_concepts_pt2_ex2_solution.html">
- <span class="dropdown-text">03_concepts_pt2_ex2_solution</span></a>
+    <a class="dropdown-item" href="./modules/d1-10_data_com.html">
+ <span class="dropdown-text">Data Communication</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./materials/solutions/04_data_communication_ex1_solution.pdf">
- <span class="dropdown-text">04_data_communication_ex1_solution</span></a>
+    <a class="dropdown-item" href="./modules/d2-01_lab_ann.html">
+ <span class="dropdown-text">Working with Annotations &amp; Labels</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./materials/solutions/05_annotations_ex1_solution.html">
- <span class="dropdown-text">05_annotations_ex1_solution</span></a>
+    <a class="dropdown-item" href="./modules/d2-03_colors.html">
+ <span class="dropdown-text">Working with Colors</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./materials/solutions/05_annotations_ex2_solution.html">
- <span class="dropdown-text">05_annotations_ex2_solution</span></a>
+    <a class="dropdown-item" href="./modules/d2-05_layout.html">
+ <span class="dropdown-text">Working with Layouts &amp; Compostion</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./materials/solutions/06_colors_ex1_solution.html">
- <span class="dropdown-text">06_colors_ex1_solution</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./materials/solutions/08_group_projects_solutions.html">
- <span class="dropdown-text">08_group_projects_solutions</span></a>
+    <a class="dropdown-item" href="./modules/d2-07_project.html">
+ <span class="dropdown-text">Group Project</span></a>
   </li>  
     </ul>
   </li>
@@ -135,9 +131,6 @@ ul.task-list{list-style: none;}
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="https://github.com/rstudio-conf-2022/ggplot2-graphic-design">GitHub</a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="https://rstudio.cloud/spaces/235465">RStudio Cloud+</a>
   </li>  
 </ul>
               <div id="quarto-search" class="" title="Search"></div>
@@ -154,20 +147,18 @@ ul.task-list{list-style: none;}
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#graphic-design-with-ggplot2-how-to-create-engaging-and-complex-visualizations-in-r" id="toc-graphic-design-with-ggplot2-how-to-create-engaging-and-complex-visualizations-in-r" class="nav-link active" data-scroll-target="#graphic-design-with-ggplot2-how-to-create-engaging-and-complex-visualizations-in-r">Graphic Design with ggplot2: How to Create Engaging and Complex Visualizations in R</a>
+  <li><a href="#how-to-create-engaging-and-complex-visualizations-in-r" id="toc-how-to-create-engaging-and-complex-visualizations-in-r" class="nav-link active" data-scroll-target="#how-to-create-engaging-and-complex-visualizations-in-r">How to Create Engaging and Complex Visualizations in R</a></li>
+  <li><a href="#course-overview" id="toc-course-overview" class="nav-link" data-scroll-target="#course-overview">Course Overview</a>
   <ul class="collapse">
-  <li><a href="#rstudioconf-2022" id="toc-rstudioconf-2022" class="nav-link" data-scroll-target="#rstudioconf-2022">rstudio::conf 2022</a></li>
-  <li><a href="#overview" id="toc-overview" class="nav-link" data-scroll-target="#overview">Overview</a></li>
   <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives">Learning objectives</a></li>
   <li><a href="#is-this-course-for-me" id="toc-is-this-course-for-me" class="nav-link" data-scroll-target="#is-this-course-for-me">Is this course for me?</a></li>
-  <li><a href="#prework" id="toc-prework" class="nav-link" data-scroll-target="#prework">Prework</a></li>
-  <li><a href="#requirements" id="toc-requirements" class="nav-link" data-scroll-target="#requirements">Requirements</a>
-  <ul class="collapse">
-  <li><a href="#r-packages-installation" id="toc-r-packages-installation" class="nav-link" data-scroll-target="#r-packages-installation">R Packages Installation</a></li>
-  <li><a href="#typeface-installation" id="toc-typeface-installation" class="nav-link" data-scroll-target="#typeface-installation">Typeface Installation</a></li>
-  </ul></li>
   </ul></li>
   <li><a href="#instructor" id="toc-instructor" class="nav-link" data-scroll-target="#instructor">Instructor</a></li>
+  <li><a href="#prework" id="toc-prework" class="nav-link" data-scroll-target="#prework">Prework</a>
+  <ul class="collapse">
+  <li><a href="#required-packages" id="toc-required-packages" class="nav-link" data-scroll-target="#required-packages">Required Packages</a></li>
+  <li><a href="#required-typefaces" id="toc-required-typefaces" class="nav-link" data-scroll-target="#required-typefaces">Required Typefaces</a></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/rstudio-conf-2022/ggplot2-graphic-design/edit/main/index.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/rstudio-conf-2022/ggplot2-graphic-design/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -190,24 +181,21 @@ ul.task-list{list-style: none;}
 
 </header>
 
-<section id="graphic-design-with-ggplot2-how-to-create-engaging-and-complex-visualizations-in-r" class="level1">
-<h1>Graphic Design with ggplot2: How to Create Engaging and Complex Visualizations in R</h1>
-<section id="rstudioconf-2022" class="level3">
-<h3 class="anchored" data-anchor-id="rstudioconf-2022">rstudio::conf 2022</h3>
-<p>by Cédric Scherer</p>
+<section id="how-to-create-engaging-and-complex-visualizations-in-r" class="level1">
+<h1>How to Create Engaging and Complex Visualizations in R</h1>
+<p>An rstudio::conf(2022) Workshop by Cédric Scherer</p>
 <hr>
-<p>🗓️ July 25 and 26, 2022<br>
-⏰ 09:00 - 17:00<br>
-🏨 National Harbor 4/5<br>
-✍️ <a href="http://rstd.io/conf">rstd.io/conf</a></p>
+<p><span class="code">📆  July 25 and 26, 2022</span><br>
+<span class="code">⏰  09:00 - 17:00</span><br>
+<span class="code">🏨  National Harbor 4/5</span><br>
+<span class="code">✍️  <a href="http://rstd.io/conf">rstd.io/conf</a></span></p>
 <hr>
 </section>
-<section id="overview" class="level2">
-<h2 class="anchored" data-anchor-id="overview">Overview</h2>
+<section id="course-overview" class="level1">
+<h1>Course Overview</h1>
 <p>Creating engaging and accessible data visualizations of high quality in an efficient and preferably reproducible way is an essential tool in a data scientist’s toolbox. After completing the course, participants will have a solid understanding of data visualization principles and the functionality of the ggplot2 graphics library and helpful extension libraries to create highly customized graphics without the need for post-processing.</p>
 <p>We will discuss the main concepts of the grammar of graphics and use hands-on examples to explore ggplot2’s utility to create multi-layered, more complex graphs. The workshop covers a short overview of the basics of ggplot2 and quickly focuses on the most important steps and helpful tips to create visually appealing and complex graphics both in theory and practice. The power of ggplot2 will be illustrated with advanced real–life examples that help to understand data visualization principles and useful coding tricks.</p>
 <p>The course covers complex code examples that are suited for more experienced ggplot2 users but designed to be informative for participants with minimal prior experience in ggplot2 and data visualization. As part of the training, attendees can download the course material from the course webpage for future reference.</p>
-</section>
 <section id="learning-objectives" class="level2">
 <h2 class="anchored" data-anchor-id="learning-objectives">Learning objectives</h2>
 <ul>
@@ -226,56 +214,46 @@ ul.task-list{list-style: none;}
 <li><p>Would you like to learn how to improve future data visualizations in terms of accessibility, impact, and complexity?</p></li>
 </ul>
 </section>
-<section id="prework" class="level2">
-<h2 class="anchored" data-anchor-id="prework">Prework</h2>
-<p>The workshop will also cover the basic logic of ggplot2 and its compontents. However, some pre-knowledge on how the package works is beneficial for following the examples and for the group exercises. A good overview is provided might by the “First Steps” chapter of the ggplot2 book by Hadley Wickham et al.: <a href="https://ggplot2-book.org/getting-started.html" class="uri">https://ggplot2-book.org/getting-started.html</a></p>
 </section>
-<section id="requirements" class="level2">
-<h2 class="anchored" data-anchor-id="requirements">Requirements</h2>
+<section id="instructor" class="level1">
+<h1>Instructor</h1>
+<p><img src="images/cedric.jpeg" class="img-fluid" style="float:right;padding: 0 0 0 10px;" alt="Headshot of Dr. Cédric Scherer" width="200"></p>
+<p><a href="http://cedricscherer.com/"><strong>Dr.&nbsp;Cédric Scherer</strong></a> (he/him) is a graduated computational ecologist with a passion for design. After his PhD, he combined his expertise in analyzing and visualizing large data sets in R with his passion to become an independent data visualization designer and specialist. Cédric has created visualizations across all disciplines, purposes, and styles and regularly teaches data visualization principles, the R programming language, and ggplot2. Due to regular participation in social data challenges such as <a href="https://github.com/rfordatascience/tidytuesday">#TidyTuesday</a>, he is now well known for complex and visually appealing figures, entirely made with ggplot2, that look as if they have been created with a vector design tool.</p>
+</section>
+<section id="prework" class="level1">
+<h1>Prework</h1>
+<p>The workshop will also cover the basic logic of ggplot2 and its components. However, some pre-knowledge on how the package works is beneficial for following the examples and for the group exercises. A good overview is provided might by the “First Steps” chapter of the ggplot2 book by Hadley Wickham et al.: <a href="https://ggplot2-book.org/getting-started.html">ggplot2-book.org/getting-started.html</a></p>
 <p>The example codes and the hands-on workshop parts are run in the Rstudio cloud. Thus, nothing but a laptop is needed.</p>
 <p>If you want to run the workshop content locally on your machine, please make sure to install a suitable IDE (Rstudio, VS Code or others), a recent version of R (4.1+) and the following packages and typefaces.</p>
-<section id="r-packages-installation" class="level3">
-<h3 class="anchored" data-anchor-id="r-packages-installation">R Packages Installation</h3>
+<p><em>For Mac OS users:</em><br>
+Please make sure that <a href="https://www.xquartz.org/">XQuartz is installed</a> which is needed to use the cairo pdf device.</p>
+<section id="required-packages" class="level3">
+<h3 class="anchored" data-anchor-id="required-packages">Required Packages</h3>
 <ul>
-<li>tidyverse
+<li><strong>tidyverse packages and friends</strong>
 <ul>
-<li>ggplot2</li>
-<li>readr</li>
-<li>tibble</li>
-<li>dplyr</li>
-<li>tidyr</li>
-<li>forcats</li>
-<li>stringr</li>
+<li>ggplot2, readr, tibble, dplyr, tidyr, forcats, stringr, lubridate, here, systemfonts, scales</li>
 </ul></li>
-<li>lubridate</li>
-<li>here</li>
-<li>systemfonts</li>
-<li>magick</li>
-<li>scales</li>
-<li>grid</li>
-<li>grDevices</li>
-<li>viridis</li>
-<li>colorblindr</li>
-<li>colorspace</li>
-<li>RColorBrewer</li>
-<li>rcartocolor</li>
-<li>scico</li>
-<li>ggsci</li>
-<li>ggthemes</li>
-<li>nord</li>
-<li>MetBrewer</li>
-<li>ggrepel</li>
-<li>ggforce</li>
-<li>ggtext</li>
-<li>ggdist</li>
-<li>ggbeeswarm</li>
-<li>gghalves</li>
-<li>ggblur</li>
-<li>patchwork</li>
-<li>palmerpenguins</li>
-<li>rnaturalearth</li>
-<li>sf</li>
-<li>rmapshaper</li>
+<li><strong>extension packages</strong>
+<ul>
+<li>ggrepel, ggforce, ggtext, ggdist, ggbeeswarm, gghalves, ggblur, patchwork</li>
+</ul></li>
+<li><strong>color packages</strong>
+<ul>
+<li>viridis, RColorBrewer, rcartocolor, scico, ggsci, ggthemes, nord, MetBrewer, colorspace, colorblindr</li>
+</ul></li>
+<li><strong>util packages</strong>
+<ul>
+<li>magick, grid, grDevices</li>
+</ul></li>
+<li><strong>data packages</strong>
+<ul>
+<li>palmerpenguins, rnaturalearth</li>
+</ul></li>
+<li><strong>rspatial packages</strong>
+<ul>
+<li>sf, rmapshaper</li>
+</ul></li>
 </ul>
 <section id="run-this-code-to-install-the-packages-if-needed" class="level4">
 <h4 class="anchored" data-anchor-id="run-this-code-to-install-the-packages-if-needed">Run this code to install the packages if needed:</h4>
@@ -295,9 +273,10 @@ remotes::install_github("wilkelab/cowplot")
 remotes::install_github("clauswilke/colorblindr")</code></pre>
 </section>
 </section>
-<section id="typeface-installation" class="level3">
-<h3 class="anchored" data-anchor-id="typeface-installation">Typeface Installation</h3>
-<p>We will make use of custom fonts. If you want to follow all contents, make sure the following typefaces are installed:</p>
+<section id="required-typefaces" class="level2">
+<h2 class="anchored" data-anchor-id="required-typefaces">Required Typefaces</h2>
+<p>We will make use of custom fonts. A lot.<br>
+If you want to follow all contents locally, make sure the following typefaces are installed:</p>
 <ul>
 <li>Roboto Condensed: <a href="www.fonts.google.com/specimen/Roboto+Condensed">fonts.google.com/specimen/Roboto+Condensed</a></li>
 <li>Cabinet Grotesk: <a href="www.fontshare.com/fonts/cabinet-grotesk">fontshare.com/fonts/cabinet-grotesk</a></li>
@@ -305,39 +284,14 @@ remotes::install_github("clauswilke/colorblindr")</code></pre>
 <li>Boska: <a href="www.fontshare.com/fonts/boska">fontshare.com/fonts/boska</a></li>
 <li>Pally: <a href="www.fontshare.com/fonts/pally">fontshare.com/fonts/pally</a></li>
 </ul>
-<p><em>For Mac OS users:</em> Please make sure that <a href="https://www.xquartz.org/">XQuartz is installed</a> which is needed to use the cairo pdf device.</p>
-</section>
-</section>
-</section>
-<section id="instructor" class="level1">
-<h1>Instructor</h1>
-<p><img src="images/cedric.jpeg" class="img-fluid" style="float:right;padding: 0 0 0 10px;" alt="Headshot of Dr. Cédric Scherer" width="200"></p>
-<p><a href="http://cedricscherer.com/"><strong>Dr.&nbsp;Cédric Scherer</strong></a> (he/him) is a graduated computational ecologist with a passion for design. After his PhD, he combined his expertise in analyzing and visualizing large data sets in R with his passion to become an independent data visualization designer and specialist. Cédric has created visualizations across all disciplines, purposes, and styles and regularly teaches data visualization principles, the R programing language, and ggplot2. Due to regular participation in social data challenges such as #TidyTuesday, he is now well known for complex and visually appealing figures, entirely made with ggplot2, that look as if they have been created with a vector design tool.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
-  const toggleBodyColorMode = (bsSheetEl) => {
-    const mode = bsSheetEl.getAttribute("data-mode");
-    const bodyEl = window.document.querySelector("body");
-    if (mode === "dark") {
-      bodyEl.classList.add("quarto-dark");
-      bodyEl.classList.remove("quarto-light");
-    } else {
-      bodyEl.classList.add("quarto-light");
-      bodyEl.classList.remove("quarto-dark");
-    }
-  }
-  const toggleBodyColorPrimary = () => {
-    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
-    if (bsSheetEl) {
-      toggleBodyColorMode(bsSheetEl);
-    }
-  }
-  toggleBodyColorPrimary();  
   const icon = "";
   const anchorJS = new window.AnchorJS();
   anchorJS.options = {

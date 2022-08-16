@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.0.36">
+<meta name="generator" content="quarto-0.9.566">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -35,7 +35,7 @@ ul.task-list{list-style: none;}
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -77,18 +77,12 @@ ul.task-list{list-style: none;}
       window['quarto-listing-loaded']();
     }
   });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
   </script>
 
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <meta name="twitter:title" content="Graphic Design with ggplot2 - Labels and Annotations">
-<meta name="twitter:description" content="09:00 - 10:30">
+<meta name="twitter:description" content="View slides in full screen | Run the code…">
 <meta name="twitter:image" content="https://rstudio-conf-2022.github.io/ggplot2-graphic-design//images/twitter-card.png">
 <meta name="twitter:creator" content="@CedScherer">
 <meta name="twitter:image-height" content="622">
@@ -123,43 +117,39 @@ ul.task-list{list-style: none;}
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-solutions" role="button" data-bs-toggle="dropdown" aria-expanded="false">Solutions</a>
-    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-solutions">    
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-sessions" role="button" data-bs-toggle="dropdown" aria-expanded="false">Sessions</a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-sessions">    
         <li>
-    <a class="dropdown-item" href="../materials/solutions/02_concepts_pt1_ex1_solution.html">
- <span class="dropdown-text">02_concepts_pt1_ex1_solution</span></a>
+    <a class="dropdown-item" href="../modules/d1-01_introduction.html">
+ <span class="dropdown-text">Introduction</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../materials/solutions/02_concepts_pt1_ex2_solution.html">
- <span class="dropdown-text">02_concepts_pt1_ex2_solution</span></a>
+    <a class="dropdown-item" href="../modules/d1-02_concepts_pt1.html">
+ <span class="dropdown-text">Concepts of ggplot2 Pt. 1</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../materials/solutions/03_concepts_pt2_ex1_solution.html">
- <span class="dropdown-text">03_concepts_pt2_ex1_solution</span></a>
+    <a class="dropdown-item" href="../modules/d1-05_concepts_pt2.html">
+ <span class="dropdown-text">Concepts of ggplot2 Pt. 2</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../materials/solutions/03_concepts_pt2_ex2_solution.html">
- <span class="dropdown-text">03_concepts_pt2_ex2_solution</span></a>
+    <a class="dropdown-item" href="../modules/d1-10_data_com.html">
+ <span class="dropdown-text">Data Communication</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../materials/solutions/04_data_communication_ex1_solution.pdf">
- <span class="dropdown-text">04_data_communication_ex1_solution</span></a>
+    <a class="dropdown-item" href="../modules/d2-01_lab_ann.html">
+ <span class="dropdown-text">Working with Annotations &amp; Labels</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../materials/solutions/05_annotations_ex1_solution.html">
- <span class="dropdown-text">05_annotations_ex1_solution</span></a>
+    <a class="dropdown-item" href="../modules/d2-03_colors.html">
+ <span class="dropdown-text">Working with Colors</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../materials/solutions/05_annotations_ex2_solution.html">
- <span class="dropdown-text">05_annotations_ex2_solution</span></a>
+    <a class="dropdown-item" href="../modules/d2-05_layout.html">
+ <span class="dropdown-text">Working with Layouts &amp; Compostion</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../materials/solutions/06_colors_ex1_solution.html">
- <span class="dropdown-text">06_colors_ex1_solution</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../materials/solutions/08_group_projects_solutions.html">
- <span class="dropdown-text">08_group_projects_solutions</span></a>
+    <a class="dropdown-item" href="../modules/d2-07_project.html">
+ <span class="dropdown-text">Group Project</span></a>
   </li>  
     </ul>
   </li>
@@ -168,9 +158,6 @@ ul.task-list{list-style: none;}
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="https://github.com/rstudio-conf-2022/ggplot2-graphic-design">GitHub</a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="https://rstudio.cloud/spaces/235465">RStudio Cloud+</a>
   </li>  
 </ul>
               <div id="quarto-search" class="" title="Search"></div>
@@ -188,8 +175,12 @@ ul.task-list{list-style: none;}
    
   <ul>
   <li><a href="#outline" id="toc-outline" class="nav-link active" data-scroll-target="#outline">Outline</a></li>
-  <li><a href="#slides" id="toc-slides" class="nav-link" data-scroll-target="#slides">Slides</a></li>
-  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a></li>
+  <li><a href="#recap" id="toc-recap" class="nav-link" data-scroll-target="#recap">Recap</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a>
+  <ul class="collapse">
+  <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1">Exercise 1</a></li>
+  <li><a href="#exercise-2" id="toc-exercise-2" class="nav-link" data-scroll-target="#exercise-2">Exercise 2</a></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/rstudio-conf-2022/ggplot2-graphic-design/edit/main/modules/d2-01_lab_ann.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/rstudio-conf-2022/ggplot2-graphic-design/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -219,28 +210,33 @@ ul.task-list{list-style: none;}
 
 </header>
 
-<section id="outline" class="level2">
-<h2 class="anchored" data-anchor-id="outline">Outline</h2>
+<iframe class="slide-deck" src="../materials/05_annotations.html" height="420" width="747" style="border: 1px solid #2e3846;"></iframe>
+<p><a href="../materials/05_annotations.html">View slides in full screen</a> | <a href="../materials/scripts/05_annotations.R">Run the code yourself</a></p>
+<section id="outline" class="level1">
+<h1>Outline</h1>
 <ul>
 <li>Labels + <code>theme()</code>
 <ul>
-<li>Customize Labels via `theme()`</li>
+<li>Working with Labels</li>
+<li>Customize Labels via <code>theme()</code></li>
 </ul></li>
 <li>Labels + <code>scale_*()</code>
 <ul>
-<li>Format Labels via `scale_*`</li>
+<li>Format Labels via <code>scale_*</code></li>
 </ul></li>
-<li>Labels +<br><code>ggtext::element_markdown</code>
+<li>Labels + <code>ggtext::element_markdown</code>
 <ul>
 <li>Styling Labels with {ggtext}</li>
 </ul></li>
-<li>Labels + <code>facet_*()</code></li>
+<li>Labels + <code>facet_*()</code>
+<ul>
 <li>Facet Labellers</li>
+</ul></li>
 <li>Handling Long Labels
 <ul>
 <li>Handling Long Labels with {stringr}</li>
 <li>Handling Long Labels with {ggtext}</li>
-<li>Handling Long Labels</li>
+<li>Handling Long Titles</li>
 </ul></li>
 <li>Annotations with <code>annotate()</code>
 <ul>
@@ -248,18 +244,17 @@ ul.task-list{list-style: none;}
 <li>Style Text Annotations</li>
 <li>Add Multiple Text Annotations</li>
 <li>Add Boxes (Rectangles)</li>
-<li>Add Boxes (Rectangles)</li>
 <li>Add Lines (Segments)</li>
 <li>Add Curves</li>
+<li>Add Arrows</li>
 </ul></li>
-<li>Annotations with `geom_*()`‘s’
+<li>Annotations with <code>geom_*()</code>
 <ul>
 <li>Highlight Hot Periods</li>
-<li>Annotations with `geom_text()`</li>
-<li>Annotations with `geom_label()`</li>
+<li>Annotations with <code>geom_text()</code></li>
+<li>Annotations with <code>geom_label()</code></li>
 <li>Annotations with {ggrepel}</li>
 <li>Annotations with {ggforce}</li>
-<li>Highlight Hot Periods</li>
 </ul></li>
 <li>Adding Images
 <ul>
@@ -267,18 +262,60 @@ ul.task-list{list-style: none;}
 <li>Add Background Image</li>
 <li>Adjust Position</li>
 <li>Place Image Outside</li>
-<li>Highlight Hot Periods</li>
 </ul></li>
 </ul>
 </section>
-<section id="slides" class="level2">
-<h2 class="anchored" data-anchor-id="slides">Slides</h2>
-<p><a href="../materials/05_annotations.html">View slides in full screen</a></p>
-<iframe class="slide-deck" src="../materials/05_annotations.html" height="420" width="747" style="border: 1px solid #2e3846;"></iframe>
+<section id="recap" class="level1">
+<h1>Recap</h1>
+<div class="recap">
+<ul>
+<li>style labels such as title, axis and legend texts with <code>theme()</code></li>
+<li>format data-related labels with the <code>labels</code> argument of <code>scale_*()</code></li>
+<li>adjust strip text with the <code>facet_*(labeller)</code> functionality</li>
+<li>add data-related annotations with <code>geom_text|label()</code></li>
+<li>… and data-unrelated annotations with <code>annotate()</code></li>
+<li><code>annotation_custom(rasterGrob())</code> is a basic way to add images</li>
+<li><code>{ggtext}</code> allows to render labels with markdown and basic html</li>
+<li><code>{ggtext}</code> also allows to add dynamic linebreaks and images</li>
+<li><code>{ggrepel}</code> ensures clever placement of annotations</li>
+<li><code>ggforce::geom_mark_*()</code> provide a set of advanced annotations</li>
+</ul>
+</div>
 </section>
-<section id="exercises" class="level2">
-<h2 class="anchored" data-anchor-id="exercises">Exercises</h2>
-<div id="listing-exercises" class="quarto-listing quarto-listing-container-table">
+<section id="exercises" class="level1">
+<h1>Exercises</h1>
+<section id="exercise-1" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-1">Exercise 1</h2>
+<div class="question">
+<ul>
+<li>{ggtext} also comes with some new geom’s. Explore those and other options on the package webpage: <a href="https://wilkelab.org/ggtext/">wilkelab.rg/ggtext</a>.</li>
+<li>Open the script <a href="../materials/exercises/05_labels_ex1.html"><code>exercises/05_labels_ex1.qmd</code></a> (or the <code>.rmd</code>).</li>
+<li><strong>Create the following visualization, as close as possible</strong>, with the <code>penguins</code> dataset which is provided by the <a href="https://allisonhorst.github.io/palmerpenguins/">{palmerpenguins} package</a>: <br><br><img src="https://github.com/rstudio-conf-2022/ggplot2-graphic-design/raw/main/materials/exercises/5-1-penguins/penguins-bubble-chart.png" class="img-fluid"><br><br>
+<ul>
+<li>For the species labels, you likely have to create a summary data set.</li>
+<li>Use the {ggtext} geometries and theme elements to format the labels.</li>
+<li>Also, make use of the other components such as scales, complete themes, and theme customization.</li>
+</ul></li>
+</ul>
+</div>
+<p><strong>→ <a href="../materials/solutions/05_annotations_ex1_solution.html">Solution</a></strong></p>
+</section>
+<section id="exercise-2" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-2">Exercise 2</h2>
+<div class="question">
+<ul>
+<li>Open the script <a href="../materials/exercises/05_labels_ex2.html"><code>exercises/05_labels_ex2.qmd</code></a> (or the <code>.rmd</code>).</li>
+<li>Create the logo in <code>exercises/5-2-logo</code> with the image file <code>exercises/img/rstudioconf-washington-bg.png</code> for the skyline:<br><br><img src="https://github.com/rstudio-conf-2022/ggplot2-graphic-design/raw/main/materials/exercises/5-2-logo/rstudio-conf-logo.png" class="img-fluid"></li>
+</ul>
+</div>
+<p><strong>→ <a href="../materials/solutions/05_annotations_ex2_solution.html">Solution</a></strong></p>
+
+
+
+</section>
+</section>
+
+<div class="quarto-listing quarto-listing-container-table" id="listing-exercises">
 
 <table class="quarto-listing-table table">
 <thead>
@@ -298,33 +335,9 @@ Title
 <div class="listing-no-matching d-none">
 No matching items
 </div>
-</div>
-
-
-
-</section>
-
-</main> <!-- /main -->
+</div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
-  const toggleBodyColorMode = (bsSheetEl) => {
-    const mode = bsSheetEl.getAttribute("data-mode");
-    const bodyEl = window.document.querySelector("body");
-    if (mode === "dark") {
-      bodyEl.classList.add("quarto-dark");
-      bodyEl.classList.remove("quarto-light");
-    } else {
-      bodyEl.classList.add("quarto-light");
-      bodyEl.classList.remove("quarto-dark");
-    }
-  }
-  const toggleBodyColorPrimary = () => {
-    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
-    if (bsSheetEl) {
-      toggleBodyColorMode(bsSheetEl);
-    }
-  }
-  toggleBodyColorPrimary();  
   const icon = "";
   const anchorJS = new window.AnchorJS();
   anchorJS.options = {

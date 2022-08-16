@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.0.36">
+<meta name="generator" content="quarto-0.9.566">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -33,7 +33,7 @@ ul.task-list{list-style: none;}
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -56,7 +56,7 @@ ul.task-list{list-style: none;}
 
 
 <meta name="twitter:title" content="Graphic Design with ggplot2 - Concepts of the {ggplot2} Package Pt. 1:Data, Aesthetics, and Layers + Misc Stuff">
-<meta name="twitter:description" content="09:30 - 10:30">
+<meta name="twitter:description" content="View slides in full screen | Run the code…">
 <meta name="twitter:image" content="https://rstudio-conf-2022.github.io/ggplot2-graphic-design//images/twitter-card.png">
 <meta name="twitter:creator" content="@CedScherer">
 <meta name="twitter:image-height" content="622">
@@ -91,43 +91,39 @@ ul.task-list{list-style: none;}
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-solutions" role="button" data-bs-toggle="dropdown" aria-expanded="false">Solutions</a>
-    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-solutions">    
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-sessions" role="button" data-bs-toggle="dropdown" aria-expanded="false">Sessions</a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-sessions">    
         <li>
-    <a class="dropdown-item" href="../materials/solutions/02_concepts_pt1_ex1_solution.html">
- <span class="dropdown-text">02_concepts_pt1_ex1_solution</span></a>
+    <a class="dropdown-item" href="../modules/d1-01_introduction.html">
+ <span class="dropdown-text">Introduction</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../materials/solutions/02_concepts_pt1_ex2_solution.html">
- <span class="dropdown-text">02_concepts_pt1_ex2_solution</span></a>
+    <a class="dropdown-item" href="../modules/d1-02_concepts_pt1.html">
+ <span class="dropdown-text">Concepts of ggplot2 Pt. 1</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../materials/solutions/03_concepts_pt2_ex1_solution.html">
- <span class="dropdown-text">03_concepts_pt2_ex1_solution</span></a>
+    <a class="dropdown-item" href="../modules/d1-05_concepts_pt2.html">
+ <span class="dropdown-text">Concepts of ggplot2 Pt. 2</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../materials/solutions/03_concepts_pt2_ex2_solution.html">
- <span class="dropdown-text">03_concepts_pt2_ex2_solution</span></a>
+    <a class="dropdown-item" href="../modules/d1-10_data_com.html">
+ <span class="dropdown-text">Data Communication</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../materials/solutions/04_data_communication_ex1_solution.pdf">
- <span class="dropdown-text">04_data_communication_ex1_solution</span></a>
+    <a class="dropdown-item" href="../modules/d2-01_lab_ann.html">
+ <span class="dropdown-text">Working with Annotations &amp; Labels</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../materials/solutions/05_annotations_ex1_solution.html">
- <span class="dropdown-text">05_annotations_ex1_solution</span></a>
+    <a class="dropdown-item" href="../modules/d2-03_colors.html">
+ <span class="dropdown-text">Working with Colors</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../materials/solutions/05_annotations_ex2_solution.html">
- <span class="dropdown-text">05_annotations_ex2_solution</span></a>
+    <a class="dropdown-item" href="../modules/d2-05_layout.html">
+ <span class="dropdown-text">Working with Layouts &amp; Compostion</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../materials/solutions/06_colors_ex1_solution.html">
- <span class="dropdown-text">06_colors_ex1_solution</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../materials/solutions/08_group_projects_solutions.html">
- <span class="dropdown-text">08_group_projects_solutions</span></a>
+    <a class="dropdown-item" href="../modules/d2-07_project.html">
+ <span class="dropdown-text">Group Project</span></a>
   </li>  
     </ul>
   </li>
@@ -136,9 +132,6 @@ ul.task-list{list-style: none;}
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="https://github.com/rstudio-conf-2022/ggplot2-graphic-design">GitHub</a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="https://rstudio.cloud/spaces/235465">RStudio Cloud+</a>
   </li>  
 </ul>
               <div id="quarto-search" class="" title="Search"></div>
@@ -156,8 +149,12 @@ ul.task-list{list-style: none;}
    
   <ul>
   <li><a href="#outline" id="toc-outline" class="nav-link active" data-scroll-target="#outline">Outline</a></li>
-  <li><a href="#slides" id="toc-slides" class="nav-link" data-scroll-target="#slides">Slides</a></li>
-  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a></li>
+  <li><a href="#recap" id="toc-recap" class="nav-link" data-scroll-target="#recap">Recap</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a>
+  <ul class="collapse">
+  <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1">Exercise 1</a></li>
+  <li><a href="#exercise-2" id="toc-exercise-2" class="nav-link" data-scroll-target="#exercise-2">Exercise 2</a></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/rstudio-conf-2022/ggplot2-graphic-design/edit/main/modules/d1-02_concepts_pt1.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/rstudio-conf-2022/ggplot2-graphic-design/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -166,7 +163,7 @@ ul.task-list{list-style: none;}
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span>Concepts of the <code>{ggplot2}</code> Package Pt. 1:<br><span style="font-weight:500;">Data, Aesthetics, and Layers + <span class="circle-highlight">Misc Stuff</span></span></span></h1>
+<h1 class="title"><span>Concepts of the <code>{ggplot2}</code> Package Pt. 1:<br><span style="font-weight:500;">Data, Aesthetics, and Layers + Misc Stuff</span></span></h1>
 <p class="subtitle lead">09:30 - 10:30</p>
 </div>
 
@@ -187,8 +184,10 @@ ul.task-list{list-style: none;}
 
 </header>
 
-<section id="outline" class="level2">
-<h2 class="anchored" data-anchor-id="outline">Outline</h2>
+<iframe class="slide-deck" src="../materials/02_concepts_pt1.html" height="420" width="747" style="border: 1px solid #2e3846;"></iframe>
+<p><a href="../materials/02_concepts_pt1.html">View slides in full screen</a> | <a href="../materials/scripts/02_concepts_pt1.R">Run the code yourself</a></p>
+<section id="outline" class="level1">
+<h1>Outline</h1>
 <ul>
 <li>The Grammar of {ggplot2}</li>
 <li>A Basic ggplot Example
@@ -236,41 +235,68 @@ ul.task-list{list-style: none;}
 </ul></li>
 </ul>
 </section>
-<section id="slides" class="level2">
-<h2 class="anchored" data-anchor-id="slides">Slides</h2>
-<p><a href="../materials/02_concepts_pt1.html">View slides in full screen</a></p>
-<iframe class="slide-deck" src="../materials/02_concepts_pt1.html" height="420" width="747" style="border: 1px solid #2e3846;"></iframe>
-</section>
-<section id="exercises" class="level2">
-<h2 class="anchored" data-anchor-id="exercises">Exercises</h2>
-<div id="exercises">
-
+<section id="recap" class="level1">
+<h1>Recap</h1>
+<div class="recap">
+<ul>
+<li><strong><code>{ggplot2}</code></strong> is a powerful library for reproducible graphic design</li>
+<li>the components follow a consistent syntax</li>
+<li>each ggplot needs at least <strong>data</strong>, some <strong>aesthetics</strong>, and a <strong>layer</strong></li>
+<li>we <strong>set</strong> constant propeties outside <code>aes()</code></li>
+<li>… and <strong>map</strong> data-related properties inside <code>aes()</code></li>
+<li>local settings and mappings override global properties</li>
+<li>grouping allows applying layers for subsets</li>
+<li>we can store a ggplot object and extend it afterwards</li>
+<li>we can change the appearance for all plots with <code>theme_set()</code> and <code>theme_update()</code></li>
+</ul>
 </div>
+</section>
+<section id="exercises" class="level1">
+<h1>Exercises</h1>
+<section id="exercise-1" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-1">Exercise 1</h2>
+<div class="question">
+<ul>
+<li>Open the script <a href="../materials/exercises/02_concepts_pt1_ex1.html"><code>exercises/02_concepts_pt1_ex1.qmd</code></a> (or the <code>.rmd</code>).</li>
+<li>Explore the TfL bike share data visually:<br><strong>create a timeseries of reported bike shares on weekend days</strong>
+<ul>
+<li>Highlight day and night encoded by colors and shapes.</li>
+<li>Connect the points of each period with lines.</li>
+<li>Question: What is the difference between <code>geom_line()</code> and <code>geom_path()</code>?</li>
+<li>Apply your favorite theme to the plot.</li>
+<li>Add meaningful labels.</li>
+</ul></li>
+<li>Save the plot as a vector graphic with a decent plot size.</li>
+</ul>
+</div>
+<p><strong>→ <a href="../materials/solutions/02_concepts_pt1_ex1_solution.html">Solution</a></strong></p>
+</section>
+<section id="exercise-2" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-2">Exercise 2</h2>
+<div class="question">
+<ul>
+<li>Open the script <a href="../materials/exercises/02_concepts_pt1_ex2.html"><code>exercises/02_concepts_pt1_ex2.qmd</code></a> (or the <code>.rmd</code>).</li>
+<li>Explore the TfL bike sharing data visually:<br><strong>create a boxplot of counts per weather type</strong>
+<ul>
+<li>Turn the plot into a jitter strips plot (random noise across the x axis)</li>
+<li>Combine both chart types (jittered points on top of the boxplots)</li>
+<li><span style="color:#5DB699;font-weight:bold;">Bonus: Sort the boxplot-jitter hybrid by median counts</span></li>
+<li>Apply your favorite theme to the plot.</li>
+<li>Add meaningful labels.</li>
+<li><span style="color:#5DB699;font-weight:bold;">Bonus: Explore other chart types to visualize the distributions.</span></li>
+</ul></li>
+<li>Save the plot as a vector graphic with a decent plot size.</li>
+</ul>
+</div>
+<p><strong>→ <a href="../materials/solutions/02_concepts_pt1_ex2_solution.html">Solution</a></strong></p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
-  const toggleBodyColorMode = (bsSheetEl) => {
-    const mode = bsSheetEl.getAttribute("data-mode");
-    const bodyEl = window.document.querySelector("body");
-    if (mode === "dark") {
-      bodyEl.classList.add("quarto-dark");
-      bodyEl.classList.remove("quarto-light");
-    } else {
-      bodyEl.classList.add("quarto-light");
-      bodyEl.classList.remove("quarto-dark");
-    }
-  }
-  const toggleBodyColorPrimary = () => {
-    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
-    if (bsSheetEl) {
-      toggleBodyColorMode(bsSheetEl);
-    }
-  }
-  toggleBodyColorPrimary();  
   const icon = "";
   const anchorJS = new window.AnchorJS();
   anchorJS.options = {

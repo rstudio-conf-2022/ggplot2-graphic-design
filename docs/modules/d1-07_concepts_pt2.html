@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.0.36">
+<meta name="generator" content="quarto-0.9.566">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -33,7 +33,7 @@ ul.task-list{list-style: none;}
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -56,7 +56,7 @@ ul.task-list{list-style: none;}
 
 
 <meta name="twitter:title" content="Graphic Design with ggplot2 - Concepts of the {ggplot2} Package Pt. 2:Facets, Scales, and Coordinate System (Continued)">
-<meta name="twitter:description" content="13:30 - 14:30">
+<meta name="twitter:description" content="View slides in full screen | Run the code…">
 <meta name="twitter:image" content="https://rstudio-conf-2022.github.io/ggplot2-graphic-design//images/twitter-card.png">
 <meta name="twitter:creator" content="@CedScherer">
 <meta name="twitter:image-height" content="622">
@@ -91,43 +91,39 @@ ul.task-list{list-style: none;}
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-solutions" role="button" data-bs-toggle="dropdown" aria-expanded="false">Solutions</a>
-    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-solutions">    
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-sessions" role="button" data-bs-toggle="dropdown" aria-expanded="false">Sessions</a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-sessions">    
         <li>
-    <a class="dropdown-item" href="../materials/solutions/02_concepts_pt1_ex1_solution.html">
- <span class="dropdown-text">02_concepts_pt1_ex1_solution</span></a>
+    <a class="dropdown-item" href="../modules/d1-01_introduction.html">
+ <span class="dropdown-text">Introduction</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../materials/solutions/02_concepts_pt1_ex2_solution.html">
- <span class="dropdown-text">02_concepts_pt1_ex2_solution</span></a>
+    <a class="dropdown-item" href="../modules/d1-02_concepts_pt1.html">
+ <span class="dropdown-text">Concepts of ggplot2 Pt. 1</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../materials/solutions/03_concepts_pt2_ex1_solution.html">
- <span class="dropdown-text">03_concepts_pt2_ex1_solution</span></a>
+    <a class="dropdown-item" href="../modules/d1-05_concepts_pt2.html">
+ <span class="dropdown-text">Concepts of ggplot2 Pt. 2</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../materials/solutions/03_concepts_pt2_ex2_solution.html">
- <span class="dropdown-text">03_concepts_pt2_ex2_solution</span></a>
+    <a class="dropdown-item" href="../modules/d1-10_data_com.html">
+ <span class="dropdown-text">Data Communication</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../materials/solutions/04_data_communication_ex1_solution.pdf">
- <span class="dropdown-text">04_data_communication_ex1_solution</span></a>
+    <a class="dropdown-item" href="../modules/d2-01_lab_ann.html">
+ <span class="dropdown-text">Working with Annotations &amp; Labels</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../materials/solutions/05_annotations_ex1_solution.html">
- <span class="dropdown-text">05_annotations_ex1_solution</span></a>
+    <a class="dropdown-item" href="../modules/d2-03_colors.html">
+ <span class="dropdown-text">Working with Colors</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../materials/solutions/05_annotations_ex2_solution.html">
- <span class="dropdown-text">05_annotations_ex2_solution</span></a>
+    <a class="dropdown-item" href="../modules/d2-05_layout.html">
+ <span class="dropdown-text">Working with Layouts &amp; Compostion</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../materials/solutions/06_colors_ex1_solution.html">
- <span class="dropdown-text">06_colors_ex1_solution</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../materials/solutions/08_group_projects_solutions.html">
- <span class="dropdown-text">08_group_projects_solutions</span></a>
+    <a class="dropdown-item" href="../modules/d2-07_project.html">
+ <span class="dropdown-text">Group Project</span></a>
   </li>  
     </ul>
   </li>
@@ -136,9 +132,6 @@ ul.task-list{list-style: none;}
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="https://github.com/rstudio-conf-2022/ggplot2-graphic-design">GitHub</a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="https://rstudio.cloud/spaces/235465">RStudio Cloud+</a>
   </li>  
 </ul>
               <div id="quarto-search" class="" title="Search"></div>
@@ -156,7 +149,12 @@ ul.task-list{list-style: none;}
    
   <ul>
   <li><a href="#outline" id="toc-outline" class="nav-link active" data-scroll-target="#outline">Outline</a></li>
-  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a></li>
+  <li><a href="#recap" id="toc-recap" class="nav-link" data-scroll-target="#recap">Recap</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a>
+  <ul class="collapse">
+  <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1">Exercise 1</a></li>
+  <li><a href="#exercise-2" id="toc-exercise-2" class="nav-link" data-scroll-target="#exercise-2">Exercise 2</a></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/rstudio-conf-2022/ggplot2-graphic-design/edit/main/modules/d1-07_concepts_pt2.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/rstudio-conf-2022/ggplot2-graphic-design/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -186,65 +184,110 @@ ul.task-list{list-style: none;}
 
 </header>
 
-<section id="outline" class="level2">
-<h2 class="anchored" data-anchor-id="outline">Outline</h2>
+<iframe class="slide-deck" src="../materials/03_concepts_pt2.html" height="420" width="747" style="border: 1px solid #2e3846;"></iframe>
+<p><a href="../materials/03_concepts_pt2.html">View slides in full screen</a> | <a href="../materials/scripts/03_concepts_pt2.R">Run the code yourself</a></p>
+<section id="outline" class="level1">
+<h1>Outline</h1>
 <ul>
-<li>Scales</li>
+<li>Facet Types</li>
+<li>Wrapped Facets
+<ul>
+<li>Facet Multiple Variables</li>
+<li>Facet Options: Cols + Rows</li>
+<li>Facet Options: Free Scaling</li>
+<li>Facet Options: Switch Labels</li>
+</ul></li>
+<li>Gridded Facets
+<ul>
+<li>Facet Multiple Variables</li>
+<li>Facet Options: Proportional Spacing</li>
+</ul></li>
+<li>Scales
+<ul>
 <li>Continuous vs.&nbsp;Discrete in {ggplot2}</li>
-<li>Continuous:<br>quantitative or numerical data</li>
-<li>Discrete:<br>qualitative or categorical data</li>
 <li>Aesthetics + Scales</li>
-<li>`scale_x|y_continuous`</li>
-<li>`scale_x|y_date`</li>
-<li>`scale_x|y_date` with `strftime()`</li>
-<li>`scale_x|y_discrete`</li>
+<li><code>scale_x|y_continuous</code></li>
+<li><code>scale_x|y_date</code></li>
+<li><code>scale_x|y_date</code> with <code>strftime()</code></li>
+<li><code>scale_x|y_discrete</code>
+<ul>
 <li>Discrete or Continuous?</li>
-<li>`scale_color|fill_discrete`</li>
+</ul></li>
+<li><code>scale_color|fill_discrete</code>
+<ul>
 <li>Inspect Assigned Colors</li>
-<li>`scale_x|y_date` with `strftime()`</li>
-<li>Coordinate Systems</li>
+</ul></li>
+<li><code>scale_color|fill_manual</code></li>
+<li><code>scale_color|fill_carto_d</code></li>
+</ul></li>
+<li>Coordinate Systems
+<ul>
 <li>Cartesian Coordinate System</li>
 <li>Changing Limits</li>
 <li>Clipping</li>
 <li>Fixed Coordinate System</li>
 <li>Flipped Coordinate System</li>
-<li>Circular Corrdinate System</li>
+<li>Circular Coordinate System</li>
 <li>Transform a Coordinate System</li>
-<li>Spatial Coordinate (Reference) Systems ## Slides</li>
+<li>Spatial Coordinate (Reference) Systems</li>
+</ul></li>
 </ul>
-<p><a href="../materials/03_concepts_pt2.html">View slides in full screen</a></p>
-<iframe class="slide-deck" src="../materials/03_concepts_pt2.html" height="420" width="747" style="border: 1px solid #2e3846;"></iframe>
 </section>
-<section id="exercises" class="level2">
-<h2 class="anchored" data-anchor-id="exercises">Exercises</h2>
-<div id="exercises">
-
+<section id="recap" class="level1">
+<h1>Recap</h1>
+<div class="recap">
+<ul>
+<li><code>facet_*()</code> functions allow to create small multiples</li>
+<li><code>scale_*()</code> functions translate between aesthetics and properties</li>
+<li>use <code>*_continuous()</code> for numerical data</li>
+<li>… and <code>*_discrete()</code> for categorical data</li>
+<li>use <code>scale_color|fill_*()</code> to customize data-related colors</li>
+<li><code>coord_*()</code> functions interpret the positional aesthetics, e.g.&nbsp;create polar plots or work with spatial projections</li>
+<li>be careful when adjusting axis limits:
+<ul>
+<li><code>scale_*_continuous(limits)</code> removes the data outside the range</li>
+<li><code>coord_*(*lim)</code> keeps the data and zooms into the range</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="exercises" class="level1">
+<h1>Exercises</h1>
+<section id="exercise-1" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-1">Exercise 1</h2>
+<div class="question">
+<ul>
+<li>Open the script <a href="../materials/exercises/03_concepts_pt2_ex1.html"><code>exercises/03_concepts_pt2_ex1.qmd</code></a> (or the <code>.rmd</code>).</li>
+<li>Have a look at the visualization in the folder <a href="https://github.com/rstudio-conf-2022/ggplot2-graphic-design/blob/main/materials/exercises/3-1-astronaut-viz/astronaut-viz.png"><code>exercises/3-1-astronaut-viz</code></a> that shows the cumulative time that cosmo- and astronauts have spent in outer space. The data also contains information on the year of their first and last travel, respectively.<br><br><img src="https://github.com/rstudio-conf-2022/ggplot2-graphic-design/raw/main/materials/exercises/3-1-astronaut-viz/astronaut-viz-detail.png" class="img-fluid"><br><br>
+<ul>
+<li>Together with your group, discuss which layers and modifications are needed to create such a chart with <code>{ggplot2}</code>.</li>
+<li>Note down the aesthetics, geometries, and scales used for each element of this graphic.</li>
+<li>What is the coordinate system? Have any adjustments been made?</li>
+<li>Which theme was used and how was it modified?</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="exercise-2" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-2">Exercise 2</h2>
+<div class="question">
+<ul>
+<li>Open the script <a href="../materials/exercises/03_concepts_pt2_ex2.html"><code>exercises/03_concepts_pt2_ex2.qmd</code></a> (or the <code>.rmd</code>).</li>
+<li>Create a circular lollipop plot of reported bike shares per season.</li>
+<li>The data is not in the right format as there are no totals. How can you solve it?</li>
+<li>Remove all legend elements (with a single line of code).</li>
+<li>How can you add the labels next to the starting point of each lollipop?</li>
+<li>How could you add a baseline?</li>
+</ul>
 </div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
-  const toggleBodyColorMode = (bsSheetEl) => {
-    const mode = bsSheetEl.getAttribute("data-mode");
-    const bodyEl = window.document.querySelector("body");
-    if (mode === "dark") {
-      bodyEl.classList.add("quarto-dark");
-      bodyEl.classList.remove("quarto-light");
-    } else {
-      bodyEl.classList.add("quarto-light");
-      bodyEl.classList.remove("quarto-dark");
-    }
-  }
-  const toggleBodyColorPrimary = () => {
-    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
-    if (bsSheetEl) {
-      toggleBodyColorMode(bsSheetEl);
-    }
-  }
-  toggleBodyColorPrimary();  
   const icon = "";
   const anchorJS = new window.AnchorJS();
   anchorJS.options = {
