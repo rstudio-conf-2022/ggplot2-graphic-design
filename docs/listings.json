@@ -1,9 +1,5 @@
 [
   {
-    "listing": "/modules/d2-01_lab_ann.html",
-    "items": []
-  },
-  {
     "listing": "/schedule.html",
     "items": [
       "/modules/d1-01_introduction.html",
@@ -12,17 +8,17 @@
       "/modules/d1-04_concepts_p1_cont.html",
       "/modules/d1-05_concepts_pt2.html",
       "/modules/d1-06_lunch_break.html",
-      "/modules/d1-07_concepts_pt2.html",
       "/modules/d1-07_concepts_pt2_cont.html",
-      "/modules/d1-09_coffee_break.html",
-      "/modules/d1-10_data_com.html",
+      "/modules/d1-08_coffee_break.html",
+      "/modules/d1-09_data_com.html",
       "/modules/d2-01_lab_ann.html",
       "/modules/d2-02_coffee_break.html",
-      "/modules/d2-03_colors.html",
-      "/modules/d2-04_lunch_break.html",
-      "/modules/d2-05_layout.html",
-      "/modules/d2-06_coffee_break.html",
-      "/modules/d2-07_project.html"
+      "/modules/d2-03_colorful_graphics.html",
+      "/modules/d2-04_colors.html",
+      "/modules/d2-05_lunch_break.html",
+      "/modules/d2-06_layout.html",
+      "/modules/d2-07_coffee_break.html",
+      "/modules/d2-08_project.html"
     ]
   }
 ]

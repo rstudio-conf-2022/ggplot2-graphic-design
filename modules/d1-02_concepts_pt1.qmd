@@ -1,6 +1,6 @@
 ---
-title: "<span>Concepts of the <code>{ggplot2}</code> Package Pt. 1:<br><span style='font-weight:500;'>Data, Aesthetics, and Layers + Misc Stuff</span></span>"
-subtitle: "09:30 - 10:30"
+title: "<span>Concepts of the <code>{ggplot2}</code> Package Pt. 1</span>"
+subtitle: "<span class='code'>09:30-10:30</span>"
 date: "2022-07-25"
 image: "images/session2.png"
 tbl-colwidths: [5,20,75]

@@ -1,0 +1,37 @@
+---
+title: "Colorful Graphics"
+subtitle: "<span class='code'>11:00-11:30</span>"
+date: "2022-07-26"
+image: "images/session6.png"
+tbl-colwidths: [5,20,75]
+---
+
+```{=html}
+<iframe class="slide-deck" src="../materials/06_colorful_graphics.pdf" height="420" width="747" style="border: 1px solid #2e3846;"></iframe>
+```
+
+[View slides in full screen](../materials/06_colorful_graphics.pdf)
+
+
+# Outline
+
+-   Channels to Encode Information
+-   Color Spaces
+-   Color Palette Choice
+-   Use Color Wisely (and Correctly)
+-   Designing for Colorblindness
+-   Beyond the Rainbow
+
+# Recap
+
+::: recap
+-   Pick the right palette type for your visualization
+    -   use **sequential** to encode *numerical information with order*
+    -   use **diverging** to encode *numerical information with a critical midpoint*
+    -   use **quialitative** to encode *categorical information*
+-   map the color with the highest contrast of a sequential palette to the most important value
+-   for categories use a maximum of 6-8 colors
+-   test for **color blindness** using a CVD simulator
+-   check the **contrast** of your data and text colors
+-   **avoid rainbow palettes!**
+:::

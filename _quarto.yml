@@ -31,8 +31,25 @@ website:
     pinned: true
     align: center
     right:
-      - icon: bulb
-        text: Sessions
+      - icon: download
+        text: Downloads
+        menu: 
+          - text: All Course Materials
+            href: ggplot2-course-material.zip
+          - text: Data Sets
+            href: ggplot2-course-data.zip
+          - text: Font Files
+            href: ggplot2-course-fonts.zip
+      - icon: file-certificate
+        href: license.qmd
+      - icon: github
+        href: https://github.com/rstudio-conf-2022/ggplot2-graphic-design
+        text: GitHub
+      #- icon: cloud-fill
+      #  href: https://rstudio.cloud/spaces/235465
+      #  text: RStudio Cloud+
+    left:
+      - text: Sessions
         menu: 
           - text: Introduction
             href: modules/d1-01_introduction.qmd
@@ -41,29 +58,18 @@ website:
           - text: Concepts of ggplot2 Pt. 2
             href: modules/d1-05_concepts_pt2.qmd
           - text: Data Communication
-            href: modules/d1-10_data_com.qmd
+            href: modules/d1-09_data_com.qmd
           - text: Working with Annotations & Labels
             href: modules/d2-01_lab_ann.qmd
+          - text: Colorful Graphics
+            href: modules/d2-03_colorful_graphics.qmd
           - text: Working with Colors
-            href: modules/d2-03_colors.qmd
-          - text: Working with Layouts & Compostion
-            href: modules/d2-05_layout.qmd
+            href: modules/d2-04_colors.qmd
+          - text: Working with Layouts & Composition
+            href: modules/d2-06_layout.qmd
           - text: Group Project
-            href: modules/d2-07_project.qmd
-      - icon: font
-        href: course_fonts.zip
-        text: Fonts
-      - icon: github
-        href: https://github.com/rstudio-conf-2022/ggplot2-graphic-design
-        text: GitHub
-      #- icon: cloud-fill
-      #  href: https://rstudio.cloud/spaces/235465
-      #  text: RStudio Cloud+
-    left:
-     - href: index.qmd
-       text: Home
-     - href: schedule.qmd
-     - href: license.qmd
+            href: modules/d2-08_project.qmd
+      - href: schedule.qmd
 
 format:
   html:

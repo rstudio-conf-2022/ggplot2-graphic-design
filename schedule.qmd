@@ -9,6 +9,7 @@ listing:
     field-display-names:
       subtitle: "Time"
       title: "Module"
+    table-hover: true
     date-format: "MMMM DD, YYYY"
     sort: [filename]
     sort-ui: false
@@ -22,6 +23,7 @@ listing:
       subtitle: "Time"
       title: "Module"
       author: "Presenter"
+    table-hover: true
     date-format: "MMMM DD, YYYY"
     sort: [filename]
     sort-ui: false

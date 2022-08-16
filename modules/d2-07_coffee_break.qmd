@@ -1,0 +1,9 @@
+---
+title: "Coffee break"
+subtitle: "<span class='code' style='color:#b3b3b3;'>15:00-15:30</span>"
+date: "2022-07-26"
+image: "images/coffee-break.png"
+image-alt: "A coffee cup."
+---
+
+If you have questions during the break please come to any of the TAs.

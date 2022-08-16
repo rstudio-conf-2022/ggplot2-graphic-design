@@ -1,20 +1,8 @@
 ---
-title: "Labels and Annotations"
-subtitle: "`09:00-10:30`"
+title: "Working with Labels and Annotations"
+subtitle: "<span class='code'>09:00-10:30</span>"
 date: "2022-07-26"
 image: "images/session5.png"
-listing:
-  - id: exercises
-    contents:
-      - ../materials/exercises/05_annotations.Rmd
-    type: table
-    fields: [subtitle, title]
-    field-display-names:
-      subtitle: "Exercise"
-    sort: [filename]
-    sort-ui: false
-    filter-ui: false
-    image-placeholder: images/exercise.png
 tbl-colwidths: [5,20,75]
 ---
 
@@ -81,16 +69,20 @@ tbl-colwidths: [5,20,75]
 
 ::: question
 -   {ggtext} also comes with some new geom's. Explore those and other options on the package webpage: [wilkelab.rg/ggtext](https://wilkelab.org/ggtext/).
--   Open the script [`exercises/05_labels_ex1.qmd`](../materials/exercises/05_labels_ex1.qmd) (or the `.rmd`).
+-   Open the script [`exercises/05_labels_ex1.qmd`](../materials/exercises/05_annotations_ex1.qmd) (or the `.rmd`).
 -   **Create the following visualization, as close as possible**, with the `penguins` dataset which is provided by the [{palmerpenguins} package](https://allisonhorst.github.io/palmerpenguins/): <br><br>![](https://github.com/rstudio-conf-2022/ggplot2-graphic-design/raw/main/materials/exercises/5-1-penguins/penguins-bubble-chart.png)<br><br>
     -   For the species labels, you likely have to create a summary data set.
     -   Use the {ggtext} geometries and theme elements to format the labels.
     -   Also, make use of the other components such as scales, complete themes, and theme customization.
 :::
 
+**&rarr;&ensp;[Solution](../materials/solutions/05_annotations_ex1_solution.qmd)**
+
 ## Exercise 2
 
 ::: question
--   Open the script [`exercises/05_labels_ex2.qmd`](../materials/exercises/05_labels_ex2.qmd) (or the `.rmd`).
+-   Open the script [`exercises/05_labels_ex2.qmd`](../materials/exercises/05_annotations_ex2.qmd) (or the `.rmd`).
 - Create the logo in `exercises/5-2-logo` with the image file `exercises/img/rstudioconf-washington-bg.png` for the skyline:<br><br>![](https://github.com/rstudio-conf-2022/ggplot2-graphic-design/raw/main/materials/exercises/5-2-logo/rstudio-conf-logo.png)
 :::
+
+**&rarr;&ensp;[Solution](../materials/solutions/05_annotations_ex2_solution.qmd)**

@@ -21,6 +21,13 @@
     "text": "Is this course for me?\nThis course will be appropriate for you if you answer yes to these questions:\n\nDo you aim to build graphics in a fully reproducible way without the need to manually adjust details afterwards?\nDo you enjoy using the {ggplot2} package but are interested in doing more with it?\nWould you like to learn how to improve future data visualizations in terms of accessibility, impact, and complexity?"
   },
   {
+    "objectID": "index.html#required-packages",
+    "href": "index.html#required-packages",
+    "title": "Graphic Design with ggplot2",
+    "section": "Required Packages",
+    "text": "Required Packages\n\ntidyverse packages and friends\n\nggplot2, readr, tibble, dplyr, tidyr, forcats, stringr, lubridate, here, systemfonts, scales\n\nextension packages\n\nggrepel, ggforce, ggtext, ggdist, ggbeeswarm, gghalves, ggblur, patchwork\n\ncolor packages\n\nviridis, RColorBrewer, rcartocolor, scico, ggsci, ggthemes, nord, MetBrewer, colorspace, colorblindr\n\nutil packages\n\nmagick, grid, grDevices\n\ndata packages\n\npalmerpenguins, rnaturalearth\n\nrspatial packages\n\nsf, rmapshaper\n\n\nRun this code to install the packages if needed:\npackages <- c(\n  \"ggplot2\", \"readr\", \"tibble\", \"tidyr\", \"forcats\", \"stringr\",\n  \"lubridate\", \"here\", \"systemfonts\", \"magick\", \"scales\", \"grid\",\n  \"grDevices\", \"colorspace\", \"viridis\", \"RColorBrewer\", \"rcartocolor\",\n  \"scico\", \"ggsci\", \"ggthemes\", \"nord\", \"MetBrewer\", \"ggrepel\",\n  \"ggforce\", \"ggtext\", \"ggdist\", \"ggbeeswarm\", \"gghalves\", \"patchwork\", \n  \"palmerpenguins\", \"rnaturalearth\", \"sf\", \"rmapshaper\", \"devtools\"\n)\n\ninstall.packages(setdiff(packages, rownames(installed.packages())))  \n\n## install {colorblindr} and requirements\nremotes::install_github(\"wilkelab/cowplot\")\nremotes::install_github(\"clauswilke/colorblindr\")"
+  },
+  {
     "objectID": "index.html#required-typefaces",
     "href": "index.html#required-typefaces",
     "title": "Graphic Design with ggplot2",
@@ -1708,683 +1715,683 @@
     "text": "Cédric Scherer // rstudio::conf // July 2022"
   },
   {
-    "objectID": "materials/06_colors.html#setup",
-    "href": "materials/06_colors.html#setup",
+    "objectID": "materials/07_colors.html#setup",
+    "href": "materials/07_colors.html#setup",
     "title": "Graphic Design with ggplot2",
     "section": "Setup",
     "text": "Setup\n\nlibrary(tidyverse)\n\nlibrary(tidyverse)\n\nbikes <- readr::read_csv(\n  here::here(\"data\", \"london-bikes-custom.csv\"), \n  col_types = \"Dcfffilllddddc\"\n)\n\nbikes$season <- forcats::fct_inorder(bikes$season)\n\ntheme_set(theme_light(base_size = 14, base_family = \"Roboto Condensed\"))\n\ntheme_update(\n  panel.grid.minor = element_blank(),\n  plot.title = element_text(face = \"bold\"),\n  legend.position = \"top\",\n  plot.title.position = \"plot\"\n)"
   },
   {
-    "objectID": "materials/06_colors.html#pre-defined-color-palettes-viridis",
-    "href": "materials/06_colors.html#pre-defined-color-palettes-viridis",
+    "objectID": "materials/07_colors.html#pre-defined-color-palettes-viridis",
+    "href": "materials/07_colors.html#pre-defined-color-palettes-viridis",
     "title": "Graphic Design with ggplot2",
     "section": "Pre-Defined Color Palettes: Viridis",
     "text": "Pre-Defined Color Palettes: Viridis\n\n\nggplot(\n    bikes, \n    aes(x = day_night, y = count, \n        fill = season)\n  ) +\n  geom_boxplot() +\n  scale_fill_viridis_d(\n    option = \"plasma\",\n    begin = .3\n  )"
   },
   {
-    "objectID": "materials/06_colors.html#pre-defined-color-palettes-viridis-1",
-    "href": "materials/06_colors.html#pre-defined-color-palettes-viridis-1",
+    "objectID": "materials/07_colors.html#pre-defined-color-palettes-viridis-1",
+    "href": "materials/07_colors.html#pre-defined-color-palettes-viridis-1",
     "title": "Graphic Design with ggplot2",
     "section": "Pre-Defined Color Palettes: Viridis",
     "text": "Pre-Defined Color Palettes: Viridis\n\n\nggplot(\n    bikes, \n    aes(x = day_night, y = count, \n        fill = month)\n  ) +\n  geom_boxplot() +\n  scale_fill_viridis_d(\n    option = \"plasma\",\n    begin = .3\n  )"
   },
   {
-    "objectID": "materials/06_colors.html#pre-defined-color-palettes-viridis-2",
-    "href": "materials/06_colors.html#pre-defined-color-palettes-viridis-2",
+    "objectID": "materials/07_colors.html#pre-defined-color-palettes-viridis-2",
+    "href": "materials/07_colors.html#pre-defined-color-palettes-viridis-2",
     "title": "Graphic Design with ggplot2",
     "section": "Pre-Defined Color Palettes: Viridis",
     "text": "Pre-Defined Color Palettes: Viridis\n\n\nggplot(\n    bikes, \n    aes(x = temp_feel, y = count, \n        color = temp_feel)\n  ) +\n  geom_point() +\n  scale_color_viridis_c(\n    option = \"plasma\",\n    end = .9\n  )"
   },
   {
-    "objectID": "materials/06_colors.html#pre-defined-color-palettes-viridis-3",
-    "href": "materials/06_colors.html#pre-defined-color-palettes-viridis-3",
+    "objectID": "materials/07_colors.html#pre-defined-color-palettes-viridis-3",
+    "href": "materials/07_colors.html#pre-defined-color-palettes-viridis-3",
     "title": "Graphic Design with ggplot2",
     "section": "Pre-Defined Color Palettes: Viridis",
     "text": "Pre-Defined Color Palettes: Viridis\n\n\nggplot(\n    bikes, \n    aes(x = temp_feel, y = count, \n        color = temp_feel)\n  ) +\n  geom_point() +\n  scale_color_viridis_c(\n    option = \"plasma\",\n    end = .9,\n    direction = -1\n  )"
   },
   {
-    "objectID": "materials/06_colors.html#pre-defined-color-palettes-brewer",
-    "href": "materials/06_colors.html#pre-defined-color-palettes-brewer",
+    "objectID": "materials/07_colors.html#pre-defined-color-palettes-brewer",
+    "href": "materials/07_colors.html#pre-defined-color-palettes-brewer",
     "title": "Graphic Design with ggplot2",
     "section": "Pre-Defined Color Palettes: Brewer",
     "text": "Pre-Defined Color Palettes: Brewer\n\n\nggplot(\n    bikes, \n    aes(x = day_night, y = count, \n        fill = season)\n  ) +\n  geom_boxplot() +\n  scale_fill_brewer(\n    palette = \"Set1\"\n  )"
   },
   {
-    "objectID": "materials/06_colors.html#pre-defined-color-palettes-brewer-1",
-    "href": "materials/06_colors.html#pre-defined-color-palettes-brewer-1",
+    "objectID": "materials/07_colors.html#pre-defined-color-palettes-brewer-1",
+    "href": "materials/07_colors.html#pre-defined-color-palettes-brewer-1",
     "title": "Graphic Design with ggplot2",
     "section": "Pre-Defined Color Palettes: Brewer",
     "text": "Pre-Defined Color Palettes: Brewer\n\nRColorBrewer::display.brewer.all()"
   },
   {
-    "objectID": "materials/06_colors.html#pre-defined-color-palettes-brewer-2",
-    "href": "materials/06_colors.html#pre-defined-color-palettes-brewer-2",
+    "objectID": "materials/07_colors.html#pre-defined-color-palettes-brewer-2",
+    "href": "materials/07_colors.html#pre-defined-color-palettes-brewer-2",
     "title": "Graphic Design with ggplot2",
     "section": "Pre-Defined Color Palettes: Brewer",
     "text": "Pre-Defined Color Palettes: Brewer\n\nRColorBrewer::display.brewer.all(colorblindFriendly = TRUE)"
   },
   {
-    "objectID": "materials/06_colors.html#rcartocolor",
-    "href": "materials/06_colors.html#rcartocolor",
+    "objectID": "materials/07_colors.html#rcartocolor",
+    "href": "materials/07_colors.html#rcartocolor",
     "title": "Graphic Design with ggplot2",
     "section": "{rcartocolor}",
     "text": "{rcartocolor}\n\n\n# install.packages(\"rcartocolor\")\n\nggplot(\n    bikes, \n    aes(x = day_night, y = count, \n        fill = season)\n  ) +\n  geom_boxplot() +\n  rcartocolor::scale_fill_carto_d(\n    palette = \"Vivid\" \n  )"
   },
   {
-    "objectID": "materials/06_colors.html#rcartocolor-1",
-    "href": "materials/06_colors.html#rcartocolor-1",
+    "objectID": "materials/07_colors.html#rcartocolor-1",
+    "href": "materials/07_colors.html#rcartocolor-1",
     "title": "Graphic Design with ggplot2",
     "section": "{rcartocolor}",
     "text": "{rcartocolor}\n\nrcartocolor::display_carto_all()"
   },
   {
-    "objectID": "materials/06_colors.html#rcartocolor-2",
-    "href": "materials/06_colors.html#rcartocolor-2",
+    "objectID": "materials/07_colors.html#rcartocolor-2",
+    "href": "materials/07_colors.html#rcartocolor-2",
     "title": "Graphic Design with ggplot2",
     "section": "{rcartocolor}",
     "text": "{rcartocolor}\n\nrcartocolor::display_carto_all(colorblind_friendly = TRUE)"
   },
   {
-    "objectID": "materials/06_colors.html#scico",
-    "href": "materials/06_colors.html#scico",
+    "objectID": "materials/07_colors.html#scico",
+    "href": "materials/07_colors.html#scico",
     "title": "Graphic Design with ggplot2",
     "section": "{scico}",
     "text": "{scico}\n\n\n# install.packages(\"scico\")\n\nggplot(\n    bikes, \n    aes(x = day_night, y = count, \n        fill = season)\n  ) +\n  geom_boxplot() +\n  scico::scale_fill_scico_d(\n    palette = \"hawaii\"\n  )"
   },
   {
-    "objectID": "materials/06_colors.html#scico-1",
-    "href": "materials/06_colors.html#scico-1",
+    "objectID": "materials/07_colors.html#scico-1",
+    "href": "materials/07_colors.html#scico-1",
     "title": "Graphic Design with ggplot2",
     "section": "{scico}",
     "text": "{scico}\n\nscico::scico_palette_show()"
   },
   {
-    "objectID": "materials/06_colors.html#ggsci-and-ggthemes",
-    "href": "materials/06_colors.html#ggsci-and-ggthemes",
+    "objectID": "materials/07_colors.html#ggsci-and-ggthemes",
+    "href": "materials/07_colors.html#ggsci-and-ggthemes",
     "title": "Graphic Design with ggplot2",
     "section": "{ggsci} and {ggthemes}",
     "text": "{ggsci} and {ggthemes}\n\n\n\n# install.packages(\"ggsci\")\nggplot(\n    bikes, \n    aes(x = day_night, y = count, \n        fill = season)\n  ) +\n  geom_boxplot() +\n  ggsci::scale_fill_npg()\n\n\n\n\n\n# install.packages(\"ggthemes\")\nggplot(\n    bikes, \n    aes(x = day_night, y = count, \n        fill = season)\n  ) +\n  geom_boxplot() +\n  ggthemes::scale_fill_gdocs()"
   },
   {
-    "objectID": "materials/06_colors.html#nord",
-    "href": "materials/06_colors.html#nord",
+    "objectID": "materials/07_colors.html#nord",
+    "href": "materials/07_colors.html#nord",
     "title": "Graphic Design with ggplot2",
     "section": "{nord}",
     "text": "{nord}\n\n\n# install.packages(\"nord\")\n\nggplot(\n    bikes, \n    aes(x = day_night, y = count, \n        fill = season)\n  ) +\n  geom_boxplot() +\n  nord::scale_fill_nord(\n    palette = \"aurora\"\n  )"
   },
   {
-    "objectID": "materials/06_colors.html#nord-1",
-    "href": "materials/06_colors.html#nord-1",
+    "objectID": "materials/07_colors.html#nord-1",
+    "href": "materials/07_colors.html#nord-1",
     "title": "Graphic Design with ggplot2",
     "section": "{nord}",
     "text": "{nord}\n\n\n# install.packages(\"nord\")\n\nggplot(\n    bikes, \n    aes(x = temp_feel, y = count, \n        color = temp_feel)\n  ) +\n  geom_point() +\n  nord::scale_color_nord(\n    palette = \"silver_mine\",\n    discrete = FALSE\n  )"
   },
   {
-    "objectID": "materials/06_colors.html#metbrewer",
-    "href": "materials/06_colors.html#metbrewer",
+    "objectID": "materials/07_colors.html#metbrewer",
+    "href": "materials/07_colors.html#metbrewer",
     "title": "Graphic Design with ggplot2",
     "section": "{MetBrewer}",
     "text": "{MetBrewer}\n\n\n# install.packages(\"MetBrewer\")\n\nggplot(\n    bikes, \n    aes(x = day_night, y = count, \n        fill = season)\n  ) +\n  geom_boxplot() +\n  MetBrewer::scale_fill_met_d(\n    name = \"Klimt\"\n  )"
   },
   {
-    "objectID": "materials/06_colors.html#metbrewer-1",
-    "href": "materials/06_colors.html#metbrewer-1",
+    "objectID": "materials/07_colors.html#metbrewer-1",
+    "href": "materials/07_colors.html#metbrewer-1",
     "title": "Graphic Design with ggplot2",
     "section": "{MetBrewer}",
     "text": "{MetBrewer}\n\nMetBrewer::display_all()"
   },
   {
-    "objectID": "materials/06_colors.html#metbrewer-2",
-    "href": "materials/06_colors.html#metbrewer-2",
+    "objectID": "materials/07_colors.html#metbrewer-2",
+    "href": "materials/07_colors.html#metbrewer-2",
     "title": "Graphic Design with ggplot2",
     "section": "{MetBrewer}",
     "text": "{MetBrewer}\n\nMetBrewer::display_all(colorblind_only = TRUE)"
   },
   {
-    "objectID": "materials/06_colors.html#metbrewer-3",
-    "href": "materials/06_colors.html#metbrewer-3",
+    "objectID": "materials/07_colors.html#metbrewer-3",
+    "href": "materials/07_colors.html#metbrewer-3",
     "title": "Graphic Design with ggplot2",
     "section": "{MetBrewer}",
     "text": "{MetBrewer}\n\n\n# install.packages(\"MetBrewer\")\n\nggplot(\n    bikes, \n    aes(x = temp_feel, y = count, \n        color = temp_feel)\n  ) +\n  geom_point() +\n  MetBrewer::scale_color_met_c(\n    name = \"Hiroshige\" \n  )"
   },
   {
-    "objectID": "materials/06_colors.html#customize-existing-palettes",
-    "href": "materials/06_colors.html#customize-existing-palettes",
+    "objectID": "materials/07_colors.html#customize-existing-palettes",
+    "href": "materials/07_colors.html#customize-existing-palettes",
     "title": "Graphic Design with ggplot2",
     "section": "Customize Existing Palettes",
     "text": "Customize Existing Palettes\n\n\nlibrary(\"rcartocolor\")\n\nggplot(\n    bikes, \n    aes(x = day_night, y = count, \n        fill = season)\n  ) +\n  geom_boxplot() +\n  rcartocolor::scale_fill_carto_d(\n    name = \"Vivid\" \n  )"
   },
   {
-    "objectID": "materials/06_colors.html#customize-existing-palettes-1",
-    "href": "materials/06_colors.html#customize-existing-palettes-1",
+    "objectID": "materials/07_colors.html#customize-existing-palettes-1",
+    "href": "materials/07_colors.html#customize-existing-palettes-1",
     "title": "Graphic Design with ggplot2",
     "section": "Customize Existing Palettes",
     "text": "Customize Existing Palettes\n\n\nlibrary(\"rcartocolor\")\n\nggplot(\n    bikes, \n    aes(x = day_night, y = count, \n        fill = season)\n  ) +\n  geom_boxplot() +\n  scale_fill_manual(\n    values = carto_pal(\n      name = \"Vivid\", n = 4\n    )\n  )"
   },
   {
-    "objectID": "materials/06_colors.html#customize-existing-palettes-2",
-    "href": "materials/06_colors.html#customize-existing-palettes-2",
+    "objectID": "materials/07_colors.html#customize-existing-palettes-2",
+    "href": "materials/07_colors.html#customize-existing-palettes-2",
     "title": "Graphic Design with ggplot2",
     "section": "Customize Existing Palettes",
     "text": "Customize Existing Palettes\n\n\nlibrary(\"rcartocolor\")\n\nggplot(\n    bikes, \n    aes(x = day_night, y = count, \n        fill = season)\n  ) +\n  geom_boxplot() +\n  scale_fill_manual(\n    values = carto_pal(\n      name = \"Vivid\", n = 5\n    )[1:4]\n  )"
   },
   {
-    "objectID": "materials/06_colors.html#customize-existing-palettes-3",
-    "href": "materials/06_colors.html#customize-existing-palettes-3",
+    "objectID": "materials/07_colors.html#customize-existing-palettes-3",
+    "href": "materials/07_colors.html#customize-existing-palettes-3",
     "title": "Graphic Design with ggplot2",
     "section": "Customize Existing Palettes",
     "text": "Customize Existing Palettes\n\n\nlibrary(\"rcartocolor\")\n\nggplot(\n    bikes, \n    aes(x = day_night, y = count, \n        fill = season)\n  ) +\n  geom_boxplot() +\n  scale_fill_manual(\n    values = carto_pal(\n      name = \"Vivid\", n = 6\n    )[c(1, 3:5)]\n  )"
   },
   {
-    "objectID": "materials/06_colors.html#customize-existing-palettes-4",
-    "href": "materials/06_colors.html#customize-existing-palettes-4",
+    "objectID": "materials/07_colors.html#customize-existing-palettes-4",
+    "href": "materials/07_colors.html#customize-existing-palettes-4",
     "title": "Graphic Design with ggplot2",
     "section": "Customize Existing Palettes",
     "text": "Customize Existing Palettes\n\n\ncarto_custom <- \n  carto_pal(\n    name = \"Vivid\", n = 6\n  )[c(1, 3:5)]\n\nggplot(\n    bikes, \n    aes(x = day_night, y = count, \n        fill = season)\n  ) +\n  geom_boxplot() +\n  scale_fill_manual(\n    values = carto_custom\n  )"
   },
   {
-    "objectID": "materials/06_colors.html#customize-existing-palettes-5",
-    "href": "materials/06_colors.html#customize-existing-palettes-5",
+    "objectID": "materials/07_colors.html#customize-existing-palettes-5",
+    "href": "materials/07_colors.html#customize-existing-palettes-5",
     "title": "Graphic Design with ggplot2",
     "section": "Customize Existing Palettes",
     "text": "Customize Existing Palettes\n\n\n# install.packages(\"colorspace\")\nlibrary(colorspace)\n\ncarto_light <- lighten(carto_custom, .8)\n\nggplot(\n    bikes, \n    aes(x = day_night, y = count, \n        fill = season)\n  ) +\n  geom_boxplot() +\n  scale_fill_manual(\n    values = carto_light\n  )"
   },
   {
-    "objectID": "materials/06_colors.html#customize-existing-palettes-6",
-    "href": "materials/06_colors.html#customize-existing-palettes-6",
+    "objectID": "materials/07_colors.html#customize-existing-palettes-6",
+    "href": "materials/07_colors.html#customize-existing-palettes-6",
     "title": "Graphic Design with ggplot2",
     "section": "Customize Existing Palettes",
     "text": "Customize Existing Palettes\n\n\nggplot(\n    bikes, \n    aes(x = day_night, y = count)\n  ) +\n  geom_boxplot(\n    aes(fill = season,\n        fill = after_scale(\n          lighten(fill, .8)\n    ))\n  ) +\n  scale_fill_manual(\n    values = carto_custom\n  )"
   },
   {
-    "objectID": "materials/06_colors.html#customize-existing-palettes-7",
-    "href": "materials/06_colors.html#customize-existing-palettes-7",
+    "objectID": "materials/07_colors.html#customize-existing-palettes-7",
+    "href": "materials/07_colors.html#customize-existing-palettes-7",
     "title": "Graphic Design with ggplot2",
     "section": "Customize Existing Palettes",
     "text": "Customize Existing Palettes\n\n\nggplot(\n    bikes, \n    aes(x = day_night, y = count)\n  ) +\n  geom_boxplot(\n    aes(\n      fill = stage(\n        season,\n        after_scale =\n          lighten(fill, .8)\n      )\n    )\n  ) +\n  scale_fill_manual(\n    values = carto_custom\n  )"
   },
   {
-    "objectID": "materials/06_colors.html#customize-existing-palettes-8",
-    "href": "materials/06_colors.html#customize-existing-palettes-8",
+    "objectID": "materials/07_colors.html#customize-existing-palettes-8",
+    "href": "materials/07_colors.html#customize-existing-palettes-8",
     "title": "Graphic Design with ggplot2",
     "section": "Customize Existing Palettes",
     "text": "Customize Existing Palettes\n\n\nggplot(\n    bikes, \n    aes(x = day_night, y = count)\n  ) +\n  geom_boxplot(\n    aes(color = season,\n        fill = after_scale(\n          lighten(color, .8)\n    ))\n  ) +\n  scale_color_manual(\n    values = carto_custom\n  )"
   },
   {
-    "objectID": "materials/06_colors.html#customize-existing-palettes-9",
-    "href": "materials/06_colors.html#customize-existing-palettes-9",
+    "objectID": "materials/07_colors.html#customize-existing-palettes-9",
+    "href": "materials/07_colors.html#customize-existing-palettes-9",
     "title": "Graphic Design with ggplot2",
     "section": "Customize Existing Palettes",
     "text": "Customize Existing Palettes\n\n\nggplot(\n    bikes, \n    aes(x = day_night, y = count)\n  ) +\n  geom_boxplot(\n    aes(color = season,\n        fill = after_scale(\n          lighten(color, .8)\n    ))\n  ) +\n  geom_jitter(\n    aes(color = season), \n    position = position_jitterdodge(\n      dodge.width = .75, \n      jitter.width = .2\n    ),\n    alpha = .4\n  ) +\n  scale_color_manual(\n    values = carto_custom\n  )"
   },
   {
-    "objectID": "materials/06_colors.html#customize-existing-palettes-10",
-    "href": "materials/06_colors.html#customize-existing-palettes-10",
+    "objectID": "materials/07_colors.html#customize-existing-palettes-10",
+    "href": "materials/07_colors.html#customize-existing-palettes-10",
     "title": "Graphic Design with ggplot2",
     "section": "Customize Existing Palettes",
     "text": "Customize Existing Palettes\n\n\nggplot(\n    bikes, \n    aes(x = day_night, y = count)\n  ) +\n  geom_boxplot(\n    aes(color = season,\n        fill = after_scale(\n          lighten(color, .8)\n        ))\n  ) +\n  geom_jitter(\n    aes(color = season,\n        color = after_scale(\n          darken(color, .3)\n    )), \n    position = position_jitterdodge(\n      dodge.width = .75, \n      jitter.width = .2\n    ),\n    alpha = .4\n  ) +\n  scale_color_manual(\n    values = carto_custom\n  )"
   },
   {
-    "objectID": "materials/06_colors.html#customize-existing-palettes-11",
-    "href": "materials/06_colors.html#customize-existing-palettes-11",
+    "objectID": "materials/07_colors.html#customize-existing-palettes-11",
+    "href": "materials/07_colors.html#customize-existing-palettes-11",
     "title": "Graphic Design with ggplot2",
     "section": "Customize Existing Palettes",
     "text": "Customize Existing Palettes\n\n\nggplot(\n    bikes, \n    aes(x = day_night, y = count)\n  ) +\n  geom_boxplot(\n    aes(color = season,\n        fill = after_scale(\n          lighten(color, .8)\n        ))\n  ) +\n  geom_jitter(\n    aes(color = season,\n        color = after_scale(\n          darken(color, .3)\n        )), \n    position = position_jitterdodge(\n      dodge.width = .75, \n      jitter.width = .2\n    ),\n    alpha = .4\n  ) +\n  scale_color_manual(\n    values = carto_custom\n  )"
   },
   {
-    "objectID": "materials/06_colors.html#create-sequential-palettes",
-    "href": "materials/06_colors.html#create-sequential-palettes",
+    "objectID": "materials/07_colors.html#create-sequential-palettes",
+    "href": "materials/07_colors.html#create-sequential-palettes",
     "title": "Graphic Design with ggplot2",
     "section": "Create Sequential Palettes",
     "text": "Create Sequential Palettes\n\n\nggplot(\n    bikes, \n    aes(x = temp_feel, y = count, \n        color = temp_feel)\n  ) +\n  geom_point() +\n  scale_color_gradient(\n    low = \"#28A87D\",\n    high = \"#FFD166\"\n  )"
   },
   {
-    "objectID": "materials/06_colors.html#create-diverging-palettes",
-    "href": "materials/06_colors.html#create-diverging-palettes",
+    "objectID": "materials/07_colors.html#create-diverging-palettes",
+    "href": "materials/07_colors.html#create-diverging-palettes",
     "title": "Graphic Design with ggplot2",
     "section": "Create Diverging Palettes",
     "text": "Create Diverging Palettes\n\n\nggplot(\n    bikes, \n    aes(x = temp_feel, y = count, \n        color = temp_feel)\n  ) +\n  geom_point() +\n  scale_color_gradient2(\n    low = \"#663399\",\n    high = \"#993334\",\n    mid = \"grey95\"\n  )"
   },
   {
-    "objectID": "materials/06_colors.html#create-diverging-palettes-1",
-    "href": "materials/06_colors.html#create-diverging-palettes-1",
+    "objectID": "materials/07_colors.html#create-diverging-palettes-1",
+    "href": "materials/07_colors.html#create-diverging-palettes-1",
     "title": "Graphic Design with ggplot2",
     "section": "Create Diverging Palettes",
     "text": "Create Diverging Palettes\n\n\nggplot(\n    bikes, \n    aes(x = temp_feel, y = count, \n        color = temp_feel)\n  ) +\n  geom_point() +\n  scale_color_gradient2(\n    low = \"#663399\",\n    high = \"#993334\",\n    mid = \"grey92\",\n    midpoint = 10    \n  )"
   },
   {
-    "objectID": "materials/06_colors.html#create-diverging-palettes-2",
-    "href": "materials/06_colors.html#create-diverging-palettes-2",
+    "objectID": "materials/07_colors.html#create-diverging-palettes-2",
+    "href": "materials/07_colors.html#create-diverging-palettes-2",
     "title": "Graphic Design with ggplot2",
     "section": "Create Diverging Palettes",
     "text": "Create Diverging Palettes\n\n\nggplot(\n    bikes, \n    aes(x = temp_feel, y = count, \n        color = temp_feel)\n  ) +\n  geom_point() +\n  scale_color_gradient2(\n    low = \"#663399\",\n    high = \"#993334\",\n    mid = \"grey92\",\n    midpoint = 10,\n    limits = c(-10, 30)   \n  )"
   },
   {
-    "objectID": "materials/06_colors.html#create-any-palette",
-    "href": "materials/06_colors.html#create-any-palette",
+    "objectID": "materials/07_colors.html#create-any-palette",
+    "href": "materials/07_colors.html#create-any-palette",
     "title": "Graphic Design with ggplot2",
     "section": "Create Any Palette",
     "text": "Create Any Palette\n\n\nggplot(\n    bikes, \n    aes(x = temp_feel, y = count, \n        color = temp_feel)\n  ) +\n  geom_point() +\n  scale_color_gradientn(\n    colors = carto_custom  \n  )"
   },
   {
-    "objectID": "materials/06_colors.html#create-any-palette-1",
-    "href": "materials/06_colors.html#create-any-palette-1",
+    "objectID": "materials/07_colors.html#create-any-palette-1",
+    "href": "materials/07_colors.html#create-any-palette-1",
     "title": "Graphic Design with ggplot2",
     "section": "Create Any Palette",
     "text": "Create Any Palette\n\n\nggplot(\n    bikes, \n    aes(x = temp_feel, y = count, \n        color = temp_feel)\n  ) +\n  geom_point() +\n  scale_color_gradientn(\n    colors = carto_custom,\n    values = c(0, .2, .8, 1)\n  )"
   },
   {
-    "objectID": "materials/06_colors.html#build-your-own-scale_colorfill_-1",
-    "href": "materials/06_colors.html#build-your-own-scale_colorfill_-1",
+    "objectID": "materials/07_colors.html#build-your-own-scale_colorfill_-1",
+    "href": "materials/07_colors.html#build-your-own-scale_colorfill_-1",
     "title": "Graphic Design with ggplot2",
     "section": "Build Your Own scale_color|fill_*()",
     "text": "Build Your Own scale_color|fill_*()\n\ndubois_colors <- function(...) {\n  dubois_cols <- c(\n    `black`    = \"#000000\",\n    `purple`   = \"#582f6c\",\n    `violet`   = \"#94679C\",\n    `pink`     = \"#ef849f\",\n    `softred`  = \"#f4b7a7\",\n    `iceblue`  = \"#bccbf3\",\n    `palegrey` = \"#e4e4e4\"\n  )\n\n  cols <- c(...)\n\n  if (is.null(cols))\n    return (dubois_cols)\n\n  dubois_cols[cols]\n}\n\ndubois_colors(\"black\", \"pink\", \"softred\", \"iceblue\")\n\n    black      pink   softred   iceblue \n\"#000000\" \"#ef849f\" \"#f4b7a7\" \"#bccbf3\""
   },
   {
-    "objectID": "materials/06_colors.html#build-your-own-scale_colorfill__d",
-    "href": "materials/06_colors.html#build-your-own-scale_colorfill__d",
+    "objectID": "materials/07_colors.html#build-your-own-scale_colorfill__d",
+    "href": "materials/07_colors.html#build-your-own-scale_colorfill__d",
     "title": "Graphic Design with ggplot2",
     "section": "Build Your Own scale_color|fill_*_d()",
     "text": "Build Your Own scale_color|fill_*_d()\n\ndubois_pal_d <- function(palette = \"default\", reverse = FALSE) {\n  function(n) {\n    if(n > 5) stop('Palettes only contains 5 colors')\n\n    if (palette == \"default\") { pal <- dubois_colors(\"black\", \"violet\", \"softred\", \"iceblue\", \"palegrey\")[1:n] }\n    if (palette == \"dark\") { pal <- dubois_colors(1:5)[1:n] }\n    if (palette == \"light\") { pal <- dubois_colors(3:7)[1:n] }\n    \n    pal <- unname(pal)\n\n    if (reverse) rev(pal) else pal\n  }\n}\n\ndubois_pal_d()(3)\n\n[1] \"#000000\" \"#94679C\" \"#f4b7a7\""
   },
   {
-    "objectID": "materials/06_colors.html#build-your-own-scale_fillcolor__d",
-    "href": "materials/06_colors.html#build-your-own-scale_fillcolor__d",
+    "objectID": "materials/07_colors.html#build-your-own-scale_fillcolor__d",
+    "href": "materials/07_colors.html#build-your-own-scale_fillcolor__d",
     "title": "Graphic Design with ggplot2",
     "section": "Build Your Own scale_fill|color_*_d()",
     "text": "Build Your Own scale_fill|color_*_d()\n\nscale_color_dubois_d <- function(palette = \"default\", reverse = FALSE, ...) {\n  if (!palette %in% c(\"default\", \"dark\", \"light\")) stop('Palette should be \"default\", \"dark\" or \"light\".')\n\n  pal <- dubois_pal_d(palette = palette, reverse = reverse)\n\n  ggplot2::discrete_scale(\"colour\", paste0(\"dubois_\", palette), palette = pal, ...)\n}\n\nscale_fill_dubois_d <- function(palette = \"default\", reverse = FALSE, ...) {\n  if (!palette %in% c(\"default\", \"dark\", \"light\")) stop('Palette should be \"default\", \"dark\" or \"light\".')\n\n  pal <- dubois_pal_d(palette = palette, reverse = reverse)\n\n  ggplot2::discrete_scale(\"fill\", paste0(\"dubois_\", palette), palette = pal, ...)\n}"
   },
   {
-    "objectID": "materials/06_colors.html#use-your-own-scale_fill__d",
-    "href": "materials/06_colors.html#use-your-own-scale_fill__d",
+    "objectID": "materials/07_colors.html#use-your-own-scale_fill__d",
+    "href": "materials/07_colors.html#use-your-own-scale_fill__d",
     "title": "Graphic Design with ggplot2",
     "section": "Use Your Own scale_fill_*_d()",
     "text": "Use Your Own scale_fill_*_d()\n\n\nggplot(\n    bikes, \n    aes(x = day_night, y = count, \n        fill = season)\n  ) +\n  geom_boxplot() +\n  scale_fill_dubois_d()"
   },
   {
-    "objectID": "materials/06_colors.html#use-your-own-scale_color__d",
-    "href": "materials/06_colors.html#use-your-own-scale_color__d",
+    "objectID": "materials/07_colors.html#use-your-own-scale_color__d",
+    "href": "materials/07_colors.html#use-your-own-scale_color__d",
     "title": "Graphic Design with ggplot2",
     "section": "Use Your Own scale_color_*_d()",
     "text": "Use Your Own scale_color_*_d()\n\n\nggplot(\n    bikes, \n    aes(x = day_night, y = count, \n        color = season)\n  ) +\n  geom_boxplot() +\n  scale_color_dubois_d(\n    palette = \"dark\",\n    reverse = TRUE\n  )"
   },
   {
-    "objectID": "materials/06_colors.html#emulate-cvd",
-    "href": "materials/06_colors.html#emulate-cvd",
+    "objectID": "materials/07_colors.html#emulate-cvd",
+    "href": "materials/07_colors.html#emulate-cvd",
     "title": "Graphic Design with ggplot2",
     "section": "Emulate CVD",
     "text": "Emulate CVD\n\n\ndeut <- \n  colorspace::deutan(\n    viridis::turbo(\n      n = 100, direction = -1\n    )\n  )\n\nggplot(\n    bikes, \n    aes(x = temp_feel, y = count,\n        color = temp_feel)\n  ) +\n  geom_point() +\n  scale_color_gradientn(\n    colors = deut\n  )"
   },
   {
-    "objectID": "materials/06_colors.html#emulate-cvd-1",
-    "href": "materials/06_colors.html#emulate-cvd-1",
+    "objectID": "materials/07_colors.html#emulate-cvd-1",
+    "href": "materials/07_colors.html#emulate-cvd-1",
     "title": "Graphic Design with ggplot2",
     "section": "Emulate CVD",
     "text": "Emulate CVD\n\n\ng <- \n  ggplot(\n    bikes, \n    aes(x = day_night, y = count, \n        fill = season)\n  ) +\n  geom_boxplot() +\n  scale_fill_manual(\n    values = carto_custom\n  )\n\ng"
   },
   {
-    "objectID": "materials/06_colors.html#emulate-cvd-2",
-    "href": "materials/06_colors.html#emulate-cvd-2",
+    "objectID": "materials/07_colors.html#emulate-cvd-2",
+    "href": "materials/07_colors.html#emulate-cvd-2",
     "title": "Graphic Design with ggplot2",
     "section": "Emulate CVD",
     "text": "Emulate CVD\n\n\n# devtools::install_github(\n#   \"clauswilke/colorblindr\"\n# )\n\ncolorblindr::cvd_grid(g)"
   },
   {
-    "objectID": "materials/06_colors.html#emulate-cvd-3",
-    "href": "materials/06_colors.html#emulate-cvd-3",
+    "objectID": "materials/07_colors.html#emulate-cvd-3",
+    "href": "materials/07_colors.html#emulate-cvd-3",
     "title": "Graphic Design with ggplot2",
     "section": "Emulate CVD",
     "text": "Emulate CVD"
   },
   {
-    "objectID": "materials/06_colors.html#emulate-cvd-4",
-    "href": "materials/06_colors.html#emulate-cvd-4",
+    "objectID": "materials/07_colors.html#emulate-cvd-4",
+    "href": "materials/07_colors.html#emulate-cvd-4",
     "title": "Graphic Design with ggplot2",
     "section": "Emulate CVD",
     "text": "Emulate CVD\n\n# devtools::install_github(\"clauswilke/colorblindr\")\n\ncolorblindr::cvd_grid(g2)"
   },
   {
-    "objectID": "materials/06_colors.html#emulate-cvd-5",
-    "href": "materials/06_colors.html#emulate-cvd-5",
+    "objectID": "materials/07_colors.html#emulate-cvd-5",
+    "href": "materials/07_colors.html#emulate-cvd-5",
     "title": "Graphic Design with ggplot2",
     "section": "Emulate CVD",
     "text": "Emulate CVD"
   },
   {
-    "objectID": "materials/06_colors.html#emulate-cvd-6",
-    "href": "materials/06_colors.html#emulate-cvd-6",
+    "objectID": "materials/07_colors.html#emulate-cvd-6",
+    "href": "materials/07_colors.html#emulate-cvd-6",
     "title": "Graphic Design with ggplot2",
     "section": "Emulate CVD",
     "text": "Emulate CVD\n\n# devtools::install_github(\"clauswilke/colorblindr\")\n\ncolorblindr::cvd_grid(g3)"
   },
   {
-    "objectID": "materials/06_colors.html#recap",
-    "href": "materials/06_colors.html#recap",
+    "objectID": "materials/07_colors.html#recap",
+    "href": "materials/07_colors.html#recap",
     "title": "Graphic Design with ggplot2",
     "section": "Recap",
-    "text": "Recap\n\n\n\nuse categorical palettes for qualitative data\n\ne.g. scale_*_discrete() and scale_*_manual() for custom options\ne.g. scale_*_viridis_d and scale_*_brewer() for pre-defined options\n\nuse sequential or diverging palettes for quantitative data\n\ne.g. scale_*_gradient() or scale_*_gradient2() for custom options\ne.g. scale_*_viridis_c and scale_*_distiller() for pre-defined options\n\nvarious packages provide palettes incl. scale_* components\n\ne.g. {rcartocolors}, {scico}, {ggsci}, {ggthemes}, {nord}\n\nthose and even more packages return palettes as vectors\n\nmodify and supply thehm to scale_*_manual() and scale_*_gradientn()\n\nuse after_scale to modify and recycle color scales"
+    "text": "Recap\n\n\n\nuse categorical palettes for qualitative data\n\ne.g. scale_*_discrete() and scale_*_manual() for custom options\ne.g. scale_*_viridis_d and scale_*_brewer() for pre-defined options\n\nuse sequential or diverging palettes for quantitative data\n\ne.g. scale_*_gradient() or scale_*_gradient2() for custom options\ne.g. scale_*_viridis_c and scale_*_distiller() for pre-defined options\n\nvarious packages provide palettes incl. scale_* components\n\ne.g. {rcartocolors}, {scico}, {ggsci}, {ggthemes}, {nord}\n\nthose and even more packages return palettes as vectors\n\nmodify and supply them to scale_*_manual() and scale_*_gradientn()\n\nuse after_scale to modify and recycle color scales"
   },
   {
-    "objectID": "materials/06_colors.html#exercise-1",
-    "href": "materials/06_colors.html#exercise-1",
+    "objectID": "materials/07_colors.html#exercise-1",
+    "href": "materials/07_colors.html#exercise-1",
     "title": "Graphic Design with ggplot2",
     "section": "Exercise",
     "text": "Exercise\n\n\nCreate a similar visualization as close as possible:"
   },
   {
-    "objectID": "materials/06_colors.html#evaluate-hcl-spectrum",
-    "href": "materials/06_colors.html#evaluate-hcl-spectrum",
+    "objectID": "materials/07_colors.html#evaluate-hcl-spectrum",
+    "href": "materials/07_colors.html#evaluate-hcl-spectrum",
     "title": "Graphic Design with ggplot2",
     "section": "Evaluate HCL Spectrum",
     "text": "Evaluate HCL Spectrum\n\n\ncolorspace::specplot(\n  colorspace::diverging_hcl(\n    n = 100, palette = \"Blue-Red\"\n  )\n)"
   },
   {
-    "objectID": "materials/06_colors.html#evaluate-hcl-spectrum-1",
-    "href": "materials/06_colors.html#evaluate-hcl-spectrum-1",
+    "objectID": "materials/07_colors.html#evaluate-hcl-spectrum-1",
+    "href": "materials/07_colors.html#evaluate-hcl-spectrum-1",
     "title": "Graphic Design with ggplot2",
     "section": "Evaluate HCL Spectrum",
     "text": "Evaluate HCL Spectrum\n\n\n\ncolorspace::specplot(\n  scico::scico(\n    n = 100, palette = \"hawaii\"\n  )\n)\n\n\n\n\n\ncolorspace::specplot(\n  MetBrewer::met.brewer(\n     n = 100, name = \"Hiroshige\"\n  )\n)"
   },
   {
-    "objectID": "materials/06_colors.html#evaluate-hcl-spectrum-2",
-    "href": "materials/06_colors.html#evaluate-hcl-spectrum-2",
+    "objectID": "materials/07_colors.html#evaluate-hcl-spectrum-2",
+    "href": "materials/07_colors.html#evaluate-hcl-spectrum-2",
     "title": "Graphic Design with ggplot2",
     "section": "Evaluate HCL Spectrum",
     "text": "Evaluate HCL Spectrum\n\n\n\ncolorspace::specplot(\n  rcartocolor::carto_pal(\n    n = 7, name = \"TealRose\"\n  )\n)\n\n\n\n\n\ncolorspace::specplot(\n  MetBrewer::met.brewer(\n     n = 100, name = \"Cassatt2\"\n  )\n)"
   },
   {
-    "objectID": "materials/06_colors.html#evaluate-hcl-spectrum-3",
-    "href": "materials/06_colors.html#evaluate-hcl-spectrum-3",
+    "objectID": "materials/07_colors.html#evaluate-hcl-spectrum-3",
+    "href": "materials/07_colors.html#evaluate-hcl-spectrum-3",
     "title": "Graphic Design with ggplot2",
     "section": "Evaluate HCL Spectrum",
     "text": "Evaluate HCL Spectrum\n\n\n\ncolorspace::specplot(\n  rainbow(\n    n = 100\n  )\n)\n\n\n\n\n\ncolorspace::specplot(\n  viridis::turbo(\n     n = 100, direction = -1\n  )\n)"
   },
   {
-    "objectID": "materials/06_colors.html#build-your-own-scale_colorfill__c",
-    "href": "materials/06_colors.html#build-your-own-scale_colorfill__c",
+    "objectID": "materials/07_colors.html#build-your-own-scale_colorfill__c",
+    "href": "materials/07_colors.html#build-your-own-scale_colorfill__c",
     "title": "Graphic Design with ggplot2",
     "section": "Build Your Own scale_color|fill_*_c()",
     "text": "Build Your Own scale_color|fill_*_c()\n\ndubois_pal_c <- function(palette = \"dark\", reverse = FALSE, ...) {\n  dubois_palettes <- list(\n    `dark`    = dubois_colors(\"black\", \"purple\", \"violet\", \"pink\"),\n    `light`   = dubois_colors(\"purple\", \"violet\", \"pink\", \"palered\")\n  )\n\n  pal <- dubois_palettes[[palette]]\n  pal <- unname(pal)\n\n  if (reverse) pal <- rev(pal)\n\n  grDevices::colorRampPalette(pal, ...)\n}\n\ndubois_pal_c(palette = \"light\", reverse = TRUE)(3)\n\n[1] \"#FFFFFF\" \"#C1759D\" \"#582F6C\""
   },
   {
-    "objectID": "materials/06_colors.html#build-your-own-scale_colorfill__c-1",
-    "href": "materials/06_colors.html#build-your-own-scale_colorfill__c-1",
+    "objectID": "materials/07_colors.html#build-your-own-scale_colorfill__c-1",
+    "href": "materials/07_colors.html#build-your-own-scale_colorfill__c-1",
     "title": "Graphic Design with ggplot2",
     "section": "Build Your Own scale_color|fill_*_c()",
     "text": "Build Your Own scale_color|fill_*_c()\n\nscale_fill_dubois_c <- function(palette = \"dark\", reverse = FALSE, ...) {\n  if (!palette %in% c(\"dark\", \"light\")) stop('Palette should be \"dark\" or \"light\".')\n\n  pal <- dubois_pal_c(palette = palette, reverse = reverse)\n\n  ggplot2::scale_fill_gradientn(colours = pal(256), ...)\n}\n\nscale_color_dubois_c <- function(palette = \"dark\", reverse = FALSE, ...) {\n  if (!palette %in% c(\"dark\", \"light\")) stop('Palette should be \"dark\" or \"light\".')\n\n  pal <- dubois_pal_c(palette = palette, reverse = reverse)\n\n  ggplot2::scale_color_gradientn(colours = pal(256), ...)\n}"
   },
   {
-    "objectID": "materials/06_colors.html#use-your-own-scale_colorfill__c",
-    "href": "materials/06_colors.html#use-your-own-scale_colorfill__c",
+    "objectID": "materials/07_colors.html#use-your-own-scale_colorfill__c",
+    "href": "materials/07_colors.html#use-your-own-scale_colorfill__c",
     "title": "Graphic Design with ggplot2",
     "section": "Use Your Own scale_color|fill_*_c()",
     "text": "Use Your Own scale_color|fill_*_c()\n\n\nggplot(\n    bikes, \n    aes(x = temp_feel, y = count, \n        color = temp_feel)\n  ) +\n  geom_point() +\n  scale_color_dubois_c()"
   },
   {
-    "objectID": "materials/06_colors.html#use-your-own-scale_colorfill__c-1",
-    "href": "materials/06_colors.html#use-your-own-scale_colorfill__c-1",
+    "objectID": "materials/07_colors.html#use-your-own-scale_colorfill__c-1",
+    "href": "materials/07_colors.html#use-your-own-scale_colorfill__c-1",
     "title": "Graphic Design with ggplot2",
     "section": "Use Your Own scale_color|fill_*_c()",
     "text": "Use Your Own scale_color|fill_*_c()\n\n\nggplot(\n    bikes, \n    aes(x = temp_feel, y = count, \n        color = temp_feel)\n  ) +\n  geom_point() +\n  scale_color_dubois_c(\n    palette = \"light\",\n    reverse = TRUE\n  )\n\n\n\n\n\n\n\n\nCédric Scherer // rstudio::conf // July 2022"
   },
   {
-    "objectID": "materials/07_layout.html#setup",
-    "href": "materials/07_layout.html#setup",
+    "objectID": "materials/08_layout.html#setup",
+    "href": "materials/08_layout.html#setup",
     "title": "Graphic Design with ggplot2",
     "section": "Setup",
     "text": "Setup\n\nlibrary(tidyverse)\n\nbikes <- readr::read_csv(\n  here::here(\"data\", \"london-bikes-custom.csv\"),\n  col_types = \"Dcfffilllddddc\"\n)\n\nbikes$season <- forcats::fct_inorder(bikes$season)\n\ntheme_set(theme_light(base_size = 14, base_family = \"Roboto Condensed\"))\n\ntheme_update(\n  panel.grid.minor = element_blank(),\n  plot.title = element_text(face = \"bold\"),\n  plot.title.position = \"plot\"\n)"
   },
   {
-    "objectID": "materials/07_layout.html#discrete-legend",
-    "href": "materials/07_layout.html#discrete-legend",
+    "objectID": "materials/08_layout.html#discrete-legend",
+    "href": "materials/08_layout.html#discrete-legend",
     "title": "Graphic Design with ggplot2",
     "section": "Discrete Legend",
     "text": "Discrete Legend\n\n\npal <- c(\"#3c89d9\", \"#1ec99b\", \"#F7B01B\", \"#a26e7c\")\n\nggplot(\n    bikes,\n    aes(x = temp_feel, y = count,\n        color = season)\n  ) +\n  geom_point() +\n  scale_color_manual(values = pal)"
   },
   {
-    "objectID": "materials/07_layout.html#continuous-legend",
-    "href": "materials/07_layout.html#continuous-legend",
+    "objectID": "materials/08_layout.html#continuous-legend",
+    "href": "materials/08_layout.html#continuous-legend",
     "title": "Graphic Design with ggplot2",
     "section": "Continuous Legend",
     "text": "Continuous Legend\n\n\nggplot(\n    bikes,\n    aes(x = temp_feel, y = count,\n        color = humidity)\n  ) +\n  geom_point() +\n  scale_color_viridis_c()"
   },
   {
-    "objectID": "materials/07_layout.html#legend-position",
-    "href": "materials/07_layout.html#legend-position",
+    "objectID": "materials/08_layout.html#legend-position",
+    "href": "materials/08_layout.html#legend-position",
     "title": "Graphic Design with ggplot2",
     "section": "Legend Position",
     "text": "Legend Position\n\n\nggplot(\n    bikes,\n    aes(x = temp_feel, y = count,\n        color = humidity)\n  ) +\n  geom_point() +\n  scale_color_viridis_c() +\n  theme(\n    legend.position = \"bottom\"\n  )"
   },
   {
-    "objectID": "materials/07_layout.html#legend-justification",
-    "href": "materials/07_layout.html#legend-justification",
+    "objectID": "materials/08_layout.html#legend-justification",
+    "href": "materials/08_layout.html#legend-justification",
     "title": "Graphic Design with ggplot2",
     "section": "Legend Justification",
     "text": "Legend Justification\n\n\nggplot(\n    bikes,\n    aes(x = temp_feel, y = count,\n        color = humidity)\n  ) +\n  geom_point() +\n  scale_color_viridis_c() +\n  theme(\n    legend.position = \"bottom\",\n    legend.justification = \"left\"\n  )"
   },
   {
-    "objectID": "materials/07_layout.html#legend-position-1",
-    "href": "materials/07_layout.html#legend-position-1",
+    "objectID": "materials/08_layout.html#legend-position-1",
+    "href": "materials/08_layout.html#legend-position-1",
     "title": "Graphic Design with ggplot2",
     "section": "Legend Position",
     "text": "Legend Position\n\n\nggplot(\n    bikes,\n    aes(x = temp_feel, y = count,\n        color = humidity)\n  ) +\n  geom_point() +\n  scale_color_viridis_c() +\n  theme(\n    legend.position = c(.25, .85)\n  )"
   },
   {
-    "objectID": "materials/07_layout.html#legend-direction",
-    "href": "materials/07_layout.html#legend-direction",
+    "objectID": "materials/08_layout.html#legend-direction",
+    "href": "materials/08_layout.html#legend-direction",
     "title": "Graphic Design with ggplot2",
     "section": "Legend Direction",
     "text": "Legend Direction\n\n\nggplot(\n    bikes,\n    aes(x = temp_feel, y = count,\n        color = humidity)\n  ) +\n  geom_point() +\n  scale_color_viridis_c() +\n  theme(\n    legend.position = c(.25, .85),\n    legend.direction = \"horizontal\"\n  )"
   },
   {
-    "objectID": "materials/07_layout.html#legend-types",
-    "href": "materials/07_layout.html#legend-types",
+    "objectID": "materials/08_layout.html#legend-types",
+    "href": "materials/08_layout.html#legend-types",
     "title": "Graphic Design with ggplot2",
     "section": "Legend Types",
     "text": "Legend Types\n\n\nggplot(\n    bikes,\n    aes(x = temp_feel, y = count,\n        color = humidity)\n  ) +\n  geom_point() +\n  scale_color_viridis_c(\n    guide = \"colorbar\"\n  ) +\n  theme(\n    legend.position = c(.25, .85),\n    legend.direction = \"horizontal\"\n  )"
   },
   {
-    "objectID": "materials/07_layout.html#legend-types-1",
-    "href": "materials/07_layout.html#legend-types-1",
+    "objectID": "materials/08_layout.html#legend-types-1",
+    "href": "materials/08_layout.html#legend-types-1",
     "title": "Graphic Design with ggplot2",
     "section": "Legend Types",
     "text": "Legend Types\n\n\nggplot(\n    bikes,\n    aes(x = temp_feel, y = count,\n        color = humidity)\n  ) +\n  geom_point() +\n  scale_color_viridis_c(\n    guide = \"colorsteps\"\n  ) +\n  theme(\n    legend.position = c(.25, .85),\n    legend.direction = \"horizontal\"\n  )"
   },
   {
-    "objectID": "materials/07_layout.html#legend-types-2",
-    "href": "materials/07_layout.html#legend-types-2",
+    "objectID": "materials/08_layout.html#legend-types-2",
+    "href": "materials/08_layout.html#legend-types-2",
     "title": "Graphic Design with ggplot2",
     "section": "Legend Types",
     "text": "Legend Types\n\n\nggplot(\n    bikes,\n    aes(x = temp_feel, y = count,\n        color = humidity)\n  ) +\n  geom_point() +\n  scale_color_viridis_b(\n    guide = \"colorsteps\"\n  ) +\n  theme(\n    legend.position = c(.25, .85),\n    legend.direction = \"horizontal\"\n  )"
   },
   {
-    "objectID": "materials/07_layout.html#legend-types-3",
-    "href": "materials/07_layout.html#legend-types-3",
+    "objectID": "materials/08_layout.html#legend-types-3",
+    "href": "materials/08_layout.html#legend-types-3",
     "title": "Graphic Design with ggplot2",
     "section": "Legend Types",
     "text": "Legend Types\n\n\nggplot(\n    bikes,\n    aes(x = temp_feel, y = count,\n        color = humidity)\n  ) +\n  geom_point() +\n  scale_color_viridis_b(\n    guide = guide_colorsteps()\n  ) +\n  theme(\n    legend.position = c(.25, .85),\n    legend.direction = \"horizontal\"\n  )"
   },
   {
-    "objectID": "materials/07_layout.html#legend-styling",
-    "href": "materials/07_layout.html#legend-styling",
+    "objectID": "materials/08_layout.html#legend-styling",
+    "href": "materials/08_layout.html#legend-styling",
     "title": "Graphic Design with ggplot2",
     "section": "Legend Styling",
     "text": "Legend Styling\n\n\nggplot(\n    bikes,\n    aes(x = temp_feel, y = count,\n        color = humidity)\n  ) +\n  geom_point() +\n  scale_color_viridis_b(\n    guide = guide_colorsteps(\n      title.position = \"top\",\n      title.hjust = .5\n    )\n  ) +\n  theme(\n    legend.position = c(.25, .85),\n    legend.direction = \"horizontal\"\n  )"
   },
   {
-    "objectID": "materials/07_layout.html#legend-styling-1",
-    "href": "materials/07_layout.html#legend-styling-1",
+    "objectID": "materials/08_layout.html#legend-styling-1",
+    "href": "materials/08_layout.html#legend-styling-1",
     "title": "Graphic Design with ggplot2",
     "section": "Legend Styling",
     "text": "Legend Styling\n\n\nggplot(\n    bikes,\n    aes(x = temp_feel, y = count,\n        color = humidity)\n  ) +\n  geom_point() +\n  scale_color_viridis_b(\n    guide = guide_colorsteps(\n      title.position = \"top\",\n      title.hjust = .5,\n      show.limits = TRUE,\n      frame.colour = \"black\",\n      frame.linewidth = 3,\n      barwidth = unit(8, \"lines\")\n    )\n  ) +\n  theme(\n    legend.position = c(.25, .85),\n    legend.direction = \"horizontal\"\n  )"
   },
   {
-    "objectID": "materials/07_layout.html#legend-styling-2",
-    "href": "materials/07_layout.html#legend-styling-2",
+    "objectID": "materials/08_layout.html#legend-styling-2",
+    "href": "materials/08_layout.html#legend-styling-2",
     "title": "Graphic Design with ggplot2",
     "section": "Legend Styling",
     "text": "Legend Styling\n\n\nggplot(\n    bikes,\n    aes(x = temp_feel, y = count,\n        color = humidity)\n  ) +\n  geom_point() +\n  scale_color_viridis_c(\n    breaks = 3:10*10,\n    limits = c(30, 100),\n    guide = guide_colorbar(\n      title.position = \"top\",\n      title.hjust = .5,\n      ticks.linewidth = 3,\n      barwidth = unit(20, \"lines\"),\n      barheight = unit(.6, \"lines\")\n    )\n  ) +\n  theme(\n    legend.position = \"top\"\n  )"
   },
   {
-    "objectID": "materials/07_layout.html#legend-styling-3",
-    "href": "materials/07_layout.html#legend-styling-3",
+    "objectID": "materials/08_layout.html#legend-styling-3",
+    "href": "materials/08_layout.html#legend-styling-3",
     "title": "Graphic Design with ggplot2",
     "section": "Legend Styling",
     "text": "Legend Styling\n\n\nggplot(\n    bikes,\n    aes(x = temp_feel, y = count,\n        color = humidity)\n  ) +\n  geom_point() +\n  scale_color_viridis_c(\n    breaks = 3:10*10,\n    limits = c(30, 100),\n    guide = guide_colorbar(\n      title.position = \"top\",\n      title.hjust = .5,\n      ticks.linewidth = 3,\n      draw.ulim = FALSE,\n      draw.llim = FALSE,\n      barwidth = unit(20, \"lines\"),\n      barheight = unit(.6, \"lines\")\n    )\n  ) +\n  theme(\n    legend.position = \"top\"\n  )"
   },
   {
-    "objectID": "materials/07_layout.html#legend-styling-4",
-    "href": "materials/07_layout.html#legend-styling-4",
+    "objectID": "materials/08_layout.html#legend-styling-4",
+    "href": "materials/08_layout.html#legend-styling-4",
     "title": "Graphic Design with ggplot2",
     "section": "Legend Styling",
     "text": "Legend Styling\n\n\nggplot(\n    bikes,\n    aes(x = temp_feel, y = count,\n        color = humidity)\n  ) +\n  geom_point() +\n  scale_color_viridis_c(\n    breaks = 3:10*10,\n    limits = c(30, 100),\n    guide = guide_colorbar(\n      title.position = \"top\",\n      title.hjust = .5,\n      ticks = FALSE,\n      barwidth = unit(20, \"lines\"),\n      barheight = unit(.6, \"lines\")\n    )\n  ) +\n  theme(\n    legend.position = \"top\"\n  )"
   },
   {
-    "objectID": "materials/07_layout.html#key-glyphs",
-    "href": "materials/07_layout.html#key-glyphs",
+    "objectID": "materials/08_layout.html#key-glyphs",
+    "href": "materials/08_layout.html#key-glyphs",
     "title": "Graphic Design with ggplot2",
     "section": "Key Glyphs",
     "text": "Key Glyphs\n\n\nggplot(\n    bikes,\n    aes(x = lubridate::week(date),\n        y = count,\n        color = day_night)\n  ) +\n  stat_summary(\n    geom = \"line\",\n    fun = sum,\n    size = 1\n  ) +\n  scale_color_manual(\n    values = c(\"#28A87D\", \"#663399\"),\n    name = NULL\n  ) +\n  theme(\n    legend.text = element_text(size = 16)\n  )"
   },
   {
-    "objectID": "materials/07_layout.html#key-glyphs-1",
-    "href": "materials/07_layout.html#key-glyphs-1",
+    "objectID": "materials/08_layout.html#key-glyphs-1",
+    "href": "materials/08_layout.html#key-glyphs-1",
     "title": "Graphic Design with ggplot2",
     "section": "Key Glyphs",
     "text": "Key Glyphs\n\n\nggplot(\n    bikes,\n    aes(x = lubridate::week(date),\n        y = count,\n        color = day_night)\n  ) +\n  stat_summary(\n    geom = \"line\",\n    fun = sum,\n    key_glyph = \"timeseries\",\n    size = 1\n  ) +\n  scale_color_manual(\n    values = c(\"#28A87D\", \"#663399\"),\n    name = NULL\n  ) +\n  theme(\n    legend.text = element_text(size = 16)\n  )"
   },
   {
-    "objectID": "materials/07_layout.html#key-glyphs-2",
-    "href": "materials/07_layout.html#key-glyphs-2",
+    "objectID": "materials/08_layout.html#key-glyphs-2",
+    "href": "materials/08_layout.html#key-glyphs-2",
     "title": "Graphic Design with ggplot2",
     "section": "Key Glyphs",
     "text": "Key Glyphs\n\n\nggplot(\n    bikes,\n    aes(x = lubridate::week(date),\n        y = count,\n        color = day_night)\n  ) +\n  stat_summary(\n    geom = \"line\",\n    fun = sum,\n    key_glyph = \"vline\",\n    size = 1\n  ) +\n  scale_color_manual(\n    values = c(\"#28A87D\", \"#663399\"),\n    name = NULL\n  ) +\n  theme(\n    legend.text = element_text(size = 16)\n  )"
   },
   {
-    "objectID": "materials/07_layout.html#patchwork",
-    "href": "materials/07_layout.html#patchwork",
+    "objectID": "materials/08_layout.html#patchwork",
+    "href": "materials/08_layout.html#patchwork",
     "title": "Graphic Design with ggplot2",
     "section": "{patchwork}",
     "text": "{patchwork}\n\n# install.packages(\"patchwork\")\nlibrary(patchwork)\n(p1 + p2) / p3"
   },
   {
-    "objectID": "materials/07_layout.html#collect-guides",
-    "href": "materials/07_layout.html#collect-guides",
+    "objectID": "materials/08_layout.html#collect-guides",
+    "href": "materials/08_layout.html#collect-guides",
     "title": "Graphic Design with ggplot2",
     "section": "“Collect Guides”",
     "text": "“Collect Guides”\n\n(p1 + p2) / p3 + plot_layout(guides = \"collect\")"
   },
   {
-    "objectID": "materials/07_layout.html#apply-theming",
-    "href": "materials/07_layout.html#apply-theming",
+    "objectID": "materials/08_layout.html#apply-theming",
+    "href": "materials/08_layout.html#apply-theming",
     "title": "Graphic Design with ggplot2",
     "section": "Apply Theming",
     "text": "Apply Theming\n\n((p1 + p2) / p3 & theme(legend.justification = \"top\")) + plot_layout(guides = \"collect\")"
   },
   {
-    "objectID": "materials/07_layout.html#apply-theming-1",
-    "href": "materials/07_layout.html#apply-theming-1",
+    "objectID": "materials/08_layout.html#apply-theming-1",
+    "href": "materials/08_layout.html#apply-theming-1",
     "title": "Graphic Design with ggplot2",
     "section": "Apply Theming",
     "text": "Apply Theming\n\n(p1 + p2) / p3 & theme(legend.position = \"none\", plot.background = element_rect(color = \"black\", size = 3))"
   },
   {
-    "objectID": "materials/07_layout.html#adjust-widths-and-heights",
-    "href": "materials/07_layout.html#adjust-widths-and-heights",
+    "objectID": "materials/08_layout.html#adjust-widths-and-heights",
+    "href": "materials/08_layout.html#adjust-widths-and-heights",
     "title": "Graphic Design with ggplot2",
     "section": "Adjust Widths and Heights",
     "text": "Adjust Widths and Heights\n\n((p1 + p2) / p3 & theme(legend.position = \"none\")) +\n  plot_layout(heights = c(.2, .1), widths = c(2, 1))"
   },
   {
-    "objectID": "materials/07_layout.html#use-a-custom-layout",
-    "href": "materials/07_layout.html#use-a-custom-layout",
+    "objectID": "materials/08_layout.html#use-a-custom-layout",
+    "href": "materials/08_layout.html#use-a-custom-layout",
     "title": "Graphic Design with ggplot2",
     "section": "Use A Custom Layout",
     "text": "Use A Custom Layout\n\npicasso <- \"\nAAAAAA#BBBB\nCCCCCCCCC##\nCCCCCCCCC##\"\n(p1 + p2 + p3 & theme(legend.position = \"none\")) + plot_layout(design = picasso)"
   },
   {
-    "objectID": "materials/07_layout.html#add-labels",
-    "href": "materials/07_layout.html#add-labels",
+    "objectID": "materials/08_layout.html#add-labels",
+    "href": "materials/08_layout.html#add-labels",
     "title": "Graphic Design with ggplot2",
     "section": "Add Labels",
     "text": "Add Labels\n\npl1 <- p1 + labs(tag = NULL, title = \"Plot One\") + theme(legend.position = \"none\")\npl2 <- p2 + labs(tag = NULL, title = \"Plot Two\") + theme(legend.position = \"none\")\npl3 <- p3 + labs(tag = NULL, title = \"Plot Three\") + theme(legend.position = \"none\")"
   },
   {
-    "objectID": "materials/07_layout.html#add-labels-1",
-    "href": "materials/07_layout.html#add-labels-1",
+    "objectID": "materials/08_layout.html#add-labels-1",
+    "href": "materials/08_layout.html#add-labels-1",
     "title": "Graphic Design with ggplot2",
     "section": "Add Labels",
     "text": "Add Labels\n\n(pl1 + pl2) / pl3 +\n  plot_annotation(tag_levels = \"1\", tag_prefix = \"P\", title = \"An overarching title for all 3 plots, placed on the very top while all other titles are sitting below the tags.\")"
   },
   {
-    "objectID": "materials/07_layout.html#add-text",
-    "href": "materials/07_layout.html#add-text",
+    "objectID": "materials/08_layout.html#add-text",
+    "href": "materials/08_layout.html#add-text",
     "title": "Graphic Design with ggplot2",
     "section": "Add Text",
     "text": "Add Text\n\nGraphicCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ntext <- tibble(\n  x = 0, y = 0, label = \"Lorem ipsum dolor sit amet, **consectetur adipiscing elit**, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation <b style='color:#000080;'>ullamco laboris nisi</b> ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat <b style='color:#cc0000;'>cupidatat non proident</b>, sunt in culpa qui officia deserunt mollit anim id est laborum.\"\n)\n\npt <- ggplot(text, aes(x = x, y = y)) +\n  ggtext::geom_textbox(\n    aes(label = label),\n    box.color = NA, width = unit(23, \"lines\"),\n    family = \"Pally\", color = \"grey40\", size = 6.5, lineheight = 1.4\n  ) +\n  coord_cartesian(expand = FALSE, clip = \"off\") +\n  theme_void()\n\npt"
   },
   {
-    "objectID": "materials/07_layout.html#add-text-1",
-    "href": "materials/07_layout.html#add-text-1",
+    "objectID": "materials/08_layout.html#add-text-1",
+    "href": "materials/08_layout.html#add-text-1",
     "title": "Graphic Design with ggplot2",
     "section": "Add Text",
     "text": "Add Text\n\n(p1 + pt) / p3"
   },
   {
-    "objectID": "materials/07_layout.html#add-inset-plots",
-    "href": "materials/07_layout.html#add-inset-plots",
+    "objectID": "materials/08_layout.html#add-inset-plots",
+    "href": "materials/08_layout.html#add-inset-plots",
     "title": "Graphic Design with ggplot2",
     "section": "Add Inset Plots",
     "text": "Add Inset Plots\n\npl1 + inset_element(pl2, l = .6, b = .1, r = 1, t = .6)"
   },
   {
-    "objectID": "materials/07_layout.html#add-inset-plots-1",
-    "href": "materials/07_layout.html#add-inset-plots-1",
+    "objectID": "materials/08_layout.html#add-inset-plots-1",
+    "href": "materials/08_layout.html#add-inset-plots-1",
     "title": "Graphic Design with ggplot2",
     "section": "Add Inset Plots",
     "text": "Add Inset Plots\n\npl1 + inset_element(pl2, l = .6, b = 0, r = 1, t = .5, align_to = 'full')"
   },
   {
-    "objectID": "materials/07_layout.html#add-inset-plots-2",
-    "href": "materials/07_layout.html#add-inset-plots-2",
+    "objectID": "materials/08_layout.html#add-inset-plots-2",
+    "href": "materials/08_layout.html#add-inset-plots-2",
     "title": "Graphic Design with ggplot2",
     "section": "Add Inset Plots",
     "text": "Add Inset Plots\n\n(pl1 + inset_element(pl2, l = .6, b = .1, r = 1, t = .6) + pt) / pl3"
   },
   {
-    "objectID": "materials/07_layout.html#recap",
-    "href": "materials/07_layout.html#recap",
+    "objectID": "materials/08_layout.html#recap",
+    "href": "materials/08_layout.html#recap",
     "title": "Graphic Design with ggplot2",
     "section": "Recap",
     "text": "Recap\n\n\n\nguides are the combination of scales and legends\nlegends can be either modified with the guide_* function in scale_*() or guides() and with the theme() component qualitative\n… while quantitative guides are colorbar, colorsteps or bins\n{patchwork} is the most modern and simplest way to compose plots\n\nuse +, / and | to combine plots\nuse plot_layout() to adjust the layout, widths and heights\nuse plot_annotation() to add tags and general labels\nuse inset_element() to add inset graphics"
   },
   {
-    "objectID": "materials/07_layout.html#legend-with-color-shading",
-    "href": "materials/07_layout.html#legend-with-color-shading",
+    "objectID": "materials/08_layout.html#legend-with-color-shading",
+    "href": "materials/08_layout.html#legend-with-color-shading",
     "title": "Graphic Design with ggplot2",
     "section": "Legend with Color Shading",
     "text": "Legend with Color Shading\n\n\nlibrary(colorspace)\nshades <- c(lighten(pal, .3),\n                  darken(pal, .3))\n\ng <-\n  bikes %>%\n  arrange(day_night, date) %>%\n  mutate(\n    season_day = paste(\n      str_to_title(season), day_night\n    ),\n    season_day = forcats::fct_inorder(season_day)\n  ) %>%\n  ggplot(\n    aes(x = season, y = count,\n        fill = season_day)\n  ) +\n  stat_summary(\n    geom = \"col\", fun = sum,\n    position = position_dodge2(\n      width = .2, padding = .1\n    )\n  ) +\n  scale_fill_manual(\n    values = shades, name = NULL\n  ) +\n  scale_x_discrete(\n    labels = str_to_title\n  ) +\n  scale_y_continuous(\n    labels = scales::comma_format(),\n    expand = c(0, 0),\n    limits = c(NA, 4500000)\n  ) +\n  labs(x = NULL, y = \"Reported bike shares\") +\n  theme(\n    panel.grid.major.x = element_blank(),\n    axis.title = element_blank()\n  )\n\ng"
   },
   {
-    "objectID": "materials/07_layout.html#legend-on-top",
-    "href": "materials/07_layout.html#legend-on-top",
+    "objectID": "materials/08_layout.html#legend-on-top",
+    "href": "materials/08_layout.html#legend-on-top",
     "title": "Graphic Design with ggplot2",
     "section": "Legend on Top",
     "text": "Legend on Top\n\ng +\n  theme(legend.position = \"top\")"
   },
   {
-    "objectID": "materials/07_layout.html#resort-legend",
-    "href": "materials/07_layout.html#resort-legend",
+    "objectID": "materials/08_layout.html#resort-legend",
+    "href": "materials/08_layout.html#resort-legend",
     "title": "Graphic Design with ggplot2",
     "section": "Resort Legend",
     "text": "Resort Legend\n\ng +\n  guides(fill = guide_legend(byrow = TRUE)) +\n  theme(legend.position = \"top\")\n\n\n\n\nCédric Scherer // rstudio::conf // July 2022"
   },
   {
-    "objectID": "materials/08_projects.html#group-projects",
-    "href": "materials/08_projects.html#group-projects",
+    "objectID": "materials/09_projects.html#group-projects",
+    "href": "materials/09_projects.html#group-projects",
     "title": "Graphic Design with ggplot2",
     "section": "Group Projects",
-    "text": "Group Projects\n\n\nForm groups and work one of the following suggested projects:\n\nCarbon Footprint of Travel (OWID / UK.gov)\nSpending Before and During the Pandemic (JP Morgan Chase)\nSpeed of Languages (Economist / Coupé et al.)\nUS Drought Patterns (Drought Monitor)"
+    "text": "Group Projects\n\n\nForm groups and work on one of the following suggested projects:\n\nCarbon Footprint of Travel (OWID / UK.gov)\nSpending Before and During the Pandemic (JP Morgan Chase)\nSpeed of Languages (Economist / Coupé et al.)\nUS Drought Patterns (Drought Monitor)"
   },
   {
     "objectID": "materials/exercises/02_concepts_pt1_ex1.html",
@@ -2415,25 +2422,25 @@
     "text": "Create a circular lollipop plot of reported bike shares per season.\n\nThe data is not in the right format as there are no totals.How can you solve it?\nRemove all legend elements (with a single line of code).\nHow can you add the labels next to the starting point of each lollipop?\nHow could you add a baseline?\n\n\n\n\n\nlibrary(tidyverse)\n\nbikes <- read_csv(\n  \"https://raw.githubusercontent.com/z3tt/graphic-design-ggplot2/main/data/london-bikes-custom.csv\", \n  col_types = \"Dcfffilllddddc\"\n)\n\nbikes$season <- fct_inorder(bikes$season)\n\nbikes\n\n# A tibble: 1,454 x 14\n   date       day_night year  month season count is_workday is_weekend\n   <date>     <chr>     <fct> <fct> <fct>  <int> <lgl>      <lgl>     \n 1 2015-01-04 day       2015  1     winter  6830 FALSE      TRUE      \n 2 2015-01-04 night     2015  1     winter  2404 FALSE      TRUE      \n 3 2015-01-05 day       2015  1     winter 14763 TRUE       FALSE     \n 4 2015-01-05 night     2015  1     winter  5609 TRUE       FALSE     \n 5 2015-01-06 day       2015  1     winter 14501 TRUE       FALSE     \n 6 2015-01-06 night     2015  1     winter  6112 TRUE       FALSE     \n 7 2015-01-07 day       2015  1     winter 16358 TRUE       FALSE     \n 8 2015-01-07 night     2015  1     winter  4706 TRUE       FALSE     \n 9 2015-01-08 day       2015  1     winter  9971 TRUE       FALSE     \n10 2015-01-08 night     2015  1     winter  5630 TRUE       FALSE     \n# ... with 1,444 more rows, and 6 more variables: is_holiday <lgl>, temp <dbl>,\n#   temp_feel <dbl>, humidity <dbl>, wind_speed <dbl>, weather_type <chr>\n\n\nDon’t know where to start? In the folder img/3-2-circular-lollipop you’ll find step-by-step charts.\n\n\n\n\n\n\nAdd your comments and more code here."
   },
   {
-    "objectID": "materials/exercises/05_labels_ex1.html",
-    "href": "materials/exercises/05_labels_ex1.html",
+    "objectID": "materials/exercises/05_annotations_ex1.html",
+    "href": "materials/exercises/05_annotations_ex1.html",
     "title": "Graphic Design with ggplot2",
     "section": "",
     "text": "{ggtext} also comes with some new geom’s. Explore those and other options on the package webpage: https://wilkelab.org/ggtext.\nCreate the visualization, placed in exercises/5-1-penguins, as close as possible, with the penguins dataset which is provided by the {palmerpenguins} package( more here: https://allisonhorst.github.io/palmerpenguins).\n\nFor the species labels, you likely have to create a summary data set.\nUse the {ggtext} geometries and theme elements to format the labels.\nAlso, make use of the other components such as scales, original theme, and theme customization.\n\n\n\n\n\nA bubble chart of bill depth versus bill width of Palmer penguins with direct annoations for all three species. The size of the bubbles is scaled accordingly to their reported body mass.\n\n\n\n\n\nlibrary(tidyverse)\n\n# install.packages(\"palmerpenguins\")\nlibrary(palmerpenguins)\n\n## inspect data\npenguins\n\n# A tibble: 344 x 8\n   species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g\n   <fct>   <fct>              <dbl>         <dbl>             <int>       <int>\n 1 Adelie  Torgersen           39.1          18.7               181        3750\n 2 Adelie  Torgersen           39.5          17.4               186        3800\n 3 Adelie  Torgersen           40.3          18                 195        3250\n 4 Adelie  Torgersen           NA            NA                  NA          NA\n 5 Adelie  Torgersen           36.7          19.3               193        3450\n 6 Adelie  Torgersen           39.3          20.6               190        3650\n 7 Adelie  Torgersen           38.9          17.8               181        3625\n 8 Adelie  Torgersen           39.2          19.6               195        4675\n 9 Adelie  Torgersen           34.1          18.1               193        3475\n10 Adelie  Torgersen           42            20.2               190        4250\n# ... with 334 more rows, and 2 more variables: sex <fct>, year <int>\n\nglimpse(penguins)\n\nRows: 344\nColumns: 8\n$ species           <fct> Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adel~\n$ island            <fct> Torgersen, Torgersen, Torgersen, Torgersen, Torgerse~\n$ bill_length_mm    <dbl> 39.1, 39.5, 40.3, NA, 36.7, 39.3, 38.9, 39.2, 34.1, ~\n$ bill_depth_mm     <dbl> 18.7, 17.4, 18.0, NA, 19.3, 20.6, 17.8, 19.6, 18.1, ~\n$ flipper_length_mm <int> 181, 186, 195, NA, 193, 190, 181, 195, 193, 190, 186~\n$ body_mass_g       <int> 3750, 3800, 3250, NA, 3450, 3650, 3625, 4675, 3475, ~\n$ sex               <fct> male, female, female, NA, female, male, female, male~\n$ year              <int> 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007~\n\nunique(penguins$species)\n\n[1] Adelie    Gentoo    Chinstrap\nLevels: Adelie Chinstrap Gentoo\n\n\n\n\n\n\nggplot(penguins, aes(x = bill_length_mm, y = bill_depth_mm)) +\n geom_point()\n\n\n\n\nAdd your comments and more code here."
   },
   {
-    "objectID": "materials/exercises/05_labels_ex2.html",
-    "href": "materials/exercises/05_labels_ex2.html",
+    "objectID": "materials/exercises/05_annotations_ex2.html",
+    "href": "materials/exercises/05_annotations_ex2.html",
     "title": "Graphic Design with ggplot2",
     "section": "",
     "text": "Create this logo, placed in exercises/5-2-logo with the image file exercises/rstudioconf-washington-bg.png:\n\n\n\nA blue dot with a capital white R, similar to the Rstudio logo, with the Washington D.C. skyline used for the rstudio::conf webpage placed below.\n\n\n\n\n\n\n\nAdd your comments and more code here."
   },
   {
-    "objectID": "materials/exercises/06_colors_ex1.html",
-    "href": "materials/exercises/06_colors_ex1.html",
+    "objectID": "materials/exercises/07_colors_ex1.html",
+    "href": "materials/exercises/07_colors_ex1.html",
     "title": "Graphic Design with ggplot2",
     "section": "",
-    "text": "Create a similar visualization at the one placed in exercises/6-1-bikes-jitter as close as possible:\n\n\n\nA sina plot combined with an errorbar Reported bike shares in London during day and night times, split by season, using TfL bike sharing data from 2015 to 2016.”\n\n\n\nlibrary(tidyverse)\nlibrary(colorspace)\nlibrary(ggforce)\nlibrary(ggtext)\n\nbikes <- readr::read_csv(\n  here::here(\"data\", \"london-bikes-custom.csv\"), \n  col_types = \"Dcfffilllddddc\"\n)\n\nbikes$season <- forcats::fct_inorder(bikes$season)\n\ncolors <- c(\"#987708\", \"#663399\")\n\n\n\n\n\n\nAdd your comments and more code here."
+    "text": "Create a similar visualization at the one placed in exercises/7-1-bikes-jitter as close as possible:\n\n\n\nA sina plot combined with an errorbar of reported bike shares in London during day and night times, split by season, using TfL bike sharing data from 2015 to 2016.”\n\n\n\nlibrary(tidyverse)\nlibrary(colorspace)\nlibrary(ggforce)\nlibrary(ggtext)\n\nbikes <- readr::read_csv(\n  here::here(\"data\", \"london-bikes-custom.csv\"), \n  col_types = \"Dcfffilllddddc\"\n)\n\nbikes$season <- forcats::fct_inorder(bikes$season)\n\ncolors <- c(\"#987708\", \"#663399\")\n\n\n\n\n\n\nAdd your comments and more code here."
   },
   {
     "objectID": "materials/solutions/02_concepts_pt1_ex1_solution.html#exercise-1",
@@ -3269,141 +3276,141 @@
     "text": "Or: Combine Images with {magick}\n\nlibrary(magick)\n\ndot <- image_read(here::here(\"exercises\", \"img\", \"rstudio-dot.png\"))\nimg <- c(dot, skyline)\nimg <- image_append(image_scale(img, \"1500\"), stack = TRUE)\nimage_write(img, path = here::here(\"exercises\", \"plots\", \"05_annotations_ex2_combined.png\"), format = \"png\")"
   },
   {
-    "objectID": "materials/solutions/06_colors_ex1_solution.html#exercise",
-    "href": "materials/solutions/06_colors_ex1_solution.html#exercise",
+    "objectID": "materials/solutions/07_colors_ex1_solution.html#exercise",
+    "href": "materials/solutions/07_colors_ex1_solution.html#exercise",
     "title": "Graphic Design with ggplot2",
     "section": "Exercise",
     "text": "Exercise\n\n\nCreate a similar visualization as close as possible:"
   },
   {
-    "objectID": "materials/solutions/06_colors_ex1_solution.html#import-the-data-set",
-    "href": "materials/solutions/06_colors_ex1_solution.html#import-the-data-set",
+    "objectID": "materials/solutions/07_colors_ex1_solution.html#import-the-data-set",
+    "href": "materials/solutions/07_colors_ex1_solution.html#import-the-data-set",
     "title": "Graphic Design with ggplot2",
     "section": "Import the Data Set",
     "text": "Import the Data Set\n\nlibrary(tidyverse)\n\nbikes <- readr::read_csv(\n  \"https://raw.githubusercontent.com/z3tt/graphic-design-ggplot2/main/data/london-bikes-custom.csv\",\n  col_types = \"Dcfffilllddddc\"\n)\n\nbikes$season <- forcats::fct_inorder(bikes$season)"
   },
   {
-    "objectID": "materials/solutions/06_colors_ex1_solution.html#create-sina-plot",
-    "href": "materials/solutions/06_colors_ex1_solution.html#create-sina-plot",
+    "objectID": "materials/solutions/07_colors_ex1_solution.html#create-sina-plot",
+    "href": "materials/solutions/07_colors_ex1_solution.html#create-sina-plot",
     "title": "Graphic Design with ggplot2",
     "section": "Create Sina Plot",
     "text": "Create Sina Plot\n\nggplot(\n    bikes,\n    aes(x = season, y = count)\n  ) +\n  ggforce::geom_sina(\n    aes(color = day_night),\n    position = position_dodge(width = .6),\n    alpha = .5\n  ) +\n  theme_minimal(\n    base_size = 18,\n    base_family = \"Cabinet Grotesk\"\n  )"
   },
   {
-    "objectID": "materials/solutions/06_colors_ex1_solution.html#create-sina-plot-1",
-    "href": "materials/solutions/06_colors_ex1_solution.html#create-sina-plot-1",
+    "objectID": "materials/solutions/07_colors_ex1_solution.html#create-sina-plot-1",
+    "href": "materials/solutions/07_colors_ex1_solution.html#create-sina-plot-1",
     "title": "Graphic Design with ggplot2",
     "section": "Create Sina Plot",
     "text": "Create Sina Plot"
   },
   {
-    "objectID": "materials/solutions/06_colors_ex1_solution.html#add-errorbars",
-    "href": "materials/solutions/06_colors_ex1_solution.html#add-errorbars",
+    "objectID": "materials/solutions/07_colors_ex1_solution.html#add-errorbars",
+    "href": "materials/solutions/07_colors_ex1_solution.html#add-errorbars",
     "title": "Graphic Design with ggplot2",
     "section": "Add Errorbars",
     "text": "Add Errorbars\n\nggplot(\n    bikes,\n    aes(x = season, y = count)\n  ) +\n  ggforce::geom_sina(\n    aes(color = day_night),\n    position = position_dodge(width = .6),\n    alpha = .5\n  ) +\n  stat_summary(\n    aes(color = day_night),\n    position = position_dodge(width = .6),\n    size = .8\n  ) +\n  theme_minimal(\n    base_size = 18,\n    base_family = \"Cabinet Grotesk\"\n  )"
   },
   {
-    "objectID": "materials/solutions/06_colors_ex1_solution.html#add-errorbars-1",
-    "href": "materials/solutions/06_colors_ex1_solution.html#add-errorbars-1",
+    "objectID": "materials/solutions/07_colors_ex1_solution.html#add-errorbars-1",
+    "href": "materials/solutions/07_colors_ex1_solution.html#add-errorbars-1",
     "title": "Graphic Design with ggplot2",
     "section": "Add Errorbars",
     "text": "Add Errorbars"
   },
   {
-    "objectID": "materials/solutions/06_colors_ex1_solution.html#use-lighter-point-colors",
-    "href": "materials/solutions/06_colors_ex1_solution.html#use-lighter-point-colors",
+    "objectID": "materials/solutions/07_colors_ex1_solution.html#use-lighter-point-colors",
+    "href": "materials/solutions/07_colors_ex1_solution.html#use-lighter-point-colors",
     "title": "Graphic Design with ggplot2",
     "section": "Use Lighter Point Colors",
     "text": "Use Lighter Point Colors\n\nggplot(\n    bikes,\n    aes(x = season, y = count)\n  ) +\n  ggforce::geom_sina(\n    aes(color = stage(\n      day_night,\n      after_scale = lighten(color, .6)\n    )),\n    position = position_dodge(width = .6),\n    alpha = .5\n  ) +\n  stat_summary(\n    aes(color = day_night),\n    position = position_dodge(width = .6),\n    size = .8\n  ) +\n  theme_minimal(\n    base_size = 18,\n    base_family = \"Cabinet Grotesk\"\n  )"
   },
   {
-    "objectID": "materials/solutions/06_colors_ex1_solution.html#use-lighter-point-colors-1",
-    "href": "materials/solutions/06_colors_ex1_solution.html#use-lighter-point-colors-1",
+    "objectID": "materials/solutions/07_colors_ex1_solution.html#use-lighter-point-colors-1",
+    "href": "materials/solutions/07_colors_ex1_solution.html#use-lighter-point-colors-1",
     "title": "Graphic Design with ggplot2",
     "section": "Use Lighter Point Colors",
     "text": "Use Lighter Point Colors"
   },
   {
-    "objectID": "materials/solutions/06_colors_ex1_solution.html#use-standard-deviation",
-    "href": "materials/solutions/06_colors_ex1_solution.html#use-standard-deviation",
+    "objectID": "materials/solutions/07_colors_ex1_solution.html#use-standard-deviation",
+    "href": "materials/solutions/07_colors_ex1_solution.html#use-standard-deviation",
     "title": "Graphic Design with ggplot2",
     "section": "Use Standard Deviation",
     "text": "Use Standard Deviation\n\np1 <- ggplot(\n    bikes,\n    aes(x = season, y = count)\n  ) +\n  ggforce::geom_sina(\n    aes(color = stage(\n      day_night,\n      after_scale = lighten(color, .6)\n    )),\n    position = position_dodge(width = .6),\n    alpha = .5\n  ) +\n  stat_summary(\n    aes(color = day_night),\n    fun = mean,\n    fun.max = function(y) mean(y) + sd(y),\n    fun.min = function(y) mean(y) - sd(y),\n    position = position_dodge(width = .6),\n    size = .8\n  ) +\n  theme_minimal(\n    base_size = 18,\n    base_family = \"Cabinet Grotesk\"\n  )\n\np1"
   },
   {
-    "objectID": "materials/solutions/06_colors_ex1_solution.html#add-annotations",
-    "href": "materials/solutions/06_colors_ex1_solution.html#add-annotations",
+    "objectID": "materials/solutions/07_colors_ex1_solution.html#add-annotations",
+    "href": "materials/solutions/07_colors_ex1_solution.html#add-annotations",
     "title": "Graphic Design with ggplot2",
     "section": "Add Annotations",
     "text": "Add Annotations"
   },
   {
-    "objectID": "materials/solutions/06_colors_ex1_solution.html#add-annotations-1",
-    "href": "materials/solutions/06_colors_ex1_solution.html#add-annotations-1",
+    "objectID": "materials/solutions/07_colors_ex1_solution.html#add-annotations-1",
+    "href": "materials/solutions/07_colors_ex1_solution.html#add-annotations-1",
     "title": "Graphic Design with ggplot2",
     "section": "Add Annotations",
     "text": "Add Annotations\n\np2 <- p1 +\n  stat_summary(\n    geom = \"text\",\n    aes(\n      color = day_night,\n      label = paste0(\n        sprintf(\"%2.1f\", stat(y) / 1000), \"K\"\n      )\n    ),\n    position = position_dodge(width = .6),\n    hjust = -.2, family = \"Tabular\",\n    size = 5.5, fontface = \"bold\"\n  )\n\np2"
   },
   {
-    "objectID": "materials/solutions/06_colors_ex1_solution.html#add-annotations-2",
-    "href": "materials/solutions/06_colors_ex1_solution.html#add-annotations-2",
+    "objectID": "materials/solutions/07_colors_ex1_solution.html#add-annotations-2",
+    "href": "materials/solutions/07_colors_ex1_solution.html#add-annotations-2",
     "title": "Graphic Design with ggplot2",
     "section": "Add Annotations",
     "text": "Add Annotations"
   },
   {
-    "objectID": "materials/solutions/06_colors_ex1_solution.html#adjust-axes-clipping",
-    "href": "materials/solutions/06_colors_ex1_solution.html#adjust-axes-clipping",
+    "objectID": "materials/solutions/07_colors_ex1_solution.html#adjust-axes-clipping",
+    "href": "materials/solutions/07_colors_ex1_solution.html#adjust-axes-clipping",
     "title": "Graphic Design with ggplot2",
     "section": "Adjust Axes + Clipping",
     "text": "Adjust Axes + Clipping\n\np3 <- p2 +\n  coord_cartesian(clip = \"off\") +\n  scale_x_discrete(\n    labels = str_to_title\n  ) +\n  scale_y_continuous(\n    labels = scales::comma_format(),\n    expand = c(0, 0),\n    limits = c(0, NA)\n  )\n\np3"
   },
   {
-    "objectID": "materials/solutions/06_colors_ex1_solution.html#adjust-axes-clipping-1",
-    "href": "materials/solutions/06_colors_ex1_solution.html#adjust-axes-clipping-1",
+    "objectID": "materials/solutions/07_colors_ex1_solution.html#adjust-axes-clipping-1",
+    "href": "materials/solutions/07_colors_ex1_solution.html#adjust-axes-clipping-1",
     "title": "Graphic Design with ggplot2",
     "section": "Adjust Axes + Clipping",
     "text": "Adjust Axes + Clipping"
   },
   {
-    "objectID": "materials/solutions/06_colors_ex1_solution.html#add-colors-labels",
-    "href": "materials/solutions/06_colors_ex1_solution.html#add-colors-labels",
+    "objectID": "materials/solutions/07_colors_ex1_solution.html#add-colors-labels",
+    "href": "materials/solutions/07_colors_ex1_solution.html#add-colors-labels",
     "title": "Graphic Design with ggplot2",
     "section": "Add Colors + Labels",
     "text": "Add Colors + Labels\n\ncolors <- c(\"#987708\", \"#663399\")\n\np4 <- p3  +\n  scale_color_manual(\n    values = colors\n  ) +\n  labs(\n    x = NULL, y = NULL,\n    title = paste0(\"Reported bike shares in London during <span style='color:\", colors[1], \";'>day</span> and <span style='color:\", colors[2], \";'>night</span> times\"),\n    subtitle = \"TfL bike sharing data from 2015 to 2016 per season and time of day.\\nErrorbars show the mean ± standard deviation.\"\n  )\n\np4"
   },
   {
-    "objectID": "materials/solutions/06_colors_ex1_solution.html#add-colors-labels-1",
-    "href": "materials/solutions/06_colors_ex1_solution.html#add-colors-labels-1",
+    "objectID": "materials/solutions/07_colors_ex1_solution.html#add-colors-labels-1",
+    "href": "materials/solutions/07_colors_ex1_solution.html#add-colors-labels-1",
     "title": "Graphic Design with ggplot2",
     "section": "Add Colors + Labels",
     "text": "Add Colors + Labels"
   },
   {
-    "objectID": "materials/solutions/06_colors_ex1_solution.html#theme-styling",
-    "href": "materials/solutions/06_colors_ex1_solution.html#theme-styling",
+    "objectID": "materials/solutions/07_colors_ex1_solution.html#theme-styling",
+    "href": "materials/solutions/07_colors_ex1_solution.html#theme-styling",
     "title": "Graphic Design with ggplot2",
     "section": "Theme Styling",
     "text": "Theme Styling\n\np4 +\n  theme(\n    legend.position = \"none\",\n    panel.grid.major.x = element_blank(),\n    panel.grid.minor = element_blank(),\n    plot.title.position = \"plot\",\n    plot.title = ggtext::element_markdown(face = \"bold\", size = 26),\n    plot.subtitle = element_text(color = \"grey30\", margin = margin(t = 6, b = 12)),\n    axis.text.x = element_text(size = 17, face = \"bold\"),\n    axis.text.y = element_text(family = \"Tabular\"),\n    axis.line.x = element_line(size = 1.2, color = \"grey65\"),\n    plot.margin = margin(rep(15, 4))\n  )"
   },
   {
-    "objectID": "materials/solutions/06_colors_ex1_solution.html#theme-styling-1",
-    "href": "materials/solutions/06_colors_ex1_solution.html#theme-styling-1",
+    "objectID": "materials/solutions/07_colors_ex1_solution.html#theme-styling-1",
+    "href": "materials/solutions/07_colors_ex1_solution.html#theme-styling-1",
     "title": "Graphic Design with ggplot2",
     "section": "Theme Styling",
     "text": "Theme Styling"
   },
   {
-    "objectID": "materials/solutions/06_colors_ex1_solution.html#full-code",
-    "href": "materials/solutions/06_colors_ex1_solution.html#full-code",
+    "objectID": "materials/solutions/07_colors_ex1_solution.html#full-code",
+    "href": "materials/solutions/07_colors_ex1_solution.html#full-code",
     "title": "Graphic Design with ggplot2",
     "section": "Full Code",
     "text": "Full Code\n\nlibrary(tidyverse)\nlibrary(colorspace)\nlibrary(ggtext)\n\nbikes <- readr::read_csv(\n  \"https://raw.githubusercontent.com/z3tt/graphic-design-ggplot2/main/data/london-bikes-custom.csv\",\n  col_types = \"Dcfffilllddddc\"\n)\n\nbikes$season <- forcats::fct_inorder(bikes$season)\n\ncolors <- c(\"#987708\", \"#663399\")\n\nggplot(bikes, aes(x = season, y = count)) +\n  ggforce::geom_sina(\n    aes(\n      color = stage(\n        day_night, after_scale = lighten(color, .6)\n    )),\n    position = position_dodge(width = .6),\n    alpha = .5\n  ) +\n  stat_summary(\n    aes(color = day_night),\n    position = position_dodge(width = .6),\n    fun = mean,\n    fun.max = function(y) mean(y) + sd(y),\n    fun.min = function(y) mean(y) - sd(y),\n    size = .8\n  ) +\n  stat_summary(\n    geom = \"text\",\n    aes(\n      color = day_night,\n      label = paste0(sprintf(\"%2.1f\", stat(y) / 1000), \"K\")\n    ),\n    position = position_dodge(width = .6),\n    hjust = -.2, size = 5.5, family = \"Tabular\", fontface = \"bold\"\n  ) +\n  coord_cartesian(clip = \"off\") +\n  scale_x_discrete(\n    labels = str_to_title\n  ) +\n  scale_y_continuous(\n    labels = scales::comma_format(),\n    expand = c(0, 0),\n    limits = c(0, NA)\n  ) +\n  scale_color_manual(values = colors) +\n  labs(\n    x = NULL, y = NULL,\n    title = paste0(\"Reported bike shares in London during <span style='color:\", colors[1], \";'>day</span> and <span style='color:\", colors[2], \";'>night</span> times\"),\n    subtitle = \"TfL bike sharing data from 2015 to 2016 per season and time of day.\\nErrorbars show the mean ± standard deviation.\"\n  ) +\n  theme_minimal(base_size = 18, base_family = \"Cabinet Grotesk\") +\n  theme(\n    legend.position = \"none\",\n    panel.grid.major.x = element_blank(),\n    panel.grid.minor = element_blank(),\n    plot.title.position = \"plot\",\n    plot.title = element_markdown(face = \"bold\", size = 26),\n    plot.subtitle = element_text(color = \"grey30\", margin = margin(t = 6, b = 12)),\n    axis.text.x = element_text(size = 17, face = \"bold\"),\n    axis.text.y = element_text(family = \"Tabular\"),\n    axis.line.x = element_line(size = 1.2, color = \"grey65\"),\n    plot.margin = margin(rep(15, 4))\n  )\n\n\n\nCédric Scherer // rstudio::conf // July 2022"
   },
   {
-    "objectID": "materials/solutions/08_projects_solutions.html#group-projects",
-    "href": "materials/solutions/08_projects_solutions.html#group-projects",
+    "objectID": "materials/solutions/09_projects_solutions.html#group-projects",
+    "href": "materials/solutions/09_projects_solutions.html#group-projects",
     "title": "Graphic Design with ggplot2",
     "section": "Group Projects",
     "text": "Group Projects\n\n\nForm groups and work one of the following suggested projects:\n\nCarbon Footprint of Travel (OWID / UK.gov)\nSpending Before and During the Pandemic (JP Morgan Chase)\nSpeed of Languages (Economist / Coupé et al.)\nUS Drought Patterns (Drought Monitor)"
@@ -3418,21 +3425,21 @@
   {
     "objectID": "modules/d1-02_concepts_pt1.html",
     "href": "modules/d1-02_concepts_pt1.html",
-    "title": "Concepts of the {ggplot2} Package Pt. 1:Data, Aesthetics, and Layers + Misc Stuff",
+    "title": "Concepts of the {ggplot2} Package Pt. 1",
     "section": "",
     "text": "View slides in full screen | Run the code yourself"
   },
   {
     "objectID": "modules/d1-02_concepts_pt1.html#exercise-1",
     "href": "modules/d1-02_concepts_pt1.html#exercise-1",
-    "title": "Concepts of the {ggplot2} Package Pt. 1:Data, Aesthetics, and Layers + Misc Stuff",
+    "title": "Concepts of the {ggplot2} Package Pt. 1",
     "section": "Exercise 1",
     "text": "Exercise 1\n\n\nOpen the script exercises/02_concepts_pt1_ex1.qmd (or the .rmd).\nExplore the TfL bike share data visually:create a timeseries of reported bike shares on weekend days\n\nHighlight day and night encoded by colors and shapes.\nConnect the points of each period with lines.\nQuestion: What is the difference between geom_line() and geom_path()?\nApply your favorite theme to the plot.\nAdd meaningful labels.\n\nSave the plot as a vector graphic with a decent plot size.\n\n\n→ Solution"
   },
   {
     "objectID": "modules/d1-02_concepts_pt1.html#exercise-2",
     "href": "modules/d1-02_concepts_pt1.html#exercise-2",
-    "title": "Concepts of the {ggplot2} Package Pt. 1:Data, Aesthetics, and Layers + Misc Stuff",
+    "title": "Concepts of the {ggplot2} Package Pt. 1",
     "section": "Exercise 2",
     "text": "Exercise 2\n\n\nOpen the script exercises/02_concepts_pt1_ex2.qmd (or the .rmd).\nExplore the TfL bike sharing data visually:create a boxplot of counts per weather type\n\nTurn the plot into a jitter strips plot (random noise across the x axis)\nCombine both chart types (jittered points on top of the boxplots)\nBonus: Sort the boxplot-jitter hybrid by median counts\nApply your favorite theme to the plot.\nAdd meaningful labels.\nBonus: Explore other chart types to visualize the distributions.\n\nSave the plot as a vector graphic with a decent plot size.\n\n\n→ Solution"
   },
@@ -3446,42 +3453,42 @@
   {
     "objectID": "modules/d1-04_concepts_p1_cont.html",
     "href": "modules/d1-04_concepts_p1_cont.html",
-    "title": "Concepts of the {ggplot2} Package Pt. 1:Data, Aesthetics, and Layers + Misc Stuff (Continued)",
+    "title": "Concepts of the {ggplot2} Package Pt. 1 (Continued)",
     "section": "",
     "text": "View slides in full screen | Run the code yourself"
   },
   {
     "objectID": "modules/d1-04_concepts_p1_cont.html#exercise-1",
     "href": "modules/d1-04_concepts_p1_cont.html#exercise-1",
-    "title": "Concepts of the {ggplot2} Package Pt. 1:Data, Aesthetics, and Layers + Misc Stuff (Continued)",
+    "title": "Concepts of the {ggplot2} Package Pt. 1 (Continued)",
     "section": "Exercise 1",
     "text": "Exercise 1\n\n\nOpen the script exercises/02_concepts_pt1_ex1.qmd (or the .rmd).\nExplore the TfL bike share data visually:create a timeseries of reported bike shares on weekend days\n\nHighlight day and night encoded by colors and shapes.\nConnect the points of each period with lines.\nQuestion: What is the difference between geom_line() and geom_path()?\nApply your favorite theme to the plot.\nAdd meaningful labels.\n\nSave the plot as a vector graphic with a decent plot size.\n\n\n→ Solution"
   },
   {
     "objectID": "modules/d1-04_concepts_p1_cont.html#exercise-2",
     "href": "modules/d1-04_concepts_p1_cont.html#exercise-2",
-    "title": "Concepts of the {ggplot2} Package Pt. 1:Data, Aesthetics, and Layers + Misc Stuff (Continued)",
+    "title": "Concepts of the {ggplot2} Package Pt. 1 (Continued)",
     "section": "Exercise 2",
     "text": "Exercise 2\n\n\nOpen the script exercises/02_concepts_pt1_ex2.qmd (or the .rmd).\nExplore the TfL bike sharing data visually:create a boxplot of counts per weather type\n\nTurn the plot into a jitter strips plot (random noise across the x axis)\nCombine both chart types (jittered points on top of the boxplots)\nBonus: Sort the boxplot-jitter hybrid by median counts\nApply your favorite theme to the plot.\nAdd meaningful labels.\nBonus: Explore other chart types to visualize the distributions.\n\nSave the plot as a vector graphic with a decent plot size.\n\n\n→ Solution"
   },
   {
     "objectID": "modules/d1-05_concepts_pt2.html",
     "href": "modules/d1-05_concepts_pt2.html",
-    "title": "Concepts of the {ggplot2} Package Pt. 2:Facets, Scales, and Coordinate System",
+    "title": "Concepts of the {ggplot2} Package Pt. 2",
     "section": "",
     "text": "View slides in full screen | Run the code yourself"
   },
   {
     "objectID": "modules/d1-05_concepts_pt2.html#exercise-1",
     "href": "modules/d1-05_concepts_pt2.html#exercise-1",
-    "title": "Concepts of the {ggplot2} Package Pt. 2:Facets, Scales, and Coordinate System",
+    "title": "Concepts of the {ggplot2} Package Pt. 2",
     "section": "Exercise 1",
     "text": "Exercise 1\n\n\nOpen the script exercises/03_concepts_pt2_ex1.qmd (or the .rmd).\nHave a look at the visualization in the folder exercises/3-1-astronaut-viz that shows the cumulative time that cosmo- and astronauts have spent in outer space. The data also contains information on the year of their first and last travel, respectively.\n\nTogether with your group, discuss which layers and modifications are needed to create such a chart with {ggplot2}.\nNote down the aesthetics, geometries, and scales used for each element of this graphic.\nWhat is the coordinate system? Have any adjustments been made?\nWhich theme was used and how was it modified?\n\n\n\n→ Solution"
   },
   {
     "objectID": "modules/d1-05_concepts_pt2.html#exercise-2",
     "href": "modules/d1-05_concepts_pt2.html#exercise-2",
-    "title": "Concepts of the {ggplot2} Package Pt. 2:Facets, Scales, and Coordinate System",
+    "title": "Concepts of the {ggplot2} Package Pt. 2",
     "section": "Exercise 2",
     "text": "Exercise 2\n\n\nOpen the script exercises/03_concepts_pt2_ex2.qmd (or the .rmd).\nCreate a circular lollipop plot of reported bike shares per season.\nThe data is not in the right format as there are no totals. How can you solve it?\nRemove all legend elements (with a single line of code).\nHow can you add the labels next to the starting point of each lollipop?\nHow could you add a baseline?\n\n\n→ Solution"
   },
@@ -3493,79 +3500,58 @@
     "text": "Warning\n\n\n\nPlease avoid questions during the breaks to give us a chance to recover and reflect - anything other than course material is however strongly encouraged! 😋"
   },
   {
-    "objectID": "modules/d1-07_concepts_pt2.html",
-    "href": "modules/d1-07_concepts_pt2.html",
-    "title": "Concepts of the {ggplot2} Package Pt. 2:Facets, Scales, and Coordinate System (Continued)",
-    "section": "",
-    "text": "View slides in full screen | Run the code yourself"
-  },
-  {
-    "objectID": "modules/d1-07_concepts_pt2.html#exercise-1",
-    "href": "modules/d1-07_concepts_pt2.html#exercise-1",
-    "title": "Concepts of the {ggplot2} Package Pt. 2:Facets, Scales, and Coordinate System (Continued)",
-    "section": "Exercise 1",
-    "text": "Exercise 1\n\n\nOpen the script exercises/03_concepts_pt2_ex1.qmd (or the .rmd).\nHave a look at the visualization in the folder exercises/3-1-astronaut-viz that shows the cumulative time that cosmo- and astronauts have spent in outer space. The data also contains information on the year of their first and last travel, respectively.\n\nTogether with your group, discuss which layers and modifications are needed to create such a chart with {ggplot2}.\nNote down the aesthetics, geometries, and scales used for each element of this graphic.\nWhat is the coordinate system? Have any adjustments been made?\nWhich theme was used and how was it modified?"
-  },
-  {
-    "objectID": "modules/d1-07_concepts_pt2.html#exercise-2",
-    "href": "modules/d1-07_concepts_pt2.html#exercise-2",
-    "title": "Concepts of the {ggplot2} Package Pt. 2:Facets, Scales, and Coordinate System (Continued)",
-    "section": "Exercise 2",
-    "text": "Exercise 2\n\n\nOpen the script exercises/03_concepts_pt2_ex2.qmd (or the .rmd).\nCreate a circular lollipop plot of reported bike shares per season.\nThe data is not in the right format as there are no totals. How can you solve it?\nRemove all legend elements (with a single line of code).\nHow can you add the labels next to the starting point of each lollipop?\nHow could you add a baseline?"
-  },
-  {
     "objectID": "modules/d1-07_concepts_pt2_cont.html",
     "href": "modules/d1-07_concepts_pt2_cont.html",
-    "title": "Concepts of the {ggplot2} Package Pt. 2:Facets, Scales, and Coordinate System (Continued)",
+    "title": "Concepts of the {ggplot2} Package Pt. 2 (Continued)",
     "section": "",
     "text": "View slides in full screen | Run the code yourself"
   },
   {
     "objectID": "modules/d1-07_concepts_pt2_cont.html#exercise-1",
     "href": "modules/d1-07_concepts_pt2_cont.html#exercise-1",
-    "title": "Concepts of the {ggplot2} Package Pt. 2:Facets, Scales, and Coordinate System (Continued)",
+    "title": "Concepts of the {ggplot2} Package Pt. 2 (Continued)",
     "section": "Exercise 1",
     "text": "Exercise 1\n\n\nOpen the script exercises/03_concepts_pt2_ex1.qmd (or the .rmd).\nHave a look at the visualization in the folder exercises/3-1-astronaut-viz that shows the cumulative time that cosmo- and astronauts have spent in outer space. The data also contains information on the year of their first and last travel, respectively.\n\nTogether with your group, discuss which layers and modifications are needed to create such a chart with {ggplot2}.\nNote down the aesthetics, geometries, and scales used for each element of this graphic.\nWhat is the coordinate system? Have any adjustments been made?\nWhich theme was used and how was it modified?\n\n\n\n→ Solution"
   },
   {
     "objectID": "modules/d1-07_concepts_pt2_cont.html#exercise-2",
     "href": "modules/d1-07_concepts_pt2_cont.html#exercise-2",
-    "title": "Concepts of the {ggplot2} Package Pt. 2:Facets, Scales, and Coordinate System (Continued)",
+    "title": "Concepts of the {ggplot2} Package Pt. 2 (Continued)",
     "section": "Exercise 2",
     "text": "Exercise 2\n\n\nOpen the script exercises/03_concepts_pt2_ex2.qmd (or the .rmd).\nCreate a circular lollipop plot of reported bike shares per season.\nThe data is not in the right format as there are no totals. How can you solve it?\nRemove all legend elements (with a single line of code).\nHow can you add the labels next to the starting point of each lollipop?\nHow could you add a baseline?\n\n\n→ Solution"
   },
   {
-    "objectID": "modules/d1-09_coffee_break.html",
-    "href": "modules/d1-09_coffee_break.html",
+    "objectID": "modules/d1-08_coffee_break.html",
+    "href": "modules/d1-08_coffee_break.html",
     "title": "Coffee break",
     "section": "",
     "text": "If you have questions during the break …"
   },
   {
-    "objectID": "modules/d1-10_data_com.html",
-    "href": "modules/d1-10_data_com.html",
+    "objectID": "modules/d1-09_data_com.html",
+    "href": "modules/d1-09_data_com.html",
     "title": "Data Communication",
     "section": "",
-    "text": "View slides in full screen\n\nOutline\n\nVisualize Your Data\n\nAnscombe’s Quartet\nDatasaurus Dozen\nWhat Makes it a Good Data Viualization?\n\nInformation\n\nAvoid Data Pitfalls\n\nStory\n\nWho is My Audience?\n\nGoal\n\nTypology of Information Graphics\nThe Vertices of Visualization\nBeyond Bar and Line Graphs\nChart Choice Helpers\nThe Power of Small Multiples\n\nVisual Form\n\nWhat is Good Data Visualization Design?\nOrder Your Data\nDon’t Rotate Your Text\nAdd Direct Labels\nUse Colors and Annotations Wisely\nThe Power of Annotations\n\nWrap-Up\n\n\n\nRecap\n\n\nVisualizing data is helpful to gain insights and discover anomalies\nThe design process of visualizations can be broken down to:\n\nInformation: understand the data and be accurate\nStory: be clear about the message of the visualization\nGoal: select charts that successfully transport the story\nVisual form: follow design rules and data visualization principles\n\n\n\n\n\nExercise\n\n\nWe form groups and each group gets a number between 1 and 10.\nOpen the image file(s) with the according number in the folder exercises/4-1-data-communication\n\nDiscuss the visualization with regard to the 4 levels of data visualization design.\nOverall, do you think it is a good or a bad visualization?\nWhat are details you like?\nHow could one improve the chart?\nIs there another (potentially better) way to tell the story? Sketch it (and think about how you could build it with ggplot2)"
+    "text": "View slides in full screen\n\nOutline\n\nVisualize Your Data\n\nAnscombe’s Quartet\nDatasaurus Dozen\nWhat Makes it a Good Data Viualization?\n\nInformation\n\nAvoid Data Pitfalls\n\nStory\n\nWho is My Audience?\n\nGoal\n\nTypology of Information Graphics\nThe Vertices of Visualization\nBeyond Bar and Line Graphs\nChart Choice Helpers\nThe Power of Small Multiples\n\nVisual Form\n\nWhat is Good Data Visualization Design?\nOrder Your Data\nDon’t Rotate Your Text\nAdd Direct Labels\nUse Colors and Annotations Wisely\nThe Power of Annotations\n\n\n\n\nRecap\n\n\nVisualizing data is helpful to gain insights and discover anomalies\nThe design process of data visualizations can be broken down to 4 levels:\n\nInformation: understand the data and be accurate\nStory: be clear about the message of the visualization\nGoal: select charts that successfully transport the story\nVisual form: follow design rules and data visualization principles\n\n\n\n\n\nExercises\n\n\nExercise 1\n\n\nWe form groups and each group gets a number between 1 and 10.\nOpen the image file(s) with the according number in the folder exercises/4-1-data-communication\n\nDiscuss the visualization with regard to the 4 levels of data visualization design.\nOverall, do you think it is a good or a bad visualization?\nWhat are details you like?\nHow could one improve the chart?\nIs there another (potentially better) way to tell the story? Sketch it (and think about how you could build it with ggplot2)"
   },
   {
     "objectID": "modules/d2-01_lab_ann.html",
     "href": "modules/d2-01_lab_ann.html",
-    "title": "Labels and Annotations",
+    "title": "Working with Labels and Annotations",
     "section": "",
     "text": "View slides in full screen | Run the code yourself"
   },
   {
     "objectID": "modules/d2-01_lab_ann.html#exercise-1",
     "href": "modules/d2-01_lab_ann.html#exercise-1",
-    "title": "Labels and Annotations",
+    "title": "Working with Labels and Annotations",
     "section": "Exercise 1",
     "text": "Exercise 1\n\n\n{ggtext} also comes with some new geom’s. Explore those and other options on the package webpage: wilkelab.rg/ggtext.\nOpen the script exercises/05_labels_ex1.qmd (or the .rmd).\nCreate the following visualization, as close as possible, with the penguins dataset which is provided by the {palmerpenguins} package: \n\nFor the species labels, you likely have to create a summary data set.\nUse the {ggtext} geometries and theme elements to format the labels.\nAlso, make use of the other components such as scales, complete themes, and theme customization.\n\n\n\n→ Solution"
   },
   {
     "objectID": "modules/d2-01_lab_ann.html#exercise-2",
     "href": "modules/d2-01_lab_ann.html#exercise-2",
-    "title": "Labels and Annotations",
+    "title": "Working with Labels and Annotations",
     "section": "Exercise 2",
     "text": "Exercise 2\n\n\nOpen the script exercises/05_labels_ex2.qmd (or the .rmd).\nCreate the logo in exercises/5-2-logo with the image file exercises/img/rstudioconf-washington-bg.png for the skyline:\n\n\n→ Solution"
   },
@@ -3577,52 +3563,59 @@
     "text": "If you have questions during the break please come to any of the TAs."
   },
   {
-    "objectID": "modules/d2-03_colors.html",
-    "href": "modules/d2-03_colors.html",
-    "title": "Working with Colors",
+    "objectID": "modules/d2-03_colorful_graphics.html",
+    "href": "modules/d2-03_colorful_graphics.html",
+    "title": "Colorful Graphics",
     "section": "",
-    "text": "Part 2: Working with Colors\n\nView slides in full screen | Run the code yourself\n\n\nOutline\n\nPart 1: Colorful Graphics\n\nChannels to Encode Information\nColor Spaces\nColor Palette Choice\nUse Color Wisely (and Correctly)\nDesigning for Colorblindness\nBeyond the Rainbow\n\n\n\nPart 2: Working with Colors\n\nColor Palettes\n\nPre-Defined Color Palettes: Viridis\nPre-Defined Color Palettes: Brewer\n{rcartocolor}\n{scico}\n{ggsci} and {ggthemes}\n{nord}\n{MetBrewer}\n\nCustomize Palettes\n\nCustomize Existing Palettes\n\nCreate New Palettes\n\nCreate Sequential Palettes\nCreate Diverging Palettes\nCreate Any Palette\n\nHCL Spectrum\n\nEvaluate HCL Spectrum\n\nTest Your Palettes\n\nEmulate CVD\n\n\n\n\n\nRecap\n\n\nuse categorical palettes for qualitative data\n\ne.g. scale_*_discrete() and scale_*_manual() for custom options\ne.g. scale_*_viridis_d and scale_*_brewer() for pre-defined options\n\nuse sequential or diverging palettes for quantitative data\n\ne.g. scale_*_gradient() or scale_*_gradient2() for custom options\ne.g. scale_*_viridis_c and scale_*_distiller() for pre-defined options\n\nvarious packages provide palettes incl. scale_* components\n\ne.g. {rcartocolors}, {scico}, {ggsci}, {ggthemes}, {nord}\n\nthose and even more packages return palettes as vectors\n\nmodify and supply thehm to scale_*_manual() and scale_*_gradientn()\n\nuse after_scale to modify and recycle color scales\n\n\n\n\nExercise\n\n\nOpen the script exercises/06_colors_ex1.qmd (or the .rmd).\nCreate a similar visualization as the one in the folder exercises/6-1-bikes-jitter; try to replicate it as close as possible:"
+    "text": "View slides in full screen\n\nOutline\n\nChannels to Encode Information\nColor Spaces\nColor Palette Choice\nUse Color Wisely (and Correctly)\nDesigning for Colorblindness\nBeyond the Rainbow\n\n\n\nRecap\n\n\nPick the right palette type for your visualization\n\nuse sequential to encode numerical information with order\nuse diverging to encode numerical information with a critical midpoint\nuse quialitative to encode categorical information\n\nmap the color with the highest contrast of a sequential palette to the most important value\nfor categories use a maximum of 6-8 colors\ntest for color blindness using a CVD simulator\ncheck the contrast of your data and text colors\navoid rainbow palettes!"
   },
   {
-    "objectID": "modules/d2-04_lunch_break.html",
-    "href": "modules/d2-04_lunch_break.html",
+    "objectID": "modules/d2-04_colors.html",
+    "href": "modules/d2-04_colors.html",
+    "title": "Working with Colors",
+    "section": "",
+    "text": "View slides in full screen | Run the code yourself\n\nOutline\n\nColor Palettes\n\nPre-Defined Color Palettes: Viridis\nPre-Defined Color Palettes: Brewer\n{rcartocolor}\n{scico}\n{ggsci} and {ggthemes}\n{nord}\n{MetBrewer}\n\nCustomize Palettes\n\nCustomize Existing Palettes\n\nCreate New Palettes\n\nCreate Sequential Palettes\nCreate Diverging Palettes\nCreate Any Palette\n\nHCL Spectrum\n\nEvaluate HCL Spectrum\n\nTest Your Palettes\n\nEmulate CVD\n\n\n\n\nRecap\n\n\nuse categorical palettes for qualitative data\n\ne.g. scale_*_discrete() and scale_*_manual() for custom options\ne.g. scale_*_viridis_d and scale_*_brewer() for pre-defined options\n\nuse sequential or diverging palettes for quantitative data\n\ne.g. scale_*_gradient() or scale_*_gradient2() for custom options\ne.g. scale_*_viridis_c and scale_*_distiller() for pre-defined options\n\nvarious packages provide palettes incl. scale_* components\n\ne.g. {rcartocolors}, {scico}, {ggsci}, {ggthemes}, {nord}\n\nthose and even more packages return palettes as vectors\n\nmodify and supply them to scale_*_manual() and scale_*_gradientn()\n\nuse after_scale to modify and recycle color scales\n\n\n\n\nExercise\n\n\nOpen the script exercises/06_colors_ex1.qmd (or the .rmd).\nCreate a similar visualization as the one in the folder exercises/7-1-bikes-jitter\n\n\n→ Solution"
+  },
+  {
+    "objectID": "modules/d2-05_lunch_break.html",
+    "href": "modules/d2-05_lunch_break.html",
     "title": "Lunch break",
     "section": "",
     "text": "Warning\n\n\n\nPlease avoid questions during the breaks to give us a chance to recover and reflect - anything other than course material is however strongly encouraged! 😋"
   },
   {
-    "objectID": "modules/d2-05_layout.html",
-    "href": "modules/d2-05_layout.html",
-    "title": "Layouts and Composition",
+    "objectID": "modules/d2-06_layout.html",
+    "href": "modules/d2-06_layout.html",
+    "title": "Working with Layouts and Composition",
     "section": "",
     "text": "View slides in full screen | Run the code yourself\n\nOutline\n\nLegend Placement and Styling\n\nDiscrete Legend\nContinuous Legend\nLegend Position\nLegend Justification\nLegend Direction\nLegend Types\nLegend Styling\nKey Glyphs\n\nComposing ggplot’s\n\nThe “Monsters” Example\n{patchwork}\nApply Theming\nAdjust Widths and Heights\nUse a Custom Layout\nAdd Labels\nAdd Text\nAdd Inset Plots\n\nMore Legend Styling\n\nLegend with Color Shading\nLegend on Top\nResort Legend\n\n\n\n\nRecap\n\n\nguides are the combination of scales and legends\nlegends can be either modified with the guide_* function in scale_*() or guides() and with the theme() component qualitative\n… while quantitative guides are colorbar, colorsteps or bins\n{patchwork} is the most modern and simplest way to compose plots\n\nuse +, / and | to combine plots\nuse plot_layout() to adjust the layout, widths and heights\nuse plot_annotation() to add tags and general labels\nuse inset_element() to add inset graphics"
   },
   {
-    "objectID": "modules/d2-06_coffee_break.html",
-    "href": "modules/d2-06_coffee_break.html",
+    "objectID": "modules/d2-07_coffee_break.html",
+    "href": "modules/d2-07_coffee_break.html",
     "title": "Coffee break",
     "section": "",
     "text": "If you have questions during the break please come to any of the TAs."
   },
   {
-    "objectID": "modules/d2-07_project.html",
-    "href": "modules/d2-07_project.html",
-    "title": "Group Project",
+    "objectID": "modules/d2-08_project.html",
+    "href": "modules/d2-08_project.html",
+    "title": "Group Projects",
     "section": "",
-    "text": "View slides in full screen | Get the data sets\n\nOutline\n\nCarbon Footprint of Travel\nSpending Before and During the Pandemic\nSpeed of Languages\nUS Drought Patterns\n\n\n\nExercise\n\n\nForm groups and work one of the following suggested projects:\n\nCarbon Footprint of Travel (OWID / UK.gov)\nSpending Before and During the Pandemic (JP Morgan Chase)\nSpeed of Languages (Economist / Coupé et al.)\nUS Drought Patterns (Drought Monitor)\n\n\n\n→ Suggested Solutions"
+    "text": "View slides in full screen | Get the data sets\n\nOutline\n\nCarbon Footprint of Travel\nSpending Before and During the Pandemic\nSpeed of Languages\nUS Drought Patterns\n\n\n\nExercise\n\n\nForm groups and work one of the following suggested projects:\n\nCarbon Footprint of Travel (OWID / UK.gov)\nSpending Before and During the Pandemic (JP Morgan Chase)\nSpeed of Languages (Economist / Coupé et al.)\nUS Drought Patterns (Drought Monitor)\n\n\n\n→ Potential Solutions"
   },
   {
     "objectID": "schedule.html",
     "href": "schedule.html",
     "title": "Schedule",
     "section": "",
-    "text": "Day 2\nTuesday, July 26, 2022\n\n\n\n\n\n\n\n\nTime\n\n\nModule\n\n\n\n\n\n\n\n\n\n09:00 - 10:30\n\n\nLabels and Annotations\n\n\n\n\n\n\n\n10:30 - 11:00\n\n\nCoffee break\n\n\n\n\n\n\n\n11:00 - 12:30\n\n\nWorking with Colors\n\n\n\n\n\n\n\n15:00 - 15:30\n\n\nLunch break\n\n\n\n\n\n\n\n15:30 - 17:00\n\n\nLayouts and Composition\n\n\n\n\n\n\n\n15:00 - 15:30\n\n\nCoffee break\n\n\n\n\n\n\n\n15:30 - 17:00\n\n\nGroup Project\n\n\n\n\n\n\nNo matching items"
+    "text": "Day 2\nTuesday, July 26, 2022\n\n\n\n\n\n\n\n\nTime\n\n\nModule\n\n\n\n\n\n\n\n\n\n09:00-10:30\n\n\nWorking with Labels and Annotations\n\n\n\n\n\n\n\n10:30-11:00\n\n\nCoffee break\n\n\n\n\n\n\n\n11:00-11:30\n\n\nColorful Graphics\n\n\n\n\n\n\n\n11:30-12:30\n\n\nWorking with Colors\n\n\n\n\n\n\n\n12:30-13:30\n\n\nLunch break\n\n\n\n\n\n\n\n13:30-15:00\n\n\nWorking with Layouts and Composition\n\n\n\n\n\n\n\n15:00-15:30\n\n\nCoffee break\n\n\n\n\n\n\n\n15:30-17:00\n\n\nGroup Projects\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "team.html",
     "href": "team.html",
     "title": "Teaching Team",
     "section": "",
-    "text": "Christine Jin\n:linkedin: https://www.linkedin.com/in/jinchristine/\n\n\nThomas Lin Pedersen :twitter: @thomasp85\n\n\nAhmadou Dicko :twitter: @dickoah\n\n\nMarco Sciaini :twitter: @shinysci\n\n\nHassan Kibirige :twitter: @HKibirige"
+    "text": "Christine Jin :linkedin: https://www.linkedin.com/in/jinchristine/\n\n\nThomas Lin Pedersen :twitter: @thomasp85\n\n\nAhmadou Dicko :twitter: @dickoah\n\n\nMarco Sciaini :twitter: @shinysci\n\n\nHassan Kibirige :twitter: @HKibirige"
   }
 ]

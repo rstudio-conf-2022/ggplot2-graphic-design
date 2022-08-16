@@ -1,0 +1,11 @@
+---
+title: "Lunch break"
+subtitle: "<span class='code' style='color:#b3b3b3;'>12:30-13:30</span>"
+date: "2022-07-26"
+image: "images/lunch-break.png"
+image-alt: "Plate and utensils."
+---
+
+::: callout-warning
+Please avoid questions during the breaks to give us a chance to recover and reflect - anything other than course material is however strongly encouraged! 😋
+:::

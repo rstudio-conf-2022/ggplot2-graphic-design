@@ -1,0 +1,34 @@
+---
+title: "Graphic Design with ggplot2"
+subtitle: "Working with Labels and Annotations"
+author: "Your Name"
+format: html
+execute:
+  message: false
+  warning: false
+editor: source
+---
+
+# Exercise 2
+
+**Create this logo, placed in `exercises/5-2-logo` with the image file `exercises/rstudioconf-washington-bg.png`:**
+
+![A blue dot with a capital white R, similar to the Rstudio logo, with the Washington D.C. skyline used for the rstudio::conf webpage placed below.](exercises/5-2-logo/rstudio-conf-logo.png) 
+
+## Visualization
+
+```{r}
+#| label: plot
+
+```
+
+Add your comments and more code here.
+
+
+<br><br><br>
+
+```{r}
+#| label: i-am-done-what-now
+#| echo: false
+knitr::include_graphics("img/exercise-what-now-sd.png")
+```

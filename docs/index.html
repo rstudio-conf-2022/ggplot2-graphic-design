@@ -78,20 +78,9 @@ ul.task-list{list-style: none;}
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
-  <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page">Home</a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./schedule.html">Schedule</a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./license.html">License</a>
-  </li>  
-</ul>
-            <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-sessions" role="button" data-bs-toggle="dropdown" aria-expanded="false">Sessions</a>
-    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-sessions">    
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-sessions">    
         <li>
     <a class="dropdown-item" href="./modules/d1-01_introduction.html">
  <span class="dropdown-text">Introduction</span></a>
@@ -105,7 +94,7 @@ ul.task-list{list-style: none;}
  <span class="dropdown-text">Concepts of ggplot2 Pt. 2</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./modules/d1-10_data_com.html">
+    <a class="dropdown-item" href="./modules/d1-09_data_com.html">
  <span class="dropdown-text">Data Communication</span></a>
   </li>  
         <li>
@@ -113,21 +102,47 @@ ul.task-list{list-style: none;}
  <span class="dropdown-text">Working with Annotations &amp; Labels</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./modules/d2-03_colors.html">
+    <a class="dropdown-item" href="./modules/d2-03_colorful_graphics.html">
+ <span class="dropdown-text">Colorful Graphics</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./modules/d2-04_colors.html">
  <span class="dropdown-text">Working with Colors</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./modules/d2-05_layout.html">
- <span class="dropdown-text">Working with Layouts &amp; Compostion</span></a>
+    <a class="dropdown-item" href="./modules/d2-06_layout.html">
+ <span class="dropdown-text">Working with Layouts &amp; Composition</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./modules/d2-07_project.html">
+    <a class="dropdown-item" href="./modules/d2-08_project.html">
  <span class="dropdown-text">Group Project</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="./course_fonts.zip">Fonts</a>
+    <a class="nav-link" href="./schedule.html">Schedule</a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-downloads" role="button" data-bs-toggle="dropdown" aria-expanded="false">Downloads</a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-downloads">    
+        <li>
+    <a class="dropdown-item" href="./ggplot2-course-material.zip">
+ <span class="dropdown-text">All Course Materials</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./ggplot2-course-data.zip">
+ <span class="dropdown-text">Data Sets</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./ggplot2-course-fonts.zip">
+ <span class="dropdown-text">Font Files</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="./license.html">License</a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="https://github.com/rstudio-conf-2022/ggplot2-graphic-design">GitHub</a>
@@ -227,8 +242,8 @@ ul.task-list{list-style: none;}
 <p>If you want to run the workshop content locally on your machine, please make sure to install a suitable IDE (Rstudio, VS Code or others), a recent version of R (4.1+) and the following packages and typefaces.</p>
 <p><em>For Mac OS users:</em><br>
 Please make sure that <a href="https://www.xquartz.org/">XQuartz is installed</a> which is needed to use the cairo pdf device.</p>
-<section id="required-packages" class="level3">
-<h3 class="anchored" data-anchor-id="required-packages">Required Packages</h3>
+<section id="required-packages" class="level2">
+<h2 class="anchored" data-anchor-id="required-packages">Required Packages</h2>
 <ul>
 <li><strong>tidyverse packages and friends</strong>
 <ul>
@@ -255,8 +270,7 @@ Please make sure that <a href="https://www.xquartz.org/">XQuartz is installed</a
 <li>sf, rmapshaper</li>
 </ul></li>
 </ul>
-<section id="run-this-code-to-install-the-packages-if-needed" class="level4">
-<h4 class="anchored" data-anchor-id="run-this-code-to-install-the-packages-if-needed">Run this code to install the packages if needed:</h4>
+<p>Run this code to install the packages if needed:</p>
 <pre><code>packages &lt;- c(
   "ggplot2", "readr", "tibble", "tidyr", "forcats", "stringr",
   "lubridate", "here", "systemfonts", "magick", "scales", "grid",
@@ -271,7 +285,6 @@ install.packages(setdiff(packages, rownames(installed.packages())))
 ## install {colorblindr} and requirements
 remotes::install_github("wilkelab/cowplot")
 remotes::install_github("clauswilke/colorblindr")</code></pre>
-</section>
 </section>
 <section id="required-typefaces" class="level2">
 <h2 class="anchored" data-anchor-id="required-typefaces">Required Typefaces</h2>

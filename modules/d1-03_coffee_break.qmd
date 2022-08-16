@@ -1,11 +1,9 @@
 ---
 title: "Coffee break"
-subtitle: "10:30 - 11:00"
+subtitle: "<span class='code' style='color:#b3b3b3;'>10:30-11:00</span>"
 date: "2022-07-25"
 image: "images/coffee-break.png"
 image-alt: "A coffee cup."
 ---
-
-Coffee and refreshments served at ...
 
 If you have questions during the break please come to any of the TAs.

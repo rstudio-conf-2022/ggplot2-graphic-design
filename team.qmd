@@ -4,13 +4,12 @@ title: "Teaching Team"
 
 ::: tip
 Cédric Scherer
+:twitter: @CedScherer
 :::
 
 ::: tip
 Christine Jin
-
 :linkedin: https://www.linkedin.com/in/jinchristine/
-
 :::
 
 ::: tip

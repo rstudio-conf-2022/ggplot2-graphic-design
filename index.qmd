@@ -59,7 +59,7 @@ If you want to run the workshop content locally on your machine, please make sur
 *For Mac OS users:*  
 Please make sure that [XQuartz is installed](https://www.xquartz.org/) which is needed to use the cairo pdf device.
 
-### Required Packages
+## Required Packages
 
 -   **tidyverse packages and friends**
     -   ggplot2, readr, tibble, dplyr, tidyr, forcats, stringr, lubridate, here, systemfonts, scales
@@ -74,7 +74,7 @@ Please make sure that [XQuartz is installed](https://www.xquartz.org/) which is 
 -   **rspatial packages**
     -   sf, rmapshaper
 
-#### Run this code to install the packages if needed:
+Run this code to install the packages if needed:
 
     packages <- c(
       "ggplot2", "readr", "tibble", "tidyr", "forcats", "stringr",

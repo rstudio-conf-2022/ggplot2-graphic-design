@@ -1,0 +1,32 @@
+---
+title: "Group Projects"
+subtitle: "<span class='code'>15:30-17:00</span>"
+date: "2022-07-26"
+image: "images/group.png"
+---
+
+```{=html}
+<iframe class="slide-deck" src="../materials/09_projects.html" height="420" width="747" style="border: 1px solid #2e3846;"></iframe>
+```
+
+[View slides in full screen](../materials/09_projects.html)&ensp;|&ensp;[Get the data sets](../data.zip)
+
+# Outline
+
+-   Carbon Footprint of Travel
+-   Spending Before and During the Pandemic
+-   Speed of Languages
+-   US Drought Patterns
+    
+# Exercise
+
+::: question
+-   Form groups and work one of the following suggested projects:
+    -   Carbon Footprint of Travel (OWID / UK.gov)
+    -   Spending Before and During the Pandemic (JP Morgan Chase)
+    -   Speed of Languages (Economist / Coupé et al.)
+    -   US Drought Patterns (Drought Monitor)
+:::
+
+**&rarr;&ensp;[Potential Solutions](../materials/solutions/09_projects_solutions.qmd)**
+

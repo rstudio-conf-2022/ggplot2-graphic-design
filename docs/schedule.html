@@ -126,20 +126,9 @@ ul.task-list{list-style: none;}
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
-  <li class="nav-item">
-    <a class="nav-link" href="./index.html">Home</a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link active" href="./schedule.html" aria-current="page">Schedule</a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./license.html">License</a>
-  </li>  
-</ul>
-            <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-sessions" role="button" data-bs-toggle="dropdown" aria-expanded="false">Sessions</a>
-    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-sessions">    
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-sessions">    
         <li>
     <a class="dropdown-item" href="./modules/d1-01_introduction.html">
  <span class="dropdown-text">Introduction</span></a>
@@ -153,7 +142,7 @@ ul.task-list{list-style: none;}
  <span class="dropdown-text">Concepts of ggplot2 Pt. 2</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./modules/d1-10_data_com.html">
+    <a class="dropdown-item" href="./modules/d1-09_data_com.html">
  <span class="dropdown-text">Data Communication</span></a>
   </li>  
         <li>
@@ -161,21 +150,47 @@ ul.task-list{list-style: none;}
  <span class="dropdown-text">Working with Annotations &amp; Labels</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./modules/d2-03_colors.html">
+    <a class="dropdown-item" href="./modules/d2-03_colorful_graphics.html">
+ <span class="dropdown-text">Colorful Graphics</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./modules/d2-04_colors.html">
  <span class="dropdown-text">Working with Colors</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./modules/d2-05_layout.html">
- <span class="dropdown-text">Working with Layouts &amp; Compostion</span></a>
+    <a class="dropdown-item" href="./modules/d2-06_layout.html">
+ <span class="dropdown-text">Working with Layouts &amp; Composition</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./modules/d2-07_project.html">
+    <a class="dropdown-item" href="./modules/d2-08_project.html">
  <span class="dropdown-text">Group Project</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="./course_fonts.zip">Fonts</a>
+    <a class="nav-link active" href="./schedule.html" aria-current="page">Schedule</a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-downloads" role="button" data-bs-toggle="dropdown" aria-expanded="false">Downloads</a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-downloads">    
+        <li>
+    <a class="dropdown-item" href="./ggplot2-course-material.zip">
+ <span class="dropdown-text">All Course Materials</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./ggplot2-course-data.zip">
+ <span class="dropdown-text">Data Sets</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./ggplot2-course-fonts.zip">
+ <span class="dropdown-text">Font Files</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="./license.html">License</a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="https://github.com/rstudio-conf-2022/ggplot2-graphic-design">GitHub</a>
@@ -224,7 +239,7 @@ ul.task-list{list-style: none;}
 <p>Monday, July 25, 2022</p>
 <div id="listing-schedule-day1" class="quarto-listing quarto-listing-container-table">
 
-<table class="quarto-listing-table table">
+<table class="quarto-listing-table table table-hover">
 <thead>
 <tr>
 <th>
@@ -238,114 +253,112 @@ Module
 </tr>
 </thead>
 <tbody class="list">
-<tr data-index="0" data-listing-date-sort="1658700000000" data-listing-file-modified-sort="1660636665497" data-listing-reading-time-sort="0.365" data-listing-title-sort="Introduction" data-listing-filename-sort="d1-01_introduction.qmd">
+<tr data-index="0" data-listing-date-sort="1658700000000" data-listing-file-modified-sort="1660674697663" data-listing-reading-time-sort="0.365" data-listing-title-sort="Introduction" data-listing-filename-sort="d1-01_introduction.qmd" onclick="href = this.querySelector('a').getAttribute('href');
+ if (href) { window.location=href ; return false; }">
 <td class="listing-image">
 <img src="./modules/images/session1.png" style="height: 40px;">
 </td>
 <td class="listing-subtitle">
-09:00 - 09:30
+<span class="code">09:00-09:30</span>
 </td>
 <td class="listing-title">
 <a href="./modules/d1-01_introduction.html" class="title">Introduction</a>
 </td>
 </tr>
-<tr data-index="1" data-listing-date-sort="1658700000000" data-listing-file-modified-sort="1660651500654" data-listing-reading-time-sort="3.39" data-listing-title-sort="<span>Concepts of the <code>{ggplot2}</code> Package Pt. 1:<br><span style='font-weight:500;'>Data, Aesthetics, and Layers + Misc Stuff</span></span>" data-listing-filename-sort="d1-02_concepts_pt1.qmd">
+<tr data-index="1" data-listing-date-sort="1658700000000" data-listing-file-modified-sort="1660677158572" data-listing-reading-time-sort="3.39" data-listing-title-sort="<span>Concepts of the <code>{ggplot2}</code> Package Pt. 1</span>" data-listing-filename-sort="d1-02_concepts_pt1.qmd" onclick="href = this.querySelector('a').getAttribute('href');
+ if (href) { window.location=href ; return false; }">
 <td class="listing-image">
 <img src="./modules/images/session2.png" style="height: 40px;">
 </td>
 <td class="listing-subtitle">
-09:30 - 10:30
+<span class="code">09:30-10:30</span>
 </td>
 <td class="listing-title">
-<a href="./modules/d1-02_concepts_pt1.html" class="title"><span>Concepts of the <code>{ggplot2}</code> Package Pt. 1:<br><span style="font-weight:500;">Data, Aesthetics, and Layers + Misc Stuff</span></span></a>
+<a href="./modules/d1-02_concepts_pt1.html" class="title"><span>Concepts of the <code>{ggplot2}</code> Package Pt. 1</span></a>
 </td>
 </tr>
-<tr data-index="2" data-listing-date-sort="1658700000000" data-listing-file-modified-sort="1658671345413" data-listing-reading-time-sort="0.095" data-listing-title-sort="Coffee break" data-listing-filename-sort="d1-03_coffee_break.qmd">
+<tr data-index="2" data-listing-date-sort="1658700000000" data-listing-file-modified-sort="1660686282005" data-listing-reading-time-sort="0.07" data-listing-title-sort="Coffee break" data-listing-filename-sort="d1-03_coffee_break.qmd" onclick="href = this.querySelector('a').getAttribute('href');
+ if (href) { window.location=href ; return false; }">
 <td class="listing-image">
 <img src="./modules/images/coffee-break.png" style="height: 40px;" alt="A coffee cup.">
 </td>
 <td class="listing-subtitle">
-10:30 - 11:00
+<span class="code" style="color:#b3b3b3;">10:30-11:00</span>
 </td>
 <td class="listing-title">
 <a href="./modules/d1-03_coffee_break.html" class="title">Coffee break</a>
 </td>
 </tr>
-<tr data-index="3" data-listing-date-sort="1658700000000" data-listing-file-modified-sort="1660664718478" data-listing-reading-time-sort="3.39" data-listing-title-sort="<span>Concepts of the <code>{ggplot2}</code> Package Pt. 1:<br><span style='font-weight:500;'>Data, Aesthetics, and Layers + Misc Stuff (Continued)</span></span>" data-listing-filename-sort="d1-04_concepts_p1_cont.qmd">
+<tr data-index="3" data-listing-date-sort="1658700000000" data-listing-file-modified-sort="1660677169071" data-listing-reading-time-sort="3.39" data-listing-title-sort="<span>Concepts of the <code>{ggplot2}</code> Package Pt. 1 <span style='font-weight:500;'>(Continued)</span></span>" data-listing-filename-sort="d1-04_concepts_p1_cont.qmd" onclick="href = this.querySelector('a').getAttribute('href');
+ if (href) { window.location=href ; return false; }">
 <td class="listing-image">
 <img src="./modules/images/session2.png" style="height: 40px;">
 </td>
 <td class="listing-subtitle">
-11:00 - 12:00
+<span class="code">11:00-12:00</span>
 </td>
 <td class="listing-title">
-<a href="./modules/d1-04_concepts_p1_cont.html" class="title"><span>Concepts of the <code>{ggplot2}</code> Package Pt. 1:<br><span style="font-weight:500;">Data, Aesthetics, and Layers + Misc Stuff (Continued)</span></span></a>
+<a href="./modules/d1-04_concepts_p1_cont.html" class="title"><span>Concepts of the <code>{ggplot2}</code> Package Pt. 1 <span style="font-weight:500;">(Continued)</span></span></a>
 </td>
 </tr>
-<tr data-index="4" data-listing-date-sort="1658700000000" data-listing-file-modified-sort="1660664872813" data-listing-reading-time-sort="2.84" data-listing-title-sort="<span>Concepts of the <code>{ggplot2}</code> Package Pt. 2:<br><span style='font-weight:500;'>Facets, Scales, and Coordinate System</span></span>" data-listing-filename-sort="d1-05_concepts_pt2.qmd">
+<tr data-index="4" data-listing-date-sort="1658700000000" data-listing-file-modified-sort="1660677179114" data-listing-reading-time-sort="2.84" data-listing-title-sort="<span>Concepts of the <code>{ggplot2}</code> Package Pt. 2</span>" data-listing-filename-sort="d1-05_concepts_pt2.qmd" onclick="href = this.querySelector('a').getAttribute('href');
+ if (href) { window.location=href ; return false; }">
 <td class="listing-image">
 <img src="./modules/images/session3.png" style="height: 40px;">
 </td>
 <td class="listing-subtitle">
-12:00 - 12:30
+<span class="code">12:00-12:30</span>
 </td>
 <td class="listing-title">
-<a href="./modules/d1-05_concepts_pt2.html" class="title"><span>Concepts of the <code>{ggplot2}</code> Package Pt. 2:<br><span style="font-weight:500;">Facets, Scales, and Coordinate System</span></span></a>
+<a href="./modules/d1-05_concepts_pt2.html" class="title"><span>Concepts of the <code>{ggplot2}</code> Package Pt. 2</span></a>
 </td>
 </tr>
-<tr data-index="5" data-listing-date-sort="1658700000000" data-listing-file-modified-sort="1658671345420" data-listing-reading-time-sort="0.155" data-listing-title-sort="Lunch break" data-listing-filename-sort="d1-06_lunch_break.qmd">
+<tr data-index="5" data-listing-date-sort="1658700000000" data-listing-file-modified-sort="1660686041029" data-listing-reading-time-sort="0.135" data-listing-title-sort="Lunch break" data-listing-filename-sort="d1-06_lunch_break.qmd" onclick="href = this.querySelector('a').getAttribute('href');
+ if (href) { window.location=href ; return false; }">
 <td class="listing-image">
 <img src="./modules/images/lunch-break.png" style="height: 40px;" alt="Plate and utensils.">
 </td>
 <td class="listing-subtitle">
-12:30 - 13:30
+<span class="code" style="color:#b3b3b3;">12:30-13:30</span>
 </td>
 <td class="listing-title">
 <a href="./modules/d1-06_lunch_break.html" class="title">Lunch break</a>
 </td>
 </tr>
-<tr data-index="6" data-listing-date-sort="1658700000000" data-listing-file-modified-sort="1660663622841" data-listing-reading-time-sort="2.85" data-listing-title-sort="<span>Concepts of the <code>{ggplot2}</code> Package Pt. 2:<br><span style='font-weight:500;'>Facets, Scales, and Coordinate System (Continued)</span></span>" data-listing-filename-sort="d1-07_concepts_pt2.qmd">
+<tr data-index="6" data-listing-date-sort="1658700000000" data-listing-file-modified-sort="1660687599602" data-listing-reading-time-sort="2.81" data-listing-title-sort="<span>Concepts of the <code>{ggplot2}</code> Package Pt. 2 <span style='font-weight:500;'>(Continued)</span>" data-listing-filename-sort="d1-07_concepts_pt2_cont.qmd" onclick="href = this.querySelector('a').getAttribute('href');
+ if (href) { window.location=href ; return false; }">
 <td class="listing-image">
 <img src="./modules/images/session3.png" style="height: 40px;">
 </td>
 <td class="listing-subtitle">
-13:30 - 14:30
+<span class="code">13:30-15:00</span>
 </td>
 <td class="listing-title">
-<a href="./modules/d1-07_concepts_pt2.html" class="title"><span>Concepts of the <code>{ggplot2}</code> Package Pt. 2:<br><span style="font-weight:500;">Facets, Scales, and Coordinate System (Continued)</span></span></a>
+<a href="./modules/d1-07_concepts_pt2_cont.html" class="title"><span>Concepts of the <code>{ggplot2}</code> Package Pt. 2 <span style="font-weight:500;">(Continued)</span></span></a>
 </td>
 </tr>
-<tr data-index="7" data-listing-date-sort="1658700000000" data-listing-file-modified-sort="1660661924518" data-listing-reading-time-sort="2.81" data-listing-title-sort="<span>Concepts of the <code>{ggplot2}</code> Package Pt. 2:<br><span style='font-weight:500;'>Facets, Scales, and Coordinate System (Continued)</span></span>" data-listing-filename-sort="d1-07_concepts_pt2_cont.qmd">
-<td class="listing-image">
-<img src="./modules/images/session3.png" style="height: 40px;">
-</td>
-<td class="listing-subtitle">
-13:30 - 14:30
-</td>
-<td class="listing-title">
-<a href="./modules/d1-07_concepts_pt2_cont.html" class="title"><span>Concepts of the <code>{ggplot2}</code> Package Pt. 2:<br><span style="font-weight:500;">Facets, Scales, and Coordinate System (Continued)</span></span></a>
-</td>
-</tr>
-<tr data-index="8" data-listing-date-sort="1658700000000" data-listing-file-modified-sort="1658671345427" data-listing-reading-time-sort="0.065" data-listing-title-sort="Coffee break" data-listing-filename-sort="d1-09_coffee_break.qmd">
+<tr data-index="7" data-listing-date-sort="1658700000000" data-listing-file-modified-sort="1660686041907" data-listing-reading-time-sort="0.065" data-listing-title-sort="Coffee break" data-listing-filename-sort="d1-08_coffee_break.qmd" onclick="href = this.querySelector('a').getAttribute('href');
+ if (href) { window.location=href ; return false; }">
 <td class="listing-image">
 <img src="./modules/images/coffee-break.png" style="height: 40px;" alt="A coffee cup.">
 </td>
 <td class="listing-subtitle">
-15:00 - 15:30
+<span class="code" style="color:#b3b3b3;">15:00-15:30</span>
 </td>
 <td class="listing-title">
-<a href="./modules/d1-09_coffee_break.html" class="title">Coffee break</a>
+<a href="./modules/d1-08_coffee_break.html" class="title">Coffee break</a>
 </td>
 </tr>
-<tr data-index="9" data-listing-date-sort="1658700000000" data-listing-file-modified-sort="1660663622404" data-listing-reading-time-sort="1.99" data-listing-title-sort="Data Communication" data-listing-filename-sort="d1-10_data_com.qmd">
+<tr data-index="8" data-listing-date-sort="1658700000000" data-listing-file-modified-sort="1660674713375" data-listing-reading-time-sort="2" data-listing-title-sort="Data Communication" data-listing-filename-sort="d1-09_data_com.qmd" onclick="href = this.querySelector('a').getAttribute('href');
+ if (href) { window.location=href ; return false; }">
 <td class="listing-image">
 <img src="./modules/images/session4.png" style="height: 40px;">
 </td>
 <td class="listing-subtitle">
-15:30 - 17:00
+<span class="code">15:30-17:00</span>
 </td>
 <td class="listing-title">
-<a href="./modules/d1-10_data_com.html" class="title">Data Communication</a>
+<a href="./modules/d1-09_data_com.html" class="title">Data Communication</a>
 </td>
 </tr>
 </tbody>
@@ -361,7 +374,7 @@ No matching items
 <p>Tuesday, July 26, 2022</p>
 <div id="listing-schedule-day2" class="quarto-listing quarto-listing-container-table">
 
-<table class="quarto-listing-table table">
+<table class="quarto-listing-table table table-hover">
 <thead>
 <tr>
 <th>
@@ -375,81 +388,100 @@ Module
 </tr>
 </thead>
 <tbody class="list">
-<tr data-index="0" data-listing-date-sort="1658786400000" data-listing-file-modified-sort="1660664559873" data-listing-reading-time-sort="2.585" data-listing-title-sort="Labels and Annotations" data-listing-filename-sort="d2-01_lab_ann.qmd">
+<tr data-index="0" data-listing-date-sort="1658786400000" data-listing-file-modified-sort="1660687840534" data-listing-reading-time-sort="2.585" data-listing-title-sort="Working with Labels and Annotations" data-listing-filename-sort="d2-01_lab_ann.qmd" onclick="href = this.querySelector('a').getAttribute('href');
+ if (href) { window.location=href ; return false; }">
 <td class="listing-image">
 <img src="./modules/images/session5.png" style="height: 40px;">
 </td>
 <td class="listing-subtitle">
-09:00 - 10:30
+<span class="code">09:00-10:30</span>
 </td>
 <td class="listing-title">
-<a href="./modules/d2-01_lab_ann.html" class="title">Labels and Annotations</a>
+<a href="./modules/d2-01_lab_ann.html" class="title">Working with Labels and Annotations</a>
 </td>
 </tr>
-<tr data-index="1" data-listing-date-sort="1658786400000" data-listing-file-modified-sort="1658672747428" data-listing-reading-time-sort="0.095" data-listing-title-sort="Coffee break" data-listing-filename-sort="d2-02_coffee_break.qmd">
+<tr data-index="1" data-listing-date-sort="1658786400000" data-listing-file-modified-sort="1660686276966" data-listing-reading-time-sort="0.07" data-listing-title-sort="Coffee break" data-listing-filename-sort="d2-02_coffee_break.qmd" onclick="href = this.querySelector('a').getAttribute('href');
+ if (href) { window.location=href ; return false; }">
 <td class="listing-image">
 <img src="./modules/images/coffee-break.png" style="height: 40px;" alt="A coffee cup.">
 </td>
 <td class="listing-subtitle">
-10:30 - 11:00
+<span class="code" style="color:#b3b3b3;">10:30-11:00</span>
 </td>
 <td class="listing-title">
 <a href="./modules/d2-02_coffee_break.html" class="title">Coffee break</a>
 </td>
 </tr>
-<tr data-index="2" data-listing-date-sort="1658786400000" data-listing-file-modified-sort="1660664874532" data-listing-reading-time-sort="1.8" data-listing-title-sort="Working with Colors" data-listing-filename-sort="d2-03_colors.qmd">
+<tr data-index="2" data-listing-date-sort="1658786400000" data-listing-file-modified-sort="1660685194757" data-listing-reading-time-sort="0.765" data-listing-title-sort="Colorful Graphics" data-listing-filename-sort="d2-03_colorful_graphics.qmd" onclick="href = this.querySelector('a').getAttribute('href');
+ if (href) { window.location=href ; return false; }">
 <td class="listing-image">
 <img src="./modules/images/session6.png" style="height: 40px;">
 </td>
 <td class="listing-subtitle">
-<code>11:00 - 12:30</code>
+<span class="code">11:00-11:30</span>
 </td>
 <td class="listing-title">
-<a href="./modules/d2-03_colors.html" class="title">Working with Colors</a>
+<a href="./modules/d2-03_colorful_graphics.html" class="title">Colorful Graphics</a>
 </td>
 </tr>
-<tr data-index="3" data-listing-date-sort="1657058400000" data-listing-file-modified-sort="1658684400221" data-listing-reading-time-sort="0.155" data-listing-title-sort="Lunch break" data-listing-filename-sort="d2-04_lunch_break.qmd">
-<td class="listing-image">
-<img src="./modules/images/lunch-break.png" style="height: 40px;" alt="Plate and utensils.">
-</td>
-<td class="listing-subtitle">
-15:00 - 15:30
-</td>
-<td class="listing-title">
-<a href="./modules/d2-04_lunch_break.html" class="title">Lunch break</a>
-</td>
-</tr>
-<tr data-index="4" data-listing-date-sort="1658786400000" data-listing-file-modified-sort="1660643465208" data-listing-reading-time-sort="1.49" data-listing-title-sort="Layouts and Composition" data-listing-filename-sort="d2-05_layout.qmd">
+<tr data-index="3" data-listing-date-sort="1658786400000" data-listing-file-modified-sort="1660683347947" data-listing-reading-time-sort="1.465" data-listing-title-sort="Working with Colors" data-listing-filename-sort="d2-04_colors.qmd" onclick="href = this.querySelector('a').getAttribute('href');
+ if (href) { window.location=href ; return false; }">
 <td class="listing-image">
 <img src="./modules/images/session7.png" style="height: 40px;">
 </td>
 <td class="listing-subtitle">
-15:30 - 17:00
+<span class="code">11:30-12:30</span>
 </td>
 <td class="listing-title">
-<a href="./modules/d2-05_layout.html" class="title">Layouts and Composition</a>
+<a href="./modules/d2-04_colors.html" class="title">Working with Colors</a>
 </td>
 </tr>
-<tr data-index="5" data-listing-date-sort="1658786400000" data-listing-file-modified-sort="1658685787748" data-listing-reading-time-sort="0.095" data-listing-title-sort="Coffee break" data-listing-filename-sort="d2-06_coffee_break.qmd">
+<tr data-index="4" data-listing-date-sort="1658786400000" data-listing-file-modified-sort="1660686048332" data-listing-reading-time-sort="0.135" data-listing-title-sort="Lunch break" data-listing-filename-sort="d2-05_lunch_break.qmd" onclick="href = this.querySelector('a').getAttribute('href');
+ if (href) { window.location=href ; return false; }">
+<td class="listing-image">
+<img src="./modules/images/lunch-break.png" style="height: 40px;" alt="Plate and utensils.">
+</td>
+<td class="listing-subtitle">
+<span class="code" style="color:#b3b3b3;">12:30-13:30</span>
+</td>
+<td class="listing-title">
+<a href="./modules/d2-05_lunch_break.html" class="title">Lunch break</a>
+</td>
+</tr>
+<tr data-index="5" data-listing-date-sort="1658786400000" data-listing-file-modified-sort="1660683352444" data-listing-reading-time-sort="1.49" data-listing-title-sort="Working with Layouts and Composition" data-listing-filename-sort="d2-06_layout.qmd" onclick="href = this.querySelector('a').getAttribute('href');
+ if (href) { window.location=href ; return false; }">
+<td class="listing-image">
+<img src="./modules/images/session8.png" style="height: 40px;">
+</td>
+<td class="listing-subtitle">
+<span class="code">13:30-15:00</span>
+</td>
+<td class="listing-title">
+<a href="./modules/d2-06_layout.html" class="title">Working with Layouts and Composition</a>
+</td>
+</tr>
+<tr data-index="6" data-listing-date-sort="1658786400000" data-listing-file-modified-sort="1660686051346" data-listing-reading-time-sort="0.07" data-listing-title-sort="Coffee break" data-listing-filename-sort="d2-07_coffee_break.qmd" onclick="href = this.querySelector('a').getAttribute('href');
+ if (href) { window.location=href ; return false; }">
 <td class="listing-image">
 <img src="./modules/images/coffee-break.png" style="height: 40px;" alt="A coffee cup.">
 </td>
 <td class="listing-subtitle">
-15:00 - 15:30
+<span class="code" style="color:#b3b3b3;">15:00-15:30</span>
 </td>
 <td class="listing-title">
-<a href="./modules/d2-06_coffee_break.html" class="title">Coffee break</a>
+<a href="./modules/d2-07_coffee_break.html" class="title">Coffee break</a>
 </td>
 </tr>
-<tr data-index="6" data-listing-date-sort="1658786400000" data-listing-file-modified-sort="1660660475487" data-listing-reading-time-sort="0.56" data-listing-title-sort="Group Project" data-listing-filename-sort="d2-07_project.qmd">
+<tr data-index="7" data-listing-date-sort="1658786400000" data-listing-file-modified-sort="1660679200241" data-listing-reading-time-sort="0.56" data-listing-title-sort="Group Projects" data-listing-filename-sort="d2-08_project.qmd" onclick="href = this.querySelector('a').getAttribute('href');
+ if (href) { window.location=href ; return false; }">
 <td class="listing-image">
 <img src="./modules/images/group.png" style="height: 40px;">
 </td>
 <td class="listing-subtitle">
-15:30 - 17:00
+<span class="code">15:30-17:00</span>
 </td>
 <td class="listing-title">
-<a href="./modules/d2-07_project.html" class="title">Group Project</a>
+<a href="./modules/d2-08_project.html" class="title">Group Projects</a>
 </td>
 </tr>
 </tbody>

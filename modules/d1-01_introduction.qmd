@@ -1,6 +1,6 @@
 ---
 title: "Introduction"
-subtitle: "09:00 - 09:30"
+subtitle: "<span class='code'>09:00-09:30</span>"
 date: "2022-07-25"
 image: "images/session1.png"
 tbl-colwidths: [5,20,75]
