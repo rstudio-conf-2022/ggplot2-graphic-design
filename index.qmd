@@ -2,7 +2,7 @@
 title: "<span style='font-family: Boska; font-size: 2.75rem; font-weight: 800;'>Graphic Design with ggplot2</span>"
 ---
 
-![](images/logo.png){style="float:right;padding: 0 0 0 10px;" fig-alt="Course Hex Logo" width="200"}
+![](images/logo.png){style="float:right;padding: 0 0 0 10px;" fig-alt="Course Hex Logo" width="175"}
 
 # How to Create Engaging and Complex Visualizations in R
 
