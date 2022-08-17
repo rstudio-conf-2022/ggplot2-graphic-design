@@ -34,11 +34,11 @@ The course covers complex code examples that are suited for more experienced ggp
 
 This course will be appropriate for you if you answer yes to these questions:
 
--   Do you aim to build graphics in a fully reproducible way without the need to manually adjust details afterwards?
+-   *Do you aim to build graphics in a fully reproducible way without the need to manually adjust details afterwards?*
 
--   Do you enjoy using the {ggplot2} package but are interested in doing more with it?
+-   *Do you enjoy using the {ggplot2} package but are interested in doing more with it?*
 
--   Would you like to learn how to improve future data visualizations in terms of accessibility, impact, and complexity?
+-   *Would you like to learn how to improve future data visualizations in terms of accessibility, impact, and complexity?*
 
 
 # Instructor
@@ -101,3 +101,5 @@ If you want to follow all contents locally, make sure the following typefaces ar
 -   Tabular: [fontshare.com/fonts/tabular](www.fontshare.com/fonts/tabular)
 -   Boska: [fontshare.com/fonts/boska](www.fontshare.com/fonts/boska)
 -   Pally: [fontshare.com/fonts/pally](www.fontshare.com/fonts/pally)
+
+You can download all typefaces as a single zip file [here](ggplot2-course-fonts.zip).
