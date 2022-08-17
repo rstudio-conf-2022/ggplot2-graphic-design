@@ -96,6 +96,8 @@ If you want to follow all contents locally, make sure the following typefaces ar
 -   Boska: [fontshare.com/fonts/boska](www.fontshare.com/fonts/boska)
 -   Pally: [fontshare.com/fonts/pally](www.fontshare.com/fonts/pally)
 
+You can download all typefaces as a single zip file [here](https://github.com/rstudio-conf-2022/ggplot2-graphic-design/raw/main/ggplot2-course-fonts.zip).
+
 ------------------------------------------------------------------------
 
 ![](https://i.creativecommons.org/l/by/4.0/88x31.png) This work is licensed under a [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/).
