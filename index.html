@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-0.9.566">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Graphic Design with ggplot2 - Graphic Design with ggplot2</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+<meta name="twitter:title" content="Graphic Design with ggplot2 - Graphic Design with ggplot2">
+<meta name="twitter:description" content="An rstudio::conf(2022) Workshop by Cédric…">
+<meta name="twitter:image" content="https://rstudio-conf-2022.github.io/ggplot2-graphic-design//images/twitter-card.png">
+<meta name="twitter:creator" content="@CedScherer">
+<meta name="twitter:image-height" content="622">
+<meta name="twitter:image-width" content="890">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <a class="navbar-brand" href="./index.html">
+    <img src="./images/ggplot2.png" alt="">
+    <span class="navbar-title">Graphic Design with ggplot2</span>
+  </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-sessions" role="button" data-bs-toggle="dropdown" aria-expanded="false">Sessions</a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-sessions">    
+        <li>
+    <a class="dropdown-item" href="./modules/d1-01_introduction.html">
+ <span class="dropdown-text">Introduction</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./modules/d1-02_concepts_pt1.html">
+ <span class="dropdown-text">Concepts of ggplot2 Pt. 1</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./modules/d1-05_concepts_pt2.html">
+ <span class="dropdown-text">Concepts of ggplot2 Pt. 2</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./modules/d1-09_data_com.html">
+ <span class="dropdown-text">Data Communication</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./modules/d2-01_lab_ann.html">
+ <span class="dropdown-text">Working with Annotations &amp; Labels</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./modules/d2-03_colorful_graphics.html">
+ <span class="dropdown-text">Colorful Graphics</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./modules/d2-04_colors.html">
+ <span class="dropdown-text">Working with Colors</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./modules/d2-06_layout.html">
+ <span class="dropdown-text">Working with Layouts &amp; Composition</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./modules/d2-08_project.html">
+ <span class="dropdown-text">Group Project</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="./schedule.html">Schedule</a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-downloads" role="button" data-bs-toggle="dropdown" aria-expanded="false">Downloads</a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-downloads">    
+        <li>
+    <a class="dropdown-item" href="./ggplot2-course-material.zip">
+ <span class="dropdown-text">All Course Materials</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./ggplot2-course-data.zip">
+ <span class="dropdown-text">Data Sets</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./ggplot2-course-fonts.zip">
+ <span class="dropdown-text">Font Files</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="./license.html">License</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://github.com/rstudio-conf-2022/ggplot2-graphic-design">GitHub</a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#how-to-create-engaging-and-complex-visualizations-in-r" id="toc-how-to-create-engaging-and-complex-visualizations-in-r" class="nav-link active" data-scroll-target="#how-to-create-engaging-and-complex-visualizations-in-r">How to Create Engaging and Complex Visualizations in R</a></li>
+  <li><a href="#course-overview" id="toc-course-overview" class="nav-link" data-scroll-target="#course-overview">Course Overview</a>
+  <ul class="collapse">
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives">Learning objectives</a></li>
+  <li><a href="#is-this-course-for-me" id="toc-is-this-course-for-me" class="nav-link" data-scroll-target="#is-this-course-for-me">Is this course for me?</a></li>
+  </ul></li>
+  <li><a href="#instructor" id="toc-instructor" class="nav-link" data-scroll-target="#instructor">Instructor</a></li>
+  <li><a href="#prework" id="toc-prework" class="nav-link" data-scroll-target="#prework">Prework</a>
+  <ul class="collapse">
+  <li><a href="#required-packages" id="toc-required-packages" class="nav-link" data-scroll-target="#required-packages">Required Packages</a></li>
+  <li><a href="#required-typefaces" id="toc-required-typefaces" class="nav-link" data-scroll-target="#required-typefaces">Required Typefaces</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/rstudio-conf-2022/ggplot2-graphic-design/edit/main/index.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/rstudio-conf-2022/ggplot2-graphic-design/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span style="font-family: Boska; font-size: 2.75rem; font-weight: 800;">Graphic Design with ggplot2</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
+
+<section id="how-to-create-engaging-and-complex-visualizations-in-r" class="level1">
+<h1>How to Create Engaging and Complex Visualizations in R</h1>
+<p>An rstudio::conf(2022) Workshop by Cédric Scherer</p>
+<hr>
+<p><span class="code">📆  July 25 and 26, 2022</span><br>
+<span class="code">⏰  09:00 - 17:00</span><br>
+<span class="code">🏨  National Harbor 4/5</span><br>
+<span class="code">✍️  <a href="http://rstd.io/conf">rstd.io/conf</a></span></p>
+<hr>
+</section>
+<section id="course-overview" class="level1">
+<h1>Course Overview</h1>
+<p>Creating engaging and accessible data visualizations of high quality in an efficient and preferably reproducible way is an essential tool in a data scientist’s toolbox. After completing the course, participants will have a solid understanding of data visualization principles and the functionality of the ggplot2 graphics library and helpful extension libraries to create highly customized graphics without the need for post-processing.</p>
+<p>We will discuss the main concepts of the grammar of graphics and use hands-on examples to explore ggplot2’s utility to create multi-layered, more complex graphs. The workshop covers a short overview of the basics of ggplot2 and quickly focuses on the most important steps and helpful tips to create visually appealing and complex graphics both in theory and practice. The power of ggplot2 will be illustrated with advanced real–life examples that help to understand data visualization principles and useful coding tricks.</p>
+<p>The course covers complex code examples that are suited for more experienced ggplot2 users but designed to be informative for participants with minimal prior experience in ggplot2 and data visualization. As part of the training, attendees can download the course material from the course webpage for future reference.</p>
+<section id="learning-objectives" class="level2">
+<h2 class="anchored" data-anchor-id="learning-objectives">Learning objectives</h2>
+<ul>
+<li>Understanding the general concepts of ggplot2.</li>
+<li>Learning the many options of customizing a ggplot.</li>
+<li>Gaining the major steps need to create engaging graphics.</li>
+<li>Being able to generate complex plots without th need of post-processing.</li>
+</ul>
+</section>
+<section id="is-this-course-for-me" class="level2">
+<h2 class="anchored" data-anchor-id="is-this-course-for-me">Is this course for me?</h2>
+<p>This course will be appropriate for you if you answer yes to these questions:</p>
+<ul>
+<li><p><em>Do you aim to build graphics in a fully reproducible way without the need to manually adjust details afterwards?</em></p></li>
+<li><p><em>Do you enjoy using the {ggplot2} package but are interested in doing more with it?</em></p></li>
+<li><p><em>Would you like to learn how to improve future data visualizations in terms of accessibility, impact, and complexity?</em></p></li>
+</ul>
+</section>
+</section>
+<section id="instructor" class="level1">
+<h1>Instructor</h1>
+<p><img src="images/cedric.jpeg" class="img-fluid" style="float:right;padding: 0 0 0 10px;" alt="Headshot of Dr. Cédric Scherer" width="200"></p>
+<p><a href="http://cedricscherer.com/"><strong>Dr.&nbsp;Cédric Scherer</strong></a> (he/him) is a graduated computational ecologist with a passion for design. After his PhD, he combined his expertise in analyzing and visualizing large data sets in R with his passion to become an independent data visualization designer and specialist. Cédric has created visualizations across all disciplines, purposes, and styles and regularly teaches data visualization principles, the R programming language, and ggplot2. Due to regular participation in social data challenges such as <a href="https://github.com/rfordatascience/tidytuesday">#TidyTuesday</a>, he is now well known for complex and visually appealing figures, entirely made with ggplot2, that look as if they have been created with a vector design tool.</p>
+</section>
+<section id="prework" class="level1">
+<h1>Prework</h1>
+<p>The workshop will also cover the basic logic of ggplot2 and its components. However, some pre-knowledge on how the package works is beneficial for following the examples and for the group exercises. A good overview is provided might by the “First Steps” chapter of the ggplot2 book by Hadley Wickham et al.: <a href="https://ggplot2-book.org/getting-started.html">ggplot2-book.org/getting-started.html</a></p>
+<p>The example codes and the hands-on workshop parts are run in the Rstudio cloud. Thus, nothing but a laptop is needed.</p>
+<p>If you want to run the workshop content locally on your machine, please make sure to install a suitable IDE (Rstudio, VS Code or others), a recent version of R (4.1+) and the following packages and typefaces.</p>
+<p><em>For Mac OS users:</em><br>
+Please make sure that <a href="https://www.xquartz.org/">XQuartz is installed</a> which is needed to use the cairo pdf device.</p>
+<section id="required-packages" class="level2">
+<h2 class="anchored" data-anchor-id="required-packages">Required Packages</h2>
+<ul>
+<li><strong>tidyverse packages and friends</strong>
+<ul>
+<li>ggplot2, readr, tibble, dplyr, tidyr, forcats, stringr, lubridate, here, systemfonts, scales</li>
+</ul></li>
+<li><strong>extension packages</strong>
+<ul>
+<li>ggrepel, ggforce, ggtext, ggdist, ggbeeswarm, gghalves, ggblur, patchwork</li>
+</ul></li>
+<li><strong>color packages</strong>
+<ul>
+<li>viridis, RColorBrewer, rcartocolor, scico, ggsci, ggthemes, nord, MetBrewer, colorspace, colorblindr</li>
+</ul></li>
+<li><strong>util packages</strong>
+<ul>
+<li>magick, grid, grDevices</li>
+</ul></li>
+<li><strong>data packages</strong>
+<ul>
+<li>palmerpenguins, rnaturalearth</li>
+</ul></li>
+<li><strong>rspatial packages</strong>
+<ul>
+<li>sf, rmapshaper</li>
+</ul></li>
+</ul>
+<p>Run this code to install the packages if needed:</p>
+<pre><code>packages &lt;- c(
+  "ggplot2", "readr", "tibble", "tidyr", "forcats", "stringr",
+  "lubridate", "here", "systemfonts", "magick", "scales", "grid",
+  "grDevices", "colorspace", "viridis", "RColorBrewer", "rcartocolor",
+  "scico", "ggsci", "ggthemes", "nord", "MetBrewer", "ggrepel",
+  "ggforce", "ggtext", "ggdist", "ggbeeswarm", "gghalves", "patchwork", 
+  "palmerpenguins", "rnaturalearth", "sf", "rmapshaper", "devtools"
+)
+
+install.packages(setdiff(packages, rownames(installed.packages())))  
+
+## install {colorblindr} and requirements
+remotes::install_github("wilkelab/cowplot")
+remotes::install_github("clauswilke/colorblindr")</code></pre>
+</section>
+<section id="required-typefaces" class="level2">
+<h2 class="anchored" data-anchor-id="required-typefaces">Required Typefaces</h2>
+<p>We will make use of custom fonts. A lot.<br>
+If you want to follow all contents locally, make sure the following typefaces are installed:</p>
+<ul>
+<li>Roboto Condensed: <a href="www.fonts.google.com/specimen/Roboto+Condensed">fonts.google.com/specimen/Roboto+Condensed</a></li>
+<li>Cabinet Grotesk: <a href="www.fontshare.com/fonts/cabinet-grotesk">fontshare.com/fonts/cabinet-grotesk</a></li>
+<li>Tabular: <a href="www.fontshare.com/fonts/tabular">fontshare.com/fonts/tabular</a></li>
+<li>Boska: <a href="www.fontshare.com/fonts/boska">fontshare.com/fonts/boska</a></li>
+<li>Pally: <a href="www.fontshare.com/fonts/pally">fontshare.com/fonts/pally</a></li>
+</ul>
+<p>You can download all typefaces as a single zip file <a href="ggplot2-course-fonts.zip">here</a>.</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">This page is built with ❤️ and <a href="https://quarto.org/">Quarto</a>.</div>   
+    <div class="nav-footer-right">© Copyright 2022, Cédric Scherer and Marco Sciaini</div>
+  </div>
+</footer>
+
+
+
+</body></html>

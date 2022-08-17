@@ -3446,7 +3446,7 @@
   {
     "objectID": "modules/d1-03_coffee_break.html",
     "href": "modules/d1-03_coffee_break.html",
-    "title": "Coffee break",
+    "title": "Coffee Break",
     "section": "",
     "text": "If you have questions during the break please come to any of the TAs."
   },
@@ -3495,7 +3495,7 @@
   {
     "objectID": "modules/d1-06_lunch_break.html",
     "href": "modules/d1-06_lunch_break.html",
-    "title": "Lunch break",
+    "title": "Lunch Break",
     "section": "",
     "text": "Warning\n\n\n\nPlease avoid questions during the breaks to give us a chance to recover and reflect - anything other than course material is however strongly encouraged! 😋"
   },
@@ -3523,7 +3523,7 @@
   {
     "objectID": "modules/d1-08_coffee_break.html",
     "href": "modules/d1-08_coffee_break.html",
-    "title": "Coffee break",
+    "title": "Coffee Break",
     "section": "",
     "text": "If you have questions during the break …"
   },
@@ -3558,7 +3558,7 @@
   {
     "objectID": "modules/d2-02_coffee_break.html",
     "href": "modules/d2-02_coffee_break.html",
-    "title": "Coffee break",
+    "title": "Coffee Break",
     "section": "",
     "text": "If you have questions during the break please come to any of the TAs."
   },
@@ -3579,7 +3579,7 @@
   {
     "objectID": "modules/d2-05_lunch_break.html",
     "href": "modules/d2-05_lunch_break.html",
-    "title": "Lunch break",
+    "title": "Lunch Break",
     "section": "",
     "text": "Warning\n\n\n\nPlease avoid questions during the breaks to give us a chance to recover and reflect - anything other than course material is however strongly encouraged! 😋"
   },
@@ -3593,7 +3593,7 @@
   {
     "objectID": "modules/d2-07_coffee_break.html",
     "href": "modules/d2-07_coffee_break.html",
-    "title": "Coffee break",
+    "title": "Coffee Break",
     "section": "",
     "text": "If you have questions during the break please come to any of the TAs."
   },
@@ -3609,7 +3609,14 @@
     "href": "schedule.html",
     "title": "Schedule",
     "section": "",
-    "text": "Day 2\nTuesday, July 26, 2022\n\n\n\n\n\n\n\n\nTime\n\n\nModule\n\n\n\n\n\n\n\n\n\n09:00-10:30\n\n\nWorking with Labels and Annotations\n\n\n\n\n\n\n\n10:30-11:00\n\n\nCoffee break\n\n\n\n\n\n\n\n11:00-11:30\n\n\nColorful Graphics\n\n\n\n\n\n\n\n11:30-12:30\n\n\nWorking with Colors\n\n\n\n\n\n\n\n12:30-13:30\n\n\nLunch break\n\n\n\n\n\n\n\n13:30-15:00\n\n\nWorking with Layouts and Composition\n\n\n\n\n\n\n\n15:00-15:30\n\n\nCoffee break\n\n\n\n\n\n\n\n15:30-17:00\n\n\nGroup Projects\n\n\n\n\n\n\nNo matching items"
+    "text": "Monday, July 25, 2022\n\n\n\n\n\n\n\n\nTime\n\n\nModule\n\n\n\n\n\n\n\n\n\n09:00-09:30\n\n\nIntroduction\n\n\n\n\n\n\n\n09:30-10:30\n\n\nConcepts of the {ggplot2} Package Pt. 1\n\n\n\n\n\n\n\n10:30-11:00\n\n\nCoffee Break\n\n\n\n\n\n\n\n11:00-12:00\n\n\nConcepts of the {ggplot2} Package Pt. 1 (Continued)\n\n\n\n\n\n\n\n12:00-12:30\n\n\nConcepts of the {ggplot2} Package Pt. 2\n\n\n\n\n\n\n\n12:30-13:30\n\n\nLunch Break\n\n\n\n\n\n\n\n13:30-15:00\n\n\nConcepts of the {ggplot2} Package Pt. 2 (Continued)\n\n\n\n\n\n\n\n15:00-15:30\n\n\nCoffee Break\n\n\n\n\n\n\n\n15:30-17:00\n\n\nData Communication\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "schedule.html#day-2",
+    "href": "schedule.html#day-2",
+    "title": "Schedule",
+    "section": "Day 2",
+    "text": "Day 2\nTuesday, July 26, 2022\n\n\n\n\n\n\n\n\nTime\n\n\nModule\n\n\n\n\n\n\n\n\n\n09:00-10:30\n\n\nWorking with Labels and Annotations\n\n\n\n\n\n\n\n10:30-11:00\n\n\nCoffee Break\n\n\n\n\n\n\n\n11:00-11:30\n\n\nColorful Graphics\n\n\n\n\n\n\n\n11:30-12:30\n\n\nWorking with Colors\n\n\n\n\n\n\n\n12:30-13:30\n\n\nLunch Break\n\n\n\n\n\n\n\n13:30-15:00\n\n\nWorking with Layouts and Composition\n\n\n\n\n\n\n\n15:00-15:30\n\n\nCoffee Break\n\n\n\n\n\n\n\n15:30-17:00\n\n\nGroup Projects\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "team.html",

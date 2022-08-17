@@ -32,14 +32,14 @@ tbl-colwidths: [5,20,50,25]
 editor: source
 ---
 
-# Day 1
+## Day 1
 
 Monday, July 25, 2022
 
 ::: {#schedule-day1}
 :::
 
-# Day 2
+## Day 2
 
 Tuesday, July 26, 2022
 
