@@ -24,7 +24,7 @@ The course covers complex code examples that are suited for more experienced ggp
 -   Understanding the general concepts of ggplot2.
 -   Learning the many options of customizing a ggplot.
 -   Gaining the major steps need to create engaging graphics.
--   Being able to generate complex plots without th need of post-processing.
+-   Being able to generate complex plots without the need of post-processing.
 
 ## Is this course for me?
 

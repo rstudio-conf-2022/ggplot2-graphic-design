@@ -1,17 +1,10 @@
 [
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Graphic Design with ggplot2",
-    "section": "",
-    "text": "An rstudio::conf(2022) Workshop by Cédric Scherer\n\n📆  July 25 and 26, 2022\n⏰  09:00 - 17:00\n🏨  National Harbor 4/5\n✍️  rstd.io/conf"
-  },
-  {
     "objectID": "index.html#learning-objectives",
     "href": "index.html#learning-objectives",
     "title": "Graphic Design with ggplot2",
     "section": "Learning objectives",
-    "text": "Learning objectives\n\nUnderstanding the general concepts of ggplot2.\nLearning the many options of customizing a ggplot.\nGaining the major steps need to create engaging graphics.\nBeing able to generate complex plots without th need of post-processing."
+    "text": "Learning objectives\n\nUnderstanding the general concepts of ggplot2.\nLearning the many options of customizing a ggplot.\nGaining the major steps need to create engaging graphics.\nBeing able to generate complex plots without the need of post-processing."
   },
   {
     "objectID": "index.html#is-this-course-for-me",

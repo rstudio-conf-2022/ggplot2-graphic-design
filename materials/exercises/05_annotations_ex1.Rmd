@@ -13,7 +13,7 @@ format: html
     -   Use the {ggtext} geometries and theme elements to format the labels.
     -   Also, make use of the other components such as scales, original theme, and theme customization.
 
-![A bubble chart of bill depth versus bill width of Palmer penguins with direct annoations for all three species. The size of the bubbles is scaled accordingly to their reported body mass.](exercises/5-1-penguins/penguins-bubble-chart.png)
+![A bubble chart of bill depth versus bill width of Palmer penguins with direct annoations for all three species. The size of the bubbles is scaled accordingly to their reported body mass.](../exercises/5-1-penguins/penguins-bubble-chart.png)
 
 ## Data 
 

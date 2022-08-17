@@ -20,6 +20,8 @@ website:
     creator: "@CedScherer"
     image: "/images/twitter-card.png"
 
+  favicon: "/images/favicon.png"
+
   page-footer:
     left: "This page is built with ❤️ and [Quarto](https://quarto.org/)."
     right: "&copy; Copyright 2022, Cédric Scherer and Marco Sciaini"
@@ -27,7 +29,7 @@ website:
 
   navbar:
     background: "#FFEDC2"
-    logo: "images/ggplot2.png"
+    logo: "images/logo.png"
     pinned: true
     align: center
     right:
