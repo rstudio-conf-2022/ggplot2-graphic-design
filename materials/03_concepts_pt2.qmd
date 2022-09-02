@@ -1,7 +1,7 @@
 ---
 title: "Graphic Design with ggplot2"
 subtitle: "<span style='font-size:1.75em;line-height:1.1;'>Concepts of the <code>{ggplot2}</code> Package Pt. 2:<br><span style='font-weight:500;'>Facets, Scales, and Coordinate Systems</span></span>"
-author: "<b style='color:#28a87d;'>Cédric Scherer</b> **//** rstudio::conf **//** July 2022"
+author: "<b style='color:#28a87d;'><a href='https://www.cedricscherer.com'>Cédric Scherer</a></b> **//** rstudio::conf **//** July 2022"
 format:
   revealjs:
     theme: css/style.scss
@@ -661,11 +661,9 @@ ggplot(
         color = season)
   ) +  
   geom_point() +
-  scale_x_continuous() +
   scale_y_continuous(
     trans = "log10"
-  ) +
-  scale_color_viridis_d()
+  )
 ```
 
 ## \`scale_x\|y_continuous\`
@@ -726,7 +724,7 @@ ggplot(
 ```{r}
 #| label: scales-xy-continuous-breaks-irregular
 #| output-location: column
-#| code-line-numbers: "9,10"
+#| code-line-numbers: "9"
 ggplot(
     bikes,
     aes(x = date, y = count,
@@ -735,8 +733,7 @@ ggplot(
   geom_point() +
   scale_y_continuous(
     name = "Reported bike shares",
-    breaks = 
-      c(0, seq(5000, 30000, by = 2500), 40000, 50000)
+    breaks = c(0, 2:12*2500, 40000, 50000)
   ) 
 ```
 
@@ -1259,7 +1256,7 @@ facet +
 ```{r}
 #| label: diamonds-facet-scales-y-paste-format
 #| output-location: column
-#| code-line-numbers: "8,9,10"
+#| code-line-numbers: "8,9,10,11,12,13,14"
 facet +
   scale_x_continuous(
     breaks = 0:5
@@ -1268,7 +1265,11 @@ facet +
     limits = c(0, 30000),
     breaks = 0:3*10000,
     labels = paste0(
-      "$", format(0:3*10000, big.mark = ",", trim = TRUE)
+      "$", format(
+        0:3*10000, 
+        big.mark = ",", 
+        trim = TRUE
+      )
     )
   )
 ```
@@ -1278,7 +1279,7 @@ facet +
 ```{r}
 #| label: diamonds-facet-scales-y-function
 #| output-location: column
-#| code-line-numbers: "8,9,10"
+#| code-line-numbers: "8,9,10,11,12,13"
 facet +
   scale_x_continuous(
     breaks = 0:5
@@ -1287,7 +1288,10 @@ facet +
     limits = c(0, 30000),
     breaks = 0:3*10000,
     labels = function(y) paste0(
-      "$", format(y, big.mark=",", trim = TRUE)
+      "$", format(
+        y, big.mark = ",",
+        trim = TRUE
+      )
     )
   )
 ```

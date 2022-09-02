@@ -1,7 +1,7 @@
 ---
 title: "Graphic Design with ggplot2"
 subtitle: "<span style='font-size:2.35em;'>How to Create Engaging and<br>Complex Visualizations in R</span>"
-author: "<b style='color:#28a87d;'>Cédric Scherer</b> **//** rstudio::conf **//** July 2022"
+author: "<b style='color:#28a87d;'><a href='https://www.cedricscherer.com'>Cédric Scherer</a></b> **//** rstudio::conf **//** July 2022"
 format:
   revealjs:
     theme: css/style.scss
@@ -96,12 +96,6 @@ execute:
 -   What's your favorite animal / plant / color / typeface?
 -   Whom would you like to meet during the rstudio::conf?
 -   Which R package are you looking forward to try?
-
-```{r}
-#| label: countdown-group
-#| echo: false
-countdown::countdown(minutes = 10, font_size = ".5em")
-```
 
 
 ## Announcements

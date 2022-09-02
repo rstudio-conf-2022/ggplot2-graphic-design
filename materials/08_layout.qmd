@@ -1,7 +1,7 @@
 ---
 title: "Graphic Design with ggplot2"
 subtitle: "<span style='font-size:1.75em;line-height:1.1;'>Working with Layouts and Composition</span>"
-author: "<b style='color:#28a87d;'>Cédric Scherer</b> **//** rstudio::conf **//** July 2022"
+author: "<b style='color:#28a87d;'><a href='https://www.cedricscherer.com'>Cédric Scherer</a></b> **//** rstudio::conf **//** July 2022"
 format:
   revealjs:
     theme: css/style.scss

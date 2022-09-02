@@ -287,11 +287,9 @@ ggplot(
         color = season)
   ) +  
   geom_point() +
-  scale_x_continuous() +
   scale_y_continuous(
     trans = "log10"
-  ) +
-  scale_color_viridis_d()
+  ) 
 
 
 ## -----------------------------------------------------------------------------
@@ -341,8 +339,8 @@ ggplot(
   geom_point() +
   scale_y_continuous(
     name = "Reported bike shares",
-    breaks = 
-      c(0, seq(5000, 30000, by = 2500), 40000, 50000)
+    breaks = c(0, 2:12*2500, 40000, 50000)
+    
   ) 
 
 
