@@ -380,7 +380,7 @@ ggplot(
     aes(x = season, y = temp_feel)
   ) +
   stat_summary(
-    fun = mean_se, ## the default
+    fun.data = mean_se, ## the default
     geom = "pointrange"  ## the default
   ) 
 
