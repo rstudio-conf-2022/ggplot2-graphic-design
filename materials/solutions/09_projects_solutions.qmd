@@ -39,7 +39,7 @@ execute:
 ::: question
 -   Form groups and work one of the following suggested projects:
     - Carbon Footprint of Travel (OWID / UK.gov)
-    - Spending Before and During the Pandemic (JP Morgan Chase)
+    - Spendings COVID Pandemic (JP Morgan Chase)
     - Speed of Languages (Economist / Coupé et al.)
     - US Drought Patterns (Drought Monitor)
 :::
@@ -135,7 +135,9 @@ ggsave("emissions.png", width = 15, height = 10)
 ---
 
 
-# Spending Before and During the Pandemic
+# Spendings COVID Pandemic
+
+---
 
 
 ![Graphic Source: [JPMorgan Chase Institute](https://www.jpmorganchase.com/institute/research/household-income-spending/initial-household-spending-response-to-covid-19-evidence-from-credit-card-transactions)](img/project-jpmorgan.png){fig-align="center" fig-alt="A line plot by the JP Morgan Chase institute showing timeseries for 10 different categories before and after the National Emergency in 2020."}
@@ -236,11 +238,10 @@ ggplot(data, aes(date, change, color = category)) +
 #| fig.align: "center"
 ```
 
----
-
 
 #  Speed of Languages
 
+---
 
 ![Graphic Source: [The Economist](https://www.economist.com/graphic-detail/2019/09/28/why-are-some-languages-spoken-faster-than-others)](img/project-speed-language.png){fig-align="center" fig-alt="A area chart by The Economist showing the distribution of information and speech rates for different languages."}
 

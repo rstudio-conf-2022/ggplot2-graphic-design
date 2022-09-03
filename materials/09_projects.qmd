@@ -39,7 +39,7 @@ execute:
 ::: question
 -   Form groups and work on one of the following suggested projects:
     - Carbon Footprint of Travel (OWID / UK.gov)
-    - Spending Before and During the Pandemic (JP Morgan Chase)
+    - Spendings COVID Pandemic (JP Morgan Chase)
     - Speed of Languages (Economist / Coupé et al.)
     - US Drought Patterns (Drought Monitor)
 :::

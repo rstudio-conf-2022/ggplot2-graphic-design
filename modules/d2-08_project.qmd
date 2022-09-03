@@ -13,10 +13,10 @@ image: "images/group.png"
 
 # Outline
 
--   Carbon Footprint of Travel
--   Spending Before and During the Pandemic
--   Speed of Languages
--   US Drought Patterns
+-   Carbon Footprint of Travel (OWID / UK.gov)
+-   Spendings COVID Pandemic (JP Morgan Chase)
+-   Speed of Languages (Economist / Coupé et al.)
+-   US Drought Patterns (Drought Monitor)
     
 # Exercise
 
