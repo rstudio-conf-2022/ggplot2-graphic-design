@@ -5,7 +5,7 @@ author: "<b style='color:#28a87d;'><a href='https://www.cedricscherer.com'>Cédr
 format:
   revealjs:
     theme: css/style.scss
-    footer: '**[Cédric Scherer](https::/cedricscherer.com) //** rstudio::conf **//** July 2022'
+    footer: '**[Cédric Scherer](https://cedricscherer.com) //** rstudio::conf **//** July 2022'
     #'rstudio::conf(workshop = "Graphic Design with ggplot2", instructor = "Cédric Scherer")'
     transition: fade
     progress: true
