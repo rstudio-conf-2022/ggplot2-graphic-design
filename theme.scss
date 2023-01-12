@@ -24,9 +24,29 @@
   font-weight: 800;
   src: url('fonts/Boska-Black.ttf') format("truetype");
 }
+@font-face {
+  font-family: 'Tabular';
+  src: url('fonts/Tabular-Regular.otf') format("opentype");
+}
+@font-face {
+  font-family: 'Tabular';
+  font-weight: bold;
+  src: url('fonts/Tabular-Bold.otf') format("opentype");
+}
+@font-face {
+  font-family: 'Tabular';
+  font-style: italic;
+  src: url('fonts/Tabular-Italic.otf') format("opentype");
+}
+@font-face {
+  font-family: 'Tabular';
+  font-weight: bold;
+  font-style: italic;
+  src: url('fonts/Tabular-BoldItalic.otf') format("opentype");
+}
   
-$font-family-sans-serif: "Cabinet Grotesk", 'Arial', sans-serif;
-$font-family-serif: "Boska", Georgia, 'Times New Roman', Times, serif;
+$font-family-sans-serif: 'Cabinet Grotesk', 'Arial', sans-serif;
+$font-family-serif: 'Boska', 'Bodoni MT', 'Georgia', 'Times New Roman', Times, serif;
 $presentation-heading-color: #28A87D;
 $presentation-heading-font-weight: 800;
 $link-color: #28a87d;
@@ -44,7 +64,7 @@ h1, .navbar-title {
 }
 
 code, .code {
-  font-family: 'Tabular', monospace;
+  font-family: 'Tabular', 'Consolas', monospace;
 }
 
 .question {
