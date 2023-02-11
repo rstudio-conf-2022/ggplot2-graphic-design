@@ -15,7 +15,7 @@ website:
   repo-url: https://github.com/rstudio-conf-2022/ggplot2-graphic-design
   repo-actions: [edit, issue]
 
-  opengraph: true
+  open-graph: true
   twitter-card:
     creator: "@CedScherer"
     image: "/images/twitter-card.png"
