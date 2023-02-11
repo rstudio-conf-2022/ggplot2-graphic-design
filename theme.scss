@@ -63,6 +63,11 @@ h1, .navbar-title {
   font-weight: 800;
 }
 
+h1, h2, h3, span, body {
+  font-family: 'Cabinet Grotesk', 'Arial', sans-serif;
+  font-feature-settings: "ss01" 1;
+}
+
 code, .code {
   font-family: 'Tabular', 'Consolas', monospace;
 }
