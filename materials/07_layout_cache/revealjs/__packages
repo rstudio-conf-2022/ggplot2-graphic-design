@@ -7,5 +7,5 @@ purrr
 dplyr
 stringr
 forcats
-palmerpenguins
-ggtext
+patchwork
+colorspace
