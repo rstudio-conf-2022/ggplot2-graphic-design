@@ -6,9 +6,10 @@
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-0.9.566">
+  <meta name="generator" content="quarto-1.3.191">
 
   <meta name="author" content="Cédric Scherer // rstudio::conf // July 2022">
   <title>Graphic Design with ggplot2</title>
@@ -20,10 +21,15 @@
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
     pre > code.sourceCode { white-space: pre; position: relative; }
     pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -383,23 +389,34 @@
   
   <script src="../site_libs/kePrint-0.0.1/kePrint.js"></script>
   <link href="../site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<meta property="og:title" content="Graphic Design with ggplot2">
+<meta property="og:description" content="Concepts of the {ggplot2} Package Pt. 1:Data, Aesthetics, and Layers + Misc Stuff">
+<meta property="og:site-name" content="Graphic Design with ggplot2">
 <meta name="twitter:title" content="Graphic Design with ggplot2">
+<meta name="twitter:description" content="Concepts of the {ggplot2} Package Pt. 1:Data, Aesthetics, and Layers + Misc Stuff">
 <meta name="twitter:image" content="https://rstudio-conf-2022.github.io/ggplot2-graphic-design//images/twitter-card.png">
 <meta name="twitter:creator" content="@CedScherer">
 <meta name="twitter:image-height" content="679">
 <meta name="twitter:image-width" content="1200">
 <meta name="twitter:card" content="summary_large_image">
 </head>
-<body>
+<body class="quarto-light">
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" class="center">
+<section id="title-slide" class="quarto-title-block center">
   <h1 class="title">Graphic Design with ggplot2</h1>
   <p class="subtitle"><span style="font-size:1.75em;line-height:1.1;">Concepts of the <code>{ggplot2}</code> Package Pt. 1:<br><span style="font-weight:500;">Data, Aesthetics, and Layers + <span class="circle-highlight">Misc Stuff</span></span></span></p>
-  <p class="author"><b style="color:#28a87d;">Cédric Scherer</b> <strong>//</strong> rstudio::conf <strong>//</strong> July 2022</p>
-</section>
 
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+<b style="color:#28a87d;"><a href="https://www.cedricscherer.com">Cédric Scherer</a></b> <strong>//</strong> rstudio::conf <strong>//</strong> July 2022 
+</div>
+</div>
+</div>
+
+</section>
 <section>
 <section id="setup" class="title-slide slide level1 center">
 <h1>Setup</h1>
@@ -627,99 +644,96 @@ Explanation
 </section>
 <section class="slide level2">
 
-<div class="cell" data-hash="02_concepts_pt1_cache/revealjs/data-table_99c59f54a4869f34947f238d3815bedd">
+<div class="cell" data-hash="02_concepts_pt1_cache/revealjs/data-table_8b76ff3d48de2b935a225bf66730dfa7">
 <div class="cell-output-display">
-
-<table class="table lightable-minimal lightable-hover" style="font-size: 24px; margin-left: auto; margin-right: auto; font-family: Cabinet Grotesk; ">
- <thead>
-  <tr>
-   <th style="text-align:left;"> Variable </th>
-   <th style="text-align:left;"> Description </th>
-   <th style="text-align:left;"> Class </th>
-  </tr>
- </thead>
+<table class="table lightable-minimal lightable-hover" style="font-size: 20px; margin-left: auto; margin-right: auto; font-family: Spline Sans Mono; ">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Variable</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Class</th>
+</tr>
+</thead>
 <tbody>
-  <tr>
-   <td style="text-align:left;"> date </td>
-   <td style="text-align:left;"> Date encoded as `YYYY-MM-DD` </td>
-   <td style="text-align:left;"> date </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> day_night </td>
-   <td style="text-align:left;"> `day` (6:00am–5:59pm) or `night` (6:00pm–5:59am) </td>
-   <td style="text-align:left;"> character </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> year </td>
-   <td style="text-align:left;"> `2015` or `2016` </td>
-   <td style="text-align:left;"> factor </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> month </td>
-   <td style="text-align:left;"> `1` (January) to `12` (December) </td>
-   <td style="text-align:left;"> factor </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> season </td>
-   <td style="text-align:left;"> `winter`, `spring`, `summer`, or `autumn` </td>
-   <td style="text-align:left;"> factor </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> count </td>
-   <td style="text-align:left;"> Sum of reported bikes rented </td>
-   <td style="text-align:left;"> integer </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> is_workday </td>
-   <td style="text-align:left;"> `TRUE` being Monday to Friday and no bank holiday </td>
-   <td style="text-align:left;"> logical </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> is_weekend </td>
-   <td style="text-align:left;"> `TRUE` being Saturday or Sunday </td>
-   <td style="text-align:left;"> logical </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> is_holiday </td>
-   <td style="text-align:left;"> `TRUE` being a bank holiday in the UK </td>
-   <td style="text-align:left;"> logical </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> temp </td>
-   <td style="text-align:left;"> Average air temperature (°C) </td>
-   <td style="text-align:left;"> double </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> temp_feel </td>
-   <td style="text-align:left;"> Average feels like temperature (°C) </td>
-   <td style="text-align:left;"> double </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> humidity </td>
-   <td style="text-align:left;"> Average air humidity (%) </td>
-   <td style="text-align:left;"> double </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> wind_speed </td>
-   <td style="text-align:left;"> Average wind speed (km/h) </td>
-   <td style="text-align:left;"> double </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> weather_type </td>
-   <td style="text-align:left;"> Most common weather type </td>
-   <td style="text-align:left;"> character </td>
-  </tr>
+<tr class="odd">
+<td style="text-align: left;">date</td>
+<td style="text-align: left;">Date encoded as `YYYY-MM-DD`</td>
+<td style="text-align: left;">date</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">day_night</td>
+<td style="text-align: left;">`day` (6:00am–5:59pm) or `night` (6:00pm–5:59am)</td>
+<td style="text-align: left;">character</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">year</td>
+<td style="text-align: left;">`2015` or `2016`</td>
+<td style="text-align: left;">factor</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">month</td>
+<td style="text-align: left;">`1` (January) to `12` (December)</td>
+<td style="text-align: left;">factor</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">season</td>
+<td style="text-align: left;">`winter`, `spring`, `summer`, or `autumn`</td>
+<td style="text-align: left;">factor</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">count</td>
+<td style="text-align: left;">Sum of reported bikes rented</td>
+<td style="text-align: left;">integer</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">is_workday</td>
+<td style="text-align: left;">`TRUE` being Monday to Friday and no bank holiday</td>
+<td style="text-align: left;">logical</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">is_weekend</td>
+<td style="text-align: left;">`TRUE` being Saturday or Sunday</td>
+<td style="text-align: left;">logical</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">is_holiday</td>
+<td style="text-align: left;">`TRUE` being a bank holiday in the UK</td>
+<td style="text-align: left;">logical</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">temp</td>
+<td style="text-align: left;">Average air temperature (°C)</td>
+<td style="text-align: left;">double</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">temp_feel</td>
+<td style="text-align: left;">Average feels like temperature (°C)</td>
+<td style="text-align: left;">double</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">humidity</td>
+<td style="text-align: left;">Average air humidity (%)</td>
+<td style="text-align: left;">double</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">wind_speed</td>
+<td style="text-align: left;">Average wind speed (km/h)</td>
+<td style="text-align: left;">double</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">weather_type</td>
+<td style="text-align: left;">Most common weather type</td>
+<td style="text-align: left;">character</td>
+</tr>
 </tbody>
 </table>
+
 
 </div>
 </div>
 </section>
 <section id="ggplot2ggplot" class="slide level2">
 <h2><code>ggplot2::ggplot()</code></h2>
-<div class="cell" data-hash="02_concepts_pt1_cache/revealjs/ggplot-function_9b36934663dcf5c0ee0cc602da9378f3">
-
-</div>
 
 <img data-src="img/concepts/ggplot-fun-help.png" alt="The help page of the ggplot() function." class="r-stretch quarto-figure-center"></section>
 <section id="data" class="slide level2">
@@ -1365,14 +1379,14 @@ Explanation
 </section>
 <section id="statistical-summaries-1" class="slide level2">
 <h2>Statistical Summaries</h2>
-<div class="cell columns column-output-location" data-hash="02_concepts_pt1_cache/revealjs/stat-summary-defaults_80103559d49502ab0acaa87874667118">
+<div class="cell columns column-output-location" data-hash="02_concepts_pt1_cache/revealjs/stat-summary-defaults_62c60f97269c6bfa596aabbca99a6c47">
 <div class="column">
 <div class="sourceCode cell-code" id="cb39" data-code-line-numbers="6,7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1"></a><span class="fu">ggplot</span>(</span>
 <span id="cb39-2"><a href="#cb39-2"></a>    bikes, </span>
 <span id="cb39-3"><a href="#cb39-3"></a>    <span class="fu">aes</span>(<span class="at">x =</span> season, <span class="at">y =</span> temp_feel)</span>
 <span id="cb39-4"><a href="#cb39-4"></a>  ) <span class="sc">+</span></span>
 <span id="cb39-5"><a href="#cb39-5"></a>  <span class="fu">stat_summary</span>(</span>
-<span id="cb39-6"><a href="#cb39-6"></a>    <span class="at">fun =</span> mean_se, <span class="do">## the default</span></span>
+<span id="cb39-6"><a href="#cb39-6"></a>    <span class="at">fun.data =</span> mean_se, <span class="do">## the default</span></span>
 <span id="cb39-7"><a href="#cb39-7"></a>    <span class="at">geom =</span> <span class="st">"pointrange"</span>  <span class="do">## the default</span></span>
 <span id="cb39-8"><a href="#cb39-8"></a>  ) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
@@ -2196,12 +2210,15 @@ Explanation
       // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
       // slide changes (different for each slide format).
       (function () {
-        function fireSlideChanged(previousSlide, currentSlide) {
-
-          // dispatch for htmlwidgets
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
           const event = window.document.createEvent("Event");
           event.initEvent("slideenter", true, true);
           window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
 
           // dispatch for shiny
           if (window.jQuery) {
@@ -2212,13 +2229,6 @@ Explanation
               window.jQuery(currentSlide).trigger("shown");
             }
           }
-        }
-
-        // hookup for reveal
-        if (window.Reveal) {
-          window.Reveal.addEventListener("slidechanged", function(event) {
-            fireSlideChanged(event.previousSlide, event.currentSlide);
-          });
         }
 
         // hookup for slidy
@@ -2234,6 +2244,24 @@ Explanation
 
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
+      const toggleBodyColorMode = (bsSheetEl) => {
+        const mode = bsSheetEl.getAttribute("data-mode");
+        const bodyEl = window.document.querySelector("body");
+        if (mode === "dark") {
+          bodyEl.classList.add("quarto-dark");
+          bodyEl.classList.remove("quarto-light");
+        } else {
+          bodyEl.classList.add("quarto-light");
+          bodyEl.classList.remove("quarto-dark");
+        }
+      }
+      const toggleBodyColorPrimary = () => {
+        const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+        if (bsSheetEl) {
+          toggleBodyColorMode(bsSheetEl);
+        }
+      }
+      toggleBodyColorPrimary();  
       const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
       tabsets.forEach(function(tabset) {
         const tabby = new Tabby('#' + tabset.id);
@@ -2252,7 +2280,24 @@ Explanation
         button.classList.add('code-copy-button-checked');
         var currentTitle = button.getAttribute("title");
         button.setAttribute("title", "Copied!");
+        let tooltip;
+        if (window.bootstrap) {
+          button.setAttribute("data-bs-toggle", "tooltip");
+          button.setAttribute("data-bs-placement", "left");
+          button.setAttribute("data-bs-title", "Copied!");
+          tooltip = new bootstrap.Tooltip(button, 
+            { trigger: "manual", 
+              customClass: "code-copy-button-tooltip",
+              offset: [0, -8]});
+          tooltip.show();    
+        }
         setTimeout(function() {
+          if (tooltip) {
+            tooltip.hide();
+            button.removeAttribute("data-bs-title");
+            button.removeAttribute("data-bs-toggle");
+            button.removeAttribute("data-bs-placement");
+          }
           button.setAttribute("title", currentTitle);
           button.classList.remove('code-copy-button-checked');
         }, 1000);
@@ -2271,7 +2316,7 @@ Explanation
           },
           interactive: true,
           interactiveBorder: 10,
-          theme: 'quarto-reveal',
+          theme: 'light-border',
           placement: 'bottom-start'
         };
           config['offset'] = [0,0];
@@ -2282,31 +2327,50 @@ Explanation
       for (var i=0; i<noterefs.length; i++) {
         const ref = noterefs[i];
         tippyHover(ref, function() {
-          let href = ref.getAttribute('href');
+          // use id or data attribute instead here
+          let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
           try { href = new URL(href).hash; } catch {}
           const id = href.replace(/^#\/?/, "");
           const note = window.document.getElementById(id);
           return note.innerHTML;
         });
       }
+      const findCites = (el) => {
+        const parentEl = el.parentElement;
+        if (parentEl) {
+          const cites = parentEl.dataset.cites;
+          if (cites) {
+            return {
+              el,
+              cites: cites.split(' ')
+            };
+          } else {
+            return findCites(el.parentElement)
+          }
+        } else {
+          return undefined;
+        }
+      };
       var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
       for (var i=0; i<bibliorefs.length; i++) {
         const ref = bibliorefs[i];
-        const cites = ref.parentNode.getAttribute('data-cites').split(' ');
-        tippyHover(ref, function() {
-          var popup = window.document.createElement('div');
-          cites.forEach(function(cite) {
-            var citeDiv = window.document.createElement('div');
-            citeDiv.classList.add('hanging-indent');
-            citeDiv.classList.add('csl-entry');
-            var biblioDiv = window.document.getElementById('ref-' + cite);
-            if (biblioDiv) {
-              citeDiv.innerHTML = biblioDiv.innerHTML;
-            }
-            popup.appendChild(citeDiv);
+        const citeInfo = findCites(ref);
+        if (citeInfo) {
+          tippyHover(citeInfo.el, function() {
+            var popup = window.document.createElement('div');
+            citeInfo.cites.forEach(function(cite) {
+              var citeDiv = window.document.createElement('div');
+              citeDiv.classList.add('hanging-indent');
+              citeDiv.classList.add('csl-entry');
+              var biblioDiv = window.document.getElementById('ref-' + cite);
+              if (biblioDiv) {
+                citeDiv.innerHTML = biblioDiv.innerHTML;
+              }
+              popup.appendChild(citeDiv);
+            });
+            return popup.innerHTML;
           });
-          return popup.innerHTML;
-        });
+        }
       }
     });
     </script>

@@ -204,10 +204,10 @@ tibble(
     booktabs = TRUE, longtable = TRUE
   ) %>%
   kableExtra::kable_styling(
-    font_size = 24
+    font_size = 20
   ) %>%
   kableExtra::kable_minimal(
-    "hover", full_width = TRUE, position = "left", html_font = "Cabinet Grotesk"
+    "hover", full_width = TRUE, position = "left", html_font = "Spline Sans Mono"
   )
 ```
 

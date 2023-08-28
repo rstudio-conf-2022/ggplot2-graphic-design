@@ -479,7 +479,7 @@ ggplot(bikes, aes(temp_feel, count)) +
     title = "Reported bike rents versus feels-like temperature in London per time of day, period, and season."
   ) +
   ## use different theme and typeface
-  theme_light(base_size = 16, base_family = "Spline Sans Mono")
+  theme_light(base_size = 18, base_family = "Cabinet Grotesk")
 ```
 
 ### Code

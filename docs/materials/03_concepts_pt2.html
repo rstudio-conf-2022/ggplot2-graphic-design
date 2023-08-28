@@ -6,9 +6,10 @@
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-0.9.566">
+  <meta name="generator" content="quarto-1.3.191">
 
   <meta name="author" content="Cédric Scherer // rstudio::conf // July 2022">
   <title>Graphic Design with ggplot2</title>
@@ -20,10 +21,15 @@
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
     pre > code.sourceCode { white-space: pre; position: relative; }
     pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -380,23 +386,34 @@
       margin-right: 0; 
     }
   </style>
+<meta property="og:title" content="Graphic Design with ggplot2">
+<meta property="og:description" content="Concepts of the {ggplot2} Package Pt. 2:Facets, Scales, and Coordinate Systems">
+<meta property="og:site-name" content="Graphic Design with ggplot2">
 <meta name="twitter:title" content="Graphic Design with ggplot2">
+<meta name="twitter:description" content="Concepts of the {ggplot2} Package Pt. 2:Facets, Scales, and Coordinate Systems">
 <meta name="twitter:image" content="https://rstudio-conf-2022.github.io/ggplot2-graphic-design//images/twitter-card.png">
 <meta name="twitter:creator" content="@CedScherer">
 <meta name="twitter:image-height" content="679">
 <meta name="twitter:image-width" content="1200">
 <meta name="twitter:card" content="summary_large_image">
 </head>
-<body>
+<body class="quarto-light">
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" class="center">
+<section id="title-slide" class="quarto-title-block center">
   <h1 class="title">Graphic Design with ggplot2</h1>
   <p class="subtitle"><span style="font-size:1.75em;line-height:1.1;">Concepts of the <code>{ggplot2}</code> Package Pt. 2:<br><span style="font-weight:500;">Facets, Scales, and Coordinate Systems</span></span></p>
-  <p class="author"><b style="color:#28a87d;">Cédric Scherer</b> <strong>//</strong> rstudio::conf <strong>//</strong> July 2022</p>
-</section>
 
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+<b style="color:#28a87d;"><a href="https://www.cedricscherer.com">Cédric Scherer</a></b> <strong>//</strong> rstudio::conf <strong>//</strong> July 2022 
+</div>
+</div>
+</div>
+
+</section>
 <section id="setup" class="slide level2">
 <h2>Setup</h2>
 <div class="cell">
@@ -1017,11 +1034,9 @@
 <span id="cb25-4"><a href="#cb25-4"></a>        <span class="at">color =</span> season)</span>
 <span id="cb25-5"><a href="#cb25-5"></a>  ) <span class="sc">+</span>  </span>
 <span id="cb25-6"><a href="#cb25-6"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb25-7"><a href="#cb25-7"></a>  <span class="fu">scale_x_continuous</span>() <span class="sc">+</span></span>
-<span id="cb25-8"><a href="#cb25-8"></a>  <span class="fu">scale_y_continuous</span>(</span>
-<span id="cb25-9"><a href="#cb25-9"></a>    <span class="at">trans =</span> <span class="st">"log10"</span></span>
-<span id="cb25-10"><a href="#cb25-10"></a>  ) <span class="sc">+</span></span>
-<span id="cb25-11"><a href="#cb25-11"></a>  <span class="fu">scale_color_viridis_d</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb25-7"><a href="#cb25-7"></a>  <span class="fu">scale_y_continuous</span>(</span>
+<span id="cb25-8"><a href="#cb25-8"></a>    <span class="at">trans =</span> <span class="st">"log10"</span></span>
+<span id="cb25-9"><a href="#cb25-9"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
 <p><img data-src="03_concepts_pt2_files/figure-revealjs/scales-xy-continuous-trans-1.png" width="1000"></p>
@@ -1095,7 +1110,7 @@
 <h2>`scale_x|y_continuous`</h2>
 <div class="cell columns column-output-location">
 <div class="column">
-<div class="sourceCode cell-code" id="cb29" data-code-line-numbers="9,10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a><span class="fu">ggplot</span>(</span>
+<div class="sourceCode cell-code" id="cb29" data-code-line-numbers="9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a><span class="fu">ggplot</span>(</span>
 <span id="cb29-2"><a href="#cb29-2"></a>    bikes,</span>
 <span id="cb29-3"><a href="#cb29-3"></a>    <span class="fu">aes</span>(<span class="at">x =</span> date, <span class="at">y =</span> count,</span>
 <span id="cb29-4"><a href="#cb29-4"></a>        <span class="at">color =</span> season)</span>
@@ -1103,9 +1118,8 @@
 <span id="cb29-6"><a href="#cb29-6"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
 <span id="cb29-7"><a href="#cb29-7"></a>  <span class="fu">scale_y_continuous</span>(</span>
 <span id="cb29-8"><a href="#cb29-8"></a>    <span class="at">name =</span> <span class="st">"Reported bike shares"</span>,</span>
-<span id="cb29-9"><a href="#cb29-9"></a>    <span class="at">breaks =</span> </span>
-<span id="cb29-10"><a href="#cb29-10"></a>      <span class="fu">c</span>(<span class="dv">0</span>, <span class="fu">seq</span>(<span class="dv">5000</span>, <span class="dv">30000</span>, <span class="at">by =</span> <span class="dv">2500</span>), <span class="dv">40000</span>, <span class="dv">50000</span>)</span>
-<span id="cb29-11"><a href="#cb29-11"></a>  ) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb29-9"><a href="#cb29-9"></a>    <span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">2</span><span class="sc">:</span><span class="dv">12</span><span class="sc">*</span><span class="dv">2500</span>, <span class="dv">40000</span>, <span class="dv">50000</span>)</span>
+<span id="cb29-10"><a href="#cb29-10"></a>  ) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
 <p><img data-src="03_concepts_pt2_files/figure-revealjs/scales-xy-continuous-breaks-irregular-1.png" width="1000"></p>
@@ -1714,7 +1728,7 @@
 <h2>Diamonds Facet</h2>
 <div class="cell columns column-output-location">
 <div class="column">
-<div class="sourceCode cell-code" id="cb56" data-code-line-numbers="8,9,10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1"></a>facet <span class="sc">+</span></span>
+<div class="sourceCode cell-code" id="cb56" data-code-line-numbers="8,9,10,11,12,13,14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1"></a>facet <span class="sc">+</span></span>
 <span id="cb56-2"><a href="#cb56-2"></a>  <span class="fu">scale_x_continuous</span>(</span>
 <span id="cb56-3"><a href="#cb56-3"></a>    <span class="at">breaks =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">5</span></span>
 <span id="cb56-4"><a href="#cb56-4"></a>  ) <span class="sc">+</span></span>
@@ -1722,9 +1736,13 @@
 <span id="cb56-6"><a href="#cb56-6"></a>    <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">30000</span>),</span>
 <span id="cb56-7"><a href="#cb56-7"></a>    <span class="at">breaks =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">3</span><span class="sc">*</span><span class="dv">10000</span>,</span>
 <span id="cb56-8"><a href="#cb56-8"></a>    <span class="at">labels =</span> <span class="fu">paste0</span>(</span>
-<span id="cb56-9"><a href="#cb56-9"></a>      <span class="st">"$"</span>, <span class="fu">format</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">3</span><span class="sc">*</span><span class="dv">10000</span>, <span class="at">big.mark =</span> <span class="st">","</span>, <span class="at">trim =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb56-10"><a href="#cb56-10"></a>    )</span>
-<span id="cb56-11"><a href="#cb56-11"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb56-9"><a href="#cb56-9"></a>      <span class="st">"$"</span>, <span class="fu">format</span>(</span>
+<span id="cb56-10"><a href="#cb56-10"></a>        <span class="dv">0</span><span class="sc">:</span><span class="dv">3</span><span class="sc">*</span><span class="dv">10000</span>, </span>
+<span id="cb56-11"><a href="#cb56-11"></a>        <span class="at">big.mark =</span> <span class="st">","</span>, </span>
+<span id="cb56-12"><a href="#cb56-12"></a>        <span class="at">trim =</span> <span class="cn">TRUE</span></span>
+<span id="cb56-13"><a href="#cb56-13"></a>      )</span>
+<span id="cb56-14"><a href="#cb56-14"></a>    )</span>
+<span id="cb56-15"><a href="#cb56-15"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
 <p><img data-src="03_concepts_pt2_files/figure-revealjs/diamonds-facet-scales-y-paste-format-1.png" width="1000"></p>
@@ -1736,7 +1754,7 @@
 <h2>Diamonds Facet</h2>
 <div class="cell columns column-output-location">
 <div class="column">
-<div class="sourceCode cell-code" id="cb57" data-code-line-numbers="8,9,10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1"></a>facet <span class="sc">+</span></span>
+<div class="sourceCode cell-code" id="cb57" data-code-line-numbers="8,9,10,11,12,13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1"></a>facet <span class="sc">+</span></span>
 <span id="cb57-2"><a href="#cb57-2"></a>  <span class="fu">scale_x_continuous</span>(</span>
 <span id="cb57-3"><a href="#cb57-3"></a>    <span class="at">breaks =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">5</span></span>
 <span id="cb57-4"><a href="#cb57-4"></a>  ) <span class="sc">+</span></span>
@@ -1744,9 +1762,12 @@
 <span id="cb57-6"><a href="#cb57-6"></a>    <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">30000</span>),</span>
 <span id="cb57-7"><a href="#cb57-7"></a>    <span class="at">breaks =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">3</span><span class="sc">*</span><span class="dv">10000</span>,</span>
 <span id="cb57-8"><a href="#cb57-8"></a>    <span class="at">labels =</span> <span class="cf">function</span>(y) <span class="fu">paste0</span>(</span>
-<span id="cb57-9"><a href="#cb57-9"></a>      <span class="st">"$"</span>, <span class="fu">format</span>(y, <span class="at">big.mark=</span><span class="st">","</span>, <span class="at">trim =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb57-10"><a href="#cb57-10"></a>    )</span>
-<span id="cb57-11"><a href="#cb57-11"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb57-9"><a href="#cb57-9"></a>      <span class="st">"$"</span>, <span class="fu">format</span>(</span>
+<span id="cb57-10"><a href="#cb57-10"></a>        y, <span class="at">big.mark =</span> <span class="st">","</span>,</span>
+<span id="cb57-11"><a href="#cb57-11"></a>        <span class="at">trim =</span> <span class="cn">TRUE</span></span>
+<span id="cb57-12"><a href="#cb57-12"></a>      )</span>
+<span id="cb57-13"><a href="#cb57-13"></a>    )</span>
+<span id="cb57-14"><a href="#cb57-14"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
 <p><img data-src="03_concepts_pt2_files/figure-revealjs/diamonds-facet-scales-y-function-1.png" width="1000"></p>
@@ -2515,7 +2536,7 @@
 </div><div class="column">
 <div class="cell-output cell-output-stdout">
 <pre><code>OGR data source with driver: ESRI Shapefile 
-Source: "C:\Users\DataVizard\AppData\Local\Temp\Rtmp8wF786", layer: "ne_110m_ocean"
+Source: "C:\Users\DataVizard\AppData\Local\Temp\RtmpQHth9z", layer: "ne_110m_ocean"
 with 2 features
 It has 3 fields</code></pre>
 </div>
@@ -2837,12 +2858,12 @@ It has 3 fields</code></pre>
       // slide changes (different for each slide format).
       (function () {
         function fireSlideChanged(previousSlide, currentSlide) {
-
+    
           // dispatch for htmlwidgets
           const event = window.document.createEvent("Event");
           event.initEvent("slideenter", true, true);
           window.document.dispatchEvent(event);
-
+    
           // dispatch for shiny
           if (window.jQuery) {
             if (previousSlide) {
@@ -2853,14 +2874,14 @@ It has 3 fields</code></pre>
             }
           }
         }
-
+    
         // hookup for reveal
         if (window.Reveal) {
           window.Reveal.addEventListener("slidechanged", function(event) {
             fireSlideChanged(event.previousSlide, event.currentSlide);
           });
         }
-
+    
         // hookup for slidy
         if (window.w3c_slidy) {
           window.w3c_slidy.add_observer(function (slide_num) {
@@ -2868,12 +2889,30 @@ It has 3 fields</code></pre>
             fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
           });
         }
-
+    
       })();
     </script>
-
+    
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
+      const toggleBodyColorMode = (bsSheetEl) => {
+        const mode = bsSheetEl.getAttribute("data-mode");
+        const bodyEl = window.document.querySelector("body");
+        if (mode === "dark") {
+          bodyEl.classList.add("quarto-dark");
+          bodyEl.classList.remove("quarto-light");
+        } else {
+          bodyEl.classList.add("quarto-light");
+          bodyEl.classList.remove("quarto-dark");
+        }
+      }
+      const toggleBodyColorPrimary = () => {
+        const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+        if (bsSheetEl) {
+          toggleBodyColorMode(bsSheetEl);
+        }
+      }
+      toggleBodyColorPrimary();  
       const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
       tabsets.forEach(function(tabset) {
         const tabby = new Tabby('#' + tabset.id);
@@ -2892,7 +2931,24 @@ It has 3 fields</code></pre>
         button.classList.add('code-copy-button-checked');
         var currentTitle = button.getAttribute("title");
         button.setAttribute("title", "Copied!");
+        let tooltip;
+        if (window.bootstrap) {
+          button.setAttribute("data-bs-toggle", "tooltip");
+          button.setAttribute("data-bs-placement", "left");
+          button.setAttribute("data-bs-title", "Copied!");
+          tooltip = new bootstrap.Tooltip(button, 
+            { trigger: "manual", 
+              customClass: "code-copy-button-tooltip",
+              offset: [0, -8]});
+          tooltip.show();    
+        }
         setTimeout(function() {
+          if (tooltip) {
+            tooltip.hide();
+            button.removeAttribute("data-bs-title");
+            button.removeAttribute("data-bs-toggle");
+            button.removeAttribute("data-bs-placement");
+          }
           button.setAttribute("title", currentTitle);
           button.classList.remove('code-copy-button-checked');
         }, 1000);
@@ -2911,7 +2967,7 @@ It has 3 fields</code></pre>
           },
           interactive: true,
           interactiveBorder: 10,
-          theme: 'quarto-reveal',
+          theme: 'light-border',
           placement: 'bottom-start'
         };
           config['offset'] = [0,0];
@@ -2922,31 +2978,50 @@ It has 3 fields</code></pre>
       for (var i=0; i<noterefs.length; i++) {
         const ref = noterefs[i];
         tippyHover(ref, function() {
-          let href = ref.getAttribute('href');
+          // use id or data attribute instead here
+          let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
           try { href = new URL(href).hash; } catch {}
           const id = href.replace(/^#\/?/, "");
           const note = window.document.getElementById(id);
           return note.innerHTML;
         });
       }
+      const findCites = (el) => {
+        const parentEl = el.parentElement;
+        if (parentEl) {
+          const cites = parentEl.dataset.cites;
+          if (cites) {
+            return {
+              el,
+              cites: cites.split(' ')
+            };
+          } else {
+            return findCites(el.parentElement)
+          }
+        } else {
+          return undefined;
+        }
+      };
       var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
       for (var i=0; i<bibliorefs.length; i++) {
         const ref = bibliorefs[i];
-        const cites = ref.parentNode.getAttribute('data-cites').split(' ');
-        tippyHover(ref, function() {
-          var popup = window.document.createElement('div');
-          cites.forEach(function(cite) {
-            var citeDiv = window.document.createElement('div');
-            citeDiv.classList.add('hanging-indent');
-            citeDiv.classList.add('csl-entry');
-            var biblioDiv = window.document.getElementById('ref-' + cite);
-            if (biblioDiv) {
-              citeDiv.innerHTML = biblioDiv.innerHTML;
-            }
-            popup.appendChild(citeDiv);
+        const citeInfo = findCites(ref);
+        if (citeInfo) {
+          tippyHover(citeInfo.el, function() {
+            var popup = window.document.createElement('div');
+            citeInfo.cites.forEach(function(cite) {
+              var citeDiv = window.document.createElement('div');
+              citeDiv.classList.add('hanging-indent');
+              citeDiv.classList.add('csl-entry');
+              var biblioDiv = window.document.getElementById('ref-' + cite);
+              if (biblioDiv) {
+                citeDiv.innerHTML = biblioDiv.innerHTML;
+              }
+              popup.appendChild(citeDiv);
+            });
+            return popup.innerHTML;
           });
-          return popup.innerHTML;
-        });
+        }
       }
     });
     </script>
