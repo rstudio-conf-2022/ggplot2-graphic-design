@@ -1,140 +1,107 @@
 /*-- scss:defaults --*/
 
-// fonts
-  @font-face {
-    font-family: "Boska";
-    font-weight: 800;
-    src: url('../fonts/Boska-Black.ttf') format("truetype");
-}
-  @font-face {
-      font-family: "Boska";
-      font-weight: 800;
-      font-style: italic;
-      src: url('../fonts/Boska-BlackItalic.ttf') format("truetype");
-  }
-  @font-face {
-      font-family: 'Cabinet Grotesk';
-      src: url('../fonts/CabinetGrotesk-Regular.ttf') format("truetype");
-  }
-  @font-face {
-      font-family: 'Cabinet Grotesk';
-      font-weight: bold;
-      src: url('../fonts/CabinetGrotesk-Bold.ttf') format("truetype");
-  }
-  @font-face {
-      font-family: 'Cabinet Grotesk';
-      font-weight: 800;
-      src: url('../fonts/CabinetGrotesk-Extrabold.ttf') format("truetype");
-  }
-  @font-face {
-    font-family: 'Cabinet Grotesk';
-    font-weight: 900;
-    src: url('../fonts/CabinetGrotesk-Black.ttf') format("truetype");
-  }
-  @font-face {
-      font-family: 'Input Mono Condensed';
-      src: url("../fonts/InputMonoCondensed-Regular.ttf") format("truetype");
-  }
-  @font-face {
-      font-family: 'Input Mono Condensed';
-      font-weight:bold;
-      src: url("../fonts/InputMonoCondensed-Bold.ttf") format("truetype");
-  }
-  @font-face {
-      font-family: 'Input Mono Condensed';
-      font-style: italic;
-      src: url("../fonts/InputMonoCondensed-Italic.ttf") format("truetype");
-  }
+@import url('https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,500;0,7..72,700;0,7..72,800;1,7..72,400;1,7..72,500;1,7..72,700;1,7..72,800&family=Spline+Sans+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400;1,500;1,700&family=Asap+SemiCondensed:ital,wght@0,400;0,600;0,800;0,900;1,400;1,600;1,800;1,900&display=swap');
 
-$font-family-sans-serif: 'Cabinet Grotesk', 'Arial Black', 'Arial', sans-serif;
-$font-family-serif: 'Boska', 'Georgia', 'Times New Roman', 'Times', serif;
+$font-family-sans-serif: 'Asap SemiCondensed', 'Spline Sans', 'Tahoma', 'Arial', sans-serif;
+$font-family-serif: 'Literata', 'Bodoni MT', 'Bodoni 72', 'Georgia', 'Times', serif;
 $presentation-heading-color: #28A87D;
 $presentation-heading-font-weight: 800;
 $link-color: #28a87d;
 $link-color-dark: #79dfbd;
 $link-color-visited: #28A87D;
 $link-color-hover: #28A87D;
-$presentation-selection-background-color: #EDCBA0;
+$presentation-selection-background-color: #C2D8D0;
 $presentation-title-slide-text-align: "left";
 $presentation-block-margin: .0375rem;
 
 /*-- scss:rules --*/
 
 h1.title {
-  font-family: 'Boska', 'Cabinet Grotesk', 'Arial Black', 'Arial', sans-serif;
-  color: #28A87D;
-  font-size: 2.1em;
+  font-family: 'Literata', 'Bodoni MT', 'Bodoni 72', 'Georgia', 'Times', serif;
+  font-size: 1.8em;
   font-style: italic;
   font-weight: 800;
-  line-height: 1.7;
+  color: #28A87D;
+  line-height: 1.07;
+  text-align: center;
+  margin-bottom: .4em;
 }
 
 p.subtitle {
-  font-size: 1.6em;
   color: #606060;
-  font-weight: 800;
+  font-weight: 600;
+  font-style: italic;
   line-height: .97;
-  letter-spacing: .25px;
+  text-align: center;
 }
 
-p.author {
+.quarto-title-author {
+  font-size: .8em;
+  font-weight: 600;
   color: #606060;
+  font-style: italic;
+  margin-top: 1.5em;
 }
 
 .backgrounds {
-    background-color: #f8f8f8
+  background-color: #f8f8f8
 }
 
 .backgrounds .title-slide {
-    background-color: #e6d9f2
+  background-color: #c9f2e4
+}
+
+h1, h2, h3, h4, body {
+  font-family: 'Asap SemiCondensed', 'Spline Sans', 'Tahoma', 'Arial', sans-serif;
+  font-feature-settings: "ss01" 1;
 }
 
 .title-slide h1 {
-  font-family: 'Boska', 'Cabinet Grotesk', 'Arial Black', 'Arial', sans-serif;
+  font-family: 'Literata', 'Bodoni MT', 'Bodoni 72', 'Georgia', 'Times', serif;
+  font-size: 1.55em;
+  font-style: italic;
   text-align: center;
-  font-size: 1.7em;
-  color: #663399;
 }
 
 .reveal h2 {
-    font-size: 1.4em;
-    margin-bottom: 2.8px;
+  font-size: 1.4em;
+  margin-bottom: 2.8px;
 }
 
 h2>code {
-    font-size: .95em; 
-    margin-bottom: 2.8px;
+  font-size: .95em; 
+  margin-bottom: 2.8px;
 }
 
 .reveal h3 {
-    font-size: 1em;
-    margin-bottom: 2.8px;
-    font-weight: bold;
+  font-size: 1em;
+  margin-bottom: 2.8px;
+  font-weight: bold;
 }
 
 .reveal h4 {
-    font-size: 1em;
-    margin-bottom: 2.8px;
-    font-weight: bold;
-    color: #606060;
+  font-size: 1em;
+  margin-bottom: 2.8px;
+  font-weight: bold;
+  color: #606060;
 }
 
 .reveal h5 {
-    font-size: .8em;
-    margin-bottom: 2.8px;
-    font-weight: bold;
-    color: #606060;
+  font-size: .8em;
+  margin-bottom: 2.8px;
+  font-weight: bold;
+  color: #606060;
 }
 
 .reveal p {
-    font-size: .75em;
-    margin-top: 8px;
-    margin-bottom: 16px;
+  font-size: .75em;
+  margin-top: 8px;
+  margin-bottom: 16px;
 }
 
 .reveal table {
   font-size: .75em;
-  font-family: 'Input Mono Condensed', monospace;
+  font-family: 'Spline Sans Mono', 'Consolas', monospace;
 }
 
 
@@ -155,13 +122,13 @@ details {
 }
 
 details>summary {
-  font-family: 'Input Mono Condensed', monospace;
+  font-family: 'Spline Sans Mono', 'Consolas', monospace;
   font-size: 1.25rem;
   color: #a0a0a0;
 }
 
 code>a, code>span {
-  font-family: 'Input Mono Condensed', monospace;
+  font-family: 'Spline Sans Mono', 'Consolas', monospace;
   font-size: 1.1rem;
 }
 
@@ -172,12 +139,13 @@ code>a, code>span {
 }
 
 .cell {
-    margin-bottom: 12px;
+  margin-bottom: 12px;
 }
 
 .footer p {
-  color: #a0a0a0;
-  font-size: 1.25rem;
+  font-family: 'Spline Sans Mono', 'Consolas', monospace;
+  font-size: .95rem;
+  color: #606060;
 }
 
 a:link,a:visited {
@@ -191,6 +159,11 @@ a:hov {
   font-size: .75rem;
 }
 
+.reveal .slide-logo {
+  max-height: 5rem !important;
+  padding-bottom: 8px !important;
+}
+
 .reveal li {
   font-size: 2.1rem;
 }
@@ -201,6 +174,10 @@ a:hov {
 
 .reveal pre {
   height: 98.1%
+}
+
+.reveal pre > code {
+  font-size: .75em;
 }
 
 .reveal .slide .question {
@@ -282,4 +259,9 @@ a:hov {
 
 .reveal .slide body::-webkit-scrollbar {
   display: none;
+}
+
+.hscroll {
+  overflow-x: auto;
+  white-space: nowrap;
 }

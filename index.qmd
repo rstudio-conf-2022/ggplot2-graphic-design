@@ -1,10 +1,10 @@
 ---
-title: "<span style='font-family: Boska; font-size: 2.75rem; font-weight: 800;'>Graphic Design with ggplot2</span>"
+title: "<i style='font-family:Literata;font-size:2.75rem;font-weight:800;line-height:.9;'>Graphic Design with ggplot2</i>"
 ---
 
 ![](images/logo.png){style="float:right;padding: 0 0 0 10px;" fig-alt="Course Hex Logo" width="175"}
 
-# How to Create Engaging and Complex Visualizations in R
+<h1 style="font-weight:800;"> How to Create Engaging and Complex Visualizations in R</h1>
 
 An rstudio::conf(2022) Workshop by Cédric Scherer
 

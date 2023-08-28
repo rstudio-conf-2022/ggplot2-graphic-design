@@ -43,7 +43,7 @@ execute:
 
 ##  {background-image="img/intro/team-1.png" background-position="center" background-size="75%"}
 
-##  {background-image="img/portfolio/portfolio_cards.png" background-position="center" background-size="80%"}
+##  {background-image="img/portfolio/avatars-logo.png" background-position="center" background-size="80%"}
 
 ::: footer
 :::
@@ -149,7 +149,7 @@ execute:
 <b style='font-size:30pt;'><code>{ggplot2}</code> is a system for declaratively creating graphics,<br>based on "The Grammar of Graphics" (Wilkinson, 2005).</b>
 
 ::: fragment
-[You provide the data, tell <code>{ggplot2}</code> how to ]{style="font-size:24pt;"}[map variables to aesthetics,]{.circle-highlight}<br>what graphical primitives to use, and it takes care of the details.
+[You provide the data, tell <code>{ggplot2}</code> how to ]{style="font-size:24pt;"} [map variables to aesthetics,]{.circle-highlight}<br>what graphical primitives to use, and it takes care of the details.
 :::
 
 ## Advantages of {ggplot2}
@@ -479,7 +479,7 @@ ggplot(bikes, aes(temp_feel, count)) +
     title = "Reported bike rents versus feels-like temperature in London per time of day, period, and season."
   ) +
   ## use different theme and typeface
-  theme_light(base_size = 18, base_family = "Cabinet Grotesk")
+  theme_light(base_size = 16, base_family = "Spline Sans Mono")
 ```
 
 ### Code

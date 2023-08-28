@@ -1,0 +1,89 @@
+/*-- scss:defaults --*/
+
+@font-face {
+  font-family: 'Cabinet Grotesk';
+  src: url('fonts/CabinetGrotesk-Regular.ttf') format("truetype");
+}
+@font-face {
+  font-family: 'Cabinet Grotesk';
+  font-weight: bold;
+  src: url('fonts/CabinetGrotesk-Bold.ttf') format("truetype");
+}
+@font-face {
+  font-family: 'Cabinet Grotesk';
+  font-weight: 800;
+  src: url('fonts/CabinetGrotesk-ExtraBold.ttf') format("truetype");
+} 
+@font-face {
+  font-family: 'Cabinet Grotesk';
+  font-weight: 900;
+  src: url('fonts/CabinetGrotesk-Black.ttf') format("truetype");
+} 
+@font-face {
+  font-family: 'Boska';
+  font-weight: 800;
+  src: url('fonts/Boska-Black.ttf') format("truetype");
+}
+@font-face {
+  font-family: 'Tabular';
+  src: url('fonts/Tabular-Regular.otf') format("opentype");
+}
+@font-face {
+  font-family: 'Tabular';
+  font-weight: bold;
+  src: url('fonts/Tabular-Bold.otf') format("opentype");
+}
+@font-face {
+  font-family: 'Tabular';
+  font-style: italic;
+  src: url('fonts/Tabular-Italic.otf') format("opentype");
+}
+@font-face {
+  font-family: 'Tabular';
+  font-weight: bold;
+  font-style: italic;
+  src: url('fonts/Tabular-BoldItalic.otf') format("opentype");
+}
+  
+$font-family-sans-serif: 'Cabinet Grotesk', 'Arial', sans-serif;
+$font-family-serif: 'Boska', 'Bodoni MT', 'Georgia', 'Times New Roman', Times, serif;
+$presentation-heading-color: #28A87D;
+$presentation-heading-font-weight: 800;
+$link-color: #28a87d;
+$link-color-dark: #79dfbd;
+$link-color-visited: #28A87D;
+$link-color-hover: #28A87D;
+$presentation-selection-background-color: #EDCBA0;
+$presentation-title-slide-text-align: "left";
+$presentation-block-margin: .0375rem;
+
+/*-- scss:rules --*/
+
+h1, .navbar-title {
+  font-weight: 800;
+}
+
+h1, h2, h3, span, body {
+  font-family: 'Cabinet Grotesk', 'Arial', sans-serif;
+  font-feature-settings: "ss01" 1;
+}
+
+code, .code {
+  font-family: 'Tabular', 'Consolas', monospace;
+}
+
+.question {
+  border-left: 3px solid #28a87d;
+  padding: 0.5rem 0.5rem 0.2rem 1rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.3rem;
+  background: #d9f6ec;
+}
+
+.recap {
+  border-left: 3px solid #663399;
+  padding: 0.5rem 0.5rem 0.2rem 1rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  background: #e6d9f2;
+}
