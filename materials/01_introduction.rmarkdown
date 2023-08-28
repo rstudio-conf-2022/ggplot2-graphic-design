@@ -1,0 +1,696 @@
+---
+title: "Graphic Design with ggplot2"
+subtitle: "<span style='font-size:2.35em;'>How to Create Engaging and<br>Complex Visualizations in R</span>"
+author: "<b style='color:#28a87d;'><a href='https://www.cedricscherer.com'>Cédric Scherer</a></b> **//** rstudio::conf **//** July 2022"
+format:
+  revealjs:
+    theme: css/style.scss
+    logo: images/logo.png
+    footer: '**[Cédric Scherer](https://cedricscherer.com) //** rstudio::conf(2022)'
+    #'rstudio::conf(workshop = "Graphic Design with ggplot2", instructor = "Cédric Scherer")'
+    transition: fade
+    progress: true
+    multiplex: false
+    preview-links: true
+    scrollable: false
+    hide-inactive-cursor: true
+    highlight-style: printing
+    chalkboard:
+      theme: whiteboard
+      boardmarker-width: 4
+      buttons: true
+    pause: true
+    mainfont: Cabinet Grotesk
+editor: source
+knitr:
+  opts_chunk:
+    dev: "ragg_png"
+    retina: 3
+    dpi: 200
+execute:
+  freeze: auto
+  cache: true
+  echo: true
+  fig-width: 5
+  fig-height: 6
+---
+
+
+# Welcome!
+
+##  {background-image="img/intro/hello-team.png" background-position="center" background-size="65%"}
+
+::: footer
+:::
+
+##  {background-image="img/intro/team-1.png" background-position="center" background-size="75%"}
+
+##  {background-image="img/portfolio/avatars-logo.png" background-position="center" background-size="80%"}
+
+::: footer
+:::
+
+##  {background-image="img/portfolio/projects-science.png" background-position="center" background-size="80%" background-color="#606060"}
+
+::: footer
+:::
+
+##  {background-image="img/portfolio/projects-clients.png" background-position="center" background-size="80%" background-color="#606060"}
+
+::: footer
+:::
+
+##  {background-image="img/portfolio/projects-personal.png" background-position="center" background-size="80%" background-color="#606060"}
+
+::: footer
+:::
+
+##  {background-image="img/intro/team-2.png" background-position="center" background-size="75%"}
+
+##  {background-image="img/intro/team-3.png" background-position="center" background-size="75%"}
+
+##  {background-image="img/portfolio/thomas_artwork.png" background-position="center" background-size="60%"}
+
+##  {background-image="img/intro/team-4.png" background-position="center" background-size="75%"}
+
+##  {background-image="img/portfolio/ahmadou_african_patterns.png" background-position="center" background-size="38%"}
+
+##  {background-image="img/intro/team-5.png" background-position="center" background-size="75%"}
+
+##  {background-image="img/portfolio/marco_germany_heating_up.png" background-position="center" background-size="38%"}
+
+##  {background-image="img/intro/team.png" background-position="center" background-size="75%"}
+
+##  {background-image="img/portfolio/hassan_periodic_table.png" background-position="center" background-size="74%"}
+
+##  {background-image="img/intro/hello-course.png" background-position="center" background-size="65%"}
+
+::: footer
+:::
+
+------------------------------------------------------------------------
+
+## Conversation Starters
+
+-   What's your name?
+-   Where do you feel home?
+-   When did you use R for the first time?
+-   What's your favorite animal / plant / color / typeface?
+-   Whom would you like to meet during the rstudio::conf?
+-   Which R package are you looking forward to try?
+
+
+## Announcements
+
+#### WiFi
+-   Username: conf22
+-   Password: together!<br><br>
+
+#### Course Materials
+-   Webpage: [rstudio-conf-2022.github.io/ggplot2-graphic-design](https://www.rstudio-conf-2022.github.io/ggplot2-graphic-design)
+-   Rstudio Cloud: [rstudio.cloud/spaces/235465](https://www.rstudio.cloud/spaces/235465)
+
+
+## Announcements
+
+::: incremental
+-   gender neutral bathrooms by the National Harbor rooms
+-   meditation room is located at National Harbor 9, open 8am-5pm, Monday-Thursday 
+  -   there is also has a dedicated room behind the reception
+-   lactation room is located at Potomac Dressing Room, open 8am-5pm, Monday-Thursday.
+-   participants with red lanyards wish to be not photographed, please note everyone's lanyard colors before taking a photo
+-   The Code of Conduct and COVID policies can be found at [rstudio.com/conference/2022/2022-conf-code-of-conduct](https://www.rstudio.com/conference/2022/2022-conf-code-of-conduct),<br>please review them carefully
+:::
+
+## Communication Strategy
+
+<br>
+
+::: incremental
+-   <b style='color:#28a87d;'>Green sticky note </b>--- I am done with the exercise<br><br>
+-   <b style='color:#b82ca1;'>Pink sticky note </b>--- I need help or support<br><br>
+-   You can ask questions / comment at any time during the course.
+-   Please avoid questions during the breaks to give us a chance to recover and reflect.
+-   Team up with your neighbors for exercises --- and lunch!
+-   We will collect feedback twice during the day (more later).
+:::
+
+
+# Introduction
+
+##
+
+::: footer
+[{ggplot2} package description](https://ggplot2.tidyverse.org/)
+:::
+
+![](img/intro/ggplot2.png){fig-align="center" fig-alt="The ggplot2 hex logo."}
+
+<br>
+
+<b style='font-size:30pt;'><code>{ggplot2}</code> is a system for declaratively creating graphics,<br>based on "The Grammar of Graphics" (Wilkinson, 2005).</b>
+
+::: fragment
+[You provide the data, tell <code>{ggplot2}</code> how to ]{style="font-size:24pt;"} [map variables to aesthetics,]{.circle-highlight}<br>what graphical primitives to use, and it takes care of the details.
+:::
+
+## Advantages of {ggplot2}
+
+::: incremental
+-   consistent underlying "grammar of graphics" (Wilkinson 2005)\
+-   very flexible, layered plot specification\
+-   theme system for polishing plot appearance\
+-   lots of additional functionality thanks to extensions\
+-   active and helpful community
+:::
+
+------------------------------------------------------------------------
+
+![Illustration by [Allison Horst](https://github.com/allisonhorst/stats-illustrations)](img/intro/ah_ggplot2_exploratory.png){fig-align="center" fig-alt="Allison Horsts monster illustration of explorative plotting with ggplot2."}
+
+::: footer
+:::
+
+------------------------------------------------------------------------
+
+![ggplot2 Examples featured on ggplot2.tidyverse.org](img/intro/basic_ggplots.png){fig-align="center" fig-alt="A collection of the versatility of ggplot2 to create basic graphs. All of them use the default grey ggplot2 theme."}
+
+::: footer
+:::
+
+------------------------------------------------------------------------
+
+![Illustration by [Allison Horst](https://github.com/allisonhorst/stats-illustrations)](img/intro/ah_ggplot2_masterpiece.png){fig-align="center" fig-alt="Allison Horsts monster illustration of building  data masterpiece ith ggplot2 featuring a little Picasso monster :)"}
+
+##  {background-image="img/intro/evol-ggplot-1.gif" background-position="center" background-size="65%"}
+
+::: footer
+:::
+
+# The {ggplot2} Showcase
+
+------------------------------------------------------------------------
+
+![Collection of Graphics from the [BBC R Cookbook](https://bbc.github.io/rcookbook/)](img/showcase/bbc-gallery.png){fig-align="center" fig-alt="A multi-plot panel of various data visualizations created by the BBC teams."}
+
+------------------------------------------------------------------------
+
+![Contribution to [#TidyTuesday Week 2020/31](https://github.com/Z3tt/TidyTuesday/tree/main/plots/2020_31)](img/showcase/2020_31_PalmerPenguins.png){fig-align="center" fig-size="80%" fig-alt="A colorful and annotated scatterplot and a custom raincloud plot showing various bill measures of Palmer penguins."}
+
+------------------------------------------------------------------------
+
+![My reinterpreted [The Economist graphic](https://www.economist.com/graphic-detail/2019/09/28/why-are-some-languages-spoken-faster-than-others)](img/showcase/speech_speed_language_families_raincloud.png){fig-align="center" fig-alt="The raincloud chart showing the distributions of normalized speech rates (dark pink) and information rates (dark lime green) across language families."}
+
+------------------------------------------------------------------------
+
+![["European Elections"](https://twitter.com/spren9er/status/1138000009306234880) by Torsten Sprenger](img/showcase/europe_sprengler.jpeg){fig-align="center" fig-alt="A circular tree showing the German winner parties for each district & state of the 2019 European Parliament Election."}
+
+------------------------------------------------------------------------
+
+![Contribution to [#TidyTuesday Week 2020/08](https://github.com/Z3tt/TidyTuesday/tree/main/plots/2020_08)](img/showcase/20200307_TT_2020_08_CarbonFoodprint_alt.png){fig-align="center" fig-alt="Two circular hierarchical bar plots showing the carbon footprint 2018 for food consumption and CO2 per continent and country."}
+
+------------------------------------------------------------------------
+
+![Contribution to the [#SWDchallenge "Small Multiples"](https://www.storytellingwithdata.com/blog/2020/1/6/swdchallenge-small-multiples)](img/showcase/SWD_2020_01_SmallMultiples_grey.png){fig-align="center" fig-alt="A facet of shots and goals of the Bundesliga football clubs in the season 2019/20."}
+
+------------------------------------------------------------------------
+
+![Contribution to the [#TidyTuesday Week 2021/15 x #30DayChartChallenge 2021 by Jake Kaupp](https://twitter.com/jakekaupp/status/1379606812849270784?s=20)](img/showcase/jake_30dcc_tt_trees.png){fig-align="center" fig-alt="A facet of trees over time with less and less leaves as time passes by; each leave represents one billion treees."}
+
+------------------------------------------------------------------------
+
+![[Moon Charts as a Tile Grid Map](https://github.com/z3tt/grid-btw-wahlkreise-constituencies) showing the 2nd Vote Results from the German Election 2021](img/showcase/btw21_tile_grid_moon_second_de.png){fig-align="center" fig-alt="A grid map using moon charts for all 297 electoral districts which show the share of the wnning party in second votesc during the German election in 2021."}
+
+------------------------------------------------------------------------
+
+![[#TidyTuesday Contribution by Jack Davison](github.com/jack-davison/tidytuesday)](img/showcase/jack_davison.png){fig-align="center" fig-alt="A gridded map of Europe showing horizontal stacked bars of energy production per country over time (each bar represents share among one year from 2016 to 2018)."}
+
+------------------------------------------------------------------------
+
+![Our Winning Contribution to the [BES MoveMap Contest](https://besmovesig.wordpress.com/2021/02/25/mapping-movements-the-art-and-the-science-we-have-the-winners/)](img/showcase/20210131_BES_CheetahMap_rcarto.png){fig-align="center" fig-alt="A spatial map of cheetah movement and their hotspot behaviour in Namibia."}
+
+------------------------------------------------------------------------
+
+![[Bivariate Choropleth x Hillshade Map](timogrossenbacher.ch/2019/04/bivariate-maps-with-ggplot2-and-sf) by Timo Gossenbacher](img/showcase/swiss_map.png){fig-align="center" fig-alt="A spatial map of income and inequality shown with a bivariate color palette; alpine regions have a hillshading effect."}
+
+------------------------------------------------------------------------
+
+![Pixel Art by [Georgios Karamanis](https://karaman.is/)](img/showcase/bob-ross-pixel-art-georgios.png){fig-align="center" fig-alt="A set of small multiples using pixelated encodings of certain elements in Bob Ross' paintings."}
+
+------------------------------------------------------------------------
+
+![Generative Art by [Thomas Lin Pedersen](https://www.data-imaginist.com/art)](img/showcase/genart.png){fig-align="center" fig-alt="Two artworks by Thomas Pedersen, completely generated in R with ggplot2 (and pure magic)."}
+
+# A Motivational Example
+
+
+```{r}
+#| label: load-data-example
+#| include: false
+library(tidyverse)
+
+bikes <-
+  readr::read_csv(
+    here::here("data", "london-bikes-custom.csv"),
+    col_types = "Dcfffilllddddc"
+  ) %>%
+  mutate(
+    season = factor(season, levels = c("spring", "summer", "autumn", "winter")),
+    is_workday = factor(is_workday, level = c(TRUE, FALSE),
+                        labels = c("workday", "weekend_or_holiday"))
+  )
+
+theme_set(theme_grey(base_size = 14))
+```
+
+
+------------------------------------------------------------------------
+
+::: panel-tabset
+### Graphic
+
+
+```{r}
+#| label: example-motivation-basic
+#| fig-width: 14
+#| fig-height: 8.3
+#| echo: false
+
+## scatter plot of plot bikes$count versus bikes$count
+ggplot(bikes, aes(temp_feel, count)) +
+  geom_point(size = 2.2)
+```
+
+
+### Code
+
+
+```{r}
+#| label: example-motivation-basic
+#| eval: false
+```
+
+:::
+
+------------------------------------------------------------------------
+
+::: panel-tabset
+### Graphic
+
+
+```{r}
+#| label: example-motivation-basic-color
+#| fig-width: 14
+#| fig-height: 8.3
+#| echo: false
+
+ggplot(bikes, aes(temp_feel, count)) +
+  ## colored, semi-transparent points
+  geom_point(
+    aes(color = season),
+    size = 2.2, alpha = .55
+  )
+```
+
+
+### Code
+
+
+```{r}
+#| label: example-motivation-basic-color
+#| eval: false
+```
+
+:::
+
+------------------------------------------------------------------------
+
+::: panel-tabset
+### Graphic
+
+
+```{r}
+#| label: example-motivation-basic-smooth
+#| fig-width: 14
+#| fig-height: 8.3
+#| echo: false
+ggplot(bikes, aes(temp_feel, count)) +
+  geom_point(
+    aes(color = season),
+    size = 2.2, alpha = .55
+  ) +
+  ## add a linear fitting for each time of the day
+  geom_smooth(
+    aes(group = day_night),
+    method = "lm", color = "black"
+  )
+```
+
+
+### Code
+
+
+```{r}
+#| label: example-motivation-basic-smooth
+#| eval: false
+```
+
+:::
+
+------------------------------------------------------------------------
+
+::: panel-tabset
+### Graphic
+
+
+```{r}
+#| label: example-motivation-basic-facet
+#| fig-width: 14
+#| fig-height: 8.3
+#| echo: false
+ggplot(bikes, aes(temp_feel, count)) +
+  geom_point(
+    aes(color = season),
+    size = 2.2, alpha = .55
+  ) +
+  geom_smooth(
+    aes(group = day_night),
+    method = "lm", color = "black"
+  ) +
+  ## create small multiples of time of day versus workday
+  facet_grid(day_night ~ is_workday)
+```
+
+
+### Code
+
+
+```{r}
+#| label: example-motivation-basic-facet
+#| eval: false
+```
+
+:::
+
+------------------------------------------------------------------------
+
+::: panel-tabset
+### Graphic
+
+
+```{r}
+#| label: example-motivation-basic-facet-space
+#| fig-width: 14
+#| fig-height: 8.3
+#| echo: false
+ggplot(bikes, aes(temp_feel, count)) +
+  geom_point(
+    aes(color = season),
+    size = 2.2, alpha = .55
+  ) +
+  geom_smooth(
+    aes(group = day_night),
+    method = "lm", color = "black"
+  ) +
+  ## create free-ranging, proportionally sized small multiples
+  facet_grid(
+    day_night ~ is_workday,
+    scales = "free_y", space = "free_y"
+  )
+```
+
+
+### Code
+
+
+```{r}
+#| label: example-motivation-basic-facet-space
+#| eval: false
+```
+
+:::
+
+------------------------------------------------------------------------
+
+::: panel-tabset
+### Graphic
+
+
+```{r}
+#| label: example-motivation-styling
+#| fig-width: 14
+#| fig-height: 8.3
+#| echo: false
+ggplot(bikes, aes(temp_feel, count)) +
+  geom_point(
+    aes(color = season),
+    size = 2.2, alpha = .55
+  ) +
+  geom_smooth(
+    aes(group = day_night),
+    method = "lm", color = "black"
+  ) +
+  facet_grid(
+    day_night ~ is_workday,
+    scales = "free_y", space = "free_y"
+  ) +
+  ## add labels + titles
+  labs(
+    x = "Feels-Like Temperature", y = NULL,
+    caption = "Data: TfL (Transport for London), Jan 2015 — Dec 2016",
+    title = "Reported bike rents versus feels-like temperature in London per time of day, period, and season."
+  )
+```
+
+
+### Code
+
+
+```{r}
+#| label: example-motivation-styling
+#| eval: false
+```
+
+:::
+
+------------------------------------------------------------------------
+
+::: panel-tabset
+### Graphic
+
+
+```{r}
+#| label: example-motivation-styling-2
+#| fig-width: 14
+#| fig-height: 8.3
+#| echo: false
+ggplot(bikes, aes(temp_feel, count)) +
+  geom_point(
+    aes(color = season),
+    size = 2.2, alpha = .55
+  ) +
+  geom_smooth(
+    aes(group = day_night),
+    method = "lm", color = "black"
+  ) +
+  facet_grid(
+    day_night ~ is_workday,
+    scales = "free_y", space = "free_y"
+  ) +
+  ## add custom colors + legend styling
+  scale_color_manual(
+    values = c("#3c89d9", "#1ec99b", "#F7B01B", "#a26e7c"), name = "Season:",
+    guide = guide_legend(override.aes = list(size = 5))
+  ) +
+  labs(
+    x = "Feels-Like Temperature", y = NULL,
+    caption = "Data: TfL (Transport for London), Jan 2015 — Dec 2016",
+    title = "Reported bike rents versus feels-like temperature in London per time of day, period, and season."
+  ) +
+  ## use different theme and typeface
+  theme_light(base_size = 18, base_family = "Cabinet Grotesk")
+```
+
+
+### Code
+
+
+```{r}
+#| label: example-motivation-styling-2
+#| eval: false
+```
+
+:::
+
+------------------------------------------------------------------------
+
+::: panel-tabset
+### Graphic
+
+
+```{r}
+#| label: example-motivation-advanced
+#| fig-width: 14
+#| fig-height: 8.3
+#| echo: false
+## coding for facet strip text
+codes <- c(
+  workday = "Workday",
+  weekend_or_holiday = "Weekend or Holiday"
+)
+
+ggplot(bikes, aes(temp_feel, count)) +
+  ## format seasons
+  geom_point(
+    aes(color = forcats::fct_relabel(season, stringr::str_to_title)),
+    size = 2.2, alpha = .55
+  ) +
+  geom_smooth(
+    aes(group = day_night),
+    method = "lm", color = "black"
+  ) +
+  ## format facet strip text
+  facet_grid(
+    day_night ~ is_workday,
+    scales = "free_y", space = "free_y",
+    labeller = labeller(
+      day_night = stringr::str_to_title,
+      is_workday = codes
+    )
+  ) +
+  ## customize x axis
+  scale_x_continuous(
+    expand = c(.02, .02),
+    breaks = 0:6*5, labels = function(x) paste0(x, "°C")
+  ) +
+  ## customize y axis
+  scale_y_continuous(
+    expand = c(.1, .1), limits = c(0, NA),
+    breaks = 0:5*10000, labels = scales::comma_format()
+  ) +
+  scale_color_manual(
+    values = c("#3c89d9", "#1ec99b", "#F7B01B", "#a26e7c"), name = NULL,
+    guide = guide_legend(override.aes = list(size = 5))
+  ) +
+  labs(
+    x = "Feels-Like Temperature", y = NULL,
+    caption = "Data: TfL (Transport for London), Jan 2015 — Dec 2016",
+    title = "Reported bike rents versus feels-like temperature in London per time of day, period, and season."
+  ) +
+  theme_light(
+    base_size = 18, base_family = "Cabinet Grotesk"
+  ) +
+  ## theme adjustments
+  theme(
+    plot.title.position = "plot",
+    plot.caption.position = "plot",
+    plot.title = element_text(face = "bold"),
+    strip.text = element_text(face = "bold"),
+    legend.position = "top"
+  )
+```
+
+
+### Code
+
+
+```{r}
+#| label: example-motivation-advanced
+#| eval: false
+```
+
+:::
+
+------------------------------------------------------------------------
+
+::: panel-tabset
+### Graphic
+
+
+```{r}
+#| label: example-motivation-advanced-2
+#| fig-width: 14
+#| fig-height: 8.3
+#| echo: false
+codes <- c(
+  workday = "Workday",
+  weekend_or_holiday = "Weekend or Holiday"
+)
+
+ggplot(bikes, aes(temp_feel, count)) +
+  ## point outline
+  geom_point(
+    color = "black", fill = "white",
+    shape = 21, size = 2.8
+  ) +
+  ## opaque point background
+  geom_point(
+    color = "white", size = 2.2
+  ) +
+  ## colored, semi-transparent points
+  geom_point(
+    aes(color = forcats::fct_relabel(season, stringr::str_to_title)),
+    size = 2.2, alpha = .55
+  ) +
+  geom_smooth(
+    aes(group = day_night), method = "lm", color = "black"
+  ) +
+  facet_grid(
+    day_night ~ is_workday,
+    scales = "free_y", space = "free_y",
+    labeller = labeller(
+      day_night = stringr::str_to_title,
+      is_workday = codes
+    )
+  ) +
+  scale_x_continuous(
+    expand = c(.02, .02),
+    breaks = 0:6*5, labels = function(x) paste0(x, "°C")
+  ) +
+  scale_y_continuous(
+    expand = c(.1, .1), limits = c(0, NA),
+    breaks = 0:5*10000, labels = scales::comma_format()
+  ) +
+  scale_color_manual(
+    values = c("#3c89d9", "#1ec99b", "#F7B01B", "#a26e7c"), name = NULL,
+    guide = guide_legend(override.aes = list(size = 5))
+  ) +
+  labs(
+    x = "Feels-Like Temperature", y = NULL,
+    caption = "Data: TfL (Transport for London), Jan 2015 — Dec 2016",
+    title = "Reported bike rents versus feels-like temperature in London per time of day, period, and season."
+  ) +
+  theme_light(
+    base_size = 18, base_family = "Cabinet Grotesk"
+  ) +
+  ## more theme adjustments
+  theme(
+    plot.title.position = "plot",
+    plot.caption.position = "plot",
+    plot.title = element_text(face = "bold", size = rel(1.3)),
+    axis.text = element_text(family = "Tabular"),
+    axis.title.x = element_text(hjust = 0, color = "grey30", margin = margin(t = 12)),
+    strip.text = element_text(face = "bold" , size = rel(1.15)),
+    panel.grid.major.x = element_blank(),
+    panel.grid.minor = element_blank(),
+    panel.spacing = unit(1.2, "lines"),
+    legend.position = "top",
+    legend.text = element_text(size = rel(1)),
+    ## for fitting my slide background
+    legend.key = element_rect(color = "#f8f8f8", fill = "#f8f8f8"),
+    legend.background = element_rect(color = "#f8f8f8", fill = "#f8f8f8"),
+    plot.background = element_rect(color = "#f8f8f8", fill = "#f8f8f8")
+  )
+```
+
+
+### Code
+
+
+```{r}
+#| label: example-motivation-advanced-2
+#| eval: false
+```
+
+:::
+

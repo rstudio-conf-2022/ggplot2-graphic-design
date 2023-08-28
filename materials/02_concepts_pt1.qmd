@@ -149,7 +149,7 @@ library(tidyverse)
   </tr>
   <tr>
     <td><b style='color:#67676;'>Visual Themes</b></td>
-    <td><code>theme()</code> and <code>theme_*()</code></td>
+    <td><code>theme() / theme_*()</code></td>
     <td>*The overall visual defaults of a plot.*</td>
   </tr>
 </table>
