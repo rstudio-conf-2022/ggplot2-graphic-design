@@ -52,8 +52,9 @@ p.subtitle {
 }
 
 h1, h2, h3, h4, body {
-  font-family: 'Asap SemiCondensed', 'Asap Condensed', 'Spline Sans', 'Tahoma', 'Arial', sans-serif;
+  font-family: 'Asap', 'Asap Condensed', 'Spline Sans', 'Tahoma', 'Arial', sans-serif;
   font-feature-settings: "ss01" 1;
+  font-stretch: semi-condensed;
 }
 
 .title-slide h1 {
