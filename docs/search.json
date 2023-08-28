@@ -3518,7 +3518,7 @@
     "href": "modules/d2-03_colorful_graphics.html",
     "title": "Colorful Graphics",
     "section": "",
-    "text": "View slides in full screen\n\nOutline\n\nChannels to Encode Information\nColor Spaces\nColor Palette Choice\nUse Color Wisely (and Correctly)\nDesigning for Colorblindness\nBeyond the Rainbow\n\n\n\nRecap\n\n\nPick the right palette type for your visualization\n\nuse sequential to encode numerical information with order\nuse diverging to encode numerical information with a critical midpoint\nuse quialitative to encode categorical information\n\nmap the color with the highest contrast of a sequential palette to the most important value\nfor categories use a maximum of 6-8 colors\ntest for color blindness using a CVD simulator\ncheck the contrast of your data and text colors\navoid rainbow palettes!"
+    "text": "View slides in full screen\n\nOutline\n\nChannels to Encode Information\nColor Spaces\nColor Palette Choice\nUse Color Wisely (and Correctly)\nDesigning for Colorblindness\nBeyond the Rainbow\n\n\n\nRecap\n\n\nPick the right palette type for your visualization\n\nuse sequential to encode numerical information with order\nuse diverging to encode numerical information with a critical midpoint\nuse qualitative to encode categorical information\n\nmap the color with the highest contrast of a sequential palette to the most important value\nfor categories use a maximum of 6-8 colors\ntest for color blindness using a CVD simulator\ncheck the contrast of your data and text colors\navoid rainbow palettes!"
   },
   {
     "objectID": "modules/d2-04_colors.html",
