@@ -2,7 +2,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&family=Asap+Condensed:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,500;0,7..72,600;0,7..72,700;0,7..72,800;0,7..72,900;1,7..72,400;1,7..72,500;1,7..72,600;1,7..72,700;1,7..72,800;1,7..72,900&family=Spline+Sans+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap');
   
-$font-family-sans-serif: 'Asap SemiCondensed', 'Asap Condensed', 'Spline Sans', 'Tahoma', 'Arial', sans-serif;
+$font-family-sans-serif: 'Asap SemiCondensed', 'Asap', 'Spline Sans', 'Tahoma', 'Arial', sans-serif;
 $font-family-serif: 'Literata', 'Bodoni MT', 'Georgia', 'Times New Roman', Times, serif;
 $presentation-heading-color: #28A87D;
 $presentation-heading-font-weight: 800;
@@ -17,7 +17,7 @@ $presentation-block-margin: .0375rem;
 /*-- scss:rules --*/
 
 h1, h2, h3, span, body, .navbar-title {
-  font-family: 'Asap SemiCondensed', 'Asap Condensed', 'Spline Sans', 'Tahoma', 'Arial', sans-serif;
+  font-family: 'Asap SemiCondensed', 'Asap', 'Spline Sans', 'Tahoma', 'Arial', sans-serif;
   font-feature-settings: "ss01" 1;
 }
 
