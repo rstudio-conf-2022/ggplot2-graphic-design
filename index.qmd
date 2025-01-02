@@ -107,10 +107,10 @@ Run this code to install the packages if needed:
 We will make use of custom fonts. A lot.  
 If you want to follow all contents locally, make sure the following typefaces are installed:
 
--   Roboto Condensed: <a href='https://www.fonts.google.com/specimen/Roboto+Condensed' target="_blank">fonts.google.com/specimen/Roboto+Condensed</a>
--   Cabinet Grotesk:  <a href='https://www.fontshare.com/fonts/cabinet-grotesk' target="_blank">fontshare.com/fonts/cabinet-grotesk</a>
--   Tabular:  <a href='https://www.fontshare.com/fonts/tabular' target="_blank">fontshare.com/fonts/tabular</a>
--   Boska:  <a href='https://www.fontshare.com/fonts/boska' target="_blank">fontshare.com/fonts/boska</a>
--   Pally:  <a href='https://www.fontshare.com/fonts/pally' target="_blank">fontshare.com/fonts/pally</a>
+-   Roboto Condensed: <a href='https://fonts.google.com/specimen/Roboto+Condensed' target="_blank">fonts.google.com/specimen/Roboto+Condensed</a>
+-   Cabinet Grotesk:  <a href='https://fontshare.com/fonts/cabinet-grotesk' target="_blank">fontshare.com/fonts/cabinet-grotesk</a>
+-   Tabular:  <a href='https://fontshare.com/fonts/tabular' target="_blank">fontshare.com/fonts/tabular</a>
+-   Boska:  <a href='https://fontshare.com/fonts/boska' target="_blank">fontshare.com/fonts/boska</a>
+-   Pally:  <a href='https://fontshare.com/fonts/pally' target="_blank">fontshare.com/fonts/pally</a>
 
 You can download all typefaces as a single zip file [here](ggplot2-course-fonts.zip).
