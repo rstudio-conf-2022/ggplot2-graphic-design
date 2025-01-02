@@ -98,11 +98,11 @@ Please make sure that [XQuartz is installed](https://www.xquartz.org/) which is 
 We will make use of custom fonts. A lot.  
 If you want to follow all contents locally, make sure the following typefaces are installed:
 
--   Roboto Condensed: [fonts.google.com/specimen/Roboto+Condensed](www.fonts.google.com/specimen/Roboto+Condensed)
--   Cabinet Grotesk: [fontshare.com/fonts/cabinet-grotesk](www.fontshare.com/fonts/cabinet-grotesk)
--   Tabular: [fontshare.com/fonts/tabular](www.fontshare.com/fonts/tabular)
--   Boska: [fontshare.com/fonts/boska](www.fontshare.com/fonts/boska)
--   Pally: [fontshare.com/fonts/pally](www.fontshare.com/fonts/pally)
+-   Roboto Condensed: [fonts.google.com/specimen/Roboto+Condensed](https://www.fonts.google.com/specimen/Roboto+Condensed)
+-   Cabinet Grotesk: [fontshare.com/fonts/cabinet-grotesk](https://www.fontshare.com/fonts/cabinet-grotesk)
+-   Tabular: [fontshare.com/fonts/tabular](https://www.fontshare.com/fonts/tabular)
+-   Boska: [fontshare.com/fonts/boska](https://www.fontshare.com/fonts/boska)
+-   Pally: [fontshare.com/fonts/pally](https://www.fontshare.com/fonts/pally)
 
 You can download all typefaces as a single zip file [here](https://github.com/rstudio-conf-2022/ggplot2-graphic-design/raw/main/ggplot2-course-fonts.zip).
 
